@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Congregación</title>
+    <link rel="shortcut icon" href="../src/core/img/favicon.ico" />   
+    <link rel="stylesheet" type="text/css" href="../src/core/config/css/appConfig.css" />
+    <link rel="stylesheet" type="text/css" href="../src/core/css/windows10framework.css" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#EEE" />
+    <link rel="stylesheet" href="../src/core/icons/fonts/fonts.min.css">
+    <script type="text/javascript">
+            var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+            var dataBase = null;
+
+            function startDB() {
+
+                dataBase = indexedDB.open("object", 1);
+
+                dataBase.onupgradeneeded = function (e) {
+
+                    var active = dataBase.result;
+                    var object = active.createObjectStore("congregation", {keyPath: 'id', autoIncrement: true});
+                    object.createIndex('by_name', 'name', {unique: false});
+                    object.createIndex('by_number', 'number', {unique: true});
+
+                };
+
+                dataBase.onsuccess = function (e) {
+                    //    alert('Database loaded');
+                    loadAll();
+                };
+
+                dataBase.onerror = function (e) {
+                    alert('Error loading database');
+                };
+
+            }
+
+            function add() {
+                var active = dataBase.result;
+                var data = active.transaction(["congregation"], "readwrite");
+                var object = data.objectStore("congregation");
+
+                var request = object.put({
+                    number: document.querySelector("#number").value,
+                    name: document.querySelector("#name").value,
+                    surname: document.querySelector("#surname").value
+                });
+
+                request.onerror = function (e) {
+                    alert(request.error.name + '\n\n' + request.error.message);
+                };
+
+                data.oncomplete = function (e) {
+
+                    document.querySelector('#number').value = '';
+                    document.querySelector('#name').value = '';
+                    document.querySelector('#surname').value = '';
+                    alert('Object successfully added');
+                    loadAll();
+                };
+
+            }
+
+            function load(id) {
+                var active = dataBase.result;
+                var data = active.transaction(["congregation"], "readonly");
+                var object = data.objectStore("congregation");
+
+                var request = object.get(parseInt(id));
+
+                request.onsuccess = function () {
+                    var result = request.result;
+
+                    if (result !== undefined) {
+                        alert("ID: " + result.id + "\n\
+                               Number " + result.number + "\n\
+                               Name: " + result.name + "\n\
+                               Surname: " + result.surname);
+                    }
+                };
+            }
+
+            function loadByNumber(number) {
+                var active = dataBase.result;
+                var data = active.transaction(["congregation"], "readonly");
+                var object = data.objectStore("congregation");
+                var index = object.index("by_number");
+                var request = index.get(String(number));
+
+                request.onsuccess = function () {
+                    var result = request.result;
+
+                    if (result !== undefined) {
+                        alert("ID: " + result.id + "\n\
+                               Number " + result.number + "\n\
+                               Name: " + result.name + "\n\
+                               Surname: " + result.surname);
+                    }
+                };
+            }
+
+            function loadAll() {
+                var active = dataBase.result;
+                var data = active.transaction(["congregation"], "readonly");
+                var object = data.objectStore("congregation");
+
+                var elements = [];
+
+                object.openCursor().onsuccess = function (e) {
+
+                    var result = e.target.result;
+
+                    if (result === null) {
+                        return;
+                    }
+
+                    elements.push(result.value);
+                    result.continue();
+
+                };
+
+                data.oncomplete = function () {
+
+                    var outerHTML = '';
+
+                    for (var key in elements) {
+
+                        outerHTML += '\n\
+                        <tr>\n\
+                            <td>' + elements[key].number + '</td>\n\
+                            <td>' + elements[key].name + '</td>\n\
+                            <td>\n\
+                                <button type="button" onclick="load(' + elements[key].id + ')">Details</button>\n\
+                                <button type="button" onclick="loadByNumber(' + elements[key].number + ')">Details Number</button>\n\
+                            </td>\n\
+                        </tr>';
+
+                    }
+
+                    elements = [];
+                    document.querySelector("#elementsList").innerHTML = outerHTML;
+                };
+            }
+            
+            function loadAllByName() {
+                var active = dataBase.result;
+                var data = active.transaction(["congregation"], "readonly");
+                var object = data.objectStore("congregation");
+                var index = object.index("by_name");
+                
+                var elements = [];
+
+                index.openCursor().onsuccess = function (e) {
+
+                    var result = e.target.result;
+
+                    if (result === null) {
+                        return;
+                    }
+
+                    elements.push(result.value);
+                    result.continue();
+
+                };
+
+                data.oncomplete = function () {
+
+                    var outerHTML = '';
+
+                    for (var key in elements) {
+
+                        outerHTML += '\n\
+                        <tr>\n\
+                            <td>' + elements[key].number + '</td>\n\
+                            <td>' + elements[key].name + '</td>\n\
+                            <td>\n\
+                                <button type="button" onclick="load(' + elements[key].id + ')">Details</button>\n\
+                                <button type="button" onclick="loadByNumber(' + elements[key].number + ')">Details Number</button>\n\
+                            </td>\n\
+                        </tr>';
+
+                    }
+
+                    elements = [];
+                    document.querySelector("#elementsList").innerHTML = outerHTML;
+                };
+            }
+
+        </script>         
+</head>  
+	
+<body>
+
+    <div class="app-container"> 
+        
+       <!-- Side Navigation -->
+	   <div id="app-nav-wrap">           
+         <nav class="animate">       
+            <!-- App Name--> 
+            <div>
+              <a href="javascript:history.back()" class="app-back"></a><span id="app-name">Congregación</span>
+            </div>
+            <ul>
+
+                <a class="app-nav-user" href="#"><img src="anim_avatar.jpeg"/><span>User Name</span></a>
+                <li><a href="#app-section-1" class="icons10-user"><span>Congregación</span></a></li>
+                <li><a href="#app-section-2" class="icons10-add"><span>Publicadores</span></a></li>
+            </ul>
+         </nav>
+       </div>	
+    
+    
+    <div class="app-content-wrap">
+       
+        
+        
+        
+    <!-- Section 1 -->
+     <section id="app-section-1">
+  
+        <div class="app-section-container has-padding">  
+         
+            <ul class="app-list">
+                <h3 style="margin-bottom: -10px;">Congregación</h3>
+               <input class="app-input-text" id="name" type="text" style="width: 400px;margin-top: 10px;" placeholder="Congregación">
+               <input class="app-input-text" id="number"  type="text" style="width: 150px;margin-top: 10px;" placeholder="Número">
+                  <br>
+                <h3 style="margin-bottom: -10px;">Reunión de entre semana</h3>                 
+               <select class="app-select" style="width: 417px;margin-top: 10px;">
+                        <option selected>Lunes</option>
+                        <option value="1">Martes</option>
+                        <option value="2">Miércoles</option>
+                        <option value="3">Jueves</option>
+                        <option value="4">Viernes</option>
+                        <option value="5">Sábado</option>
+                        <option value="6">Domingo</option>
+                    </select>      
+                    <select class="app-select" style="width: 167px;margin-top: 10px;">
+                        <option selected>Hora</option>
+                        <option value="1">12:00 a. m.</option>
+                        <option value="2">01:00 a. m.</option>
+                        <option value="3">02:00 a. m.</option>
+                        <option value="4">03:00 a. m.</option>
+                        <option value="5">04:00 a. m.</option>
+                        <option value="6">05:00 a. m.</option>
+                        <option value="7">06:00 a. m.</option>
+                        <option value="8">07:00 a. m.</option>
+                        <option value="9">08:00 a. m.</option>
+                        <option value="10">09:00 a. m.</option>
+                        <option value="11">10:00 a. m.</option>
+                        <option value="12">11:00 a. m.</option>
+                        <option value="13">12:00 p. m.</option>
+                        <option value="14">01:00 p. m.</option>
+                        <option value="15">02:00 p. m.</option>
+                        <option value="16">03:00 p. m.</option>
+                        <option value="17">04:00 p. m.</option>
+                        <option value="18">05:00 p. m.</option>
+                        <option value="19">06:00 p. m.</option>
+                        <option value="20">07:00 p. m.</option>
+                        <option value="21">08:00 p. m.</option>
+                        <option value="22">09:00 p. m.</option>
+                        <option value="23">10:00 p. m.</option>
+                        <option value="24">11:00 p. m.</option>
+                    </select>
+                    <br>              
+                <h3 style="margin-bottom: -10px;">Reunión de fin de semana</h3> 
+               <select class="app-select" style="width: 417px;margin-top: 10px;">
+                        <option selected>Lunes</option>
+                        <option value="1">Martes</option>
+                        <option value="2">Miércoles</option>
+                        <option value="3">Jueves</option>
+                        <option value="4">Viernes</option>
+                        <option value="5">Sábado</option>
+                        <option value="6">Domingo</option>
+                    </select>    
+                    <select class="app-select" style="width: 167px;margin-top: 10px;">
+                        <option selected>Hora</option>
+                        <option value="1">12:00 a. m.</option>
+                        <option value="2">01:00 a. m.</option>
+                        <option value="3">02:00 a. m.</option>
+                        <option value="4">03:00 a. m.</option>
+                        <option value="5">04:00 a. m.</option>
+                        <option value="6">05:00 a. m.</option>
+                        <option value="7">06:00 a. m.</option>
+                        <option value="8">07:00 a. m.</option>
+                        <option value="9">08:00 a. m.</option>
+                        <option value="10">09:00 a. m.</option>
+                        <option value="11">10:00 a. m.</option>
+                        <option value="12">11:00 a. m.</option>
+                        <option value="13">12:00 p. m.</option>
+                        <option value="14">01:00 p. m.</option>
+                        <option value="15">02:00 p. m.</option>
+                        <option value="16">03:00 p. m.</option>
+                        <option value="17">04:00 p. m.</option>
+                        <option value="18">05:00 p. m.</option>
+                        <option value="19">06:00 p. m.</option>
+                        <option value="20">07:00 p. m.</option>
+                        <option value="21">08:00 p. m.</option>
+                        <option value="22">09:00 p. m.</option>
+                        <option value="23">10:00 p. m.</option>
+                        <option value="24">11:00 p. m.</option>
+                    </select>
+                    <br>
+                <h3 style="margin-bottom: -10px;">Dirección del Salón del Reino</h3>
+               <textarea id="surname" class="app-input-text" style="width: 571px;height: 75px;margin-top: 10px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;font-smooth: always;padding: 10px" placeholder=""></textarea>
+    <br>
+     <h3 style="margin-bottom: -10px;">Superintendente de circuito</h3>
+               <input class="app-input-text" type="text" style="width: 279px;margin-top: 10px;" placeholder="Superintendente viajante">
+               <input class="app-input-text" type="text" style="width: 150px;margin-top: 10px;" placeholder="Contacto">
+               <input class="app-input-text" type="text" style="width: 100px;margin-top: 10px;" placeholder="Circuito">
+                  <br><br>
+                  <input class="app-button animate" type="button"  onclick="add();" value="Guardar">
+
+                  
+            </ul>           
+           
+         </div>
+
+
+          
+     </section>
+        
+        
+        
+        
+    <!-- Section 1 -->
+     <section id="app-section-2">
+  
+        <div class="app-section-container has-padding">  
+            
+            <div class="app-flex-center m-tb-20"> 
+                
+            </div>
+            
+                
+            <div class="app-search-box">
+                <input class="app-input-text app-input-search" type="search" placeholder="Busca un publicador">
+            </div>
+                 
+            <div class="app-hr"></div>
+         
+            <ul class="app-list">
+                
+                <li><a href="#">
+                  <i class="icons10-phone bg-primary"></i>
+                    <div>
+                      <span class="app-list-title">Phone</span>
+                      <p class="app-list-subtitle">contacts</p>
+                    </div>
+                    <p class="app-list-info">installed</p>
+                    </a>
+                </li>
+                
+                <li><a href="#">
+                  <i class="icons10-calendar bg-primary"></i>
+                    <div>
+                      <span class="app-list-title">Calendar</span>
+                      <p class="app-list-subtitle">general</p>
+                    </div>
+                    <p class="app-list-info">installed</p>
+                    </a>
+                </li>
+                
+                <li><a href="#">
+                  <i class="icons10-camera bg-primary"></i>
+                    <div>
+                      <span class="app-list-title">Camera</span>
+                      <p class="app-list-subtitle">utility</p>
+                    </div>
+                    <p class="app-list-info">installed</p>
+                    </a>
+                </li>
+                
+                <li><a href="#">
+                  <i class="icons10-map bg-primary"></i>
+                    <div>
+                      <span class="app-list-title">Maps</span>
+                      <p class="app-list-subtitle">general</p>
+                    </div>
+                    <p class="app-list-info">installed</p>
+                    </a>
+                </li>
+                
+                <li><a href="#">
+                  <i class="icons10-news bg-primary"></i>
+                    <div>
+                      <span class="app-list-title">News</span>
+                      <p class="app-list-subtitle">entertainment</p>
+                    </div>
+                    <p class="app-list-info">installed</p>
+                    </a>
+                </li>
+                  
+            </ul>  
+            
+         </div>
+          
+     </section>
+        
+        
+        
+    <!-- Section 1 -->
+     <section id="app-section-3">
+  
+        <div class="app-section-container has-padding">  
+            
+            <h1>Tab 3</h1>
+            
+                <h2>Contents</h2>
+                <!--    Contents    -->
+            
+         </div>
+          
+     </section>
+        
+        
+        
+    <!-- Section 1 -->
+     <section id="app-section-4">
+  
+        <div class="app-section-container has-padding">  
+            
+            <h1>Tab 4</h1>
+            
+                <h2>Contents</h2>
+                <!--    Contents    -->
+            
+         </div>
+          
+     </section>    
+    
+    
+    
+   
+					
+        </div><!-- </app-content-wrap> (App Tab Host Wrapper) -->
+				
+    </div><!-- </app-container> (Tabs Content Including Navigation) -->	
+
+</body>
+
+    <script src="../src/core/js/require/jquery.js"></script> 
+    <script src="../src/core/config/appConfig.js"></script>
+    <script src="../src/core/js/windows10framework.js"></script>
+    <script src="../src/core/js/windows10framework.notifications.js"></script>  
+
+    <!--  App Demo Components js  -->
+    <script src="src/core/js/init/framework/searchBarSuggestions_demo.js"></script>
+    <script src="src/core/js/init/framework/progressBar_demo.js"></script>
+    <script src="src/core/js/init/framework/notificatons_demo.js"></script> 
+    <script src="src/core/js/init/framework/alertWin10_demo.js"></script>
+    
+   
+</html>
