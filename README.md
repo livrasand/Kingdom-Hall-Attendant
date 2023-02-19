@@ -4,11 +4,11 @@ Hogar del proyecto Wasserstoff (Kingdom Hall Attendant 2023)
 ### Ciclo de vida del lanzamiento
 <b>· Pre-alpha:</b> Versión en desarrollo del programa, solo probada por los desarrolladores.<br>
 <b>· Alpha:</b> Primera versión completa del programa, la cual es enviada a los verificadores Alpha para probarla.<br>
-<b>· RC:</b> Versión candidata para el lanzamiento, preparada para publicarse como versión definitiva. Puede contener errores.<br>
+<b>· PRE (Preview):</b> Versión candidata para el lanzamiento, preparada para publicarse como versión definitiva. Puede contener errores. Se hace pública para los probadores de software.<br>
 <b>· RTM:</b> Software completado y que está siendo distribuido con la "Descarga anticipada" y estará disponible próximamente.<br>
 <b>· Estable:</b> Actualización pública lanzada oficialmente este <b>4 de abril</b>.
 
-Wasserstoff usa como base Primer de GitHub en su diseño. Usando como lenguaje de programacion principal HTML, CSS, JavaScript y PHP, por supuesto, utiliza otros más para su funcionamiento.
+Wasserstoff usa como base <a href="https://primer.style/" target="_blank">Primer de GitHub</a> en su diseño. Usando como lenguaje de programacion principal HTML, CSS, JavaScript y PHP, por supuesto, utiliza otros más para su funcionamiento.
 
 ### Ediciones
 Está la edición del año, la Plus y Pro. Epezando con un precio desde $250 MXN hasta los $500 MXN con la edicion Pro.
