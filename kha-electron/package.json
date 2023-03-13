@@ -1,0 +1,19 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "main.js",
+  "author": "Jane Doe",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^23.1.2",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "sqlite3": "^5.1.4"
+  }
+}
