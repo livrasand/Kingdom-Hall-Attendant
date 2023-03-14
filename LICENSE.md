@@ -1,5 +1,13 @@
 # Este proyecto cuenta con licencia conforme a los términos de la licencia GoAttendant Zero Public License
 
+Copyright (c) 2023 GoAttendant.
+
+Por la presente se otorga permiso, sin cargo, a cualquier persona que obtenga una copia de este software y los archivos de documentación asociados (el "Software"), para operar con el Software, NO se permite los derechos de uso, se puede copiar, NO se permite la modificación excepto la privada, NO se permite la fusión, NO se permite publicar, distribuir, otorgar sublicencias y/o vender copias del Software, SI se permite que las personas a las que se les proporcione el Software lo hagan, sujeto a las siguientes condiciones:El aviso de derechos de autor anterior y este aviso de permiso se incluirán en todas las copias o partes sustanciales del Software.
+
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN FIN DETERMINADO Y NO VIOLACIÓN. EN NINGÚN CASO LOS AUTORES O LOS TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE CUALQUIER RECLAMACIÓN, DAÑOS U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE CUALQUIER OTRO TIPO, QUE SURJA DE, FUERA DE O EN RELACIÓN CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL SOFTWARE.
+
+En la siguiente tabla se expresa más explícitamente los permisos, condiciones y limitaciones de esta licencia:
+
 <table style="font-size: xx-small" border=""> 
     <tbody>
       <tr> 
