@@ -14,3 +14,6 @@ Wasserstoff usa como base <a href="https://primer.style/" target="_blank">Primer
 Está la edición del año, la Plus y Pro. Epezando con un precio desde $250 MXN hasta los $500 MXN con la edicion Pro.
 
 El software está diseñado con obsolescencia programada, para dejar de funcionar en su cuarto año desde su lanzamiento. Si es lanzado el 4 de abril del 2023, Wasserstoff debería dejar de funcionar el 4 de abril del 2026, obligando al usuario a adquirir una nueva edición. Al año de su lanzamiento, el software deja de recibir actualizaciones de seguridad o de cualquier tipo, y correciones de errores. Al segundo año, se baja el redimiento del software, haciendolo parecer más lento. Finalmente al tercer año, este queda descontinuado. Al cuarto año, el software es obsoleto.
+
+<hr>
+<p>*Este proyecto cuenta con licencia conforme a los términos de la GoAttendant Zero Public License</p>
