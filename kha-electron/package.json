@@ -1,10 +1,10 @@
 {
-  "name": "my-electron-app",
+  "name": "kingdom-hall-attendant",
   "version": "1.0.0",
-  "description": "Hello World!",
+  "description": "Aplicación para ancianos, siervos ministeriales y superintendentes de circuito.",
   "main": "main.js",
-  "author": "Jane Doe",
-  "license": "MIT",
+  "author": "GoAttendant",
+  "license": "GoAttendant Zero Public License",
   "scripts": {
     "dev": "electron ."
   },
