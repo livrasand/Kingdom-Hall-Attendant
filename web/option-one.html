@@ -3,8 +3,8 @@
    <head>
       <title>Kingdom Hall Attendant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="primer.css" rel="stylesheet" />
-      <link href="jw-icons-for-options.css" rel="stylesheet" />
+      <link href="css/primer.css" rel="stylesheet" />
+      <link href="css/jw-icons-for-options.css" rel="stylesheet" />
    </head>
    <body>
       <div class="container-xl mt-6">
@@ -29,7 +29,7 @@
                         </div>
                      </div>
                   </div>
-                  <a class="menu-item" href="option-one.html">
+                  <a class="menu-item" href="option-one.html" aria-current="page">
                   <i class="jwIcon e51"></i>
                   Congregación
                   </a>
@@ -89,7 +89,7 @@
                   <i class="jwIcon e172"></i>
                   Matenimiento de LDC
                   </a>
-                  <a class="menu-item" href="option-seventeen.html" aria-current="page">
+                  <a class="menu-item" href="option-seventeen.html">
                   <i class="jwIcon e114"></i>
                   Grupos de predicación
                   </a>
@@ -143,61 +143,72 @@
          <div class="col-9 float-left pl-2">
             <div class="">
                <div class="tabnav">
-                  <a class="btn btn-sm float-right" href="#url" role="button">Nuevo</a>
                   <nav class="tabnav-tabs" aria-label="Foo bar">
-                     <a class="tabnav-tab" href="option-seventeen.html" aria-current="page">Grupos</a>
+                     <a class="tabnav-tab" href="option-one.html" aria-current="page">Congregación</a>
+                     <a class="tabnav-tab" href="option-one-b-part.html">Publicadores</a>
                   </nav>
                </div>
             </div>
-            <div class="container-lg clearfix">
-               <div class="col-4 float-left">
-                  <div class="Box">
-                     <div class="Box-row d-flex flex-items-center">
-                        <div class="flex-auto">
-                           <strong>Grupo 1</strong>
-                        </div>
-                        <button class="btn mr-2 btn-sm" type="button">
-                           <!-- <%= octicon "search" %> -->
-                           <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                              <path d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"></path>
-                           </svg>
-                        </button>
-                     </div>
-                  </div>
+            <form>
+               <input class="form-control" type="text" placeholder="Congregación" aria-label="Congregación" style="width: 79%;" />
+               <input class="form-control" type="number" placeholder="Número" aria-label="Número" style="width:20%;" />
+               <br>
+               <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
+               <div class="radio-group">
+                  <input class="radio-input" id="option-a" type="radio" name="options">
+                  <label class="radio-label" for="option-a">Lunes</label>
+                  <input class="radio-input" id="option-b" type="radio" name="options">
+                  <label class="radio-label" for="option-b">Martes</label>
+                  <input class="radio-input" id="option-c" type="radio" name="options">
+                  <label class="radio-label" for="option-c">Miércoles</label>
+                  <input class="radio-input" id="option-d" type="radio" name="options">
+                  <label class="radio-label" for="option-d">Jueves</label>
+                  <input class="radio-input" id="option-e" type="radio" name="options">
+                  <label class="radio-label" for="option-e">Viernes</label>
+                  <input class="radio-input" id="option-f" type="radio" name="options">
+                  <label class="radio-label" for="option-f">Sábado</label>
+                  <input class="radio-input" id="option-g" type="radio" name="options">
+                  <label class="radio-label" for="option-g">Domingo</label>                
+                  <input class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" />
                </div>
-               <div class="col-8 float-left p-4 mt-n4">
-                  <form>
-                     <input class="form-control width-full" type="text" placeholder="Nombre del grupo" aria-label="Nombre del grupo" />
-                     <select class="form-select mb-0 mt-2 width-full" aria-label="Preference">
-                        <option>Siervo de grupo</option>
-                     </select>
-                     <textarea class="form-control width-full mt-2" type="text" placeholder="Dirección de reunión del grupo" aria-label="Dirección de reunión del grupo"></textarea>
-                     <div class="form-checkbox mt-2">
-                        <label>
-                        <input type="checkbox" />
-                        <em class="highlight">Asignar hospitalidad</em>
-                        </label>
-                     </div>
-                     <div class="form-checkbox mt-2">
-                        <label class="mt-4">
-                        <input type="checkbox" />
-                        <em class="highlight">Usar para la limpieza del Salón del Reino</em>
-                        </label>
-                     </div>
-                     <br><br>
-                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="button" class="btn btn-danger">
-                           <!-- <%= octicon "trashcan" %> -->
-                           <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                              <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-                           </svg>
-                           <span>Eliminar</span>
-                        </button>
-                     </div>
-                  </form>
+               <br>
+               <p class="f4 mt-2 mb-0">Reunión de fin de semana</p>
+               <div class="radio-group">
+                  <input class="radio-input" id="option-h" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-h">Lunes</label>
+                  <input class="radio-input" id="option-i" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-i">Martes</label>
+                  <input class="radio-input" id="option-j" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-j">Miércoles</label>
+                  <input class="radio-input" id="option-k" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-k">Jueves</label>
+                  <input class="radio-input" id="option-l" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-l">Viernes</label>
+                  <input class="radio-input" id="option-m" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-m">Sábado</label>
+                  <input class="radio-input" id="option-n" type="radio" name="optionstwo">
+                  <label class="radio-label" for="option-n">Domingo</label> 
+                  <input class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" />
                </div>
-            </div>
+               <br>
+               <p class="f4 mb-0">Dirección del Salón del Reino</p>
+               <textarea class="form-control width-full mb-3" id="example-textarea"></textarea>
+               <br>  
+               <input class="form-control" type="text" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" />
+               <input class="form-control" type="number" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" />  
+               <input class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" />
+               <br><br>
+               <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                  <button type="button" class="btn btn-danger">
+                     <!-- <%= octicon "trashcan" %> -->
+                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                     </svg>
+                     <span>Borrar todo</span>
+                  </button>
+               </div>
+            </form>
          </div>
       </div>
    </body>
