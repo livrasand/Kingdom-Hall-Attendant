@@ -1,15 +1,40 @@
 {
   "name": "kingdom-hall-attendant",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Aplicación para ancianos, siervos ministeriales y superintendentes de circuito.",
   "main": "main.js",
   "author": "GoAttendant",
   "license": "GoAttendant Zero Public License",
+  "icon": "./build/icon.png",
+  "build": {
+    "productName": "GoAttendant",
+    "appId": "kingdom-hall-attendant",
+    "win": {
+      "publisherName": "GoAttendant",
+      "target": "NSIS"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
   "scripts": {
-    "dev": "electron ."
+    "start-debug": "electron .  --trace-warnings > ./app-run.log  2>&1",
+    "start": "electron .",
+    "win": "electron-builder --win",
+    "win-test": "electron-builder --dir --win",
+    "linux-test": "electron-builder --dir --linux",
+    "linux": "electron-builder --linux",
+    "mac": "electron-builder --mac",
+    "publish": "electron-builder --win -p always",
+    "publish-linux": "electron-builder --linux -p always",
+    "postinstall": "electron-builder install-app-deps",
+    "release": "electron-builder",
+    "sass": "sass -w src/views/scss/main.scss src/views/css/main.min.css -s compressed"
   },
   "devDependencies": {
     "electron": "^23.1.2",
+    "electron-builder": "^23.6.0",
     "standard": "^17.0.0"
   },
   "dependencies": {
