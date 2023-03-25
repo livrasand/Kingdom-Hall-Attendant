@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const remoteMain = require("@electron/remote/main");
 
 let mainWindow;
+remoteMain.initialize();
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
