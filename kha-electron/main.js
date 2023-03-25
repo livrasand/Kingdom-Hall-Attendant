@@ -1,16 +1,21 @@
 const { app, BrowserWindow } = require('electron');
+const remoteMain = require("@electron/remote/main");
+
+let mainWindow;
 
 const createWindow = () => {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 1080,
     height: 920,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
     }
   });
-
-  win.loadFile('src/index.html');
+  mainWindow.loadFile('src/index.html');
+  mainWindow.setTitle('Kingdom Hall Attendant');
+  // mainWindow.webContents.openDevTools();
+  remoteMain.enable(mainWindow.webContents);
 }
 
 app.whenReady().then(() => {

@@ -38,6 +38,7 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.9",
     "body-parser": "^1.20.2",
     "sqlite3": "^5.1.4"
   }

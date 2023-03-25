@@ -20,7 +20,7 @@ db.get(sql, [1], (_err, row) => {
     name.value = row.nombre;
     let number = document.querySelector('input[name="c_num"]');
     number.value = row.numero
-    
+
     let d_entresemana = document.getElementsByName('c_d_entresemana');
     for (var i = 0; i < d_entresemana.length; i++) {
       if (d_entresemana[i].value === row.d_entresemana) {
@@ -39,7 +39,7 @@ db.get(sql, [1], (_err, row) => {
         break;
       }
     }
-    
+
     let h_finsemana = document.querySelector('input[name="c_h_finsemana"]')
     h_finsemana.value = row.h_finsemana
 
@@ -72,8 +72,8 @@ form_congregacion.addEventListener('submit', (e) => {
   const s_nombre = datos.get('c_s_nombre')
   const s_numero = datos.get('c_s_numero')
   const circuito = datos.get('c_circuito')
-  
-    // iniciar una transacción
+
+  // iniciar una transacción
   db.serialize(() => {
     db.run('BEGIN TRANSACTION');
 
