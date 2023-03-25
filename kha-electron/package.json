@@ -1,45 +1,35 @@
 {
-  "name": "kingdom-hall-attendant",
-  "version": "0.0.1",
-  "description": "Aplicación para ancianos, siervos ministeriales y superintendentes de circuito.",
-  "main": "main.js",
-  "author": "GoAttendant",
-  "license": "GoAttendant Zero Public License",
-  "icon": "./build/icon.png",
-  "build": {
-    "productName": "GoAttendant",
-    "appId": "kingdom-hall-attendant",
-    "win": {
-      "publisherName": "GoAttendant",
-      "target": "NSIS"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    }
-  },
-  "scripts": {
-    "start-debug": "electron .  --trace-warnings > ./app-run.log  2>&1",
-    "start": "electron .",
-    "win": "electron-builder --win",
-    "win-test": "electron-builder --dir --win",
-    "linux-test": "electron-builder --dir --linux",
-    "linux": "electron-builder --linux",
-    "mac": "electron-builder --mac",
-    "publish": "electron-builder --win -p always",
-    "publish-linux": "electron-builder --linux -p always",
-    "postinstall": "electron-builder install-app-deps",
-    "release": "electron-builder",
-    "sass": "sass -w src/views/scss/main.scss src/views/css/main.min.css -s compressed"
-  },
+  "author": "Kha-Team",
   "devDependencies": {
-    "electron": "^23.1.2",
-    "electron-builder": "^23.6.0",
-    "standard": "^17.0.0"
+    "@sveltejs/adapter-node": "^1.0.0-next.101",
+    "@sveltejs/adapter-static": "^1.0.0-next.48",
+    "@sveltejs/kit": "^1.0.0-next.562",
+    "concurrently": "^6.5.1",
+    "electron": "^12.2.3",
+    "electron-builder": "^22.14.13",
+    "electron-reloader": "^1.2.3",
+    "sass": "^1.56.1",
+    "svelte": "^3.53.1",
+    "svelte-preprocess": "^4.10.7",
+    "vite": "^4.0.4"
   },
+  "license": "",
+  "private": true,
   "dependencies": {
-    "@electron/remote": "^2.0.9",
-    "body-parser": "^1.20.2",
-    "sqlite3": "^5.1.4"
-  }
+    "electron-serve": "^1.1.0",
+    "electron-window-state": "^5.0.3"
+  },
+  "main": "src/electron.cjs",
+  "scripts": {
+    "dev": "vite dev",
+    "package": "npm run build && electron-builder --config electron-builder.config.json",
+    "dev:package": "npm run build && electron-builder --config electron-builder.config.json --dir",
+    "electron": "concurrently --kill-others \"vite dev\" \"electron src/electron.cjs\"",
+    "preview": "vite preview",
+    "build": "vite build"
+  },
+  "version": "1.0.0",
+  "name": "kha",
+  "type": "module",
+  "description": "Kha"
 }

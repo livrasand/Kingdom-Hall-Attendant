@@ -1,26 +1,41 @@
-# Instalar dependencias:
+# SvelteKit + Electron
 
-npm install
+<p align="center">
+  <img src="https://github.com/Dax89/electron-sveltekit/blob/master/icon.png" width="256">
+</p>
+<p align="center">
+  A minimal project template for Electron and SvelteKit configured with <a href="https://www.npmjs.com/package/@sveltejs/adapter-static">adapter-static</a>.
+</p>
 
-# KHA Alpha:
+## Screenshot 
+![Screenshot](https://github.com/Dax89/electron-sveltekit/blob/master/screenshot.png)
 
-npm run dev
+## Installation
 
-# Posibles errores detectados:
+```
+npx degit Dax89/electron-sveltekit
+```
 
-### npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+## Commands
+- `npm run dev`: Runs SvelteKit in dev mode
+- `npm run preview`: Runs SvelteKit in production mode
+- `npm run electron`: Runs SvelteKit with electron in dev mode
+- `npm run build`: Runs SvelteKit compiler
+- `npm run dev:package`: Creates an Electron package (you can inspect the contents)
+- `npm run package`: Creates a distributable Electron package
 
-i.   Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-ii.  npm install --global --production npm-windows-upgrade
-iii. npm-windows-upgrade --npm-version latest
+## Bootstrap 5 and FontAwesome support
 
-`<strong>`Recuerde volver a la política inicial:`</strong>`
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Download the template and install the dependencies:
 
-### electron-builder
+```
+npx degit Dax89/electron-sveltekit
+npm install --save bootstrap@next @fortawesome/fontawesome-free
+```
 
-```bash
-# gerar um .exe ('electron-builder --win')
-yarn win;
-npm run win;
+Add these lines in `src/app.scss`:
+
+```
+@import "bootstrap/scss/bootstrap";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 ```
