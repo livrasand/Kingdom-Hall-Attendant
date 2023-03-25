@@ -1,7 +1,5 @@
 <script>
   
 </script>
-
   
 <slot />
-  

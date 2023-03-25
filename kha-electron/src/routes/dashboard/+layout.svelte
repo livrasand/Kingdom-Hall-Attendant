@@ -2,6 +2,8 @@
   import SideBar from "$lib/SideBar.svelte";
 </script>
 
+<link href="../css/jw-icons-for-options.css" rel="stylesheet" />
+
 <div class="container-xl mt-6">
   <div class="col-3 float-left pr-2">
      <div class="">
