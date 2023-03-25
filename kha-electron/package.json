@@ -29,7 +29,7 @@
     "build": "vite build"
   },
   "version": "1.0.0",
-  "name": "kha",
+  "name": "kha-app",
   "type": "module",
   "description": "Kha"
 }
