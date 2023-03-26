@@ -1,20 +1,12 @@
 # SvelteKit + Electron
 
 <p align="center">
-  <img src="https://github.com/Dax89/electron-sveltekit/blob/master/icon.png" width="256">
+  <img src="https://goattendant.com/GoAttendantLogo.png" width="256">
 </p>
 <p align="center">
-  A minimal project template for Electron and SvelteKit configured with <a href="https://www.npmjs.com/package/@sveltejs/adapter-static">adapter-static</a>.
+  Una aplicación multiplataforma desarrollada especialmente para ancianos, siervos ministeriales y superintendentes de circuito, para elaborar y mantener muchas de las asignaciones para la congregación.
 </p>
 
-## Screenshot 
-![Screenshot](https://github.com/Dax89/electron-sveltekit/blob/master/screenshot.png)
-
-## Installation
-
-```
-npx degit Dax89/electron-sveltekit
-```
 
 ## Commands
 - `npm run dev`: Runs SvelteKit in dev mode
