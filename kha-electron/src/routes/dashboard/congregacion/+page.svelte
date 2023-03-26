@@ -1,9 +1,18 @@
+<script>
+   import { onMount } from 'svelte';
+
+   let link = 'link-congregacion';
+   onMount(() => {
+      let elem = document.getElementById(link);
+      let atributo = document.createAttribute('aria-current');
+      atributo.value = "page";
+      elem.setAttributeNode(atributo);
+   });
+</script>
+
 <svelte:head>
   <title>Congregación</title>
 </svelte:head>
-
-<h1 class="pagetitle">Congregación</h1>
-
 
 <div class="">
   <div class="tabnav">
