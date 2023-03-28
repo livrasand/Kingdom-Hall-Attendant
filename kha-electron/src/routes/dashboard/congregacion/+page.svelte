@@ -1,14 +1,5 @@
 <script>
-   import { onMount } from 'svelte';
    import Input from '../../../lib/Input.svelte';
-
-   let link = 'link-congregacion';
-   onMount(() => {
-      let elem = document.getElementById(link);
-      let atributo = document.createAttribute('aria-current');
-      atributo.value = "page";
-      elem.setAttributeNode(atributo);
-   });
 
    let formCongregacion = {
       c_nombre: 'Valencia',
@@ -16,12 +7,16 @@
       c_d_entresemana: 'Jueves',
       c_h_entresemana: '19:30',
       c_d_finsemana: 'Domingo',
-      c_h_finsemana: '10:00'
+      c_h_finsemana: '10:00',
+      c_direccion: 'Dirección',
+      c_s_nombre: '',
+      c_s_numero: '',
+      c_circuito: ''
    }
 
    function sendData(e) {
       e.preventDefault();
-      alert(JSON.stringify(formCongregacion))
+      alert(JSON.stringify(formCongregacion));
    }
 </script>
 
@@ -80,11 +75,11 @@
    <input name="c_h_finsemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" bind:value={formCongregacion.c_h_finsemana} />
   <br>
   <p class="f4 mb-0">Dirección del Salón del Reino</p>
-  <textarea id="c_direccion" name="c_direccion" class="form-control width-full mb-3" ></textarea>
+  <textarea id="c_direccion" name="c_direccion" class="form-control width-full mb-3" bind:value={formCongregacion.c_direccion}></textarea>
   <br>  
-  <input name="c_s_nombre" class="form-control" type="text" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" />
-  <input name="c_s_numero" class="form-control" type="number" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" />  
-  <input name="c_circuito" class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" />
+  <input name="c_s_nombre" class="form-control" type="text" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" bind:value={formCongregacion.c_s_nombre} />
+  <input name="c_s_numero" class="form-control" type="number" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" bind:value={formCongregacion.c_s_numero} />  
+  <input name="c_circuito" class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" bind:value={formCongregacion.c_circuito} />
   <br><br>
   <div class="form-actions">
      <button type="submit" class="btn btn-primary">Guardar cambios</button>
