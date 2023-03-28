@@ -1,3 +1,12 @@
+<script>
+  import { onMount } from 'svelte';
+
+ let link = 'link-consejooratoria';
+ onMount(() => {
+      
+   });
+</script>
+
 <svelte:head>
   <title>Consejo de la Oratoria</title>
 </svelte:head>

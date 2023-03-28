@@ -3,10 +3,7 @@
 
   let link = 'link-vidayministerio';
   onMount(() => {
-    let elem = document.getElementById(link);
-    let atributo = document.createAttribute('aria-current');
-    atributo.value = "page";
-    elem.setAttributeNode(atributo);
+  
   });
 </script>
 

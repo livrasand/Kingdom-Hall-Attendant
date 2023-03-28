@@ -1,12 +1,6 @@
 
 <script>
-   import { onMount } from 'svelte';
-   onMount(() => {
-      let elem = document.getElementById(link);
-      let atributo = document.createAttribute('aria-current');
-      atributo.value = "page";
-      elem.setAttributeNode(atributo);
-   });
+
 </script>
 
 <nav class="menu" aria-label="Person settings">
@@ -37,11 +31,11 @@
     <i class="jwIcon e118"></i>
     Vida y Ministerio
     </a>
-    <a class="menu-item" href="/dashboard/estudioatalaya">
+    <a id="link-estudioatalaya" class="menu-item" href="/dashboard/estudioatalaya">
     <i class="jwIcon e95"></i>
     Estudio de la Atalaya
     </a>
-    <a class="menu-item" href="/dashboard/consejooratoria">
+    <a id="link-consejooratoria" class="menu-item" href="/dashboard/consejooratoria">
     <i class="jwIcon e185"></i>
     Consejo de la Oratoria
     </a>

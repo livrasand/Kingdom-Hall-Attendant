@@ -1,5 +1,6 @@
 <script>
    import { onMount } from 'svelte';
+   import Input from '../../../lib/Input.svelte';
 
    let link = 'link-congregacion';
    onMount(() => {
@@ -8,6 +9,20 @@
       atributo.value = "page";
       elem.setAttributeNode(atributo);
    });
+
+   let formCongregacion = {
+      c_nombre: 'Valencia',
+      c_num: '1234',
+      c_d_entresemana: 'Jueves',
+      c_h_entresemana: '19:30',
+      c_d_finsemana: 'Domingo',
+      c_h_finsemana: '10:00'
+   }
+
+   function sendData(e) {
+      e.preventDefault();
+      alert(JSON.stringify(formCongregacion))
+   }
 </script>
 
 <svelte:head>
@@ -22,47 +37,47 @@
      </nav>
   </div>
 </div>
-<form id="form-congregacion">
-  <input name="c_nombre" class="form-control" type="text" placeholder="Congregación" aria-label="Congregación" style="width: 79%;" />
-  <input name="c_num" class="form-control" type="number" placeholder="Número" aria-label="Número" style="width:20%;" />
+<form on:submit={sendData}>
+   <Input id="c_nombre" placeholder="Nombre" style="width: 79%;" bind:value={formCongregacion.c_nombre} />
+   <Input id="c_num" placeholder="Número" label="Número" style="width:20%;" bind:value={formCongregacion.c_num} />
   <br>
   <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
   <div class="radio-group">
-     <input name="c_d_entresemana" value="Lunes" class="radio-input" id="option-a" type="radio">
+     <input name="c_d_entresemana" value="Lunes" class="radio-input" id="option-a" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-a">Lunes</label>
-     <input name="c_d_entresemana" value="Martes" class="radio-input" id="option-b" type="radio">
+     <input name="c_d_entresemana" value="Martes" class="radio-input" id="option-b" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-b">Martes</label>
-     <input name="c_d_entresemana" value="Miércoles" class="radio-input" id="option-c" type="radio">
+     <input name="c_d_entresemana" value="Miércoles" class="radio-input" id="option-c" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-c">Miércoles</label>
-     <input name="c_d_entresemana" value="Jueves" class="radio-input" id="option-d" type="radio">
+     <input name="c_d_entresemana" value="Jueves" class="radio-input" id="option-d" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-d">Jueves</label>
-     <input name="c_d_entresemana" value="Viernes" class="radio-input" id="option-e" type="radio">
+     <input name="c_d_entresemana" value="Viernes" class="radio-input" id="option-e" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-e">Viernes</label>
-     <input name="c_d_entresemana" value="Sábado" class="radio-input" id="option-f" type="radio">
+     <input name="c_d_entresemana" value="Sábado" class="radio-input" id="option-f" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-f">Sábado</label>
-     <input name="c_d_entresemana" value="Domingo" class="radio-input" id="option-g" type="radio">
-     <label class="radio-label" for="option-g">Domingo</label>                
-     <input name="c_h_entresemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" />
+     <input name="c_d_entresemana" value="Domingo" class="radio-input" id="option-g" type="radio" bind:group={formCongregacion.c_d_entresemana}>
+     <label class="radio-label" for="option-g">Domingo</label>
   </div>
+  <input name="c_h_entresemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" bind:value={formCongregacion.c_h_entresemana} />
   <br>
   <p class="f4 mt-2 mb-0">Reunión de fin de semana</p>
   <div class="radio-group">
-     <input name="c_d_finsemana" value="Lunes" class="radio-input" id="option-h" type="radio">
+     <input name="c_d_finsemana" value="Lunes" class="radio-input" id="option-h" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-h">Lunes</label>
-     <input name="c_d_finsemana" value="Martes" class="radio-input" id="option-i" type="radio">
+     <input name="c_d_finsemana" value="Martes" class="radio-input" id="option-i" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-i">Martes</label>
-     <input name="c_d_finsemana" value="Miércoles" class="radio-input" id="option-j" type="radio">
+     <input name="c_d_finsemana" value="Miércoles" class="radio-input" id="option-j" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-j">Miércoles</label>
-     <input name="c_d_finsemana" value="Jueves" class="radio-input" id="option-k" type="radio">
+     <input name="c_d_finsemana" value="Jueves" class="radio-input" id="option-k" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-k">Jueves</label>
-     <input name="c_d_finsemana" value="Viernes" class="radio-input" id="option-l" type="radio">
+     <input name="c_d_finsemana" value="Viernes" class="radio-input" id="option-l" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-l">Viernes</label>
-     <input name="c_d_finsemana" value="Sábado" class="radio-input" id="option-m" type="radio">
+     <input name="c_d_finsemana" value="Sábado" class="radio-input" id="option-m" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-m">Sábado</label>
-     <input name="c_d_finsemana" value="Domingo" class="radio-input" id="option-n" type="radio">
+     <input name="c_d_finsemana" value="Domingo" class="radio-input" id="option-n" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-n">Domingo</label> 
-     <input name="c_h_finsemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" />
-  </div>
+   </div>
+   <input name="c_h_finsemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" bind:value={formCongregacion.c_h_finsemana} />
   <br>
   <p class="f4 mb-0">Dirección del Salón del Reino</p>
   <textarea id="c_direccion" name="c_direccion" class="form-control width-full mb-3" ></textarea>

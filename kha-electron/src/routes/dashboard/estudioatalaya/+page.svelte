@@ -1,3 +1,12 @@
+<script>
+    import { onMount } from 'svelte';
+
+   let link = 'link-estudioatalaya';
+   onMount(() => {
+      
+   });
+</script>
+
 <svelte:head>
   <title>Estudio de la Atalaya</title>
 </svelte:head>
