@@ -1,11 +1,8 @@
-# SvelteKit + Electron
+# KHA First Edition (SvelteKit + Electron)
 
-<p align="center">
-  <img src="https://goattendant.com/GoAttendantLogo.png" width="256">
-</p>
-<p align="center">
+<img src="https://user-images.githubusercontent.com/104039397/229170217-7e28c87c-e84b-4429-a57f-fb69a503fb84.png" width="250">
+
   Una aplicación multiplataforma desarrollada especialmente para ancianos, siervos ministeriales y superintendentes de circuito, para elaborar y mantener muchas de las asignaciones para la congregación.
-</p>
 
 ## Install
 - `npm install`: Instala las dependencias
