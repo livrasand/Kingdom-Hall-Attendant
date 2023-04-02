@@ -1,5 +1,6 @@
 <script>
    import Input from '../../../lib/Input.svelte';
+   import {save} from './congregacion.js';
 
    let formCongregacion = {
       c_nombre: 'Valencia',
@@ -9,6 +10,7 @@
       c_d_finsemana: 'Domingo',
       c_h_finsemana: '10:00',
       c_direccion: 'Dirección',
+      
       c_s_nombre: '',
       c_s_numero: '',
       c_circuito: ''
@@ -16,8 +18,8 @@
 
    function sendData(e) {
       e.preventDefault();
-      alert(JSON.stringify(formCongregacion));
-   }
+      save(formCongregacion);
+    }
 </script>
 
 <svelte:head>
