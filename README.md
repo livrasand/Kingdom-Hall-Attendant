@@ -2,6 +2,10 @@
 <strong>Hogar de Kingdom Hall Attendant </strong><br>
 (first edition)
 
+![Screenshot 2023-04-05 at 14-06-35 Kingdom Hall Attendant](https://user-images.githubusercontent.com/104039397/230199681-2c98393c-4273-4dc7-ba5f-821e1b32bfb9.png)
+
+Solo los departamentos con circulo amarillo estaran disponibles para el lanzamiento del 21 de mayo del 2023. Las marcas de verificacion en verde, muestran los departamentos concluidos en formato WEB HTML.
+
 ### Ciclo de vida del lanzamiento
 <b>· PRE (Preview):</b> Versión candidata para el lanzamiento, preparada para publicarse como versión definitiva. Puede contener errores. Se hace pública para los probadores de software.<br>
 <b>· Estable:</b> Software completado y que está siendo distribuido. Actualización pública lanzada oficialmente cada año.
