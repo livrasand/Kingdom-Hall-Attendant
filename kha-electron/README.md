@@ -4,13 +4,16 @@
 
   Una aplicación multiplataforma desarrollada especialmente para ancianos, siervos ministeriales y superintendentes de circuito, para elaborar y mantener muchas de las asignaciones para la congregación.
 
+## Ejecutar Preview
+- `cd kha-electron`: Accede al directorio
+
 ## Install
-- `npm install`: Instala las dependencias
+- `npm install`: Instala las dependencias dentro del directorio
 
 ## Commands
 - `npm run dev`: Runs SvelteKit in dev mode
 - `npm run preview`: Runs SvelteKit in production mode
-- `npm run electron`: Runs SvelteKit with electron in dev mode
+- `npm run electron`: Runs SvelteKit with electron in dev mode (recomendado)
 - `npm run build`: Runs SvelteKit compiler
 - `npm run dev:package`: Creates an Electron package (you can inspect the contents)
 - `npm run package`: Creates a distributable Electron package

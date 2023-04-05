@@ -1,5 +1,5 @@
 {
-  "author": "Kha-Team",
+  "author": "GoAttendant Team",
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.101",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
@@ -13,12 +13,11 @@
     "svelte-preprocess": "^4.10.7",
     "vite": "^4.0.4"
   },
-  "license": "",
+  "license": "GoAttendant Zero Public License",
   "private": true,
   "dependencies": {
     "electron-serve": "^1.1.0",
-    "electron-window-state": "^5.0.3",
-    "sqlite3": "^5.1.6"
+    "electron-window-state": "^5.0.3"
   },
   "main": "src/electron.cjs",
   "scripts": {
@@ -30,7 +29,7 @@
     "build": "vite build"
   },
   "version": "1.0.0",
-  "name": "kha-app",
+  "name": "Kingdom Hall Attendant",
   "type": "module",
-  "description": "Kha"
+  "description": "Aplicación para Superintendes de circuito, ancianos y siervos ministariales."
 }
