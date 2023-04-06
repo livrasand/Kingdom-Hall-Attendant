@@ -45,7 +45,7 @@ import { page } from '$app/stores';
     </a>
     <a class="menu-item" href="/dashboard/soportetecnico" aria-current={$page.url.pathname === '/dashboard/soportetecnico' ? 'page' : undefined}>
     <i class="jwIcon e35"></i>
-    Soporte tecnico
+    Soporte técnico
     </a>
     <a class="menu-item" href="/dashboard/orgreuniones" aria-current={$page.url.pathname === '/dashboard/orgreuniones' ? 'page' : undefined}>
     <i class="jwIcon e186"></i>
@@ -77,7 +77,7 @@ import { page } from '$app/stores';
     </a>
     <a class="menu-item" href="/dashboard/cuidadocj" aria-current={$page.url.pathname === '/dashboard/cuidadocj' ? 'page' : undefined}>
     <i class="jwIcon e17"></i>
-    Cuidado de cesped y jardin
+    Cuidado de césped  y jardín
     </a>
     <a class="menu-item" href="/dashboard/mantenimientoldc" aria-current={$page.url.pathname === '/dashboard/mantenimientoldc' ? 'page' : undefined}>
     <i class="jwIcon e172"></i>
@@ -93,7 +93,7 @@ import { page } from '$app/stores';
     </a>
     <a class="menu-item" href="/dashboard/exhibidores" aria-current={$page.url.pathname === '/dashboard/exhibidores' ? 'page' : undefined}>
     <i class="jwIcon e140"></i>
-    Mesas y exhibidores portatiles
+    Mesas y exhibidores portátiles
     </a>
     <a class="menu-item" href="/dashboard/serviciocampo" aria-current={$page.url.pathname === '/dashboard/serviciocampo' ? 'page' : undefined}>
     <i class="jwIcon e56"></i>
@@ -121,7 +121,7 @@ import { page } from '$app/stores';
     </a>
     <a class="menu-item" href="/dashboard/estadisticas" aria-current={$page.url.pathname === '/dashboard/estadisticas' ? 'page' : undefined}>
     <i class="jwIcon e181"></i>
-    Estadisticas de la congregacion
+    Estadísticas de la congregación
     </a>
     <a class="menu-item" href="/dashboard/copias" aria-current={$page.url.pathname === '/dashboard/copias' ? 'page' : undefined}>
     <i class="jwIcon e120"></i>
@@ -129,6 +129,6 @@ import { page } from '$app/stores';
     </a>
     <a class="menu-item" href="/dashboard/configuracion" aria-current={$page.url.pathname === '/dashboard/configuracion' ? 'page' : undefined}>
     <i class="jwIcon e77"></i>
-    Configuracion
+    Configuración
     </a>
  </nav>

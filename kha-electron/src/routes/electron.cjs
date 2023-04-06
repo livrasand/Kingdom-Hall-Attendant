@@ -16,8 +16,9 @@ function loadVite(port) {
 
 function createMainWindow() {
     let mws = ws({
-        defaultWidth: 1080,
-        defaultHeight: 920
+        defaultWidth: 1280,
+        defaultHeight: 800,
+        icon: "Icon.ico"
     }); 
 
     mainwindow = new BrowserWindow({

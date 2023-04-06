@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Kha</title>
+  <title>Kingdom Hall Attendant</title>
 </svelte:head>
 
 <main class="mb-6">

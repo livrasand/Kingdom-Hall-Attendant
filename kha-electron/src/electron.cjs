@@ -16,8 +16,9 @@ function loadVite(port) {
 
 function createMainWindow() {
     let mws = ws({
-        defaultWidth: 1000,
-        defaultHeight: 800
+        defaultWidth: 1280,
+        defaultHeight: 800,
+        icon: "Icon.ico"
     });
 
     mainwindow = new BrowserWindow({
@@ -46,4 +47,3 @@ function createMainWindow() {
 app.once("ready", createMainWindow);
 app.on("activate", () => { if(!mainwindow) createMainWindow(); });
 app.on("window-all-closed", () => { if(process.platform !== "darwin") app.quit(); });
-
