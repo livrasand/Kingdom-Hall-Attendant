@@ -2,13 +2,11 @@
   <title>Oradores públicos</title>
 </svelte:head>
 
-<div class="">
-  <div class="tabnav">
-     <nav class="tabnav-tabs" aria-label="Foo bar">
-        <a class="tabnav-tab" href="/dashboard/oradorespublicos" aria-current="page">Locales</a>
-        <a class="tabnav-tab" href="/dashboard/oradorespublicos/foraneos">Publicadores</a>
-     </nav>
-  </div>
+<div class="tabnav">
+   <nav class="tabnav-tabs" aria-label="Foo bar">
+      <a class="tabnav-tab" href="/dashboard/oradorespublicos" aria-current="page">Locales</a>
+      <a class="tabnav-tab" href="/dashboard/oradorespublicos/foraneos">Foraneos</a>
+   </nav>
 </div>
 
 <div class="container-lg clearfix">
