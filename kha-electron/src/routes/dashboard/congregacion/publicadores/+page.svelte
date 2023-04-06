@@ -1,10 +1,13 @@
 <script>
+  import CheckBox from "../../../../lib/CheckBox.svelte";
   import Input from "../../../../lib/Input.svelte";
 
   let formPublicador = {
     p_nombre: '',
     p_apellidos: '',
-    p_cabeza: false
+    p_sexo: '',
+    p_cabeza: false,
+    p_fecha_nacimiento: '',
   }
   
 </script>
@@ -43,36 +46,36 @@
         <Input id="p_nombre" placeholder="Nombre" style="width: 49%;" bind:value={formPublicador.p_nombre} />
         <Input id="p_apellidos" placeholder="Apellidos" style="width: 49%;" bind:value={formPublicador.p_apellidos} />
         <div class="radio-group mt-1">
-           <input class="radio-input" id="option-a" type="radio" name="options">
+           <input class="radio-input" id="option-a" type="radio" name="p_sexo" />
            <label class="radio-label" for="option-a">Hermano</label>
-           <input class="radio-input" id="option-b" type="radio" name="options">
+           <input class="radio-input" id="option-b" type="radio" name="p_sexo">
            <label class="radio-label" for="option-b">Hermana</label>    
-        </div>
-        <div class="form-checkbox mt-2">
-           <label>
-           <input type="checkbox" />
-           <em class="highlight">Cabeza de familia</em>
-           </label>
-           <!-- MOSTRAR ESTA OPCIÓN SOLO SI ES CABEZA DE FAMILIA-->
-           <button class="btn-link ml-1" type="button">Crear familia {formPublicador.p_apellidos}</button>
-           <!-- FIN DE OPCIÓN-->
-        </div>
-        <select class="form-select mb-2 mt-0" aria-label="Preference">
-           <option>Seleccione una familia</option>
-        </select>
-        <!-- NOTA SOLO VISIBLE SI ES MIEMBRO DE LA FAMILIA -->        
-        <div class="flash-messages">
-           <div class="flash">
-              Este publicador es 
-              <select class="form-select select-sm" aria-label="Preference">
-                 <option>esposa</option>
-                 <option>hija</option>
-                 <option>hijo</option>
-              </select>
-              del hermano <button class="btn-link ml-1" type="button">{formPublicador.p_apellidos, formPublicador.p_nombre}</button>
-           </div>
-        </div>
-        <!-- FIN DE LA NOTA -->
+         </div>
+         <div class="form-checkbox mt-2">
+           <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:value={formPublicador.p_cabeza} />
+         </div>
+         {#if formPublicador.p_cabeza}
+            <!-- MOSTRAR ESTA OPCIÓN SOLO SI ES CABEZA DE FAMILIA-->
+            <button class="btn-link ml-1" type="button">Crear familia {formPublicador.p_apellidos}</button>
+            <!-- FIN DE OPCIÓN-->
+            <select class="form-select mb-2 mt-0" aria-label="Preference">
+               <option>Seleccione una familia</option>
+            </select>
+            <!-- NOTA SOLO VISIBLE SI ES MIEMBRO DE LA FAMILIA -->        
+            <div class="flash-messages">
+               <div class="flash">
+                  Este publicador es 
+                  <select class="form-select select-sm" aria-label="Preference">
+                     <option>esposa</option>
+                     <option>hija</option>
+                     <option>hijo</option>
+                  </select>
+                  del hermano <button class="btn-link ml-1" type="button">{formPublicador.p_apellidos, formPublicador.p_nombre}</button>
+               </div>
+            </div>
+            <!-- FIN DE LA NOTA -->
+         {/if}
+        
         <p class="f5 mb-0">Fecha de nacimiento</p>
         <input class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" style="width:49%;" />
         <p class="f5 mb-0 mt-2">Dirección</p>

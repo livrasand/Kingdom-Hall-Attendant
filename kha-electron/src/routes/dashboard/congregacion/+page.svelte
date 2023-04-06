@@ -1,6 +1,6 @@
 <script>
    import Input from '../../../lib/Input.svelte';
-   import {save} from './congregacion.js';
+   import { save } from './congregacion';
 
    let formCongregacion = {
       c_nombre: 'Valencia',
@@ -10,11 +10,10 @@
       c_d_finsemana: 'Domingo',
       c_h_finsemana: '10:00',
       c_direccion: 'Dirección',
-      
       c_s_nombre: '',
       c_s_numero: '',
       c_circuito: ''
-   }
+   };
 
    function sendData(e) {
       e.preventDefault();
@@ -34,7 +33,7 @@
      </nav>
   </div>
 </div>
-<form on:submit={sendData}>
+<form on:submit|preventDefault={sendData}>
    <Input id="c_nombre" placeholder="Nombre" style="width: 79%;" bind:value={formCongregacion.c_nombre} />
    <Input id="c_num" placeholder="Número" label="Número" style="width:20%;" bind:value={formCongregacion.c_num} />
   <br>
