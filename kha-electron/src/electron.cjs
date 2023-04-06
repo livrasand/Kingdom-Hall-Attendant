@@ -18,7 +18,8 @@ function createMainWindow() {
     let mws = ws({
         defaultWidth: 1280,
         defaultHeight: 800,
-        icon: "Icon.ico"
+        icon: "Icon.ico",
+        title: "Kingdom Hall Attendant"       
     });
 
     mainwindow = new BrowserWindow({

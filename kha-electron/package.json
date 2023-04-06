@@ -26,7 +26,8 @@
     "dev:package": "npm run build && electron-builder --config electron-builder.config.json --dir",
     "electron": "concurrently --kill-others \"vite dev\" \"electron src/electron.cjs\"",
     "preview": "vite preview",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "electron ."
   },
   "version": "1.0.0",
   "name": "Kingdom Hall Attendant",

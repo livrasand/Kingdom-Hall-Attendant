@@ -9,7 +9,7 @@ const isdev = !app.isPackaged || (process.env.NODE_ENV == "development");
 let mainwindow;
 
 function loadVite(port) {
-    mainwindow.loadURL(`http://localhost:${port}`/home).catch(() => {
+    mainwindow.loadURL(`http://localhost:${port}`).catch(() => {
         setTimeout(() => { loadVite(port); }, 200);
     });
 }
@@ -18,8 +18,9 @@ function createMainWindow() {
     let mws = ws({
         defaultWidth: 1280,
         defaultHeight: 800,
-        icon: "Icon.ico"
-    }); 
+        icon: "Icon.ico",
+        title: "Kingdom Hall Attendant"      
+    });
 
     mainwindow = new BrowserWindow({
         x: mws.x,
@@ -37,7 +38,7 @@ function createMainWindow() {
     mainwindow.once("close", () => { mainwindow = null; });
 
     if(!isdev) mainwindow.removeMenu();
-    else mainwindow.webContents.openDevTools();
+    else mainwindow.removeMenu();
     mws.manage(mainwindow);
 
     if(isdev) loadVite(port);
@@ -47,4 +48,3 @@ function createMainWindow() {
 app.once("ready", createMainWindow);
 app.on("activate", () => { if(!mainwindow) createMainWindow(); });
 app.on("window-all-closed", () => { if(process.platform !== "darwin") app.quit(); });
-
