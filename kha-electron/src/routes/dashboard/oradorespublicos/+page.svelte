@@ -3,6 +3,22 @@
 </svelte:head>
 
 <div class="tabnav">
+   <details class="details-reset details-overlay float-right">
+      <summary class="btn btn-sm float-right" aria-haspopup="true">
+         Nuevo
+      </summary>
+      <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
+         <div class="SelectMenu-modal">
+            <form class="SelectMenu-filter">
+               <input class="SelectMenu-input form-control" type="text" placeholder="Buscar un publicador" aria-label="Buscar un publicador">
+            </form>
+            <div class="SelectMenu-list">
+               <button class="SelectMenu-item" role="menuitem">Apellidos, Nombres</button>
+            </div>
+            <footer class="SelectMenu-footer">Mostrando 1 de 1</footer>
+         </div>
+      </div>
+   </details>
    <nav class="tabnav-tabs" aria-label="Foo bar">
       <a class="tabnav-tab" href="/dashboard/oradorespublicos" aria-current="page">Locales</a>
       <a class="tabnav-tab" href="/dashboard/oradorespublicos/foraneos">Foraneos</a>
