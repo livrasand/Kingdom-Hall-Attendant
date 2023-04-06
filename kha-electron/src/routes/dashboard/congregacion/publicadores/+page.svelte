@@ -8,6 +8,13 @@
     p_sexo: '',
     p_cabeza: false,
     p_fecha_nacimiento: '',
+    p_email: '',
+    p_celular: '',
+    p_telefono: '',
+    p_bautizado: '',
+    p_fecha_bautismo: '',
+    p_grupo: '',
+    p_nombramiento: ''
   }
   
 </script>
@@ -65,7 +72,7 @@
             <div class="flash-messages">
                <div class="flash">
                   Este publicador es 
-                  <select class="form-select select-sm" aria-label="Preference">
+                  <select id="p_" class="form-select select-sm" aria-label="Preference">
                      <option>esposa</option>
                      <option>hija</option>
                      <option>hijo</option>
@@ -77,35 +84,35 @@
          {/if}
         
         <p class="f5 mb-0">Fecha de nacimiento</p>
-        <input class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" style="width:49%;" />
+        <input id="fecha_nacimiento" class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" style="width:49%;" />
         <p class="f5 mb-0 mt-2">Dirección</p>
         <textarea class="form-control width-full" id="example-textarea"></textarea>
-        <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" />
-        <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" />
-        <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" />
+        <input id="p_email" class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" />
+        <input id="p_celular" class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" />
+        <input id="p_telefono" class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" />
         <hr>
         <div class="form-checkbox mt-3 mb-0">
            <label>
-           <input type="checkbox" />
+           <input id="p_bautizado" type="checkbox" />
            <em class="highlight">Bautizado</em>
            </label>
         </div>
         <p class="f5 mb-0">Fecha de bautizo</p>
-        <input class="form-control" type="date" placeholder="Fecha de bautizo" aria-label="Fecha de bautizo" style="width:49%;" />
+        <input id="p_fecha_bautismo" class="form-control" type="date" placeholder="Fecha de bautizo" aria-label="Fecha de bautizo" style="width:49%;" />
         <p class="f5 mb-0 mt-2">Grupo de predicación</p>
-        <select class="form-select" aria-label="Preference">
+        <select id="p_grupo" class="form-select" aria-label="Preference">
            <option>Seleccione un grupo</option>
         </select>
         <div class="container-lg clearfix mt-3">
            <div class="col-6 float-left p-0">
               <div class="form-checkbox mt-0 mb-0">
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_w" type="checkbox" />
                  <em class="">Recibe La Atalaya (edición de estudio)</em>
                  </label>
                  <br>
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_ga" type="checkbox" />
                  <em class="">Recibe la Guía de actividades</em>
                  </label>
                  <br>
@@ -120,22 +127,22 @@
                  </label>
                  <br>
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_ungido" type="checkbox" />
                  <em class="">Ungido</em>
                  </label>
                  <br>
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_nino" type="checkbox" />
                  <em class="">Niño</em>
                  </label>
                  <br>
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_ra" type="checkbox" />
                  <em class="">Readmitido</em>
                  </label>
                  <br>
                  <label>
-                 <input type="checkbox" />
+                 <input id="p_ir" type="checkbox" />
                  <em class="">Irregular</em>
                  </label>
               </div>
@@ -190,11 +197,11 @@
         <hr>
         <p class="h2 mt-0">Datos espirituales</p>
         <div class="radio-group mt-1">
-           <input class="radio-input" id="option-anciano" type="radio" name="nombramientos">
+           <input class="radio-input" id="option-anciano" type="radio" name="p_nombramiento">
            <label class="radio-label" for="option-anciano">Anciano</label>
-           <input class="radio-input" id="option-siervom" type="radio" name="nombramientos">
+           <input class="radio-input" id="option-siervom" type="radio" name="p_nombramiento">
            <label class="radio-label" for="option-siervom">Siervo ministerial</label> 
-           <input class="radio-input" id="option-ninguno" type="radio" name="nombramientos">
+           <input class="radio-input" id="option-ninguno" type="radio" name="p_nombramiento">
            <label class="radio-label" for="option-ninguno">Ninguno</label>    
         </div>
         <p class="f5 mb-0 mt-2">Privilegios de servicio</p>
