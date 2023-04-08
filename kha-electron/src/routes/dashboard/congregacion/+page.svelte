@@ -1,10 +1,11 @@
 <script>
+   import { onMount } from 'svelte';
    import Input from '../../../lib/Input.svelte';
-   import { save } from './congregacion';
+   import { load, save } from './congregacion';
 
    let formCongregacion = {
       c_nombre: 'Valencia',
-      c_num: '1234',
+      c_numero: '1234',
       c_d_entresemana: 'Jueves',
       c_h_entresemana: '19:30',
       c_d_finsemana: 'Domingo',
@@ -14,6 +15,25 @@
       c_s_numero: '',
       c_circuito: ''
    };
+
+   onMount(async () => {
+		try {
+         let rows = await load();
+         console.log(rows);
+         formCongregacion.c_nombre = rows[0].nombre;
+         formCongregacion.c_numero = rows[0].numero;
+         formCongregacion.c_d_entresemana = rows[0].d_entresemana;
+         formCongregacion.c_h_entresemana = rows[0].h_entresemana;
+         formCongregacion.c_d_finsemana = rows[0].d_finsemana;
+         formCongregacion.c_h_finsemana = rows[0].h_finsemana;
+         formCongregacion.c_direccion = rows[0].direccion;
+         formCongregacion.c_s_nombre = rows[0].s_nombre;
+         formCongregacion.c_s_numero = rows[0].s_numero;
+         formCongregacion.c_circuito = rows[0].circuito;
+      } catch (error) {
+         console.error(error);
+      }
+	});
 
    function sendData(e) {
       e.preventDefault();
@@ -35,7 +55,7 @@
 </div>
 <form on:submit|preventDefault={sendData}>
    <Input id="c_nombre" placeholder="Nombre" style="width: 79%;" bind:value={formCongregacion.c_nombre} />
-   <Input id="c_num" placeholder="Número" label="Número" style="width:20%;" bind:value={formCongregacion.c_num} />
+   <Input id="c_num" placeholder="Número" label="Número" style="width:20%;" bind:value={formCongregacion.c_numero} />
   <br>
   <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
   <div class="radio-group">
