@@ -54,7 +54,7 @@
   </div>
 </div>
 <form on:submit|preventDefault={sendData}>
-   <Input id="c_nombre" placeholder="Nombre" style="width: 79%;" bind:value={formCongregacion.c_nombre} />
+   <Input id="c_nombre" placeholder="Nombre" style="width: 78%;" bind:value={formCongregacion.c_nombre} />
    <Input id="c_num" placeholder="Número" label="Número" style="width:20%;" bind:value={formCongregacion.c_numero} />
   <br>
   <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
