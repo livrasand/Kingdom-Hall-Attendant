@@ -4,7 +4,7 @@ const db = new sqlite.Database('src/db/kha.db', sqlite.OPEN_READWRITE, (err) => 
   if (err) return console.error(err)
 });
 
-function load() {
+async function load() {
   return new Promise((resolve, reject) => {
     sql = `select * from publicadores`;
     db.all(sql, [], (err, rows) => {
@@ -16,19 +16,50 @@ function load() {
   });
 }
 
-function save(form) {
+function loadById(id) {
+  return new Promise((resolve, reject) => {
+    const sql = 'SELECT * FROM publicadores WHERE id = ?';
+    db.get(sql, [id], (err, row) => {
+      if (err) {
+        console.error(err.message);
+        reject(err);
+      }
+      resolve(row);
+    });
+  });
+}
+
+async function save(form) {
   const {
+    id,
     nombre, 
     apellidos
   } = form;
 
-  db.serialize(() => {
-    db.run('BEGIN TRANSACTION');
+  const existingData = await new Promise((resolve, reject) => {
+    db.get('SELECT * FROM publicadores WHERE id = ?', [id], (err, row) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(row);
+      }
+    });
+  });
 
-    sql = `insert into publicadores (nombre, apellidos) values (?, ?)`
-    db.run(sql, [
+  if (existingData) {
+    // Si el registro ya existe, actualizarlo
+    sql = `UPDATE publicadores SET nombre = ?, apellidos = ? WHERE id = ?`;
+  } else {
+    // Si el registro no existe, insertarlo
+    sql = `INSERT OR REPLACE INTO publicadores (nombre, apellidos, id) values (?, ?, ?)`;
+  }
+
+  await db.serialize(async () => {
+    await db.run('BEGIN TRANSACTION');
+    await db.run(sql, [
       nombre,
-      apellidos
+      apellidos,
+      id
     ], (_err) => {
       if (_err) {
         console.log(_err.message);
@@ -42,4 +73,4 @@ function save(form) {
   )
 }
 
-export {load, save};
+export {load, loadById, save};
