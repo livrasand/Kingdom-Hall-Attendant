@@ -6,7 +6,6 @@
 
    let publicadores = [];
    let formPublicador = {
-      id: 0,
       nombre: '',
       apellidos: ''
    }
@@ -36,11 +35,13 @@
    async function sendData(e) {
       e.preventDefault();
       await save(formPublicador);
-      try {
-         const row = await loadById(formPublicador.id);
-         formPublicador = row;
-      } catch (error) {
-         console.error(error);
+      if (formPublicador && formPublicador.id) {
+         try {
+            const row = await loadById(formPublicador.id);
+            formPublicador = row;
+         } catch (error) {
+            console.error(error);
+         }
       }
       await getData();
    }
