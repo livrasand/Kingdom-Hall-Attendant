@@ -2,35 +2,29 @@
   import { onMount } from "svelte";
   import CheckBox from "../../../../lib/CheckBox.svelte";
   import Input from "../../../../lib/Input.svelte";
-  import { load } from './publicadores';
+  import { load, save } from './publicadores';
 
   let publicadores = [];
-
   let formPublicador = {
-    p_nombre: '',
-    p_apellidos: '',
-    p_sexo: '',
-    p_cabeza: false,
-    p_fecha_nacimiento: '',
-    p_email: '',
-    p_celular: '',
-    p_telefono: '',
-    p_bautizado: '',
-    p_fecha_bautismo: '',
-    p_grupo: '',
-    p_nombramiento: ''
+   nombre: '',
+   apellidos: ''
   }
 
   onMount(async () => {
 		try {
          let rows = await load();
          publicadores = rows;
-         formPublicador.p_nombre = publicadores[0].nombre;
-         formPublicador.p_apellidos = publicadores[0].apellidos;
+         if (rows[0])
+            formPublicador = rows[0];
       } catch (error) {
          console.error(error);
       }
 	});
+
+   function sendData(e) {
+      e.preventDefault();
+      save(formPublicador);
+   }
 </script>
 
 <svelte:head>
@@ -51,7 +45,7 @@
      <div class="Box">
          <div class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
-               <strong>{publicador.apellidos} , {publicador.nombre}</strong>
+               <strong>{publicador.apellidos}, {publicador.nombre}</strong>
             </div>
             <button class="btn mr-2 btn-sm" type="button">
                <!-- <%= octicon "search" %> -->
@@ -65,9 +59,9 @@
   </div>
   <div class="col-8 float-left p-4">
      <p class="h2 mt-n5">Datos personales</p>
-     <form>
-        <Input id="p_nombre" placeholder="Nombre" style="width: 49%;" bind:value={formPublicador.p_nombre} />
-        <Input id="p_apellidos" placeholder="Apellidos" style="width: 49%;" bind:value={formPublicador.p_apellidos} />
+     <form on:submit|preventDefault={sendData}>
+        <Input id="nombre" placeholder="Nombre" style="width: 49%;" bind:value={formPublicador.nombre} />
+        <Input id="apellidos" placeholder="Apellidos" style="width: 49%;" bind:value={formPublicador.apellidos} />
         <div class="radio-group mt-1">
            <input class="radio-input" id="option-a" type="radio" name="p_sexo" />
            <label class="radio-label" for="option-a">Hermano</label>
@@ -75,11 +69,11 @@
            <label class="radio-label" for="option-b">Hermana</label>    
          </div>
          <div class="form-checkbox mt-2">
-           <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:value={formPublicador.p_cabeza} />
+           <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:value={formPublicador.cabeza} />
          </div>
-         {#if formPublicador.p_cabeza}
+         {#if formPublicador.cabeza}
             <!-- MOSTRAR ESTA OPCIÓN SOLO SI ES CABEZA DE FAMILIA-->
-            <button class="btn-link ml-1" type="button">Crear familia {formPublicador.p_apellidos}</button>
+            <button class="btn-link ml-1" type="button">Crear familia {formPublicador.apellidos}</button>
             <!-- FIN DE OPCIÓN-->
             <select class="form-select mb-2 mt-0" aria-label="Preference">
                <option>Seleccione una familia</option>
@@ -93,7 +87,7 @@
                      <option>hija</option>
                      <option>hijo</option>
                   </select>
-                  del hermano <button class="btn-link ml-1" type="button">{formPublicador.p_apellidos, formPublicador.p_nombre}</button>
+                  del hermano <button class="btn-link ml-1" type="button">{formPublicador.apellidos, formPublicador.nombre}</button>
                </div>
             </div>
             <!-- FIN DE LA NOTA -->

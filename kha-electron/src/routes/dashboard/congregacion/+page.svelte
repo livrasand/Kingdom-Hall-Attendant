@@ -38,7 +38,7 @@
    function sendData(e) {
       e.preventDefault();
       save(formCongregacion);
-    }
+   }
 </script>
 
 <svelte:head>

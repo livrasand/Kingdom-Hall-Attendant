@@ -16,4 +16,30 @@ function load() {
   });
 }
 
-export {load};
+function save(form) {
+  const {
+    nombre, 
+    apellidos
+  } = form;
+
+  db.serialize(() => {
+    db.run('BEGIN TRANSACTION');
+
+    sql = `insert into publicadores (nombre, apellidos) values (?, ?)`
+    db.run(sql, [
+      nombre,
+      apellidos
+    ], (_err) => {
+      if (_err) {
+        console.log(_err.message);
+        db.run('ROLLBACK');
+      } else {
+        alert(`Registro actualizado`);
+        db.run('COMMIT');
+      }
+    })
+    }
+  )
+}
+
+export {load, save};
