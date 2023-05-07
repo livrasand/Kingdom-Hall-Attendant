@@ -74,7 +74,7 @@
      <input name="c_d_entresemana" value="Domingo" class="radio-input" id="option-g" type="radio" bind:group={formCongregacion.c_d_entresemana}>
      <label class="radio-label" for="option-g">Domingo</label>
   </div>
-  <input name="c_h_entresemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" bind:value={formCongregacion.c_h_entresemana} />
+  <input name="c_h_entresemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:15%;" bind:value={formCongregacion.c_h_entresemana} />
   <br>
   <p class="f4 mt-2 mb-0">Reunión de fin de semana</p>
   <div class="radio-group">
@@ -93,7 +93,7 @@
      <input name="c_d_finsemana" value="Domingo" class="radio-input" id="option-n" type="radio" bind:group={formCongregacion.c_d_finsemana}>
      <label class="radio-label" for="option-n">Domingo</label> 
    </div>
-   <input name="c_h_finsemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" bind:value={formCongregacion.c_h_finsemana} />
+   <input name="c_h_finsemana" class="form-control ml-1" type="time" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:15%;" bind:value={formCongregacion.c_h_finsemana} />
   <br>
   <p class="f4 mb-0">Dirección del Salón del Reino</p>
   <textarea id="c_direccion" name="c_direccion" class="form-control width-full mb-3" bind:value={formCongregacion.c_direccion}></textarea>
@@ -103,13 +103,6 @@
   <input name="c_circuito" class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" bind:value={formCongregacion.c_circuito} />
   <br><br>
   <div class="form-actions">
-     <button type="submit" class="btn btn-primary">Guardar cambios</button>
-     <button type="button" class="btn btn-danger">
-        <!-- <%= octicon "trashcan" %> -->
-        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-           <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-        </svg>
-        <span>Borrar todo</span>
-     </button>
+     <button type="submit" class="btn btn-primary">Guardar cambios</button>     
   </div>
 </form>
