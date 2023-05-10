@@ -53,7 +53,7 @@ function save(form) {
         console.log(_err.message);
         db.run('ROLLBACK');
       } else {
-        alert(`Registro actualizado`);
+        alert(`Datos de la congregación actualizados`);
         db.run('COMMIT');
       }
     })

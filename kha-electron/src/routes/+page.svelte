@@ -1,7 +1,3 @@
-<script>
-  
-</script>
-
 <svelte:head>
   <title>Kingdom Hall Attendant</title>
 </svelte:head>
@@ -13,7 +9,7 @@
        <img class="avatar CircleBadge" height="100" alt="@octocat" src="/img/GoAttendantLogo.png" width="100">
        <div class="d-table col-12">
           <div class="col-10 d-table-cell v-align-middle pl-4">
-             <h2 class="text-normal lh-condensed color-fg-default">Apellidos, Nombre</h2>
+             <h2 class="text-normal lh-condensed color-fg-default">Apellidos, Nombres</h2>
              <p class="h4 color-fg-muted text-normal mb-2"> </p>
              <p class="color-fg-muted text-small">usuario@correo.com</p>
           </div>

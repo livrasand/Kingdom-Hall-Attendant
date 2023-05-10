@@ -4,13 +4,13 @@
    import { load, save } from './congregacion';
 
    let formCongregacion = {
-      c_nombre: 'Valencia',
-      c_numero: '1234',
-      c_d_entresemana: 'Jueves',
-      c_h_entresemana: '19:30',
-      c_d_finsemana: 'Domingo',
-      c_h_finsemana: '10:00',
-      c_direccion: 'Dirección',
+      c_nombre: '',
+      c_numero: '',
+      c_d_entresemana: '',
+      c_h_entresemana: '',
+      c_d_finsemana: '',
+      c_h_finsemana: '',
+      c_direccion: '',
       c_s_nombre: '',
       c_s_numero: '',
       c_circuito: ''

@@ -20,17 +20,21 @@ function save(form) {
   const {
     c_nombres, 
     c_apellidos, 
-    c_correo_electronico 
+    c_correo_electronico,
+    user_profile_location,
+    user_profile_pronouns_select 
   } = form;
 
   db.serialize(() => {
     db.run('BEGIN TRANSACTION');
 
-    sql = `update configuracion set nombres = ?, apellidos = ?, correo_electronico = ? where id = ?`
+    sql = `update configuracion set nombres = ?, apellidos = ?, correo_electronico = ?, ubicacion = ?, privilegio = ? where id = ?`
     db.run(sql, [
       c_nombres,
       c_apellidos,
       c_correo_electronico, 
+      user_profile_location,
+      user_profile_pronouns_select,
       1
     ], (_err) => {
       if (_err) {
