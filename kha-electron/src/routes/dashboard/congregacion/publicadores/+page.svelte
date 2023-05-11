@@ -62,7 +62,7 @@
 <div class="container-lg clearfix">
   <div class="col-4 float-left">
    {#each publicadores as publicador}
-     <div class="Box">
+     <div class="Box mt-2">
          <div class="Box-row d-flex flex-items-center">
             <div class="flex-auto">
                <strong>{publicador.apellidos}, {publicador.nombre}</strong>
@@ -588,56 +588,8 @@
                  </svg>
                  <span contenteditable="true" class="Text-sc-125xb1i-0 cTqQd ml-2">Transferir publicador</span>
               </span>
-           </button>
-           <button type="button" class="btn tooltipped tooltipped-ne tooltipped-align-left-1 border ml-1" aria-label="Registro de publicador">
-              <!-- <%= octicon "pencil" %> -->
-              <span data-component="text">
-                 <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                    <path fill-rule="evenodd" d="M3 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-3Zm10 .25a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1 0-1.5h4.5a.75.75 0 0 1 .75.75ZM10.25 11a.75.75 0 0 0 0-1.5h-2.5a.75.75 0 0 0 0 1.5h2.5Z"></path>
-                    <path fill-rule="evenodd" d="M7.25 0h1.5c.966 0 1.75.784 1.75 1.75V3h3.75c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-8.5C0 3.784.784 3 1.75 3H5.5V1.75C5.5.784 6.284 0 7.25 0Zm3.232 4.5A1.75 1.75 0 0 1 8.75 6h-1.5a1.75 1.75 0 0 1-1.732-1.5H1.75a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM7 1.75v2.5c0 .138.112.25.25.25h1.5A.25.25 0 0 0 9 4.25v-2.5a.25.25 0 0 0-.25-.25h-1.5a.25.25 0 0 0-.25.25Z"></path>
-                 </svg>
-              </span>
-           </button>
-           <details class="details-reset details-overlay details-overlay-dark">
-              <summary class="btn" aria-haspopup="dialog tooltipped tooltipped-ne tooltipped-align-left-1 border" aria-label="Historial de roles y asignaciones">
-                 <!-- <%= octicon "pencil" %> -->
-                 <span data-component="text">
-                    <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                       <path fill-rule="evenodd" d="m.427 1.927 1.215 1.215a8.002 8.002 0 1 1-1.6 5.685.75.75 0 1 1 1.493-.154 6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z"></path>
-                    </svg>
-                 </span>
-              </summary>
-              <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast" style="width: 90%;">
-                 <div class="Box-header">
-                    <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
-                       <!-- <%= octicon "x" %> -->
-                       <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true">
-                          <path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path>
-                       </svg>
-                    </button>
-                    <h3 class="Box-title">Historial del publicador</h3>
-                 </div>
-                 <div class="overflow-auto">
-                    <div class="container-lg clearfix width-full">
-                       <div class="col-3 float-left border p-4">
-                          Reunión Vida y Ministerios Cristianos
-                       </div>
-                       <div class="col-3 float-left border p-4">
-                          Discursos públicos
-                       </div>
-                       <div class="col-3 float-left border p-4">
-                          Asignaciones
-                       </div>
-                       <div class="col-3 float-left border p-4">
-                          Tareas
-                       </div>
-                    </div>
-                 </div>
-                 <div class="Box-footer">
-                    <button type="button" class="btn btn-block" data-close-dialog>Okidoki</button>
-                 </div>
-              </details-dialog>
-           </details>
+           </button>          
+           
            <!-- Temporary overrides (don't use in production) -->
            <link href="index.css" rel="stylesheet" />
         </div>
