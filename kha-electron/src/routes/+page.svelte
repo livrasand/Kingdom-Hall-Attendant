@@ -102,7 +102,7 @@
       <div class="col-6 width-full">
          <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="/dashboard/configuracion">
             <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e77"></i></div>
-            <h5 class="color-fg-default" style="margin-left: 25%;">Configuracion</h5>
+            <h5 class="color-fg-default" style="margin-left: 25%;">Configuración</h5>
             <p class="color-fg-muted text-small" style="margin-left: 25%;">
                Añada sus datos personales, cambie la apariencia o el idioma, entre otros más
             </p>

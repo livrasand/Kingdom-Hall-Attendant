@@ -101,7 +101,7 @@
                   <i class="jwIcon e140"></i>
                   Mesas y exhibidores portatiles
                   </a>
-                  <a class="menu-item" href="option-twenty.html" aria-current="page">
+                  <a class="menu-item" href="option-twenty.html">
                   <i class="jwIcon e56"></i>
                   Servicio del campo
                   </a>
@@ -133,7 +133,7 @@
                   <i class="jwIcon e120"></i>
                   Copias de seguridad
                   </a>
-                  <a class="menu-item" href="option-twenty-eight.html">
+                  <a class="menu-item" href="option-twenty-eight.html" aria-current="page">
                   <i class="jwIcon e77"></i>
                   Configuracion
                   </a>
@@ -142,7 +142,8 @@
          </div>
          <div class="col-9 float-left pl-2">
             <!-- INICIO DE CONFIGURACIÓN -->
-            <div data-view-component="true" class="container-md">          <turbo-frame id="settings-frame" data-turbo-action="advance">
+            <div data-view-component="true" class="container-md">          
+              <turbo-frame id="settings-frame" data-turbo-action="advance">
             
   <!-- Public Profile -->
   <div data-view-component="true" class="Subhead mt-0 mb-0">
@@ -154,6 +155,16 @@
       <waiting-form data-catalyst="">
         <!-- '"` --><!-- </textarea></xmp> --><form data-turbo="false" class="edit_user" id="edit_user_104039397" aria-labelledby="public-profile-heading" data-target="waiting-form.form" action="/users/livrasand" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="4b6bPyeWtFMuQdGz1-pTnT0CwI0b3F0fulbMAzUCbhU9vjruT6tWu_Kr3iliI5ACOQ-mzZKRVphXI7KSThaB4A">
           <div>              
+            <dl class="form-group">                
+              <dt><label for="user_profile_name">Nombre</label></dt>
+                <dd class="d-inline-block">
+                  <div>
+                    <input id="c_nombres" class="form-control" type="text" placeholder="Nombres" />
+                  <input id="c_apellidos" class="form-control mt-2" type="text" placeholder="Apellidos" />
+                  </div>  
+                </dd>
+              </dl>
+
             <dl class="form-group">
               <dt><label for="user_profile_email">Correo electrónico público</label></dt>
               <dd class="d-inline-block">
