@@ -3,9 +3,7 @@
 		{ id: 1, text: `No especificado` },
 		{ id: 2, text: `superintendente de circuito` },
 		{ id: 3, text: `anciano` },
-    { id: 4, text: `siervo ministerial` },
-    { id: 5, text: `precursor regular` },
-    { id: 6, text: `Ninguno de los anteriores` }
+    { id: 4, text: `siervo ministerial` }
 	];
 
   import { onMount } from 'svelte';  
@@ -91,9 +89,6 @@
               <dd class="d-inline-block">
                 <div>
                     <input class="form-control" type="email" bind:value={formConfiguracion.c_correo_electronico} id="c_correo_electronico">
-                    <p class="note">
-                      Su dirección de correo electrónico es privada. Para alternar la privacidad del correo electrónico, use la configuración de correo electrónico y desmarque "Mantener mi dirección de correo electrónico privada".
-                    </p>
                 </div>
               </dd>
             </dl>
@@ -116,10 +111,9 @@
                 <dt><label for="user_profile_location">Ubicación</label></dt>
                 <dd><input class="form-control" type="text"  name="user[profile_location]" id="user_profile_location" bind:value={formConfiguracion.user_profile_location}></dd>
               </dl>
-              
-                <p class="note mb-2">
-                  Todos los campos de esta página son opcionales y se pueden eliminar en cualquier momento, y al completarlos, nos está dando su consentimiento para compartir estos datos dondequiera que aparezca su perfil de usuario. Consulte nuestra declaración de privacidad para obtener más información sobre cómo usamos esta información.
-                </p>
+              <p class="note mb-2" >
+                Todos los campos de esta página se pueden eliminar en cualquier momento, y al completarlos, nos está dando su consentimiento para compartir estos datos dondequiera que aparezca su perfil de usuario. Esto, normalmente será cuando otros usuarios (superintendentes de circuito, ancianos o siervos ministeriales) de Kingdom Hall Attendant vean su perfil.
+             </p>
 
               <p>
                   <button data-target="waiting-form.submit" data-action="click:waiting-form#submitPolitely" type="submit" data-view-component="true" class="btn Button--primary Button--medium Button">    <span class="Button-content">
@@ -150,4 +144,3 @@
   </div>
           </turbo-frame>
 </div>
-         <!-- FIN DE CONFIGURACIÓN -->
