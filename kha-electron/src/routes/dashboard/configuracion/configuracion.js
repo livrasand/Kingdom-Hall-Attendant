@@ -10,43 +10,58 @@ function load() {
     db.all(sql, [], (err, rows) => {
       if (err) {
         console.error(err.message);
+        reject(err);
+      } else {
+        resolve(rows);
       }
-      resolve(rows);
     });
   });
 }
 
+
+
 function save(form) {
-  const {
-    c_nombres, 
-    c_apellidos, 
-    c_correo_electronico,
-    user_profile_location,
-    user_profile_pronouns_select 
-  } = form;
-
-  db.serialize(() => {
-    db.run('BEGIN TRANSACTION');
-
-    sql = `update configuracion set nombres = ?, apellidos = ?, correo_electronico = ?, ubicacion = ?, privilegio = ? where id = ?`
-    db.run(sql, [
+  return new Promise((resolve, reject) => {
+    const {
       c_nombres,
       c_apellidos,
-      c_correo_electronico, 
+      c_correo_electronico,
       user_profile_location,
       user_profile_pronouns_select,
-      1
-    ], (_err) => {
-      if (_err) {
-        console.log(_err.message);
-        db.run('ROLLBACK');
-      } else {
-        alert(`Datos personales actualizados`);
-        db.run('COMMIT');
-      }
-    })
-    }
-  )
+      avatarImageData
+    } = form;
+
+    db.serialize(() => {
+      db.run('BEGIN TRANSACTION');
+
+      sql = `update configuracion set nombres = ?, apellidos = ?, correo_electronico = ?, ubicacion = ?, privilegio = ?, avatar = ? where id = ?`;
+      db.run(
+        sql,
+        [
+          c_nombres,
+          c_apellidos,
+          c_correo_electronico,
+          user_profile_location,
+          user_profile_pronouns_select,
+          avatarImageData,
+          1
+        ],
+        (_err) => {
+          if (_err) {
+            console.log(_err.message);
+            db.run('ROLLBACK', () => {
+              reject(_err);
+            });
+          } else {
+            db.run('COMMIT', () => {
+              console.log('Datos guardados exitosamente');
+              resolve();
+            });
+          }
+        }
+      );
+    });
+  });
 }
 
-export {load, save};
+export { load, save };

@@ -1,7 +1,7 @@
 
 <script>
 import { page } from '$app/stores';
-</script>
+ </script>
 
 <nav class="menu" aria-label="Person settings">
     <div class="Header color-bg-inset menu-heading" id="menu-heading">
@@ -15,10 +15,10 @@ import { page } from '$app/stores';
           </a>
           <img class="avatar CircleBadge" height="50" alt="@octocat" src="/img/GoAttendantLogo.png" width="50">
           <div class="d-table col-12">
-             <div class="col-10 d-table-cell v-align-middle pl-4">
-                <h4 class="text-normal lh-condensed color-fg-default">Apellidos, Nombre</h4>
-                <p class="h4 color-fg-muted text-normal mb-2"> </p>
-                <p class="color-fg-muted text-small">usuario@correo.com</p>
+            <div class="col-10 d-table-cell v-align-middle pl-4">
+               <h4 class="text-normal lh-condensed color-fg-default">nombre</h4>
+               <p class="h4 color-fg-muted text-normal mb-2"></p>
+               <p class="color-fg-muted text-small">correo</p>
              </div>
           </div>
        </div>

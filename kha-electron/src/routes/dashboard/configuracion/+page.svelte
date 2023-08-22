@@ -21,23 +21,40 @@
   };
 
   onMount(async () => {
-   try {
-        let rows = await load();
-        console.log(rows);
-        formConfiguracion.c_nombres = rows[0].nombres;
-        formConfiguracion.c_apellidos = rows[0].apellidos;
-        formConfiguracion.c_correo_electronico = rows[0].correo_electronico;
-        formConfiguracion.user_profile_location = rows[0].ubicacion;
-        formConfiguracion.user_profile_pronouns_select = rows[0].user_profile_pronouns_select;
-     } catch (error) {
-        console.error(error);
-     }
- });
-
-  function sendData(e) {
-     e.preventDefault();
-     save(formConfiguracion);
+  try {
+    let rows = await load();
+    console.log(rows);
+    formConfiguracion.c_nombres = rows[0].nombres;
+    formConfiguracion.c_apellidos = rows[0].apellidos;
+    formConfiguracion.c_correo_electronico = rows[0].correo_electronico;
+    formConfiguracion.user_profile_location = rows[0].ubicacion;
+    formConfiguracion.user_profile_pronouns_select = rows[0].privilegio; // Asigna el id del privilegio, no el texto
+  } catch (error) {
+    console.error(error);
   }
+});
+
+  async function sendData() {
+    try {
+      await save(formConfiguracion);
+    } catch (error) {
+      console.error('Error al guardar los datos', error);
+    }
+  }
+
+  function handleAvatarUpload(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    const imageData = e.target.result;
+    // Actualizar la vista previa de la imagen
+    formConfiguracion.avatarPreview = imageData;
+  };
+
+  reader.readAsDataURL(file);
+}
+
 </script>
 
 <svelte:head>
@@ -81,18 +98,19 @@
               </dd>
             </dl>
 
-                <dl class="form-group">
-                  <dt><label for="user_profile_pronouns_select">Privilegio</label></dt>
-                  <dd class="user-profile-bio-field-container js-length-limited-input-container">
-                    <select bind:value={formConfiguracion.user_profile_pronouns_select} id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control">
-                      {#each privilegios as privilegio}
-                      <option value={privilegio}>
-                        {privilegio.text}
-                      </option>
-                      {/each}                      
-                    </select>
-                    </dd>
-                </dl>
+            <dl class="form-group">
+              <dt><label for="user_profile_pronouns_select">Privilegio</label></dt>
+              <dd class="user-profile-bio-field-container js-length-limited-input-container">
+                <select bind:value={formConfiguracion.user_profile_pronouns_select} id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control">
+                  {#each privilegios as privilegio}
+                  <option value={privilegio.id}>
+                    {privilegio.text}
+                  </option>
+                  {/each}                      
+                </select>                
+              </dd>
+            </dl>
+
                                
               <dl class="form-group">
                 <dt><label for="user_profile_location">Ubicación</label></dt>
@@ -121,22 +139,9 @@
   <dt><label class="d-block mb-2">Foto de usuario</label></dt>
   <dd class="avatar-upload-container clearfix position-relative">
       <div class="avatar-upload">
-        <details class="dropdown details-reset details-overlay">
-          <summary aria-haspopup="menu" role="button">
-            <img class="avatar rounded-2 avatar-user" src="/img/GoAttendantLogo.png" width="200" height="200">
-            <div class="position-absolute color-bg-default rounded-2 color-fg-default px-2 py-1 left-0 bottom-0 ml-2 mb-2 border">
-              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-pencil">
-    <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
-</svg>
-              Editar
-            </div>
-          </summary>
-          <details-menu class="dropdown-menu dropdown-menu-se" style="z-index: 99" role="menu">
-            <label for="avatar_upload" class="dropdown-item text-normal" style="cursor: pointer;" role="menuitem" tabindex="0">Sube una foto…</label>
-          </details-menu>
-        </details>
+        <img class="avatar rounded-2 avatar-user" src={formConfiguracion.avatarPreview || '/img/GoAttendantLogo.png'} width="200" height="200" />
+            <input type="file" id="avatar_upload" accept="image/*" onchange={handleAvatarUpload} />
 
-        
       </div>
   </dd>
 </dl>
