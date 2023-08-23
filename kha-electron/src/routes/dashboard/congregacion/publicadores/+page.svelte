@@ -6,9 +6,69 @@
 
    let publicadores = [];
    let formPublicador = {
-      nombre: '',
-      apellidos: ''
-   }
+   id: '',
+   nombre: '',
+   apellidos: '',
+   sexo: '',
+   cabeza: false,
+   fecha_nacimiento: '',
+   direccion: '',
+   p_email: '',
+   p_celular: '',
+   p_telefono: '',
+   bautizado: false,
+   p_fecha_bautismo: '',
+   p_grupo: '',
+   privilegios_servicio: '',
+   nombramiento: '',
+   aprobado_predicacion: false,
+   orar_servicio_campo: false,
+   // Propiedades de participantes en la utilización
+   presidente_tb: false,
+   oracion_tb: false,
+   discurso_10_tb: false,
+   busquemos_perlas_tb: false,
+   consejero_sala_aux_tb: false,
+   lectura_biblia_tb: false,
+   discusion_video_sm: false,
+   primera_conversacion_sm: false,
+   revisita_sm: false,
+   no_utilizar_sala_principal_sm: false,
+   curso_biblico_sm: false,
+   ayudante_sm: false,
+   discurso_5_sm: false,
+   utilizar_sala_principal_sm: false,
+   intervenciones_nvc: false,
+   estudio_biblico_nvc: false,
+   lector_nvc: false,
+   discursante_publico_le_at: false,
+   presidente_reunion_publica_le_at: false,
+   lector_le_at: false,
+   anfitrion_hospitalidades_le_at: false,
+   sonido_tareas: false,
+   plataforma_tareas: false,
+   anfitrion_zoom_tareas: false,
+   mantenimiento_tareas: false,
+   microfonos_tareas: false,
+   coanfitrion_zoom_tareas: false,
+   acomodador_tareas: false,
+   aprobado_predicacion_servicio_campo: false,
+   dirigir_reuniones_servicio_campo: false,
+   orar_reuniones_servicio_campo: false,
+   limpieza_semanal_salon: false,
+   limpieza_despues_reunion: false,
+   cuidado_jardin: false,
+   limpieza_mensual_salon: false,
+   limpieza_trimestral_salon: false,
+   cuidado_cesped: false,
+   // Agrega aquí cualquier otra propiedad que necesites
+};
+
+let nombramientoOptions = [
+    { value: 'Anciano', label: 'Anciano' },
+    { value: 'Siervo ministerial', label: 'Siervo ministerial' },
+    { value: 'Ninguno', label: 'Ninguno' }
+  ];
 
    async function getData() {
       let rows = await load();
@@ -84,11 +144,11 @@
         <Input id="nombre" placeholder="Nombre" style="width: 49%;" bind:value={formPublicador.nombre} />
         <Input id="apellidos" placeholder="Apellidos" style="width: 49%;" bind:value={formPublicador.apellidos} />
         <div class="radio-group mt-1">
-           <input class="radio-input" id="option-a" type="radio" name="p_sexo" />
-           <label class="radio-label" for="option-a">Hermano</label>
-           <input class="radio-input" id="option-b" type="radio" name="p_sexo">
-           <label class="radio-label" for="option-b">Hermana</label>    
-         </div>
+         <input class="radio-input" id="option-a" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermano" />
+         <label class="radio-label" for="option-a">Hermano</label>
+         <input class="radio-input" id="option-b" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermana" />
+         <label class="radio-label" for="option-b">Hermana</label>
+       </div>
          <div class="form-checkbox mt-2">
            <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:value={formPublicador.cabeza} />
          </div>
@@ -115,17 +175,17 @@
          {/if}
         
         <p class="f5 mb-0">Fecha de nacimiento</p>
-        <input id="fecha_nacimiento" class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" style="width:49%;" />
-        <p class="f5 mb-0 mt-2">Dirección</p>
-        <textarea class="form-control width-full" id="example-textarea"></textarea>
-        <input id="p_email" class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" />
+        <input id="fecha_nacimiento" class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" style="width:49%;" bind:value={formPublicador.fecha_nacimiento} />
+         <p class="f5 mb-0 mt-2">Dirección</p>
+         <textarea class="form-control width-full" id="example-textarea" bind:value={formPublicador.direccion}></textarea>
+         <input id="p_email" class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" />
         <input id="p_celular" class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" />
         <input id="p_telefono" class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" />
         <hr>
         <div class="form-checkbox mt-3 mb-0">
            <label>
-           <input id="p_bautizado" type="checkbox" />
-           <em class="highlight">Bautizado</em>
+            <input id="p_bautizado" type="checkbox" bind:checked={formPublicador.bautizado} />
+            <em class="highlight">Bautizado</em>
            </label>
         </div>
         <p class="f5 mb-0">Fecha de bautizo</p>
@@ -228,16 +288,21 @@
         <hr>
         <p class="h2 mt-0">Datos espirituales</p>
         <div class="radio-group mt-1">
-           <input class="radio-input" id="option-anciano" type="radio" name="p_nombramiento">
-           <label class="radio-label" for="option-anciano">Anciano</label>
-           <input class="radio-input" id="option-siervom" type="radio" name="p_nombramiento">
-           <label class="radio-label" for="option-siervom">Siervo ministerial</label> 
-           <input class="radio-input" id="option-ninguno" type="radio" name="p_nombramiento">
-           <label class="radio-label" for="option-ninguno">Ninguno</label>    
-        </div>
+         {#each nombramientoOptions as option}
+           <label>
+             <input
+               class="radio-input"
+               type="radio"
+               bind:group={formPublicador.nombramiento}
+               value={option.value}
+             />
+             <span class="radio-label">{option.label}</span>
+           </label>
+         {/each}
+       </div>
         <p class="f5 mb-0 mt-2">Privilegios de servicio</p>
-        <select class="form-select" aria-label="Preference">
-           <option>Ninguno</option>
+        <select class="form-select" aria-label="Preference" bind:value={formPublicador.privilegios_servicio}>
+         <option>Ninguno</option>
            <option>Precursor auxiliar de continuo</option>
            <option>Precursor regular</option>
            <option>Precursor especial</option>
@@ -513,8 +578,8 @@
            <div class="col-6 float-left p-0">
               <div class="form-checkbox mt-0 mb-0">
                  <label>
-                 <input type="checkbox" />
-                 <em class="">Aprobado para predicación pública</em>
+                  <input type="checkbox" bind:checked={formPublicador.aprobado_predicacion} />
+                  <em class="">Aprobado para predicación pública</em>
                  </label>
                  <br>
                  <label>
@@ -526,8 +591,8 @@
            <div class="col-6 float-left p-0">
               <div class="form-checkbox mt-0 mb-0">
                  <label>
-                 <input type="checkbox" />
-                 <em class="">Orar en reuniones para el servicio del campo</em>
+                  <input type="checkbox" bind:checked={formPublicador.orar_servicio_campo} />
+                  <em class="">Orar en reuniones para el servicio del campo</em>
                  </label>
               </div>
            </div>

@@ -103,6 +103,6 @@
   <input name="c_circuito" class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" bind:value={formCongregacion.c_circuito} />
   <br><br>
   <div class="form-actions">
-     <button type="submit" class="btn btn-primary">Guardar cambios</button>     
+     <button type="submit" class="btn btn-primary">Guardar</button>     
   </div>
 </form>
