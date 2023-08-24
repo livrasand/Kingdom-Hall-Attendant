@@ -23,7 +23,6 @@
    nombramiento: '',
    aprobado_predicacion: false,
    orar_servicio_campo: false,
-   // Propiedades de participantes en la utilización
    presidente_tb: false,
    oracion_tb: false,
    discurso_10_tb: false,
@@ -61,7 +60,6 @@
    limpieza_mensual_salon: false,
    limpieza_trimestral_salon: false,
    cuidado_cesped: false,
-   // Agrega aquí cualquier otra propiedad que necesites
 };
 
 let nombramientoOptions = [
@@ -144,13 +142,13 @@ let nombramientoOptions = [
         <Input id="nombre" placeholder="Nombre" style="width: 49%;" bind:value={formPublicador.nombre} />
         <Input id="apellidos" placeholder="Apellidos" style="width: 49%;" bind:value={formPublicador.apellidos} />
         <div class="radio-group mt-1">
-         <input class="radio-input" id="option-a" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermano" />
-         <label class="radio-label" for="option-a">Hermano</label>
-         <input class="radio-input" id="option-b" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermana" />
-         <label class="radio-label" for="option-b">Hermana</label>
+         <input class="radio-input" id="p_sexo" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermano" />
+         <label class="radio-label" for="p_sexo">Hermano</label>
+         <input class="radio-input" id="p_sexo" type="radio" name="p_sexo" bind:group={formPublicador.sexo} value="Hermana" />
+         <label class="radio-label" for="p_sexo">Hermana</label>
        </div>
          <div class="form-checkbox mt-2">
-           <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:value={formPublicador.cabeza} />
+           <CheckBox id="p_cabeza" placeholder="Cabeza de familia" bind:checked={formPublicador.cabeza} />
          </div>
          {#if formPublicador.cabeza}
             <!-- MOSTRAR ESTA OPCIÓN SOLO SI ES CABEZA DE FAMILIA-->
