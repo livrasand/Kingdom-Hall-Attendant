@@ -1,14 +1,7 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-authors:
-- family-names: "Sandoval"
-  given-names: "Livrädo"
-  orcid: "https://orcid.org/0009-0004-0883-746X"
-- family-names: "Menor"
-  given-names: "Ramón"
-- family-names: "Costa"
-  given-names: "Saulo"
-title: "Kingdom Hall Attendant"
-version: 1.0.0
-date-released: 2023-04-04
-url: "https://github.com/livrasand/Kingdom-Hall-Attendant"
+# Citación para Kingdom Hall Attendant
+
+Si utilizas o te basas en el proyecto Kingdom Hall Attendant en tu investigación, desarrollo de software u otros trabajos, agradeceríamos que cites el proyecto de la siguiente manera:
+
+livrasand (Año de la última actualización). Kingdom Hall Attendant. Repositorio GitHub. https://github.com/livrasand/Kingdom-Hall-Attendant/
+
+Asegúrate de reemplazar **"Año de la última actualización"** con el año en que estás realizando la citación.
