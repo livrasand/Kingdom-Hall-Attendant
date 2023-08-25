@@ -125,4 +125,12 @@ Enter the following Bitcoin URI or Address in your favorite wallet to make contr
 ## 📜 Licencia 
 The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Svelte](https://svelte.dev/), [Electron](https://electronjs.org)  and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand), [Ramón Menor](https://github.com/rmenor) y [Saulo Costa](https://github.com/saulotarsobc).
 
+# Citación para Kingdom Hall Attendant
+
+If you use or rely on the Kingdom Hall Attendant project in your research, software development, or other work, we would appreciate if you would cite the project as follows:
+
+livrasand (Year of last update). Kingdom Hall Attendant. GitHub repository. https://github.com/livrasand/Kingdom-Hall-Attendant/
+
+Be sure to replace **"Year of Last Update"** with the year you are quoting, or just use [CITATION.cff](CITATION.cff).
+
 Copyright (c) 2023 Kingdom Hall Attendant - Released under the GoAttendant Zero Public License (GZPL). Kingdom Hall Attendant and the logo are trademarks of [GoAttendant](https://goattendant.com). Please see our trademark policy for information on acceptable use.
