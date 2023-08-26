@@ -1,24 +1,63 @@
+<script>
+    import { onMount } from "svelte";
+    
+   import Input from "../../../../lib/Input.svelte";
+    import { load, loadById, save } from './oradorespublicos';
+
+   let oradorespublicos = [];
+   let formOrador = {
+      id: '',
+      nombre: '',
+      apellidos: '',
+      aprobado: false,
+      correoElectronico: '',
+      celular: '',
+      telefono: '',
+      nombramiento: '',
+   };
+
+   async function getData() {
+      let rows = await load();
+      oradorespublicos = rows;
+   }
+
+   async function selectData(id) {
+      try {
+         const row = await loadById(id);
+         formOrador = row;
+      } catch (error) {
+         console.error(error);
+      }
+   }
+
+  onMount(async () => {
+		try {
+         await getData();
+      } catch (error) {
+         console.error(error);
+      }
+	});
+
+   async function sendData(e) {
+      e.preventDefault();
+      await save(formOrador);
+      if (formOrador && formOrador.id) {
+         try {
+            const row = await loadById(formOrador.id);
+            formOrador = row;
+         } catch (error) {
+            console.error(error);
+         }
+      }
+      await getData();
+   }
+</script>
+
 <svelte:head>
   <title>Oradores públicos</title>
 </svelte:head>
 
 <div class="tabnav">
-   <details class="details-reset details-overlay float-right">
-      <summary class="btn btn-sm float-right" aria-haspopup="true">
-         Nuevo
-      </summary>
-      <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
-         <div class="SelectMenu-modal">
-            <form class="SelectMenu-filter">
-               <input class="SelectMenu-input form-control" type="text" placeholder="Buscar un publicador" aria-label="Buscar un publicador">
-            </form>
-            <div class="SelectMenu-list">
-               <button class="SelectMenu-item" role="menuitem">Apellidos, Nombres</button>
-            </div>
-            <footer class="SelectMenu-footer">Mostrando 1 de 1</footer>
-         </div>
-      </div>
-   </details>
    <nav class="tabnav-tabs" aria-label="Foo bar">
       <a class="tabnav-tab" href="/dashboard/oradorespublicos" aria-current="page">Locales</a>
       <a class="tabnav-tab" href="/dashboard/oradorespublicos/foraneos">Foraneos</a>
@@ -27,12 +66,13 @@
 
 <div class="container-lg clearfix">
   <div class="col-4 float-left">
+   {#each oradorespublicos as oradorpublico}
      <div class="Box">
         <div class="Box-row d-flex flex-items-center">
            <div class="flex-auto">
-              <strong>Apellidos, Nombre</strong>
+            <strong>{oradorpublico.apellidos}, {oradorpublico.nombre}</strong>
            </div>
-           <button class="btn mr-2 btn-sm" type="button">
+           <button class="btn mr-2 btn-sm" type="button" on:click={() => { selectData(oradorpublico.id) }}>
               <!-- <%= octicon "search" %> -->
               <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                  <path d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"></path>
@@ -40,26 +80,33 @@
            </button>
         </div>
      </div>
+   {/each}   
   </div>
+
   <div class="col-8 float-left p-4 mt-n4">
-     <form>
-        <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" />
-        <input class="form-control" type="text" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" />
-        <div class="form-checkbox mt-2">
-           <label>
-           <input type="checkbox" />
-           <em class="highlight">Aprobado para salir</em>
-           </label>
-        </div>
-        <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" />
-        <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" />
-        <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" />
-        <div class="radio-group mt-2">
-           <input class="radio-input" id="option-anciano" type="radio" name="nombramientos">
-           <label class="radio-label" for="option-anciano">Anciano</label>
-           <input class="radio-input" id="option-siervom" type="radio" name="nombramientos">
-           <label class="radio-label" for="option-siervom">Siervo ministerial</label>   
-        </div>
+     <form on:submit|preventDefault={sendData}>
+      <Input style="display:none;" id="id" bind:value={formOrador.id} />
+      <Input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" bind:value={formOrador.nombre} />
+      <Input class="form-control" type="text" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" bind:value={formOrador.apellidos} />
+      
+      <div class="form-checkbox mt-2">
+        <label>
+          <input type="checkbox" bind:checked={formOrador.aprobado} />
+          <em class="highlight">Aprobado para salir</em>
+        </label>
+      </div>
+      
+      <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" bind:value={formOrador.correoElectronico} />
+      <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" bind:value={formOrador.celular} />
+      <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" bind:value={formOrador.telefono} />
+      
+      <div class="radio-group mt-2">
+        <input class="radio-input" id="option-anciano" type="radio" name="nombramientos" value="Anciano" bind:group={formOrador.nombramiento} />
+        <label class="radio-label" for="option-anciano">Anciano</label>
+        
+        <input class="radio-input" id="option-siervom" type="radio" name="nombramientos" value="Siervo ministerial" bind:group={formOrador.nombramiento} />
+        <label class="radio-label" for="option-siervom">Siervo ministerial</label>
+      </div>
         <p class="f5 mb-n3 mt-3">Bosquejos preparados</p>
         <div class="container-lg clearfix mt-3">
            <div class="col-2 float-left p-0">
@@ -1023,22 +1070,7 @@
         </div>
         <br><br>
         <div class="form-actions">
-           <button type="submit" class="btn btn-primary">Guardar</button>
-           <button type="button" class="btn btn-danger">
-              <!-- <%= octicon "trashcan" %> -->
-              <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                 <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-              </svg>
-              <span>Eliminar</span>
-           </button>
-           <button type="button" class="btn btn-outline">
-              <span data-component="text">
-                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; vertical-align: text-bottom;">
-                    <path  d="M.989 8 .064 2.68a1.342 1.342 0 0 1 1.85-1.462l13.402 5.744a1.13 1.13 0 0 1 0 2.076L1.913 14.782a1.343 1.343 0 0 1-1.85-1.463L.99 8Zm.603-5.288L2.38 7.25h4.87a.75.75 0 0 1 0 1.5H2.38l-.788 4.538L13.929 8Z"></path>
-                 </svg>
-                 <span contenteditable="true" class="Text-sc-125xb1i-0 cTqQd ml-2">Enviar datos a una congregación</span>
-              </span>
-           </button>
+           <button type="submit" class="btn btn-primary">Guardar</button>           
         </div>
      </form>
   </div>
