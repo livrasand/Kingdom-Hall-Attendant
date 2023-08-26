@@ -106,9 +106,19 @@ The application has incredible **free themes**, these are the available themes:
 | Sunglo | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3ffe9472-7b2b-46ed-8229-aafa1281d569" width="80px"> |
 | Cream Can | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/db6e4fca-fd88-4008-b5b0-111ed24709d3" width="80px"> |
 
-**SEASON PASS** are seasonal contributions of $100 MXN. When they are available you will see the benefits that each one offers, they are not mandatory, you will decide if you take it or not.
+🎟 **SEASON PASS** are seasonal contributions of $100 MXN. When they are available you will see the benefits that each one offers, they are not mandatory, you will decide if you take it or not.
 
 **Free software support** is also available, get help by phone, chat, email and much more.
+
+## 💻 Lenguajes utilizados
+
+- **Svelte:** Utilizado para el backend y el procesamiento de datos.
+- **CSS:** Utilizado para el diseño y estilo de la aplicación.
+- **JavaScript:** Utilizado para la interfaz de usuario interactiva.
+- **HTML:** Utilizado para crear y estructurar el contenido de la aplicación.
+- **Shell:**  Utilizado para realizar diversas tareas, como administrar archivos, ejecutar programas y configurar el sistema.
+
+Puedes ver detalladamente los lenguajes de programación utlizados en este proyecto [aquí](https://api.github.com/repos/livrasand/Kingdom-Hall-Attendant/languages).
 
 ## Want to contribute?
 
@@ -124,8 +134,6 @@ Enter the following Bitcoin URI or Address in your favorite wallet to make contr
 
 ## 📜 Licencia 
 The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Svelte](https://svelte.dev/), [Electron](https://electronjs.org)  and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand), [Ramón Menor](https://github.com/rmenor) y [Saulo Costa](https://github.com/saulotarsobc).
-
-# Citación para Kingdom Hall Attendant
 
 If you use or rely on the Kingdom Hall Attendant project in your research, software development, or other work, we would appreciate if you would cite the project as follows:
 
