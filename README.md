@@ -110,15 +110,15 @@ The application has incredible **free themes**, these are the available themes:
 
 **Free software support** is also available, get help by phone, chat, email and much more.
 
-## 💻 Lenguajes utilizados
+## 💻 Languages used
 
-- **Svelte:** Utilizado para el backend y el procesamiento de datos.
-- **CSS:** Utilizado para el diseño y estilo de la aplicación.
-- **JavaScript:** Utilizado para la interfaz de usuario interactiva.
-- **HTML:** Utilizado para crear y estructurar el contenido de la aplicación.
-- **Shell:**  Utilizado para realizar diversas tareas, como administrar archivos, ejecutar programas y configurar el sistema.
+- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdynamic-json-badge-for-all-git-hub-languages.vercel.app%2Flanguages.json&query=%24.Svelte&logo=svelte&logoColor=%23FF3E00&label=CSS&labelColor=%23e6e6e6&color=%23FF3E00): Used for backend and data processing.
+- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdynamic-json-badge-for-all-git-hub-languages.vercel.app%2Flanguages.json&query=%24.CSS&logo=css3&logoColor=%231572B6&label=CSS&labelColor=%23e6e6e6&color=%231572B6): Used for the layout and styling of the application.
+- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdynamic-json-badge-for-all-git-hub-languages.vercel.app%2Flanguages.json&query=%24.JavaScript&logo=javascript&logoColor=%23F7DF1E&label=JavaScript&labelColor=%23e6e6e6&color=%23F7DF1E): Used for interactive user interface.
+- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdynamic-json-badge-for-all-git-hub-languages.vercel.app%2Flanguages.json&query=%24.HTML&logo=html5&logoColor=%23E34F26&label=HTML&labelColor=%23e6e6e6&color=%23E34F26): Used to create and structure the content of the application.
+- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdynamic-json-badge-for-all-git-hub-languages.vercel.app%2Flanguages.json&query=%24.Shell&logo=powershell&logoColor=%235391FE&label=Shell&labelColor=%23e6e6e6&color=%235391FE): Used to perform various tasks, such as managing files, running programs, and configuring the system.
 
-Puedes ver detalladamente los lenguajes de programación utlizados en este proyecto [aquí](https://api.github.com/repos/livrasand/Kingdom-Hall-Attendant/languages).
+You can see in detail the programming languages used in this project [here](https://api.github.com/repos/livrasand/Kingdom-Hall-Attendant/languages).
 
 ## Want to contribute?
 
