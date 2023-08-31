@@ -1,57 +1,75 @@
 <script>
-    import { onMount } from "svelte";
-    
-   import Input from "../../../../lib/Input.svelte";
-    import { load, loadById, save } from './oradorespublicos';
-
+   import { onMount } from "svelte";
+   import { load, loadById, save } from '$lib/oradorespublicos';
+ 
    let oradorespublicos = [];
    let formOrador = {
-      id: '',
-      nombre: '',
-      apellidos: '',
-      aprobado: false,
-      correoElectronico: '',
-      celular: '',
-      telefono: '',
-      nombramiento: '',
+     id: '',
+     nombre: '',
+     apellidos: '',
+     aprobado: false,
+     correoElectronico: '',
+     celular: '',
+     telefono: '',
+     nombramiento: '',
    };
-
+ 
    async function getData() {
-      let rows = await load();
-      oradorespublicos = rows;
+     try {
+       console.log("Fetching data...");
+       let rows = await load();
+       oradorespublicos = rows;
+       console.log("Data fetched:", oradorespublicos);
+     } catch (error) {
+       console.error("Error fetching data:", error);
+     }
    }
-
+ 
    async function selectData(id) {
-      try {
-         const row = await loadById(id);
-         formOrador = row;
-      } catch (error) {
-         console.error(error);
-      }
+     try {
+       console.log("Selecting data for id:", id);
+       const row = await loadById(id);
+       formOrador = row;
+       console.log("Selected data:", formOrador);
+     } catch (error) {
+       console.error("Error selecting data:", error);
+     }
    }
-
-  onMount(async () => {
-		try {
-         await getData();
-      } catch (error) {
-         console.error(error);
-      }
-	});
-
+ 
+   onMount(async () => {
+     console.log("Component mounted. Calling getData()...");
+     try {
+       await getData();
+     } catch (error) {
+       console.error("Error onMount:", error);
+     }
+   });
+ 
    async function sendData(e) {
-      e.preventDefault();
-      await save(formOrador);
-      if (formOrador && formOrador.id) {
+     e.preventDefault();
+     try {
+       console.log("Sending data:", formOrador);
+       await save(formOrador);
+       console.log("Data saved/updated successfully.");
+ 
+       if (formOrador && formOrador.id) {
          try {
-            const row = await loadById(formOrador.id);
-            formOrador = row;
+           console.log("Reloading selected data...");
+           const row = await loadById(formOrador.id);
+           formOrador = row;
+           console.log("Selected data reloaded:", formOrador);
          } catch (error) {
-            console.error(error);
+           console.error("Error reloading selected data:", error);
          }
-      }
-      await getData();
+       }
+ 
+       await getData();
+       console.log("Data re-fetched:", oradorespublicos);
+     } catch (error) {
+       console.error("Error sending data:", error);
+     }
    }
-</script>
+ </script> 
 
 <svelte:head>
   <title>Oradores públicos</title>
@@ -85,9 +103,9 @@
 
   <div class="col-8 float-left p-4 mt-n4">
      <form on:submit|preventDefault={sendData}>
-      <Input style="display:none;" id="id" bind:value={formOrador.id} />
-      <Input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" bind:value={formOrador.nombre} />
-      <Input class="form-control" type="text" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" bind:value={formOrador.apellidos} />
+      <input style="display:none;" id="id" bind:value={formOrador.id} />
+      <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" bind:value={formOrador.nombre} />
+      <input class="form-control" type="text" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" bind:value={formOrador.apellidos} />
       
       <div class="form-checkbox mt-2">
         <label>

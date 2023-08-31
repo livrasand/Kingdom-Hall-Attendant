@@ -1,9 +1,9 @@
-const {app, ipcMain, BrowserWindow} = require("electron");
+const { app, ipcMain, BrowserWindow, Menu } = require("electron");
 const serve = require("electron-serve");
 const ws = require("electron-window-state");
 try { require("electron-reloader")(module); } catch {}
 
-const loadURL = serve({directory: "."});
+const loadURL = serve({ directory: "." });
 const port = process.env.PORT || 3000;
 const isdev = !app.isPackaged || (process.env.NODE_ENV == "development");
 let mainwindow;
@@ -19,7 +19,7 @@ function createMainWindow() {
         defaultWidth: 1280,
         defaultHeight: 800,
         icon: "Icon.ico",
-        title: "Kingdom Hall Attendant"       
+        title: "Kingdom Hall Attendant"
     });
 
     mainwindow = new BrowserWindow({
@@ -31,20 +31,43 @@ function createMainWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: isdev || true
+            devTools: true
         }
     });
 
     mainwindow.once("close", () => { mainwindow = null; });
 
-    if(!isdev) mainwindow.removeMenu();
+    if (!isdev) mainwindow.removeMenu();
     else mainwindow.removeMenu();
     mws.manage(mainwindow);
 
-    if(isdev) loadVite(port);
+    if (isdev) loadVite(port);
     else loadURL(mainwindow);
+
+    const template = [
+        {
+            label: 'Desarrollador',
+            submenu: [
+                {
+                    label: 'Habilitar Modo Desarrollador',
+                    click: () => {
+                        mainwindow.webContents.openDevTools();
+                    }
+                },
+                {
+                    label: 'Desactivar Modo Desarrollador',
+                    click: () => {
+                        mainwindow.webContents.closeDevTools();
+                    }
+                }
+            ]
+        }
+    ];
+
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 }
 
 app.once("ready", createMainWindow);
-app.on("activate", () => { if(!mainwindow) createMainWindow(); });
-app.on("window-all-closed", () => { if(process.platform !== "darwin") app.quit(); });
+app.on("activate", () => { if (!mainwindow) createMainWindow(); });
+app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit(); });

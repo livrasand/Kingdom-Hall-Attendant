@@ -4,7 +4,8 @@
 
   Una aplicación multiplataforma desarrollada especialmente para ancianos, siervos ministeriales y superintendentes de circuito, para elaborar y mantener muchas de las asignaciones para la congregación.
 
-## Ejecutar Preview
+# Ejecutar Preview
+## Abre el directorio
 - `cd kha-electron`: Accede al directorio
 
 ## Install
