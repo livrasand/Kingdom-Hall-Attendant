@@ -1,4 +1,4 @@
-# Livrädo Zero License (Versión 1.0)
+# Livrado Zero License (Versión 1.0)
 
 Copyright (c) 2023 Livrado Sandoval.
 
@@ -52,11 +52,13 @@ Esta cláusula tiene como objetivo proteger la integridad de la licencia y asegu
 
 Esta cláusula tiene como objetivo otorgar al autor original el derecho exclusivo de decidir dónde se resolverán las controversias legales relacionadas con la licencia y el Software.
 
+---
+
 ## Validación de Integridad
 
-Para verificar la integridad de esta licencia, puede utilizar el siguiente valor de hash SHA-256:
+Para verificar la integridad de esta licencia, puede utilizar el valor de hash SHA-256 en el repositorio original de esta licencia:
 
-SHA-256: [Valor del Hash]
+[https://github.com/livrasand/Livrado-Zero-License](https://github.com/livrasand/Livrado-Zero-License)
 
 Es su derecho y responsabilidad como usuario verificar el valor hash de esta licencia antes de aceptar y utilizar el Software. Cualquier discrepancia entre el valor del hash calculado y el valor proporcionado puede indicar una modificación no autorizada de la licencia.
 
