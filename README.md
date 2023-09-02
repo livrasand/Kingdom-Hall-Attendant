@@ -135,10 +135,10 @@ Enter the following Bitcoin URI or Address in your favorite wallet to make contr
 ## 📜 Licencia 
 The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Svelte](https://svelte.dev/), [Electron](https://electronjs.org)  and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand), [Ramón Menor](https://github.com/rmenor) y [Saulo Costa](https://github.com/saulotarsobc).
 
-If you use or rely on the Kingdom Hall Attendant project in your research, software development, or other work, we would appreciate if you would cite the project as follows:
+<!-- CITATION LZL-1.0 -->
+[Livrado Zero License (LZL-1.0)](https://github.com/livrasand/Livrado-Zero-License) establece las condiciones para el uso de este software y su documentación asociada. Proporciona un equilibrio entre la libertad de uso, la protección de la marca y la integridad del software. Bajo esta licencia, cualquier persona puede utilizar, modificar y distribuir el software de forma gratuita, siempre y cuando cumpla con los términos de la licencia. Además, regula la distribución comercial del software, protege la reputación del autor original y otorga a este el derecho de elegir la jurisdicción en caso de disputas legales relacionadas con la licencia o el software. Esta licencia también incluye una cláusula de protección de la reputación y sanciones por mal uso, así como una cláusula que prohíbe la modificación de la licencia sin el consentimiento del autor original.
 
-livrasand (Year of last update). Kingdom Hall Attendant. GitHub repository. https://github.com/livrasand/Kingdom-Hall-Attendant/
+Para más detalles, consulta la Licencia completa en el archivo [LICENSE.md](LICENSE.md) que acompaña al software.
 
-Be sure to replace **"Year of Last Update"** with the year you are quoting, or just use [CITATION.cff](CITATION.cff).
-
-Copyright (c) 2023 Kingdom Hall Attendant - Released under the GoAttendant Zero Public License (GZPL). Kingdom Hall Attendant and the logo are trademarks of [GoAttendant](https://goattendant.com). Please see our trademark policy for information on acceptable use.
+Recuerda siempre verificar la integridad de la licencia antes de utilizar el software, y respeta los términos y condiciones de esta licencia Livrado Zero License (LZL-1.0) para un uso justo y respetuoso del software.
+<!-- CITATION LZL-1.0 -->
