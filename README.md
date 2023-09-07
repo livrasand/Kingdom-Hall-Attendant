@@ -1,4 +1,4 @@
-# :sparkles:&nbsp;Kingdom Hall Attendant
+# 🚧&nbsp;Kingdom Hall Attendant (Pre-alpha)
 <div align="center">
 <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/53dccddc-7b89-4bf6-8a0a-503acd5992c2" width="16%">
 <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/d4cec55c-5e6b-4ba7-971c-997d14e767cb" width="16%">
