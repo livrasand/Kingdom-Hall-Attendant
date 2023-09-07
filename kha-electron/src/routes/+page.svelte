@@ -64,12 +64,12 @@
        </div>
     </div>
     <div class="col-4 float-left p-3">
-       <div class="col-6 width-full">
+       <div class="col-6 width-full" style="border-left: 6px solid #1a7f37;border-left-color: #1a7f37;border-color: #1a7f37;background-color: #dafbe1;border-radius: 6px;">
           <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="/dashboard/oradorespublicos">
              <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e175"></i></div>
              <h5 class="color-fg-default" style="margin-left: 25%;">Oradores públicos</h5>
              <p class="color-fg-muted text-small" style="margin-left: 25%;">
-                Organiza las visitas y las salidas de los oradores de la congregación
+                Organiza los ancianos o siervos ministeriales que imparten discursos
              </p>
           </a>
        </div>
@@ -104,7 +104,7 @@
             <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e77"></i></div>
             <h5 class="color-fg-default" style="margin-left: 25%;">Configuración</h5>
             <p class="color-fg-muted text-small" style="margin-left: 25%;">
-               Añada sus datos personales, cambie la apariencia o el idioma, entre otros más
+               Añada sus datos personales, cambie la apariencia o el idioma
             </p>
          </a>
       </div>
