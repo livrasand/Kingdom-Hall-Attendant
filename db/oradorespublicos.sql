@@ -3,7 +3,7 @@ DROP INDEX oradorespublicos_id_idx;
 DROP TABLE oradorespublicos;
 
 CREATE TABLE oradorespublicos (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id TEXT PRIMARY KEY,
 	nombre TEXT,
     apellidos TEXT,
     aprobado TEXT,
@@ -207,6 +207,6 @@ CREATE TABLE oradorespublicos (
     discurso194 INTEGER,
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS oradorespublicos_id_idx ON oradorespublicos (
-    id 
-);
+    CREATE UNIQUE INDEX IF NOT EXISTS oradorespublicos_id_idx ON oradorespublicos (
+        id 
+    );

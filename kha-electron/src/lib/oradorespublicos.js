@@ -24,7 +24,7 @@ async function load() {
 }
 
 function loadById(id) {
-  console.log(`Fetching data for ID ${id} from the database...`);
+  console.log(`Fetching data for ID from the database...`);
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM oradorespublicos WHERE id = ?';
     db.get(sql, [id], (err, row) => {
@@ -466,6 +466,9 @@ discurso194 = ?
 
     await db.serialize(async () => {
       await db.run('BEGIN TRANSACTION');
+      const existingData = await loadById(id);
+      if (existingData) {
+        // Si existe un registro, actualiza los datos
       await db.run(updateSql, [
         id,
         nombre,
@@ -668,8 +671,8 @@ discurso190,
 discurso191,
 discurso192,
 discurso193,
-discurso194,
-        id  // Add id here for the WHERE clause
+discurso194, 
+id, // El último valor es el ID para la condición WHERE en la actualización
       ], (_err) => {
         if (_err) {
           console.error('Error updating data:', _err.message);
@@ -679,7 +682,9 @@ discurso194,
           db.run('COMMIT');
         }
       });
+      }
     });
+  
   } else {
     // Si no existe un registro existente, realiza una inserción
     console.log('Inserting new data...');

@@ -244,6 +244,12 @@
   async function sendData(e) {
   e.preventDefault();
   try {
+    // Genera un nuevo ID alfanumérico
+    const nuevoId = generarNuevoIdAlfanumerico();
+    
+    // Asigna el nuevo ID al formOrador
+    formOrador.id = nuevoId;
+
     console.log("Sending data:", formOrador);
 
     if (isNew) {
@@ -273,6 +279,14 @@
   } catch (error) {
     console.error("Error sending data:", error);
   }
+}
+
+// Define la función generarNuevoIdAlfanumerico
+function generarNuevoIdAlfanumerico() {
+  // Aquí puedes implementar la lógica para generar un nuevo ID alfanumérico
+  // Por ejemplo, podrías combinar una cadena con un número único o usar una librería de generación de IDs
+  const nuevoId = 'a' + Math.floor(Math.random() * 1000); // Ejemplo: 'a123'
+  return nuevoId;
 }
 
 async function handleEliminarOrador() {
