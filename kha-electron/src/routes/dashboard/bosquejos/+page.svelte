@@ -9,15 +9,6 @@
   </nav>
 </div>
 
-<!-- <div class="">
-  <div class="tabnav">
-     <nav class="tabnav-tabs" aria-label="Foo bar">
-        <a class="tabnav-tab" href="/dashboard/congregacion" aria-current="page">Congregación</a>
-        <a class="tabnav-tab" href="/dashboard/congregacion/publicadores">Publicadores</a>
-     </nav>
-  </div>
-</div> -->
-
 <div class="container-lg clearfix">
   <div class="Box">
      <div class="Box-row d-flex flex-items-center">

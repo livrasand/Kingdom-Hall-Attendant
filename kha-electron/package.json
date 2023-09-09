@@ -8,6 +8,7 @@
     "electron": "^26.1.0",
     "electron-builder": "^24.6.4",
     "electron-reloader": "^1.2.3",
+    "rimraf": "^5.0.1",
     "sass": "^1.56.1",
     "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7",
@@ -29,7 +30,8 @@
     "electron": "concurrently --kill-others \"vite dev\" \"electron src/electron.cjs\"",
     "preview": "vite preview",
     "build": "vite build",
-    "start": "electron ."
+    "start": "electron .",
+    "clean": "rimraf dist"
   },
   "version": "1.0.0",
   "name": "Kingdom Hall Attendant",
