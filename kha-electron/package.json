@@ -1,5 +1,5 @@
 {
-  "author": "GoAttendant Team",
+  "author": "Livrädo Sandoval",
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.101",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
@@ -14,7 +14,7 @@
     "svelte-preprocess": "^4.10.7",
     "vite": "^4.0.4"
   },
-  "license": "GoAttendant Zero Public License",
+  "license": "Livrado Zero License",
   "private": true,
   "dependencies": {
     "electron-serve": "^1.1.0",
@@ -36,5 +36,5 @@
   "version": "1.0.0",
   "name": "Kingdom Hall Attendant",
   "type": "module",
-  "description": "Aplicación para Superintendes de circuito, ancianos y siervos ministariales."
+  "description": "Aplicación para Superintendentes de circuito, ancianos y siervos ministeriales."
 }
