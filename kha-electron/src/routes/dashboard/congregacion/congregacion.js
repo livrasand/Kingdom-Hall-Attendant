@@ -25,16 +25,15 @@ function save(form) {
     c_d_finsemana, 
     c_h_finsemana, 
     c_direccion,
-    c_poblacion,
-    c_s_nombre, 
-    c_s_numero, 
+    c_n_super, 
+    c_t_super, 
     c_circuito
   } = form;
 
   db.serialize(() => {
     db.run('BEGIN TRANSACTION');
 
-    sql = `update congregacion set nombre = ?, numero = ?, d_entresemana = ?, h_entresemana = ?, d_finsemana = ?, h_finsemana = ?, direccion = ?, poblacion = ?, n_super = ?, t_super = ?, circuito = ? where id = ?`
+    sql = `update congregacion set nombre = ?, numero = ?, d_entresemana = ?, h_entresemana = ?, d_finsemana = ?, h_finsemana = ?, direccion = ?, n_super = ?, t_super = ?, circuito = ? where id = ?`
     db.run(sql, [
       c_nombre,
       c_numero,
@@ -43,9 +42,8 @@ function save(form) {
       c_d_finsemana,
       c_h_finsemana,
       c_direccion,
-      c_poblacion,
-      c_s_nombre,
-      c_s_numero,
+      c_n_super,
+      c_t_super,
       c_circuito, 
       1
     ], (_err) => {

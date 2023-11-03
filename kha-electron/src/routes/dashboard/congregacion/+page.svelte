@@ -11,8 +11,8 @@
       c_d_finsemana: '',
       c_h_finsemana: '',
       c_direccion: '',
-      c_s_nombre: '',
-      c_s_numero: '',
+      c_n_super: '',
+      c_t_super: '',
       c_circuito: ''
    };
 
@@ -27,8 +27,8 @@
          formCongregacion.c_d_finsemana = rows[0].d_finsemana;
          formCongregacion.c_h_finsemana = rows[0].h_finsemana;
          formCongregacion.c_direccion = rows[0].direccion;
-         formCongregacion.c_s_nombre = rows[0].s_nombre;
-         formCongregacion.c_s_numero = rows[0].s_numero;
+         formCongregacion.c_n_super = rows[0].n_super;
+         formCongregacion.c_t_super = rows[0].t_super;
          formCongregacion.c_circuito = rows[0].circuito;
       } catch (error) {
          console.error(error);
@@ -98,8 +98,8 @@
   <p class="f4 mb-0">Dirección del Salón del Reino</p>
   <textarea id="c_direccion" name="c_direccion" class="form-control width-full mb-3" bind:value={formCongregacion.c_direccion}></textarea>
   <br>  
-  <input name="c_s_nombre" class="form-control" type="text" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" bind:value={formCongregacion.c_s_nombre} />
-  <input name="c_s_numero" class="form-control" type="number" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" bind:value={formCongregacion.c_s_numero} />  
+  <input name="c_n_super" class="form-control" type="text" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" bind:value={formCongregacion.c_n_super} />
+  <input name="c_t_super" class="form-control" type="number" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" bind:value={formCongregacion.c_t_super} />  
   <input name="c_circuito" class="form-control" type="text" placeholder="Circuito" aria-label="Circuito" style="width:20%;" bind:value={formCongregacion.c_circuito} />
   <br><br>
   <div class="form-actions">
