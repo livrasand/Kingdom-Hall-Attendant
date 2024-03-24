@@ -1,139 +1,139 @@
-# 🚧&nbsp;Kingdom Hall Attendant (Pre-alpha)
-<div align="center">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/53dccddc-7b89-4bf6-8a0a-503acd5992c2" width="16%">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/d4cec55c-5e6b-4ba7-971c-997d14e767cb" width="16%">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/fdff0277-59e9-44f5-9322-ddc4362c2a70" width="16%">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/1b668d5f-7049-4ec7-9a97-c318cb7d7cc8" width="16%">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f1949d40-ac7e-4e4f-b039-ed69df4ad476" width="16%">
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3ca1bccf-e5b4-4a30-a07f-262c54fc1757" width="16%">
-</div>
+<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></div>
+<br>
 
-> ##### If you find this project useful, please support it by doing a "★ Star" in the repository. Thank you!
+# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha 1
+![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-13_de_100-e05d44)
 
-## What is Kingdom Hall Attendant?
+![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
+<h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio. ¡Gracias!</h6>
+<br>
 
-**Kingdom Hall Attendant**, or **KHA** for short, is an application used by Windows, macOS and Linux, and soon mobile platforms, digital tool designed to help circuit overseers, elders and ministerial servants of the Jehovah's Witnesses to develop and maintain all the assignments and responsibilities of the congregation, simplifying tasks such as the assignment of publishers, the generation of reports and other similar activities. We know that protecting KHA is essential, especially if you handle sensitive information or user data, it is crucial to guarantee the privacy and integrity of the information, for them, KHA includes security and privacy functions, to protect the information of the members of the congregation. Enjoy Kingdom Hall Attendant without limits on any operating system, choose the best version and edition according to your needs. The project is written in Svelte and uses Electron technology to build a cross-platform desktop application.
+> [!NOTE]
+> Actualmente, estoy llevando a cabo un mantenimiento y avance muy limitado, ya que soy el único autor involucrado en el desarrollo en este momento.
+Estoy emocionado de anunciar que la versión oficial del lanzamiento está programada para septiembre de 2024 o posiblemente antes. Para darles un adelanto, se lanzará una versión BETA antes del lanzamiento oficial.
 
-🗣️ Translations available: 🇪🇸 (Spanish)
+## 🕰️ Nuestra historia
+La historia de Kingdom Hall Attendant, cariñosamente llamado KHA, desde su concepción en abril de 2021 hasta su actualidad, es un testimonio de perseverancia, innovación y compromiso con la excelencia. Inicialmente conocido como Kingdom Hall Assistant, posteriormente, fue renombrado como "Attendant Kingdom Hall", en consonancia con la línea de software denominada "Attendant Zoom", finalmente llegando a "Kingdom Hall Attendant", este proyecto ha experimentado una evolución notable en su búsqueda de ofrecer una solución de calidad para la gestión de congregaciones.
 
-- 🚀 Very fast
-- 🍰 Easy to use with an intuitive interface
-- 🔐 Security that combines symmetric and asymmetric cryptography
-- 🤖 Built-in streaming client via onion routing
-- 🔎 Query multiple publishers and speakers in a single search on your circuit (advanced permissions required)
-- 💕 Compatibility with different platforms
-- 🤝 Flexibility according to the specific needs of your congregation
+El camino hacia el desarrollo de KHA ha sido una travesía de aprendizaje y adaptación. Se inició en Visual Basic .NET en agosto del 2021, pero pronto me di cuenta de la importancia de la accesibilidad multiplataforma y se trasladó a Electron puro en mayo de 2022. Sin embargo, hubo desafíos técnicos significativos, lo que llevó a otra transición en noviembre de 2022 hacia Sevelte, Electron y SQLite.
 
-## How do I start?
+Aunque hubo un período de interrupción en el desarrollo en noviembre de 2023 debido a limitaciones de tiempo y desintegración del equipo, el espíritu de KHA permaneció intacto. En febrero de 2024, el proyecto renació con renovado vigor, adoptando Python como lenguaje principal y avanzando con determinación hacia su objetivo final: lanzar una versión preliminar BETA para septiembre de 2024, o incluso antes, para satisfacer las expectativas de los usuarios que han estado esperando desde los primeros días del proyecto.
 
-Go to the KHA [wiki](https://github.com/livrasand/Kingdom-Hall-Attendant/wiki) to find information on installation, configuration, adding your congregation data, publishers, synchronization and more.
+Si bien las funciones esenciales de KHA se han mantenido, han sido mejoradas y optimizadas para ofrecer una experiencia aún más útil y eficiente. La seguridad ha sido reforzada y se ha implementado una tecnología de cifrado única y propia de KHA. Además, el programa ahora es completamente gratuito, sin costos ni donaciones obligatorias.
 
-## 🔐 Security
+Para garantizar la sostenibilidad del proyecto, se han introducido nuevas formas de financiación. Los **Season Pass**, que ofrecen temas, colores y estilos únicos para la aplicación por tiempo limitado, permitiendo a los usuarios personalizar su experiencia mientras contribuyen al desarrollo continuo de KHA. También se ha lanzado el **Servicio de Impresión Ebenézer** (SIE Printing), que ofrece servicios de impresión personalizados para documentos relacionados con la Congregación Cristiana de los Testigos de Jehová, generando ingresos adicionales para el proyecto.
 
-Kingdom Hall Attendant implements a strong authentication system to ensure that only authorized users can access KHA. In addition, we use an authorization system to control what actions and resources each user can perform or see based on their role in a congregation, or circuit. We make sure that the communication between the client and the server is encrypted using the HTTPS protocol. Also, we encrypt sensitive data in the database to protect it at rest, we use hashing and salting techniques to store information securely. We keep all KHA libraries, frameworks and components up to date. We subtly validate and carefully filter user input to prevent attacks like SQL injections or Cross-Site Scripting (XSS). We use secure session tokens and avoid exposing sensitive information in URLs (URLs not on our Whitelist are rejected). And most importantly, we make sure that our users are well informed about security best practices. We know that education is key to avoiding inadvertent security mistakes. For this reason, we carry out informative cybersecurity events for Kingdom Hall Attendant every six months on our [YouTube](https://www.youtube.com/channel/UC3j3G73t73Dook57HkAD52Q) channel.
+A diferencia de otras aplicaciones similares, KHA se destaca por su enfoque en la autonomía y la comunidad. Aunque se ofrecen Season Pass a precios accesibles, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
-## What can KHA do?
+Además, la disponibilidad de KHA en múltiples plataformas, incluyendo Windows, macOS y Linux, demuestra un compromiso con la accesibilidad y la inclusión. Incluso es posible ejecutar KHA en ChromeOS utilizando herramientas que permiten ejecutar Python, ampliando aún más su alcance y utilidad.
 
-- Unlimited publisher registration
-- Publisher Registration Cards
-- Share publishers and speakers
-- Suggested substitutes
-- Manages the information of the congregation and the publishers. Life and Ministry
-- Automatically schedule meeting assignments.
-- Automatically schedule roles and assignments for the meeting.
-- Organization of meeting volunteers
-- Share publishers and speakers
-- Organize the visits and outings of the speakers of the congregation
-- Schedule hospitality to visiting speakers and their travel expenses
-- View public talks that have been given in your congregation or outside
-- Organize the cleaning, and verify that there are no lack of cleaning products
-- Effectively work the territories of the congregation
-- Schedule the visit of the circuit overseer to the congregation
-- Coordinate lawn and garden work, usually following a to-do list
-- Schedule preventative LDC maintenance for the Kingdom Hall
-- Create groups, assign members and organize tours
-- Organize pastoral visits to families and publishers
-- Organize the publishers that participate in the tables and portable displays, the places and the days
-- Schedule field service outings, and keep track of preaching places
-- Get reports, records of each publisher, and see the analytics of the congregation
-- Register the accounting of the congregation, the entrances and exits, prepare the monthly report
-- Record meeting attendance and prepare attendance reports
-- Keep a running inventory of literature, prepare for campaigns
-- Coordinate and maintain a record of the judicial affairs of the congregation
-- Organize the Memorial and Special Public Talk
-- Organize help to brothers in need with a faithful service
-- Organize relief work for victims of disasters and emergencies
-- Organize visits to groups for service
-- Resources and tools or schedule a future clinical procedure
-- Organize visits to Patients to give spiritual comfort and help
-- Get a detailed report from the congregation, easily share with the circuit overseer
-- Make backup copies of the most important information
-- Add your personal data, change the appearance or language of KHA, among many more
+En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un testimonio de dedicación, innovación y excelencia en la búsqueda de brindar una solución efectiva para la gestión de congregaciones. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático.
 
-## What are contributions within KHA?
+## ¿Qué es Kingdom Hall Attendant?
+![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/072072ab-a69d-436a-afdf-646f7fe57ebf)
 
-Dear Kingdom Hall Attendant user community,
+**Kingdom Hall Attendant** es una aplicación utilizada por Windows, macOS y Linux, y próximamente plataformas móviles, es una herramienta digital diseñada para ayudar a los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová a desarrollar y mantener todas las asignaciones y responsabilidades de la congregación, simplificando tareas y actividades. Sabemos que proteger a KHA es fundamental, sobre todo si manejas información sensible o datos de publicadores, es crucial garantizar la privacidad e integridad de la información, para ello, KHA incluye funciones de seguridad y privacidad, para proteger la información de los miembros de la congregación. Disfruta de Kingdom Hall Attendant sin límites en cualquier sistema operativo. El proyecto está escrito en HTML y utiliza tecnología Python para crear una aplicación multiplataforma.
 
-On behalf of the entire team behind Kingdom Hall Attendant, we want to express our sincere thanks for choosing our app to support your congregations or circuits. Your commitment to this digital tool is what makes it possible and meaningful.
+- 🚀 Muy rápido
+- 🍰 Fácil de usar con una interfaz intuitiva
+- 🔐 Seguridad que combina criptografía simétrica y asimétrica
+- 🤖 Cliente de transmisión integrado mediante Onion Router
+- 💕 Compatibilidad con diferentes sistemas operativos
+- 🤝 Flexibilidad según las necesidades específicas de tu congregación
 
-Every time you use Kingdom Hall Attendant to manage and coordinate your activities, you are directly contributing to the smooth flow of events and successful operation of your community. Your dedication is the heart that drives this app, and for that we are deeply grateful.
+<details>
 
-We are proud to keep this app free and open source so everyone can benefit. However, maintaining and improving the application requires continuous efforts and resources. If you feel like offering your additional support, we have incorporated contribution options that will allow us to continue to provide exceptional service and expand our capabilities. These contributions will not only fund development costs, but will also ensure that we can keep the app running optimally and provide even stronger support. Your contributions will allow us to:
+<summary>¿Qué puede hacer Kingdom Hall Attendant?</summary>
 
-- **Develop new features:** We plan to introduce features that will further simplify tasks in the congregation.
-- **Offer free, enhanced support:** With additional resources, we will be able to more efficiently respond to your queries and provide personalized assistance when you need it.
-- **Keep the app reliable:** Funding from your in-app contributions will help us maintain servers and technical infrastructure to avoid interruptions.
+- Registro de editor ilimitado
+- Tarjetas de registro de editor
+- Compartir editores y oradores
+- Sustitutos sugeridos
+- Maneja la información de la congregación y de las editoriales. Vida y Ministerio
+- Programe automáticamente asignaciones de reuniones.
+- Programe automáticamente roles y asignaciones para la reunión.
+- Organización de reuniones de voluntarios.
+- Compartir editores y oradores
+- Organizar las visitas y salidas de los ponentes de la congregación.
+- Programar la hospitalidad para los oradores visitantes y sus gastos de viaje.
+- Vea los discursos públicos que se han dado en su congregación o fuera de ella.
+- Organiza la limpieza y verifica que no falten productos de limpieza.
+- Trabajar eficazmente los territorios de la congregación.
+- Programe la visita del superintendente de circuito a la congregación
+- Coordinar el trabajo del césped y el jardín, generalmente siguiendo una lista de tareas pendientes.
+- Programe el mantenimiento preventivo de LDC para el Salón del Reino
+- Crea grupos, asigna miembros y organiza tours.
+- Organizar visitas pastorales a familias y editores.
+- Organizar los publicadores que participan en las mesas y expositores portátiles, los lugares y los días.
+- Programe salidas de servicio del campo y lleve un registro de los lugares de predicación
+- Obtenga informes, registros de cada editorial y vea los análisis de la congregación.
+- Registrar la contabilidad de la congregación, las entradas y salidas, preparar el informe mensual.
+- Registrar la asistencia a las reuniones y preparar informes de asistencia.
+- Mantenga un inventario actualizado de literatura y prepárese para las campañas.
+- Coordinar y mantener un registro de los asuntos judiciales de la congregación.
+- Organizar la conmemoración y el discurso público especial
+- Organizar ayuda a hermanos necesitados con un servicio fiel
+- Organizar trabajos de socorro para las víctimas de desastres y emergencias.
+- Organizar visitas a grupos para servicio.
+- Recursos y herramientas o programar un futuro procedimiento clínico
+- Organizar visitas a pacientes para brindarles consuelo y ayuda espiritual.
+- Obtenga un informe detallado de la congregación y compártalo fácilmente con el superintendente de circuito.
+- Realiza copias de seguridad de la información más importante
+- Agrega tus datos personales, cambia la apariencia o idioma de KHA, entre muchos más
 
-We're excited about the potential these updates can bring, and we're committed to making Kingdom Hall Attendant an even more valuable tool for you. Every in-app contribution you make will make a tangible difference in the quality and reach of the app. We appreciate your continued support and dedication to this community. Together, we can take Kingdom Hall Attendant to new horizons and ensure that it continues to be a powerful tool for everyone.
 
-Once again, thank you for being a part of the Kingdom Hall Attendant family. Together, we are making a real difference. We are always here to help you every step of the way.
+</details>
 
-**With gratitude,
-The Kingdom Hall Attendant Team**
 
-The application has incredible **free themes**, these are the available themes:
+## Ejecutar localmente
 
-| Theme | Preview | 
-| :-------- | :------- | 
-| Iron | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/0bb0a95a-94ec-4bef-bf25-344a8b07232e" width="80px"> |
-| Rock Blue | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3f65001f-59fc-4b09-aeaa-74c632097473" width="80px"> |
-| Clementine | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cb26acc9-af2a-4a0b-b9e5-a882313f234b" width="80px"> |
-| Gigas | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/fcb9d3a7-0ef8-4e5c-9f3f-6214fe06846d" width="80px"> |
-| Snuff | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/42cdb4cf-fd19-44e7-ad38-7e4f5a397617" width="80px"> |
-| Albescent White | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/efd07a78-fc76-4cd7-a754-9b9b9b7eb3da" width="80px"> |
-| Outer Space | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/fba19798-ede3-49b1-942e-91bbbaaa98f4" width="80px"> |
-| Romantic | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/104cda6c-84f8-4539-9e95-babeff43fcd0" width="80px"> |
-| Sunglo | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3ffe9472-7b2b-46ed-8229-aafa1281d569" width="80px"> |
-| Cream Can | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/db6e4fca-fd88-4008-b5b0-111ed24709d3" width="80px"> |
+Clonar el proyecto
 
-🎟 **SEASON PASS** are seasonal contributions of $100 MXN. When they are available you will see the benefits that each one offers, they are not mandatory, you will decide if you take it or not.
+```bash
+  git clone https://github.com/livrasand/Kingdom-Hall-Attendant
+```
 
-**Free software support** is also available, get help by phone, chat, email and much more.
+Ir al directorio del proyecto
 
-## 💻 Languages used
+```bash
+  cd C:\Users\{user}\Kingdom-Hall-Attendant
+```
 
-- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/livrasand/livrasand.github.io/main/DJGL-API/kingdom-hall-attendant.json&query=%24.Svelte&logo=svelte&logoColor=%23FF3E00&label=Svelte&labelColor=%23e6e6e6&color=%23FF3E00): Used for backend and data processing.
-- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/livrasand/livrasand.github.io/main/DJGL-API/kingdom-hall-attendant.json&query=%24.CSS&logo=css3&logoColor=%231572B6&label=CSS&labelColor=%23e6e6e6&color=%231572B6): Used for the layout and styling of the application.
-- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/livrasand/livrasand.github.io/main/DJGL-API/kingdom-hall-attendant.json&query=%24.JavaScript&logo=javascript&logoColor=%23F7DF1E&label=JavaScript&labelColor=%23e6e6e6&color=%23F7DF1E): Used for interactive user interface.
-- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/livrasand/livrasand.github.io/main/DJGL-API/kingdom-hall-attendant.json&query=%24.HTML&logo=html5&logoColor=%23E34F26&label=HTML&labelColor=%23e6e6e6&color=%23E34F26): Used to create and structure the content of the application.
-- ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/livrasand/livrasand.github.io/main/DJGL-API/kingdom-hall-attendant.json&query=%24.Shell&logo=powershell&logoColor=%235391FE&label=Shell&labelColor=%23e6e6e6&color=%235391FE): Used to perform various tasks, such as managing files, running programs, and configuring the system.
+Instalar dependencias
 
-You can see in detail the programming languages used in this project [here](https://api.github.com/repos/livrasand/Kingdom-Hall-Attendant/languages).
+```bash
+  pip install -r requirements.txt
+```
 
-## Want to contribute?
+Iniciar el servidor
 
-We welcome contributions of all kinds! See our [CONTRIBUTING.md](CONTRIBUTING.md) file for instructions on how to contribute to Kingdom Hall Attendant.
+```bash
+  python app
+```         
 
-This app is made with love and a little spare time. Enjoy!
+## 🍿 Una comunidad interconectada
 
-Donations are accepted (although this is not mandatory). Doing something that means something positive for other people is always rewarding, especially when you see the positive impact your dedication and work has. In advance I take a moment to thank you from the bottom of my heart for your generosity and support.
+¡La comunidad de código abierto es el 💗 corazón de Kingdom Hall Attendant y es fundamental para la forma en que creamos software!
 
-Enter the following Bitcoin URI or Address in your favorite wallet to make contributions. <b>You can only send Bitcoin.</b> Contributions can only be in cryptocurrency. We do not use PayPal or any other payment method. We appreciate your understanding and not requesting another method. We use [Electrum](https://github.com/spesmilo/electrum) for transactions, you can use any of your preference:
+Para obtener ayuda, envíe un correo electrónico a [livrasand@outlook.com](mailto:livrasand@outlook.com).
 
-[![BTC](https://img.shields.io/badge/-Bitcoin-5b5b5b?logo=bitcoin)](https://explorer.btc.com/btc/address/bc1qqe5y9kw7ewne8njdces8e4ajx5u7zhfftdvl33): `bitcoin:bc1qnzzxp0v6dqx0e5eehjsgs5fpdz7r6vzpjhlgeh`
+¡Realmente apreciamos tu ayuda! Puedes contribuir de varias maneras:
+
+- ⭐️ **haciendo "★ Star" en el repositorio**. Esto hace que sea más fácil para otros encontrar la aplicación
+- 💼 ayude a los usuarios a **responder preguntas** en las [Issues](https://github.com/livrasand/Kingdom-Hall-Attendant/issues)
+- 💬 **contándoles a otros** sobre Kingdom Hall Attendant
+- 💰 apoyando con una **[donación](https://paypal.me/livrados)**
+- 🌐 **traduciendo** la aplicación a tu idioma
+- 👨‍💻 colaborando en el desarrollo
+- 🛡️ pueden ayudar **depurando Kingdom Hall Attendant** y reduciendo los problemas
+- 📝 documentando el programa y escribir en la wiki
+
+Contribuciones recientes:
+
+![Alt](https://repobeats.axiom.co/api/embed/4a71783c23dd5e07a13cf808480c0a7e0638d9f4.svg "Repobeats analytics image")
 
 ## 📜 Licencia 
-The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Svelte](https://svelte.dev/), [Electron](https://electronjs.org)  and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand), [Ramón Menor](https://github.com/rmenor) y [Saulo Costa](https://github.com/saulotarsobc).
+The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Python](https://python.org/) and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand).
 
 <!-- CITATION LZL-1.0 -->
 [Livrado Zero License (LZL-1.0)](https://github.com/livrasand/Livrado-Zero-License) establece las condiciones para el uso de este software y su documentación asociada. Proporciona un equilibrio entre la libertad de uso, la protección de la marca y la integridad del software. Bajo esta licencia, cualquier persona puede utilizar, modificar y distribuir el software de forma gratuita, siempre y cuando cumpla con los términos de la licencia. Además, regula la distribución comercial del software, protege la reputación del autor original y otorga a este el derecho de elegir la jurisdicción en caso de disputas legales relacionadas con la licencia o el software. Esta licencia también incluye una cláusula de protección de la reputación y sanciones por mal uso, así como una cláusula que prohíbe la modificación de la licencia sin el consentimiento del autor original.

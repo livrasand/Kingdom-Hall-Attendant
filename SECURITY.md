@@ -1,12 +1,12 @@
 # Política de Seguridad
 
-## Reportando Problemas de Seguridad
+## Reportando problemas de seguridad
 
 Si descubres un problema de seguridad en este proyecto, te pedimos que nos lo hagas saber de inmediato. Valoramos enormemente la comunidad de seguridad y los esfuerzos para mejorar la seguridad de este proyecto.
 
 Para reportar un problema de seguridad, por favor sigue estos pasos:
 
-1. Envía un correo electrónico a [livrasand@outlook.com  ](mailto:livrasand@outlook.com) con los detalles completos del problema. Por favor, incluye la siguiente información:
+1. Envía un correo electrónico a [livrasand@outlook.com](mailto:livrasand@outlook.com) con los detalles completos del problema. Por favor, incluye la siguiente información:
 
    - Descripción detallada del problema.
    - Pasos para reproducirlo o prueba de concepto.
@@ -22,11 +22,11 @@ Para reportar un problema de seguridad, por favor sigue estos pasos:
 
 Agradecemos a la comunidad de seguridad por sus esfuerzos para mejorar la seguridad de este proyecto. Si descubres un problema de seguridad y colaboras con nosotros en su resolución, podemos reconocer tu contribución públicamente, a menos que desees permanecer anónimo.
 
-## Divulgación Responsable
+## Divulgación responsable
 
 Pedimos que sigas una divulgación responsable de cualquier problema de seguridad que hayas encontrado. Esto significa que te comprometes a no divulgar públicamente el problema hasta que hayamos tenido tiempo de abordarlo y proporcionar una solución. 
 
-## Exclusión de Responsabilidad
+## Exclusión de responsabilidad
 
 Este proyecto es proporcionado tal cual, sin garantías expresas ni implícitas en cuanto a su seguridad. Cualquier uso o confianza en el proyecto es bajo tu propio riesgo.
 

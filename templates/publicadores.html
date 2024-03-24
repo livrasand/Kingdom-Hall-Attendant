@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+   <head>
+      <title>Kingdom Hall Attendant</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   </head>
+   <body>
+      <div class="Header color-bg-inset">
+         <!-- Image item  -->
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+               <div class="col-10 d-table-cell v-align-middle pl-4">
+                  <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
+                  <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
+               </div>
+            </div>
+         </div>
+         <div class="d-flex flex-justify-end  ">    
+         <a class="btn btn-sm float-right mr-6" href="{{ url_for('nuevo_publicador') }}" role="button">Nuevo</a>
+       </div>
+      </div>
+      <div class="container-xl mt-6">
+         <div class="container-xl">
+            <div class="">
+               <div class="tabnav">
+                  <nav class="tabnav-tabs" aria-label="Foo bar">
+                     <a class="tabnav-tab" href="congregacion.html">Congregación</a>
+                     <a class="tabnav-tab" href="publicadores.html" aria-current="page">Publicadores</a>
+                  </nav>
+               </div>
+            </div>
+
+
+               {% for publicador_list in publicador_list %}
+<div class="pl-2">         
+         <div class="container-lg clearfix">
+            <div class="Box mb-1">
+               <div class="Box-row d-flex flex-items-center">
+                  <div class="flex-auto">
+                     <strong class="h4">{{ publicador_list[1] }}, {{ publicador_list[2] }}</strong>
+                  </div>
+                  <a href="/mostrar_publicador/{{ publicador_list[0] }}"><button class="btn mr-2 btn-sm" type="button">
+                     <!-- <%= octicon "search" %> -->
+                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path
+                           d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z">
+                        </path>
+                     </svg>
+                  </button></a>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+
+
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+   <head>
+      <title>Kingdom Hall Attendant</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   </head>
+   <body>
+      <div class="Header color-bg-inset">
+         <!-- Image item  -->
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+               <div class="col-10 d-table-cell v-align-middle pl-4">
+                  <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
+                  <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
+               </div>
+            </div>
+         </div>
+         <div class="d-flex flex-justify-end  ">    
+         <a class="btn btn-sm float-right mr-6" href="{{ url_for('nuevo_publicador') }}" role="button">Nuevo</a>
+       </div>
+      </div>
+      <div class="container-xl mt-6">
+         <div class="container-xl">
+            <div class="col-12 float-left p-4">
+                  <p class="h2 mt-n5">Datos personales</p>
+                  <form action="/guardar_publicador" method="POST">
+                     <input type="hidden" name="id" value="{{ publicador[0] }}" style="display: none;">
+                     <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" name="nombres" style="width: 49%;" value="{{ publicador[1] }}" />
+    <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" aria-label="Apellidos" name="apellidos" style="width:49%;" value="{{ publicador[2] }}" />
+
+    <div class="radio-group mt-1">
+        <input class="radio-input" id="option-a" type="radio" name="genero" value="Hombre" {% if publicador[3] == 'Hombre' %} checked {% endif %}>
+        <label class="radio-label" for="option-a">Hombre</label>
+        <input class="radio-input" id="option-b" type="radio" name="genero" value="Mujer" {% if publicador[3] == 'Mujer' %} checked {% endif %}>
+        <label class="radio-label" for="option-b">Mujer</label>    
+    </div>
+{% if publicador[3] != 'Mujer' %}
+    <div class="form-checkbox mt-2">
+        <div class="flash-messages">
+    <div class="flash flash-warn text-small ml-n3 mb-n3">
+        Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información.
+    </div>
+</div>   
+    {% if familia_existente %}
+        <label>
+        <input type="checkbox" name="cabeza_de_familia" id="cabeza_de_familia_checkbox" {% if publicador[4] == '1' %} checked {% endif %}>
+        <em class="highlight">Cabeza de la familia {{ publicador[2] }}</em>
+    </label>
+    {% else %}
+    <label>
+        <input type="checkbox" name="cabeza_de_familia" id="cabeza_de_familia_checkbox" {% if publicador[4] == '1' %} checked {% endif %}>
+        <em class="highlight">Cabeza de familia o soltero</em>
+    </label>
+        <a href="/crear_familia/{{ publicador[2] }}" class="btn-link ml-1" type="button" id="crear_familia_button" style="{% if publicador[4] == '1' %} display: inline-block; {% else %} display: none; {% endif %}">Crear familia </a>
+    {% endif %}
+</div>
+{% endif %}
+<br>
+{% if familia_existente %}
+    
+{% else %}    
+    <select class="form-select mb-2 mt-0" aria-label="Preference" id="seleccione-familia">
+        <option>{{ publicador[111] }}</option>
+    </select>
+{% endif %}
+
+<!-- NOTA SOLO VISIBLE SI ES MIEMBRO DE LA FAMILIA -->
+<div class="flash-messages" id="flash-messages" style="{% if publicador[4] == '1' %} display: none; {% endif %}">
+    <div class="flash">
+        Este publicador es 
+        <select class="form-select select-sm" aria-label="Preference">
+            <option>esposa</option>
+            <option>hija</option>
+            <option>hijo</option>
+        </select>
+        del cabeza de familia
+    </div>
+</div>
+                     <!-- FIN DE LA NOTA -->
+                     <p class="f5 mb-0">Fecha de nacimiento</p>
+                     <input class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" id="fecha_nacimiento" name="fecha_nacimiento" style="width:49%;" value="{{ publicador[5] }}" />
+                     <p class="f5 mb-0 mt-2">Dirección</p>
+                     <textarea class="form-control width-full" id="direccion" name="direccion">{{ publicador[6] }}</textarea>
+                     <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" id="correo_electronico" name="correo_electronico" value="{{ publicador[7] }}"/>
+                     <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" id="celular" name="celular" value="{{ publicador[8] }}" />
+                     <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" id="telefono" name="telefono" value="{{ publicador[9] }}" />
+                     <hr>
+
+                     <p class="h2 mt-0">Datos espirituales</p>
+                     <div class="form-checkbox mt-3 mb-0">
+    <label>
+        <input type="checkbox" id="bautizado_checkbox" name="bautizado_checkbox" {% if publicador[10] == '1' %} checked {% endif %}>
+        <em class="highlight">Bautizado</em>
+    </label>
+</div>
+<p class="f5 mb-0" id="texto_fecha_bautizo" {% if publicador[10] == '1' %} style="display: block;" {% else %} style="display: none;" {% endif %}>Fecha de bautizo</p>
+<input class="form-control" type="date" placeholder="Fecha de bautizo" aria-label="Fecha de bautizo" id="fecha_bautizo_input" name="fecha_bautizo_input" style="width:25%; {% if publicador[10] == '1' %} display: block; {% else %} display: none; {% endif %}" {% if publicador[11] %} value="{{ publicador[11] }}" {% endif %}>
+
+
+                     <p class="f5 mb-0 mt-2">Grupo de predicación</p>
+                     <select class="form-select" aria-label="Preference">
+    <option>Seleccione un grupo</option>
+    {% for grupo in grupos_predicacion %}
+        <option>{{ grupo[1] }}</option> <!-- Ajusta esto según la estructura de tu tabla -->
+    {% endfor %}
+</select>
+
+                     <div class="container-xl clearfix mt-5">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+                              <input type="checkbox" id="recibe_atalaya" name="recibe_atalaya" {% if publicador[12] %} checked {% endif %} />
+                              <em class="">Recibe La Atalaya (edición de estudio)</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="recibe_guia_actividades" name="recibe_guia_actividades" {% if publicador[13] %} checked {% endif %}/>
+                              <em class="">Recibe la Guía de actividades</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="no_bautizado" name="no_bautizado" {% if publicador[14] %} checked {% endif %} />
+                              <em class="">Publicador no bautizado</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="temporal" name="temporal" {% if publicador[15] %} checked {% endif %} />
+                              <em class="">Publicador temporal (visitante de 3 meses o menos)</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="ungido" name="ungido" {% if publicador[16] %} checked {% endif %} />
+                              <em class="">Ungido</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="nino" name="nino" {% if publicador[17] %} checked {% endif %} />
+                              <em class="">Niño</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="readmitido" name="readmitido" {% if publicador[18] %} checked {% endif %} />
+                              <em class="">Readmitido</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="irregular" name="irregular" {% if publicador[19] %} checked {% endif %} />
+                              <em class="">Irregular</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="invidente" name="invidente" {% if publicador[20] %} checked {% endif %} />
+                              <em class="">Invidente</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="abuso_sexual" name="abuso_sexual" {% if publicador[21] %} checked {% endif %} />
+                              <em class="">Cometió abuso sexual de menores</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="divorciado" name="divorciado" {% if publicador[22] %} checked {% endif %} />
+                              <em class="">Divorciado</em>
+                              </label>
+                              <br>
+                              <label>
+                              <input type="checkbox" id="viudo" name="viudo" {% if publicador[23] %} checked {% endif %} />
+                              <em class="">Viudo</em>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <label>
+                           <input type="checkbox" id="sordo" name="sordo" {% if publicador[24] %} checked {% endif %} />
+                           <em class="">Sordo</em>
+                           </label>
+                           <br>
+                           <label>
+                           <input type="checkbox" id="enfermo" name="enfermo" {% if publicador[25] %} checked {% endif %} />
+                           <em class="">Enfermo</em>
+                           </label>
+                           <br>
+                           <label>
+                           <input type="checkbox" id="voluntario_ldc" name="voluntario_ldc" {% if publicador[26] %} checked {% endif %} />
+                           <em class="">Voluntario del LDC</em>
+                           </label>
+                           <br>
+                           <label>
+                           <input type="checkbox" id="voluntario_epc" name="voluntario_epc" {% if publicador[27] %} checked {% endif %} />
+                           <em class="">Voluntario EPC</em>
+                           </label>
+                           <label>
+                              <br>
+                <!-- Checkbox para Tiene llaves del Salón del Reino -->
+                <input type="checkbox" id="llaves_salon" name="llaves_salon" {% if publicador[28] %} checked {% endif %}>
+                <em class="">Tiene llaves del Salón del Reino</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Utiliza Kingdom Hall Attendant -->
+                <input type="checkbox" id="utiliza_kha" name="utiliza_kha" {% if publicador[29] %} checked {% endif %}>
+                <em class="">Utiliza Kingdom Hall Attendant</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Censurado -->
+                <input type="checkbox" id="censurado" name="censurado" {% if publicador[30] %} checked {% endif %}>
+                <em class="">Censurado</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Inactivo -->
+                <input type="checkbox" id="inactivo" name="inactivo" {% if publicador[31] %} checked {% endif %}>
+                <em class="">Inactivo</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Expulsado -->
+                <input type="checkbox" id="expulsado" name="expulsado" {% if publicador[32] %} checked {% endif %}>
+                <em class="">Expulsado</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Fallecido -->
+                <input type="checkbox" id="fallecido" name="fallecido" {% if publicador[33] %} checked {% endif %}>
+                <em class="">Fallecido</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Encarcelado -->
+                <input type="checkbox" id="encarcelado" name="encarcelado" {% if publicador[34] %} checked {% endif %}>
+                <em class="">Encarcelado</em>
+            </label>
+            <br>
+            <label>
+                <!-- Checkbox para Separado -->
+                <input type="checkbox" id="separado" name="separado" {% if publicador[35] %} checked {% endif %}>
+                <em class="">Separado</em>
+            </label>
+                        </div>
+                     </div>
+                     <hr>
+                     <p class="h2 mt-0">Nombramientos</p>
+<div class="radio-group mt-1">
+    <input class="radio-input" id="option-anciano" type="radio" name="nombramientos" value="Anciano" {% if publicador[36] == 'Anciano' %} checked {% endif %}>
+    <label class="radio-label" for="option-anciano">Anciano</label>
+    <input class="radio-input" id="option-siervom" type="radio" name="nombramientos" value="Siervo ministerial" {% if publicador[36] == 'Siervo ministerial' %} checked {% endif %}>
+    <label class="radio-label" for="option-siervom">Siervo ministerial</label> 
+    <input class="radio-input" id="option-ninguno" type="radio" name="nombramientos" value="Ninguno" {% if publicador[36] not in ['Siervo ministerial', 'Anciano'] %} checked {% endif %}>
+    <label class="radio-label" for="option-ninguno">Ninguno</label>    
+</div>
+
+<p class="f5 mb-0 mt-2" id="text_fecha_inicio_nombrado">Nombrado</p>
+<input class="form-control" type="date" placeholder="Fecha de inicio" aria-label="Fecha de inicio" style="width: 49%;" id="fecha-inicio-input-nombrado" name="fecha_inicio_nombrado" value="{{ publicador[37] }}">
+
+<p class="f5 mb-0 mt-2">Privilegios de servicio</p>
+<div class="radio-group mt-1" style="width:100%;">
+    <input class="radio-input" id="option-ninguno-privilegio-servicio" type="radio" name="privilegios_servicio" value="Ninguno" {% if publicador[36] not in ['Precursor auxiliar de continuo', 'Precursor regular'], 'Misionero que sirve en el campo', 'Envía su informe directamente a la sucursal' %} checked {% endif %}>
+    <label class="radio-label" for="option-ninguno-privilegio-servicio">Ninguno</label>    
+
+    <input class="radio-input" id="option-precursor-auxiliar" type="radio" name="privilegios_servicio" value="Precursor auxiliar de continuo" {% if publicador[38] == 'Precursor auxiliar de continuo' %} checked {% endif %}>
+    <label class="radio-label" for="option-precursor-auxiliar">Precursor auxiliar de continuo</label>
+
+    <input class="radio-input" id="option-precursor-regular" type="radio" name="privilegios_servicio" value="Precursor regular" {% if publicador[38] == 'Precursor regular' %} checked {% endif %}>
+    <label class="radio-label" for="option-precursor-regular">Precursor regular</label>
+
+    <input class="radio-input" id="option-precursor-especial" type="radio" name="privilegios_servicio" value="Precursor especial" {% if publicador[38] == 'Precursor especial' %} checked {% endif %}>
+    <label class="radio-label" for="option-precursor-especial">Precursor especial</label>
+
+    <input class="radio-input" id="option-misionero" type="radio" name="privilegios_servicio" value="Misionero que sirve en el campo" {% if publicador[38] == 'Misionero que sirve en el campo' %} checked {% endif %}>
+    <label class="radio-label" for="option-misionero">Misionero</label>
+
+    <input class="radio-input" id="option-sucursal" type="radio" name="privilegios_servicio" value="Envía su informe directamente a la sucursal" {% if publicador[38] == 'Envía su informe directamente a la sucursal' %} checked {% endif %}>
+    <label class="radio-label" for="option-sucursal">Informa directamente a la sucursal</label>
+</div>
+
+<p class="f5 mb-0 mt-2" id="fecha-inicio-label">Fecha de inicio</p>
+<input class="form-control" type="date" placeholder="Fecha de inicio" aria-label="Fecha de inicio" style="width: 49%;" id="fecha-inicio-input" name="fecha_inicio" value="{{ publicador[39] }}">
+
+<input class="form-control" type="number" placeholder="Número de precursor" aria-label="Número de precursor" style="width:49%;" id="numero-precursor-input" name="numero_precursor" value="{{ publicador[40] }}">
+
+<div class="form-checkbox mt-3 mb-0" id="temporario_checkbox">
+    <label>
+        <input type="checkbox" id="temporario" name="temporario" {% if publicador[41] %} checked {% endif %}>
+        <em class="highlight">Temporario</em>
+    </label>
+</div>
+
+<div class="form-checkbox mt-3 mb-0" id="enfermizo_checkbox">
+    <label>
+        <input type="checkbox" id="enfermizo" name="enfermizo" {% if publicador[42] %} checked {% endif %}>
+        <em class="highlight">Enfermizo (sfl 9:18)</em>
+    </label>
+</div>
+
+<p class="f5 mb-0 mt-2" id="fecha-ultima-escuela-label">Última Escuela del Servicio de Precursor</p>
+<input class="form-control" type="date" placeholder="Fecha de última asistencia" aria-label="Fecha de última asistencia" style="width:49%;" id="fecha-ultima-escuela-input" name="fecha_ultima_escuela" value="{{ publicador[43] }}">
+
+<hr>
+
+
+                     <p class="h2 mb-0">Responsabilidades en la congregación</p>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-coordinador-cuerpo-ancianos" name="checkbox-coordinador-cuerpo-ancianos" {% if publicador[44] %} checked {% endif %} />
+    <em class="">Coordinador del cuerpo de ancianos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-secretario" name="checkbox-secretario" {% if publicador[45] %} checked {% endif %} />
+    <em class="">Secretario</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-superintendente-servicio" name="checkbox-superintendente-servicio" {% if publicador[46] %} checked {% endif %} />
+    <em class="">Superintendente de servicio</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-acomodadores" name="checkbox-siervo-acomodadores" {% if publicador[47] %} checked {% endif %} />
+    <em class="">Siervo de acomodadores</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-audio-video" name="checkbox-coordinador-audio-video" {% if publicador[48] %} checked {% endif %} />
+    <em class="">Coordinador de audio y video</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-literatura" name="checkbox-siervo-literatura" {% if publicador[49] %} checked {% endif %} />
+    <em class="">Siervo de literatura</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-mantenimiento" name="checkbox-coordinador-mantenimiento" {% if publicador[50] %} checked {% endif %} />
+    <em class="">Coordinador de mantenimiento</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-mantenimiento-jardin" name="checkbox-coordinador-mantenimiento-jardin" {% if publicador[51] %} checked {% endif %} />
+    <em class="">Coordinador de mantenimiento del jardín</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-comite-mantenimiento-salon-reino" name="checkbox-comite-mantenimiento-salon-reino" {% if publicador[52] %} checked {% endif %} />
+    <em class="">Comité de Mantenimiento del Salón del Reino</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-consejero-sala-auxiliar" name="checkbox-consejero-sala-auxiliar" {% if publicador[53] %} checked {% endif %} />
+    <em class="">Consejero de la sala auxiliar</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-consejero-auxiliar" name="checkbox-consejero-auxiliar" {% if publicador[54] %} checked {% endif %} />
+    <em class="">Consejero auxiliar</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-voluntario-temporal-betel" name="checkbox-voluntario-temporal-betel" {% if publicador[55] %} checked {% endif %} />
+    <em class="">Voluntario temporal de Betel</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-betelita-cercanias" name="checkbox-betelita-cercanias" {% if publicador[56] %} checked {% endif %} />
+    <em class="">Betelita de cercanías</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-voluntario-remoto-betel" name="checkbox-voluntario-remoto-betel" {% if publicador[57] %} checked {% endif %} />
+    <em class="">Voluntario remoto de Betel</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-comite-enlace-hospitalario" name="checkbox-comite-enlace-hospitalario" {% if publicador[58] %} checked {% endif %} />
+    <em class="">Comité de Enlace Hospitalario</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <label>
+    <input type="checkbox" id="checkbox-conductor-estudio-atalaya" name="checkbox-conductor-estudio-atalaya" {% if publicador[59] %} checked {% endif %} />
+    <em class="">Conductor del Estudio de La Atalaya</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-discursos-publicos" name="checkbox-coordinador-discursos-publicos" {% if publicador[60] %} checked {% endif %} />
+    <em class="">Coordinador de discursos públicos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-ayudante-coordinador-discursos-publicos" name="checkbox-ayudante-coordinador-discursos-publicos" {% if publicador[61] %} checked {% endif %} />
+    <em class="">Ayudante del coordinador de discursos públicos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-informes" name="checkbox-siervo-informes" {% if publicador[62] %} checked {% endif %} />
+    <em class="">Siervo de informes</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-cuentas" name="checkbox-siervo-cuentas" {% if publicador[63] %} checked {% endif %} />
+    <em class="">Siervo de cuentas</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-territorios" name="checkbox-siervo-territorios" {% if publicador[64] %} checked {% endif %} />
+    <em class="">Siervo de territorios</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-limpieza" name="checkbox-coordinador-limpieza" {% if publicador[65] %} checked {% endif %} />
+    <em class="">Coordinador de limpieza</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-superintendente-reunion-vida-ministerio-cristianos" name="checkbox-superintendente-reunion-vida-ministerio-cristianos" {% if publicador[66] %} checked {% endif %} />
+    <em class="">Superintendente de la reunión Vida y Ministerio Cristianos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coordinador-predicacion-publica" name="checkbox-coordinador-predicacion-publica" {% if publicador[67] %} checked {% endif %} />
+    <em class="">Coordinador de la predicación pública</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-superintendente-grupo" name="checkbox-superintendente-grupo" {% if publicador[68] %} checked {% endif %} />
+    <em class="">Superintendente de grupo</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-grupo" name="checkbox-siervo-grupo" {% if publicador[69] %} checked {% endif %} />
+    <em class="">Siervo de grupo</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-auxiliar-grupo" name="checkbox-auxiliar-grupo" {% if publicador[70] %} checked {% endif %} />
+    <em class="">Auxiliar de grupo</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-betelita" name="checkbox-betelita" {% if publicador[71] %} checked {% endif %} />
+    <em class="">Betelita</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-voluntario-construccion" name="checkbox-voluntario-construccion" {% if publicador[72] %} checked {% endif %} />
+    <em class="">Voluntario de construcción</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-siervo-construccion" name="checkbox-siervo-construccion" {% if publicador[73] %} checked {% endif %} />
+    <em class="">Siervo de construcción</em>
+</label>
+
+                        </div>
+                     </div>
+                     <hr>
+                     <p class="h2 mt-0">Utilización en asignaciones</p>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2" style="background-color: #3c7f8b;color: #ffffff;">TESOROS DE LA BIBLIA</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-presidente" name="checkbox-presidente" {% if publicador[74] %} checked {% endif %}/>
+    <em class="">Presidente</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-oracion" name="checkbox-oracion" {% if publicador[75] %} checked {% endif %}/>
+    <em class="">Oración</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-discurso-10-mins" name="checkbox-discurso-10-mins" {% if publicador[76] %} checked {% endif %}/>
+    <em class="">Discurso (10 mins.)</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <label>
+    <input type="checkbox" id="checkbox-busquemos-perlas-escondidas" name="checkbox-busquemos-perlas-escondidas" {% if publicador[77] %} checked {% endif %}/>
+    <em class="">Busquemos perlas escondidas</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-lectura-biblia" name="checkbox-lectura-biblia" {% if publicador[78] %} checked {% endif %}/>
+    <em class="">Lectura de la Biblia</em>
+</label>
+
+                        </div>
+                     </div>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00;color: #ffffff;">SEAMOS MEJORES MAESTROS</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-analisis" name="checkbox-analisis" {% if publicador[79] %} checked {% endif %}/>
+    <em class="">Análisis</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-empiece-conversaciones" name="checkbox-empiece-conversaciones" {% if publicador[80] %} checked {% endif %}/>
+    <em class="">Empiece conversaciones</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-haga-revisitas" name="checkbox-haga-revisitas" {% if publicador[81] %} checked {% endif %}/>
+    <em class="">Haga revisitas</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-haga-discipulos" name="checkbox-haga-discipulos" {% if publicador[82] %} checked {% endif %}/>
+    <em class="">Haga discípulos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-no-utilizar-sala-principal" name="checkbox-no-utilizar-sala-principal" {% if publicador[83] %} checked {% endif %}/>
+    <em class="">No utilizar en la sala principal</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <label>
+    <input type="checkbox" id="checkbox-explique-sus-creencias" name="checkbox-explique-sus-creencias" {% if publicador[84] %} checked {% endif %}/>
+    <em class="">Explique sus creencias</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-ayudante" name="checkbox-ayudante" {% if publicador[85] %} checked {% endif %}/>
+    <em class="">Ayudante</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-discurso" name="checkbox-discurso" {% if publicador[86] %} checked {% endif %}/>
+    <em class="">Discurso</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-utilizar-solo-sala-principal" name="checkbox-utilizar-solo-sala-principal" {% if publicador[87] %} checked {% endif %}/>
+    <em class="">Utilizar solo en la sala principal</em>
+</label>
+
+                        </div>
+                     </div>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13;color: #ffffff;">NUESTRA VIDA CRISTIANA</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-intervenciones" name="checkbox-intervenciones" {% if publicador[88] %} checked {% endif %}/>
+    <em class="">Intervenciones</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-estudio-biblico-congregacion" name="checkbox-estudio-biblico-congregacion" {% if publicador[89] %} checked {% endif %}/>
+    <em class="">Estudio bíblico de la congregación</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-lector" name="checkbox-lector" {% if publicador[90] %} checked {% endif %}/>
+    <em class="">Lector</em>
+</label>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">ESTUDIO DE LA ATALAYA</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-discursante-publico-saliente" name="checkbox-discursante-publico-saliente" {% if publicador[91] %} checked {% endif %}/>
+    <em class="">Discursante público saliente</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-discursante-publico-local" name="checkbox-discursante-publico-local" {% if publicador[92] %} checked {% endif %}/>
+    <em class="">Discursante público local</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-presidente-reunion-publica" name="checkbox-presidente-reunion-publica" {% if publicador[93] %} checked {% endif %}/>
+    <em class="">Presidente de la reunión pública</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-lector-atalaya" name="checkbox-lector-atalaya" {% if publicador[94] %} checked {% endif %}/>
+    <em class="">Lector de La Atalaya</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-anfitrion-hospitalidades" name="checkbox-anfitrion-hospitalidades" {% if publicador[95] %} checked {% endif %}/>
+    <em class="">Anfitrión para las hospitalidades</em>
+</label>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">TAREAS</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-operador-audio" name="checkbox-operador-audio" {% if publicador[96] %} checked {% endif %} />
+    <em class="">Operador de audio</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-plataforma" name="checkbox-plataforma" {% if publicador[97] %} checked {% endif %} />
+    <em class="">Plataforma</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-anfitrion-zoom" name="checkbox-anfitrion-zoom" {% if publicador[98] %} checked {% endif %} />
+    <em class="">Anfitrión en Zoom</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-microfonos" name="checkbox-microfonos" {% if publicador[99] %} checked {% endif %} />
+    <em class="">Micrófonos</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-coanfitrion-zoom" name="checkbox-coanfitrion-zoom" {% if publicador[100] %} checked {% endif %} />
+    <em class="">Coanfitrión en Zoom</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-acomodador" name="checkbox-acomodador" {% if publicador[101] %} checked {% endif %} />
+    <em class="">Acomodador</em>
+</label>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">SERVICIO DEL CAMPO</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-aprobado-predicacion-publica" name="checkbox-aprobado-predicacion-publica" {% if publicador[102] %} checked {% endif %} />
+    <em class="">Aprobado para predicación pública</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-dirigir-reuniones-servicio-campo" name="checkbox-dirigir-reuniones-servicio-campo" {% if publicador[103] %} checked {% endif %} />
+    <em class="">Dirigir reuniones para el servicio del campo</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-orar-reuniones-servicio-campo" name="checkbox-orar-reuniones-servicio-campo" {% if publicador[104] %} checked {% endif %} />
+    <em class="">Orar en reuniones para el servicio del campo</em>
+</label>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">LIMPIEZA</div>
+                     <div class="container-xl clearfix mt-3">
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-limpieza-semanal-salon-reino" name="checkbox-limpieza-semanal-salon-reino" {% if publicador[107] %} checked {% endif %} />
+    <em class="">Limpieza semanal del Salón del Reino</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-limpieza-despues-reunion" name="checkbox-limpieza-despues-reunion" {% if publicador[108] %} checked {% endif %} />
+    <em class="">Limpieza después de la reunión</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-cuidado-jardin" name="checkbox-cuidado-jardin" {% if publicador[109] %} checked {% endif %} />
+    <em class="">Cuidado del jardín</em>
+</label>
+
+                           </div>
+                        </div>
+                        <div class="col-6 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" id="checkbox-limpieza-mensual-salon-reino" name="checkbox-limpieza-mensual-salon-reino" {% if publicador[110] %} checked {% endif %} />
+    <em class="">Limpieza mensual del Salón del Reino</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-limpieza-trimestral-salon-reino" name="checkbox-limpieza-trimestral-salon-reino" {% if publicador[111] %} checked {% endif %} />
+    <em class="">Limpieza trimestral del Salón del Reino</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" id="checkbox-cuidado-cesped" name="checkbox-cuidado-cesped" {% if publicador[112] %} checked {% endif %} />
+    <em class="">Cuidado del césped</em>
+</label>
+
+                           </div>
+                        </div>
+                     </div>
+                     <br><br>
+                     <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a type="button" class="btn btn-danger" href="/eliminar_publicador/{{ publicador[0] }}">
+                           <!-- <%= octicon "trashcan" %> -->
+                           <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                              <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                           </svg>
+                           <span>Eliminar publicador</span>
+                        </a>          
+                     </div>
+                  </form>
+               </div>
+
+
+         </div>
+      </div>
+      
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtener el checkbox y el botón
+        var checkBox = document.querySelector('input[type="checkbox"]');
+        var button = document.getElementById("crear_familia_button");
+        var flashMessages = document.getElementById('flash-messages');
+        var selectFamilia = document.getElementById('seleccione-familia');
+
+        // Escuchar cambios en el checkbox
+        checkBox.addEventListener('change', function() {
+            // Mostrar u ocultar el botón según el estado del checkbox
+            if (this.checked) {
+                button.style.display = 'inline-block';
+                flashMessages.style.display = 'none';
+                selectFamilia.style.display = 'none';
+            } else {
+                button.style.display = 'none';
+                flashMessages.style.display = 'block';
+                selectFamilia.style.display = 'block';
+            }
+        });
+    });
+
+    // Función para actualizar el contenido del botón con los apellidos
+    function actualizarApellidos() {
+        var apellidos = document.getElementById("apellidos").value;
+        var crearFamiliaButton = document.getElementById("crear_familia_button");
+        if (apellidos) {
+            crearFamiliaButton.innerText = "Crear familia " + apellidos;
+            crearFamiliaButton.style.display = "inline-block";
+        } else {
+            crearFamiliaButton.style.display = "none";
+        }
+    }
+
+    // Asignar la función actualizarApellidos al evento 'input' del campo de apellidos
+    document.getElementById("apellidos").addEventListener("input", actualizarApellidos);
+
+    // Llamar a la función inicialmente para establecer el estado inicial del botón
+    actualizarApellidos();
+</script>
+
+   </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" data-color-mode="light" data-light-theme="light">
+   <head>
+      <title>Kingdom Hall Attendant</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+   </head>
+   <body>
+      <!-- Tu contenido del encabezado aquí -->
+      <div class="Header color-bg-inset">
+         <!-- Image item  -->
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+               <div class="col-10 d-table-cell v-align-middle pl-4">
+                  <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
+                  <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
+               </div>
+            </div>
+            <div className="d-flex flex-justify-end ml-2">
+               <details class="details-reset details-overlay">
+                  <summary class="btn" aria-haspopup="true">&hellip;</summary>
+                  <div class="SelectMenu right-0 mr-5">
+                     <div class="SelectMenu-modal">
+                        <div class="SelectMenu-list">
+                           <button class="SelectMenu-item" role="menuitem">Hacer copia de seguridad</button>
+                           <button class="SelectMenu-item" role="menuitem">Restaurar una copia de seguridad</button>
+                           <button class="SelectMenu-item" role="menuitem">Borrar contenido y configuración</button>
+                           <button class="SelectMenu-item" role="menuitem">Avisos legales</button>
+                           <button class="SelectMenu-item" role="menuitem">Licencia</button>
+                           <button class="SelectMenu-item" role="menuitem">Buscar actualizaciones</button>
+                        </div>
+                     </div>
+                  </div>
+               </details>
+            </div>
+         </div>
+      </div>
+      <!-- Tu contenido del encabezado aquí -->
+      <div class="container-xl mt-6">
+         <form action="/guardar_configuracion" method="post">
+            <div data-view-component="true" class="container-md">
+               <!-- Public Profile -->
+               <div data-view-component="true" class="Subhead mt-0 mb-0">
+                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Configuración</h2>
+               </div>
+               <div class="clearfix gutter d-flex flex-shrink-0 flex-column-reverse flex-md-row">
+                  <div class="col-12 col-md-12">                          
+                     <div>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">Nombre</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" placeholder="Nombres" name="nombre" id="nombre" value="{{ configuracion[1] }}">
+                                 <input class="form-control mt-2 width-full" type="text" placeholder="Apellidos" name="apellidos" id="apellidos" value="{{ configuracion[2] }}">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_email">Correo electrónico público</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="email" placeholder="usuario@jwpub.org" name="user_email" id="user_email" value="{{ configuracion[3] }}">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_pronouns_select">Privilegio</label></dt>
+                           <dd class="user-profile-bio-field-container js-length-limited-input-container">
+                              <select id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control width-full" name="privilegio" id="privilegio">
+                                 <option value="sdc" {% if configuracion[4] == 'sdc' %} selected {% endif %}>superintendente de circuito</option>
+                                 <option value="anciano" {% if configuracion[4] == 'anciano' %} selected {% endif %}>anciano</option>
+                                 <option value="sm" {% if configuracion[4] == 'sm' %} selected {% endif %}>siervo ministerial</option>
+                              </select>
+                           </dd>
+                        </dl>
+                        <dl class="form-group" id="pais">
+                           <dt><label for="pais">País</label></dt>
+                           <dd class="pais-container">
+                              <text-expander>
+                                 <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais" value="{{ configuracion[5] }}">
+                              </text-expander>
+                           </dd>
+                        </dl>  
+                        <dl class="form-group" id="congregacion">
+                           <dt><label for="congregacion">Congregación</label></dt>
+                           <dd class="user-profile-company-field-container">
+                              <text-expander>
+                                 <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion" value="{{ configuracion[6] }}">
+                              </text-expander>
+                           </dd>
+                        </dl>  
+                        <dl class="form-group" id="circuito">
+                           <dt><label for="circuito">Circuito</label></dt>
+                           <dd class="user-profile-company-field-container">
+                              <text-expander>
+                                 <input autocomplete="off" class="form-control width-full" type="text" name="circuito" id="circuito" value="{{ configuracion[7] }}"> <!-- Cambiado a "circuito" -->
+                              </text-expander>
+                           </dd>
+                        </dl>                                                              
+                        <p class="note mb-2" >
+                           Todos los campos de esta página se pueden eliminar en cualquier momento, y al completarlos, nos está dando su consentimiento para compartir estos datos dondequiera que aparezca su perfil de usuario. Esto, normalmente será cuando otros usuarios (superintendentes de circuito, ancianos o siervos ministeriales) de Kingdom Hall Attendant vean su perfil.
+                        </p>
+                        <p>
+                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4">    
+                           <span class="Button-content">
+                           <span class="Button-label">Actualizar datos</span>
+                           </span>
+                           </button>      
+                        </p>
+                     </div>  
+                  </div>
+               </div>
+            </div>
+            <!-- FIN DE CONFIGURACIÓN -->
+         </form>
+      </div>
+   </body>
+</html>
