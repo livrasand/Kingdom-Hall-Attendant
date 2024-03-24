@@ -1,2 +1,2 @@
-github: [livrasand]
-custom: ["https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=livrasand%40icloud.com&item_name=Regala%20un%20caf%C3%A9%20a%20Livr%C3%A4do&currency_code=USD&no_note=0&cn=A%C3%B1ade%20un%20mensaje%20(opcional)&return=https%3A%2F%2Flivrasand.github.io%2Fdonate.html&cancel_return=https%3A%2F%2Flivrasand.github.io%2Fdonate.html&bn=PP-DonationsBF%3Abtn_donate_LG.gif%3ANonHostedGuest", livrasand.github.io]
+github: livrasand
+paypal: livrados
