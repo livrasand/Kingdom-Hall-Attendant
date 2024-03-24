@@ -13,7 +13,7 @@ cx-Logging==3.1.0
 cx_Freeze==6.15.15
 Flask==3.0.2
 gitdb==4.0.10
-GitPython==3.1.33
+GitPython==3.1.41
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.3
