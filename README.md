@@ -1,4 +1,4 @@
-<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></div>
+<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
 # This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha 1
