@@ -99,6 +99,8 @@ Ir al directorio del proyecto
   cd C:\Users\{user}\Kingdom-Hall-Attendant
 ```
 
+Cambiar el nombre de la base de datos `kha{remove-this}.db` por `kha.db`
+
 Instalar dependencias
 
 ```bash
