@@ -30,7 +30,7 @@ Además, la disponibilidad de KHA en múltiples plataformas, incluyendo Windows,
 En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un testimonio de dedicación, innovación y excelencia en la búsqueda de brindar una solución efectiva para la gestión de congregaciones. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático.
 
 ## ¿Qué es Kingdom Hall Attendant?
-![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/072072ab-a69d-436a-afdf-646f7fe57ebf)
+![Kingdom Hall Attendant Dashboard](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3e9088f1-aff3-4b58-8b16-74da1d957fb1)
 
 **Kingdom Hall Attendant** es una aplicación utilizada por Windows, macOS y Linux, y próximamente plataformas móviles, es una herramienta digital diseñada para ayudar a los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová a desarrollar y mantener todas las asignaciones y responsabilidades de la congregación, simplificando tareas y actividades. Sabemos que proteger a KHA es fundamental, sobre todo si manejas información sensible o datos de publicadores, es crucial garantizar la privacidad e integridad de la información, para ello, KHA incluye funciones de seguridad y privacidad, para proteger la información de los miembros de la congregación. Disfruta de Kingdom Hall Attendant sin límites en cualquier sistema operativo. El proyecto está escrito en HTML y utiliza tecnología Python para crear una aplicación multiplataforma.
 
@@ -108,7 +108,7 @@ Instalar dependencias
 Iniciar el servidor
 
 ```bash
-  python app
+  python app.py
 ```         
 
 ## 🍿 Una comunidad interconectada
@@ -133,12 +133,10 @@ Contribuciones recientes:
 ![Alt](https://repobeats.axiom.co/api/embed/4a71783c23dd5e07a13cf808480c0a7e0638d9f4.svg "Repobeats analytics image")
 
 ## 📜 Licencia 
-The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [Python](https://python.org/) and [Primer Design System](https://primer.style/). Developed by [Livrädo Sandoval](https://github.com/livrasand).
+The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/).
 
 <!-- CITATION LZL-1.0 -->
-[Livrado Zero License (LZL-1.0)](https://github.com/livrasand/Livrado-Zero-License) establece las condiciones para el uso de este software y su documentación asociada. Proporciona un equilibrio entre la libertad de uso, la protección de la marca y la integridad del software. Bajo esta licencia, cualquier persona puede utilizar, modificar y distribuir el software de forma gratuita, siempre y cuando cumpla con los términos de la licencia. Además, regula la distribución comercial del software, protege la reputación del autor original y otorga a este el derecho de elegir la jurisdicción en caso de disputas legales relacionadas con la licencia o el software. Esta licencia también incluye una cláusula de protección de la reputación y sanciones por mal uso, así como una cláusula que prohíbe la modificación de la licencia sin el consentimiento del autor original.
-
-Para más detalles, consulta la Licencia completa en el archivo [LICENSE.md](LICENSE.md) que acompaña al software.
+Livrado Zero License (LZL-1.0) establece las condiciones para el uso de este software y su documentación asociada. Para más detalles, consulta la Licencia completa en el archivo [LICENSE.md](LICENSE.md) que acompaña al software.
 
 Recuerda siempre verificar la integridad de la licencia antes de utilizar el software, y respeta los términos y condiciones de esta licencia Livrado Zero License (LZL-1.0) para un uso justo y respetuoso del software.
 <!-- CITATION LZL-1.0 -->
