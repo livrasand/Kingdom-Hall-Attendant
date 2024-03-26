@@ -1,7 +1,7 @@
 <div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
-# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha 3
+# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha
 ![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-13_de_100-e05d44)
 
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
@@ -31,6 +31,12 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 
 ## ¿Qué es Kingdom Hall Attendant?
 ![Kingdom Hall Attendant Dashboard](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/3e9088f1-aff3-4b58-8b16-74da1d957fb1)
+> #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
+>
+> - **Azul**: Indica las funciones pendientes de desarrollo.
+> - **Amarillo**: Representa las funciones en proceso de desarrollo activo.
+> - **Rojo**: Señala las funciones que se han detenido y necesitan asistencia urgente o resolución de problemas.
+> - **Verde**: Identifica las funciones completadas y listas para su utilización.
 
 **Kingdom Hall Attendant** es una aplicación utilizada por Windows, macOS y Linux, y próximamente plataformas móviles, es una herramienta digital diseñada para ayudar a los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová a desarrollar y mantener todas las asignaciones y responsabilidades de la congregación, simplificando tareas y actividades. Sabemos que proteger a KHA es fundamental, sobre todo si manejas información sensible o datos de publicadores, es crucial garantizar la privacidad e integridad de la información, para ello, KHA incluye funciones de seguridad y privacidad, para proteger la información de los miembros de la congregación. Disfruta de Kingdom Hall Attendant sin límites en cualquier sistema operativo. El proyecto está escrito en HTML y utiliza tecnología Python para crear una aplicación multiplataforma.
 
@@ -133,6 +139,14 @@ Para obtener ayuda, envíe un correo electrónico a [livrasand@outlook.com](mail
 Contribuciones recientes:
 
 ![Alt](https://repobeats.axiom.co/api/embed/4a71783c23dd5e07a13cf808480c0a7e0638d9f4.svg "Repobeats analytics image")
+
+## 📅 Roadmap 
+
+```mermaid
+graph TD;
+    Pre-Alpha-->Alpha-->Beta-->Preview-->Stable;
+    Marzo-Abril-->Mayo-Junio-->Julio-Agosto-->Septiembre-->Octubre-Diciembre
+```
 
 ## 📜 Licencia 
 The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/).
