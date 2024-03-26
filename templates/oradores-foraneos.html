@@ -3,8 +3,8 @@
    <head>
       <title>Kingdom Hall Attendant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="css/primer.css" rel="stylesheet" />
-      <link href="css/jw-icons-for-options.css" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
    </head>
    <body>
       <div class="Header color-bg-inset">
@@ -45,8 +45,8 @@
             <div class="">
                <div class="tabnav">                  
                   <nav class="tabnav-tabs" aria-label="Foo bar">
-                     <a class="tabnav-tab" href="option-nine.html">Locales</a>
-                     <a class="tabnav-tab" href="option-nine-b-part.html" aria-current="page">Foraneos</a>
+                     <a class="tabnav-tab" href="oradores.html">Locales</a>
+                     <a class="tabnav-tab" href="oradores-foraneos.html" aria-current="page">Foraneos</a>
                   </nav>
                </div>
             </div>

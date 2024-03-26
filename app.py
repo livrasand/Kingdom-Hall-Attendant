@@ -470,5 +470,17 @@ def crear_familia(apellidos):
 
         return redirect('/publicadores.html')
 
+@app.route('/bosquejos.html')
+def bosquejos():
+    return render_template('bosquejos.html')
+
+@app.route('/oradores.html')
+def oradores():
+    return render_template('oradores.html')
+
+@app.route('/oradores-foraneos.html')
+def oradores_foraneos():
+    return render_template('oradores-foraneos.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
