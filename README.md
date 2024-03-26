@@ -1,7 +1,7 @@
 <div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
-# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha 1
+# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha 3
 ![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-13_de_100-e05d44)
 
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
