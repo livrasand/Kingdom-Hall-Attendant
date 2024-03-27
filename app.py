@@ -476,7 +476,724 @@ def bosquejos():
 
 @app.route('/oradores.html')
 def oradores():
-    return render_template('oradores.html')
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM oradores")
+    oradores = cursor.fetchall()
+    cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
+    publicadores_discursantes = cursor.fetchall()
+    return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes)
+
+@app.route('/crear_orador', methods=['GET'])
+def crear_orador():
+  nombres = request.args.get('nombres')
+  apellidos = request.args.get('apellidos')
+
+  cursor = g.bd.cursor()
+  cursor.execute("SELECT * FROM oradores WHERE nombres = ? AND apellidos = ?", (nombres, apellidos))
+  orador_existente = cursor.fetchone()
+
+  if not orador_existente:
+    cursor.execute("INSERT INTO oradores (nombres, apellidos) VALUES (?, ?)", (nombres, apellidos))
+    g.bd.commit()
+
+  return redirect('/oradores.html')
+
+@app.route('/mostrar_orador/<int:id>', methods=['GET'])
+def mostrar_orador(id):
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM oradores WHERE id = ?", (id,))
+    orador = cursor.fetchone()
+    return render_template('detalle-orador.html', orador=orador)
+
+@app.route('/guardar_orador', methods=['POST'])
+def guardar_orador():
+    if request.method == 'POST':
+        id = request.form['id'] 
+        nombres = request.form['nombres']
+        apellidos = request.form['apellidos']
+        aprobado_para_salir = request.form.get('aprobado_para_salir') == 'on'
+        aprobado_para_salir = 1 if aprobado_para_salir else 0 
+        correo_electronico = request.form['correo_electronico']
+        celular = request.form['celular']
+        telefono = request.form['telefono']
+        
+        nombramiento = request.form.get('nombramiento')
+
+        discurso_1 = 'discurso_1' in request.form
+        discurso_1 = 1 if discurso_1 else 0
+
+        discurso_2 = 'discurso_2' in request.form
+        discurso_2 = 1 if discurso_2 else 0
+
+        discurso_3 = 'discurso_3' in request.form
+        discurso_3 = 1 if discurso_3 else 0
+
+        # Repetir para discurso_4 hasta discurso_25
+        discurso_4 = 'discurso_4' in request.form
+        discurso_4 = 1 if discurso_4 else 0
+
+        discurso_5 = 'discurso_5' in request.form
+        discurso_5 = 1 if discurso_5 else 0
+
+        discurso_6 = 'discurso_6' in request.form
+        discurso_6 = 1 if discurso_6 else 0
+
+        discurso_7 = 'discurso_7' in request.form
+        discurso_7 = 1 if discurso_7 else 0
+
+        discurso_8 = 'discurso_8' in request.form
+        discurso_8 = 1 if discurso_8 else 0
+
+        discurso_9 = 'discurso_9' in request.form
+        discurso_9 = 1 if discurso_9 else 0
+
+        discurso_10 = 'discurso_10' in request.form
+        discurso_10 = 1 if discurso_10 else 0
+
+        discurso_11 = 'discurso_11' in request.form
+        discurso_11 = 1 if discurso_11 else 0
+
+        discurso_12 = 'discurso_12' in request.form
+        discurso_12 = 1 if discurso_12 else 0
+
+        discurso_13 = 'discurso_13' in request.form
+        discurso_13 = 1 if discurso_13 else 0
+
+        discurso_14 = 'discurso_14' in request.form
+        discurso_14 = 1 if discurso_14 else 0
+
+        discurso_15 = 'discurso_15' in request.form
+        discurso_15 = 1 if discurso_15 else 0
+
+        discurso_16 = 'discurso_16' in request.form
+        discurso_16 = 1 if discurso_16 else 0
+
+        discurso_17 = 'discurso_17' in request.form
+        discurso_17 = 1 if discurso_17 else 0
+
+        discurso_18 = 'discurso_18' in request.form
+        discurso_18 = 1 if discurso_18 else 0
+
+        discurso_19 = 'discurso_19' in request.form
+        discurso_19 = 1 if discurso_19 else 0
+
+        discurso_20 = 'discurso_20' in request.form
+        discurso_20 = 1 if discurso_20 else 0
+
+        discurso_21 = 'discurso_21' in request.form
+        discurso_21 = 1 if discurso_21 else 0
+
+        discurso_22 = 'discurso_22' in request.form
+        discurso_22 = 1 if discurso_22 else 0
+
+        discurso_23 = 'discurso_23' in request.form
+        discurso_23 = 1 if discurso_23 else 0
+
+        discurso_24 = 'discurso_24' in request.form
+        discurso_24 = 1 if discurso_24 else 0
+
+        discurso_25 = 'discurso_25' in request.form
+        discurso_25 = 1 if discurso_25 else 0
+
+        discurso_26 = 'discurso_26' in request.form
+        discurso_26 = 1 if discurso_26 else 0
+
+        discurso_27 = 'discurso_27' in request.form
+        discurso_27 = 1 if discurso_27 else 0
+
+        discurso_28 = 'discurso_28' in request.form
+        discurso_28 = 1 if discurso_28 else 0
+
+        discurso_29 = 'discurso_29' in request.form
+        discurso_29 = 1 if discurso_29 else 0
+
+        discurso_30 = 'discurso_30' in request.form
+        discurso_30 = 1 if discurso_30 else 0
+
+        discurso_31 = 'discurso_31' in request.form
+        discurso_31 = 1 if discurso_31 else 0
+
+        discurso_32 = 'discurso_32' in request.form
+        discurso_32 = 1 if discurso_32 else 0
+
+        discurso_33 = 'discurso_33' in request.form
+        discurso_33 = 1 if discurso_33 else 0
+
+        discurso_34 = 'discurso_34' in request.form
+        discurso_34 = 1 if discurso_34 else 0
+
+        discurso_35 = 'discurso_35' in request.form
+        discurso_35 = 1 if discurso_35 else 0
+
+        discurso_36 = 'discurso_36' in request.form
+        discurso_36 = 1 if discurso_36 else 0
+
+        discurso_37 = 'discurso_37' in request.form
+        discurso_37 = 1 if discurso_37 else 0
+
+        discurso_38 = 'discurso_38' in request.form
+        discurso_38 = 1 if discurso_38 else 0
+
+        discurso_39 = 'discurso_39' in request.form
+        discurso_39 = 1 if discurso_39 else 0
+
+        discurso_40 = 'discurso_40' in request.form
+        discurso_40 = 1 if discurso_40 else 0
+
+        discurso_41 = 'discurso_41' in request.form
+        discurso_41 = 1 if discurso_41 else 0
+
+        discurso_42 = 'discurso_42' in request.form
+        discurso_42 = 1 if discurso_42 else 0
+
+        discurso_43 = 'discurso_43' in request.form
+        discurso_43 = 1 if discurso_43 else 0
+
+        discurso_44 = 'discurso_44' in request.form
+        discurso_44 = 1 if discurso_44 else 0
+
+        discurso_45 = 'discurso_45' in request.form
+        discurso_45 = 1 if discurso_45 else 0
+
+        discurso_46 = 'discurso_46' in request.form
+        discurso_46 = 1 if discurso_46 else 0
+
+        discurso_47 = 'discurso_47' in request.form
+        discurso_47 = 1 if discurso_47 else 0
+
+        discurso_48 = 'discurso_48' in request.form
+        discurso_48 = 1 if discurso_48 else 0
+
+        discurso_49 = 'discurso_49' in request.form
+        discurso_49 = 1 if discurso_49 else 0
+
+        discurso_50 = 'discurso_50' in request.form
+        discurso_50 = 1 if discurso_50 else 0
+
+        discurso_51 = 'discurso_51' in request.form
+        discurso_51 = 1 if discurso_51 else 0
+
+        discurso_52 = 'discurso_52' in request.form
+        discurso_52 = 1 if discurso_52 else 0
+
+        discurso_53 = 'discurso_53' in request.form
+        discurso_53 = 1 if discurso_53 else 0
+
+        discurso_54 = 'discurso_54' in request.form
+        discurso_54 = 1 if discurso_54 else 0
+
+        discurso_55 = 'discurso_55' in request.form
+        discurso_55 = 1 if discurso_55 else 0
+
+        discurso_56 = 'discurso_56' in request.form
+        discurso_56 = 1 if discurso_56 else 0
+
+        discurso_57 = 'discurso_57' in request.form
+        discurso_57 = 1 if discurso_57 else 0
+
+        discurso_58 = 'discurso_58' in request.form
+        discurso_58 = 1 if discurso_58 else 0
+
+        discurso_59 = 'discurso_59' in request.form
+        discurso_59 = 1 if discurso_59 else 0
+
+        discurso_60 = 'discurso_60' in request.form
+        discurso_60 = 1 if discurso_60 else 0
+
+        discurso_61 = 'discurso_61' in request.form
+        discurso_61 = 1 if discurso_61 else 0
+
+        discurso_62 = 'discurso_62' in request.form
+        discurso_62 = 1 if discurso_62 else 0
+
+        discurso_63 = 'discurso_63' in request.form
+        discurso_63 = 1 if discurso_63 else 0
+
+        discurso_64 = 'discurso_64' in request.form
+        discurso_64 = 1 if discurso_64 else 0
+
+        discurso_65 = 'discurso_65' in request.form
+        discurso_65 = 1 if discurso_65 else 0
+
+        discurso_66 = 'discurso_66' in request.form
+        discurso_66 = 1 if discurso_66 else 0
+
+        discurso_67 = 'discurso_67' in request.form
+        discurso_67 = 1 if discurso_67 else 0
+
+        discurso_68 = 'discurso_68' in request.form
+        discurso_68 = 1 if discurso_68 else 0
+
+        discurso_69 = 'discurso_69' in request.form
+        discurso_69 = 1 if discurso_69 else 0
+
+        discurso_70 = 'discurso_70' in request.form
+        discurso_70 = 1 if discurso_70 else 0
+
+        discurso_71 = 'discurso_71' in request.form
+        discurso_71 = 1 if discurso_71 else 0
+
+        discurso_72 = 'discurso_72' in request.form
+        discurso_72 = 1 if discurso_72 else 0
+
+        discurso_73 = 'discurso_73' in request.form
+        discurso_73 = 1 if discurso_73 else 0
+
+        discurso_74 = 'discurso_74' in request.form
+        discurso_74 = 1 if discurso_74 else 0
+
+        discurso_75 = 'discurso_75' in request.form
+        discurso_75 = 1 if discurso_75 else 0
+
+        discurso_76 = 'discurso_76' in request.form
+        discurso_76 = 1 if discurso_76 else 0
+
+        discurso_77 = 'discurso_77' in request.form
+        discurso_77 = 1 if discurso_77 else 0
+
+        discurso_78 = 'discurso_78' in request.form
+        discurso_78 = 1 if discurso_78 else 0
+
+        discurso_79 = 'discurso_79' in request.form
+        discurso_79 = 1 if discurso_79 else 0
+
+        discurso_80 = 'discurso_80' in request.form
+        discurso_80 = 1 if discurso_80 else 0
+
+        discurso_81 = 'discurso_81' in request.form
+        discurso_81 = 1 if discurso_81 else 0
+
+        discurso_82 = 'discurso_82' in request.form
+        discurso_82 = 1 if discurso_82 else 0
+
+        discurso_83 = 'discurso_83' in request.form
+        discurso_83 = 1 if discurso_83 else 0
+
+        discurso_84 = 'discurso_84' in request.form
+        discurso_84 = 1 if discurso_84 else 0
+
+        discurso_85 = 'discurso_85' in request.form
+        discurso_85 = 1 if discurso_85 else 0
+
+        discurso_86 = 'discurso_86' in request.form
+        discurso_86 = 1 if discurso_86 else 0
+
+        discurso_87 = 'discurso_87' in request.form
+        discurso_87 = 1 if discurso_87 else 0
+
+        discurso_88 = 'discurso_88' in request.form
+        discurso_88 = 1 if discurso_88 else 0
+
+        discurso_89 = 'discurso_89' in request.form
+        discurso_89 = 1 if discurso_89 else 0
+
+        discurso_90 = 'discurso_90' in request.form
+        discurso_90 = 1 if discurso_90 else 0
+
+        discurso_91 = 'discurso_91' in request.form
+        discurso_91 = 1 if discurso_91 else 0
+
+        discurso_92 = 'discurso_92' in request.form
+        discurso_92 = 1 if discurso_92 else 0
+
+        discurso_93 = 'discurso_93' in request.form
+        discurso_93 = 1 if discurso_93 else 0
+
+        discurso_94 = 'discurso_94' in request.form
+        discurso_94 = 1 if discurso_94 else 0
+
+        discurso_95 = 'discurso_95' in request.form
+        discurso_95 = 1 if discurso_95 else 0
+
+        discurso_96 = 'discurso_96' in request.form
+        discurso_96 = 1 if discurso_96 else 0
+
+        discurso_97 = 'discurso_97' in request.form
+        discurso_97 = 1 if discurso_97 else 0
+
+        discurso_98 = 'discurso_98' in request.form
+        discurso_98 = 1 if discurso_98 else 0
+
+        discurso_99 = 'discurso_99' in request.form
+        discurso_99 = 1 if discurso_99 else 0
+
+        discurso_100 = 'discurso_100' in request.form
+        discurso_100 = 1 if discurso_100 else 0
+
+        discurso_101 = 'discurso_101' in request.form
+        discurso_101 = 1 if discurso_101 else 0
+
+        discurso_102 = 'discurso_102' in request.form
+        discurso_102 = 1 if discurso_102 else 0
+
+        discurso_103 = 'discurso_103' in request.form
+        discurso_103 = 1 if discurso_103 else 0
+
+        discurso_104 = 'discurso_104' in request.form
+        discurso_104 = 1 if discurso_104 else 0
+
+        discurso_105 = 'discurso_105' in request.form
+        discurso_105 = 1 if discurso_105 else 0
+
+        discurso_106 = 'discurso_106' in request.form
+        discurso_106 = 1 if discurso_106 else 0
+
+        discurso_107 = 'discurso_107' in request.form
+        discurso_107 = 1 if discurso_107 else 0
+
+        discurso_108 = 'discurso_108' in request.form
+        discurso_108 = 1 if discurso_108 else 0
+
+        discurso_109 = 'discurso_109' in request.form
+        discurso_109 = 1 if discurso_109 else 0
+
+        discurso_110 = 'discurso_110' in request.form
+        discurso_110 = 1 if discurso_110 else 0
+
+        discurso_111 = 'discurso_111' in request.form
+        discurso_111 = 1 if discurso_111 else 0
+
+        discurso_112 = 'discurso_112' in request.form
+        discurso_112 = 1 if discurso_112 else 0
+
+        discurso_113 = 'discurso_113' in request.form
+        discurso_113 = 1 if discurso_113 else 0
+
+        discurso_114 = 'discurso_114' in request.form
+        discurso_114 = 1 if discurso_114 else 0
+
+        discurso_115 = 'discurso_115' in request.form
+        discurso_115 = 1 if discurso_115 else 0
+
+        discurso_116 = 'discurso_116' in request.form
+        discurso_116 = 1 if discurso_116 else 0
+
+        discurso_117 = 'discurso_117' in request.form
+        discurso_117 = 1 if discurso_117 else 0
+
+        discurso_118 = 'discurso_118' in request.form
+        discurso_118 = 1 if discurso_118 else 0
+
+        discurso_119 = 'discurso_119' in request.form
+        discurso_119 = 1 if discurso_119 else 0
+
+        discurso_120 = 'discurso_120' in request.form
+        discurso_120 = 1 if discurso_120 else 0
+
+        discurso_121 = 'discurso_121' in request.form
+        discurso_121 = 1 if discurso_121 else 0
+
+        discurso_122 = 'discurso_122' in request.form
+        discurso_122 = 1 if discurso_122 else 0
+
+        discurso_123 = 'discurso_123' in request.form
+        discurso_123 = 1 if discurso_123 else 0
+
+        discurso_124 = 'discurso_124' in request.form
+        discurso_124 = 1 if discurso_124 else 0
+
+        discurso_125 = 'discurso_125' in request.form
+        discurso_125 = 1 if discurso_125 else 0
+
+        discurso_126 = 'discurso_126' in request.form
+        discurso_126 = 1 if discurso_126 else 0
+
+        discurso_127 = 'discurso_127' in request.form
+        discurso_127 = 1 if discurso_127 else 0
+
+        discurso_128 = 'discurso_128' in request.form
+        discurso_128 = 1 if discurso_128 else 0
+
+        discurso_129 = 'discurso_129' in request.form
+        discurso_129 = 1 if discurso_129 else 0
+
+        discurso_130 = 'discurso_130' in request.form
+        discurso_130 = 1 if discurso_130 else 0
+
+        discurso_131 = 'discurso_131' in request.form
+        discurso_131 = 1 if discurso_131 else 0
+
+        discurso_132 = 'discurso_132' in request.form
+        discurso_132 = 1 if discurso_132 else 0
+
+        discurso_133 = 'discurso_133' in request.form
+        discurso_133 = 1 if discurso_133 else 0
+
+        discurso_134 = 'discurso_134' in request.form
+        discurso_134 = 1 if discurso_134 else 0
+
+        discurso_135 = 'discurso_135' in request.form
+        discurso_135 = 1 if discurso_135 else 0
+
+        discurso_136 = 'discurso_136' in request.form
+        discurso_136 = 1 if discurso_136 else 0
+
+        discurso_137 = 'discurso_137' in request.form
+        discurso_137 = 1 if discurso_137 else 0
+
+        discurso_138 = 'discurso_138' in request.form
+        discurso_138 = 1 if discurso_138 else 0
+
+        discurso_139 = 'discurso_139' in request.form
+        discurso_139 = 1 if discurso_139 else 0
+
+        discurso_140 = 'discurso_140' in request.form
+        discurso_140 = 1 if discurso_140 else 0
+
+        discurso_141 = 'discurso_141' in request.form
+        discurso_141 = 1 if discurso_141 else 0
+
+        discurso_142 = 'discurso_142' in request.form
+        discurso_142 = 1 if discurso_142 else 0
+
+        discurso_143 = 'discurso_143' in request.form
+        discurso_143 = 1 if discurso_143 else 0
+
+        discurso_144 = 'discurso_144' in request.form
+        discurso_144 = 1 if discurso_144 else 0
+
+        discurso_145 = 'discurso_145' in request.form
+        discurso_145 = 1 if discurso_145 else 0
+
+        discurso_146 = 'discurso_146' in request.form
+        discurso_146 = 1 if discurso_146 else 0
+
+        discurso_147 = 'discurso_147' in request.form
+        discurso_147 = 1 if discurso_147 else 0
+
+        discurso_148 = 'discurso_148' in request.form
+        discurso_148 = 1 if discurso_148 else 0
+
+        discurso_149 = 'discurso_149' in request.form
+        discurso_149 = 1 if discurso_149 else 0
+
+        discurso_150 = 'discurso_150' in request.form
+        discurso_150 = 1 if discurso_150 else 0
+
+        discurso_151 = 'discurso_151' in request.form
+        discurso_151 = 1 if discurso_151 else 0
+
+        discurso_152 = 'discurso_152' in request.form
+        discurso_152 = 1 if discurso_152 else 0
+
+        discurso_153 = 'discurso_153' in request.form
+        discurso_153 = 1 if discurso_153 else 0
+
+        discurso_154 = 'discurso_154' in request.form
+        discurso_154 = 1 if discurso_154 else 0
+
+        discurso_155 = 'discurso_155' in request.form
+        discurso_155 = 1 if discurso_155 else 0
+
+        discurso_156 = 'discurso_156' in request.form
+        discurso_156 = 1 if discurso_156 else 0
+
+        discurso_157 = 'discurso_157' in request.form
+        discurso_157 = 1 if discurso_157 else 0
+
+        discurso_158 = 'discurso_158' in request.form
+        discurso_158 = 1 if discurso_158 else 0
+
+        discurso_159 = 'discurso_159' in request.form
+        discurso_159 = 1 if discurso_159 else 0
+
+        discurso_160 = 'discurso_160' in request.form
+        discurso_160 = 1 if discurso_160 else 0
+
+        discurso_161 = 'discurso_161' in request.form
+        discurso_161 = 1 if discurso_161 else 0
+
+        discurso_162 = 'discurso_162' in request.form
+        discurso_162 = 1 if discurso_162 else 0
+
+        discurso_163 = 'discurso_163' in request.form
+        discurso_163 = 1 if discurso_163 else 0
+
+        discurso_164 = 'discurso_164' in request.form
+        discurso_164 = 1 if discurso_164 else 0
+
+        discurso_165 = 'discurso_165' in request.form
+        discurso_165 = 1 if discurso_165 else 0
+
+        discurso_166 = 'discurso_166' in request.form
+        discurso_166 = 1 if discurso_166 else 0
+
+        discurso_167 = 'discurso_167' in request.form
+        discurso_167 = 1 if discurso_167 else 0
+
+        discurso_168 = 'discurso_168' in request.form
+        discurso_168 = 1 if discurso_168 else 0
+
+        discurso_169 = 'discurso_169' in request.form
+        discurso_169 = 1 if discurso_169 else 0
+
+        discurso_170 = 'discurso_170' in request.form
+        discurso_170 = 1 if discurso_170 else 0
+
+        discurso_171 = 'discurso_171' in request.form
+        discurso_171 = 1 if discurso_171 else 0
+
+        discurso_172 = 'discurso_172' in request.form
+        discurso_172 = 1 if discurso_172 else 0
+
+        discurso_173 = 'discurso_173' in request.form
+        discurso_173 = 1 if discurso_173 else 0
+
+        discurso_174 = 'discurso_174' in request.form
+        discurso_174 = 1 if discurso_174 else 0
+
+        discurso_175 = 'discurso_175' in request.form
+        discurso_175 = 1 if discurso_175 else 0
+
+        discurso_176 = 'discurso_176' in request.form
+        discurso_176 = 1 if discurso_176 else 0
+
+        discurso_177 = 'discurso_177' in request.form
+        discurso_177 = 1 if discurso_177 else 0
+
+        discurso_178 = 'discurso_178' in request.form
+        discurso_178 = 1 if discurso_178 else 0
+
+        discurso_179 = 'discurso_179' in request.form
+        discurso_179 = 1 if discurso_179 else 0
+
+        discurso_180 = 'discurso_180' in request.form
+        discurso_180 = 1 if discurso_180 else 0
+
+        discurso_181 = 'discurso_181' in request.form
+        discurso_181 = 1 if discurso_181 else 0
+
+        discurso_182 = 'discurso_182' in request.form
+        discurso_182 = 1 if discurso_182 else 0
+
+        discurso_183 = 'discurso_183' in request.form
+        discurso_183 = 1 if discurso_183 else 0
+
+        discurso_184 = 'discurso_184' in request.form
+        discurso_184 = 1 if discurso_184 else 0
+
+        discurso_185 = 'discurso_185' in request.form
+        discurso_185 = 1 if discurso_185 else 0
+
+        discurso_186 = 'discurso_186' in request.form
+        discurso_186 = 1 if discurso_186 else 0
+
+        discurso_187 = 'discurso_187' in request.form
+        discurso_187 = 1 if discurso_187 else 0
+
+        discurso_188 = 'discurso_188' in request.form
+        discurso_188 = 1 if discurso_188 else 0
+
+        discurso_189 = 'discurso_189' in request.form
+        discurso_189 = 1 if discurso_189 else 0
+
+        discurso_190 = 'discurso_190' in request.form
+        discurso_190 = 1 if discurso_190 else 0
+
+        discurso_191 = 'discurso_191' in request.form
+        discurso_191 = 1 if discurso_191 else 0
+
+        discurso_192 = 'discurso_192' in request.form
+        discurso_192 = 1 if discurso_192 else 0
+
+        discurso_193 = 'discurso_193' in request.form
+        discurso_193 = 1 if discurso_193 else 0
+
+        discurso_194 = 'discurso_194' in request.form
+        discurso_194 = 1 if discurso_194 else 0
+
+                            
+        cursor = g.bd.cursor()
+
+        cursor.execute("""
+            SELECT * FROM oradores WHERE nombres = ? AND apellidos = ?
+        """, (nombres, apellidos))
+
+        resultado = cursor.fetchone()
+
+        if resultado:
+            cursor.execute("""
+                UPDATE oradores
+                SET aprobado_para_salir = ?, correo_electronico = ?, celular = ?, telefono = ?, nombramiento = ?, discurso_1 = ?, discurso_2 = ?, discurso_3 = ?, discurso_4 = ?, discurso_5 = ?, discurso_6 = ?,
+    discurso_7 = ?, discurso_8 = ?, discurso_9 = ?, discurso_10 = ?, discurso_11 = ?, discurso_12 = ?,
+    discurso_13 = ?, discurso_14 = ?, discurso_15 = ?, discurso_16 = ?, discurso_17 = ?, discurso_18 = ?,
+    discurso_19 = ?, discurso_20 = ?, discurso_21 = ?, discurso_22 = ?, discurso_23 = ?, discurso_24 = ?,
+    discurso_25 = ?, discurso_26 = ?, discurso_27 = ?, discurso_28 = ?, discurso_29 = ?, discurso_30 = ?, 
+    discurso_31 = ?, discurso_32 = ?, discurso_33 = ?, discurso_34 = ?, discurso_35 = ?, 
+    discurso_36 = ?, discurso_37 = ?, discurso_38 = ?, discurso_39 = ?, discurso_40 = ?, 
+    discurso_41 = ?, discurso_42 = ?, discurso_43 = ?, discurso_44 = ?, discurso_45 = ?, 
+    discurso_46 = ?, discurso_47 = ?, discurso_48 = ?, discurso_49 = ?, discurso_50 = ?, discurso_51 = ?, discurso_52 = ?, discurso_53 = ?, discurso_54 = ?, discurso_55 = ?, 
+    discurso_56 = ?, discurso_57 = ?, discurso_58 = ?, discurso_59 = ?, discurso_60 = ?, 
+    discurso_61 = ?, discurso_62 = ?, discurso_63 = ?, discurso_64 = ?, discurso_65 = ?, 
+    discurso_66 = ?, discurso_67 = ?, discurso_68 = ?, discurso_69 = ?, discurso_70 = ?, 
+    discurso_71 = ?, discurso_72 = ?, discurso_73 = ?, discurso_74 = ?, discurso_75 = ?, discurso_76 = ?, discurso_77 = ?, discurso_78 = ?, discurso_79 = ?, discurso_80 = ?, 
+    discurso_81 = ?, discurso_82 = ?, discurso_83 = ?, discurso_84 = ?, discurso_85 = ?, 
+    discurso_86 = ?, discurso_87 = ?, discurso_88 = ?, discurso_89 = ?, discurso_90 = ?, 
+    discurso_91 = ?, discurso_92 = ?, discurso_93 = ?, discurso_94 = ?, discurso_95 = ?, 
+    discurso_96 = ?, discurso_97 = ?, discurso_98 = ?, discurso_99 = ?, discurso_100 = ?,
+    discurso_101 = ?, discurso_102 = ?, discurso_103 = ?, discurso_104 = ?, discurso_105 = ?, 
+    discurso_106 = ?, discurso_107 = ?, discurso_108 = ?, discurso_109 = ?, discurso_110 = ?, 
+    discurso_111 = ?, discurso_112 = ?, discurso_113 = ?, discurso_114 = ?, discurso_115 = ?, 
+    discurso_116 = ?, discurso_117 = ?, discurso_118 = ?, discurso_119 = ?, discurso_120 = ?, 
+    discurso_121 = ?, discurso_122 = ?, discurso_123 = ?, discurso_124 = ?, discurso_125 = ?, discurso_126 = ?, discurso_127 = ?, discurso_128 = ?, discurso_129 = ?, discurso_130 = ?, 
+    discurso_131 = ?, discurso_132 = ?, discurso_133 = ?, discurso_134 = ?, discurso_135 = ?, 
+    discurso_136 = ?, discurso_137 = ?, discurso_138 = ?, discurso_139 = ?, discurso_140 = ?, 
+    discurso_141 = ?, discurso_142 = ?, discurso_143 = ?, discurso_144 = ?, discurso_145 = ?, 
+    discurso_146 = ?, discurso_147 = ?, discurso_148 = ?, discurso_149 = ?, discurso_150 = ?,
+    discurso_151 = ?, discurso_152 = ?, discurso_153 = ?, discurso_154 = ?, discurso_155 = ?, 
+    discurso_156 = ?, discurso_157 = ?, discurso_158 = ?, discurso_159 = ?, discurso_160 = ?, 
+    discurso_161 = ?, discurso_162 = ?, discurso_163 = ?, discurso_164 = ?, discurso_165 = ?, 
+    discurso_166 = ?, discurso_167 = ?, discurso_168 = ?, discurso_169 = ?, discurso_170 = ?, 
+    discurso_171 = ?, discurso_172 = ?, discurso_173 = ?, discurso_174 = ?, discurso_175 = ?,
+    discurso_176 = ?, discurso_177 = ?, discurso_178 = ?, discurso_179 = ?, discurso_180 = ?, 
+    discurso_181 = ?, discurso_182 = ?, discurso_183 = ?, discurso_184 = ?, discurso_185 = ?, 
+    discurso_186 = ?, discurso_187 = ?, discurso_188 = ?, discurso_189 = ?, discurso_190 = ?, 
+    discurso_191 = ?, discurso_192 = ?, discurso_193 = ?, discurso_194 = ?
+                WHERE nombres = ? AND apellidos = ?
+            """, (aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1, discurso_2, discurso_3, discurso_4, discurso_5, discurso_6,
+      discurso_7, discurso_8, discurso_9, discurso_10, discurso_11, discurso_12,
+      discurso_13, discurso_14, discurso_15, discurso_16, discurso_17, discurso_18,
+      discurso_19, discurso_20, discurso_21, discurso_22, discurso_23, discurso_24,
+      discurso_25, discurso_26, discurso_27, discurso_28, discurso_29, discurso_30,
+      discurso_31, discurso_32, discurso_33, discurso_34, discurso_35,
+      discurso_36, discurso_37, discurso_38, discurso_39, discurso_40,
+      discurso_41, discurso_42, discurso_43, discurso_44, discurso_45,
+      discurso_46, discurso_47, discurso_48, discurso_49, discurso_50, discurso_51, discurso_52, discurso_53, discurso_54, discurso_55,
+      discurso_56, discurso_57, discurso_58, discurso_59, discurso_60,
+      discurso_61, discurso_62, discurso_63, discurso_64, discurso_65,
+      discurso_66, discurso_67, discurso_68, discurso_69, discurso_70,
+      discurso_71, discurso_72, discurso_73, discurso_74, discurso_75, discurso_76, discurso_77, discurso_78, discurso_79, discurso_80,
+      discurso_81, discurso_82, discurso_83, discurso_84, discurso_85,
+      discurso_86, discurso_87, discurso_88, discurso_89, discurso_90,
+      discurso_91, discurso_92, discurso_93, discurso_94, discurso_95,
+      discurso_96, discurso_97, discurso_98, discurso_99, discurso_100,
+      discurso_101, discurso_102, discurso_103, discurso_104, discurso_105,
+      discurso_106, discurso_107, discurso_108, discurso_109, discurso_110,
+      discurso_111, discurso_112, discurso_113, discurso_114, discurso_115,
+      discurso_116, discurso_117, discurso_118, discurso_119, discurso_120,
+      discurso_121, discurso_122, discurso_123, discurso_124, discurso_125, discurso_126, discurso_127, discurso_128, discurso_129, discurso_130,
+      discurso_131, discurso_132, discurso_133, discurso_134, discurso_135,
+      discurso_136, discurso_137, discurso_138, discurso_139, discurso_140,
+      discurso_141, discurso_142, discurso_143, discurso_144, discurso_145,
+      discurso_146, discurso_147, discurso_148, discurso_149, discurso_150,
+      discurso_151, discurso_152, discurso_153, discurso_154, discurso_155,
+      discurso_156, discurso_157, discurso_158, discurso_159, discurso_160,
+      discurso_161, discurso_162, discurso_163, discurso_164, discurso_165,
+      discurso_166, discurso_167, discurso_168, discurso_169, discurso_170,
+      discurso_171, discurso_172, discurso_173, discurso_174, discurso_175,
+      discurso_176, discurso_177, discurso_178, discurso_179, discurso_180,
+      discurso_181, discurso_182, discurso_183, discurso_184, discurso_185,
+      discurso_186, discurso_187, discurso_188, discurso_189, discurso_190,
+      discurso_191, discurso_192, discurso_193, discurso_194, nombres, apellidos))
+        else:
+            cursor.execute("""
+                INSERT INTO oradores (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1))
+
+        g.bd.commit() 
+
+    return redirect('/oradores.html')
 
 @app.route('/oradores-foraneos.html')
 def oradores_foraneos():

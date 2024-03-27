@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+   <head>
+      <title>Kingdom Hall Attendant</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   </head>
+   <body>
+      <div class="Header color-bg-inset">
+         <!-- Image item  -->
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <a href="/" style="cursor: pointer;" class="mr-3">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+               <div class="col-10 d-table-cell v-align-middle pl-4">
+                  <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
+                  <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-xl mt-6">
+         <div class="container-xl">
+            <div class="container-lg clearfix">
+               <div class="col-12 float-left p-4 mt-n4">
+                  <p class="h2">Datos del orador</p>
+                  <form action="/guardar_orador" method="POST">
+                     <input type="hidden" name="id" value="{{ orador[0] }}" style="display: none;">
+<input class="form-control" type="text" name="nombres" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" value="{{ orador[1] }}" />
+<input class="form-control" type="text" name="apellidos" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" value="{{ orador[2] }}" />
+<div class="form-checkbox mt-2">
+    <label>
+        <input type="checkbox" name="aprobado_para_salir" id="aprobado_para_salir" {% if orador[3] == 1 %} checked {% endif %} />
+        <em class="highlight">Aprobado para salir</em>
+    </label>
+</div>
+<input class="form-control width-full mt-2" type="email" name="correo_electronico" placeholder="Correo electrónico" aria-label="Correo electrónico" value="{{ orador[4] }}" />
+<input class="form-control width-full mt-2" type="number" name="celular" placeholder="Celular" aria-label="Celular" value="{{ orador[5] }}" />
+<input class="form-control width-full mt-2" type="number" name="telefono" placeholder="Teléfono" aria-label="Teléfono" value="{{ orador[6] }}" />
+<div class="radio-group mt-2">
+        <input class="radio-input" id="option-anciano" type="radio" name="nombramiento" value="Anciano" {% if orador[7] == 'Anciano' %} checked {% endif %}>
+        <label class="radio-label" for="option-anciano">Anciano</label>
+        
+        <input class="radio-input" id="option-siervom" type="radio" name="nombramiento" value="Siervo ministerial" {% if orador[7] == 'Siervo ministerial' %} checked {% endif %}>
+        <label class="radio-label" for="option-siervom">Siervo ministerial</label>
+    </div>              <p class="f5 mb-n3 mt-3">Bosquejos preparados</p>
+                     <div class="container-lg clearfix mt-3">
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+                              <input type="checkbox" name="discurso_1" id="discurso_1" {% if orador[8] == 1 %} checked {% endif %}/>
+                              <em class="">1</em>
+                              </label>
+                              <br>
+                              <label>
+    <input type="checkbox" name="discurso_7" id="discurso_7" {% if orador[9] == 1 %} checked {% endif %}/>
+    <em class="">7</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_13" id="discurso_13" {% if orador[10] == 1 %} checked {% endif %}/>
+    <em class="">13</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_19" id="discurso_19" {% if orador[11] == 1 %} checked {% endif %}/>
+    <em class="">19</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_25" id="discurso_25" {% if orador[12] == 1 %} checked {% endif %}/>
+    <em class="">25</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_31" id="discurso_31" {% if orador[13] == 1 %} checked {% endif %}/>
+    <em class="">31</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_37" id="discurso_37" {% if orador[14] == 1 %} checked {% endif %}/>
+    <em class="">37</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_43" id="discurso_43" {% if orador[15] == 1 %} checked {% endif %}/>
+    <em class="">43</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_49" id="discurso_49" {% if orador[16] == 1 %} checked {% endif %}/>
+    <em class="">49</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_55" id="discurso_55" {% if orador[17] == 1 %} checked {% endif %}/>
+    <em class="">55</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_61" id="discurso_61" {% if orador[18] == 1 %} checked {% endif %}/>
+    <em class="">61</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_67" id="discurso_67" {% if orador[19] == 1 %} checked {% endif %}/>
+    <em class="">67</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_73" id="discurso_73" {% if orador[20] == 1 %} checked {% endif %}/>
+    <em class="">73</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_79" id="discurso_79" {% if orador[21] == 1 %} checked {% endif %}/>
+    <em class="">79</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_85" id="discurso_85" {% if orador[22] == 1 %} checked {% endif %}/>
+    <em class="">85</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_91" id="discurso_91" {% if orador[23] == 1 %} checked {% endif %}/>
+    <em class="">91</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_103" id="discurso_103" {% if orador[24] == 1 %} checked {% endif %}/>
+    <em class="">103</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_109" id="discurso_109" {% if orador[25] == 1 %} checked {% endif %}/>
+    <em class="">109</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_115" id="discurso_115" {% if orador[26] == 1 %} checked {% endif %}/>
+    <em class="">115</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_121" id="discurso_121" {% if orador[27] == 1 %} checked {% endif %}/>
+    <em class="">121</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_127" id="discurso_127" {% if orador[28] == 1 %} checked {% endif %}/>
+    <em class="">127</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_133" id="discurso_133" {% if orador[29] == 1 %} checked {% endif %}/>
+    <em class="">133</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_139" id="discurso_139" {% if orador[30] == 1 %} checked {% endif %}/>
+    <em class="">139</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_145" id="discurso_145" {% if orador[31] == 1 %} checked {% endif %}/>
+    <em class="">145</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_151" id="discurso_151" {% if orador[32] == 1 %} checked {% endif %}/>
+    <em class="">151</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_157" id="discurso_157" {% if orador[33] == 1 %} checked {% endif %}/>
+    <em class="">157</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_163" id="discurso_163" {% if orador[34] == 1 %} checked {% endif %}/>
+    <em class="">163</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_169" id="discurso_169" {% if orador[35] == 1 %} checked {% endif %}/>
+    <em class="">169</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_175" id="discurso_175" {% if orador[36] == 1 %} checked {% endif %}/>
+    <em class="">175</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_181" id="discurso_181" {% if orador[37] == 1 %} checked {% endif %}/>
+    <em class="">181</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_187" id="discurso_187" {% if orador[38] == 1 %} checked {% endif %}/>
+    <em class="">187</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_193" id="discurso_193" {% if orador[39] == 1 %} checked {% endif %}/>
+    <em class="">193</em>
+</label>
+
+
+                           </div>
+                        </div>
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" name="discurso_2" id="discurso_2" {% if orador[40] == 1 %} checked {% endif %}/>
+    <em class="">2</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_8" id="discurso_8" {% if orador[41] == 1 %} checked {% endif %}/>
+    <em class="">8</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_14" id="discurso_14" {% if orador[42] == 1 %} checked {% endif %}/>
+    <em class="">14</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_20" id="discurso_20" {% if orador[43] == 1 %} checked {% endif %}/>
+    <em class="">20</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_26" id="discurso_26" {% if orador[44] == 1 %} checked {% endif %}/>
+    <em class="">26</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_32" id="discurso_32" {% if orador[45] == 1 %} checked {% endif %}/>
+    <em class="">32</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_38" id="discurso_38" {% if orador[46] == 1 %} checked {% endif %}/>
+    <em class="">38</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_44" id="discurso_44" {% if orador[47] == 1 %} checked {% endif %}/>
+    <em class="">44</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_50" id="discurso_50" {% if orador[48] == 1 %} checked {% endif %}/>
+    <em class="">50</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_56" id="discurso_56" {% if orador[49] == 1 %} checked {% endif %}/>
+    <em class="">56</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_62" id="discurso_62" {% if orador[50] == 1 %} checked {% endif %}/>
+    <em class="">62</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_68" id="discurso_68" {% if orador[51] == 1 %} checked {% endif %}/>
+    <em class="">68</em>
+</label>
+
+<br>
+<label>
+    <input type="checkbox" name="discurso_74" id="discurso_74" {% if orador[52] == 1 %} checked {% endif %}/>
+    <em class="">74</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_80" id="discurso_80" {% if orador[53] == 1 %} checked {% endif %}/>
+    <em class="">80</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_86" id="discurso_86" {% if orador[54] == 1 %} checked {% endif %}/>
+    <em class="">86</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_92" id="discurso_92" {% if orador[55] == 1 %} checked {% endif %}/>
+    <em class="">92</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_104" id="discurso_104" {% if orador[56] == 1 %} checked {% endif %}/>
+    <em class="">104</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_110" id="discurso_110" {% if orador[57] == 1 %} checked {% endif %}/>
+    <em class="">110</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_116" id="discurso_116" {% if orador[58] == 1 %} checked {% endif %}/>
+    <em class="">116</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_122" id="discurso_122" {% if orador[59] == 1 %} checked {% endif %}/>
+    <em class="">122</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_128" id="discurso_128" {% if orador[60] == 1 %} checked {% endif %}/>
+    <em class="">128</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_134" id="discurso_134" {% if orador[61] == 1 %} checked {% endif %}/>
+    <em class="">134</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_140" id="discurso_140" {% if orador[62] == 1 %} checked {% endif %}/>
+    <em class="">140</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_146" id="discurso_146" {% if orador[63] == 1 %} checked {% endif %}/>
+    <em class="">146</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_152" id="discurso_152" {% if orador[64] == 1 %} checked {% endif %}/>
+    <em class="">152</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_158" id="discurso_158" {% if orador[65] == 1 %} checked {% endif %}/>
+    <em class="">158</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_164" id="discurso_164" {% if orador[66] == 1 %} checked {% endif %}/>
+    <em class="">164</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_170" id="discurso_170" {% if orador[67] == 1 %} checked {% endif %}/>
+    <em class="">170</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_176" id="discurso_176" {% if orador[68] == 1 %} checked {% endif %}/>
+    <em class="">176</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_182" id="discurso_182" {% if orador[69] == 1 %} checked {% endif %}/>
+    <em class="">182</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_188" id="discurso_188" {% if orador[70] == 1 %} checked {% endif %}/>
+    <em class="">188</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_194" id="discurso_194" {% if orador[71] == 1 %} checked {% endif %}/>
+    <em class="">194</em>
+</label>
+
+
+                           </div>
+                        </div>
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" name="discurso_3" id="discurso_3" {% if orador[72] == 1 %} checked {% endif %}/>
+    <em class="">3</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_9" id="discurso_9" {% if orador[73] == 1 %} checked {% endif %}/>
+    <em class="">9</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_15" id="discurso_15" {% if orador[74] == 1 %} checked {% endif %}/>
+    <em class="">15</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_21" id="discurso_21" {% if orador[75] == 1 %} checked {% endif %}/>
+    <em class="">21</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_27" id="discurso_27" {% if orador[76] == 1 %} checked {% endif %}/>
+    <em class="">27</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_33" id="discurso_33" {% if orador[77] == 1 %} checked {% endif %}/>
+    <em class="">33</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_39" id="discurso_39" {% if orador[78] == 1 %} checked {% endif %}/>
+    <em class="">39</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_45" id="discurso_45" {% if orador[79] == 1 %} checked {% endif %}/>
+    <em class="">45</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_51" id="discurso_51" {% if orador[80] == 1 %} checked {% endif %}/>
+    <em class="">51</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_57" id="discurso_57" {% if orador[81] == 1 %} checked {% endif %}/>
+    <em class="">57</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_63" id="discurso_63" {% if orador[82] == 1 %} checked {% endif %}/>
+    <em class="">63</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_69" id="discurso_69" {% if orador[83] == 1 %} checked {% endif %}/>
+    <em class="">69</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_75" id="discurso_75" {% if orador[84] == 1 %} checked {% endif %}/>
+    <em class="">75</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_81" id="discurso_81" {% if orador[85] == 1 %} checked {% endif %}/>
+    <em class="">81</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_87" id="discurso_87" {% if orador[86] == 1 %} checked {% endif %}/>
+    <em class="">87</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_93" id="discurso_93" {% if orador[87] == 1 %} checked {% endif %}/>
+    <em class="">93</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_105" id="discurso_105" {% if orador[88] == 1 %} checked {% endif %}/>
+    <em class="">105</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_111" id="discurso_111" {% if orador[89] == 1 %} checked {% endif %}/>
+    <em class="">111</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_117" id="discurso_117" {% if orador[90] == 1 %} checked {% endif %}/>
+    <em class="">117</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_123" id="discurso_123" {% if orador[91] == 1 %} checked {% endif %}/>
+    <em class="">123</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_129" id="discurso_129" {% if orador[92] == 1 %} checked {% endif %}/>
+    <em class="">129</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_135" id="discurso_135" {% if orador[93] == 1 %} checked {% endif %}/>
+    <em class="">135</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_141" id="discurso_141" {% if orador[94] == 1 %} checked {% endif %}/>
+    <em class="">141</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_147" id="discurso_147" {% if orador[95] == 1 %} checked {% endif %}/>
+    <em class="">147</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_153" id="discurso_153" {% if orador[96] == 1 %} checked {% endif %}/>
+    <em class="">153</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_159" id="discurso_159" {% if orador[97] == 1 %} checked {% endif %}/>
+    <em class="">159</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_165" id="discurso_165" {% if orador[98] == 1 %} checked {% endif %}/>
+    <em class="">165</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_171" id="discurso_171" {% if orador[99] == 1 %} checked {% endif %}/>
+    <em class="">171</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_177" id="discurso_177" {% if orador[100] == 1 %} checked {% endif %}/>
+    <em class="">177</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_183" id="discurso_183" {% if orador[101] == 1 %} checked {% endif %}/>
+    <em class="">183</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_189" id="discurso_189" {% if orador[102] == 1 %} checked {% endif %}/>
+    <em class="">189</em>
+</label>
+
+
+                           </div>
+                        </div>
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" name="discurso_4" id="discurso_4" {% if orador[103] == 1 %} checked {% endif %}/>
+    <em class="">4</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_10" id="discurso_10" {% if orador[104] == 1 %} checked {% endif %}/>
+    <em class="">10</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_16" id="discurso_16" {% if orador[105] == 1 %} checked {% endif %}/>
+    <em class="">16</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_22" id="discurso_22" {% if orador[106] == 1 %} checked {% endif %}/>
+    <em class="">22</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_28" id="discurso_28" {% if orador[107] == 1 %} checked {% endif %}/>
+    <em class="">28</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_34" id="discurso_34" {% if orador[108] == 1 %} checked {% endif %}/>
+    <em class="">34</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_40" id="discurso_40" {% if orador[109] == 1 %} checked {% endif %}/>
+    <em class="">40</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_46" id="discurso_46" {% if orador[110] == 1 %} checked {% endif %}/>
+    <em class="">46</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_52" id="discurso_52" {% if orador[111] == 1 %} checked {% endif %}/>
+    <em class="">52</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_58" id="discurso_58" {% if orador[112] == 1 %} checked {% endif %}/>
+    <em class="">58</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_64" id="discurso_64" {% if orador[113] == 1 %} checked {% endif %}/>
+    <em class="">64</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_70" id="discurso_70" {% if orador[114] == 1 %} checked {% endif %}/>
+    <em class="">70</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_76" id="discurso_76" {% if orador[115] == 1 %} checked {% endif %}/>
+    <em class="">76</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_82" id="discurso_82" {% if orador[116] == 1 %} checked {% endif %}/>
+    <em class="">82</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_88" id="discurso_88" {% if orador[117] == 1 %} checked {% endif %}/>
+    <em class="">88</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_94" id="discurso_94" {% if orador[118] == 1 %} checked {% endif %}/>
+    <em class="">94</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_106" id="discurso_106" {% if orador[119] == 1 %} checked {% endif %}/>
+    <em class="">106</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_112" id="discurso_112" {% if orador[120] == 1 %} checked {% endif %}/>
+    <em class="">112</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_118" id="discurso_118" {% if orador[121] == 1 %} checked {% endif %}/>
+    <em class="">118</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_124" id="discurso_124" {% if orador[122] == 1 %} checked {% endif %}/>
+    <em class="">124</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_130" id="discurso_130" {% if orador[123] == 1 %} checked {% endif %}/>
+    <em class="">130</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_136" id="discurso_136" {% if orador[124] == 1 %} checked {% endif %}/>
+    <em class="">136</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_142" id="discurso_142" {% if orador[125] == 1 %} checked {% endif %}/>
+    <em class="">142</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_148" id="discurso_148" {% if orador[126] == 1 %} checked {% endif %}/>
+    <em class="">148</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_154" id="discurso_154" {% if orador[127] == 1 %} checked {% endif %}/>
+    <em class="">154</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_160" id="discurso_160" {% if orador[128] == 1 %} checked {% endif %}/>
+    <em class="">160</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_166" id="discurso_166" {% if orador[129] == 1 %} checked {% endif %}/>
+    <em class="">166</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_172" id="discurso_172" {% if orador[131] == 1 %} checked {% endif %}/>
+    <em class="">172</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_178" id="discurso_178" {% if orador[132] == 1 %} checked {% endif %}/>
+    <em class="">178</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_184" id="discurso_184" {% if orador[133] == 1 %} checked {% endif %}/>
+    <em class="">184</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_190" id="discurso_190" {% if orador[134] == 1 %} checked {% endif %}/>
+    <em class="">190</em>
+</label>
+
+
+                           </div>
+                        </div>
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" name="discurso_5" id="discurso_5" {% if orador[135] == 1 %} checked {% endif %}/>
+    <em class="">5</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_11" id="discurso_11" {% if orador[136] == 1 %} checked {% endif %}/>
+    <em class="">11</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_17" id="discurso_17" {% if orador[137] == 1 %} checked {% endif %}/>
+    <em class="">17</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_23" id="discurso_23" {% if orador[138] == 1 %} checked {% endif %}/>
+    <em class="">23</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_29" id="discurso_29" {% if orador[139] == 1 %} checked {% endif %}/>
+    <em class="">29</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_35" id="discurso_35" {% if orador[140] == 1 %} checked {% endif %}/>
+    <em class="">35</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_41" id="discurso_41" {% if orador[141] == 1 %} checked {% endif %}/>
+    <em class="">41</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_47" id="discurso_47" {% if orador[142] == 1 %} checked {% endif %}/>
+    <em class="">47</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_53" id="discurso_53" {% if orador[143] == 1 %} checked {% endif %}/>
+    <em class="">53</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_59" id="discurso_59" {% if orador[144] == 1 %} checked {% endif %}/>
+    <em class="">59</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_65" id="discurso_65" {% if orador[145] == 1 %} checked {% endif %}/>
+    <em class="">65</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_71" id="discurso_71" {% if orador[146] == 1 %} checked {% endif %}/>
+    <em class="">71</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_77" id="discurso_77" {% if orador[147] == 1 %} checked {% endif %}/>
+    <em class="">77</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_83" id="discurso_83" {% if orador[148] == 1 %} checked {% endif %}/>
+    <em class="">83</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_89" id="discurso_89" {% if orador[149] == 1 %} checked {% endif %}/>
+    <em class="">89</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_95" id="discurso_95" {% if orador[150] == 1 %} checked {% endif %}/>
+    <em class="">95</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_107" id="discurso_107" {% if orador[151] == 1 %} checked {% endif %}/>
+    <em class="">107</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_113" id="discurso_113" {% if orador[152] == 1 %} checked {% endif %}/>
+    <em class="">113</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_119" id="discurso_119" {% if orador[153] == 1 %} checked {% endif %}/>
+    <em class="">119</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_125" id="discurso_125" {% if orador[154] == 1 %} checked {% endif %}/>
+    <em class="">125</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_131" id="discurso_131" {% if orador[155] == 1 %} checked {% endif %}/>
+    <em class="">131</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_137" id="discurso_137" {% if orador[156] == 1 %} checked {% endif %}/>
+    <em class="">137</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_143" id="discurso_143" {% if orador[157] == 1 %} checked {% endif %}/>
+    <em class="">143</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_149" id="discurso_149" {% if orador[158] == 1 %} checked {% endif %}/>
+    <em class="">149</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_155" id="discurso_155" {% if orador[159] == 1 %} checked {% endif %}/>
+    <em class="">155</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_161" id="discurso_161" {% if orador[160] == 1 %} checked {% endif %}/>
+    <em class="">161</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_167" id="discurso_167" {% if orador[161] == 1 %} checked {% endif %}/>
+    <em class="">167</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_173" id="discurso_173" {% if orador[174] == 1 %} checked {% endif %}/>
+    <em class="">173</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_179" id="discurso_179" {% if orador[175] == 1 %} checked {% endif %}/>
+    <em class="">179</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_185" id="discurso_185" {% if orador[176] == 1 %} checked {% endif %}/>
+    <em class="">185</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_191" id="discurso_191" {% if orador[177] == 1 %} checked {% endif %}/>
+    <em class="">191</em>
+</label>
+
+
+                           </div>
+                        </div>
+                        <div class="col-2 float-left p-0">
+                           <div class="form-checkbox mt-0 mb-0">
+                              <label>
+    <input type="checkbox" name="discurso_6" id="discurso_6" {% if orador[178] == 1 %} checked {% endif %}/>
+    <em class="">6</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_12" id="discurso_12" {% if orador[179] == 1 %} checked {% endif %}/>
+    <em class="">12</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_18" id="discurso_18" {% if orador[180] == 1 %} checked {% endif %}/>
+    <em class="">18</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_24" id="discurso_24" {% if orador[181] == 1 %} checked {% endif %}/>
+    <em class="">24</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_30" id="discurso_30" {% if orador[182] == 1 %} checked {% endif %}/>
+    <em class="">30</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_36" id="discurso_36" {% if orador[183] == 1 %} checked {% endif %}/>
+    <em class="">36</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_42" id="discurso_42" {% if orador[184] == 1 %} checked {% endif %}/>
+    <em class="">42</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_48" id="discurso_48" {% if orador[185] == 1 %} checked {% endif %}/>
+    <em class="">48</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_54" id="discurso_54" {% if orador[186] == 1 %} checked {% endif %}/>
+    <em class="">54</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_60" id="discurso_60" {% if orador[187] == 1 %} checked {% endif %}/>
+    <em class="">60</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_66" id="discurso_66" {% if orador[188] == 1 %} checked {% endif %}/>
+    <em class="">66</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_72" id="discurso_72" {% if orador[189] == 1 %} checked {% endif %}/>
+    <em class="">72</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_78" id="discurso_78" {% if orador[190] == 1 %} checked {% endif %}/>
+    <em class="">78</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_84" id="discurso_84" {% if orador[191] == 1 %} checked {% endif %}/>
+    <em class="">84</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_90" id="discurso_90" {% if orador[192] == 1 %} checked {% endif %}/>
+    <em class="">90</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_96" id="discurso_96" {% if orador[193] == 1 %} checked {% endif %}/>
+    <em class="">96</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_108" id="discurso_108" {% if orador[194] == 1 %} checked {% endif %}/>
+    <em class="">108</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_114" id="discurso_114" {% if orador[195] == 1 %} checked {% endif %}/>
+    <em class="">114</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_120" id="discurso_120" {% if orador[196] == 1 %} checked {% endif %}/>
+    <em class="">120</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_126" id="discurso_126" {% if orador[197] == 1 %} checked {% endif %}/>
+    <em class="">126</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_132" id="discurso_132" {% if orador[198] == 1 %} checked {% endif %}/>
+    <em class="">132</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_138" id="discurso_138" {% if orador[199] == 1 %} checked {% endif %}/>
+    <em class="">138</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_144" id="discurso_144" {% if orador[200] == 1 %} checked {% endif %}/>
+    <em class="">144</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_150" id="discurso_150" {% if orador[201] == 1 %} checked {% endif %}/>
+    <em class="">150</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_156" id="discurso_156" {% if orador[202] == 1 %} checked {% endif %}/>
+    <em class="">156</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_162" id="discurso_162" {% if orador[203] == 1 %} checked {% endif %}/>
+    <em class="">162</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_168" id="discurso_168" {% if orador[204] == 1 %} checked {% endif %}/>
+    <em class="">168</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_174" id="discurso_174" {% if orador[205] == 1 %} checked {% endif %}/>
+    <em class="">174</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_180" id="discurso_180" {% if orador[206] == 1 %} checked {% endif %}/>
+    <em class="">180</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_186" id="discurso_186" {% if orador[207] == 1 %} checked {% endif %}/>
+    <em class="">186</em>
+</label>
+<br>
+<label>
+    <input type="checkbox" name="discurso_192" id="discurso_192" {% if orador[208] == 1 %} checked {% endif %}/>
+    <em class="">192</em>
+</label>
+                           </div>
+                        </div>
+                     </div>
+                     <hr class="mt-5">
+         <p class="h1">Discursos impartidos (⚠️ funcionalidad pendiente ⚠️)</p>
+                     <div class="Box">
+               <div class="Box-row d-flex flex-items-center">
+                  <div class="flex-auto">
+                     <strong>Discurso público 1</strong>
+                  </div>
+                  <div class="container-lg clearfix" style="width: 70%;">
+                     <div class="col-6 float-left">
+                        <p class="h4">Fecha impartido:</p>
+                        <p class="mt-n2">05/04/2023</p>
+                     </div>
+                     <div class="col-6 float-left">
+                        <p class="h4">Congregación:</p>
+                        <p class="mt-n2">Aurora</p>
+                     </div>
+                  </div>
+                  <a href="option-eleven-b-part.html"><button class="btn mr-2 btn-sm" type="button">
+                     <!-- <%= octicon "search" %> -->
+                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path
+                           d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z">
+                        </path>
+                     </svg>
+                  </button></a>
+               </div>
+            </div>
+                     <br><br>
+                     <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-danger">
+                           <!-- <%= octicon "trashcan" %> -->
+                           <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                              <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                           </svg>
+                           <span>Eliminar</span>
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
