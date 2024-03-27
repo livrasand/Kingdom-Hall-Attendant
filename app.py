@@ -1281,11 +1281,11 @@ def eliminar_contenido_configuracion():
 
 @app.route('/nuevo_orador')
 def nuevo_orador():
-    return render_template('detalle-orador.html', orador=None)
+    return render_template('/detalle-orador.html', orador=None)
 
-@app.route('/')
-def oradores_foraneos():
-    return render_template('')
+@app.route('/nuevo_bosquejo')
+def nuevo_bosquejo():
+    return render_template('/detalle-bosquejo.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
