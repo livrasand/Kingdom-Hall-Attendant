@@ -315,3 +315,54 @@
     .palete-color--dark-gray > .palete-color__darken {
         background-color: #434a54;
     }
+
+    @media screen and (min-width: 768px) {
+  .evdGSG {
+    margin-top: 24px;
+  }
+}
+@media screen and (min-width: 544px) {
+  .evdGSG {
+    margin-top: 16px;
+  }
+}
+.evdGSG {
+  text-align: center;
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 544px) {
+  .kbBARO {
+    margin-right: 8px;
+  }
+}
+.kbBARO {
+  margin-right: 4px;
+  display: inline-block;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+@media screen and (min-width: 544px) {
+  .iOgZXa {
+    width: 16px;
+    height: 16px;
+  }
+}
+.iOgZXa {
+  color: #9a6700;
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+}
+
+@media screen and (min-width: 544px) {
+  .eqBkeL {
+    font-size: 14px;
+  }
+}
+.eqBkeL {
+  color: #9a6700;
+  font-size: 12px;
+}

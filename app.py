@@ -516,6 +516,7 @@ def guardar_orador():
         correo_electronico = request.form['correo_electronico']
         celular = request.form['celular']
         telefono = request.form['telefono']
+        congregacion = request.form['congregacion']
         
         nombramiento = request.form.get('nombramiento')
 
@@ -1148,7 +1149,7 @@ def guardar_orador():
     discurso_176 = ?, discurso_177 = ?, discurso_178 = ?, discurso_179 = ?, discurso_180 = ?, 
     discurso_181 = ?, discurso_182 = ?, discurso_183 = ?, discurso_184 = ?, discurso_185 = ?, 
     discurso_186 = ?, discurso_187 = ?, discurso_188 = ?, discurso_189 = ?, discurso_190 = ?, 
-    discurso_191 = ?, discurso_192 = ?, discurso_193 = ?, discurso_194 = ?
+    discurso_191 = ?, discurso_192 = ?, discurso_193 = ?, discurso_194 = ?, congregacion = ?
                 WHERE nombres = ? AND apellidos = ?
             """, (aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1, discurso_2, discurso_3, discurso_4, discurso_5, discurso_6,
       discurso_7, discurso_8, discurso_9, discurso_10, discurso_11, discurso_12,
@@ -1184,20 +1185,107 @@ def guardar_orador():
       discurso_176, discurso_177, discurso_178, discurso_179, discurso_180,
       discurso_181, discurso_182, discurso_183, discurso_184, discurso_185,
       discurso_186, discurso_187, discurso_188, discurso_189, discurso_190,
-      discurso_191, discurso_192, discurso_193, discurso_194, nombres, apellidos))
+      discurso_191, discurso_192, discurso_193, discurso_194, congregacion, nombres, apellidos))
         else:
             cursor.execute("""
-                INSERT INTO oradores (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1))
+                INSERT INTO oradores (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1, discurso_2, discurso_3, discurso_4, discurso_5, discurso_6,
+      discurso_7, discurso_8, discurso_9, discurso_10, discurso_11, discurso_12,
+      discurso_13, discurso_14, discurso_15, discurso_16, discurso_17, discurso_18,
+      discurso_19, discurso_20, discurso_21, discurso_22, discurso_23, discurso_24,
+      discurso_25, discurso_26, discurso_27, discurso_28, discurso_29, discurso_30,
+      discurso_31, discurso_32, discurso_33, discurso_34, discurso_35,
+      discurso_36, discurso_37, discurso_38, discurso_39, discurso_40,
+      discurso_41, discurso_42, discurso_43, discurso_44, discurso_45,
+      discurso_46, discurso_47, discurso_48, discurso_49, discurso_50, discurso_51, discurso_52, discurso_53, discurso_54, discurso_55,
+      discurso_56, discurso_57, discurso_58, discurso_59, discurso_60,
+      discurso_61, discurso_62, discurso_63, discurso_64, discurso_65,
+      discurso_66, discurso_67, discurso_68, discurso_69, discurso_70,
+      discurso_71, discurso_72, discurso_73, discurso_74, discurso_75, discurso_76, discurso_77, discurso_78, discurso_79, discurso_80,
+      discurso_81, discurso_82, discurso_83, discurso_84, discurso_85,
+      discurso_86, discurso_87, discurso_88, discurso_89, discurso_90,
+      discurso_91, discurso_92, discurso_93, discurso_94, discurso_95,
+      discurso_96, discurso_97, discurso_98, discurso_99, discurso_100,
+      discurso_101, discurso_102, discurso_103, discurso_104, discurso_105,
+      discurso_106, discurso_107, discurso_108, discurso_109, discurso_110,
+      discurso_111, discurso_112, discurso_113, discurso_114, discurso_115,
+      discurso_116, discurso_117, discurso_118, discurso_119, discurso_120,
+      discurso_121, discurso_122, discurso_123, discurso_124, discurso_125, discurso_126, discurso_127, discurso_128, discurso_129, discurso_130,
+      discurso_131, discurso_132, discurso_133, discurso_134, discurso_135,
+      discurso_136, discurso_137, discurso_138, discurso_139, discurso_140,
+      discurso_141, discurso_142, discurso_143, discurso_144, discurso_145,
+      discurso_146, discurso_147, discurso_148, discurso_149, discurso_150,
+      discurso_151, discurso_152, discurso_153, discurso_154, discurso_155,
+      discurso_156, discurso_157, discurso_158, discurso_159, discurso_160,
+      discurso_161, discurso_162, discurso_163, discurso_164, discurso_165,
+      discurso_166, discurso_167, discurso_168, discurso_169, discurso_170,
+      discurso_171, discurso_172, discurso_173, discurso_174, discurso_175,
+      discurso_176, discurso_177, discurso_178, discurso_179, discurso_180,
+      discurso_181, discurso_182, discurso_183, discurso_184, discurso_185,
+      discurso_186, discurso_187, discurso_188, discurso_189, discurso_190,
+      discurso_191, discurso_192, discurso_193, discurso_194, congregacion)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (nombres, apellidos, aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1, discurso_2, discurso_3, discurso_4, discurso_5, discurso_6,
+      discurso_7, discurso_8, discurso_9, discurso_10, discurso_11, discurso_12,
+      discurso_13, discurso_14, discurso_15, discurso_16, discurso_17, discurso_18,
+      discurso_19, discurso_20, discurso_21, discurso_22, discurso_23, discurso_24,
+      discurso_25, discurso_26, discurso_27, discurso_28, discurso_29, discurso_30,
+      discurso_31, discurso_32, discurso_33, discurso_34, discurso_35,
+      discurso_36, discurso_37, discurso_38, discurso_39, discurso_40,
+      discurso_41, discurso_42, discurso_43, discurso_44, discurso_45,
+      discurso_46, discurso_47, discurso_48, discurso_49, discurso_50, discurso_51, discurso_52, discurso_53, discurso_54, discurso_55,
+      discurso_56, discurso_57, discurso_58, discurso_59, discurso_60,
+      discurso_61, discurso_62, discurso_63, discurso_64, discurso_65,
+      discurso_66, discurso_67, discurso_68, discurso_69, discurso_70,
+      discurso_71, discurso_72, discurso_73, discurso_74, discurso_75, discurso_76, discurso_77, discurso_78, discurso_79, discurso_80,
+      discurso_81, discurso_82, discurso_83, discurso_84, discurso_85,
+      discurso_86, discurso_87, discurso_88, discurso_89, discurso_90,
+      discurso_91, discurso_92, discurso_93, discurso_94, discurso_95,
+      discurso_96, discurso_97, discurso_98, discurso_99, discurso_100,
+      discurso_101, discurso_102, discurso_103, discurso_104, discurso_105,
+      discurso_106, discurso_107, discurso_108, discurso_109, discurso_110,
+      discurso_111, discurso_112, discurso_113, discurso_114, discurso_115,
+      discurso_116, discurso_117, discurso_118, discurso_119, discurso_120,
+      discurso_121, discurso_122, discurso_123, discurso_124, discurso_125, discurso_126, discurso_127, discurso_128, discurso_129, discurso_130,
+      discurso_131, discurso_132, discurso_133, discurso_134, discurso_135,
+      discurso_136, discurso_137, discurso_138, discurso_139, discurso_140,
+      discurso_141, discurso_142, discurso_143, discurso_144, discurso_145,
+      discurso_146, discurso_147, discurso_148, discurso_149, discurso_150,
+      discurso_151, discurso_152, discurso_153, discurso_154, discurso_155,
+      discurso_156, discurso_157, discurso_158, discurso_159, discurso_160,
+      discurso_161, discurso_162, discurso_163, discurso_164, discurso_165,
+      discurso_166, discurso_167, discurso_168, discurso_169, discurso_170,
+      discurso_171, discurso_172, discurso_173, discurso_174, discurso_175,
+      discurso_176, discurso_177, discurso_178, discurso_179, discurso_180,
+      discurso_181, discurso_182, discurso_183, discurso_184, discurso_185,
+      discurso_186, discurso_187, discurso_188, discurso_189, discurso_190,
+      discurso_191, discurso_192, discurso_193, discurso_194, congregacion))
 
         g.bd.commit() 
 
     return redirect('/oradores.html')
 
-@app.route('/oradores-foraneos.html')
+@app.route('/eliminar_orador/<int:id>', methods=['GET'])
+def eliminar_orador(id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM oradores WHERE id = ?", (id,))
+    g.bd.commit()
+    return redirect('/oradores.html')
+
+@app.route('/eliminar_contenido_configuracion', methods=['GET'])
+def eliminar_contenido_configuracion():
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM congregacion")
+    cursor.execute("DELETE FROM configuracion")
+    g.bd.commit()
+    return redirect('/')
+
+@app.route('/nuevo_orador')
+def nuevo_orador():
+    return render_template('detalle-orador.html', orador=None)
+
+@app.route('/')
 def oradores_foraneos():
-    return render_template('oradores-foraneos.html')
+    return render_template('')
 
 if __name__ == '__main__':
     app.run(debug=True)

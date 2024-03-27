@@ -41,7 +41,7 @@
                </div>
             </div>
 
-
+{% if publicador_list %}
                {% for publicador_list in publicador_list %}
 <div class="pl-2">         
          <div class="container-lg clearfix">
@@ -63,8 +63,13 @@
          </div>
       </div>
       {% endfor %}
+{% else %}
+    <div class="container-lg mt-1" align="center">
+      <h1>🤔</h1>
+    <h4 style="width:50%;">¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón "Nuevo".</h4>
+</div>
 
-
+{% endif %}
          </div>
       </div>
    </body>

@@ -31,11 +31,9 @@
       </div>
       <div class="container-xl mt-6">
          <div class="col-12 float-left pl-2 width-full">
-<div data-view-component="true" class="Subhead mt-0 mb-5">
-                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Grupos de predicación</h2>
-               </div>
             <div class="container-xl clearfix">
                <div class="col-12 float-left">
+                  {% if grupo %}
                   {% for grupo in grupos %}
 <div class="Box mb-2">
     <div class="Box-row d-flex flex-items-center">
@@ -51,7 +49,13 @@
     </div>
 </div>
 {% endfor %}
+{% else %}
+    <div class="container-lg mt-1" align="center">
+      <h1>🤔</h1>
+    <h4 style="width:50%;">¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón "Nuevo".</h4>
+</div>
 
+{% endif %}
                </div>
             </div>
          </div>
