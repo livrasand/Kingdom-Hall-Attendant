@@ -5,8 +5,9 @@
 ![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-19_de_100-de6e31)
 
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
-<h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio. ¡Gracias!</h6>
-<br>
+<h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nominarme a "GitHub Star". ¡Gracias!</h6>
+<a href="https://stars.github.com/nominate/"><img src="https://custom-icon-badges.demolab.com/badge/Nominar_a_GitHub_Star-white.svg?logo=github-star-logo"></a>
+<br><br>
 
 > [!NOTE]
 > Actualmente, estoy llevando a cabo un mantenimiento y avance muy limitado, ya que soy el único autor involucrado en el desarrollo en este momento.
