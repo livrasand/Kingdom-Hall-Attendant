@@ -91,6 +91,13 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 
 </details>
 
+## Cross-browser
+
+La compatibilidad con el navegador se prueba en Sauce Labs:
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/socket.svg)](https://saucelabs.com/u/livrasand)
+
+Experimenta Kingdom Hall Attendant en tu navegador visitando el sitio web en [livrasand.pythonanywhere.com](https://livrasand.pythonanywhere.com/). Simplifica la gestión de la congregación y tareas relacionadas con tu Salón del Reino de una manera eficiente y organizada.
 
 ## Ejecutar localmente
 
