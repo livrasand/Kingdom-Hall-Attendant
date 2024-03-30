@@ -6,8 +6,6 @@
 [![Open Collective](https://opencollective.com/kingdom-hall-attendant/tarjeta/badge.svg)](https://opencollective.com/kingdom-hall-attendant)&nbsp;
 [![Sostenedor de Servidores](https://opencollective.com/kingdom-hall-attendant/tiers/sostenedor-de-servidores/badge.svg?label=Sostenedor%20de%20Servidores&color=brightgreen)](https://opencollective.com/kingdom-hall-attendant)
 
-[![Colabora en OC](https://opencollective.com/kingdom-hall-attendant/tiers/impulsa-al-desarrollador.svg?avatarHeight=55)](https://opencollective.com/kingdom-hall-attendant)
-
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
 <h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nominarme a "GitHub Star". ¡Gracias!</h6>
 <a href="https://stars.github.com/nominate/"><img src="https://custom-icon-badges.demolab.com/badge/Nominar_a_GitHub_Star-white.svg?logo=github-star-logo"></a>
