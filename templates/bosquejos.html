@@ -29,34 +29,52 @@
             </div>
          </div>
       </div>
-      <div class="d-flex flex-justify-end  ">   
-         <a class="btn btn-sm mr-2 float-right" href="" role="button">Imprimir</a> 
-         <a class="btn btn-sm float-right" href="{{ url_for('nuevo_bosquejo') }}" role="button">Nuevo</a>           
-       </div>
+      <div className="d-flex flex-justify-end ml-2">
+               <details class="details-reset details-overlay float-right">
+                     <summary class="btn btn-sm float-right" aria-haspopup="true">
+                        Nuevo
+                     </summary>
+                     <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
+                        <div class="SelectMenu-modal">
+                           <div class="SelectMenu-list">
+                              {% for oradoreslist in oradoreslist %}
+                              <a href="/nuevo_bosquejo?nombres={{ oradoreslist[1] }}&apellidos={{ oradoreslist[2] }}&congregacion={{ oradoreslist[202] }}" style="text-decoration: none;"><button class="SelectMenu-item" role="menuitem">{{ oradoreslist[1] }} {{ oradoreslist[2] }}</button></a>
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </details>
+               </div>
       </div>
    <div class="container-xl mt-6">      
       <div class="pl-2">         
          <div class="container-lg clearfix">
-            <div class="Box">
+            {% if bosquejos_list %}
+    {% for bosquejo in bosquejos_list %}
+            <div class="Box mt-2">
                <div class="Box-row d-flex flex-items-center">
                   <div class="flex-auto">
-                     <strong>Discurso público 1</strong>
+                     <strong>{% if bosquejo[5] %}
+    <strong>Discurso público {{ bosquejo[5] }}</strong>
+{% else %}
+    <strong>Sin asignar bosquejo</strong>
+{% endif %}</strong>
                   </div>
                   <div class="container-lg clearfix" style="width: 70%;">
                      <div class="col-4 float-left">
                         <p class="h4">Fecha:</p>
-                        <p class="mt-n2">05/04/2023</p>
+                        <p class="mt-n2">{{ bosquejo[3] if bosquejo[3] else "Sin asignar" }}</p>
                      </div>
                      <div class="col-4 float-left">
                         <p class="h4">Orador:</p>
-                        <p class="mt-n2">Ignacio Benham</p>
+                        <p class="mt-n2">{{ bosquejo[1] }} {{ bosquejo[2] }}</p>
                      </div>
                      <div class="col-4 float-left">
                         <p class="h4">Congregación:</p>
-                        <p class="mt-n2">Aurora</p>
+                        <p class="mt-n2">{{ bosquejo[4] if bosquejo[4] else "Local" }}</p>
                      </div>
                   </div>
-                  <a href="bosquejos-new.html"><button class="btn mr-2 btn-sm" type="button">
+                  <a href="/mostrar_bosquejo/{{ bosquejo[0] }}"><button class="btn mr-2 btn-sm" type="button">
                      <!-- <%= octicon "search" %> -->
                      <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                         <path
@@ -66,6 +84,14 @@
                   </button></a>
                </div>
             </div>
+             {% endfor %}
+{% else %}
+    <div class="container-lg mt-1" align="center">
+      <h1>🤔</h1>
+    <h4 style="width:50%;">¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón "Nuevo".</h4>
+</div>
+
+{% endif %}
          </div>
       </div>
    </div>

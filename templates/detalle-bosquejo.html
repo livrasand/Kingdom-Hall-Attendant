@@ -33,35 +33,60 @@
       <div class="container-xl mb-6">
          <div class="container-xl clearfix">
             <form>
-               <select class="form-select mb-2 mt-2 width-full" aria-label="Preference">
-                  <option>Seleccione un Orador</option>
-               </select>
-               <div class="flash-messages">
-                  <div class="flash">
-                     Este orador es invitado de la congregación <button class="btn-link ml-1"
-                        type="button">{Congregación}</button>
-                  </div>
-               </div>
+               <input type="hidden" name="id" value="{{ bosquejo[0] }}" style="display: none;">
+               <label class="" htmlFor="name">Orador</label><br>
+               <input class="form-control width-full mb-2" type="text" id="name" value="{{ bosquejo[1] }} {{ bosquejo[2] }}" />
+
+{% if bosquejo[4] %}
+    <div class="flash-messages" id="flashMessages">
+        <div class="flash">
+            Este orador es invitado de la congregación 
+            <button class="btn-link" type="button" id="btnCongregacion">{{ bosquejo[4] }}</button>
+        </div>
+    </div>
+{% endif %}
+
+
 
                <label class="" htmlFor="name">Número del discurso</label>
                <br>
                <input class="form-control" type="text" id="name" />
                <div class="flash-messages mt-2">
-                  <div class="flash flash-warn">
-                     Este orador tiene preparados estos bosquejos:
-                  </div>
-               </div>
+    <div class="flash flash-warn">
+        Este orador tiene preparados estos bosquejos:
+        <ul>
+            {% for bosquejo in bosquejos_preparados %}
+                <li>{{ bosquejo }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
                <p class="f5 mt-2 mb-n1">Fecha:</p>
                <input class="form-control mt-1" type="date" placeholder="Fecha impartido" aria-label="Fecha impartido"
                   style="width:24.5%;" />
                <br>
-               <select class="form-select mb-2 mt-2 width-full" aria-label="Preference">
-                  <option>Seleccione un grupo o familai para la hospitalidad</option>
-               </select>
+               {% if bosquejo[4] %}
+               
+               {% if grupo %}    
+    <select class="form-select mb-0 mt-2 width-full" aria-label="Siervo de grupo" id="siervo_grupo" name="siervo_grupo">
+        <option value="{{ grupos_list[2] }}">{{ grupos_list[2] }}</option>
+</select>
+{% else %}
+    <select class="form-select mb-0 mt-2 width-full" aria-label="Siervo de grupo" id="siervo_grupo" name="siervo_grupo">      
+    <option>Seleccione un grupo para la hospitalidad</option>
+        {% for grupos in grupos_list %}
+            <option value="{{ grupos[0] }} {{ grupos[1] }}">{{ grupos[0] }} {{ grupos[1] }}</option>
+        {% endfor %}
+    </select>
+{% endif %}
+               {% endif %}
                <br>
+               {% if bosquejo[4] == ''%}
                <div class="Box-sc-g0xbh4-0 evdGSG mt-3 mb-3" style="display:inline-block;"><div class="Box-sc-g0xbh4-0 kbBARO"><svg aria-hidden="true" focusable="false" role="img" class="Octicon-sc-9kayk9-0 iOgZXa" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible;color: #9a6700;"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path></svg><span class="Text-sc-17v1xeu-0 eqBkeL" style="color: #9a6700;">Tip</span><span class="Text-sc-17v1xeu-0 fUummm" style="display:inline-block;margin-left: 5px;color: #656d76;">Si el orador va a salir a discursar, especifique la congregación</span></div></div>
                <p class="f5 mb-1">Congregación:</p>
                <input class="form-control width-full" type="text" id="congregacion" />
+               {% endif %}
                <!-- FIN DE LA NOTA -->
                <div class="form-checkbox  mb-0">
                   <label>

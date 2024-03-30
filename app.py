@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, g
+from flask import Flask, render_template, request, redirect, g, url_for
 import sqlite3
+
 
 app = Flask(__name__)
 
@@ -469,10 +470,6 @@ def crear_familia(apellidos):
             g.bd.commit()
 
         return redirect('/publicadores.html')
-
-@app.route('/bosquejos.html')
-def bosquejos():
-    return render_template('bosquejos.html')
 
 @app.route('/oradores.html')
 def oradores():
@@ -1283,9 +1280,79 @@ def eliminar_contenido_configuracion():
 def nuevo_orador():
     return render_template('/detalle-orador.html', orador=None)
 
-@app.route('/nuevo_bosquejo')
+@app.route('/bosquejos.html')
+def bosquejos():
+    cursor = g.bd.cursor()
+
+    # Obtener la lista de oradores
+    cursor.execute("SELECT * FROM oradores")
+    oradoreslist = cursor.fetchall()
+
+    # Obtener la lista de bosquejos
+    cursor.execute("SELECT * FROM bosquejos")
+    bosquejos_list = cursor.fetchall()  
+
+    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list)
+
+
+@app.route('/nuevo_bosquejo', methods=['GET'])
 def nuevo_bosquejo():
-    return render_template('/detalle-bosquejo.html')
+    nombres = request.args.get('nombres')
+    apellidos = request.args.get('apellidos')
+    congregacion = request.args.get('congregacion')
+
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM bosquejos WHERE nombres = ? AND apellidos = ? AND congregacion = ?", (nombres, apellidos, congregacion))
+    orador_existente = cursor.fetchone()
+
+    if not orador_existente:
+       cursor.execute("INSERT INTO bosquejos (nombres, apellidos, congregacion) VALUES (?, ?, ?)", (nombres, apellidos, congregacion))
+       g.bd.commit()
+    
+    return redirect(url_for('bosquejos'))
+
+@app.route('/mostrar_bosquejo/<int:id>', methods=['GET'])
+def mostrar_bosquejo(id):
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM bosquejos WHERE id = ?", (id,))
+    bosquejo = cursor.fetchone()
+
+    cursor.execute("SELECT nombre_grupo FROM grupos_predicacion WHERE asignar_hospitalidad = 1")
+    grupos = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM oradores WHERE id = ?", (id,))
+    orador = cursor.fetchone()
+    bosquejos_preparados = []
+    for columna in range(8, 201):  # Suponiendo que las columnas pertinentes están entre la 3 y la 197
+        if orador[columna] == 1:
+            # Obtener el nombre del bosquejo basado en el número de la columna
+            nombre_bosquejo = obtener_nombre_bosquejo(cursor, columna)
+            bosquejos_preparados.append(nombre_bosquejo)
+
+    return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, bosquejos_preparados=bosquejos_preparados)
+
+def obtener_nombre_bosquejo(cursor, orador_id):
+    cursor.execute("SELECT * FROM oradores WHERE id = ?", (orador_id,))
+    orador = cursor.fetchone()
+
+    if orador is not None:
+        nombres_bosquejos = []
+        for columna_numero in range(8, 202):
+            if orador[columna_numero] == 1:
+                nombre_bosquejo = obtener_nombre_columna(cursor, columna_numero)
+                nombres_bosquejos.append(nombre_bosquejo)
+        return nombres_bosquejos
+    else:
+        return []  
+
+def obtener_nombre_columna(cursor, columna_numero):
+    cursor.execute("PRAGMA table_info(oradores)")
+    columnas = cursor.fetchall()
+    nombre_columna = [columna[1] for columna in columnas if columna[0] == columna_numero]
+    if nombre_columna:
+        return nombre_columna[0]
+    else:
+        return None
 
 if __name__ == '__main__':
     app.run(debug=True)
