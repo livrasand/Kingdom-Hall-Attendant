@@ -33,7 +33,8 @@ Además, la disponibilidad de KHA en múltiples plataformas, incluyendo Windows,
 En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un testimonio de dedicación, innovación y excelencia en la búsqueda de brindar una solución efectiva para la gestión de congregaciones. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático.
 
 ## ¿Qué es Kingdom Hall Attendant?
-![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/bb28f4a0-bd85-4ed1-8b1c-5a7a1e1cad49)
+![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/8aaa8ed3-e342-463a-9cf9-3e078050a1b5)
+
 > #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
 >
 > - **Azul**: Indica las funciones pendientes de desarrollo.
