@@ -2,7 +2,7 @@
 <br>
 
 # This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha
-![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-19_de_100-de6e31)
+![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-21_de_100-de6e31)
 
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
 <h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nominarme a "GitHub Star". ¡Gracias!</h6>
