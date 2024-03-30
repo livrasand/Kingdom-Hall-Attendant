@@ -1302,57 +1302,98 @@ def nuevo_bosquejo():
     congregacion = request.args.get('congregacion')
 
     cursor = g.bd.cursor()
-    cursor.execute("SELECT * FROM bosquejos WHERE nombres = ? AND apellidos = ? AND congregacion = ?", (nombres, apellidos, congregacion))
+    
+    # Verificar si el orador ya existe en la tabla oradores
+    cursor.execute("SELECT id FROM oradores WHERE nombres = ? AND apellidos = ? AND congregacion = ?", (nombres, apellidos, congregacion))
     orador_existente = cursor.fetchone()
 
     if not orador_existente:
-       cursor.execute("INSERT INTO bosquejos (nombres, apellidos, congregacion) VALUES (?, ?, ?)", (nombres, apellidos, congregacion))
-       g.bd.commit()
+        # Si el orador no existe, insertarlo en la tabla oradores
+        cursor.execute("INSERT INTO oradores (nombres, apellidos, congregacion) VALUES (?, ?, ?)", (nombres, apellidos, congregacion))
+        g.bd.commit()
+        
+        # Obtener el ID del orador recién insertado
+        cursor.execute("SELECT last_insert_rowid()")
+        orador_id = cursor.fetchone()[0]
+    else:
+        # Si el orador ya existe, obtener su ID
+        orador_id = orador_existente[0]
+    
+    # Insertar un nuevo bosquejo utilizando el ID del orador
+    cursor.execute("INSERT INTO bosquejos (id_orador, nombres, apellidos, congregacion) VALUES (?, ?, ?, ?)", (orador_id, nombres, apellidos, congregacion))
+    g.bd.commit()
     
     return redirect(url_for('bosquejos'))
+
 
 @app.route('/mostrar_bosquejo/<int:id>', methods=['GET'])
 def mostrar_bosquejo(id):
     cursor = g.bd.cursor()
-    cursor.execute("SELECT * FROM bosquejos WHERE id = ?", (id,))
+
+    # Obtener detalles del bosquejo
+    cursor.execute("SELECT * FROM bosquejos WHERE id_orador = ?", (id,))
     bosquejo = cursor.fetchone()
 
+    # Obtener grupos de predicación
     cursor.execute("SELECT nombre_grupo FROM grupos_predicacion WHERE asignar_hospitalidad = 1")
     grupos = cursor.fetchall()
 
+    # Obtener detalles del orador
     cursor.execute("SELECT * FROM oradores WHERE id = ?", (id,))
     orador = cursor.fetchone()
-    bosquejos_preparados = []
-    for columna in range(8, 201):  # Suponiendo que las columnas pertinentes están entre la 3 y la 197
-        if orador[columna] == 1:
-            # Obtener el nombre del bosquejo basado en el número de la columna
-            nombre_bosquejo = obtener_nombre_bosquejo(cursor, columna)
-            bosquejos_preparados.append(nombre_bosquejo)
 
-    return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, bosquejos_preparados=bosquejos_preparados)
+    # Obtener columnas con valor 1
+    columnas_con_uno = obtener_columnas_con_uno(id)
 
-def obtener_nombre_bosquejo(cursor, orador_id):
-    cursor.execute("SELECT * FROM oradores WHERE id = ?", (orador_id,))
-    orador = cursor.fetchone()
+    # Imprimir el resultado de las columnas con valor 1
+    print("Columnas con valor 1 para el ID {}: {}".format(id, columnas_con_uno))
 
-    if orador is not None:
-        nombres_bosquejos = []
-        for columna_numero in range(8, 202):
-            if orador[columna_numero] == 1:
-                nombre_bosquejo = obtener_nombre_columna(cursor, columna_numero)
-                nombres_bosquejos.append(nombre_bosquejo)
-        return nombres_bosquejos
-    else:
-        return []  
+    return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, columnas_con_uno=columnas_con_uno)
 
-def obtener_nombre_columna(cursor, columna_numero):
+def obtener_columnas_con_uno(id):
+    cursor = g.bd.cursor()
     cursor.execute("PRAGMA table_info(oradores)")
-    columnas = cursor.fetchall()
-    nombre_columna = [columna[1] for columna in columnas if columna[0] == columna_numero]
-    if nombre_columna:
-        return nombre_columna[0]
-    else:
-        return None
+    columnas = [row[1] for row in cursor.fetchall()]
+    columnas_con_uno = []
+    for columna in columnas:
+        cursor.execute("SELECT {} FROM oradores WHERE id = ? AND {} = 1".format(columna, columna), (id,))
+        resultado = cursor.fetchone()
+        if resultado:
+            columnas_con_uno.append(columna)
+    return columnas_con_uno
+
+@app.route('/guardar_bosquejo', methods=['POST'])
+def guardar_bosquejo():
+    if request.method == 'POST':
+        id_orador = request.form['id']
+        numero = request.form['discurso_numero']
+        fecha = request.form['fecha_impartido']
+        hospitalidad = request.form.get('hospitalidad', None)
+        congregacion_visitar = request.form.get('congregacion_visitar', None)
+        se_ha_quedado_hospitalidad_checkbox = 1 if 'se_ha_quedado_hospitalidad_checkbox' in request.form else 0
+        se_ha_presentado_tiempo_checkbox = 1 if 'se_ha_presentado_tiempo_checkbox' in request.form else 0
+        se_ha_presentado_discurso_checkbox = 1 if 'se_ha_presentado_discurso_checkbox' in request.form else 0
+        anotaciones = request.form['anotaciones']
+
+        cursor = g.bd.cursor()
+        cursor.execute("""
+            UPDATE bosquejos SET numero = ?, fecha = ?, hospitalidad = ?, 
+                                   se_ha_quedado_hospitalidad_checkbox = ?, 
+                                   se_ha_presentado_tiempo_checkbox = ?, 
+                                   se_ha_presentado_discurso_checkbox = ?, 
+                                   anotaciones = ?, congregacion_visitar = ? WHERE id_orador = ?
+        """, (numero, fecha, hospitalidad, se_ha_quedado_hospitalidad_checkbox,
+              se_ha_presentado_tiempo_checkbox, se_ha_presentado_discurso_checkbox, anotaciones, congregacion_visitar, id_orador))
+        g.bd.commit()
+
+        return redirect(url_for('bosquejos'))
+
+@app.route('/eliminar_bosquejo/<int:id>', methods=['GET'])
+def eliminar_bosquejo(id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM bosquejos WHERE id_orador = ?", (id,))
+    g.bd.commit()
+    return redirect('/bosquejos.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

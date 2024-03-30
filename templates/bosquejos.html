@@ -61,17 +61,21 @@
 {% endif %}</strong>
                   </div>
                   <div class="container-lg clearfix" style="width: 70%;">
-                     <div class="col-4 float-left">
+                     <div class="col-3 float-left">
                         <p class="h4">Fecha:</p>
                         <p class="mt-n2">{{ bosquejo[3] if bosquejo[3] else "Sin asignar" }}</p>
                      </div>
-                     <div class="col-4 float-left">
+                     <div class="col-3 float-left">
                         <p class="h4">Orador:</p>
                         <p class="mt-n2">{{ bosquejo[1] }} {{ bosquejo[2] }}</p>
                      </div>
-                     <div class="col-4 float-left">
+                     <div class="col-3 float-left">
                         <p class="h4">Congregación:</p>
                         <p class="mt-n2">{{ bosquejo[4] if bosquejo[4] else "Local" }}</p>
+                     </div>
+                     <div class="col-3 float-left">
+                        <p class="h4">Saliente a:</p>
+                        <p class="mt-n2">{{ bosquejo[11] if bosquejo[11] else "Es visitante" }}</p>
                      </div>
                   </div>
                   <a href="/mostrar_bosquejo/{{ bosquejo[0] }}"><button class="btn mr-2 btn-sm" type="button">
