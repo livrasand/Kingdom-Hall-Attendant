@@ -1,7 +1,7 @@
 <div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
-# This is Kingdom Hall Attendant version 1.0.0&nbsp;Pre-alpha
+# This is Kingdom Hall Attendant
 ![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-21_de_100-de6e31)&nbsp;
 [![Open Collective](https://opencollective.com/kingdom-hall-attendant/tarjeta/badge.svg)](https://opencollective.com/kingdom-hall-attendant)&nbsp;
 [![Sostenedor de Servidores](https://opencollective.com/kingdom-hall-attendant/tiers/sostenedor-de-servidores/badge.svg?label=Sostenedor%20de%20Servidores&color=brightgreen)](https://opencollective.com/kingdom-hall-attendant)
@@ -32,7 +32,7 @@ Además, la disponibilidad de KHA en múltiples plataformas, incluyendo Windows,
 
 En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un testimonio de dedicación, innovación y excelencia en la búsqueda de brindar una solución efectiva para la gestión de congregaciones. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático.
 
-## ¿Qué es Kingdom Hall Attendant?
+## 🤔 ¿Qué es Kingdom Hall Attendant?
 ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/8aaa8ed3-e342-463a-9cf9-3e078050a1b5)
 
 > #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
@@ -44,12 +44,15 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 
 **Kingdom Hall Attendant** es una aplicación utilizada por Windows, macOS y Linux, y próximamente plataformas móviles, es una herramienta digital diseñada para ayudar a los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová a desarrollar y mantener todas las asignaciones y responsabilidades de la congregación, simplificando tareas y actividades. Sabemos que proteger a KHA es fundamental, sobre todo si manejas información sensible o datos de publicadores, es crucial garantizar la privacidad e integridad de la información, para ello, KHA incluye funciones de seguridad y privacidad, para proteger la información de los miembros de la congregación. Disfruta de Kingdom Hall Attendant sin límites en cualquier sistema operativo. El proyecto está escrito en HTML y utiliza tecnología Python para crear una aplicación multiplataforma.
 
-- 🚀 Muy rápido
-- 🍰 Fácil de usar con una interfaz intuitiva
-- 🔐 Seguridad que combina criptografía simétrica y asimétrica
-- 🤖 Cliente de transmisión integrado mediante Onion Router
-- 💕 Compatibilidad con diferentes sistemas operativos
-- 🤝 Flexibilidad según las necesidades específicas de tu congregación
+## 🎯 Características clave
+- 🚀 Rápido y eficiente
+- 🎨 Fácil de usar con una interfaz intuitiva
+- 🔐 Seguro: Tus datos, tu control. Siempre. Seguridad que combina criptografía simétrica y asimétrica
+- 🌐 Cliente de transmisión integrado mediante Onion Router
+- 🖥️ Cross-browser y Cross-plataform. Compatibilidad con diferentes sistemas operativos
+- 🤹 Flexibilidad según las necesidades específicas de tu congregación
+- 📝 Código abierto: la libertad es hermosa, y Kingdom Hall Attendant también. Código abierto y de uso gratuito.
+- 📶 Modo sin conexión: Kingdom Hall Attendant funciona sin conexión, por lo que puedes acceder a tus datos en cualquier momento y lugar.
 
 <details>
 
@@ -103,6 +106,7 @@ La compatibilidad con el navegador se prueba en Sauce Labs:
 Experimenta Kingdom Hall Attendant en tu navegador visitando el sitio web en [livrasand.pythonanywhere.com](https://livrasand.pythonanywhere.com/). Simplifica la gestión de la congregación y tareas relacionadas con tu Salón del Reino de una manera eficiente y organizada.
 
 ## Ejecutar localmente
+### 💽 Instalación de 60 segundos
 
 Clonar el proyecto
 
@@ -151,13 +155,16 @@ Contribuciones recientes:
 
 ![Alt](https://repobeats.axiom.co/api/embed/4a71783c23dd5e07a13cf808480c0a7e0638d9f4.svg "Repobeats analytics image")
 
-## 📅 Roadmap 
+### ✨ Colaboradores
+Gracias a estas maravillosas personas:
 
-```mermaid
-graph TD;
-    Pre-Alpha-->Alpha-->Beta-->Preview-->Stable;
-    Marzo-Abril-->Mayo-Junio-->Julio-Agosto-->Septiembre-->Octubre-Diciembre
-```
+<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=livrasand/Kingdom-Hall-Attendant" />
+</a>
+
+## 📈 Star history
+
+[![Star History Chart](https://api.star-history.com/svg?repos=livrasand/Kingdom-Hall-Attendant&type=Timeline)](https://star-history.com/#livrasand/Kingdom-Hall-Attendant&Timeline)
 
 ## 📜 Licencia 
 The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/).
