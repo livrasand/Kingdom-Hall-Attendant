@@ -9,7 +9,19 @@
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
 <h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nominarme a "GitHub Star". ¡Gracias!</h6>
 <a href="https://stars.github.com/nominate/"><img src="https://custom-icon-badges.demolab.com/badge/Nominar_a_GitHub_Star-white.svg?logo=github-star-logo"></a>
-<br><br>
+<br>
+
+---
+
+<p align="left">
+👉 ¡Kingdom Hall Attendant para navegadores está en <strong>versión prealfa para desarrolladores</strong>! <a href="https://livrasand.pythonanywhere.com/" target="_blank"> Probar ahora</a>
+</p>
+
+---
+
+📫 Si desea recibir actualizaciones sobre lanzamientos futuros o simplemente ponerse en contacto, [agregue su correo electrónico aquí](https://forms.gle/4sh4YxfWNeb6Utdr6). 📬
+
+---
 
 > [!NOTE]
 > Actualmente, estoy llevando a cabo un mantenimiento y avance muy limitado, ya que soy el único autor involucrado en el desarrollo en este momento.
@@ -56,7 +68,7 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 
 <details>
 
-<summary>¿Qué puede hacer Kingdom Hall Attendant?</summary>
+<summary><kbd>Mira todas las funciones de Kingdom Hall Attendant</kbd></summary>
 
 - Registro de editor ilimitado
 - Tarjetas de registro de editor
