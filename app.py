@@ -1395,5 +1395,14 @@ def eliminar_bosquejo(id):
     g.bd.commit()
     return redirect('/bosquejos.html')
 
+@app.route('/estudio-atalaya.html')
+def estudio_atalaya():
+    return render_template('estudio-atalaya.html')
+
+@app.route('/nuevo-estudio-atalaya', methods=['GET'])
+def nuevo_estudio_atalaya():
+    return render_template('detalle-estudio-atalaya.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

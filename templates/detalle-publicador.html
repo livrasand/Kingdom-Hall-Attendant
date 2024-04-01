@@ -767,9 +767,12 @@
     });
 
     // Función para actualizar el contenido del botón con los apellidos
-    function actualizarApellidos() {
-        var apellidos = document.getElementById("apellidos").value;
-        var crearFamiliaButton = document.getElementById("crear_familia_button");
+function actualizarApellidos() {
+    var apellidos = document.getElementById("apellidos").value;
+    var crearFamiliaButton = document.getElementById("crear_familia_button");
+    var apellidosInput = document.getElementById("apellidos");
+    
+    if (apellidosInput.style.display !== 'none') {
         if (apellidos) {
             crearFamiliaButton.innerText = "Crear familia " + apellidos;
             crearFamiliaButton.style.display = "inline-block";
@@ -777,12 +780,14 @@
             crearFamiliaButton.style.display = "none";
         }
     }
+}
 
-    // Asignar la función actualizarApellidos al evento 'input' del campo de apellidos
-    document.getElementById("apellidos").addEventListener("input", actualizarApellidos);
+// Asignar la función actualizarApellidos al evento 'input' del campo de apellidos
+document.getElementById("apellidos").addEventListener("input", actualizarApellidos);
 
-    // Llamar a la función inicialmente para establecer el estado inicial del botón
-    actualizarApellidos();
+// Llamar a la función inicialmente para establecer el estado inicial del botón
+actualizarApellidos();
+
 </script>
 
    </body>
