@@ -107,14 +107,22 @@
 <p class="f5 mb-0" id="texto_fecha_bautizo" {% if publicador[10] == '1' %} style="display: block;" {% else %} style="display: none;" {% endif %}>Fecha de bautizo</p>
 <input class="form-control" type="date" placeholder="Fecha de bautizo" aria-label="Fecha de bautizo" id="fecha_bautizo_input" name="fecha_bautizo_input" style="width:25%; {% if publicador[10] == '1' %} display: block; {% else %} display: none; {% endif %}" {% if publicador[11] %} value="{{ publicador[11] }}" {% endif %}>
 
+{% if publicador[113] %}
+    <p class="f5 mb-0 mt-2">Grupo de predicación</p>
+    <select class="form-select" aria-label="Grupo de predicación" id="grupo_predicacion" name="grupo_predicacion">
+        <option value="{{ publicador[113] }}">{{ publicador[113] }}</option>
+    </select>
+{% else %}
+    <p class="f5 mb-0 mt-2">Grupo de predicación</p>
+    <select class="form-select" aria-label="Grupo de predicación" id="grupo_predicacion" name="grupo_predicacion">
+        <option>Seleccione un grupo</option>
+        {% for grupo in grupos_predicacion %}
+            <option value="{{ grupo[1] }}">{{ grupo[1] }}</option>
+        {% endfor %}
+    </select>
+{% endif %}
 
-                     <p class="f5 mb-0 mt-2">Grupo de predicación</p>
-                     <select class="form-select" aria-label="Preference">
-    <option>Seleccione un grupo</option>
-    {% for grupo in grupos_predicacion %}
-        <option>{{ grupo[1] }}</option> <!-- Ajusta esto según la estructura de tu tabla -->
-    {% endfor %}
-</select>
+
 
                      <div class="container-xl clearfix mt-5">
                         <div class="col-6 float-left p-0">
@@ -689,17 +697,17 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-limpieza-semanal-salon-reino" name="checkbox-limpieza-semanal-salon-reino" {% if publicador[107] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-semanal-salon-reino" name="checkbox-limpieza-semanal-salon-reino" {% if publicador[105] %} checked {% endif %} />
     <em class="">Limpieza semanal del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-limpieza-despues-reunion" name="checkbox-limpieza-despues-reunion" {% if publicador[108] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-despues-reunion" name="checkbox-limpieza-despues-reunion" {% if publicador[106] %} checked {% endif %} />
     <em class="">Limpieza después de la reunión</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-cuidado-jardin" name="checkbox-cuidado-jardin" {% if publicador[109] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-cuidado-jardin" name="checkbox-cuidado-jardin" {% if publicador[107] %} checked {% endif %} />
     <em class="">Cuidado del jardín</em>
 </label>
 
@@ -708,17 +716,17 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-limpieza-mensual-salon-reino" name="checkbox-limpieza-mensual-salon-reino" {% if publicador[110] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-mensual-salon-reino" name="checkbox-limpieza-mensual-salon-reino" {% if publicador[108] %} checked {% endif %} />
     <em class="">Limpieza mensual del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-limpieza-trimestral-salon-reino" name="checkbox-limpieza-trimestral-salon-reino" {% if publicador[111] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-trimestral-salon-reino" name="checkbox-limpieza-trimestral-salon-reino" {% if publicador[109] %} checked {% endif %} />
     <em class="">Limpieza trimestral del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-cuidado-cesped" name="checkbox-cuidado-cesped" {% if publicador[112] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-cuidado-cesped" name="checkbox-cuidado-cesped" {% if publicador[110] %} checked {% endif %} />
     <em class="">Cuidado del césped</em>
 </label>
 
