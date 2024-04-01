@@ -23,26 +23,23 @@
 
 ---
 
-> [!NOTE]
-> Actualmente, estoy llevando a cabo un mantenimiento y avance muy limitado, ya que soy el único autor involucrado en el desarrollo en este momento.
-Estoy emocionado de anunciar que la versión oficial del lanzamiento está programada para septiembre de 2024 o posiblemente antes. Para darles un adelanto, se lanzará una versión BETA antes del lanzamiento oficial.
 
 ## 🕰️ Nuestra historia
-La historia de Kingdom Hall Attendant, cariñosamente llamado KHA, desde su concepción en abril de 2021 hasta su actualidad, es un testimonio de perseverancia, innovación y compromiso con la excelencia. Inicialmente conocido como Kingdom Hall Assistant, posteriormente, fue renombrado como "Attendant Kingdom Hall", en consonancia con la línea de software denominada "Attendant Zoom", finalmente llegando a "Kingdom Hall Attendant", este proyecto ha experimentado una evolución notable en su búsqueda de ofrecer una solución de calidad para la gestión de congregaciones.
+En los anales del tiempo, la leyenda de Kingdom Hall Attendant, cariñosamente apodado KHA, Kha, Khan o Khanapp, relata una odisea de perseverancia, innovación y compromiso con la excelencia. Desde su humilde concepción en abril de 2021, hasta su esplendor actual, esta epopeya digital ha atravesado múltiples metamorfosis, cada una marcada por un espíritu indomable y una búsqueda incansable de perfección.
 
-El camino hacia el desarrollo de KHA ha sido una travesía de aprendizaje y adaptación. Se inició en Visual Basic .NET en agosto del 2021, pero pronto me di cuenta de la importancia de la accesibilidad multiplataforma y se trasladó a Electron puro en mayo de 2022. Sin embargo, hubo desafíos técnicos significativos, lo que llevó a otra transición en noviembre de 2022 hacia Sevelte, Electron y SQLite.
+Lo que comenzó como Kingdom Hall Assistant, pronto se transformó en "Attendant Kingdom Hall", siguiendo los pasos de la ilustre línea de software denominada "Attendant Zoom", hasta alcanzar su cénit con el nombre definitivo: Kingdom Hall Attendant. Este cambio de nombre no solo reflejó una evolución lingüística, sino también un compromiso renovado con la excelencia y la singularidad de la aplicación.
 
-Aunque hubo un período de interrupción en el desarrollo en noviembre de 2023 debido a limitaciones de tiempo y desintegración del equipo, el espíritu de KHA permaneció intacto. En febrero de 2024, el proyecto renació con renovado vigor, adoptando Python como lenguaje principal y avanzando con determinación hacia su objetivo final: lanzar una versión preliminar BETA para septiembre de 2024, o incluso antes, para satisfacer las expectativas de los usuarios que han estado esperando desde los primeros días del proyecto.
+El viaje hacia la creación de KHA ha sido una travesía plagada de desafíos y descubrimientos. Inicialmente gestado en Visual Basic .NET en agosto de 2021, pronto se hizo evidente la necesidad de una accesibilidad multiplataforma, lo que llevó a una transición hacia Electron puro en mayo de 2022. Sin embargo, el camino hacia la perfección estaba sembrado de obstáculos técnicos, lo que condujo a otra transformación en noviembre de 2022 hacia Sevelte, Electron y SQLite.
 
-Si bien las funciones esenciales de KHA se han mantenido, han sido mejoradas y optimizadas para ofrecer una experiencia aún más útil y eficiente. La seguridad ha sido reforzada y se ha implementado una tecnología de cifrado única y propia de KHA. Además, el programa ahora es completamente gratuito, sin costos ni donaciones obligatorias.
+A pesar de los desafíos, el espíritu de KHA nunca flaqueó. Aunque el desarrollo sufrió una pausa en noviembre de 2023 debido a limitaciones temporales y desafíos de equipo, su llama interior nunca se extinguió. En febrero de 2024, KHA resurgió con renovado ímpetu, adoptando Python como su lenguaje principal y avanzando con determinación hacia su destino: **lanzar una versión preliminar BETA para septiembre de 2024, o incluso antes**, para satisfacer las expectativas de aquellos que han esperado pacientemente desde los primeros días del proyecto.
 
-Para garantizar la sostenibilidad del proyecto, se han introducido nuevas formas de financiación opcionales. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos para tu aplicación por tiempo limitado. ¡Personaliza tu experiencia mientras contribuyes al crecimiento continuo de KHA!. **Attolympics:** Una emocionante olimpiada colaborativa que une corazones y propósitos en la vibrante comunidad de Kingdom Hall Attendant. Vota por el hito significativo que alcanzaremos juntos y haz historia con tu contribución de $1 dólar estadounidense. ¡Únete a nosotros y forma parte del éxito continuo de KHA!. **Golden Edition ✨:** Es una iniciativa generosa y alentadora diseñada para respaldar económicamente al desarrollador. Incorpora las mismas características que la Opensource Edition, pero con la adición de las siguientes comodidades: Elimina el sello distintivo de Kingdom Hall Attendant en los documentos impresos, recibe soporte técnico especializado del propio desarrollador, y disfruta de un color dorado único y distinguido en la interfaz. Además, como muestra de mi agradecimiento, elige entre un paquete de regalos exclusivo para ti o destina el 100% de tu donación al trabajo del desarrollador. ¡Haz brillar tu contribución y marca la diferencia con Golden Edition!
+Mientras las funciones esenciales de KHA han perdurado, han sido mejoradas y optimizadas para brindar una experiencia aún más excepcional. La seguridad ha sido reforzada y se ha implementado una tecnología de cifrado única y propia de KHA. Además, el programa ahora es completamente gratuito, sin costos ni donaciones obligatorias.
 
-A diferencia de otras aplicaciones similares, KHA se destaca por su enfoque en la autonomía y la comunidad. Aunque se ofrecen Season Pass a precios accesibles, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
+Para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado. **Attolympics:** Únete a una emocionante olimpiada colaborativa que une corazones y propósitos en la vibrante comunidad de Kingdom Hall Attendant. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, ofreciendo beneficios exclusivos y el reconocimiento eterno de la comunidad, no ofrece más allá de lo desconocido de la Opensource Edition.
 
-Además, la disponibilidad de KHA en múltiples plataformas, incluyendo Windows, macOS y Linux, demuestra un compromiso con la accesibilidad y la inclusión. Incluso es posible ejecutar KHA en ChromeOS utilizando herramientas que permiten ejecutar Python, ampliando aún más su alcance y utilidad.
+A diferencia de otras aplicaciones similares, KHA se destaca por su enfoque en la autonomía y la comunidad. Aunque se ofrecen opciones de financiamiento totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
-En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un testimonio de dedicación, innovación y excelencia en la búsqueda de brindar una solución efectiva para la gestión de congregaciones. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático.
+En resumen, Kingdom Hall Attendant no es simplemente una aplicación; es una epopeya moderna que denota la dedicación, la innovación y la búsqueda de la excelencia. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático. Su legado perdurará en las páginas de la historia digital por generaciones venideras.
 
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
 ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/8aaa8ed3-e342-463a-9cf9-3e078050a1b5)
@@ -54,7 +51,13 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 > - **Rojo**: Señala las funciones que se han detenido y necesitan asistencia urgente o resolución de problemas.
 > - **Verde**: Identifica las funciones completadas y listas para su utilización.
 
-**Kingdom Hall Attendant** es una aplicación utilizada por Windows, macOS y Linux, y próximamente plataformas móviles, es una herramienta digital diseñada para ayudar a los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová a desarrollar y mantener todas las asignaciones y responsabilidades de la congregación, simplificando tareas y actividades. Sabemos que proteger a KHA es fundamental, sobre todo si manejas información sensible o datos de publicadores, es crucial garantizar la privacidad e integridad de la información, para ello, KHA incluye funciones de seguridad y privacidad, para proteger la información de los miembros de la congregación. Disfruta de Kingdom Hall Attendant sin límites en cualquier sistema operativo. El proyecto está escrito en HTML y utiliza tecnología Python para crear una aplicación multiplataforma.
+**Kingdom Hall Attendant** es la herramienta digital imprescindible para los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová. Esta aplicación, compatible con una amplia gama de dispositivos y navegadores, incluyendo Windows, macOS, Linux, Firefox, Chrome, IE, Edge y Safari, pronto estará disponible en plataformas móviles como Android, iPhone y iPad de forma nativa.
+
+KHA ha sido cuidadosamente diseñada para simplificar las tareas y responsabilidades de la congregación, permitiendo una gestión eficiente de asignaciones y actividades. Con características intuitivas y funcionales, los usuarios pueden registrar informes de predicación, llevar un historial y recibir recordatorios de asignaciones de manera fácil y rápida.
+
+La seguridad y privacidad de la información es una prioridad para nosotros. Con funciones avanzadas de protección de datos, puedes tener la tranquilidad de que la información sensible de los miembros de la congregación está segura y protegida en todo momento.
+
+Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitaciones en tu sistema operativo preferido. Este proyecto, desarrollado utilizando HTML y tecnología Python, ofrece una experiencia multiplataforma sin igual. Simplifica tu trabajo y optimiza la gestión de tu congregación con KHA.
 
 ## 🎯 Características clave
 - 🚀 Rápido y eficiente
@@ -68,7 +71,7 @@ En resumen, Kingdom Hall Attendant es más que una simple aplicación; es un tes
 
 <details>
 
-<summary><kbd>Mira todas las funciones de Kingdom Hall Attendant</kbd></summary>
+<summary><kbd>Mira todas las funciones de KHA</kbd></summary>
 
 - Registro de editor ilimitado
 - Tarjetas de registro de editor
@@ -120,27 +123,27 @@ Experimenta Kingdom Hall Attendant en tu navegador visitando el sitio web en [li
 ## Ejecutar localmente
 ### 💽 Instalación de 60 segundos
 
-Clonar el proyecto
+1. Clonar el proyecto
 
 ```bash
   git clone https://github.com/livrasand/Kingdom-Hall-Attendant
 ```
 
-Ir al directorio del proyecto
+2. Ir al directorio del proyecto
 
 ```bash
   cd C:\Users\{user}\Kingdom-Hall-Attendant
 ```
 
-Cambiar el nombre de la base de datos `kha{remove-this}.db` por `kha.db`
+3. Cambiar el nombre de la base de datos `kha{remove-this}.db` por `kha.db`
 
-Instalar dependencias
+4. Instalar dependencias
 
 ```bash
   pip install -r requirements.txt
 ```
 
-Iniciar el servidor
+5. Iniciar el servidor
 
 ```bash
   python app.py
@@ -179,10 +182,4 @@ Gracias a estas maravillosas personas:
 [![Star History Chart](https://api.star-history.com/svg?repos=livrasand/Kingdom-Hall-Attendant&type=Timeline)](https://star-history.com/#livrasand/Kingdom-Hall-Attendant&Timeline)
 
 ## 📜 Licencia 
-The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/).
-
-<!-- CITATION LZL-1.0 -->
-Livrado Zero License (LZL-1.0) establece las condiciones para el uso de este software y su documentación asociada. Para más detalles, consulta la Licencia completa en el archivo [LICENSE.md](LICENSE.md) que acompaña al software.
-
-Recuerda siempre verificar la integridad de la licencia antes de utilizar el software, y respeta los términos y condiciones de esta licencia Livrado Zero License (LZL-1.0) para un uso justo y respetuoso del software.
-<!-- CITATION LZL-1.0 -->
+The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/). Livrado Zero License (LZL-1.0) is the license that governs this software.
