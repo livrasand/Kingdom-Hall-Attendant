@@ -1,37 +1,32 @@
 from flask import Flask, render_template, request, redirect, g, url_for
 import sqlite3
+from datetime import datetime
 
 
 app = Flask(__name__)
 
-# Función para conectar a la base de datos
 def conectar_bd():
     return sqlite3.connect('kha.db')
 
-# Antes de cada solicitud, se abre la conexión a la base de datos
 @app.before_request
 def antes_de_la_peticion():
     g.bd = conectar_bd()
 
-# Después de cada solicitud, se cierra la conexión a la base de datos
 @app.teardown_request
 def despues_de_la_peticion(excepcion):
     if hasattr(g, 'bd'):
         g.bd.close()
 
-# Ruta para mostrar el formulario y los datos guardados
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/congregacion.html')
 def option_one():
-     # Obtener los datos de la congregación desde la base de datos
     cursor = g.bd.cursor()
-    cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))  # Aquí asumo que la congregación que quieres mostrar tiene el ID 1, cambia esto según tu necesidad
+    cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))  
     congregation_data = cursor.fetchone()
 
-    # Pasar los datos de la congregación al template
     return render_template('congregacion.html', congregation=congregation_data)
 
 @app.route('/guardar_congregacion', methods=['POST'])
@@ -46,25 +41,20 @@ def guardar_congregacion():
         telefono = request.form['telefono']
         circuito = request.form['circuito']
 
-        # Obtener las opciones seleccionadas de los días de la semana
         opcion_semana = request.form.get('options')
         opcion_fin_semana = request.form.get('optionstwo')
 
-        # Verificar si ya existe un registro para la congregación
         cursor = g.bd.cursor()
         cursor.execute("SELECT * FROM congregacion WHERE nombre_congregacion = ?", (nombre_congregacion,))
         existing_congregation = cursor.fetchone()
 
         if existing_congregation:
-            # Si la congregación ya existe, ejecutar una actualización
             g.bd.execute("UPDATE congregacion SET numero=?, hora_inicio_semana=?, hora_inicio_fin_semana=?, direccion_salon=?, superintendente_circuito=?, telefono=?, circuito=?, opcion_semana=?, opcion_fin_semana=? WHERE nombre_congregacion=?",
                           (numero, hora_inicio_semana, hora_inicio_fin_semana, direccion_salon, superintendente_circuito, telefono, circuito, opcion_semana, opcion_fin_semana, nombre_congregacion))
         else:
-            # Si la congregación no existe, ejecutar una inserción
             g.bd.execute("INSERT INTO congregacion (nombre_congregacion, numero, hora_inicio_semana, hora_inicio_fin_semana, direccion_salon, superintendente_circuito, telefono, circuito, opcion_semana, opcion_fin_semana) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                          (nombre_congregacion, numero, hora_inicio_semana, hora_inicio_fin_semana, direccion_salon, superintendente_circuito, telefono, circuito, opcion_semana, opcion_fin_semana))
 
-        # Guardar los cambios
         g.bd.commit()
 
         return redirect('/congregacion.html')
@@ -103,15 +93,14 @@ def mostrar_publicador(id):
     return render_template('detalle-publicador.html', publicador=publicador, familia_existente=familia_existente, grupos_predicacion=grupos_predicacion, grupo=None)
 
 
-# Ruta para guardar los datos de los publicadores
 @app.route('/guardar_publicador', methods=['POST'])
 def guardar_publicador():
     if request.method == 'POST':
-        id = request.form['id']  # Obtener el ID del publicador a editar desde el formulario
+        id = request.form['id']  
         nombres = request.form['nombres'].strip()
         apellidos = request.form['apellidos'].strip()
         genero = request.form['genero']
-        cabeza_de_familia = 'cabeza_de_familia' in request.form  # Verificar si es cabeza de familia
+        cabeza_de_familia = 'cabeza_de_familia' in request.form  
         fecha_nacimiento = request.form['fecha_nacimiento']
         grupo_predicacion = request.form['grupo_predicacion']
         direccion = request.form['direccion']
@@ -220,7 +209,6 @@ def guardar_publicador():
         checkbox_limpieza_trimestral_salon_reino = 'checkbox-limpieza-trimestral-salon-reino' in request.form
         checkbox_cuidado_cesped = 'checkbox-cuidado-cesped' in request.form
 
-        # Convertir valores booleanos a enteros
         cabeza_de_familia = 1 if cabeza_de_familia else 0
         bautizado = 1 if bautizado else 0
         recibe_atalaya = 1 if recibe_atalaya else 0
@@ -317,13 +305,11 @@ def guardar_publicador():
         checkbox_limpieza_trimestral_salon_reino = 1 if checkbox_limpieza_trimestral_salon_reino else 0
         checkbox_cuidado_cesped = 1 if checkbox_cuidado_cesped else 0
 
-        # Verificar si ya existe un registro para el publicador
         cursor = g.bd.cursor()
         cursor.execute("SELECT * FROM publicadores WHERE nombres = ? AND apellidos = ?", (nombres, apellidos))
         existing_publicador = cursor.fetchone()
 
         if existing_publicador:
-            # Si el publicador existe, ejecutar una actualización
             g.bd.execute("UPDATE publicadores SET nombres=?, apellidos=?, genero=?, cabeza_de_familia=?, fecha_nacimiento=?, grupo_predicacion = ?, direccion=?, correo_electronico=?, celular=?, telefono=?, bautizado=?, fecha_bautizo=?, recibe_atalaya=?, recibe_guia_actividades=?, no_bautizado=?, temporal=?, ungido=?, nino=?, readmitido=?, irregular=?, invidente=?, abuso_sexual=?, divorciado=?, viudo=?, sordo=?, enfermo=?, voluntario_ldc=?, voluntario_epc=?, llaves_salon=?, utiliza_kha=?, censurado=?, inactivo=?, expulsado=?, fallecido=?, encarcelado=?, separado=?, nombramientos=?, fecha_inicio_nombrado=?, privilegios_servicio=?, fecha_inicio=?, numero_precursor=?, temporario=?, enfermizo=?, fecha_ultima_escuela=?, checkbox_coordinador_cuerpo_ancianos=?, checkbox_secretario=?, checkbox_superintendente_servicio=?, checkbox_siervo_acomodadores=?, checkbox_coordinador_audio_video=?, checkbox_siervo_literatura=?, checkbox_coordinador_mantenimiento=?, checkbox_coordinador_mantenimiento_jardin=?, checkbox_comite_mantenimiento_salon_reino=?, checkbox_consejero_sala_auxiliar=?, checkbox_consejero_auxiliar=?, checkbox_voluntario_temporal_betel=?, checkbox_betelita_cercanias=?, checkbox_voluntario_remoto_betel=?, checkbox_comite_enlace_hospitalario=?, checkbox_conductor_estudio_atalaya=?, checkbox_coordinador_discursos_publicos=?, checkbox_ayudante_coordinador_discursos_publicos=?, checkbox_siervo_informes=?, checkbox_siervo_cuentas=?, checkbox_siervo_territorios=?, checkbox_coordinador_limpieza=?, checkbox_superintendente_reunion_vida_ministerio_cristianos=?, checkbox_coordinador_predicacion_publica=?, checkbox_superintendente_grupo=?, checkbox_siervo_grupo=?, checkbox_auxiliar_grupo=?, checkbox_betelita=?, checkbox_voluntario_construccion=?, checkbox_siervo_construccion=?, checkbox_presidente=?, checkbox_oracion=?, checkbox_discurso_10_mins=?, checkbox_busquemos_perlas_escondidas=?, checkbox_lectura_biblia=?, checkbox_analisis=?, checkbox_empiece_conversaciones=?, checkbox_haga_revisitas=?, checkbox_haga_discipulos=?, checkbox_no_utilizar_sala_principal=?, checkbox_explique_sus_creencias=?, checkbox_ayudante=?, checkbox_discurso=?, checkbox_utilizar_solo_sala_principal=?, checkbox_intervenciones=?, checkbox_estudio_biblico_congregacion=?, checkbox_lector=?, checkbox_discursante_publico_saliente=?, checkbox_discursante_publico_local=?, checkbox_presidente_reunion_publica=?, checkbox_lector_atalaya=?, checkbox_anfitrion_hospitalidades=?, checkbox_operador_audio=?, checkbox_plataforma=?, checkbox_anfitrion_zoom=?, checkbox_microfonos=?, checkbox_coanfitrion_zoom=?, checkbox_acomodador=?, checkbox_aprobado_predicacion_publica=?, checkbox_dirigir_reuniones_servicio_campo=?, checkbox_orar_reuniones_servicio_campo=?, checkbox_limpieza_semanal_salon_reino=?, checkbox_limpieza_despues_reunion=?, checkbox_cuidado_jardin=?, checkbox_limpieza_mensual_salon_reino=?, checkbox_limpieza_trimestral_salon_reino=?, checkbox_cuidado_cesped=? WHERE id=?",
                 (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped, existing_publicador[0]))
 
@@ -332,7 +318,6 @@ def guardar_publicador():
             g.bd.execute("INSERT INTO publicadores (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped))
         
-            # Guardar los cambios
             g.bd.commit()
 
             if cabeza_de_familia:
@@ -366,11 +351,8 @@ def guardar_configuracion():
         congregacion = request.form['congregacion']
         circuito = request.form['circuito']
 
-        
-        # Conexión a la base de datos    
         cursor = g.bd.cursor()
 
-        # Ejecutar consulta para insertar o actualizar los datos en la tabla "configuracion"
         cursor.execute("""
             INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -383,8 +365,6 @@ def guardar_configuracion():
             circuito = excluded.circuito
         """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito))
             
-
-        # Guardar los cambios en la base de datos
         g.bd.commit()        
 
     return redirect('/configuracion.html')
@@ -402,7 +382,6 @@ def grupos_predicacion():
 def nuevo_grupo():
     cursor = g.bd.cursor()
 
-    # Consultar los publicadores que tienen checkbox_siervo_grupo en 1
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_siervo_grupo = 1")
     publicadores_siervo = cursor.fetchall()
 
@@ -418,7 +397,6 @@ def mostrar_grupo(id):
     grupo = cursor.fetchone()
     return render_template('detalle-grupo-predicacion.html', grupo=grupo)
 
-# Ruta para guardar los datos del grupo de predicación
 @app.route('/guardar_grupo', methods=['POST'])
 def guardar_grupo():
     if request.method == 'POST':
@@ -430,16 +408,13 @@ def guardar_grupo():
         limpieza_salon = request.form.get('limpieza_salon') == 'on'
         reunion_superintendente = request.form.get('reunion_superintendente') == 'on'
 
-        # Conexión a la base de datos
         cursor = g.bd.cursor()
 
-        # Ejecutar consulta para insertar los datos en la tabla "grupos_predicacion"
         cursor.execute("""
             INSERT INTO grupos_predicacion (nombre_grupo, siervo_grupo, auxiliar_grupo, direccion_grupo, asignar_hospitalidad, limpieza_salon, reunion_superintendente)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (nombre_grupo, siervo_grupo, auxiliar_grupo, direccion_grupo, asignar_hospitalidad, limpieza_salon, reunion_superintendente))
 
-        # Guardar los cambios en la base de datos
         g.bd.commit() 
 
     return redirect('/grupos-predicacion.html')
@@ -454,15 +429,12 @@ def eliminar_grupo(id):
 @app.route('/crear_familia/<apellidos>', methods=['GET'])
 def crear_familia(apellidos):
     if request.method == 'GET':
-        # Insertar los apellidos de la familia en la base de datos
         cursor = g.bd.cursor()
 
-        # Verificar si ya existe una familia con los apellidos proporcionados
         cursor.execute("SELECT * FROM familias WHERE apellidos_familia = ?", (apellidos,))
         familia_existente = cursor.fetchone()
 
         if not familia_existente:
-            # No existe la familia, por lo tanto, puedes crearla
             cursor.execute("INSERT INTO familias (apellidos_familia) VALUES (?)", (apellidos,))
             g.bd.commit()
 
@@ -523,7 +495,6 @@ def guardar_orador():
         discurso_3 = 'discurso_3' in request.form
         discurso_3 = 1 if discurso_3 else 0
 
-        # Repetir para discurso_4 hasta discurso_25
         discurso_4 = 'discurso_4' in request.form
         discurso_4 = 1 if discurso_4 else 0
 
@@ -1285,12 +1256,9 @@ def nuevo_orador():
 @app.route('/bosquejos.html')
 def bosquejos():
     cursor = g.bd.cursor()
-
-    # Obtener la lista de oradores
     cursor.execute("SELECT * FROM oradores")
     oradoreslist = cursor.fetchall()
 
-    # Obtener la lista de bosquejos
     cursor.execute("SELECT * FROM bosquejos")
     bosquejos_list = cursor.fetchall()  
 
@@ -1305,23 +1273,18 @@ def nuevo_bosquejo():
 
     cursor = g.bd.cursor()
     
-    # Verificar si el orador ya existe en la tabla oradores
     cursor.execute("SELECT id FROM oradores WHERE nombres = ? AND apellidos = ? AND congregacion = ?", (nombres, apellidos, congregacion))
     orador_existente = cursor.fetchone()
 
     if not orador_existente:
-        # Si el orador no existe, insertarlo en la tabla oradores
         cursor.execute("INSERT INTO oradores (nombres, apellidos, congregacion) VALUES (?, ?, ?)", (nombres, apellidos, congregacion))
         g.bd.commit()
         
-        # Obtener el ID del orador recién insertado
         cursor.execute("SELECT last_insert_rowid()")
         orador_id = cursor.fetchone()[0]
     else:
-        # Si el orador ya existe, obtener su ID
         orador_id = orador_existente[0]
     
-    # Insertar un nuevo bosquejo utilizando el ID del orador
     cursor.execute("INSERT INTO bosquejos (id_orador, nombres, apellidos, congregacion) VALUES (?, ?, ?, ?)", (orador_id, nombres, apellidos, congregacion))
     g.bd.commit()
     
@@ -1332,23 +1295,16 @@ def nuevo_bosquejo():
 def mostrar_bosquejo(id):
     cursor = g.bd.cursor()
 
-    # Obtener detalles del bosquejo
     cursor.execute("SELECT * FROM bosquejos WHERE id_orador = ?", (id,))
     bosquejo = cursor.fetchone()
 
-    # Obtener grupos de predicación
     cursor.execute("SELECT nombre_grupo FROM grupos_predicacion WHERE asignar_hospitalidad = 1")
     grupos = cursor.fetchall()
 
-    # Obtener detalles del orador
     cursor.execute("SELECT * FROM oradores WHERE id = ?", (id,))
     orador = cursor.fetchone()
 
-    # Obtener columnas con valor 1
     columnas_con_uno = obtener_columnas_con_uno(id)
-
-    # Imprimir el resultado de las columnas con valor 1
-    print("Columnas con valor 1 para el ID {}: {}".format(id, columnas_con_uno))
 
     return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, columnas_con_uno=columnas_con_uno)
 
@@ -1399,12 +1355,81 @@ def eliminar_bosquejo(id):
 
 @app.route('/estudio-atalaya.html')
 def estudio_atalaya():
-    return render_template('estudio-atalaya.html')
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM estudio_atalaya")
+    estudios_atalayas = cursor.fetchall()  
+
+    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas)
+
+@app.route('/mostrar_estudio_atalaya/<int:id>', methods=['GET'])
+def mostrar_estudio_atalaya(id):
+    cursor = g.bd.cursor()
+
+    cursor.execute("SELECT * FROM estudio_atalaya WHERE id = ?", (id,))
+    detalle_estalaya = cursor.fetchone()
+
+    cursor.execute("SELECT nombres || ' ' || apellidos AS nombre_completo FROM publicadores WHERE checkbox_presidente_reunion_publica = 1")
+    presidentes = cursor.fetchall()
+
+    presidentes_formateados = [presidente[0].strip("('')") for presidente in presidentes]
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_oracion = 1")
+    aprobados_oracion_inicio = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
+    lectores = cursor.fetchall()
+
+    return render_template('/detalle-estudio-atalaya.html', detalle_estalaya=detalle_estalaya, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores)
+
 
 @app.route('/nuevo-estudio-atalaya', methods=['GET'])
 def nuevo_estudio_atalaya():
-    return render_template('detalle-estudio-atalaya.html')
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT nombres || ' ' || apellidos AS nombre_completo FROM publicadores WHERE checkbox_presidente_reunion_publica = 1")
+    presidentes = cursor.fetchall()
 
+    presidentes_formateados = [presidente[0].strip("('')") for presidente in presidentes]
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_oracion = 1")
+    aprobados_oracion_inicio = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
+    lectores = cursor.fetchall()
+
+    return render_template('detalle-estudio-atalaya.html', detalle_estalaya=None, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores)
+
+@app.route('/guardar_estudio_atalaya', methods=['POST'])
+def guardar_estudio_atalaya():
+    id_estudio = request.form['id']
+    fecha = request.form['fecha']
+    presidente = request.form['presidente']
+    oracion_inicio = request.form['oracion_inicio']
+    lector_atalaya = request.form['lector_atalaya']
+    oracion_final = request.form['oracion_final']
+
+    cursor = g.bd.cursor()
+
+    cursor.execute("SELECT * FROM estudio_atalaya WHERE id = ?", (id_estudio,))
+    existing_estudio = cursor.fetchone()
+
+    if existing_estudio:
+        cursor.execute("UPDATE estudio_atalaya SET fecha=?, presidente=?, oracion_inicio=?, lector_atalaya=?, oracion_final=? WHERE id=?",
+                        (fecha, presidente, oracion_inicio, lector_atalaya, oracion_final, id_estudio))
+
+    else:
+        cursor.execute("INSERT INTO estudio_atalaya (fecha, presidente, oracion_inicio, lector_atalaya, oracion_final) VALUES (?, ?, ?, ?, ?)",
+                        (fecha, presidente, oracion_inicio, lector_atalaya, oracion_final))
+
+    g.bd.commit()
+
+    return redirect('/estudio-atalaya.html')
+
+@app.route('/eliminar_estudio_atalaya/<int:id>', methods=['GET'])
+def eliminar_estudio_atalaya(id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM estudio_atalaya WHERE id = ?", (id,))
+    g.bd.commit()
+    return redirect('/estudio-atalaya.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

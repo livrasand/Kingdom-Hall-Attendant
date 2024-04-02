@@ -31,31 +31,81 @@
          <div class="container-xl">
             <div class="container-lg clearfix">
                <div class="col-12 float-left p-4 mt-n4">
-                  <form action="/guardar_orador" method="POST">
-                     <input type="hidden" name="id" value="" style="display: none;">
+                  <form action="/guardar_estudio_atalaya" method="POST">
+                     <input type="hidden" name="id" id="id" value="{{ detalle_estalaya[0] }}" style="display: none;">
 
                      <label class="" htmlFor="name">Fecha:</label>
-                     <input class="form-control mb-2 width-full" type="date" placeholder="Fecha del fin de semana" aria-label="" id="" name="fecha_nacimiento" value="" />
+                     <input class="form-control mb-2 width-full" type="date" placeholder="Fecha del fin de semana" aria-label="" id="fecha" name="fecha" value="{{ detalle_estalaya[1] }}" />
                      <label class="" htmlFor="name">Presidente:</label>
-<select class="form-select mb-2 width-full" aria-label="" id="" name="">
-        <option value="">Selecciona un presidente</option>
+{% if detalle_estalaya[2] %}
+<select class="form-select mb-2 width-full" aria-label="" id="presidente" name="presidente">
+    <option value="{{ detalle_estalaya }}">{{ detalle_estalaya[2] }}</option>
+    {% for presidente in presidentes %}
+        <option value="{{ presidente }}">{{ presidente }}</option>
+    {% endfor %}
 </select>
+{% else %}
+<select class="form-select mb-2 width-full" aria-label="" id="presidente" name="presidente">
+    <option value="">Selecciona un presidente</option>
+    {% for presidente in presidentes %}
+        <option value="{{ presidente }}">{{ presidente }}</option>
+    {% endfor %}
+</select>
+{% endif %}
+
 <label class="" htmlFor="name">Oración de inicio:</label>
-<select class="form-select mb-2 width-full" aria-label="" id="" name="">
-        <option value="">Selecciona un publicador</option>
+{% if detalle_estalaya[3] %}
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
+        <option value="{{ detalle_estalaya[3] }}">{{ detalle_estalaya[3] }}</option>
+        {% for orador in aprobados_oracion_inicio %}
+            <option value="{{ orador[0] }} {{ orador[1] }}">{{ orador[0] }} {{ orador[1] }}</option>
+        {% endfor %}
 </select>
+{% else %}
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
+        <option value="">Selecciona un publicador</option>
+        {% for orador in aprobados_oracion_inicio %}
+            <option value="{{ orador[0] }} {{ orador[1] }}">{{ orador[0] }} {{ orador[1] }}</option>
+        {% endfor %}
+</select>
+{% endif %}
 <label class="" htmlFor="name">Lector de <em>La Atalaya</em>:</label>
-<select class="form-select mb-2 width-full" aria-label="" id="" name="">
-        <option value="">Selecciona un publicador</option>
+{% if detalle_estalaya[4] %}
+<select class="form-select mb-2 width-full" aria-label="" id="lector_atalaya" name="lector_atalaya">
+        <option value="{{ detalle_estalaya[4] }}">{{ detalle_estalaya[4] }}</option>
+        {% for lector in lectores %}
+            <option value="{{ lector[0] }} {{ lector[1] }}">{{ lector[0] }} {{ lector[1] }}</option>
+        {% endfor %}
 </select>
+{% else %}
+<select class="form-select mb-2 width-full" aria-label="" id="lector_atalaya" name="lector_atalaya">
+        <option value="">Selecciona un publicador</option>
+        {% for lector in lectores %}
+            <option value="{{ lector[0] }} {{ lector[1] }}">{{ lector[0] }} {{ lector[1] }}</option>
+        {% endfor %}
+</select>
+{% endif %}
 <label class="" htmlFor="name">Sustituto de la oración final:</label>
-<select class="form-select mb-2 width-full" aria-label="" id="" name="">
+{% if detalle_estalaya[5] %}
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="{{ detalle_estalaya[5] }}">{{ detalle_estalaya[5] }}</option>
+        {% for orador in aprobados_oracion_inicio %}
+            <option value="{{ orador[0] }} {{ orador[1] }}">{{ orador[0] }} {{ orador[1] }}</option>
+        {% endfor %}
+</select>   
+
+{% else %}
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final">
         <option value="">Selecciona un sustituto</option>
+        {% for orador in aprobados_oracion_inicio %}
+            <option value="{{ orador[0] }} {{ orador[1] }}">{{ orador[0] }} {{ orador[1] }}</option>
+        {% endfor %}
 </select>     
+{% endif %}
                      <br><br>
                      <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Guardar</button>
-    <a href="" type="button" class="btn btn-danger">
+    <a href="/eliminar_estudio_atalaya/{{ detalle_estalaya[0] }}" type="button" class="btn btn-danger">
         <!-- Aquí tu SVG o cualquier otro icono -->
         <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
             <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
