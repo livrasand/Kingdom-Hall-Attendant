@@ -42,7 +42,7 @@ A diferencia de otras aplicaciones similares, KHA se destaca por su enfoque en l
 En resumen, Kingdom Hall Attendant no es simplemente una aplicación; es una epopeya moderna que denota la dedicación, la innovación y la búsqueda de la excelencia. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático. Su legado perdurará en las páginas de la historia digital por generaciones venideras.
 
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
-![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/8aaa8ed3-e342-463a-9cf9-3e078050a1b5)
+![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/4f08ea6c-df76-4241-ba49-795572a71dab)
 
 > #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
 >
