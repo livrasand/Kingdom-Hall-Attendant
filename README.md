@@ -116,11 +116,13 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 | Package           | Version                                                                                                                          | Download                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Windows-win32-x64**   | 0.1.0-Prealpha@latest     | [![Windows][Windows-image]][download-url]  |
-| **macOS-darwin-x64** | 0.1.0-Prealpha@latest  | [![MacOS][MacOS-image]][download-url] |
-| **Linux-linux-x64** | 0.1.0-Prealpha@latest  | [![Linux][Linux-image]][download-url] |
+| **Windows-win32-x64**   | 0.1.0-Prealpha@latest     | [![Windows][Windows-image]][windows-download]  |
+| **macOS-darwin-x64** | 0.1.0-Prealpha@latest  | [![MacOS][MacOS-image]][macos-download] |
+| **Linux-linux-x64** | 0.1.0-Prealpha@latest  | [![Linux][Linux-image]][linux-download] |
 
-[download-url]: https://github.com/livrasand/Kingdom-Hall-Attendant
+[windows-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom%20Hall%20Attendant-windows.zip
+[macos-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom%20Hall%20Attendant-osx.zip
+[linux-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom-Hall-Attendant-linux.zip
 [Windows-image]: https://img.shields.io/badge/-Windows-blue?logo=windows
 [MacOS-image]: https://img.shields.io/badge/-macOS-black?logo=apple
 [Linux-image]: https://img.shields.io/badge/-Linux-333?logo=ubuntu
