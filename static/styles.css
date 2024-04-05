@@ -366,3 +366,17 @@ svg:not(:root) {
   color: #9a6700;
   font-size: 12px;
 }
+
+@media print {
+  /* Estilos específicos para la impresión */
+  body {
+    background-color: #fff; /* Fondo blanco */
+  }
+  
+  /* Oculta elementos que no quieres imprimir */
+  .Header {
+    display: none;
+  }
+
+  /* Ajusta otros estilos según sea necesario */
+}

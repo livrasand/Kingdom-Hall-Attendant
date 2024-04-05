@@ -1,0 +1,53 @@
+@media print {
+  /* Estilos específicos para la impresión */
+  body {
+    background-color: #fff; /* Fondo blanco */
+  }
+  
+  /* Oculta elementos que no quieres imprimir */
+  .Header {
+    display: none;
+  }
+
+  clearfix::before {
+    display: none;
+    content: "";
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .Box {
+    background-color: #f7f9fb;
+  }
+
+  .print-footer {
+    page-break-before: always; /* Asegura que este elemento comience en una nueva página */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea los elementos al final de la página */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #e7eef8;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0;
+  }
+
+  .print-footer img {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .print-footer p {
+    margin: 5px;
+  }
+
+  .Fecha p {
+    font-size: 8px;
+  }
+}

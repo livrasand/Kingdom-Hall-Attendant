@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
    <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -29,6 +30,8 @@
             </div>
          </div>
       </div>
+      <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()" role="button">Imprimir</a>
+
       <div className="d-flex flex-justify-end ml-2">
                <details class="details-reset details-overlay float-right">
                      <summary class="btn btn-sm float-right" aria-haspopup="true">
@@ -46,12 +49,17 @@
                   </details>
                </div>
       </div>
+      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
+         <p class="h3 ml-4 mt-4" style="width:85%;">Discursos públicos</p>
+         <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%">{{ congregacion }}</p>
+      </div>
+
    <div class="container-xl mt-6">      
       <div class="pl-2">         
          <div class="container-lg clearfix">
             {% if bosquejos_list %}
     {% for bosquejo in bosquejos_list %}
-            <div class="Box mt-2">
+            <div class="Box mt-2 mr-2">
                <div class="Box-row d-flex flex-items-center">
                   <div class="flex-auto">
                      <strong>{% if bosquejo[5] %}
@@ -98,7 +106,37 @@
 {% endif %}
          </div>
       </div>
+      <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
+    <img class="ml-1 mt-1 mb-1" src="static/images/frame.png" width="85px">
+    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
+    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">Impreso el <span id="fecha"></span></p>
+</div>
+
    </div>
+
+   <script type="text/javascript">
+      function imprimirPagina() {
+           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
+    document.getElementById("print-footer").style.visibility = "visible";
+    document.getElementById("header-page").style.visibility = "visible";
+
+
+  window.print(); // Inicia el proceso de impresión
+
+  document.getElementById("print-footer").style.visibility = "hidden";
+    document.getElementById("header-page").style.visibility = "hidden";
+}
+
+// Obtener la fecha actual
+var fechaActual = new Date();
+
+// Convertir la fecha a un formato legible
+var opcionesFecha = {  year: 'numeric', month: 'numeric', day: 'numeric' };
+var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
+
+// Insertar la fecha en el elemento <span> dentro del <h3>
+document.getElementById("fecha").innerText = fechaFormateada;
+   </script>
 </body>
 
 </html>

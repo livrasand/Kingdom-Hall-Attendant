@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, g, url_for
 import sqlite3
 from datetime import datetime
 
-
 app = Flask(__name__)
 
 def conectar_bd():
@@ -1262,7 +1261,11 @@ def bosquejos():
     cursor.execute("SELECT * FROM bosquejos")
     bosquejos_list = cursor.fetchall()  
 
-    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list)
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+    congregacion_formateada = congregacion[0].strip("()'")
+
+    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list, congregacion=congregacion_formateada)
 
 
 @app.route('/nuevo_bosquejo', methods=['GET'])
