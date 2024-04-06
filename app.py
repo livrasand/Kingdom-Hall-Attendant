@@ -1362,7 +1362,11 @@ def estudio_atalaya():
     cursor.execute("SELECT * FROM estudio_atalaya")
     estudios_atalayas = cursor.fetchall()  
 
-    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas)
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+    congregacion_formateada = congregacion[0].strip("()'")
+
+    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas, congregacion=congregacion_formateada)
 
 @app.route('/mostrar_estudio_atalaya/<int:id>', methods=['GET'])
 def mostrar_estudio_atalaya(id):
@@ -1433,6 +1437,21 @@ def eliminar_estudio_atalaya(id):
     cursor.execute("DELETE FROM estudio_atalaya WHERE id = ?", (id,))
     g.bd.commit()
     return redirect('/estudio-atalaya.html')
+
+@app.route('/vida-ministerio.html')
+def vida_ministerio():
+    cursor = g.bd.cursor()
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+    congregacion_formateada = congregacion[0].strip("()'")
+
+    return render_template('vida-ministerio.html', congregacion=congregacion_formateada)
+
+@app.route('/nuevo-vida-ministerio', methods=['GET'])
+def nuevo_vida_ministerio():
+
+    return render_template('detalle-vida-ministerio.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
