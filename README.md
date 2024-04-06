@@ -47,6 +47,9 @@ La seguridad y privacidad de la información es una prioridad para nosotros. Con
 
 Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitaciones en tu sistema operativo preferido. Este proyecto, desarrollado utilizando HTML y tecnología Python, ofrece una experiencia multiplataforma sin igual. Simplifica tu trabajo y optimiza la gestión de tu congregación con KHA.
 
+### Ejemplo de programas impresos, generados en Kingdom Hall Attendant
+<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f3b2431c-c3a4-4495-9592-26302f4f92ce" width="700px">
+
 ## 🎯 Características clave
 - 🚀 Rápido y eficiente
 - 🎨 Fácil de usar con una interfaz intuitiva
