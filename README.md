@@ -25,21 +25,11 @@
 
 
 ## 🕰️ Nuestra historia
-En los anales del tiempo, la leyenda de Kingdom Hall Attendant, cariñosamente apodado KHA, Kha, Khan o Khanapp, relata una odisea de perseverancia, innovación y compromiso con la excelencia. Desde su humilde concepción en abril de 2021, hasta su esplendor actual, esta epopeya digital ha atravesado múltiples metamorfosis, cada una marcada por un espíritu indomable y una búsqueda incansable de perfección.
+Kingdom Hall Attendant, cariñosamente apodado KHA, relata una odisea de perseverancia, innovación y compromiso con la excelencia. Desde su humilde concepción en abril de 2021, hasta su esplendor actual, esta epopeya digital ha atravesado múltiples metamorfosis, cada una marcada por un espíritu indomable y una búsqueda incansable de perfección.
 
 Lo que comenzó como Kingdom Hall Assistant, pronto se transformó en "Attendant Kingdom Hall", siguiendo los pasos de la ilustre línea de software denominada "Attendant Zoom", hasta alcanzar su cénit con el nombre definitivo: Kingdom Hall Attendant. Este cambio de nombre no solo reflejó una evolución lingüística, sino también un compromiso renovado con la excelencia y la singularidad de la aplicación.
 
-El viaje hacia la creación de KHA ha sido una travesía plagada de desafíos y descubrimientos. Inicialmente gestado en Visual Basic .NET en agosto de 2021, pronto se hizo evidente la necesidad de una accesibilidad multiplataforma, lo que llevó a una transición hacia Electron puro en mayo de 2022. Sin embargo, el camino hacia la perfección estaba sembrado de obstáculos técnicos, lo que condujo a otra transformación en noviembre de 2022 hacia Sevelte, Electron y SQLite.
-
-A pesar de los desafíos, el espíritu de KHA nunca flaqueó. Aunque el desarrollo sufrió una pausa en noviembre de 2023 debido a limitaciones temporales y desafíos de equipo, su llama interior nunca se extinguió. En febrero de 2024, KHA resurgió con renovado ímpetu, adoptando Python como su lenguaje principal y avanzando con determinación hacia su destino: **lanzar una versión preliminar BETA para septiembre de 2024, o incluso antes**, para satisfacer las expectativas de aquellos que han esperado pacientemente desde los primeros días del proyecto.
-
-Mientras las funciones esenciales de KHA han perdurado, han sido mejoradas y optimizadas para brindar una experiencia aún más excepcional. La seguridad ha sido reforzada y se ha implementado una tecnología de cifrado única y propia de KHA. Además, el programa ahora es completamente gratuito, sin costos ni donaciones obligatorias.
-
-Para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado. **Attolympics:** Únete a una emocionante olimpiada colaborativa que une corazones y propósitos en la vibrante comunidad de Kingdom Hall Attendant. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, ofreciendo beneficios exclusivos y el reconocimiento eterno de la comunidad, no ofrece más allá de lo desconocido de la Opensource Edition.
-
-A diferencia de otras aplicaciones similares, KHA se destaca por su enfoque en la autonomía y la comunidad. Aunque se ofrecen opciones de financiamiento totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
-
-En resumen, Kingdom Hall Attendant no es simplemente una aplicación; es una epopeya moderna que denota la dedicación, la innovación y la búsqueda de la excelencia. Con un compromiso inquebrantable con la calidad, la comunidad y la accesibilidad, KHA continúa siendo una herramienta invaluable para aquellos que sirven en el ámbito teocrático. Su legado perdurará en las páginas de la historia digital por generaciones venideras.
+Kingdom Hall Attendant es completamente gratuito, sin costos ni donaciones obligatorias. Por ello, para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado de acuerdo a la estación del año. **Attolympics:** Únete a una emocionante olimpiada colaborativa que une corazones y propósitos en la vibrante comunidad de Kingdom Hall Attendant, ¿serás el ganador del hit máximo de publicadores?. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, no ofrece más allá de lo desconocido de la Opensource Edition, salvo un tema dorado único para la aplicación. Estas opciones de financiamiento son totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
 ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/4f08ea6c-df76-4241-ba49-795572a71dab)
@@ -120,9 +110,9 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 | **macOS-darwin-x64** | 0.1.0-Prealpha@latest  | [![MacOS][MacOS-image]][macos-download] |
 | **Linux-linux-x64** | 0.1.0-Prealpha@latest  | [![Linux][Linux-image]][linux-download] |
 
-[windows-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom%20Hall%20Attendant-windows.zip
-[macos-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom%20Hall%20Attendant-osx.zip
-[linux-download]: https://www.pythonanywhere.com/user/livrasand/files/home/livrasand/cnd/assets/download-package/Kingdom-Hall-Attendant-linux.zip
+[windows-download]: https://livrasand.pythonanywhere.com
+[macos-download]: https://livrasand.pythonanywhere.com
+[linux-download]: https://livrasand.pythonanywhere.com
 [Windows-image]: https://img.shields.io/badge/-Windows-blue?logo=windows
 [MacOS-image]: https://img.shields.io/badge/-macOS-black?logo=apple
 [Linux-image]: https://img.shields.io/badge/-Linux-333?logo=ubuntu
