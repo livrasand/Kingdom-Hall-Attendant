@@ -2,9 +2,9 @@
 <br>
 
 # This is Kingdom Hall Attendant
-![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-26_de_100-db7f1e)&nbsp;
+![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Coverage](https://img.shields.io/badge/Coverage-26_de_100-db7f1e)&nbsp;![Time](https://img.shields.io/badge/Time_tracker-42_hours-E57CD8)&nbsp;
 [![Open Collective](https://opencollective.com/kingdom-hall-attendant/tarjeta/badge.svg)](https://opencollective.com/kingdom-hall-attendant)&nbsp;
-[![Sostenedor de Servidores](https://opencollective.com/kingdom-hall-attendant/tiers/sostenedor-de-servidores/badge.svg?label=Sostenedor%20de%20Servidores&color=brightgreen)](https://opencollective.com/kingdom-hall-attendant)
+[![Sostenedor de Servidores](https://opencollective.com/kingdom-hall-attendant/tiers/sostenedor-de-servidores/badge.svg?label=sostenedor%20de%20servidores&color=brightgreen)](https://opencollective.com/kingdom-hall-attendant)
 
 ![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
 <h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nominarme a "GitHub Star". ¡Gracias!</h6>
