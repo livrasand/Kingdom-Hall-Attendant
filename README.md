@@ -30,13 +30,14 @@ Lo que comenzó como Kingdom Hall Assistant, pronto se transformó en "Attendant
 Kingdom Hall Attendant es completamente gratuito, sin costos ni donaciones obligatorias. Por ello, para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado de acuerdo a la estación del año. **Attolympics:** Únete a una emocionante olimpiada colaborativa que une corazones y propósitos en la vibrante comunidad de Kingdom Hall Attendant, ¿serás el ganador del hit máximo de publicadores?. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, no ofrece más allá de lo desconocido de la Opensource Edition, salvo un tema dorado único para la aplicación. Estas opciones de financiamiento son totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
-![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/4f08ea6c-df76-4241-ba49-795572a71dab)
+![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/7654a7c9-fffd-4f84-a9e6-a35f64496b0d)
 
 > #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
 >
 > - **Azul**: Indica las funciones pendientes de desarrollo.
 > - **Amarillo**: Representa las funciones en proceso de desarrollo activo.
 > - **Rojo**: Señala las funciones que se han detenido y necesitan asistencia urgente o resolución de problemas.
+> - **Morado**: Representa las funciones que tienen reportes de bugs y están en proceso de corrección o resolución.
 > - **Verde**: Identifica las funciones completadas y listas para su utilización.
 
 **Kingdom Hall Attendant** es la herramienta digital imprescindible para los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová. Esta aplicación, compatible con una amplia gama de dispositivos y navegadores, incluyendo Windows, macOS, Linux, Firefox, Chrome, IE, Edge y Safari, pronto estará disponible en plataformas móviles como Android, iPhone y iPad de forma nativa.
