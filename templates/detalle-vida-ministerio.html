@@ -36,6 +36,7 @@
 
                      <label class="" htmlFor="name">Fecha:</label>
                      <select class="form-select mb-2 width-full" aria-label="" id="semana" name="semana">
+                        <option>{{ week_info }}</option>
                      </select>
 
                      <label class="" htmlFor="name">Presidente:</label>
@@ -50,10 +51,28 @@
 
 <div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: #3c7f8b;color: #ffffff;">TESOROS DE LA BIBLIA</div>
 
-<label class="" htmlFor="name" style="color:#2a6b77;"><strong>1. Discurso (10 mins.)</strong></label>
-<select class="form-select mb-2 width-full" aria-label="" id="lector_atalaya" name="lector_atalaya">
-        <option value="">Selecciona un publicador</option>
-</select>
+<h2>TESOROS DE LA BIBLIA</h2>
+<ul>
+{% for point in points_info['TESOROS DE LA BIBLIA'] %}
+    <li>{{ point }}</li>
+{% endfor %}
+</ul>
+
+<h2>SEAMOS MEJORES MAESTROS</h2>
+<ul>
+{% for point in points_info['SEAMOS MEJORES MAESTROS'] %}
+    <li>{{ point }}</li>
+{% endfor %}
+</ul>
+
+<h2>NUESTRA VIDA CRISTIANA</h2>
+<ul>
+{% for point in points_info['NUESTRA VIDA CRISTIANA'] %}
+    <li>{{ point }}</li>
+{% endfor %}
+</ul>
+
+
 
 <label class="" htmlFor="name" style="color:#2a6b77;"><strong>2. Busquemos perlas escondidas</strong></label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final">
@@ -65,7 +84,128 @@
         <option value="">Selecciona un sustituto</option>
 </select>     
 
-                     <br><br>
+<div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: #d68f00;color: #ffffff;">SEAMOS MEJORES MAESTROS</div>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#d68f00;">
+        <option value="">4. Análisis</option>
+        <option value="">4. Empiece conversaciones</option>
+</select> 
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Ayudante:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+<br>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#d68f00;">
+        <option value="">5. Análisis</option>
+        <option value="">5. Empiece conversaciones</option>
+        <option value="">5. Haga revisitas</option>
+        <option value="">5. Discurso</option>
+</select> 
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Ayudante:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+<br>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#d68f00;">
+        <option value="">6. Empiece conversaciones</option>
+        <option value="">6. Haga revisitas</option>
+        <option value="">6. Haga discípulos</option>
+        <option value="">6. Explique sus creencias</option>
+        <option value="">6. Discurso</option>
+</select>  
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Ayudante:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+<br>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#d68f00;">
+        <option value="">7. Empiece conversaciones</option>
+        <option value="">7. Haga revisitas</option>
+        <option value="">7. Haga discípulos</option>
+        <option value="">7. Explique sus creencias</option>
+        <option value="">7. Discurso</option>
+</select>  
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Ayudante:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select>
+
+<div class="color-fg-on-emphasis p-2 rounded mb-4 mt-4" style="background-color: #bf2f13;color: #ffffff;">NUESTRA VIDA CRISTIANA</div> 
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#bf2f13;">
+        <option value="">Análisis</option>
+        <option value="">Discurso</option>
+        <option value="">Estudio bíblico de la congregación</option>
+        <option value="">Necesidades de la congregación</option>
+        <option value="">Logros de la organización </option>
+</select>  
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Lector:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select>
+<br>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#bf2f13;">
+        <option value="">Análisis</option>
+        <option value="">Discurso</option>
+        <option value="">Estudio bíblico de la congregación</option>
+        <option value="">Necesidades de la congregación</option>
+        <option value="">Logros de la organización </option>
+</select>  
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Lector:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select>
+<br>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final" style="color:#bf2f13;">
+        <option value="">Análisis</option>
+        <option value="">Discurso</option>
+        <option value="">Estudio bíblico de la congregación</option>
+        <option value="">Necesidades de la congregación</option>
+        <option value="">Logros de la organización </option>
+</select>  
+<label class="" htmlFor="name"><strong>Publicador:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label class="" htmlFor="name"><strong>Lector:</strong></label>
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+        <option value="">Seleccione un publicador</option>
+</select>
+<br>
+<label class="" htmlFor="name">Oración final:</label>
+<select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
+        <option value="">Selecciona un publicador</option>
+</select>
+                    <br><br>
                      <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Guardar</button>
     <a href="" type="button" class="btn btn-danger">

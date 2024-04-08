@@ -3,8 +3,8 @@
    <head>
       <title>Kingdom Hall Attendant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link href="css/primer.css" rel="stylesheet" />
-      <link href="css/jw-icons-for-options.css" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
    </head>
    <body>
     <div class="Header color-bg-inset">
@@ -23,11 +23,12 @@
                <p class="color-fg-muted text-small">usuario@correo.com</p>
             </div>
          </div>
+        <a href="" class="btn btn-sm float-right mr-2" type="button">Imprimir</a>
+         <a href="/nueva-actividad" class="btn btn-sm float-right" type="button">Nuevo</a>
       </div>
       </div>
       <div class="container-xl mt-6 width-full m-6">         
          <div class="pl-2">            
-            <a href="option-fourteen-b-part.html" class="btn btn-sm float-right" type="button">Nuevo</a>
             <div class="container-xl clearfix">        
                 <form>
                     <select class="form-select mb-2 mt-2 width-full" aria-label="Preference">
@@ -219,14 +220,7 @@
                    </div>
                    <br><br>
                    <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Guardar</button>                      
-                      <button type="button" class="btn btn-outline">
-                        <!-- <%= octicon "trashcan" %> -->                        
-                        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                           <path d="M.989 8 .064 2.68a1.342 1.342 0 0 1 1.85-1.462l13.402 5.744a1.13 1.13 0 0 1 0 2.076L1.913 14.782a1.343 1.343 0 0 1-1.85-1.463L.99 8Zm.603-5.288L2.38 7.25h4.87a.75.75 0 0 1 0 1.5H2.38l-.788 4.538L13.929 8Z"></path></svg>
-                        <span>Enviar al Superintendente de Circuito</span>
-                     </button>
-                     <button class="btn" type="button">Imprimir</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
                       <button type="button" class="btn btn-danger">
                          <!-- <%= octicon "trashcan" %> -->
                          <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">

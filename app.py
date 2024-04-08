@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, g, url_for
 import sqlite3
 from datetime import datetime
+import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -1263,7 +1265,12 @@ def bosquejos():
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
-    congregacion_formateada = congregacion[0].strip("()'")
+
+     # Verificar si la congregacion existe y no está en blanco
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None  # O cualquier otro valor que desees
 
     return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list, congregacion=congregacion_formateada)
 
@@ -1364,7 +1371,12 @@ def estudio_atalaya():
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
-    congregacion_formateada = congregacion[0].strip("()'")
+
+    # Verificar si la congregacion existe y no está en blanco
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None  # O cualquier otro valor que desees
 
     return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas, congregacion=congregacion_formateada)
 
@@ -1444,14 +1456,82 @@ def vida_ministerio():
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
-    congregacion_formateada = congregacion[0].strip("()'")
+    
+    # Verificar si la congregacion existe y no está en blanco
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None  # O cualquier otro valor que desees
 
     return render_template('vida-ministerio.html', congregacion=congregacion_formateada)
 
 @app.route('/nuevo-vida-ministerio', methods=['GET'])
 def nuevo_vida_ministerio():
+    week_info, points_info = extract_data_from_WOL()
+    return render_template('detalle-vida-ministerio.html', week_info=week_info, points_info=points_info)
 
-    return render_template('detalle-vida-ministerio.html')
+def extract_data_from_WOL():
+    # Obtener el contenido HTML de la página
+    url = "https://wol.jw.org/es/wol/meetings/r4/lp-s/2024/15"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    week_info = soup.find('h1').text
+
+    # Encontrar los h2 especificados
+    h2_tesoro_biblia = soup.find('h2', text='TESOROS DE LA BIBLIA')
+    h2_seamos_mejores_maestros = soup.find('h2', text='SEAMOS MEJORES MAESTROS')
+    h2_nuestra_vida_cristiana = soup.find('h2', text='NUESTRA VIDA CRISTIANA')
+
+    # Extraer los puntos entre los h2
+    points_info = {
+        'TESOROS DE LA BIBLIA': [],
+        'SEAMOS MEJORES MAESTROS': [],
+        'NUESTRA VIDA CRISTIANA': []
+    }
+    
+        # Buscamos los puntos asociados con el primer h2
+    current_h2 = h2_tesoro_biblia
+    while current_h2:
+        next_h2 = current_h2.find_next_sibling('h2')
+        current_point = current_h2.find_next_sibling()
+        while current_point and current_point != next_h2:
+            if current_point.name == 'h3':
+                points_info[current_h2.text.strip()].append(current_point.text.strip())
+            current_point = current_point.find_next_sibling()
+        current_h2 = next_h2
+
+    # Buscamos los puntos asociados con el segundo h2
+    current_h2 = h2_seamos_mejores_maestros
+    while current_h2:
+        next_h2 = current_h2.find_next_sibling('h2')
+        current_point = current_h2.find_next_sibling()
+        while current_point and current_point != next_h2:
+            if current_point.name == 'h3':
+                points_info[current_h2.text.strip()].append(current_point.text.strip())
+            current_point = current_point.find_next_sibling()
+        current_h2 = next_h2
+
+    # Buscamos los puntos asociados con el tercer h2
+    current_h2 = h2_nuestra_vida_cristiana
+    while current_h2:
+        next_h2 = current_h2.find_next_sibling('h2')
+        current_point = current_h2.find_next_sibling()
+        while current_point and current_point != next_h2:
+            if current_point.name == 'h3':
+                points_info[current_h2.text.strip()].append(current_point.text.strip())
+            current_point = current_point.find_next_sibling()
+        current_h2 = next_h2
+
+    return week_info, points_info
+
+@app.route('/visita-superint-circuito.html')
+def visita_superint_circuito():
+    return render_template('visita-superint-circuito.html')
+
+@app.route('/nueva-actividad')
+def nueva_actividad_visita_superint_circuito():
+    return render_template('detalle-visita-superint-circuito.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

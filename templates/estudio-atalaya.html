@@ -42,7 +42,12 @@
              <!-- HEAD PRINT -->
       <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
          <p class="h3 ml-4 mt-n4" style="width:85%;">Reunión de fin de semana</p>
-         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">{{ congregacion }}</p>
+         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
+{% if congregacion %}
+    {{ congregacion }}
+{% else %}
+    Registra tu congregación
+{% endif %}</p>
       </div>
       <!-- HEAD PRINT -->
             
