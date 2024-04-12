@@ -5,8 +5,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='loading-splash.css') }}" rel="stylesheet" />
    </head>
    <body>
+   <div id="loading-screen">
+    <div id="loading-spinner"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h3>Extrayendo datos de WOL (Watchtower Online Library)</h3>
+</div>
+
       <div class="Header color-bg-inset">
          <!-- Image item  -->
          <div class="Header-item width-full">
@@ -34,19 +41,35 @@
                   <form action="/guardar_vida_ministerio" method="POST">
                      <input type="hidden" name="id" id="id" value="" style="display: none;">
 
-                     <label class="" htmlFor="name">Fecha:</label>
-                     <select class="form-select mb-2 width-full" aria-label="" id="semana" name="semana">
-                        <option>{{ week_info }}</option>
-                     </select>
+                     <div class="text-center"> 
+        <nav class="paginate-container"> 
+            <div class="pagination"> 
+                <a class="previous_page" href="{{ url_previous }}"> 
+                     Anterior
+                </a> 
+                <a href="/nuevo-vida-ministerio" style="text-decoration: none;border: none;"><em aria-current="Page1"> Esta semana </em></a> 
+                <a class="next_page" href="{{ url_next }}" > 
+                    Próxima 
+                </a> 
+            </div> 
+        </nav> 
+    </div> 
+                     <div class="color-fg-on-emphasis p-2 rounded mb-4" style="background-color: #0969da; color: #ffffff;">{{ week_info }}</div>
 
                      <label class="" htmlFor="name">Presidente:</label>
 <select class="form-select mb-2 width-full" aria-label="" id="presidente" name="presidente">
-    <option value="">Selecciona un presidente</option>
+        <option value="">Seleccione un presidente</option>
+    {% for presidente in presidentes %}
+        <option value="{{ presidente }}">{{ presidente }}</option>
+    {% endfor %}
 </select>
 
 <label class="" htmlFor="name">Oración de inicio:</label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
         <option value="">Selecciona un publicador</option>
+        {% for orador in oradores %}
+        <option value="{{ orador }}">{{ orador }}</option>
+    {% endfor %}
 </select>
 
 {% set show_label_and_select = False %}
@@ -63,43 +86,58 @@
         {% set show_second_label_and_select = True %}
     {% elif h2 == 'NUESTRA VIDA CRISTIANA' %}
         {% set bg_color = '#bf2f13' %}
+        {% set show_label_and_select = True %}
+        {% set show_second_label_and_select = False %}
+    {% else %}
         {% set show_label_and_select = False %}
         {% set show_second_label_and_select = False %}
     {% endif %}
     <div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: {{ bg_color }}; color: {{ text_color }};">{{ h2 }}</div>
     <ul>
         {% for h3 in h3_list %}
-            <li>{{ h3 }}</li>
-            {% if 'Estudio bíblico de la congregación' in h3 %}
-                <label class="" htmlFor="name"><strong>Conductor:</strong></label>
-                <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
-                    <option value="">Seleccione un publicador</option>
-                </select> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="" htmlFor="name"><strong>Lector:</strong></label>
-                <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
-                    <option value="">Seleccione un publicador</option>
-                </select>
-            {% elif show_label_and_select %}
-                <label class="" htmlFor="name"><strong>Publicador:</strong></label>
-                <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
-                    <option value="">Seleccione un publicador</option>
-                </select> 
-                {% set show_label_and_select = False %}
-                {% if show_second_label_and_select %}
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label class="" htmlFor="name"><strong>Ayudante:</strong></label>
-                    <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
-                        <option value="">Seleccione un publicador</option>
-                    </select>
-                    {% set show_second_label_and_select = False %}
+            {% if 'Artículo de estudio' not in h3 %}
+                {% if 'Otros artículos' not in h3 %}
+                    {% if 'Canción' not in h3 %}
+                        <p>{{ h3 }}</p>
+                        {% if 'Estudio bíblico de la congregación' in h3 %}
+                            <label class="" htmlFor="name"><strong>Conductor:</strong></label>
+                            <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+                                <option value="">Seleccione un publicador</option>
+                            </select> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="" htmlFor="name"><strong>Lector:</strong></label>
+                            <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+                                <option value="">Seleccione un publicador</option>
+                            </select>
+                        {% elif 'Discurso' in h3 %}
+                            <label class="" htmlFor="name"><strong>Publicador:</strong></label>
+                            <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+                                <option value="">Seleccione un publicador</option>
+                            </select>
+                        {% elif show_label_and_select %}
+                            <label class="" htmlFor="name"><strong>Publicador:</strong></label>
+                            <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+                                <option value="">Seleccione un publicador</option>
+                            </select> 
+                            {% set show_label_and_select = False %}
+                            {% if show_second_label_and_select %}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label class="" htmlFor="name"><strong>Ayudante:</strong></label>
+                                <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+                                    <option value="">Seleccione un publicador</option>
+                                </select>
+                                {% set show_second_label_and_select = False %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endfor %}
     </ul>
 {% endfor %}
 
-<br>
+
+
 <label class="" htmlFor="name">Oración final:</label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
         <option value="">Selecciona un publicador</option>
@@ -121,5 +159,33 @@
             </div>
          </div>
       </div>
+      <script>
+         document.addEventListener("DOMContentLoaded", function(event) {
+    // Mostrar el splash screen de carga al cargar la página
+    document.getElementById("loading-screen").style.display = "flex";
+
+    // Agregar evento de clic al botón "Próxima"
+    document.querySelector(".next_page").addEventListener("click", function(event) {
+        // Mostrar el splash screen de carga al hacer clic en el botón
+        document.getElementById("loading-screen").style.display = "flex";
+    });
+    // Agregar evento de clic al botón "Anterior"
+    document.querySelector(".previous_page").addEventListener("click", function(event) {
+        // Mostrar el splash screen de carga al hacer clic en el botón
+        document.getElementById("loading-screen").style.display = "flex";
+    });
+    // Agregar evento de clic al botón "Esta semana"
+    document.querySelector("a[href='/nuevo-vida-ministerio']").addEventListener("click", function(event) {
+        // Mostrar el splash screen de carga al hacer clic en el botón
+        document.getElementById("loading-screen").style.display = "flex";
+    });
+});
+
+// Ocultar el splash screen de carga cuando la página haya terminado de cargar
+window.addEventListener("load", function(event) {
+    document.getElementById("loading-screen").style.display = "none";
+});
+
+      </script>
    </body>
 </html>
