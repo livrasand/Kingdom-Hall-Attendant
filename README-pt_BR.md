@@ -1,4 +1,4 @@
-<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
+<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="README-pt_BR.md"><img src="https://custom-icon-badges.demolab.com/badge/Português-white.svg?logo=brasil-flag"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
 # Este é o Kingdom Hall Attendant
@@ -35,9 +35,9 @@ O Kingdom Hall Attendant é totalmente gratuito, sem custos ou doações obrigat
 > #### É usado cores para representar o status das funções disponíveis:
 >
 > - **Azul**: Funções que serão desenvolvidas.
-> - **Amarillo**: Funções em processo de desenvolvimento.
-> - **Rojo**: Funções que foram interrompidas e precisam de assistência urgente ou solução de problemas.
-> - **Morado**: Funções que possuem relatórios de bugs e estão em processo de correção e solução.
+> - **Amarelo**: Funções em processo de desenvolvimento.
+> - **Vermelho**: Funções que foram interrompidas e precisam de assistência urgente ou solução de problemas.
+> - **Roxo**: Funções que possuem relatórios de bugs e estão em processo de correção e solução.
 > - **Verde**: Funções que estão concluídas e prontas para uso.
 
 O **Kingdom Hall Attendant** é uma ferramenta digital obrigatória para Superintendentes de Circuito, Anciãos e Servos Ministeriais das Testemunhas de Jeová. Este aplicativo, é compatível com uma ampla gama de dispositivos e navegadores, incluindo Windows, macOS, Linux, Firefox, Chrome, IE, Edge e Safari, e em breve estará disponível em plataformas móveis como Android, iPhone e iPad nativamente.
