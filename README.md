@@ -1,4 +1,4 @@
-<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
+<div align="center"><a href="README.md"><img src="https://custom-icon-badges.demolab.com/badge/Español-white.svg?logo=mexico-flag&"></a>&nbsp;&nbsp;<a href="README-pt_BR.md"><img src="https://custom-icon-badges.demolab.com/badge/Português-white.svg?logo=brasil-flag"></a>&nbsp;&nbsp;<a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/11"><img src="https://custom-icon-badges.demolab.com/badge/Traducir_esta_página-white.svg?logo=external-link"></a></div>
 <br>
 
 # This is Kingdom Hall Attendant
