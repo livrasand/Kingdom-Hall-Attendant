@@ -103,21 +103,33 @@
                             <label class="" htmlFor="name"><strong>Conductor:</strong></label>
                             <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
                                 <option value="">Seleccione un publicador</option>
+                                {% for conductor in conductores %}
+                                <option value="{{ conductor[0] }} {{ conductor[1] }}">{{ conductor[0] }} {{ conductor[1] }}</option>
+                                {% endfor %}
                             </select> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <label class="" htmlFor="name"><strong>Lector:</strong></label>
                             <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
                                 <option value="">Seleccione un publicador</option>
+                                {% for lector in lectores %}
+                                <option value="{{ lector[0] }} {{ lector[1] }}">{{ lector[0] }} {{ lector[1] }}</option>
+                                {% endfor %}
                             </select>
                         {% elif 'Discurso' in h3 %}
                             <label class="" htmlFor="name"><strong>Publicador:</strong></label>
                             <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
                                 <option value="">Seleccione un publicador</option>
+                                {% for discursante in discursantes %}
+                                <option value="{{ discursante[0] }} {{ discursante[1] }}">{{ discursante[0] }} {{ discursante[1] }}</option>
+                                {% endfor %}
                             </select>
                         {% elif show_label_and_select %}
                             <label class="" htmlFor="name"><strong>Publicador:</strong></label>
                             <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
                                 <option value="">Seleccione un publicador</option>
+                                {% for publicador in publicadores %}
+                                <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
+                                {% endfor %}
                             </select> 
                             {% set show_label_and_select = False %}
                             {% if show_second_label_and_select %}
@@ -125,6 +137,9 @@
                                 <label class="" htmlFor="name"><strong>Ayudante:</strong></label>
                                 <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
                                     <option value="">Seleccione un publicador</option>
+                                    {% for publicador in publicadores %}
+                                <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
+                                {% endfor %}
                                 </select>
                                 {% set show_second_label_and_select = False %}
                             {% endif %}
@@ -141,6 +156,9 @@
 <label class="" htmlFor="name">Oración final:</label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
         <option value="">Selecciona un publicador</option>
+        {% for orador in oradores %}
+        <option value="{{ orador }}">{{ orador }}</option>
+    {% endfor %}
 </select>
                     <br><br>
                      <div class="form-actions">

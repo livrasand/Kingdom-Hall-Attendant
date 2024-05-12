@@ -1481,7 +1481,19 @@ def nuevo_vida_ministerio():
 
     oradores_formateados = [orador[0].strip("('')") for orador in oradores]
 
-    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados)
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_estudio_biblico_congregacion = 1")
+    conductores = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
+    lectores = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores")
+    publicadores = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_discurso = 1")
+    discursantes = cursor.fetchall()
+
+    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes)
 
 def extract_data_from_WOL(year, week):
     url = f"https://wol.jw.org/es/wol/meetings/r4/lp-s/{year}/{week}"
@@ -1515,6 +1527,23 @@ def get_previous_and_next_urls(year, week):
     url_next = f"/nuevo-vida-ministerio?year={next_year}&week={next_week}"
 
     return url_previous, url_next
+
+@app.route('/guardar_vida_ministerio', methods=['POST'])
+def guardar_vida_ministerio():
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        id = request.form['id']
+        presidente = request.form['presidente']
+        oracion_inicio = request.form['oracion_inicio']
+        # Continúa obteniendo los otros datos del formulario...
+
+        # Ahora puedes guardar estos datos en tu base de datos SQLite
+        cursor = g.bd.cursor()
+        # Ejemplo de cómo insertar los datos en la base de datos (asegúrate de cambiar esto según tu esquema de base de datos)
+        cursor.execute("INSERT INTO vida_ministerio (id, presidente, oracion_inicio) VALUES (?, ?, ?)", (id, presidente, oracion_inicio))
+        g.bd.commit()  # Guardar los cambios en la base de datos
+
+        return redirect('/vida-ministerio.html') 
 
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():
