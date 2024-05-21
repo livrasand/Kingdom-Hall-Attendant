@@ -39,7 +39,7 @@ PySocks==1.7.1
 python-bitcoinlib==0.12.2
 pywin32==306
 pywin32-ctypes==0.2.2
-requests==2.31.0
+requests==2.32.0
 smmap==5.0.0
 soupsieve==2.5
 speedtest-cli==2.1.3
