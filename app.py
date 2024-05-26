@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, redirect, g, url_for
+from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session
 import sqlite3
 from datetime import datetime
 import datetime
 import requests
 from bs4 import BeautifulSoup
+import json
 
 app = Flask(__name__)
+app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
 
 def conectar_bd():
     return sqlite3.connect('kha.db')
@@ -1452,6 +1454,8 @@ def eliminar_estudio_atalaya(id):
 @app.route('/vida-ministerio.html')
 def vida_ministerio():
     cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM vida_ministerio")
+    vida_ministerio = cursor.fetchall() 
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
@@ -1461,7 +1465,7 @@ def vida_ministerio():
     else:
         congregacion_formateada = None 
 
-    return render_template('vida-ministerio.html', congregacion=congregacion_formateada)
+    return render_template('vida-ministerio.html', congregacion=congregacion_formateada, vidas_ministerio=vida_ministerio)
 
 @app.route('/nuevo-vida-ministerio', methods=['GET'])
 def nuevo_vida_ministerio():
@@ -1492,6 +1496,8 @@ def nuevo_vida_ministerio():
 
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_discurso = 1")
     discursantes = cursor.fetchall()
+
+    session['data'] = data
 
     return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes)
 
@@ -1530,20 +1536,85 @@ def get_previous_and_next_urls(year, week):
 
 @app.route('/guardar_vida_ministerio', methods=['POST'])
 def guardar_vida_ministerio():
-    if request.method == 'POST':
-        # Obtener los datos del formulario
-        id = request.form['id']
-        presidente = request.form['presidente']
-        oracion_inicio = request.form['oracion_inicio']
-        # Continúa obteniendo los otros datos del formulario...
+    data = session.get('data', {})
+    week_info = request.form.get('week_info')
+    presidente = request.form.get('presidente')
+    oracion_inicio = request.form.get('oracion_inicio')
+    oracion_final = request.form.get('oracion_final')
 
-        # Ahora puedes guardar estos datos en tu base de datos SQLite
-        cursor = g.bd.cursor()
-        # Ejemplo de cómo insertar los datos en la base de datos (asegúrate de cambiar esto según tu esquema de base de datos)
-        cursor.execute("INSERT INTO vida_ministerio (id, presidente, oracion_inicio) VALUES (?, ?, ?)", (id, presidente, oracion_inicio))
-        g.bd.commit()  # Guardar los cambios en la base de datos
+    form_data = {
+        "week_info": week_info,
+        "presidente": presidente,
+        "oracion_inicio": oracion_inicio,
+        "oracion_final": oracion_final,
+        "temas": []
+    }
 
-        return redirect('/vida-ministerio.html') 
+    for h2, h3_list in data.items():
+        tema = {"titulo": h2, "detalles": []}
+        for h3 in h3_list:
+            if "Estudio bíblico de la congregación" in h3:
+                conductor = request.form.get(f"conductor_{h3}")
+                lector = request.form.get(f"lector_{h3}")
+                detalle = {"subtitulo": h3, "conductor": conductor, "lector": lector}
+            else:
+                publicador = request.form.get(f"publicador_{h3}")
+                ayudante = request.form.get(f"ayudante_{h3}")
+                detalle = {"subtitulo": h3, "publicador": publicador, "ayudante": ayudante}
+            tema["detalles"].append(detalle)
+        form_data["temas"].append(tema)
+
+    # Convierte el diccionario a una cadena JSON
+    form_data_json = json.dumps(form_data, ensure_ascii=False, indent=4)
+
+    # Guarda en la base de datos
+    cursor = g.bd.cursor()
+    cursor.execute("""
+        INSERT INTO vida_ministerio (week_info, presidente, oracion_inicio, oracion_final, datos_json)
+        VALUES (?, ?, ?, ?, ?)
+    """, (week_info, presidente, oracion_inicio, oracion_final, form_data_json))
+
+    g.bd.commit()
+
+    return redirect(url_for('vida_ministerio'))
+
+def obtener_semana_de_la_base_de_datos(week_id):
+    # Obtener la conexión a la base de datos existente
+    cursor = g.bd.cursor()
+
+    # Ejecutar la consulta SQL para obtener la semana por su ID
+    cursor.execute("SELECT datos_json FROM vida_ministerio WHERE id = ?", (week_id,))
+    
+    # Obtener el resultado de la consulta
+    semana = cursor.fetchone()
+
+    if semana:
+        # Si se encuentra la semana, obtener el JSON de la columna datos_json
+        datos_json = semana[0]
+        
+        # Convertir el JSON a un diccionario de Python
+        semana_dict = json.loads(datos_json)
+        return semana_dict
+    else:
+        # Manejo de casos donde no se encuentra la semana con el ID dado
+        return None
+
+@app.route('/mostrar_vida_ministerio/<int:id>')
+def mostrar_vida_ministerio(id):
+    cursor = g.bd.cursor()
+    # Aquí debes obtener los datos de la semana de la base de datos usando el ID de la semana (week_id)
+    semana = obtener_semana_de_la_base_de_datos(id)
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+    
+    # Aquí renderizas el template con los datos obtenidos de la base de datos
+    return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada)
 
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():

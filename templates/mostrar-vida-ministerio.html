@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+<head>
+    <title>Kingdom Hall Attendant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+</head>
+<body>
+<div class="Header color-bg-inset">
+    <!-- Image item  -->
+    <div class="Header-item width-full">
+        <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+            </svg>
+        </a>
+        <a href="/" style="cursor: pointer;" class="mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+        </a>
+        <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+        <div class="d-table col-12">
+            <div class="col-10 d-table-cell v-align-middle pl-4">
+                <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
+                <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()">Imprimir</a>
+</div>
+<div class="container-xl mt-6">
+    <div class="container-xl">
+        <div class="container-lg clearfix">
+            <div class="col-12 float-left p-4 mt-n4">
+                <!-- HEAD PRINT -->
+      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
+         <p class="h3  mt-n4" style="width:85%;">Reunión de entre semana</p>
+         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">{% if congregacion %}
+          {{ congregacion }}
+{% else %}
+    Registra tu congregación
+{% endif %}</p>
+      </div>
+      <!-- HEAD PRINT -->
+                <!-- Renderizamos los datos JSON aquí -->
+                {% if semana %}
+    <div class="color-fg-on-emphasis p-2 rounded mb-2" style="background-color: #0969da; color: #ffffff;">{{ semana['week_info'] }}</div>
+    <label class="" for="presidente" style="color:#0969da;">Presidente:</label>
+    {{ semana['presidente'] }}
+    <br>
+    <label class="mt-4" for="presidente" style="color:#0969da;">Oración de inicio:</label>
+    {{ semana['oracion_inicio'] }}
+
+    {% for tema in semana['temas'] %}
+        {% if tema['titulo'] == 'TESOROS DE LA BIBLIA' %}
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #3c7f8b; color: #ffffff;">TESOROS DE LA BIBLIA</div>
+            <ul>
+                {% for detalle in tema['detalles'] %}
+                        <strong style="color: #3c7f8b;">{{ detalle['subtitulo'] }}</strong><br>
+                        {% if detalle['publicador'] %}
+                            {{ detalle['publicador'] }}<br>
+                        {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+
+    {% for tema in semana['temas'] %}
+        {% if tema['titulo'] == 'SEAMOS MEJORES MAESTROS' %}
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00; color: #ffffff;">SEAMOS MEJORES MAESTROS</div>
+            <ul>
+                {% for detalle in tema['detalles'] %}
+                        <strong style="color: #d68f00;">{{ detalle['subtitulo'] }}</strong><br>
+                        {% if detalle['publicador'] %}
+                            <b>Publicador:</b> {{ detalle['publicador'] }}<br>
+                        {% endif %}
+                        {% if detalle['ayudante'] %}
+                            <b>Ayudante:</b> {{ detalle['ayudante'] }}<br>
+                        {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+
+    {% for tema in semana['temas'] %}
+        {% if tema['titulo'] == 'NUESTRA VIDA CRISTIANA' %}
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13; color: #ffffff;">NUESTRA VIDA CRISTIANA</div>
+            <ul>
+                {% for detalle in tema['detalles'] %}
+                    {% if loop.index <= tema['detalles']|length - 3 %}
+                            <strong style="color: #bf2f13;">{{ detalle['subtitulo'] }}</strong><br>
+                            {% if detalle['publicador'] %}
+                                {{ detalle['publicador'] }}<br>
+                            {% endif %}
+                            {% if detalle['conductor'] %}
+                                <b>Conductor:</b> {{ detalle['conductor'] }}<br>
+                            {% endif %}
+                            {% if detalle['lector'] %}
+                                <b>Lector:</b> {{ detalle['lector'] }}<br>
+                            {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+
+    <label class="mt-4" for="oracion_final" style="color:#0969da;">Oración final:</label>
+    {{ semana['oracion_final'] }}
+{% else %}
+    <p>No se encontraron datos para mostrar.</p>
+{% endif %}
+
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER PRINT -->
+      <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
+    <img class="ml-1 mt-1 mb-1" src="{{ url_for('static', filename='frame.png') }}" width="85px">
+    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
+    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">Impreso el <span id="fecha"></span></p>
+</div>
+      <!-- FOOTER PRINT -->
+</div>
+<script type="text/javascript">
+      function imprimirPagina() {
+           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
+    document.getElementById("print-footer").style.visibility = "visible";
+    document.getElementById("header-page").style.visibility = "visible";
+
+
+  window.print(); // Inicia el proceso de impresión
+
+  document.getElementById("print-footer").style.visibility = "hidden";
+    document.getElementById("header-page").style.visibility = "hidden";
+}
+
+// Obtener la fecha actual
+var fechaActual = new Date();
+
+// Convertir la fecha a un formato legible
+var opcionesFecha = {  year: 'numeric', month: 'numeric', day: 'numeric' };
+var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
+
+// Insertar la fecha en el elemento <span> dentro del <h3>
+document.getElementById("fecha").innerText = fechaFormateada;
+   </script>
+</body>
+</html>
