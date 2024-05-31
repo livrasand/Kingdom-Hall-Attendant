@@ -5,15 +5,9 @@ import datetime
 import requests
 from bs4 import BeautifulSoup
 import json
-import os
 
 app = Flask(__name__)
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
-
-proxies = {
-       'http': 'proxy.server:3128',
-       'https': 'proxy.server:3128',
- }
 
 def conectar_bd():
     return sqlite3.connect('kha.db')
@@ -1477,11 +1471,7 @@ def vida_ministerio():
 def nuevo_vida_ministerio():
     current_year = request.args.get('year', datetime.datetime.now().year)
     current_week = request.args.get('week', datetime.datetime.now().isocalendar()[1])
-    try:
-        week_info, data = extract_data_from_WOL(current_year, current_week)
-    except requests.exceptions.RequestException as e:
-        app.logger.error(f"Error fetching data from WOL: {e}")
-        return jsonify({'error': 'Failed to fetch data from WOL'}), 500
+    week_info, data = extract_data_from_WOL(current_year, current_week)
     url_previous, url_next = get_previous_and_next_urls(current_year, current_week)
 
     cursor = g.bd.cursor()
@@ -1513,11 +1503,7 @@ def nuevo_vida_ministerio():
 
 def extract_data_from_WOL(year, week):
     url = f"https://wol.jw.org/es/wol/meetings/r4/lp-s/{year}/{week}"
-    # Deshabilitar el proxy si no es necesario para el dominio específico
-    os.environ['NO_PROXY'] = 'wol.jw.org'
-    response = requests.get(url, proxies=proxies)
-    response.raise_for_status()  
-    # Lanzará una excepción si el código de estado es 4xx/5xx
+    response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
     week_info = soup.find('h1').text
