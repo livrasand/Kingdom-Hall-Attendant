@@ -17,7 +17,6 @@ GitPython==3.1.41
 idna==3.7
 itsdangerous==2.1.2
 Jinja2==3.1.4
-kivy-deps.sdl2
 lief==0.14.0
 MarkupSafe==2.1.5
 netifaces==0.11.0
