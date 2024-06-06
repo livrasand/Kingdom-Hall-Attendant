@@ -1,13 +1,29 @@
-from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session
+from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash
 import sqlite3
 from datetime import datetime
 import datetime
 import requests
 from bs4 import BeautifulSoup
 import json
+from flask_mail import Mail, Message
+import secrets
 
 app = Flask(__name__)
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
+
+# Configuración de Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'noresponder.kha@gmail.com'
+app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
+app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
+
+mail = Mail(app)
+
+# Simulación de una base de datos en memoria
+usuarios = {}
+
 
 def conectar_bd():
     return sqlite3.connect('kha.db')
@@ -1645,5 +1661,49 @@ def load_user_info():
 def inject_user_info():
     return dict(nombre=g.get('nombre', 'Nombre'), apellidos=g.get('apellidos', 'Apellidos'), email=g.get('user_email', 'usuario@correo.com'))
    
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')    
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        email = request.form['email']
+        token = secrets.token_urlsafe(16)
+        usuarios[email] = {'token': token}
+        confirm_url = url_for('confirm_email', token=token, _external=True)
+        sender = app.config['MAIL_USERNAME']  # El correo del remitente
+        send_email(sender, email, confirm_url)
+        flash('Se ha enviado un enlace de confirmación a tu correo.')
+        return redirect(url_for('register'))
+    return render_template('signup.html')
+
+def send_email(sender, recipient, confirm_url):
+    msg = Message('Confirma tu correo electrónico', sender=sender, recipients=[recipient])
+    msg.body = f'Hola, soy Livrädo Sandoval de Kingdom Hall Attendant. Estás a un paso de terminar tu registro. Por favor, confirma tu correo electrónico haciendo clic en el siguiente enlace: {confirm_url}'
+    mail.send(msg)
+
+
+@app.route('/confirm')
+def confirm():
+    return render_template('confirm.html') 
+
+@app.route('/confirm/<token>', methods=['GET', 'POST'])
+def confirm_email(token):
+    for email, data in usuarios.items():
+        if data['token'] == token:
+            if request.method == 'POST':
+                password = request.form['password']
+                usuarios[email]['password'] = password
+                flash('Correo confirmado y contraseña establecida.')
+                return redirect(url_for('login'))
+            return render_template('confirm.html', token=token)
+    flash('El enlace de confirmación es inválido o ha expirado.')
+    return redirect(url_for('register'))  
+
 if __name__ == '__main__':
     app.run(debug=True)

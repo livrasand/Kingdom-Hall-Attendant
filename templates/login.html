@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+       /* import fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+/* color variables  */
+
+:root {
+    --primary-green: #2DA44E;
+    --primary-dark: #24292F;
+    --primary-light: #ffffff;
+    --fade-light: #F6F8FA;
+    --border-color: rgb(141, 141, 141);
+}
+
+/* default properties  */
+a {
+    text-decoration: none;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 450px;
+    align-items: center;
+    padding: 25px;
+}
+
+.github-logo {
+    /* border: 1px solid black; */
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.github-logo i {
+    font-size: 50px;
+}
+
+.github-head {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 12px;
+}
+
+.login-wrapper {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    padding: 25px 15px;
+    border-radius: 5px;
+    background-color: var(--fade-light);
+    margin-top: 15px;
+}
+
+.input-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 15px;
+}
+
+input {
+    width: 100%;
+    outline: none;
+    margin-top: 5px;
+    font-size: 16px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-dark);
+}
+
+input:focus {
+    border: 1px solid blue;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 5px 0px;
+    font-size: 18px;
+    background-color: var(--primary-green);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-light);
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+}
+
+.info {
+    font-size: 15px;
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+    padding: 20px 15px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--fade-light);
+}
+
+.golden-edition {
+    margin-top: 25px;
+    border: 1px solid #e5e7eb;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    border-radius: .5rem;
+    text-align: left;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-top: 10px;
+}
+
+.text-yellow-600 {
+    --tw-text-opacity: 1;
+    color: rgb(202 138 4/var(--tw-text-opacity));
+}
+
+.payment-info {
+    text-align: center;
+}
+
+
+
+.dev-info{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+
+@media screen and (max-width:360px) {
+    body {
+        padding: 0px 10px;
+    }
+
+    .info {
+        font-size: 14px;
+        padding: 17px 10px;
+    }
+
+    .input-label {
+        font-size: 14px;
+    }
+}
+
+.text-yellow-900 {
+  --tw-text-opacity: 1;
+  color: rgb(113 63 18/var(--tw-text-opacity));
+}
+.text-xs {
+  font-size: .75rem;
+  line-height: 1rem;
+}
+.py-1 {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195/var(--tw-bg-opacity));
+}
+.border-yellow-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8/var(--tw-border-opacity));
+}
+.border {
+  border-width: 1px;
+}
+.rounded-md {
+  border-radius: .375rem;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.mt-2 {
+  margin-top: .5rem;
+}
+.ml-2 {
+  margin-left: .5rem;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.w-5 {
+  width: 1.25rem;
+}
+.h-4 {
+  height: 1rem;
+}
+    </style>
+
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Entra a Kingdom Hall Attendant</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="github-logo">
+            <img src="static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="width:64px;border-radius: 25%;">
+
+        <span class="github-head">
+            ¡Bienvenido a Kingdom Hall Attendant!<br>
+Comencemos la aventura.
+        </span>
+        </div>
+        <h1 class="github-head" style="font-size:24px;">
+            <i class="fa-solid fa-terminal"></i> Opensource Edition
+        </h1>
+        <div class="login-wrapper">
+            <div class="input-box">
+                <div class="input-label">Correo electrónico</div>
+                <input type="text" required>
+            </div>
+
+            <div class="input-box">
+                <div class="input-label">
+                    <span>Contraseña</span>
+                    <!-- <a href="#">Forgot password?</a> -->
+                </div>
+                <input type="password" required>
+            </div>
+
+            <button class="submit-btn">
+                Iniciar sesión
+            </button>
+        </div>
+
+        <div class="info">
+            <span>¿Nuevo en Kingdom Hall Attendant? <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">Crea una cuenta gratis para siempre</a>. O prueba una <a href="https://livrasand.pythonanywhere.com" target="_blank" class="link" style="color: rgb(0, 87, 188);cursor: pointer;text-decoration: inherit;font-size: 14px;">demo</a>.</span>
+        </div>
+
+        <div class="golden-edition">
+    <div class="title-container">
+        <span style="font-size: 30px; padding: 8px;">✨</span>
+        <span>¡Golden Edition ya está disponible a <span class="text-yellow-600">$299</span>!</span>
+    </div>
+    <p class="payment-info bg-yellow-100 border border-yellow-500 text-yellow-900 rounded-md px-2 py-1 inline-flex text-xs" style="margin-left:55px;">Pago único</p><a href="https://opencollective.com/kingdom-hall-attendant" target="_blank" class="link" style="margin-left:15px;color: rgb(0, 87, 188);cursor: pointer;text-decoration: inherit;font-size: 14px;">¡Comprar ahora!</a>
+</div>
+
+
+    </div>
+</body>
+
+</html>
