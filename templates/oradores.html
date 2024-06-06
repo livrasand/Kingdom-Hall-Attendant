@@ -5,6 +5,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <style>
+    .Toast {
+        position: fixed;
+        bottom: 20px; /* Ajusta la distancia desde la parte inferior según necesites */
+        right: 20px; /* Ajusta la distancia desde el borde derecho según necesites */
+        display: none; /* Ocultar el toast por defecto */
+    }
+</style>
+
    </head>
    <body>
       <div class="Header color-bg-inset">
@@ -20,10 +29,7 @@
             </a>
             <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
             <div class="d-table col-12">
-               <div class="col-10 d-table-cell v-align-middle pl-4">
-                  <h2 class="text-normal lh-condensed color-fg-default" name="user">Apellidos, Nombre</h2>
-                  <p class="color-fg-muted text-small mt-4" name="user_email">usuario@correo.com</p>
-               </div>
+               {% include 'user_info.html' %}
             </div>
             <div className="d-flex flex-justify-end ml-2">
                <details class="details-reset details-overlay float-right">
@@ -78,5 +84,23 @@
 
          </div>
       </div>
+      <div class="p-1" style="" class="">
+        <div class="Toast Toast--warning Toast--animateIn">
+          <span class="Toast-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-alert" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" />
+            </svg>
+          </span>
+          <span class="Toast-content">Esta función está experimentando problemas al actualizar los registros de oradores al cambiar entre perfiles.<br> <font class="color-fg-muted text-small">Reported: Apr 1, 2024, 1:27 PM CST</font></span>
+        </div>
+      </div>
+
+      <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // Mostrar el toast al cargar la página
+        document.querySelector('.Toast').style.display = 'flex';
+    });
+</script>
+
    </body>
 </html>

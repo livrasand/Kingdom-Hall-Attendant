@@ -357,17 +357,23 @@ def guardar_configuracion():
 
         cursor = g.bd.cursor()
 
-        cursor.execute("""
-            INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(user_email) DO UPDATE SET
-            nombre = excluded.nombre,
-            apellidos = excluded.apellidos,
-            privilegio = excluded.privilegio,
-            pais = excluded.pais,
-            congregacion = excluded.congregacion,
-            circuito = excluded.circuito
-        """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito))
+        # Verificar si ya existe una configuración para este usuario
+        cursor.execute("SELECT * FROM configuracion WHERE user_email = ?", (user_email,))
+        existing_config = cursor.fetchone()
+
+        if existing_config:
+            # Si ya existe una configuración, actualizarla
+            cursor.execute("""
+                UPDATE configuracion
+                SET nombre = ?, apellidos = ?, privilegio = ?, pais = ?, congregacion = ?, circuito = ?
+                WHERE user_email = ?
+            """, (nombre, apellidos, privilegio, pais, congregacion, circuito, user_email))
+        else:
+            # Si no existe una configuración, insertarla
+            cursor.execute("""
+                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito))
             
         g.bd.commit()        
 
@@ -1624,5 +1630,20 @@ def visita_superint_circuito():
 def nueva_actividad_visita_superint_circuito():
     return render_template('detalle-visita-superint-circuito.html')
 
+@app.before_request
+def load_user_info():
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT nombre, apellidos, user_email FROM configuracion WHERE id = ?", (1,))
+    configuracion_data = cursor.fetchone()
+    
+    if configuracion_data:
+        g.nombre, g.apellidos, g.user_email = configuracion_data
+    else:
+        g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
+
+@app.context_processor
+def inject_user_info():
+    return dict(nombre=g.get('nombre', 'Nombre'), apellidos=g.get('apellidos', 'Apellidos'), email=g.get('user_email', 'usuario@correo.com'))
+   
 if __name__ == '__main__':
     app.run(debug=True)
