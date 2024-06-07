@@ -7,9 +7,13 @@ from bs4 import BeautifulSoup
 import json
 from flask_mail import Mail, Message
 import secrets
+import os
+import logging
 
 app = Flask(__name__)
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
 # Configuración de Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -21,30 +25,60 @@ app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
 
-# Simulación de una base de datos en memoria
-usuarios = {}
+# Configuración de SQLite
+DATABASE = 'cavea.db'
 
+def get_db():
+    if not hasattr(g, 'bd'):
+        g.bd = sqlite3.connect(DATABASE)
+        g.bd.row_factory = sqlite3.Row
+        logging.debug(f"Conectado a la base de datos principal: {DATABASE}")
+    return g.bd
 
-def conectar_bd():
-    return sqlite3.connect('kha.db')
+def get_user_db():
+    user_db_name = session.get('user_db')
+    if not user_db_name:
+        logging.error("No se encontró la base de datos del usuario en la sesión.")
+        return None
+    
+    if not hasattr(g, 'bd'):
+        g.bd = sqlite3.connect(user_db_name)
+        g.bd.row_factory = sqlite3.Row
+        logging.debug(f"Conectado a la base de datos del usuario: {user_db_name}")
+    return g.bd
 
 @app.before_request
-def antes_de_la_peticion():
-    g.bd = conectar_bd()
+def before_request():
+    if 'user_db' in session:
+        g.bd = get_user_db()
+    else:
+        g.bd = get_db()
 
 @app.teardown_request
-def despues_de_la_peticion(excepcion):
+def teardown_request(exception):
     if hasattr(g, 'bd'):
         g.bd.close()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if not hasattr(g, 'bd'):
+        flash("No se puede acceder a la base de datos del usuario.")
+        return redirect(url_for('login'))
+    
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM configuracion")
+    user_data = cursor.fetchall()
+    
+    return render_template('index.html', user_data=user_data)
 
 @app.route('/congregacion.html')
 def option_one():
+    if not hasattr(g, 'bd'):
+        flash("No se puede acceder a la base de datos del usuario.")
+        return redirect(url_for('login'))
+    
     cursor = g.bd.cursor()
-    cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))  
+    cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))
     congregation_data = cursor.fetchone()
 
     return render_template('congregacion.html', congregation=congregation_data)
@@ -1646,24 +1680,57 @@ def visita_superint_circuito():
 def nueva_actividad_visita_superint_circuito():
     return render_template('detalle-visita-superint-circuito.html')
 
+# Nueva función para verificar la existencia de la tabla
+def table_exists(cursor, table_name):
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
+    return cursor.fetchone() is not None
+
 @app.before_request
 def load_user_info():
-    cursor = g.bd.cursor()
-    cursor.execute("SELECT nombre, apellidos, user_email FROM configuracion WHERE id = ?", (1,))
-    configuracion_data = cursor.fetchone()
-    
-    if configuracion_data:
-        g.nombre, g.apellidos, g.user_email = configuracion_data
-    else:
-        g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
+    if 'login' not in request.endpoint:  # Evitar cargar info de usuario en la página de login
+        user_db = get_user_db()
+        if user_db:
+            cursor = user_db.cursor()
+            if table_exists(cursor, 'configuracion'):
+                cursor.execute("SELECT nombre, apellidos, user_email FROM configuracion WHERE id = ?", (1,))
+                configuracion_data = cursor.fetchone()
+            
+                if configuracion_data:
+                    g.nombre, g.apellidos, g.user_email = configuracion_data
+                else:
+                    g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
+            else:
+                g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
 
 @app.context_processor
 def inject_user_info():
     return dict(nombre=g.get('nombre', 'Nombre'), apellidos=g.get('apellidos', 'Apellidos'), email=g.get('user_email', 'usuario@correo.com'))
-   
+ 
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/accessing', methods=['POST'])
+def accessing():
+    email = request.form['email']
+    password = request.form['password']
+    
+    # Crear una conexión directa a cavea.db
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute("SELECT database, contraseña FROM emptor WHERE correo = ?", (email,))
+    result = cursor.fetchone()
+    conn.close()
+    
+    if result and result['contraseña'] == password:
+        user_db_name = result['database']
+        session['user_db'] = user_db_name
+        logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}")
+        return redirect(url_for('index'))
+    else:
+        flash('Correo o contraseña incorrectos.')
+        return redirect(url_for('login'))
 
 @app.route('/signup')
 def signup():
@@ -1674,19 +1741,36 @@ def register():
     if request.method == 'POST':
         email = request.form['email']
         token = secrets.token_urlsafe(16)
-        usuarios[email] = {'token': token}
         confirm_url = url_for('confirm_email', token=token, _external=True)
-        sender = app.config['MAIL_USERNAME']  # El correo del remitente
+        sender = app.config['MAIL_USERNAME']
         send_email(sender, email, confirm_url)
+        
+        # Crear una conexión directa a cavea.db
+        conn = sqlite3.connect(DATABASE)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO emptor (correo, token, database) VALUES (?, ?, ?)", (email, token, f'{email.split("@")[0]}.db'))
+        conn.commit()
+        conn.close()
+        
+        # Crear la base de datos para el usuario
+        user_db_name = f"{email.split('@')[0]}.db"
+        if not os.path.exists(user_db_name):
+            user_conn = sqlite3.connect(user_db_name)
+            user_cursor = user_conn.cursor()
+            user_cursor.execute("CREATE TABLE IF NOT EXISTS user_data (id INTEGER PRIMARY KEY AUTOINCREMENT, data TEXT)")
+            user_conn.commit()
+            user_conn.close()
+        
         flash('Se ha enviado un enlace de confirmación a tu correo.')
         return redirect(url_for('register'))
     return render_template('signup.html')
+
 
 def send_email(sender, recipient, confirm_url):
     msg = Message('Confirma tu correo electrónico', sender=sender, recipients=[recipient])
     msg.body = f'Hola, soy Livrädo Sandoval de Kingdom Hall Attendant. Estás a un paso de terminar tu registro. Por favor, confirma tu correo electrónico haciendo clic en el siguiente enlace: {confirm_url}'
     mail.send(msg)
-
 
 @app.route('/confirm')
 def confirm():
@@ -1694,16 +1778,31 @@ def confirm():
 
 @app.route('/confirm/<token>', methods=['GET', 'POST'])
 def confirm_email(token):
-    for email, data in usuarios.items():
-        if data['token'] == token:
-            if request.method == 'POST':
-                password = request.form['password']
-                usuarios[email]['password'] = password
-                flash('Correo confirmado y contraseña establecida.')
-                return redirect(url_for('login'))
-            return render_template('confirm.html', token=token)
-    flash('El enlace de confirmación es inválido o ha expirado.')
-    return redirect(url_for('register'))  
+    # Crear una conexión directa a cavea.db
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute("SELECT correo FROM emptor WHERE token = ?", (token,))
+    result = cursor.fetchone()
+    
+    if result:
+        email = result['correo']
+        if request.method == 'POST':
+            password = request.form['password']
+            
+            # Actualizar la entrada en la base de datos con la contraseña
+            cursor.execute("UPDATE emptor SET contraseña = ? WHERE correo = ?", (password, email))
+            conn.commit()
+            conn.close()
+
+            flash('Correo confirmado y contraseña establecida.')
+            return redirect(url_for('login'))
+        conn.close()
+        return render_template('confirm.html', token=token)
+    else:
+        conn.close()
+        flash('El enlace de confirmación es inválido o ha expirado.')
+        return redirect(url_for('register')) 
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -246,7 +246,7 @@ input:focus {
 <body>
     <div class="container">
         <div class="github-logo">
-            <img src="static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="width:64px;border-radius: 25%;">
+            <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:64px;border-radius: 25%;">
 
         <span class="github-head">
             ¡Bienvenido a Kingdom Hall Attendant!<br>
@@ -256,24 +256,26 @@ Comencemos la aventura.
         <h1 class="github-head" style="font-size:24px;">
             <i class="fa-solid fa-terminal"></i> Opensource Edition
         </h1>
+        <form action="/accessing" method="post" style="width:100%;">
         <div class="login-wrapper">
             <div class="input-box">
-                <div class="input-label">Correo electrónico</div>
-                <input type="text" required>
+                <div for="email" class="input-label">Correo electrónico</div>
+                <input type="email" id="email" name="email" required>
             </div>
 
             <div class="input-box">
-                <div class="input-label">
+                <div class="input-label" for="password">
                     <span>Contraseña</span>
                     <!-- <a href="#">Forgot password?</a> -->
                 </div>
-                <input type="password" required>
+                <input type="password" id="password" name="password" required>
             </div>
 
             <button class="submit-btn">
                 Iniciar sesión
             </button>
         </div>
+    </form>
 
         <div class="info">
             <span>¿Nuevo en Kingdom Hall Attendant? <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">Crea una cuenta gratis para siempre</a>. O prueba una <a href="https://livrasand.pythonanywhere.com" target="_blank" class="link" style="color: rgb(0, 87, 188);cursor: pointer;text-decoration: inherit;font-size: 14px;">demo</a>.</span>
