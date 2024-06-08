@@ -1889,7 +1889,7 @@ def get_requester_ip():
     return ip
 
 def send_email(sender, recipient, confirm_url, requester_ip):
-    msg = Message('Kingdom Hall Attendant: Sign Up', sender=sender, recipients=[recipient])
+    msg = Message('Kingdom Hall Attendant: Completa tu registro', sender=sender, recipients=[recipient])
     msg.body = (
         f"🗝\n\n"
         f"Hola, soy Livrädo Sandoval de Kingdom Hall Attendant.\n\n"
@@ -1902,15 +1902,13 @@ def send_email(sender, recipient, confirm_url, requester_ip):
     mail.send(msg)
 
 def send_password_email(sender, recipient, password, requester_ip):
-    msg = Message('Kingdom Hall Attendant: Contraseña recuperada', sender=sender, recipients=[recipient])
+    msg = Message('Kingdom Hall Attendant: Recuperación de contraseña', sender=sender, recipients=[recipient])
     msg.body = (
         f"🔑\n\n"
-        f"Hola de nuevo, soy Livrädo Sandoval de Kingdom Hall Attendant.\n\n"
-        f"Tu contraseña para Kingdom Hall Attendant ha sido recuperada.\n\n"
+        f"Hola de nuevo, soy Livrädo Sandoval de Kingdom Hall Attendant. Tu contraseña para Kingdom Hall Attendant ha sido recuperada.\n\n"
         f"Tu contraseña es: {password}\n\n"
         "Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.\n\n"
-        f"Esta recuperación fue solicitada por {requester_ip}. Si no has solicitado esta recuperación de contraseña, por favor cambia tu contraseña.\n\n"
-        "¡Gracias!"
+        f"Esta recuperación fue solicitada por {requester_ip}. Si no has solicitado esta recuperación de contraseña, infórmele a jwpubcatalog@gmail.com para cambiar tu contraseña.\n\n"
     )
     mail.send(msg)
 
