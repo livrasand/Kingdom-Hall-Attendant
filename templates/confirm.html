@@ -253,13 +253,13 @@ input:focus {
     <div class="container">
         <div class="github-logo">
         <span class="github-head" style="font-size:16px;">
-            Estamos emocionados de tenerte con nosotros. Para finalizar tu registro y comenzar a utilizar todas las funciones de nuestra aplicación, por favor establece una contraseña segura.<br><br>Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer.
+            Por favor establece una contraseña segura.<br><br>Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer.
         </span>
         </div>
         <h1 class="github-head" style="font-size:24px;">
             <i class="fa-solid fa-terminal"></i> Opensource Edition
         </h1>
-        <form method="post" action="{{ url_for('confirm_email', token=token) }}">
+        <form method="post" action="{{ url_for('confirm_email', token=token) }}" style="width:100%;">
         <div class="login-wrapper">
             <div class="input-box">
                 <div for="password" class="input-label">Contraseña</div>

@@ -1815,8 +1815,9 @@ def register():
         email = request.form['email']
         token = secrets.token_urlsafe(16)
         confirm_url = url_for('confirm_email', token=token, _external=True)
+        requester_ip = get_requester_ip()
         sender = app.config['MAIL_USERNAME']
-        send_email(sender, email, confirm_url)
+        send_email(sender, email, confirm_url, requester_ip)
         
         # Crear una conexión directa a cavea.db
         conn = sqlite3.connect(DATABASE)
@@ -1849,9 +1850,25 @@ def register():
         return redirect(url_for('register'))
     return render_template('signup.html')
 
-def send_email(sender, recipient, confirm_url):
-    msg = Message('Confirma tu correo electrónico', sender=sender, recipients=[recipient])
-    msg.body = f'Hola, soy Livrädo Sandoval de Kingdom Hall Attendant. Estás a un paso de terminar tu registro. Por favor, confirma tu correo electrónico haciendo clic en el siguiente enlace: {confirm_url}'
+def get_requester_ip():
+    if request.headers.get('X-Forwarded-For'):
+        # Para soportar aplicaciones detrás de un proxy como nginx
+        ip = request.headers.getlist('X-Forwarded-For')[0]
+    else:
+        ip = request.remote_addr
+    return ip
+
+def send_email(sender, recipient, confirm_url, requester_ip):
+    msg = Message('Kingdom Hall Attendant: Sign Up', sender=sender, recipients=[recipient])
+    msg.body = (
+        f"🗝\n\n"
+        f"Hola, soy Livrädo Sandoval de Kingdom Hall Attendant.\n\n"
+        f"Estás a un clic de terminar tu registro en Kingdom Hall Attendant. Por favor, confirma tu correo "
+        f"electrónico haciendo clic en el siguiente enlace:\n{confirm_url}\n\n"
+        "💡 Consejo: ¿Quieres que Kingdom Hall Attendant recuerde tu contraseña la próxima vez?\n"
+        "Acepta el recordatorio de contraseñas de tu navegador.\n\n"
+        f"Este correo electrónico fue solicitado por {requester_ip}. Si no ha solicitado este correo electrónico, infórmele a jwpubcatalog@gmail.com."
+    )
     mail.send(msg)
 
 @app.route('/confirm')
