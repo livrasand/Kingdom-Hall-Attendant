@@ -369,6 +369,31 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
    </main>
     </details>
  </center>
+ <script type="text/javascript">
+    // Función para verificar si el dispositivo es un celular
+function esCelular() {
+    return window.innerWidth <= 600; // Cambia el valor según lo necesites
+}
+
+// Función para cambiar las clases de los elementos
+function cambiarClases() {
+    var elementos = document.querySelectorAll('.col-4'); // Selecciona todos los elementos con clase 'col-4'
+    elementos.forEach(function(elemento) {
+        if (esCelular()) {
+            elemento.classList.remove('col-4'); // Elimina la clase 'col-4'
+            elemento.classList.add('col-12'); // Agrega la clase 'col-12'
+        } else {
+            elemento.classList.remove('col-12'); // Elimina la clase 'col-12'
+            elemento.classList.add('col-4'); // Agrega la clase 'col-4'
+        }
+    });
+}
+
+// Llama a la función al cargar la página y cuando se redimensiona la ventana
+window.onload = cambiarClases;
+window.onresize = cambiarClases;
+
+ </script>
    </body>
 </html>
 

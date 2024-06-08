@@ -9,6 +9,13 @@
      margin-left: 8px;
      color: #060606;
 }
+/* Media query para dispositivos con un ancho máximo de 768px (típicamente dispositivos móviles) */
+@media screen and (max-width: 768px) {
+   i {
+     font-size: 38px;
+    }
+}
+
  .jwIcon.uno:before {
      content: "\e600";
 }

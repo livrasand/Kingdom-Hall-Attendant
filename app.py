@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash
 import sqlite3
-from datetime import datetime, timedelta
+import datetime 
+from datetime import timedelta
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -81,7 +82,7 @@ def update_last_login(user_id):
     if cursor:
         try:
             logging.debug("Ejecutando la consulta para actualizar last_login.")
-            cursor.execute("UPDATE emptor SET last_login = ? WHERE id = ?", (datetime.now(), user_id))
+            cursor.execute("UPDATE emptor SET last_login = ? WHERE id = ?", (datetime.datetime.now(), user_id))
             conn.commit()  # Cambiado de cursor.commit() a conn.commit()
             logging.debug("El last_login se ha actualizado correctamente.")
         except Exception as e:
@@ -130,7 +131,7 @@ def index():
     
     user_id = session['user_id']
     last_login = get_last_login(user_id)
-    if last_login and datetime.now() - datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(hours=1):
+    if last_login and datetime.datetime.now() - datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(hours=1):
         flash("La sesión ha expirado. Por favor, inicia sesión nuevamente.")
         return redirect(url_for('login'))
     
@@ -1872,7 +1873,7 @@ def confirm_email(token):
             password = request.form['password']
             
             # Actualizar la entrada en la base de datos con la contraseña y last_login
-            now = datetime.now()
+            now = datetime.datetime.now()
             logging.debug(f"Actualizando last_login a: {now}")
             cursor.execute("UPDATE emptor SET contraseña = ?, last_login = ? WHERE correo = ?", (password, now, email))
             conn.commit()
