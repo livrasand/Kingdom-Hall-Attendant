@@ -1807,7 +1807,37 @@ def accessing():
 
 @app.route('/signup')
 def signup():
-    return render_template('signup.html')    
+    return render_template('signup.html') 
+
+@app.route('/forgot')
+def forgot():
+    return render_template('forgot.html')  
+
+@app.route('/recovery', methods=['POST'])
+def recovery():
+    email = request.form['email']
+    
+    # Crear una conexión directa a cavea.db
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute("SELECT contraseña FROM emptor WHERE correo = ?", (email,))
+    result = cursor.fetchone()
+    
+    if result:
+        password = result['contraseña']  # Obtiene la contraseña de la base de datos
+        requester_ip = get_requester_ip()
+        sender = app.config['MAIL_USERNAME']
+        send_password_email(sender, email, password, requester_ip)
+
+        conn.close()
+        flash('Se ha enviado la contraseña a tu correo electrónico.')
+        return redirect(url_for('login'))
+    else:
+        conn.close()
+        flash('El correo electrónico no está registrado en nuestra base de datos.')
+        return redirect(url_for('forgot'))
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -1868,6 +1898,19 @@ def send_email(sender, recipient, confirm_url, requester_ip):
         "💡 Consejo: ¿Quieres que Kingdom Hall Attendant recuerde tu contraseña la próxima vez?\n"
         "Acepta el recordatorio de contraseñas de tu navegador.\n\n"
         f"Este correo electrónico fue solicitado por {requester_ip}. Si no ha solicitado este correo electrónico, infórmele a jwpubcatalog@gmail.com."
+    )
+    mail.send(msg)
+
+def send_password_email(sender, recipient, password, requester_ip):
+    msg = Message('Kingdom Hall Attendant: Contraseña recuperada', sender=sender, recipients=[recipient])
+    msg.body = (
+        f"🔑\n\n"
+        f"Hola de nuevo, soy Livrädo Sandoval de Kingdom Hall Attendant.\n\n"
+        f"Tu contraseña para Kingdom Hall Attendant ha sido recuperada.\n\n"
+        f"Tu contraseña es: {password}\n\n"
+        "Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.\n\n"
+        f"Esta recuperación fue solicitada por {requester_ip}. Si no has solicitado esta recuperación de contraseña, por favor cambia tu contraseña.\n\n"
+        "¡Gracias!"
     )
     mail.send(msg)
 
