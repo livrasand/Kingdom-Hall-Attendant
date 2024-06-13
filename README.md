@@ -134,6 +134,16 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 [Edge-image]: https://img.shields.io/badge/-Edge-0078D7?logo=microsoftedge&logoColor=white
 [Safari-image]: https://img.shields.io/badge/-Safari-006CFF?logo=safari&logoColor=white
 
+### Cross-interplanetary
+En situaciones donde el acceso a nuestra aplicación desde los servicios principales pueda estar restringido, hemos establecido mirrors alternativos para garantizar que todos los usuarios puedan acceder a Kingdom Hall Attendant de manera segura y confiable.
+* **GitHub mirror:** Encuentra una copia de nuestro código en <a href="https://gitlab.com/livrasand/Kingdom-Hall-Attendant">GitLab</a> si GitHub no está disponible en tu región.
+* **Acceso mediante <a href="https://psiphon.ca/">Psiphon</a> o <a href="https://lantern.io/">Lantern</a>:** Para superar las restricciones de acceso, recomendamos usar herramientas que permiten acceder a Internet de manera libre y abierta en regiones con censura.
+* **PythonAnywhere mirror y dominio alternativo:** Accede a nuestra aplicación a través de la red Tor o IPFS, donde mantenemos una copia de seguridad del servidor en caso de que PythonAnywhere no esté disponible o si nuestro dominio principal en GoDaddy no es accesible en tu país.
+
+Estamos comprometidos a garantizar que Kingdom Hall Attendant sea accesible para todos, sin importar las restricciones geográficas. Actualizamos regularmente nuestros mirrors para mantenerlos sincronizados con nuestra versión principal.
+
+**Nota especial:** Si conoces a alguien que vive en un país donde la obra de los testigos de Jehová está prohibida o donde el acceso a Internet está restringido, estos mirrors están diseñados específicamente para países como Crimea, Eritrea, Rusia, Singapur, China, Irán, Corea del Norte, Arabia Saudita, Turquía y otros territorios con limitaciones para Kingdom Hall Attendant y sus usuarios. ¡Corre la voz!
+
 ## Ejecutar localmente
 ### 💽 Instalación de 60 segundos
 
