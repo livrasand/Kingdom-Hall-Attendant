@@ -4,14 +4,13 @@
 # This is Kingdom Hall Attendant
 ![Python](https://img.shields.io/badge/Python-v3.12.2-ffde57)&nbsp;![Time](https://img.shields.io/badge/Hours_worked-68:45_hours-E57CD8)&nbsp;![Time in money](https://img.shields.io/badge/Time_in_money-$1,369_USD-FFD700)&nbsp;[![Become a Sponsor](https://img.shields.io/badge/donate-github-ea4aaa.svg?style=popout&logo=github)](https://github.com/users/livrasand/sponsorship) [![Become a Patron](https://img.shields.io/badge/donate-patreon-orange.svg?style=popout&logo=patreon)](https://www.patreon.com/livrasand) [![Donate on OpenCollective](https://img.shields.io/badge/donate-open%20collective-blue.svg?style=popout&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNTZweCIgaGVpZ2h0PSIyNTZweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPjxnPjxwYXRoIGQ9Ik0yMDkuNzY1MTQ0LDEyOC4xNDk5NzkgQzIwOS43NjUxNDQsMTQ0LjE2MzMgMjA0Ljg2NDM4MSwxNTkuNDg5ODkgMTk2LjQ5ODc0NywxNzIuNzI1MDcyIEwyMjkuOTQ1Njc1LDIwNi4xNzE5OTkgQzI0Ni42ODIxMDUsMTgzLjg1Njc1OSAyNTUuNzI5MzA3LDE1Ni43MTUxNTIgMjU1LjcyOTMwNywxMjguODIxMTAyIEMyNTUuNzI5MzA3LDk5LjU1Njk5MTcgMjQ1Ljk3NDYwMyw3My4wNzEwMjA3IDIyOS4yNTg5NDQsNTEuNDg1ODEyOCBMMTk2LjQ4MzE0LDg0LjIxNDc5NCBDMjA1LjEyMjU2MSw5Ny4yMjI0NjgzIDIwOS43MzY5MDcsMTEyLjQ4NzgxIDIwOS43NDk1MzcsMTI4LjEwMzE1NiBMMjA5Ljc2NTE0NCwxMjguMTQ5OTc5IFoiIGZpbGw9IiNCOEQzRjQiPjwvcGF0aD48cGF0aCBkPSJNMTI3LjUxMzQ4NCwyMTAuMzU0ODE2IEM4Mi4xNDYwODcyLDIxMC4yNjg5NTggNDUuMzg3NTA5NCwxNzMuNTE3MzU4IDQ1LjI5MzAzOTMsMTI4LjE0OTk3OSBDNDUuMzYxNzUwMiw4Mi43NjQzMTM4IDgyLjEyNzg0ODcsNDUuOTg0MjU3IDEyNy41MTM0ODQsNDUuODk4MzE4NiBDMTQ0LjI0NDc1Miw0NS44OTgzMTg2IDE1OS41NzEzNDIsNTAuNzk5MDgxNyAxNzIuMTE5NzkyLDU5LjE2NDcxNTQgTDIwNC44NjQzODEsMjYuMzg4OTExNiBDMTgyLjU0MzY1LDkuNjY2NjUxMjkgMTU1LjQwMzQyOSwwLjYzMDg2MzI5OCAxMjcuNTEzNDg0LDAuNjM2NDk0NDAzIEM1Ny4xMjM1NDM3LDAuNjM2NDk0NDAzIDAsNTcuNzYwMDM4MSAwLDEyOC4xNDk5NzkgQzAsMTk4LjUwODcwNCA1Ny4xMjM1NDM3LDI1NS42NjM0NjMgMTI3LjUxMzQ4NCwyNTUuNjYzNDYzIEMxNTUuNTM3MzUyLDI1NS43NDA4NzYgMTgyLjc3NTk4OSwyNDYuNDA4NTEgMjA0Ljg2NDM4MSwyMjkuMTYxODg0IEwxNzEuNDE3NDU0LDE5NS43MzA1NjQgQzE1OS41NTU3MzQsMjA1LjQ4NTI2OCAxNDQuMjYwMzU5LDIxMC4zNTQ4MTYgMTI3LjUxMzQ4NCwyMTAuMzU0ODE2IEwxMjcuNTEzNDg0LDIxMC4zNTQ4MTYgWiIgZmlsbD0iIzdGQURGMiI+PC9wYXRoPjwvZz48L3N2Zz4=)](https://opencollective.com/kingdom-hall-attendant) [![Donate via Paypal](https://img.shields.io/badge/donate-paypal-blue.svg?style=popout&logo=paypal)](https://www.paypal.me/livrados)  [![Buy a T-Shirt](https://img.shields.io/badge/Donate_and_receive_a-Gift-teal.svg?style=popout&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAxOTIgMTkyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE5MnYtMTkyaDE5MnYxOTJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzFhYmM5YyI+PGcgaWQ9InN1cmZhY2UxIj48cGF0aCBkPSJNOTYsMGMtMTUuMjE4NzUsMCAtMjQuNjg3NSwzLjY1NjI1IC0yNS41LDRsLTIyLjUsNy4yNWMtMTAuNDA2MjUsMy4xODc1IC0xOS4wOTM3NSw5LjQzNzUgLTI1LjUsMTguMjVsLTIyLjUsNDIuNWwyNy4yNSwxNi43NWwxMi43NSwtMjR2MTE5LjI1YzAsNC40MDYyNSAyNS4wNjI1LDggNTYsOGMzMC45Mzc1LDAgNTYsLTMuNTkzNzUgNTYsLTh2LTExOS4yNWwxMi43NSwyNGwyNy4yNSwtMTYuNzVsLTIyLjUsLTQyLjVjLTYuNDA2MjUsLTguODEyNSAtMTUuMTU2MjUsLTE1LjA2MjUgLTI0Ljc1LC0xOC4yNWwtMjIuMjUsLTcuMjVjLTAuMTg3NSwwIC0xLjAzMTI1LDEuMzEyNSAtMiwyLjc1bDEuMjUsLTIuNWMwLDAgLTkuODQzNzUsLTQuMjUgLTI1Ljc1LC00LjI1ek05Niw4YzExLjQwNjI1LDAgMTguNDM3NSwyLjI1IDIxLDMuMjVjLTQuNDY4NzUsNS43NSAtMTEuNDA2MjUsMTIuNzUgLTIxLDEyLjc1Yy05LjQwNjI1LDAgLTE2LjQwNjI1LC03LjA2MjUgLTIwLjc1LC0xMi43NWMyLjg3NSwtMS4wNjI1IDkuODc1LC0zLjI1IDIwLjc1LC0zLjI1eiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==)](https://livrasand.gumroad.com/) <a href="https://stars.github.com/nominate/"><img src="https://custom-icon-badges.demolab.com/badge/Nominar_a_GitHub_Star-white.svg?logo=github-star-logo"></a>
 
-![Logo de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/cfab1393-8ae1-4b3f-9895-7022272f1262)
+![Dashboard de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/e84c5639-f20f-42e3-9ede-b943baf9109f)
+| Discursos públicos | Reunión de fin de semana | Reunión de entre semana | Pantalla de configuración |
+|-------|---------|-------|----------|
+| ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/95f77f61-e1e9-4cc7-83bf-22ea68bea875) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f65d1451-bb55-49f6-9a62-4df19f446271) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/5cda7ee5-0da0-4540-94ac-9a8ce8f47d96) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/be30df99-6d05-40b9-bdf3-7031f5257368) |
+
+
 <h6>Si encuentra útil este proyecto, apóyelo haciendo "★ Star" en el repositorio o nomíname a "GitHub Star". ¡Gracias!</h6>
-
----
-
-<p align="left">
-👉 ¡Kingdom Hall Attendant para navegadores está en <strong>versión BETA</strong>! <a href="https://cadhub.pythonanywhere.com/" target="_blank"> Probar ahora</a>
-</p>
 
 ---
 
@@ -28,16 +27,6 @@ Lo que comenzó como Kingdom Hall Assistant, pronto se transformó en "Attendant
 Kingdom Hall Attendant es completamente gratuito, sin costos ni donaciones obligatorias. Por ello, para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado de acuerdo a la estación del año. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, no ofrece más allá de lo desconocido de la Opensource Edition, salvo un tema dorado único para la aplicación. Estas opciones de financiamiento son totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
-![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/7654a7c9-fffd-4f84-a9e6-a35f64496b0d)
-
-> #### Se utiliza una codificación de colores para representar el estado de las funciones en nuestro roadmap:
->
-> - **Azul**: Indica las funciones pendientes de desarrollo.
-> - **Amarillo**: Representa las funciones en proceso de desarrollo activo.
-> - **Rojo**: Señala las funciones que se han detenido y necesitan asistencia urgente o resolución de problemas.
-> - **Morado**: Representa las funciones que tienen reportes de bugs y están en proceso de corrección o resolución.
-> - **Verde**: Identifica las funciones completadas y listas para su utilización.
-
 **Kingdom Hall Attendant** es la herramienta digital imprescindible para los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová. Esta aplicación, compatible con una amplia gama de dispositivos y navegadores, incluyendo Windows, macOS, Linux, Firefox, Chrome, IE, Edge y Safari, pronto estará disponible en plataformas móviles como Android, iPhone y iPad de forma nativa.
 
 KHA ha sido cuidadosamente diseñada para simplificar las tareas y responsabilidades de la congregación, permitiendo una gestión eficiente de asignaciones y actividades. Con características intuitivas y funcionales, los usuarios pueden registrar informes de predicación, llevar un historial y recibir recordatorios de asignaciones de manera fácil y rápida.
@@ -45,9 +34,6 @@ KHA ha sido cuidadosamente diseñada para simplificar las tareas y responsabilid
 La seguridad y privacidad de la información es una prioridad para nosotros. Con funciones avanzadas de protección de datos, puedes tener la tranquilidad de que la información sensible de los miembros de la congregación está segura y protegida en todo momento.
 
 Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitaciones en tu sistema operativo preferido. Este proyecto, desarrollado utilizando HTML y tecnología Python, ofrece una experiencia multiplataforma sin igual. Simplifica tu trabajo y optimiza la gestión de tu congregación con KHA.
-
-### Ejemplo de programas impresos, generados en Kingdom Hall Attendant
-<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f3b2431c-c3a4-4495-9592-26302f4f92ce" width="700px">
 
 ## 🎯 Características clave
 - 🚀 Rápido y eficiente
@@ -110,9 +96,9 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 | **macOS-darwin-x64** | 0.1.0-Prealpha@latest  | [![MacOS][MacOS-image]][macos-download] |
 | **Linux-linux-x64** | 0.1.0-Prealpha@latest  | [![Linux][Linux-image]][linux-download] |
 
-[windows-download]: https://cadhub.pythonanywhere.com
-[macos-download]: https://cadhub.pythonanywhere.com
-[linux-download]: https://cadhub.pythonanywhere.com
+[windows-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
+[macos-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
+[linux-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
 [Windows-image]: https://img.shields.io/badge/-Windows-blue?logo=windows
 [MacOS-image]: https://img.shields.io/badge/-macOS-black?logo=apple
 [Linux-image]: https://img.shields.io/badge/-Linux-333?logo=ubuntu
@@ -127,7 +113,7 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 | **Edge** | 0.1.0-Prealpha@latest  | [![Edge][Edge-image]][opening-url] |
 | **Safari** | 0.1.0-Prealpha@latest  | [![Safari][Safari-image]][opening-url] |
 
-[opening-url]: https://cadhub.pythonanywhere.com
+[opening-url]: https://www.getkha.org
 [Firefox-image]: https://img.shields.io/badge/-Firefox-FF7139?logo=firefox&logoColor=white
 [Chrome-image]: https://img.shields.io/badge/-Chrome-4285F4?logo=googleChrome&logoColor=white
 [IE-image]: https://img.shields.io/badge/-IE-4285F4?logo=internetexplorer&logoColor=white
@@ -189,10 +175,6 @@ Para obtener ayuda, envíe un correo electrónico a [livrasand@outlook.com](mail
 - 👨‍💻 colaborando en el desarrollo
 - 🛡️ pueden ayudar **depurando Kingdom Hall Attendant** y reduciendo los problemas
 - 📝 documentando el programa y escribir en la wiki
-
-Contribuciones recientes:
-
-![Alt](https://repobeats.axiom.co/api/embed/4a71783c23dd5e07a13cf808480c0a7e0638d9f4.svg "Repobeats analytics image")
 
 ### ✨ Colaboradores
 Gracias a estas maravillosas personas:
