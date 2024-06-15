@@ -92,9 +92,9 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 | Package           | Version                                                                                                                          | Download                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Windows-win32-x64**   | 0.1.0-Prealpha@latest     | [![Windows][Windows-image]][windows-download]  |
-| **macOS-darwin-x64** | 0.1.0-Prealpha@latest  | [![MacOS][MacOS-image]][macos-download] |
-| **Linux-linux-x64** | 0.1.0-Prealpha@latest  | [![Linux][Linux-image]][linux-download] |
+| **Windows-win32-x64**   | 1.2.0@latest | [![Windows][Windows-image]][windows-download]  |
+| **macOS-darwin-x64** | 1.2.0@latest | [![MacOS][MacOS-image]][macos-download] |
+| **Linux-linux-x64** | 1.2.0@latest | [![Linux][Linux-image]][linux-download] |
 
 [windows-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
 [macos-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
@@ -107,11 +107,11 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 | Navegador           | Version                                                                                                                          | Abrir en el navegador                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Firefox**   | 0.1.0-Prealpha@latest     | [![Firefox][Firefox-image]][opening-url]  |
-| **Chrome** | 0.1.0-Prealpha@latest  | [![Chrome][Chrome-image]][opening-url] |
-| **IE** | 0.1.0-Prealpha@latest  | [![IE][IE-image]][opening-url] |
-| **Edge** | 0.1.0-Prealpha@latest  | [![Edge][Edge-image]][opening-url] |
-| **Safari** | 0.1.0-Prealpha@latest  | [![Safari][Safari-image]][opening-url] |
+| **Firefox**   | 0.2.0-beta@latest | [![Firefox][Firefox-image]][opening-url]  |
+| **Chrome** | 0.2.0-beta@latest | [![Chrome][Chrome-image]][opening-url] |
+| **IE** | 0.2.0-beta@latest | [![IE][IE-image]][opening-url] |
+| **Edge** | 0.2.0-beta@latest | [![Edge][Edge-image]][opening-url] |
+| **Safari** | 0.2.0-beta@latest | [![Safari][Safari-image]][opening-url] |
 
 [opening-url]: https://www.getkha.org
 [Firefox-image]: https://img.shields.io/badge/-Firefox-FF7139?logo=firefox&logoColor=white
@@ -121,14 +121,14 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 [Safari-image]: https://img.shields.io/badge/-Safari-006CFF?logo=safari&logoColor=white
 
 ### Cross-interplanetary
-En situaciones donde el acceso a nuestra aplicación desde los servicios principales pueda estar restringido, hemos establecido mirrors alternativos para garantizar que todos los usuarios puedan acceder a Kingdom Hall Attendant de manera segura y confiable.
-* **GitHub mirror:** Encuentra una copia de nuestro código en <a href="https://gitlab.com/livrasand/Kingdom-Hall-Attendant">GitLab</a> si GitHub no está disponible en tu región.
-* **Acceso mediante <a href="https://psiphon.ca/">Psiphon</a> o <a href="https://lantern.io/">Lantern</a>:** Para superar las restricciones de acceso, recomendamos usar herramientas que permiten acceder a Internet de manera libre y abierta en regiones con censura.
-* **PythonAnywhere mirror y dominio alternativo:** Accede a nuestra aplicación a través de la red Tor o IPFS, donde mantenemos una copia de seguridad del servidor en caso de que PythonAnywhere no esté disponible o si nuestro dominio principal en GoDaddy no es accesible en tu país.
+| Servidor principal | Mirror |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **GitHub**   | <a href="https://gitlab.com/livrasand/Kingdom-Hall-Attendant">GitLab</a> |
+| **getkha.org** | <a href="https://psiphon.ca/">Psiphon</a> o <a href="https://lantern.io/">Lantern</a> |
+| **PythonAnywhere** | Tor, IPFS o copia local | 
+| **livrasand@outlook.com** | `cabal://53c815d8d410a5fe3ed6cc03f0f318af142202fd868787d83e5efa77d6211554` |
 
-Estamos comprometidos a garantizar que Kingdom Hall Attendant sea accesible para todos, sin importar las restricciones geográficas. Actualizamos regularmente nuestros mirrors para mantenerlos sincronizados con nuestra versión principal.
-
-**Nota especial:** Si conoces a alguien que vive en un país donde la obra de los testigos de Jehová está prohibida o donde el acceso a Internet está restringido, estos mirrors están diseñados específicamente para países como Crimea, Eritrea, Rusia, Singapur, China, Irán, Corea del Norte, Arabia Saudita, Turquía y otros territorios con limitaciones para Kingdom Hall Attendant y sus usuarios. ¡Corre la voz!
+**Nota especial:** Si conoces a alguien que vive en un país donde la obra de los testigos de Jehová está prohibida o donde el acceso a Internet está restringido, estos mirrors están diseñados específicamente para países como Crimea, Eritrea, Rusia, Singapur, China, Irán, Corea del Norte, Arabia Saudita, Turquía y otros territorios con limitaciones para Kingdom Hall Attendant o los testigos de Jehová. _¡Corre la voz!_
 
 ## Ejecutar localmente
 ### 💽 Instalación de 60 segundos
@@ -145,15 +145,13 @@ Estamos comprometidos a garantizar que Kingdom Hall Attendant sea accesible para
   cd C:\Users\{user}\Kingdom-Hall-Attendant
 ```
 
-3. Cambiar el nombre de la base de datos `kha{remove-this}.db` por `kha.db`
-
-4. Instalar dependencias
+3. Instalar dependencias
 
 ```bash
   pip install -r requirements.txt
 ```
 
-5. Iniciar el servidor
+4. Iniciar el servidor
 
 ```bash
   python app.py
@@ -170,8 +168,8 @@ Para obtener ayuda, envíe un correo electrónico a [livrasand@outlook.com](mail
 - ⭐️ **haciendo "★ Star" en el repositorio**. Esto hace que sea más fácil para otros encontrar la aplicación
 - 💼 ayude a los usuarios a **responder preguntas** en las [Issues](https://github.com/livrasand/Kingdom-Hall-Attendant/issues)
 - 💬 **contándoles a otros** sobre Kingdom Hall Attendant
-- 💰 apoyando con una **[donación](https://paypal.me/livrados)**
-- 🌐 **traduciendo** la aplicación a tu idioma
+- 💰 apoyando con una **[donación](https://opencollective.com/kingdom-hall-attendant)**
+- 🌐 **[traduciendo](https://explore.transifex.com/kingdom-hall-attendant/kingdom-hall-attendant/)** la aplicación a tu idioma
 - 👨‍💻 colaborando en el desarrollo
 - 🛡️ pueden ayudar **depurando Kingdom Hall Attendant** y reduciendo los problemas
 - 📝 documentando el programa y escribir en la wiki
