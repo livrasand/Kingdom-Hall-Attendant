@@ -161,8 +161,6 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 ¡La comunidad de código abierto es el 💗 corazón de Kingdom Hall Attendant y es fundamental para la forma en que creamos software!
 
-Para obtener ayuda, envíe un correo electrónico a [livrasand@outlook.com](mailto:livrasand@outlook.com).
-
 ¡Realmente apreciamos tu ayuda! Puedes contribuir de varias maneras:
 
 - ⭐️ **haciendo "★ Star" en el repositorio**. Esto hace que sea más fácil para otros encontrar la aplicación
