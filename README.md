@@ -18,20 +18,14 @@
 
 ---
 
-
-## 🕰️ Nuestra historia
-Kingdom Hall Attendant, cariñosamente apodado KHA, relata una odisea de perseverancia, innovación y compromiso con la excelencia. Desde su humilde concepción en abril de 2021, hasta su esplendor actual, esta epopeya digital ha atravesado múltiples metamorfosis, cada una marcada por un espíritu indomable y una búsqueda incansable de perfección.
-
-Lo que comenzó como Kingdom Hall Assistant, pronto se transformó en "Attendant Kingdom Hall", siguiendo los pasos de la ilustre línea de software denominada "Attendant Zoom", hasta alcanzar su cénit con el nombre definitivo: Kingdom Hall Attendant. Este cambio de nombre no solo reflejó una evolución lingüística, sino también un compromiso renovado con la excelencia y la singularidad de la aplicación.
-
-Kingdom Hall Attendant es completamente gratuito, sin costos ni donaciones obligatorias. Por ello, para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado de acuerdo a la estación del año. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, no ofrece más allá de lo desconocido de la Opensource Edition, salvo un tema dorado único para la aplicación. Estas opciones de financiamiento son totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
-
 ## 🤔 ¿Qué es Kingdom Hall Attendant?
 **Kingdom Hall Attendant** es la herramienta digital imprescindible para los superintendentes de circuito, ancianos y siervos ministeriales de los testigos de Jehová. Esta aplicación, compatible con una amplia gama de dispositivos y navegadores, incluyendo Windows, macOS, Linux, Firefox, Chrome, IE, Edge y Safari, pronto estará disponible en plataformas móviles como Android, iPhone y iPad de forma nativa.
 
 KHA ha sido cuidadosamente diseñada para simplificar las tareas y responsabilidades de la congregación, permitiendo una gestión eficiente de asignaciones y actividades. Con características intuitivas y funcionales, los usuarios pueden registrar informes de predicación, llevar un historial y recibir recordatorios de asignaciones de manera fácil y rápida.
 
 La seguridad y privacidad de la información es una prioridad para nosotros. Con funciones avanzadas de protección de datos, puedes tener la tranquilidad de que la información sensible de los miembros de la congregación está segura y protegida en todo momento.
+
+Kingdom Hall Attendant es completamente gratuito, sin costos ni donaciones obligatorias. Por ello, para asegurar la sostenibilidad del proyecto, se han introducido nuevas formas de financiamiento opcionales, cada una más grandiosa que la anterior. **Season Pass:** Sumérgete en una experiencia única con temas, colores y estilos exclusivos por tiempo limitado de acuerdo a la estación del año. **Golden Edition ✨:** Meramente solo un acto de generosidad diseñado para respaldar económicamente al desarrollador, no ofrece más allá de lo desconocido de la Opensource Edition, salvo un tema dorado único para la aplicación. Estas opciones de financiamiento son totalmente opcionales y de voluntariado, la aplicación en sí misma es completamente gratuita y no tiene fecha de caducidad. Las actualizaciones de seguridad son proporcionadas gratuitamente de por vida, asegurando una experiencia continua y segura para todos los usuarios.
 
 Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitaciones en tu sistema operativo preferido. Este proyecto, desarrollado utilizando HTML y tecnología Python, ofrece una experiencia multiplataforma sin igual. Simplifica tu trabajo y optimiza la gestión de tu congregación con KHA.
 
@@ -43,7 +37,8 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 - 🖥️ Cross-browser y Cross-plataform. Compatibilidad con diferentes sistemas operativos
 - 🤹 Flexibilidad según las necesidades específicas de tu congregación
 - 📝 Código abierto: la libertad es hermosa, y Kingdom Hall Attendant también. Código abierto y de uso gratuito.
-- 📶 Modo sin conexión: Kingdom Hall Attendant funciona sin conexión, por lo que puedes acceder a tus datos en cualquier momento y lugar.
+- 📶 Modo sin conexión: Kingdom Hall Attendant funciona sin conexión, por lo que puedes acceder a tus datos en cualquier momento y lugar
+- 💻 Soporte técnico: acceso a <a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues/28">Platform Support</a> como Bug Buster
 
 <details>
 
