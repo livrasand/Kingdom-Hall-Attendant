@@ -85,11 +85,11 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 ### Cross-platform
 
-| Package           | Version                                                                                                                          | Download                                                                    |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Windows-win32-x64**   | 1.2.0@latest | [![Windows][Windows-image]][windows-download]  |
-| **macOS-darwin-x64** | 1.2.0@latest | [![MacOS][MacOS-image]][macos-download] |
-| **Linux-linux-x64** | 1.2.0@latest | [![Linux][Linux-image]][linux-download] |
+| Package           |  Download                                                                    |
+| ----------------- | ---------------------------------------------------------------------------- |
+| **Windows-win32-x64** | [![Windows][Windows-image]][windows-download]  |
+| **macOS-darwin-x64** | [![MacOS][MacOS-image]][macos-download] |
+| **Linux-linux-x64** | [![Linux][Linux-image]][linux-download] |
 
 [windows-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
 [macos-download]: https://github.com/livrasand/kingdom_hall_attendant_binaries/releases
@@ -100,13 +100,13 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 ### Cross-browser
 
-| Navegador           | Version                                                                                                                          | Abrir en el navegador                                                                    |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Firefox**   | 0.2.0-beta@latest | [![Firefox][Firefox-image]][opening-url]  |
-| **Chrome** | 0.2.0-beta@latest | [![Chrome][Chrome-image]][opening-url] |
-| **IE** | 0.2.0-beta@latest | [![IE][IE-image]][opening-url] |
-| **Edge** | 0.2.0-beta@latest | [![Edge][Edge-image]][opening-url] |
-| **Safari** | 0.2.0-beta@latest | [![Safari][Safari-image]][opening-url] |
+| Navegador           | Abrir en el navegador                                                                    |
+| ----------------- | ---------------------------------------------------------------------------- |
+| **Firefox** | [![Firefox][Firefox-image]][opening-url]  |
+| **Chrome** | [![Chrome][Chrome-image]][opening-url] |
+| **IE** | [![IE][IE-image]][opening-url] |
+| **Edge** | [![Edge][Edge-image]][opening-url] |
+| **Safari** | [![Safari][Safari-image]][opening-url] |
 
 [opening-url]: https://www.getkha.org
 [Firefox-image]: https://img.shields.io/badge/-Firefox-FF7139?logo=firefox&logoColor=white
@@ -158,14 +158,38 @@ Disfruta de Kingdom Hall Attendant en cualquier momento y lugar, sin limitacione
 
 ¡Realmente apreciamos tu ayuda! Puedes contribuir de varias maneras:
 
+#### Dar tiempo
 - ⭐️ **haciendo "★ Star" en el repositorio**. Esto hace que sea más fácil para otros encontrar la aplicación
-- 💼 ayude a los usuarios a **responder preguntas** en las [Issues](https://github.com/livrasand/Kingdom-Hall-Attendant/issues)
+- 💼 ayude a los usuarios como moderador o soporte a **responder preguntas** en las [Issues](https://github.com/livrasand/Kingdom-Hall-Attendant/issues)
 - 💬 **contándoles a otros** sobre Kingdom Hall Attendant
-- 💰 apoyando con una **[donación](https://opencollective.com/kingdom-hall-attendant)**
+- 💰 apoyando con una **[donación](https://opencollective.com/kingdom-hall-attendant)**, más opciones <a href="https://github.com/livrasand/Kingdom-Hall-Attendant/edit/main/README.md#donar-dinero">abajo</a>
 - 🌐 **[traduciendo](https://explore.transifex.com/kingdom-hall-attendant/kingdom-hall-attendant/)** la aplicación a tu idioma
-- 👨‍💻 colaborando en el desarrollo
+- 👨‍💻 colaborando en el desarrollo como **programador**
 - 🛡️ pueden ayudar **depurando Kingdom Hall Attendant** y reduciendo los problemas
-- 📝 documentando el programa y escribir en la wiki
+- 📝 **escritores** documentando el programa y escribir en la [wiki](https://github.com/livrasand/Kingdom-Hall-Attendant/wiki)
+- 🎨 **diseñando** este README, nuestra página web o Kingdom Hall Attendant
+
+#### Contribuir materiales
+Tu generosidad puede hacer una gran diferencia en el desarrollo y sostenibilidad de Kingdom Hall Attendant. Si estás interesado en apoyar nuestro proyecto con materiales físicos, considera donar alguno de los siguientes elementos:
+
+- Computadoras portátiles o de escritorio compatibles con los sistemas operativos Windows, macOS y Linux, ideales para pruebas y desarrollo. ¡No importa si son viejos o los has tenido arrumbados por tiempo!
+- Monitores, teclados, ratones y discos duros externos que faciliten el desarrollo y respaldo de datos esenciales.
+- Camisetas, gorras, pegatinas u otros artículos promocionales diseñados para difundir y promover Kingdom Hall Attendant.
+
+Para coordinar tu donación o para más información sobre cómo puedes apoyar, por favor contáctanos a: livrasand@outlook.com.
+
+#### Donar dinero
+**¿Cuáles son las necesidades financieras de Kingdom Hall Attendant?**
+- 💻 **Compra de hardware** para el desarrollo y pruebas de desarrollo.
+- 🌐 Costos de **hosting y servidores** para asegurar la disponibilidad y seguridad de los datos.
+- 🛠️ **Licencias de software y herramientas** de desarrollo necesarias para el proceso de desarrollo y pruebas.
+- 📢 **Promover el proyecto** organizando o participando en eventos.
+
+Puede donar dinero al proyecto a través de la cuenta <a href="https://opencollective.com/kingdom-hall-attendant">OpenCollective</a> de Kingdom Hall Attendant. No hay una cantidad mínima para su donación. _No necesitas tener una cuenta de OpenCollective para hacer una donación._
+
+Puede **donar a Kingdom Hall Attendant usando Bitcoin**, utilice la siguiente dirección: `bc1qg05lqc6sdv3w7hjqd6kpr6d96rtxpafany46r7`; o el código QR:
+
+<img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/e3c1eed9-cd8a-49da-9355-1dc01b0cb688" width="125">
 
 ### ✨ Colaboradores
 Gracias a estas maravillosas personas:
@@ -177,6 +201,3 @@ Gracias a estas maravillosas personas:
 ## 📈 Star history
 
 [![Star History Chart](https://api.star-history.com/svg?repos=livrasand/Kingdom-Hall-Attendant&type=Timeline)](https://star-history.com/#livrasand/Kingdom-Hall-Attendant&Timeline)
-
-## 📜 Licencia 
-The app is designed by [Livrädo Sandoval](https://github.com/livrasand). Powered by [HTML](https://html.spec.whatwg.org/multipage/), [Python](https://python.org/), [Primer Design System](https://primer.style/), [SQLite](https://sqlite.org/) and [Flask](https://flask.palletsprojects.com/). Livrado Zero License (LZL-1.0) is the license that governs this software.
