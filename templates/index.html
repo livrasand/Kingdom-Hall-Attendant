@@ -14,6 +14,13 @@
         right: 20px; /* Ajusta la distancia desde el borde derecho según necesites */
         display: none; /* Ocultar el toast por defecto */
     }
+.Toast-news {
+        position: fixed;
+        bottom: 20px; /* Ajusta la distancia desde la parte inferior según necesites */
+        left: 20px; /* Ajusta la distancia desde el borde derecho según necesites */
+        display: none; /* Ocultar el toast por defecto */
+    }
+
 </style>
    </head>
    <body class="mb-6">
@@ -391,6 +398,16 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
           </button>
         </div>
       </div>
+      <div class="p-1" style="" class="">
+        <div class="Toast-news Toast Toast--warning Toast--animateIn">
+          <span class="Toast-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-alert" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" />
+            </svg>
+          </span>
+          <span class="Toast-content">El lunes 10 de junio, cadhub.pythonanywhere.com se convertirá en <b>getkha.org</b>. Sus datos no se verán comprometidos. Recomendamos no acceder entre las 12 PM y las 17 PM.</span>
+        </div>
+      </div>
 
  <script type="text/javascript">
    window.addEventListener('DOMContentLoaded', (event) => {
@@ -404,6 +421,14 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
         var toast = document.querySelector('.Toast');
         toast.style.display = 'flex';
     }
+});
+
+   window.addEventListener('DOMContentLoaded', (event) => {
+    
+        // Si el toast no ha sido cerrado previamente, muestre el toast
+        var toast = document.querySelector('.Toast-news');
+        toast.style.display = 'flex';
+    
 });
 
 document.querySelector('.Toast-dismissButton').addEventListener('click', function() {

@@ -1946,5 +1946,6 @@ def confirm_email(token):
         flash('El enlace de confirmación es inválido o ha expirado.')
         return redirect(url_for('register'))
 
+
 if __name__ == '__main__':
     app.run(debug=True)
