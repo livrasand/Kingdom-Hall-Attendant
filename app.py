@@ -92,35 +92,8 @@ def update_last_login(user_id):
     else:
         logging.error("No se pudo obtener la base de datos principal para actualizar el último inicio de sesión.")
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def login():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        
-        # Crear una conexión directa a cavea.db
-        conn = sqlite3.connect(DATABASE)
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        cursor.execute("SELECT id, database, contraseña FROM emptor WHERE correo = ?", (email,))
-        result = cursor.fetchone()
-        conn.close()
-        
-        if result and result['contraseña'] == password:
-            user_id = result['id']
-            user_db_name = result['database']
-            session['user_db'] = user_db_name
-            session['user_id'] = user_id
-            logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}")
-            
-            # Actualizar el último inicio de sesión del usuario
-            update_last_login(user_id)
-            
-            return redirect(url_for('home'))
-        else:
-            flash('Correo o contraseña incorrectos.')
-            return redirect(url_for('login'))
-    
     return render_template('login.html')
 
 @app.route('/home')
@@ -130,16 +103,24 @@ def index():
         return redirect(url_for('login'))
     
     user_id = session['user_id']
+    apply_golden_style = session.get('user_ge', 'no') == 'yes'
+
     last_login = get_last_login(user_id)
     if last_login and datetime.datetime.now() - datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(hours=1):
         flash("La sesión ha expirado. Por favor, inicia sesión nuevamente.")
         return redirect(url_for('login'))
     
-    cursor = get_db().cursor()
-    cursor.execute("SELECT * FROM configuracion")
-    user_data = cursor.fetchall()
+    try:
+        cursor = get_db().cursor()
+        cursor.execute("SELECT * FROM configuracion")
+        user_data = cursor.fetchall()
+    except Exception as e:
+        flash(f"Ha ocurrido un error interno con la base de datos: {str(e)}.")
+        app.logger.error(f"Error al consultar la base de datos: {str(e)}")
+        return redirect(url_for('login'))
+
     
-    return render_template('index.html', user_data=user_data)
+    return render_template('index.html', user_data=user_data, apply_golden_style=apply_golden_style)
 
 @app.route('/congregacion.html')
 def option_one():
@@ -1785,15 +1766,17 @@ def accessing():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT id, database, contraseña FROM emptor WHERE correo = ?", (email,))
+    cursor.execute("SELECT id, database, contraseña, golden_edition FROM emptor WHERE correo = ?", (email,))
     result = cursor.fetchone()
     
     if result and result['contraseña'] == password:
         user_id = result['id']
         user_db_name = result['database']
+        user_golden_edition = result['golden_edition']
         session['user_db'] = user_db_name
         session['user_id'] = user_id
-        logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}")
+        session['user_ge'] = user_golden_edition
+        logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}. ¿Es Golden Edition?: {user_golden_edition}")
         
         # Actualizar el último inicio de sesión del usuario
         update_last_login(user_id)
