@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash
+from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file
 import sqlite3
 import datetime 
 from datetime import timedelta
@@ -10,6 +10,7 @@ import secrets
 import os
 import logging
 import shutil
+from werkzeug.exceptions import HTTPException
 
 app = Flask(__name__)
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
@@ -96,13 +97,28 @@ def update_last_login(user_id):
 def welcome():
     return render_template('welcome.html')
 
+@app.errorhandler(Exception)
+def handle_exception(e):
+    code = 404
+    if isinstance(e, HTTPException):
+        code = e.code
+    return render_template('404.html'), code
+
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return render_template('sitemap.xml')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/helloworld')
+def helloworld():
+    return 'Hello World!!'
 
 @app.route('/login-desktop-client')
 def login_desktop():
