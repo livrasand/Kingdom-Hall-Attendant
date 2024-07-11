@@ -47,8 +47,8 @@
                </div>
             </div>
             <form action="/guardar_congregacion" method="post">
-               <input class="form-control" type="text" name="nombre_congregacion" placeholder="Congregación" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" />
-               <input class="form-control" type="number" name="numero" placeholder="Número" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" />
+               <input class="form-control" type="text" name="nombre_congregacion" placeholder="Congregación" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
+               <input class="form-control" type="number" name="numero" placeholder="Número" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />
                <br>
                <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
 <div class="radio-group">
@@ -89,13 +89,13 @@
 </div>
 <br>
 <p class="f4 mb-0">Dirección del Salón del Reino</p>
-<textarea class="form-control width-full mb-3" id="example-textarea" name="direccion_salon">
-   {{ congregation[5] if congregation else '' }}
-</textarea>
+<input class="form-control width-full mb-3" id="example-textarea" name="direccion_salon" autocomplete="off" value="{{ congregation[5] }}" />
 <br>  
-<input class="form-control" type="text" name="superintendente_circuito" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" value="{{ congregation[6] if congregation else '' }}" />
-<input class="form-control" type="number" name="telefono" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" value="{{ congregation[7] if congregation else '' }}" />  
-<input class="form-control" type="text" name="circuito" placeholder="Circuito" aria-label="Circuito" style="width:20%;" value="{{ congregation[8] if congregation else '' }}" />
+
+<p class="f4 mb-0">Datos del superintendente de circuito</p>
+<input class="form-control" type="text" name="superintendente_circuito" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" value="{{ congregation[6] if congregation else '' }}" autocomplete="off" />
+<input class="form-control" type="number" name="telefono" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" value="{{ congregation[7] if congregation else '' }}" autocomplete="off" />  
+<input class="form-control" type="text" name="circuito" placeholder="Circuito" aria-label="Circuito" style="width:20%;" value="{{ congregation[8] if congregation else '' }}" autocomplete="off" />
 <br><br>
 <div class="form-actions" style="margin-bottom: 30px;">
     <button type="submit" class="btn btn-primary">Guardar cambios</button>
@@ -104,5 +104,11 @@
             </form>
          </div>
       </div>
+      <script>
+function limpiarTextarea() {
+    var textarea = document.getElementById('example-textarea');
+    textarea.value = textarea.value.trim();
+}
+</script>
    </body>
 </html>

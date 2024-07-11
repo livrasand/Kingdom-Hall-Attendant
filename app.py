@@ -169,7 +169,11 @@ def guardar_congregacion():
         numero = request.form['numero']
         hora_inicio_semana = request.form['hora_inicio_semana']
         hora_inicio_fin_semana = request.form['hora_inicio_fin_semana']
-        direccion_salon = request.form['direccion_salon']
+        
+        # Aquí agregamos strip() para eliminar espacios en blanco adicionales
+        direccion_salon = request.form['direccion_salon'].strip()
+        print(f"Dirección del salón sin espacios: '{direccion_salon}'")  # Depuración
+        
         superintendente_circuito = request.form['superintendente_circuito']
         telefono = request.form['telefono']
         circuito = request.form['circuito']
