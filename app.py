@@ -104,6 +104,10 @@ def faq():
 def login():
     return render_template('login.html')
 
+@app.route('/login-desktop-client')
+def login_desktop():
+    return render_template('login-desktop-client.html')
+
 @app.route('/home')
 def index():
     if 'user_id' not in session:
