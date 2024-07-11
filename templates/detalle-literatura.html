@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es" data-color-mode="light" data-light-theme="light">
+   <head>
+      <title>Kingdom Hall Attendant</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+   </head>
+   <body>
+      <!-- Tu contenido del encabezado aquí -->
+      <div class="Header color-bg-inset">
+         <!-- Image item  -->
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <a href="/home" style="cursor: pointer;" class="mr-3">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+                {% include 'user_info.html' %}
+            </div>
+         </div>
+      </div>
+      <!-- Tu contenido del encabezado aquí -->
+      <div class="container-xl mt-6">
+         <form action="/guardar_configuracion" method="post">
+            <div data-view-component="true" class="container-md">
+               <!-- Public Profile -->
+               <div data-view-component="true" class="Subhead mt-0 mb-0">
+                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Biblias</h2>
+               </div>
+               <div class="clearfix gutter d-flex flex-shrink-0 flex-column-reverse flex-md-row">
+                  <div class="col-12 col-md-12">                          
+                     <div>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(nwt) Traducción del Nuevo Mundo</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="nwt" id="nwt" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(nwtpkt) Traducción del Nuevo Mundo (de bolsillo)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="nwtpkt" id="nwtpkt" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">Otros</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="otras-biblias" id="otras-biblias" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <div data-view-component="true" class="Subhead mt-0 mb-0">
+                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Libros</h2>
+               </div>
+               <dl class="form-group">
+                           <dt><label for="user_profile_name">(be) Benefíciese</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="be" id="be" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(cf) "Mi seguidor"</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="cf" id="cf" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(cl) Acerquémonos a Jehová</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="cl" id="cl" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ia) Ejemplos de fe</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ia" id="ia" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(jy) Jesús es el camino</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="jy" id="jy" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(kr) Reino de Dios</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="kr" id="kr" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lfb) Aprendo de la Biblia</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lfb" id="lfb" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lff) Disfrute de la vida (libro)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lff" id="lff" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lr) Aprendamos</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lr" id="lr" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(od) Organizados</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="od" id="od" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(rr) Adoración pura</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="rr" id="rr" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(scl) Textos bíblicos para la vida cristiana</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="scl" id="scl" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(sjj) Contemos con gozo</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="sjj" id="sjj" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(sjjls) Cantemos con gozo (edición grande)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="sjjls" id="sjjls" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(sjjyls) Cantemos con gozo (sin partidura)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="sjjyls" id="sjjyls" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(yp1) Los jóvenes preguntan (volumen 1)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="yp1" id="py1" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(yp2) Los jóvenes preguntan (volumen 2)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="yp2" id="yp2" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">Otros</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="otros-libros" id="otros-libros" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <div data-view-component="true" class="Subhead mt-0 mb-0">
+                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Folletos</h2>
+               </div>
+               <dl class="form-group">
+                           <dt><label for="user_profile_name">(ay) Aplícate</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ay" id="ay" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ed) Educación</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ed" id="ed" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(hf) Su familia puede ser feliz</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="hf" id="hf" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(hl) Cómo ser feliz</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="hl" id="hl" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(la) Villa llena</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="la" id="la" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lc) Obra de un Creador</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lc" id="lc" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ld) Escuche</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ld" id="ld" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lf) Origen de la vida</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lf" id="lf" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lffi) Disfrute de la vida (folleto)</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lffi" id="lffi" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ll) Escuche y vivirá</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ll" id="ll" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(lmd) Una obra de amor</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="lmd" id="lmd" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(mb) Mis primeras lecciones de la Biblia</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="mb" id="mb" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ol) Camino a la vida</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ol" id="ol" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(pc) Paz y felicidad duraderas</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="pc" id="pc" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ph) El camino</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ph" id="ph" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(rj) Jehová desea que vuelva</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="rj" id="rj" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(rk) Fe verdadera</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="rk" id="rk" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(sp) Espíritus de difuntos</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="sp" id="sp" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(th) Maestros</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="th" id="th" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(wfg) La sabiduría de los Evangelios</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="wfg" id="wfg" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">(ypq) 10 preguntas</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="ypq" id="ypq" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl class="form-group">
+                           <dt><label for="user_profile_name">Otros</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="otros-folletos" id="otros-folletos" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <div data-view-component="true" class="Subhead mt-0 mb-0">
+                  <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Tratados</h2>
+               </div>
+               <dl class="form-group">
+                           <dt><label for="user_profile_name">(inv) Invitación para las reuniones de congregación</label></dt>
+                           <dd class="d-inline-block width-full">
+                              <div>
+                                 <input class="form-control width-full" type="text" name="inv" id="inv" value="" autocomplete="off">
+                              </div>
+                           </dd>
+                        </dl>
+                        <p>
+                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-6">    
+                           <span class="Button-content">
+                           <span class="Button-label">Guardar inventario</span>
+                           </span>
+                           </button>      
+                        </p>
+                     </div>  
+                  </div>
+               </div>
+            </div>
+            <!-- FIN DE CONFIGURACIÓN -->
+         </form>
+      </div>
+   </body>
+</html>

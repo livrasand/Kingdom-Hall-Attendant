@@ -93,6 +93,14 @@ def update_last_login(user_id):
         logging.error("No se pudo obtener la base de datos principal para actualizar el último inicio de sesión.")
 
 @app.route('/')
+def welcome():
+    return render_template('welcome.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+@app.route('/login')
 def login():
     return render_template('login.html')
 
@@ -1929,6 +1937,23 @@ def confirm_email(token):
         flash('El enlace de confirmación es inválido o ha expirado.')
         return redirect(url_for('register'))
 
+@app.route('/literatura')
+def literatura():
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+
+    return render_template('literatura.html', congregacion=congregacion_formateada) 
+
+@app.route('/nuevo_inventario')
+def nuevo_inventario():
+
+    return render_template('detalle-literatura.html') 
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+
+<head>
+   <title>Kingdom Hall Attendant</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+   <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+   <div class="Header color-bg-inset">
+      <!-- Image item  -->
+      <div class="Header-item width-full">
+         <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+               <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+            </svg>
+         </a>
+         <a href="/home" style="cursor: pointer;" class="mr-3">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+            </a>
+         <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+         <div class="d-table col-12">
+            {% include 'user_info.html' %}
+         </div>
+      </div>
+
+        <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()">Imprimir</a>
+      <div className="d-flex flex-justify-end ml-2">
+        <a class="btn btn-sm float-right mr-3" href="{{ url_for('nuevo_inventario') }}">Nuevo</a>
+               </div>
+      </div>
+   <div class="container-xl mt-6">      
+      <div class="pl-2">         
+         <div class="container-lg clearfix">
+             <!-- HEAD PRINT -->
+      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
+         <p class="h3 ml-2 mt-n4" style="width:85%;">Informe de inventario</p>
+         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
+{% if congregacion %}
+    {{ congregacion }}
+{% else %}
+    Registra tu congregación
+{% endif %}</p>
+      </div>
+      <!-- HEAD PRINT -->
+            
+    {% if estudios_atalayas %}
+    {% for estudio in estudios_atalayas %}
+        <div class="Box mt-2">
+            <div class="Box-row d-flex flex-items-center">
+                <div class="flex-auto">
+                    <strong>{{ estudio[1] }}</strong> <!-- fecha -->
+                </div>
+                <div class="container-lg clearfix" style="width: 85%;">
+                    <div class="col-3 float-left">
+                        <p class="h4">Presidente:</p>
+                        <p class="mt-n2">{{ estudio[2] }}</p> <!-- presidente -->
+                    </div>
+                    <div class="col-3 float-left">
+                        <p class="h4">Oración de inicio:</p>
+                        <p class="mt-n2">{{ estudio[3] }}</p> <!-- oracion_inicio -->
+                    </div>
+                    <div class="col-3 float-left">
+                        <p class="h4">Lector de <em>La Atalaya</em>:</p>
+                        <p class="mt-n2">{{ estudio[4] }}</p> <!-- lector_atalaya -->
+                    </div>
+                    <div class="col-3 float-left">
+                        <p class="h4">Sust. oración final:</p>
+                        <p class="mt-n2">{{ estudio[5] }}</p> <!-- oracion_final -->
+                    </div>
+                </div>
+                <a href="/mostrar_estudio_atalaya/{{ estudio[0] }}"><button class="btn mr-2 btn-sm" type="button">
+                    <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path
+                            d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z">
+                        </path>
+                    </svg>
+                </button></a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="container-lg mt-1" align="center">
+        <h1>🤔</h1>
+        <h4 style="width:50%;">¡Aún no has inventariado nada! Para empezar, haz clic en el botón "Nuevo".</h4>
+    </div>
+{% endif %}
+
+         </div>
+      </div>
+      <!-- FOOTER PRINT -->
+      <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
+    <img class="ml-1 mt-1 mb-1" src="static/images/frame.png" width="85px">
+    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
+    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">Impreso el <span id="fecha"></span></p>
+</div>
+      <!-- FOOTER PRINT -->
+   </div>
+
+   <script type="text/javascript">
+      function imprimirPagina() {
+           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
+    document.getElementById("print-footer").style.visibility = "visible";
+    document.getElementById("header-page").style.visibility = "visible";
+
+
+  window.print(); // Inicia el proceso de impresión
+
+  document.getElementById("print-footer").style.visibility = "hidden";
+    document.getElementById("header-page").style.visibility = "hidden";
+}
+
+// Obtener la fecha actual
+var fechaActual = new Date();
+
+// Convertir la fecha a un formato legible
+var opcionesFecha = {  year: 'numeric', month: 'numeric', day: 'numeric' };
+var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
+
+// Insertar la fecha en el elemento <span> dentro del <h3>
+document.getElementById("fecha").innerText = fechaFormateada;
+   </script>
+</body>
+
+</html>

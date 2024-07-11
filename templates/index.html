@@ -27,9 +27,9 @@
 
 </style>
    </head>
-   <body style="{{ 'background: rgb(245,239,224);' if apply_golden_style else '' }}">
+   <body>
       <!-- Tu contenido del encabezado aquí -->
-      <div {% if apply_golden_style %} {% else %} class="Header color-bg-inset" {% endif %} class="{{ 'Header' if apply_golden_style else '' }}" style="{{ 'background: rgb(227,206,138);' if apply_golden_style else '' }}">
+      <div class="Header color-bg-inset" >
          <!-- Image item  -->
          <div class="Header-item width-full">
             <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
@@ -47,7 +47,7 @@
       <!-- Tu contenido del encabezado aquí -->
       <div class="container-lg clearfix">
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="congregacion.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e51 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Congregación</h5>
@@ -58,7 +58,7 @@
             </div>
          </div>
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="vida-ministerio.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e118 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Vida y Ministerio</h5>
@@ -69,7 +69,7 @@
             </div>
          </div>
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="estudio-atalaya.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"> <i class="jwIcon e95 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Estudio de <em>La Atalaya</em></h5>
@@ -82,7 +82,7 @@
       </div>
       <div class="container-lg clearfix">
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="oradores.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e175 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Oradores públicos</h5>
@@ -93,7 +93,7 @@
             </div>
          </div>  
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="bosquejos.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon siete {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Discursos públicos</h5>
@@ -104,7 +104,7 @@
             </div>
          </div>
             <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="grupos-predicacion.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e114 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Grupos de predicación</h5>
@@ -120,7 +120,18 @@
       
       <div class="container-lg clearfix">
          <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgb(182,156,55); border-radius: 6px;' if apply_golden_style else '' }}">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
+               <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="literatura">
+                  <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e40 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" ></i></div>
+                  <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Literatura y revistas</h5>
+                  <p class="color-fg-muted text-small {{ 'color-fg-on-emphasis transparencia' if apply_golden_style else '' }}" style="margin-left: 25%;">
+                     Mantenga un inventario progresivo de la literatura
+                  </p>
+               </a>
+            </div>
+         </div>
+         <div class="col-4 float-left p-3">
+            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="configuracion.html">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e77 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">Configuración</h5>
