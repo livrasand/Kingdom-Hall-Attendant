@@ -35,34 +35,47 @@
             Regístrate para comenzar la aventura...
         </span>
         <form method="post" action="{{ url_for('register') }}">
-        <div class="login-wrapper">
-            <div class="input-box">
-                <div for="email" class="input-label">Correo electrónico</div>
-                <input type="email" id="email" name="email" required autocomplete="off">
+    <div class="login-wrapper">
+        <div class="input-box">
+            <div class="input-label" for="email">
+                <span>Correo electrónico</span>
+                <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Reenviar enlace</a>
             </div>
-
-            <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
-<br>
-            <button type="submit" class="submit-btn">
-                Continuar
-            </button>
-
-            {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-green);">{{ message }}</div>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+            <input type="email" id="email" name="email" required autocomplete="off">
         </div>
-    </form>
+
+        <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
+        <br>
+        <button type="submit" class="submit-btn">
+            Continuar
+        </button>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-green);">{{ message }}</div>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</form>
 
         <div class="info">
             <span>¿Ya tienes cuenta? <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">Inicia sesión</a>.</span>
         </div>
     </div>
+    <script>
+    document.getElementById('resend-link').addEventListener('click', function() {
+        var email = document.getElementById('email').value;
+        if (email) {
+            window.location.href = "{{ url_for('resend_token', email='') }}" + email;
+        } else {
+            alert('Por favor, ingrese su correo electrónico primero.');
+        }
+    });
+</script>
 </body>
 
 </html>
