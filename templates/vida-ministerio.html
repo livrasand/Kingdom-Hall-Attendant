@@ -18,10 +18,16 @@
    <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
    <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
    <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='loading-splash.css') }}" rel="stylesheet" />
    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 
 <body>
+     <div id="loading-screen" style="display:none;">
+    <div id="loading-spinner"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h3>Sincronizando datos de la reunión</h3>
+</div>
    <div class="Header color-bg-inset">
       <!-- Image item  -->
       <div class="Header-item width-full">
@@ -76,6 +82,13 @@
          </div>
       </div>
    </div>
+   <script>
+// Agregar evento de clic al nuevo botón
+        document.querySelector(".btn.btn-sm.float-right.mr-3").addEventListener("click", function(event) {
+            document.getElementById("loading-screen").style.display = "flex";
+        });
+
+      </script>
 </body>
 
 </html>
