@@ -1808,20 +1808,27 @@ def table_exists(cursor, table_name):
 @app.before_request
 def load_user_info():
     if request.endpoint is not None and 'login' not in request.endpoint:
-    # Código para cargar la información del usuario
- # Evitar cargar info de usuario en la página de login
+        # Código para cargar la información del usuario
+        # Evitar cargar info de usuario en la página de login
         user_db = get_user_db()
         if user_db:
             cursor = user_db.cursor()
             if table_exists(cursor, 'configuracion'):
                 cursor.execute("SELECT nombre, apellidos, user_email FROM configuracion WHERE id = ?", (1,))
                 configuracion_data = cursor.fetchone()
-            
+                
                 if configuracion_data:
-                    g.nombre, g.apellidos, g.user_email = configuracion_data
+                    nombre, apellidos, user_email = configuracion_data
+                    
+                    # Verificar si los campos están vacíos o nulos y asignar valores predeterminados si es necesario
+                    g.nombre = nombre if nombre and nombre.strip() else "Nombres"
+                    g.apellidos = apellidos if apellidos and apellidos.strip() else "Apellidos"
+                    g.user_email = user_email if user_email and user_email.strip() else "usuario@correo.com"
                 else:
+                    # Si no se encuentra ninguna fila, asignar valores predeterminados
                     g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
             else:
+                # Si la tabla no existe, asignar valores predeterminados
                 g.nombre, g.apellidos, g.user_email = "Nombres", "Apellidos", "usuario@correo.com"
 
 @app.context_processor
@@ -3037,6 +3044,28 @@ def eliminar_vidaministerio(id):
     cursor.execute("DELETE FROM vida_ministerio WHERE id = ?", (id,))
     g.bd.commit()
     return redirect('/vida-ministerio.html')
+
+@app.route('/logout')
+def logout():
+    # Aquí, si estás manejando una conexión específica del usuario, ciérrala.
+    user_db_name = session.get('user_db')
+    if user_db_name:
+        # Cerrar y eliminar la conexión del diccionario
+        conn = cursor = get_db().cursor()
+        if conn:
+            conn.close()
+
+    # Elimina la información de sesión
+    session.pop('user_db', None)
+    session.pop('user_id', None)
+    session.pop('user_ge', None)
+    session.pop('language', None)
+    # Redirige a la página de inicio o a otra página
+
+    # Verificar si la solicitud proviene de la aplicación de escritorio
+    if request.headers.get('X-Client-Type') == 'desktop':
+        return redirect(url_for('login_desktop'))
+    return redirect('/')
         
 if __name__ == '__main__':
     app.run(debug=True)
