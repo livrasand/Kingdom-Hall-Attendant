@@ -40,58 +40,70 @@
             </div>
             <div class="d-flex flex-justify-end ml-2">
                <a href="/eliminar_contenido_configuracion">
-               <button class="btn btn-danger mr-2" type="button">
-        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-          <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-        </svg>
-        <span>Restablecer aplicación</span>
-      </button></a>
+                  <button class="btn btn-sm btn-danger mr-2" type="button">
+                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                     </svg>
+                     <span>{{ _('Restablecer aplicación') }}</span>
+                 </button>
+                 </a>
             </div>
          </div>
       </div>
       <!-- Tu contenido del encabezado aquí -->
-      <div class="container-xl mt-6">
+      <div class="container-xl mt-6"> 
          <form action="/guardar_configuracion" method="post">
             <div data-view-component="true" class="container-md">
                <!-- Public Profile -->
                <div data-view-component="true" class="Subhead mt-0 mb-0">
                   <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">Configuración</h2>
                </div>
+               <input class="form-control width-full" type="text" name="id" id="id" value="{{ configuracion[0] }}" autocomplete="off" style="display: none;">
                <div class="clearfix gutter d-flex flex-shrink-0 flex-column-reverse flex-md-row">
-                  <div class="col-12 col-md-12">                          
+                  <div class="col-12 col-md-12"> 
+            <dl class="form-group">
+                <dt><label for="user_profile_pronouns_select">{{ _('Idioma') }} <span class="IssueLabel color-bg-accent-emphasis color-fg-on-emphasis mr-1">Próximamente</span></label></dt>
+                <dd class="user-profile-bio-field-container js-length-limited-input-container">
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="es" {% if configuracion[8] == 'es' %} selected {% endif %}>{{ _('Español') }}</option>
+                        <option value="en" {% if configuracion[8] == 'en' %} selected {% endif %}>{{ _('English') }}</option>
+                        <option value="it" {% if configuracion[8] == 'it' %} selected {% endif %}>{{ _('Italiano') }}</option>
+                        <option value="fr" {% if configuracion[8] == 'fr' %} selected {% endif %}>{{ _('Français') }}</option>
+                        <option value="de" {% if configuracion[8] == 'de' %} selected {% endif %}>{{ _('Deutsch') }}</option>
+                        <option value="pt" {% if configuracion[8] == 'pt' %} selected {% endif %}>{{ _('Português') }}</option>
+                    </select>
+                </dd>
+            </dl>                      
                      <div>
                         <dl class="form-group">
-                           <dt><label for="user_profile_name">Nombre</label></dt>
+                           <dt><label for="user_profile_name">{{ _('Nombre') }}</label></dt>
                            <dd class="d-inline-block width-full">
-                              <div>
-                                 <input class="form-control width-full" type="text" placeholder="Nombres" name="nombre" id="nombre" value="{{ configuracion[1] }}" autocomplete="off">
-                                 <input class="form-control mt-2 width-full" type="text" placeholder="Apellidos" name="apellidos" id="apellidos" value="{{ configuracion[2] }}"autocomplete="off">
-                              </div>
+                               <div>
+                                   <input class="form-control width-full" type="text" placeholder="{{ _('Nombres') }}" name="nombre" id="nombre" value="{{ configuracion[1] }}" autocomplete="off">
+                                   <input class="form-control mt-2 width-full" type="text" placeholder="{{ _('Apellidos') }}" name="apellidos" id="apellidos" value="{{ configuracion[2] }}" autocomplete="off">
+                               </div>
                            </dd>
-                        </dl>
-                        <dl class="form-group">
-                           <dt><label for="user_profile_email">Correo electrónico público</label></dt>
-                           <dd class="d-inline-block width-full">
-                              <div>
-                                 <input class="form-control width-full" type="email" placeholder="usuario@jwpub.org" name="user_email" id="user_email" value="{{ configuracion[3] }}" autocomplete="off">
-                              </div>
-                           </dd>
-                           <p class="note mb-2" >
-                           Por favor, tenga en cuenta que una vez registrado con su dirección de correo electrónico, no podrá modificarse en nuestro sistema. Sin embargo, puede actualizar otros datos personales si lo desea.
-                        </p>
-                        </dl>
-                        <dl class="form-group">
-                           <dt><label for="user_profile_pronouns_select">Privilegio</label></dt>
-                           <dd class="user-profile-bio-field-container js-length-limited-input-container">
-                              <select id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control width-full" name="privilegio" id="privilegio">
-                                 <option value="sdc" {% if configuracion[4] == 'sdc' %} selected {% endif %}>superintendente de circuito</option>
-                                 <option value="anciano" {% if configuracion[4] == 'anciano' %} selected {% endif %}>anciano</option>
-                                 <option value="sm" {% if configuracion[4] == 'sm' %} selected {% endif %}>siervo ministerial</option>
-                              </select>
-                           </dd>
-                        </dl>
+                       </dl>
+                       <dl class="form-group">
+                       <dt><label for="user_profile_email">{{ _('Correo electrónico público') }}</label></dt>
+                       <dd class="d-inline-block width-full">
+                           <div>
+                               <input class="form-control width-full" type="email" placeholder="usuario@jwpub.org" name="user_email" id="user_email" value="{{ configuracion[3] }}" autocomplete="off">
+                           </div>
+                       </dd>
+                   </dl>
+                   <dl class="form-group">
+                       <dt><label for="user_profile_pronouns_select">{{ _('Privilegio') }}</label></dt>
+                       <dd class="user-profile-bio-field-container js-length-limited-input-container">
+                           <select id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control width-full" name="privilegio" id="privilegio">
+                               <option value="sdc" {% if configuracion[4] == 'sdc' %} selected {% endif %}>{{ _('superintendente de circuito') }}</option>
+                               <option value="anciano" {% if configuracion[4] == 'anciano' %} selected {% endif %}>{{ _('anciano') }}</option>
+                               <option value="sm" {% if configuracion[4] == 'sm' %} selected {% endif %}>{{ _('siervo ministerial') }}</option>
+                           </select>
+                       </dd>
+                   </dl>
                         <dl class="form-group" id="pais">
-                           <dt><label for="pais">País</label></dt>
+                           <dt><label for="pais">{{ _('País') }}</label></dt>
                            <dd class="pais-container">
                               <text-expander>
                                  <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais" value="{{ configuracion[5] }}">
@@ -99,7 +111,7 @@
                            </dd>
                         </dl>  
                         <dl class="form-group" id="congregacion">
-                           <dt><label for="congregacion">Congregación</label></dt>
+                           <dt><label for="congregacion">{{ _('Congregación') }}</label></dt>
                            <dd class="user-profile-company-field-container">
                               <text-expander>
                                  <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion" value="{{ configuracion[6] }}">
@@ -107,7 +119,7 @@
                            </dd>
                         </dl>  
                         <dl class="form-group" id="circuito">
-                           <dt><label for="circuito">Circuito</label></dt>
+                           <dt><label for="circuito">{{ _('Circuito') }}</label></dt>
                            <dd class="user-profile-company-field-container">
                               <text-expander>
                                  <input autocomplete="off" class="form-control width-full" type="text" name="circuito" id="circuito" value="{{ configuracion[7] }}"> <!-- Cambiado a "circuito" -->
@@ -115,11 +127,11 @@
                            </dd>
                         </dl>
                         <p>
-                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-6">    
-                           <span class="Button-content">
-                           <span class="Button-label">Actualizar datos</span>
-                           </span>
-                           </button>      
+                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-6">
+                              <span class="Button-content">
+                                  <span class="Button-label">{{ _('Actualizar datos') }}</span>
+                              </span>
+                          </button>    
                         </p>
                      </div>  
                   </div>

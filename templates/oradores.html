@@ -45,7 +45,7 @@
             <div className="d-flex flex-justify-end ml-2">
                <details class="details-reset details-overlay float-right">
                      <summary class="btn btn-sm float-right" aria-haspopup="true">
-                        Nuevo
+                        {{ _('Nuevo') }}
                      </summary>
                      <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
                         <div class="SelectMenu-modal">
@@ -56,7 +56,7 @@
                            </div>
                            <footer class="SelectMenu-footer"></footer>
                            <div class="SelectMenu-list" align="center">
-                              <a class="btn btn-sm mb-3" href="{{ url_for('nuevo_orador') }}" role="button">Agregar orador foráneo</a>
+                              <a class="btn btn-sm mb-3" href="{{ url_for('nuevo_orador') }}" role="button">{{ _('Agregar orador foráneo') }}</a>
                            </div>
                         </div>
                      </div>
@@ -88,7 +88,7 @@
 {% else %}
     <div class="container-lg mt-1" align="center">
       <h1>🤔</h1>
-    <h4 style="width:50%;">¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón "Nuevo".</h4>
+    <h4 style="width:50%;">{{ _('¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón "Nuevo".') }}</h4>
 </div>
 
 {% endif %}

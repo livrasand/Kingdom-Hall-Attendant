@@ -11,8 +11,13 @@ import os
 import logging
 import shutil
 from werkzeug.exceptions import HTTPException
+from babel.dates import format_date
+from flask_babel import Babel, _
 
 app = Flask(__name__)
+app.config['BABEL_DEFAULT_LOCALE'] = 'es'
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
+
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
@@ -26,6 +31,14 @@ app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
 app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
+
+babel = Babel(app)
+
+def get_locale():
+    return session.get('language')  # Valor por defecto
+
+# Inicializa Babel con la función de selección de idioma
+babel.init_app(app, locale_selector=get_locale)
 
 # Configuración de SQLite
 DATABASE = 'cavea.db'
@@ -142,12 +155,17 @@ def index():
         cursor = get_db().cursor()
         cursor.execute("SELECT * FROM configuracion")
         user_data = cursor.fetchall()
+
+        cursor.execute("SELECT idioma FROM configuracion")
+        result = cursor.fetchone()
+        session['language'] = result['idioma']
+        print(f"Idioma actual: {session['language']}")
+
     except Exception as e:
         flash(f"Ha ocurrido un error interno con la base de datos: {str(e)}.")
         app.logger.error(f"Error al consultar la base de datos: {str(e)}")
         return redirect(url_for('login'))
 
-    
     return render_template('index.html', user_data=user_data, apply_golden_style=apply_golden_style)
 
 @app.route('/congregacion.html')
@@ -207,10 +225,12 @@ def publicadores():
 def nuevo_publicador():
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM familias")
+    familia_existente = cursor.fetchall()
+    cursor.execute("SELECT * FROM familias")
     familias = cursor.fetchall()
     cursor.execute("SELECT * FROM grupos_predicacion")
     grupos_predicacion = cursor.fetchall()
-    return render_template('detalle-publicador.html', publicador=None, familias=familias, grupos_predicacion=grupos_predicacion)
+    return render_template('detalle-publicador.html', publicador=None, familia_existente=familia_existente, grupos_predicacion=grupos_predicacion, familias=familias)
 
 
 @app.route('/mostrar_publicador/<int:id>', methods=['GET'])
@@ -227,8 +247,10 @@ def mostrar_publicador(id):
     cursor.execute("SELECT * FROM familias WHERE apellidos_familia = ?", (apellidos,))
     familia_existente = cursor.fetchone() is not None
 
-    return render_template('detalle-publicador.html', publicador=publicador, familia_existente=familia_existente, grupos_predicacion=grupos_predicacion, grupo=None)
+    cursor.execute("SELECT * FROM familias")
+    familias = cursor.fetchall()
 
+    return render_template('detalle-publicador.html', publicador=publicador, familia_existente=familia_existente, familias=familias, grupos_predicacion=grupos_predicacion)
 
 @app.route('/guardar_publicador', methods=['POST'])
 def guardar_publicador():
@@ -237,7 +259,9 @@ def guardar_publicador():
         nombres = request.form['nombres'].strip()
         apellidos = request.form['apellidos'].strip()
         genero = request.form['genero']
-        cabeza_de_familia = 'cabeza_de_familia' in request.form  
+        cabeza_de_familia = 'cabeza_de_familia' in request.form 
+        familia = request.form['familia'] 
+        tipo_miembro_familia = request.form['relacion']
         fecha_nacimiento = request.form['fecha_nacimiento']
         grupo_predicacion = request.form['grupo_predicacion']
         direccion = request.form['direccion']
@@ -447,13 +471,13 @@ def guardar_publicador():
         existing_publicador = cursor.fetchone()
 
         if existing_publicador:
-            g.bd.execute("UPDATE publicadores SET nombres=?, apellidos=?, genero=?, cabeza_de_familia=?, fecha_nacimiento=?, grupo_predicacion = ?, direccion=?, correo_electronico=?, celular=?, telefono=?, bautizado=?, fecha_bautizo=?, recibe_atalaya=?, recibe_guia_actividades=?, no_bautizado=?, temporal=?, ungido=?, nino=?, readmitido=?, irregular=?, invidente=?, abuso_sexual=?, divorciado=?, viudo=?, sordo=?, enfermo=?, voluntario_ldc=?, voluntario_epc=?, llaves_salon=?, utiliza_kha=?, censurado=?, inactivo=?, expulsado=?, fallecido=?, encarcelado=?, separado=?, nombramientos=?, fecha_inicio_nombrado=?, privilegios_servicio=?, fecha_inicio=?, numero_precursor=?, temporario=?, enfermizo=?, fecha_ultima_escuela=?, checkbox_coordinador_cuerpo_ancianos=?, checkbox_secretario=?, checkbox_superintendente_servicio=?, checkbox_siervo_acomodadores=?, checkbox_coordinador_audio_video=?, checkbox_siervo_literatura=?, checkbox_coordinador_mantenimiento=?, checkbox_coordinador_mantenimiento_jardin=?, checkbox_comite_mantenimiento_salon_reino=?, checkbox_consejero_sala_auxiliar=?, checkbox_consejero_auxiliar=?, checkbox_voluntario_temporal_betel=?, checkbox_betelita_cercanias=?, checkbox_voluntario_remoto_betel=?, checkbox_comite_enlace_hospitalario=?, checkbox_conductor_estudio_atalaya=?, checkbox_coordinador_discursos_publicos=?, checkbox_ayudante_coordinador_discursos_publicos=?, checkbox_siervo_informes=?, checkbox_siervo_cuentas=?, checkbox_siervo_territorios=?, checkbox_coordinador_limpieza=?, checkbox_superintendente_reunion_vida_ministerio_cristianos=?, checkbox_coordinador_predicacion_publica=?, checkbox_superintendente_grupo=?, checkbox_siervo_grupo=?, checkbox_auxiliar_grupo=?, checkbox_betelita=?, checkbox_voluntario_construccion=?, checkbox_siervo_construccion=?, checkbox_presidente=?, checkbox_oracion=?, checkbox_discurso_10_mins=?, checkbox_busquemos_perlas_escondidas=?, checkbox_lectura_biblia=?, checkbox_analisis=?, checkbox_empiece_conversaciones=?, checkbox_haga_revisitas=?, checkbox_haga_discipulos=?, checkbox_no_utilizar_sala_principal=?, checkbox_explique_sus_creencias=?, checkbox_ayudante=?, checkbox_discurso=?, checkbox_utilizar_solo_sala_principal=?, checkbox_intervenciones=?, checkbox_estudio_biblico_congregacion=?, checkbox_lector=?, checkbox_discursante_publico_saliente=?, checkbox_discursante_publico_local=?, checkbox_presidente_reunion_publica=?, checkbox_lector_atalaya=?, checkbox_anfitrion_hospitalidades=?, checkbox_operador_audio=?, checkbox_plataforma=?, checkbox_anfitrion_zoom=?, checkbox_microfonos=?, checkbox_coanfitrion_zoom=?, checkbox_acomodador=?, checkbox_aprobado_predicacion_publica=?, checkbox_dirigir_reuniones_servicio_campo=?, checkbox_orar_reuniones_servicio_campo=?, checkbox_limpieza_semanal_salon_reino=?, checkbox_limpieza_despues_reunion=?, checkbox_cuidado_jardin=?, checkbox_limpieza_mensual_salon_reino=?, checkbox_limpieza_trimestral_salon_reino=?, checkbox_cuidado_cesped=? WHERE id=?",
-                (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped, existing_publicador[0]))
+            g.bd.execute("UPDATE publicadores SET nombres=?, apellidos=?, genero=?, cabeza_de_familia=?, familia=?, tipo_miembro_familia=?, fecha_nacimiento=?, grupo_predicacion = ?, direccion=?, correo_electronico=?, celular=?, telefono=?, bautizado=?, fecha_bautizo=?, recibe_atalaya=?, recibe_guia_actividades=?, no_bautizado=?, temporal=?, ungido=?, nino=?, readmitido=?, irregular=?, invidente=?, abuso_sexual=?, divorciado=?, viudo=?, sordo=?, enfermo=?, voluntario_ldc=?, voluntario_epc=?, llaves_salon=?, utiliza_kha=?, censurado=?, inactivo=?, expulsado=?, fallecido=?, encarcelado=?, separado=?, nombramientos=?, fecha_inicio_nombrado=?, privilegios_servicio=?, fecha_inicio=?, numero_precursor=?, temporario=?, enfermizo=?, fecha_ultima_escuela=?, checkbox_coordinador_cuerpo_ancianos=?, checkbox_secretario=?, checkbox_superintendente_servicio=?, checkbox_siervo_acomodadores=?, checkbox_coordinador_audio_video=?, checkbox_siervo_literatura=?, checkbox_coordinador_mantenimiento=?, checkbox_coordinador_mantenimiento_jardin=?, checkbox_comite_mantenimiento_salon_reino=?, checkbox_consejero_sala_auxiliar=?, checkbox_consejero_auxiliar=?, checkbox_voluntario_temporal_betel=?, checkbox_betelita_cercanias=?, checkbox_voluntario_remoto_betel=?, checkbox_comite_enlace_hospitalario=?, checkbox_conductor_estudio_atalaya=?, checkbox_coordinador_discursos_publicos=?, checkbox_ayudante_coordinador_discursos_publicos=?, checkbox_siervo_informes=?, checkbox_siervo_cuentas=?, checkbox_siervo_territorios=?, checkbox_coordinador_limpieza=?, checkbox_superintendente_reunion_vida_ministerio_cristianos=?, checkbox_coordinador_predicacion_publica=?, checkbox_superintendente_grupo=?, checkbox_siervo_grupo=?, checkbox_auxiliar_grupo=?, checkbox_betelita=?, checkbox_voluntario_construccion=?, checkbox_siervo_construccion=?, checkbox_presidente=?, checkbox_oracion=?, checkbox_discurso_10_mins=?, checkbox_busquemos_perlas_escondidas=?, checkbox_lectura_biblia=?, checkbox_analisis=?, checkbox_empiece_conversaciones=?, checkbox_haga_revisitas=?, checkbox_haga_discipulos=?, checkbox_no_utilizar_sala_principal=?, checkbox_explique_sus_creencias=?, checkbox_ayudante=?, checkbox_discurso=?, checkbox_utilizar_solo_sala_principal=?, checkbox_intervenciones=?, checkbox_estudio_biblico_congregacion=?, checkbox_lector=?, checkbox_discursante_publico_saliente=?, checkbox_discursante_publico_local=?, checkbox_presidente_reunion_publica=?, checkbox_lector_atalaya=?, checkbox_anfitrion_hospitalidades=?, checkbox_operador_audio=?, checkbox_plataforma=?, checkbox_anfitrion_zoom=?, checkbox_microfonos=?, checkbox_coanfitrion_zoom=?, checkbox_acomodador=?, checkbox_aprobado_predicacion_publica=?, checkbox_dirigir_reuniones_servicio_campo=?, checkbox_orar_reuniones_servicio_campo=?, checkbox_limpieza_semanal_salon_reino=?, checkbox_limpieza_despues_reunion=?, checkbox_cuidado_jardin=?, checkbox_limpieza_mensual_salon_reino=?, checkbox_limpieza_trimestral_salon_reino=?, checkbox_cuidado_cesped=? WHERE id=?",
+                (nombres, apellidos, genero, cabeza_de_familia, familia, tipo_miembro_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped, existing_publicador[0]))
 
             g.bd.commit()
         else:
-            g.bd.execute("INSERT INTO publicadores (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (nombres, apellidos, genero, cabeza_de_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped))
+            g.bd.execute("INSERT INTO publicadores (nombres, apellidos, genero, cabeza_de_familia, familia, tipo_miembro_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (nombres, apellidos, genero, cabeza_de_familia, familia, tipo_miembro_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped))
         
             g.bd.commit()
 
@@ -480,6 +504,8 @@ def configuracion():
 @app.route('/guardar_configuracion', methods=['POST'])
 def guardar_configuracion():
     if request.method == 'POST':
+        id = request.form['id']
+        idioma = request.form['idioma']
         nombre = request.form['nombre']
         apellidos = request.form['apellidos']
         user_email = request.form['user_email']
@@ -488,25 +514,27 @@ def guardar_configuracion():
         congregacion = request.form['congregacion']
         circuito = request.form['circuito']
 
+        session['language'] = idioma
+
         cursor = g.bd.cursor()
 
         # Verificar si ya existe una configuración para este usuario
-        cursor.execute("SELECT * FROM configuracion WHERE user_email = ?", (user_email,))
+        cursor.execute("SELECT * FROM configuracion WHERE id = ?", (id,))
         existing_config = cursor.fetchone()
 
         if existing_config:
             # Si ya existe una configuración, actualizarla
             cursor.execute("""
                 UPDATE configuracion
-                SET nombre = ?, apellidos = ?, privilegio = ?, pais = ?, congregacion = ?, circuito = ?
-                WHERE user_email = ?
-            """, (nombre, apellidos, privilegio, pais, congregacion, circuito, user_email))
+                SET nombre = ?, apellidos = ?, user_email = ?, privilegio = ?, pais = ?, congregacion = ?, circuito = ?, idioma = ?
+                WHERE id = ?
+            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma, id))
         else:
             # Si no existe una configuración, insertarla
             cursor.execute("""
-                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito))
+                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma))
             
         g.bd.commit()        
 
@@ -538,7 +566,14 @@ def mostrar_grupo(id):
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM grupos_predicacion WHERE id = ?", (id,))
     grupo = cursor.fetchone()
-    return render_template('detalle-grupo-predicacion.html', grupo=grupo)
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_siervo_grupo = 1")
+    publicadores_siervo = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_auxiliar_grupo = 1")
+    publicadores_auxiliar = cursor.fetchall()
+
+    return render_template('detalle-grupo-predicacion.html', grupo=grupo, publicadores_siervo=publicadores_siervo, publicadores_auxiliar=publicadores_auxiliar)
 
 @app.route('/guardar_grupo', methods=['POST'])
 def guardar_grupo():
@@ -581,7 +616,7 @@ def crear_familia(apellidos):
             cursor.execute("INSERT INTO familias (apellidos_familia) VALUES (?)", (apellidos,))
             g.bd.commit()
 
-        return redirect('/publicadores.html')
+        return redirect(request.referrer)
 
 @app.route('/oradores.html')
 def oradores():
@@ -1540,7 +1575,6 @@ def mostrar_estudio_atalaya(id):
 
     return render_template('/detalle-estudio-atalaya.html', detalle_estalaya=detalle_estalaya, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores)
 
-
 @app.route('/nuevo-estudio-atalaya', methods=['GET'])
 def nuevo_estudio_atalaya():
     cursor = g.bd.cursor()
@@ -1744,6 +1778,9 @@ def mostrar_vida_ministerio(id):
     # Aquí debes obtener los datos de la semana de la base de datos usando el ID de la semana (week_id)
     semana = obtener_semana_de_la_base_de_datos(id)
 
+    cursor.execute("SELECT * FROM vida_ministerio")
+    vida_ministerio = cursor.fetchone()
+   
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
 
@@ -1753,7 +1790,7 @@ def mostrar_vida_ministerio(id):
         congregacion_formateada = None 
     
     # Aquí renderizas el template con los datos obtenidos de la base de datos
-    return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada)
+    return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada, vida_ministerio=vida_ministerio)
 
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():
@@ -1770,7 +1807,9 @@ def table_exists(cursor, table_name):
 
 @app.before_request
 def load_user_info():
-    if 'login' not in request.endpoint:  # Evitar cargar info de usuario en la página de login
+    if request.endpoint is not None and 'login' not in request.endpoint:
+    # Código para cargar la información del usuario
+ # Evitar cargar info de usuario en la página de login
         user_db = get_user_db()
         if user_db:
             cursor = user_db.cursor()
@@ -2729,6 +2768,10 @@ def confirm_email(token):
 @app.route('/literatura')
 def literatura():
     cursor = g.bd.cursor()
+
+    cursor.execute("SELECT * FROM inventario")
+    inventarios = cursor.fetchall()  
+
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
 
@@ -2737,12 +2780,263 @@ def literatura():
     else:
         congregacion_formateada = None 
 
-    return render_template('literatura.html', congregacion=congregacion_formateada) 
+    return render_template('literatura.html', inventarios=inventarios, congregacion=congregacion_formateada) 
 
 @app.route('/nuevo_inventario')
 def nuevo_inventario():
+  now = datetime.datetime.now()
+  month_year = format_date(now, format='MMMM yyyy', locale='es_ES')
 
-    return render_template('detalle-literatura.html') 
+  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None) 
 
+@app.route('/mostrar_inventario/<string:mes_ano>', methods=['GET'])
+def mostrar_inventario(mes_ano):
+    cursor = g.bd.cursor()
+
+    cursor.execute("SELECT * FROM inventario WHERE mes_ano = ?", (mes_ano,))
+    detalle_inventario = cursor.fetchone()
+
+    return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario)
+
+@app.route('/guardar_inventario', methods=['POST'])
+def guardar_inventario():
+    now = datetime.datetime.now()
+    month_year = format_date(now, format='MMMM yyyy', locale='es_ES')
+
+    if request.method == 'POST':     
+        mes_ano = month_year
+        nwt = request.form['nwt']
+        nwtpkt = request.form['nwtpkt']
+        otras_biblias = request.form['otras-biblias']
+        be = request.form['be']
+        cf = request.form['cf']
+        cl = request.form['cl']
+        ia = request.form['ia']
+        jy = request.form['jy']
+        kr = request.form['kr']
+        lfb = request.form['lfb']
+        lff = request.form['lff']
+        lr = request.form['lr']
+        od = request.form['od']
+        rr = request.form['rr']
+        scl = request.form['scl']
+        sjj = request.form['sjj']
+        sjjls = request.form['sjjls']
+        sjjyls = request.form['sjjyls']
+        yp1 = request.form['yp1']
+        yp2 = request.form['yp2']
+        otros_libros = request.form['otros-libros']
+        ay = request.form['ay']
+        ed = request.form['ed']
+        hf = request.form['hf']
+        hl = request.form['hl']
+        la = request.form['la']
+        lc = request.form['lc']
+        ld = request.form['ld']
+        lf = request.form['lf']
+        lffi = request.form['lffi']
+        ll = request.form['ll']
+        lmd = request.form['lmd']
+        mb = request.form['mb']
+        ol = request.form['ol']
+        pc = request.form['pc']
+        ph = request.form['ph']
+        rj = request.form['rj']
+        rk = request.form['rk']
+        sp = request.form['sp']
+        th = request.form['th']
+        wfg = request.form['wfg']
+        ypq = request.form['ypq']
+        otros_folletos = request.form['otros-folletos']
+        inv = request.form['inv']
+        t_30 = request.form['t-30']
+        t_31 = request.form['t-31']
+        t_32 = request.form['t-32']
+        t_33 = request.form['t-33']
+        t_34 = request.form['t-34']
+        t_35 = request.form['t-35']
+        t_36 = request.form['t-36']
+        t_37 = request.form['t-37']
+        jwcd1 = request.form['jwcd1']
+        jwcd4 = request.form['jwcd4']
+        jwcd9 = request.form['jwcd9']
+        jwcd10 = request.form['jwcd10']
+        s_34 = request.form['s-34']
+        s_24 = request.form['s-24']
+        g18_1 = request.form['g18.1']
+        g18_2 = request.form['g18.2']
+        g18_3 = request.form['g18.3']
+        g19_1 = request.form['g19.1']
+        g19_2 = request.form['g19.2']
+        g19_3 = request.form['g19.3']
+        g20_1 = request.form['g20.1']
+        g20_2 = request.form['g20.2']
+        g20_3 = request.form['g20.3']
+        g21_1 = request.form['g21.1']
+        g21_2 = request.form['g21.2']
+        g21_3 = request.form['g21.3']
+        g22_1 = request.form['g22.1']
+        g23_1 = request.form['g23.1']
+        wp18_1 = request.form['wp18.1']
+        wp18_2 = request.form['wp18.2']
+        wp18_3 = request.form['wp18.3']
+        wp19_1 = request.form['wp19.1']
+        wp19_2 = request.form['wp19.2']
+        wp19_3 = request.form['wp19.3']
+        wp20_1 = request.form['wp20.1']
+        wp20_2 = request.form['wp20.2']
+        wp20_3 = request.form['wp20.3']
+        wp21_1 = request.form['wp21.1']
+        wp21_2 = request.form['wp21.2']
+        wp21_3 = request.form['wp21.3']
+        wp22_1 = request.form['wp22.1']
+        wp22_2 = request.form['wp22.2']
+        wp22_3 = request.form['wp22.3']
+        wp23_1 = request.form['wp23.1']
+        wp24_1 = request.form['wp24.1']
+        otros_revistas = request.form['otros-revistas']
+
+        cursor = g.bd.cursor()
+
+        # Verificar si ya existe una configuración para este usuario
+        cursor.execute("SELECT * FROM inventario WHERE mes_ano = ?", (mes_ano,))
+        existing_inventario = cursor.fetchone()
+
+        if existing_inventario:
+            # Si ya existe una configuración, actualizarla
+            cursor.execute("""
+                UPDATE inventario
+SET
+    mes_ano = ?,
+    nwt = ?,
+    nwtpkt = ?,
+    otras_biblias = ?,
+    be = ?,
+    cf = ?,
+    cl = ?,
+    ia = ?,
+    jy = ?,
+    kr = ?,
+    lfb = ?,
+    lff = ?,
+    lr = ?,
+    od = ?,
+    rr = ?,
+    scl = ?,
+    sjj = ?,
+    sjjls = ?,
+    sjjyls = ?,
+    yp1 = ?,
+    yp2 = ?,
+    otros_libros = ?,
+    ay = ?,
+    ed = ?,
+    hf = ?,
+    hl = ?,
+    la = ?,
+    lc = ?,
+    ld = ?,
+    lf = ?,
+    lffi = ?,
+    ll = ?,
+    lmd = ?,
+    mb = ?,
+    ol = ?,
+    pc = ?,
+    ph = ?,
+    rj = ?,
+    rk = ?,
+    sp = ?,
+    th = ?,
+    wfg = ?,
+    ypq = ?,
+    otros_folletos = ?,
+    inv = ?,
+    t_30 = ?,
+    t_31 = ?,
+    t_32 = ?,
+    t_33 = ?,
+    t_34 = ?,
+    t_35 = ?,
+    t_36 = ?,
+    t_37 = ?,
+    jwcd1 = ?,
+    jwcd4 = ?,
+    jwcd9 = ?,
+    jwcd10 = ?,
+    s_34 = ?,
+    s_24 = ?,
+    g18_1 = ?,
+    g18_2 = ?,
+    g18_3 = ?,
+    g19_1 = ?,
+    g19_2 = ?,
+    g19_3 = ?,
+    g20_1 = ?,
+    g20_2 = ?,
+    g20_3 = ?,
+    g21_1 = ?,
+    g21_2 = ?,
+    g21_3 = ?,
+    g22_1 = ?,
+    g23_1 = ?,
+    wp18_1 = ?,
+    wp18_2 = ?,
+    wp18_3 = ?,
+    wp19_1 = ?,
+    wp19_2 = ?,
+    wp19_3 = ?,
+    wp20_1 = ?,
+    wp20_2 = ?,
+    wp20_3 = ?,
+    wp21_1 = ?,
+    wp21_2 = ?,
+    wp21_3 = ?,
+    wp22_1 = ?,
+    wp22_2 = ?,
+    wp22_3 = ?,
+    wp23_1 = ?,
+    wp24_1 = ?,
+    otros_revistas = ?
+WHERE mes_ano = mes_ano
+
+            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+            wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas))
+        else:
+            # Si no existe una configuración, insertarla
+            cursor.execute("""
+                INSERT INTO inventario (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+            wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+            wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas))
+            
+        g.bd.commit()
+
+        return redirect('/literatura')    
+    
+@app.route('/eliminar_inventario/<string:mes_ano>', methods=['GET'])
+def eliminar_inventario(mes_ano):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM inventario WHERE mes_ano = ?", (mes_ano,))
+    g.bd.commit()
+    return redirect('/literatura')
+
+@app.route('/eliminar_vidaministerio/<int:id>', methods=['GET'])
+def eliminar_vidaministerio(id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM vida_ministerio WHERE id = ?", (id,))
+    g.bd.commit()
+    return redirect('/vida-ministerio.html')
+        
 if __name__ == '__main__':
     app.run(debug=True)

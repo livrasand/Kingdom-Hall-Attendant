@@ -36,7 +36,7 @@
             </div>
          </div>
          <div class="d-flex flex-justify-end  ">    
-         <a class="btn btn-sm float-right mr-6" href="{{ url_for('nuevo_publicador') }}" role="button">Nuevo</a>
+         <a class="btn btn-sm float-right mr-6" href="{{ url_for('nuevo_publicador') }}" role="button">{{ _('Nuevo') }}</a>
        </div>
       </div>
       <div class="container-xl mt-6">
@@ -45,8 +45,8 @@
                   <p class="h2 mt-n5">Datos personales</p>
                   <form action="/guardar_publicador" method="POST">
                      <input type="hidden" name="id" value="{{ publicador[0] }}" style="display: none;">
-                     <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" name="nombres" style="width: 49%;" value="{{ publicador[1] }}" />
-    <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" aria-label="Apellidos" name="apellidos" style="width:49%;" value="{{ publicador[2] }}" />
+                     <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" name="nombres" style="width: 49%;" value="{{ publicador[1] }}" autocomplete="off" />
+    <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" aria-label="Apellidos" name="apellidos" style="width:49%;" value="{{ publicador[2] }}" autocomplete="off"/>
 
     <div class="radio-group mt-1">
         <input class="radio-input" id="option-a" type="radio" name="genero" value="Hombre" {% if publicador[3] == 'Hombre' %} checked {% endif %}>
@@ -75,35 +75,46 @@
     {% endif %}
 </div>
 {% endif %}
-<br>
-{% if familia_existente %}
-    
-{% else %}    
-    <select class="form-select mb-2 mt-0" aria-label="Preference" id="seleccione-familia">
-        <option>{{ publicador[111] }}</option>
-    </select>
+
+{% if publicador[4] == '1' %}
+<select class="form-select mb-2 mt-0" aria-label="Preference" name="familia" id="familia">
+        <option value="{{ publicador[111] }}" selected>{{ publicador[111] }}</option>
+    {% for familia in familias %}
+        <option value="{{ familia[1] }}">{{ familia[1] }}</option>
+    {% endfor %}
+</select>
+{% else %}
+<select class="form-select mb-2 mt-2" aria-label="Preference" name="familia" id="familia">
+        <option value="{{ publicador[111] }}" selected>{{ publicador[111] }}</option>
+    {% for familia in familias %}
+        <option value="{{ familia[1] }}">{{ familia[1] }}</option>
+    {% endfor %}
+</select>
 {% endif %}
+
 
 <!-- NOTA SOLO VISIBLE SI ES MIEMBRO DE LA FAMILIA -->
 <div class="flash-messages" id="flash-messages" style="{% if publicador[4] == '1' %} display: none; {% endif %}">
     <div class="flash">
         Este publicador es 
-        <select class="form-select select-sm" aria-label="Preference">
-            <option>esposa</option>
-            <option>hija</option>
-            <option>hijo</option>
+        <select class="form-select select-sm" name="relacion" aria-label="Preference">
+            <option value="{{ publicador[112] }}" selected>{{ publicador[112] }}</option>
+            <option value="esposa" {% if publicador[5] == 'esposa' %}selected{% endif %}>esposa</option>
+            <option value="hija" {% if publicador[5] == 'hija' %}selected{% endif %}>hija</option>
+            <option value="hijo" {% if publicador[5] == 'hijo' %}selected{% endif %}>hijo</option>
         </select>
         del cabeza de familia
     </div>
 </div>
+
                      <!-- FIN DE LA NOTA -->
                      <p class="f5 mb-0">Fecha de nacimiento</p>
                      <input class="form-control" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" id="fecha_nacimiento" name="fecha_nacimiento" style="width:49%;" value="{{ publicador[5] }}" />
                      <p class="f5 mb-0 mt-2">Dirección</p>
-                     <textarea class="form-control width-full" id="direccion" name="direccion">{{ publicador[6] }}</textarea>
-                     <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" id="correo_electronico" name="correo_electronico" value="{{ publicador[7] }}"/>
-                     <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" id="celular" name="celular" value="{{ publicador[8] }}" />
-                     <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" id="telefono" name="telefono" value="{{ publicador[9] }}" />
+                     <textarea class="form-control width-full" id="direccion" name="direccion" autocomplete="off">{{ publicador[6] }}</textarea>
+                     <input class="form-control width-full mt-2" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" id="correo_electronico" name="correo_electronico" value="{{ publicador[7] }}" autocomplete="off"/>
+                     <input class="form-control width-full mt-2" type="number" placeholder="Celular" aria-label="Celular" id="celular" name="celular" value="{{ publicador[8] }}" autocomplete="off"/>
+                     <input class="form-control width-full mt-2" type="number" placeholder="Teléfono" aria-label="Teléfono" id="telefono" name="telefono" value="{{ publicador[9] }}" autocomplete="off"/>
                      <hr>
 
                      <p class="h2 mt-0">Datos espirituales</p>
@@ -117,7 +128,7 @@
 <input class="form-control" type="date" placeholder="Fecha de bautizo" aria-label="Fecha de bautizo" id="fecha_bautizo_input" name="fecha_bautizo_input" style="width:25%; {% if publicador[10] == '1' %} display: block; {% else %} display: none; {% endif %}" {% if publicador[11] %} value="{{ publicador[11] }}" {% endif %}>
 
 {% if publicador[113] %}
-    <p class="f5 mb-0 mt-2">Grupo de predicación</p>
+<p class="f5 mb-0 mt-2">Grupo de predicación</p>
     <select class="form-select" aria-label="Grupo de predicación" id="grupo_predicacion" name="grupo_predicacion">
         <option value="{{ publicador[113] }}">{{ publicador[113] }}</option>
     </select>
@@ -305,7 +316,7 @@
 <p class="f5 mb-0 mt-2" id="fecha-inicio-label">Fecha de inicio</p>
 <input class="form-control" type="date" placeholder="Fecha de inicio" aria-label="Fecha de inicio" style="width: 49%;" id="fecha-inicio-input" name="fecha_inicio" value="{{ publicador[39] }}">
 
-<input class="form-control" type="number" placeholder="Número de precursor" aria-label="Número de precursor" style="width:49%;" id="numero-precursor-input" name="numero_precursor" value="{{ publicador[40] }}">
+<input class="form-control" type="number" placeholder="Número de precursor" aria-label="Número de precursor" style="width:49%;" id="numero-precursor-input" name="numero_precursor" value="{{ publicador[40] }}" autocomplete="off">
 
 <div class="form-checkbox mt-3 mb-0" id="temporario_checkbox">
     <label>
@@ -403,7 +414,7 @@
 <br>
 <label>
     <input type="checkbox" id="checkbox-comite-enlace-hospitalario" name="checkbox-comite-enlace-hospitalario" {% if publicador[58] %} checked {% endif %} />
-    <em class="">Comité de Enlace Hospitalario</em>
+    <em class="">Comité de Enlace con Hospitales</em>
 </label>
 
                            </div>
@@ -488,22 +499,25 @@
                      </div>
                      <hr>
                      <p class="h2 mt-0">Utilización en asignaciones</p>
-                     <div class="color-fg-on-emphasis p-2 rounded mb-2" style="background-color: #3c7f8b;color: #ffffff;">TESOROS DE LA BIBLIA</div>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2" style="background-color: #3c7f8b;color: #ffffff;">TESOROS DE LA BIBLIA <label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-presidente" name="checkbox-presidente" {% if publicador[74] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-presidente" class="select-checkbox" name="checkbox-presidente" {% if publicador[74] %} checked {% endif %}/>
     <em class="">Presidente</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-oracion" name="checkbox-oracion" {% if publicador[75] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-oracion" class="select-checkbox" name="checkbox-oracion" {% if publicador[75] %} checked {% endif %}/>
     <em class="">Oración</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-discurso-10-mins" name="checkbox-discurso-10-mins" {% if publicador[76] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-discurso-10-mins" class="select-checkbox" name="checkbox-discurso-10-mins" {% if publicador[76] %} checked {% endif %}/>
     <em class="">Discurso (10 mins.)</em>
 </label>
 
@@ -511,43 +525,46 @@
                         </div>
                         <div class="col-6 float-left p-0">
                            <label>
-    <input type="checkbox" id="checkbox-busquemos-perlas-escondidas" name="checkbox-busquemos-perlas-escondidas" {% if publicador[77] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-busquemos-perlas-escondidas" class="select-checkbox" name="checkbox-busquemos-perlas-escondidas" {% if publicador[77] %} checked {% endif %}/>
     <em class="">Busquemos perlas escondidas</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-lectura-biblia" name="checkbox-lectura-biblia" {% if publicador[78] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-lectura-biblia" class="select-checkbox" name="checkbox-lectura-biblia" {% if publicador[78] %} checked {% endif %}/>
     <em class="">Lectura de la Biblia</em>
 </label>
 
                         </div>
                      </div>
-                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00;color: #ffffff;">SEAMOS MEJORES MAESTROS</div>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00;color: #ffffff;">SEAMOS MEJORES MAESTROS<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-smm" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-analisis" name="checkbox-analisis" {% if publicador[79] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-analisis" class="select-checkbox-smm" name="checkbox-analisis" {% if publicador[79] %} checked {% endif %}/>
     <em class="">Análisis</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-empiece-conversaciones" name="checkbox-empiece-conversaciones" {% if publicador[80] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-empiece-conversaciones" class="select-checkbox-smm" name="checkbox-empiece-conversaciones" {% if publicador[80] %} checked {% endif %}/>
     <em class="">Empiece conversaciones</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-haga-revisitas" name="checkbox-haga-revisitas" {% if publicador[81] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-haga-revisitas" class="select-checkbox-smm" name="checkbox-haga-revisitas" {% if publicador[81] %} checked {% endif %}/>
     <em class="">Haga revisitas</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-haga-discipulos" name="checkbox-haga-discipulos" {% if publicador[82] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-haga-discipulos" class="select-checkbox-smm" name="checkbox-haga-discipulos" {% if publicador[82] %} checked {% endif %}/>
     <em class="">Haga discípulos</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-no-utilizar-sala-principal" name="checkbox-no-utilizar-sala-principal" {% if publicador[83] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-no-utilizar-sala-principal" class="select-checkbox-smm" name="checkbox-no-utilizar-sala-principal" {% if publicador[83] %} checked {% endif %}/>
     <em class="">No utilizar en la sala principal</em>
 </label>
 
@@ -555,65 +572,71 @@
                         </div>
                         <div class="col-6 float-left p-0">
                            <label>
-    <input type="checkbox" id="checkbox-explique-sus-creencias" name="checkbox-explique-sus-creencias" {% if publicador[84] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-explique-sus-creencias" class="select-checkbox-smm" name="checkbox-explique-sus-creencias" {% if publicador[84] %} checked {% endif %}/>
     <em class="">Explique sus creencias</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-ayudante" name="checkbox-ayudante" {% if publicador[85] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-ayudante" class="select-checkbox-smm" name="checkbox-ayudante" {% if publicador[85] %} checked {% endif %}/>
     <em class="">Ayudante</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-discurso" name="checkbox-discurso" {% if publicador[86] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-discurso" class="select-checkbox-smm" name="checkbox-discurso" {% if publicador[86] %} checked {% endif %}/>
     <em class="">Discurso</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-utilizar-solo-sala-principal" name="checkbox-utilizar-solo-sala-principal" {% if publicador[87] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-utilizar-solo-sala-principal" class="select-checkbox-smm" name="checkbox-utilizar-solo-sala-principal" {% if publicador[87] %} checked {% endif %}/>
     <em class="">Utilizar solo en la sala principal</em>
 </label>
 
                         </div>
                      </div>
-                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13;color: #ffffff;">NUESTRA VIDA CRISTIANA</div>
+                     <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13;color: #ffffff;">NUESTRA VIDA CRISTIANA<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-nvc" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-intervenciones" name="checkbox-intervenciones" {% if publicador[88] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-intervenciones" class="select-checkbox-nvc" name="checkbox-intervenciones" {% if publicador[88] %} checked {% endif %}/>
     <em class="">Intervenciones</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-estudio-biblico-congregacion" name="checkbox-estudio-biblico-congregacion" {% if publicador[89] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-estudio-biblico-congregacion" class="select-checkbox-nvc" name="checkbox-estudio-biblico-congregacion" {% if publicador[89] %} checked {% endif %}/>
     <em class="">Estudio bíblico de la congregación</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-lector" name="checkbox-lector" {% if publicador[90] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-lector" class="select-checkbox-nvc" name="checkbox-lector" {% if publicador[90] %} checked {% endif %}/>
     <em class="">Lector</em>
 </label>
 
                            </div>
                         </div>
                      </div>
-                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">ESTUDIO DE LA ATALAYA</div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">ESTUDIO DE LA ATALAYA<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-edla" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-discursante-publico-saliente" name="checkbox-discursante-publico-saliente" {% if publicador[91] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-discursante-publico-saliente" class="select-checkbox-edla" name="checkbox-discursante-publico-saliente" {% if publicador[91] %} checked {% endif %}/>
     <em class="">Discursante público saliente</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-discursante-publico-local" name="checkbox-discursante-publico-local" {% if publicador[92] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-discursante-publico-local" class="select-checkbox-edla" name="checkbox-discursante-publico-local" {% if publicador[92] %} checked {% endif %}/>
     <em class="">Discursante público local</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-presidente-reunion-publica" name="checkbox-presidente-reunion-publica" {% if publicador[93] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-presidente-reunion-publica" class="select-checkbox-edla" name="checkbox-presidente-reunion-publica" {% if publicador[93] %} checked {% endif %}/>
     <em class="">Presidente de la reunión pública</em>
 </label>
 
@@ -622,34 +645,37 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-lector-atalaya" name="checkbox-lector-atalaya" {% if publicador[94] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-lector-atalaya" class="select-checkbox-edla" name="checkbox-lector-atalaya" {% if publicador[94] %} checked {% endif %}/>
     <em class="">Lector de La Atalaya</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-anfitrion-hospitalidades" name="checkbox-anfitrion-hospitalidades" {% if publicador[95] %} checked {% endif %}/>
+    <input type="checkbox" id="checkbox-anfitrion-hospitalidades" class="select-checkbox-edla" name="checkbox-anfitrion-hospitalidades" {% if publicador[95] %} checked {% endif %}/>
     <em class="">Anfitrión para las hospitalidades</em>
 </label>
 
                            </div>
                         </div>
                      </div>
-                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">TAREAS</div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">TAREAS<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-tareas" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-operador-audio" name="checkbox-operador-audio" {% if publicador[96] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-operador-audio" class="select-checkbox-tareas" name="checkbox-operador-audio" {% if publicador[96] %} checked {% endif %} />
     <em class="">Operador de audio</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-plataforma" name="checkbox-plataforma" {% if publicador[97] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-plataforma" class="select-checkbox-tareas" name="checkbox-plataforma" {% if publicador[97] %} checked {% endif %} />
     <em class="">Plataforma</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-anfitrion-zoom" name="checkbox-anfitrion-zoom" {% if publicador[98] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-anfitrion-zoom" class="select-checkbox-tareas" name="checkbox-anfitrion-zoom" {% if publicador[98] %} checked {% endif %} />
     <em class="">Anfitrión en Zoom</em>
 </label>
 
@@ -658,34 +684,37 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-microfonos" name="checkbox-microfonos" {% if publicador[99] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-microfonos" class="select-checkbox-tareas" name="checkbox-microfonos" {% if publicador[99] %} checked {% endif %} />
     <em class="">Micrófonos</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-coanfitrion-zoom" name="checkbox-coanfitrion-zoom" {% if publicador[100] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-coanfitrion-zoom" class="select-checkbox-tareas" name="checkbox-coanfitrion-zoom" {% if publicador[100] %} checked {% endif %} />
     <em class="">Coanfitrión en Zoom</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-acomodador" name="checkbox-acomodador" {% if publicador[101] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-acomodador" class="select-checkbox-tareas" name="checkbox-acomodador" {% if publicador[101] %} checked {% endif %} />
     <em class="">Acomodador</em>
 </label>
 
                            </div>
                         </div>
                      </div>
-                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">SERVICIO DEL CAMPO</div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">SERVICIO DEL CAMPO<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-sdc" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-aprobado-predicacion-publica" name="checkbox-aprobado-predicacion-publica" {% if publicador[102] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-aprobado-predicacion-publica" class="select-checkbox-sdc" name="checkbox-aprobado-predicacion-publica" {% if publicador[102] %} checked {% endif %} />
     <em class="">Aprobado para predicación pública</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-dirigir-reuniones-servicio-campo" name="checkbox-dirigir-reuniones-servicio-campo" {% if publicador[103] %} checked {% endif %} />
+    <input type="checkbox" class="select-checkbox-sdc" id="checkbox-dirigir-reuniones-servicio-campo" name="checkbox-dirigir-reuniones-servicio-campo" {% if publicador[103] %} checked {% endif %} />
     <em class="">Dirigir reuniones para el servicio del campo</em>
 </label>
 
@@ -694,29 +723,32 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-orar-reuniones-servicio-campo" name="checkbox-orar-reuniones-servicio-campo" {% if publicador[104] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-orar-reuniones-servicio-campo" class="select-checkbox-sdc" name="checkbox-orar-reuniones-servicio-campo" {% if publicador[104] %} checked {% endif %} />
     <em class="">Orar en reuniones para el servicio del campo</em>
 </label>
 
                            </div>
                         </div>
                      </div>
-                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">LIMPIEZA</div>
+                     <div class="p-2 rounded mb-2 mt-2" style="background-color: #2d8cff;color: #ffffff;">LIMPIEZA<label class="float-right mr-2">
+    <input type="checkbox" id="checkbox-select-all-limpieza" class="select-checkbox" />
+    <em>Seleccionar todos</em>
+</label></div>
                      <div class="container-xl clearfix mt-3">
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-limpieza-semanal-salon-reino" name="checkbox-limpieza-semanal-salon-reino" {% if publicador[105] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-semanal-salon-reino" class="select-checkbox-limpieza" name="checkbox-limpieza-semanal-salon-reino" {% if publicador[105] %} checked {% endif %} />
     <em class="">Limpieza semanal del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-limpieza-despues-reunion" name="checkbox-limpieza-despues-reunion" {% if publicador[106] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-despues-reunion" class="select-checkbox-limpieza" name="checkbox-limpieza-despues-reunion" {% if publicador[106] %} checked {% endif %} />
     <em class="">Limpieza después de la reunión</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-cuidado-jardin" name="checkbox-cuidado-jardin" {% if publicador[107] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-cuidado-jardin" class="select-checkbox-limpieza" name="checkbox-cuidado-jardin" {% if publicador[107] %} checked {% endif %} />
     <em class="">Cuidado del jardín</em>
 </label>
 
@@ -725,17 +757,17 @@
                         <div class="col-6 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
                               <label>
-    <input type="checkbox" id="checkbox-limpieza-mensual-salon-reino" name="checkbox-limpieza-mensual-salon-reino" {% if publicador[108] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-mensual-salon-reino" class="select-checkbox-limpieza" name="checkbox-limpieza-mensual-salon-reino" {% if publicador[108] %} checked {% endif %} />
     <em class="">Limpieza mensual del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-limpieza-trimestral-salon-reino" name="checkbox-limpieza-trimestral-salon-reino" {% if publicador[109] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-limpieza-trimestral-salon-reino" class="select-checkbox-limpieza" name="checkbox-limpieza-trimestral-salon-reino" {% if publicador[109] %} checked {% endif %} />
     <em class="">Limpieza trimestral del Salón del Reino</em>
 </label>
 <br>
 <label>
-    <input type="checkbox" id="checkbox-cuidado-cesped" name="checkbox-cuidado-cesped" {% if publicador[110] %} checked {% endif %} />
+    <input type="checkbox" id="checkbox-cuidado-cesped" class="select-checkbox-limpieza" name="checkbox-cuidado-cesped" {% if publicador[110] %} checked {% endif %} />
     <em class="">Cuidado del césped</em>
 </label>
 
@@ -761,49 +793,80 @@
       </div>
       
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Obtener el checkbox y el botón
-        var checkBox = document.querySelector('input[type="checkbox"]');
-        var button = document.getElementById("crear_familia_button");
-        var flashMessages = document.getElementById('flash-messages');
-        var selectFamilia = document.getElementById('seleccione-familia');
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para manejar la selección de todos los checkboxes
+    function manejarSeleccion(selectAllId, checkboxClass) {
+        const selectAllCheckbox = document.getElementById(selectAllId);
+        const checkboxes = document.querySelectorAll(`input.${checkboxClass}`);
 
-        // Escuchar cambios en el checkbox
-        checkBox.addEventListener('change', function() {
-            // Mostrar u ocultar el botón según el estado del checkbox
-            if (this.checked) {
-                button.style.display = 'inline-block';
-                flashMessages.style.display = 'none';
-                selectFamilia.style.display = 'none';
-            } else {
-                button.style.display = 'none';
-                flashMessages.style.display = 'block';
-                selectFamilia.style.display = 'block';
-            }
+        selectAllCheckbox.addEventListener('change', function() {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
         });
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (!this.checked) {
+                    selectAllCheckbox.checked = false;
+                } else if (Array.from(checkboxes).every(checkbox => checkbox.checked)) {
+                    selectAllCheckbox.checked = true;
+                }
+            });
+        });
+    }
+
+    // Llamar a la función para cada grupo de checkboxes
+    manejarSeleccion('checkbox-select-all', 'select-checkbox');
+    manejarSeleccion('checkbox-select-all-smm', 'select-checkbox-smm');
+    manejarSeleccion('checkbox-select-all-nvc', 'select-checkbox-nvc');
+    manejarSeleccion('checkbox-select-all-edla', 'select-checkbox-edla');
+    manejarSeleccion('checkbox-select-all-tareas', 'select-checkbox-tareas');
+    manejarSeleccion('checkbox-select-all-sdc', 'select-checkbox-sdc');
+    manejarSeleccion('checkbox-select-all-limpieza', 'select-checkbox-limpieza');
+
+    // Obtener el checkbox y el botón
+    var checkBox = document.querySelector('input[type="checkbox"]');
+    var button = document.getElementById("crear_familia_button");
+    var flashMessages = document.getElementById('flash-messages');
+    var selectFamilia = document.getElementById('seleccione-familia');
+
+    // Escuchar cambios en el checkbox
+    checkBox.addEventListener('change', function() {
+        // Mostrar u ocultar el botón según el estado del checkbox
+        if (this.checked) {
+            button.style.display = 'inline-block';
+            flashMessages.style.display = 'none';
+            selectFamilia.style.display = 'none';
+        } else {
+            button.style.display = 'none';
+            flashMessages.style.display = 'block';
+            selectFamilia.style.display = 'block';
+        }
     });
 
     // Función para actualizar el contenido del botón con los apellidos
-function actualizarApellidos() {
-    var apellidos = document.getElementById("apellidos").value;
-    var crearFamiliaButton = document.getElementById("crear_familia_button");
-    var apellidosInput = document.getElementById("apellidos");
-    
-    if (apellidosInput.style.display !== 'none') {
-        if (apellidos) {
-            crearFamiliaButton.innerText = "Crear familia " + apellidos;
-            crearFamiliaButton.style.display = "inline-block";
-        } else {
-            crearFamiliaButton.style.display = "none";
+    function actualizarApellidos() {
+        var apellidos = document.getElementById("apellidos").value;
+        var crearFamiliaButton = document.getElementById("crear_familia_button");
+        var apellidosInput = document.getElementById("apellidos");
+
+        if (apellidosInput.style.display !== 'none') {
+            if (apellidos) {
+                crearFamiliaButton.innerText = "Crear familia " + apellidos;
+                crearFamiliaButton.style.display = "inline-block";
+            } else {
+                crearFamiliaButton.style.display = "none";
+            }
         }
     }
-}
 
-// Asignar la función actualizarApellidos al evento 'input' del campo de apellidos
-document.getElementById("apellidos").addEventListener("input", actualizarApellidos);
+    // Asignar la función actualizarApellidos al evento 'input' del campo de apellidos
+    document.getElementById("apellidos").addEventListener("input", actualizarApellidos);
 
-// Llamar a la función inicialmente para establecer el estado inicial del botón
-actualizarApellidos();
+    // Llamar a la función inicialmente para establecer el estado inicial del botón
+    actualizarApellidos();
+});
 
 </script>
 

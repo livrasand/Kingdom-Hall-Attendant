@@ -41,61 +41,77 @@
             <div class="">
                <div class="tabnav">
                   <nav class="tabnav-tabs" aria-label="Foo bar">
-                     <a class="tabnav-tab" href="congregacion.html" aria-current="page">Congregación</a>
-                     <a class="tabnav-tab" href="publicadores.html">Publicadores</a>
+                     <a class="tabnav-tab" href="congregacion.html" aria-current="page">{{ _('Congregación') }}</a>
+                     <a class="tabnav-tab" href="publicadores.html">{{ _('Publicadores') }}</a>
                   </nav>
                </div>
             </div>
             <form action="/guardar_congregacion" method="post">
-               <input class="form-control" type="text" name="nombre_congregacion" placeholder="Congregación" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
-               <input class="form-control" type="number" name="numero" placeholder="Número" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />
+               <input class="form-control" type="text" name="nombre_congregacion" placeholder="{{ _('Congregación') }}" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
+               <input class="form-control" type="number" name="numero" placeholder="{{ _('Número') }}" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />
                <br>
-               <p class="f4 mt-2 mb-0">Reunión de entre semana</p>
+               <p class="f4 mt-2 mb-0">{{ _('Reunión de entre semana') }}</p>
 <div class="radio-group">
-    <input class="radio-input" id="option-a" type="radio" name="options" value="Lunes" {% if congregation[9] == 'Lunes' %} checked {% endif %}>
-<label class="radio-label" for="option-a">Lunes</label>
-<input class="radio-input" id="option-b" type="radio" name="options" value="Martes" {% if congregation[9] == 'Martes' %} checked {% endif %}>
-<label class="radio-label" for="option-b">Martes</label>
-<input class="radio-input" id="option-c" type="radio" name="options" value="Miércoles" {% if congregation[9] == 'Miércoles' %} checked {% endif %}>
-<label class="radio-label" for="option-c">Miércoles</label>
-<input class="radio-input" id="option-d" type="radio" name="options" value="Jueves" {% if congregation[9] == 'Jueves' %} checked {% endif %}>
-<label class="radio-label" for="option-d">Jueves</label>
-<input class="radio-input" id="option-e" type="radio" name="options" value="Viernes" {% if congregation[9] == 'Viernes' %} checked {% endif %}>
-<label class="radio-label" for="option-e">Viernes</label>
-<input class="radio-input" id="option-f" type="radio" name="options" value="Sábado" {% if congregation[9] == 'Sábado' %} checked {% endif %}>
-<label class="radio-label" for="option-f">Sábado</label>
-<input class="radio-input" id="option-g" type="radio" name="options" value="Domingo" {% if congregation[9] == 'Domingo' %} checked {% endif %}>
-<label class="radio-label" for="option-g">Domingo</label>                
+    <input class="radio-input" id="option-a" type="radio" name="options" value="{{ _('Lunes') }}" {% if congregation[9] == _('Lunes') %} checked {% endif %}>
+    <label class="radio-label" for="option-a">{{ _('Lunes') }}</label>
+
+    <input class="radio-input" id="option-b" type="radio" name="options" value="{{ _('Martes') }}" {% if congregation[9] == _('Martes') %} checked {% endif %}>
+    <label class="radio-label" for="option-b">{{ _('Martes') }}</label>
+
+    <input class="radio-input" id="option-c" type="radio" name="options" value="{{ _('Miércoles') }}" {% if congregation[9] == _('Miércoles') %} checked {% endif %}>
+    <label class="radio-label" for="option-c">{{ _('Miércoles') }}</label>
+
+    <input class="radio-input" id="option-d" type="radio" name="options" value="{{ _('Jueves') }}" {% if congregation[9] == _('Jueves') %} checked {% endif %}>
+    <label class="radio-label" for="option-d">{{ _('Jueves') }}</label>
+
+    <input class="radio-input" id="option-e" type="radio" name="options" value="{{ _('Viernes') }}" {% if congregation[9] == _('Viernes') %} checked {% endif %}>
+    <label class="radio-label" for="option-e">{{ _('Viernes') }}</label>
+
+    <input class="radio-input" id="option-f" type="radio" name="options" value="{{ _('Sábado') }}" {% if congregation[9] == _('Sábado') %} checked {% endif %}>
+    <label class="radio-label" for="option-f">{{ _('Sábado') }}</label>
+
+    <input class="radio-input" id="option-g" type="radio" name="options" value="{{ _('Domingo') }}" {% if congregation[9] == _('Domingo') %} checked {% endif %}>
+    <label class="radio-label" for="option-g">{{ _('Domingo') }}</label>
+                
 <input class="form-control ml-1" type="time" name="hora_inicio_semana" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" value="{{ congregation[3] if congregation else '' }}" />
 </div>
 <br>
 <p class="f4 mt-2 mb-0">Reunión de fin de semana</p>
 <div class="radio-group">
-    <input class="radio-input" id="option-h" type="radio" name="optionstwo" value="Lunes" {% if congregation[10] == 'Lunes' %} checked {% endif %}>
-    <label class="radio-label" for="option-h">Lunes</label>
-    <input class="radio-input" id="option-i" type="radio" name="optionstwo" value="Martes" {% if congregation[10] == 'Martes' %} checked {% endif %}>
-    <label class="radio-label" for="option-i">Martes</label>
-    <input class="radio-input" id="option-j" type="radio" name="optionstwo" value="Miércoles" {% if congregation[10] == 'Miércoles' %} checked {% endif %}>
-    <label class="radio-label" for="option-j">Miércoles</label>
-    <input class="radio-input" id="option-k" type="radio" name="optionstwo" value="Jueves" {% if congregation[10] == 'Jueves' %} checked {% endif %}>
-    <label class="radio-label" for="option-k">Jueves</label>
-    <input class="radio-input" id="option-l" type="radio" name="optionstwo" value="Viernes" {% if congregation[10] == 'Viernes' %} checked {% endif %}>
-    <label class="radio-label" for="option-l">Viernes</label>
-    <input class="radio-input" id="option-m" type="radio" name="optionstwo" value="Sábado" {% if congregation[10] == 'Sábado' %} checked {% endif %}>
-    <label class="radio-label" for="option-m">Sábado</label>
-    <input class="radio-input" id="option-n" type="radio" name="optionstwo" value="Domingo" {% if congregation[10] == 'Domingo' %} checked {% endif %}>
-    <label class="radio-label" for="option-n">Domingo</label> 
-    <input class="form-control ml-1" type="time" name="hora_inicio_fin_semana" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" value="{{ congregation[4] if congregation else '' }}" />
+   <input class="radio-input" id="option-h" type="radio" name="optionstwo" value="{{ _('Lunes') }}" {% if congregation[10] == _('Lunes') %} checked {% endif %}>
+<label class="radio-label" for="option-h">{{ _('Lunes') }}</label>
+
+<input class="radio-input" id="option-i" type="radio" name="optionstwo" value="{{ _('Martes') }}" {% if congregation[10] == _('Martes') %} checked {% endif %}>
+<label class="radio-label" for="option-i">{{ _('Martes') }}</label>
+
+<input class="radio-input" id="option-j" type="radio" name="optionstwo" value="{{ _('Miércoles') }}" {% if congregation[10] == _('Miércoles') %} checked {% endif %}>
+<label class="radio-label" for="option-j">{{ _('Miércoles') }}</label>
+
+<input class="radio-input" id="option-k" type="radio" name="optionstwo" value="{{ _('Jueves') }}" {% if congregation[10] == _('Jueves') %} checked {% endif %}>
+<label class="radio-label" for="option-k">{{ _('Jueves') }}</label>
+
+<input class="radio-input" id="option-l" type="radio" name="optionstwo" value="{{ _('Viernes') }}" {% if congregation[10] == _('Viernes') %} checked {% endif %}>
+<label class="radio-label" for="option-l">{{ _('Viernes') }}</label>
+
+<input class="radio-input" id="option-m" type="radio" name="optionstwo" value="{{ _('Sábado') }}" {% if congregation[10] == _('Sábado') %} checked {% endif %}>
+<label class="radio-label" for="option-m">{{ _('Sábado') }}</label>
+
+<input class="radio-input" id="option-n" type="radio" name="optionstwo" value="{{ _('Domingo') }}" {% if congregation[10] == _('Domingo') %} checked {% endif %}>
+<label class="radio-label" for="option-n">{{ _('Domingo') }}</label>
+
+<input class="form-control ml-1" type="time" name="hora_inicio_fin_semana" placeholder="{{ _('Hora de inicio') }}" aria-label="{{ _('Hora de inicio') }}" style="width:24.5%;" value="{{ congregation[4] if congregation else '' }}" />
+
 </div>
 <br>
-<p class="f4 mb-0">Dirección del Salón del Reino</p>
+<p class="f4 mb-0">{{ _('Dirección del Salón del Reino') }}</p>
 <input class="form-control width-full mb-3" id="example-textarea" name="direccion_salon" autocomplete="off" value="{{ congregation[5] }}" />
 <br>  
 
-<p class="f4 mb-0">Datos del superintendente de circuito</p>
-<input class="form-control" type="text" name="superintendente_circuito" placeholder="Superintendente de circuito" aria-label="Superintendente de circuito " style="width: 59%;" value="{{ congregation[6] if congregation else '' }}" autocomplete="off" />
-<input class="form-control" type="number" name="telefono" placeholder="Número de teléfono" aria-label="Número de teléfono" style="width:20%;" value="{{ congregation[7] if congregation else '' }}" autocomplete="off" />  
-<input class="form-control" type="text" name="circuito" placeholder="Circuito" aria-label="Circuito" style="width:20%;" value="{{ congregation[8] if congregation else '' }}" autocomplete="off" />
+<p class="f4 mb-0">{{ _('Datos del superintendente de circuito') }}</p>
+<input class="form-control" type="text" name="superintendente_circuito" placeholder="{{ _('Superintendente de circuito') }}" aria-label="{{ _('Superintendente de circuito') }}" style="width: 59%;" value="{{ congregation[6] if congregation else '' }}" autocomplete="off" />
+<input class="form-control" type="number" name="telefono" placeholder="{{ _('Número de teléfono') }}" aria-label="{{ _('Número de teléfono') }}" style="width:20%;" value="{{ congregation[7] if congregation else '' }}" autocomplete="off" />  
+<input class="form-control" type="text" name="circuito" placeholder="{{ _('Circuito') }}" aria-label="{{ _('Circuito') }}" style="width:20%;" value="{{ congregation[8] if congregation else '' }}" autocomplete="off" />
+
 <br><br>
 <div class="form-actions" style="margin-bottom: 30px;">
     <button type="submit" class="btn btn-primary">Guardar cambios</button>

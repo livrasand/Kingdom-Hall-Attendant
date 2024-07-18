@@ -41,15 +41,16 @@
    <div class="container-xl mt-6">
       <div class="container-xl mb-6">
          <div class="container-xl clearfix">
+            
             <form action="/guardar_bosquejo" method="POST">
                <input type="hidden" name="id" value="{{ bosquejo[0] }}" style="display: none;">
-               <label class="" htmlFor="name">Orador</label><br>
+               <label class="" htmlFor="name">{{ _('Orador') }}</label><br>
                <input class="form-control width-full mb-2" type="text" id="name" value="{{ bosquejo[1] }} {{ bosquejo[2] }}" />
 
 {% if bosquejo[4] %}
     <div class="flash-messages" id="flashMessages">
         <div class="flash">
-            Este orador es invitado de la congregación 
+            {{ _('Este orador es invitado de la congregación') }} 
             <button class="btn-link" type="button" id="btnCongregacion">{{ bosquejo[4] }}</button>
         </div>
     </div>
@@ -57,34 +58,35 @@
 
 
 
-               <label class="" htmlFor="name">Número del discurso</label>
+               <label class="" htmlFor="name">{{ _('Número del discurso') }}</label>
                <br>
                <input class="form-control" type="text" id="discurso_numero" name="discurso_numero" value="{{ bosquejo[5] }}" />
                <div class="flash-messages mt-2">
     <div class="flash flash-warn">
     {% if columnas_con_uno %}
-        Este orador tiene preparados estos bosquejos:
-            {% set total_columnas = columnas_con_uno|length %}
-            {% for columna in columnas_con_uno %}
-                {{ columna.split('_')[-1] }}
-                {% set index = loop.index %}
-                {% if index != total_columnas %}
-                    {% if index == total_columnas - 1 %}
-                        y 
-                    {% else %}
-                        ,
-                    {% endif %}
-                {% else %}
-                    .
-                {% endif %}
-            {% endfor %}
-    {% else %}
-        Este orador aún no se ha preparado con ningún bosquejo.
-    {% endif %}
+    {{ _('Este orador tiene preparados estos bosquejos:') }}
+    {% set total_columnas = columnas_con_uno|length %}
+    {% for columna in columnas_con_uno %}
+        {{ columna.split('_')[-1] }}
+        {% set index = loop.index %}
+        {% if index != total_columnas %}
+            {% if index == total_columnas - 1 %}
+                y
+            {% else %}
+                ,
+            {% endif %}
+        {% else %}
+            .
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {{ _('Este orador aún no se ha preparado con ningún bosquejo.') }}
+{% endif %}
+
 </div>
 </div>
 
-               <p class="f5 mt-2 mb-n1">Fecha:</p>
+               <p class="f5 mt-2 mb-n1">{{ _('Fecha:') }}</p>
                <input class="form-control mt-1" type="date" id="fecha_impartido" name="fecha_impartido" 
        placeholder="Fecha impartido" aria-label="Fecha impartido" style="width:24.5%;"
        value="{{ bosquejo[3] }}" />
@@ -93,7 +95,7 @@
 
                {% if bosquejo[4] %}
                
-               <p class="f5 mt-2">Hospitalidad:</p>
+               <p class="f5 mt-2">{{ _('Hospitalidad:') }}</p>
     {% if grupo %}
         <select class="form-select mb-0 mt-n2 width-full" aria-label="Siervo de grupo" id="hospitalidad" name="hospitalidad">
             <option value="{{ bosquejo[6] }}">{{ bosquejo[6] }}</option>
@@ -109,35 +111,35 @@
 
                <br>
                {% if bosquejo[4] == ''%}
-               <div class="Box-sc-g0xbh4-0 evdGSG mt-3 mb-3" style="display:inline-block;"><div class="Box-sc-g0xbh4-0 kbBARO"><svg aria-hidden="true" focusable="false" role="img" class="Octicon-sc-9kayk9-0 iOgZXa" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible;color: #9a6700;"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path></svg><span class="Text-sc-17v1xeu-0 eqBkeL" style="color: #9a6700;">Tip</span><span class="Text-sc-17v1xeu-0 fUummm" style="display:inline-block;margin-left: 5px;color: #656d76;">Si el orador va a salir a discursar, especifique la congregación</span></div></div>
-               <p class="f5 mb-1">Congregación:</p>
+               <div class="Box-sc-g0xbh4-0 evdGSG mt-3 mb-3" style="display:inline-block;"><div class="Box-sc-g0xbh4-0 kbBARO"><svg aria-hidden="true" focusable="false" role="img" class="Octicon-sc-9kayk9-0 iOgZXa" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible;color: #9a6700;"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path></svg><span class="Text-sc-17v1xeu-0 eqBkeL" style="color: #9a6700;">{{ _('Tip') }}</span><span class="Text-sc-17v1xeu-0 fUummm" style="display:inline-block;margin-left: 5px;color: #656d76;">{{ _('Si el orador va a salir a discursar, especifique la congregación') }}</span></div></div>
+               <p class="f5 mb-1">{{ _('Congregación:') }}</p>
                <input class="form-control width-full" type="text" name="congregacion_visitar" id="congregacion_visitar" value="{{ bosquejo[11] }}" />
                {% endif %}
                <!-- FIN DE LA NOTA -->
                <div class="form-checkbox  mb-0">
                   <label>
                      <input type="checkbox" name="se_ha_quedado_hospitalidad_checkbox" id="se_ha_quedado_hospitalidad_checkbox" {% if bosquejo[8] == 1 %} checked {% endif %} />
-                     <em class="highlight">Se ha quedado a la hospitalidad</em>
+                     <em class="highlight">{{ _('Se ha quedado a la hospitalidad') }}</em>
                   </label>
                </div>
                <div class="form-checkbox mt-3 mb-0">
                   <label>
                      <input type="checkbox" name="se_ha_presentado_tiempo_checkbox" id="se_ha_presentado_tiempo_checkbox" {% if bosquejo[9] == 1 %} checked {% endif %} />
-                     <em class="highlight">Se ha presentado a tiempo</em>
+                     <em class="highlight">{{ _('Se ha presentado a tiempo') }}</em>
                   </label>
                </div>
                <div class="form-checkbox mt-3 mb-2">
                   <label>
                      <input type="checkbox" name="se_ha_presentado_discurso_checkbox" id="se_ha_presentado_discurso_checkbox" {% if bosquejo[10] == 1 %} checked {% endif %} />
-                     <em class="highlight">Se ha presentado al discurso</em>
+                     <em class="highlight">{{ _('Se ha presentado al discurso') }}</em>
                   </label>
                </div>
-               <p class="f5 mt-2 mb-n1">Anotaciones:</p>
+               <p class="f5 mt-2 mb-n1">{{ _('Anotaciones:') }}</p>
                <textarea class="form-control width-full mt-2" id="anotaciones" name="anotaciones" 
           placeholder="Anotaciones">{{ bosquejo[7] }}</textarea>
                <br><br>
                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="submit" class="btn btn-primary">{{ _('Guardar') }}</button>
                   <a href="/eliminar_bosquejo/{{ bosquejo[0] }}" type="button" class="btn btn-danger">
                      <!-- <%= octicon "trashcan" %> -->
                      <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -145,7 +147,7 @@
                            d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z">
                         </path>
                      </svg>
-                     <span>Eliminar</span>
+                     <span>{{ _('Eliminar') }}</span>
                   </a>
                </div>
             </form>

@@ -39,9 +39,9 @@
          </div>
       </div>
 
-        <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()">Imprimir</a>
+        <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()">{{ _('Imprimir') }}</a>
       <div className="d-flex flex-justify-end ml-2">
-        <a class="btn btn-sm float-right mr-3" href="{{ url_for('nuevo_estudio_atalaya') }}">Nuevo</a>
+        <a class="btn btn-sm float-right mr-3" href="{{ url_for('nuevo_estudio_atalaya') }}">{{ _('Nuevo') }}</a>
                </div>
       </div>
    <div class="container-xl mt-6">      
@@ -49,12 +49,12 @@
          <div class="container-lg clearfix">
              <!-- HEAD PRINT -->
       <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3 ml-2 mt-n4" style="width:85%;">Reunión de fin de semana</p>
+         <p class="h3 ml-2 mt-n4" style="width:85%;">{{ _('Reunión de fin de semana') }}</p>
          <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
 {% if congregacion %}
     {{ congregacion }}
 {% else %}
-    Registra tu congregación
+    {{ _('Registra tu congregación') }}
 {% endif %}</p>
       </div>
       <!-- HEAD PRINT -->
@@ -68,19 +68,19 @@
                 </div>
                 <div class="container-lg clearfix" style="width: 85%;">
                     <div class="col-3 float-left">
-                        <p class="h4">Presidente:</p>
+                        <p class="h4">{{ _('Presidente:') }}</p>
                         <p class="mt-n2">{{ estudio[2] }}</p> <!-- presidente -->
                     </div>
                     <div class="col-3 float-left">
-                        <p class="h4">Oración de inicio:</p>
+                        <p class="h4">{{ _('Oración de inicio:') }}</p>
                         <p class="mt-n2">{{ estudio[3] }}</p> <!-- oracion_inicio -->
                     </div>
                     <div class="col-3 float-left">
-                        <p class="h4">Lector de <em>La Atalaya</em>:</p>
+                        <p class="h4">{{ _('Lector de <em>La Atalaya</em>:') }}</p>
                         <p class="mt-n2">{{ estudio[4] }}</p> <!-- lector_atalaya -->
                     </div>
                     <div class="col-3 float-left">
-                        <p class="h4">Sust. oración final:</p>
+                        <p class="h4">{{ _('Sust. oración final:') }}</p>
                         <p class="mt-n2">{{ estudio[5] }}</p> <!-- oracion_final -->
                     </div>
                 </div>
@@ -97,7 +97,7 @@
 {% else %}
     <div class="container-lg mt-1" align="center">
         <h1>🤔</h1>
-        <h4 style="width:50%;">¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón "Nuevo".</h4>
+        <h4 style="width:50%;">{{ _('¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón "Nuevo".') }}</h4>
     </div>
 {% endif %}
 
@@ -106,8 +106,8 @@
       <!-- FOOTER PRINT -->
       <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
     <img class="ml-1 mt-1 mb-1" src="static/images/frame.png" width="85px">
-    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
-    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">Impreso el <span id="fecha"></span></p>
+    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">{{ _('Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.') }}</p>
+    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">{{ _('Impreso el') }} <span id="fecha"></span></p>
 </div>
       <!-- FOOTER PRINT -->
    </div>

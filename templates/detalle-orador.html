@@ -40,29 +40,29 @@
          <div class="container-xl">
             <div class="container-lg clearfix">
                <div class="col-12 float-left p-4 mt-n4">
-                  <p class="h2">Datos del orador</p>
+                  <p class="h2">{{ _('Datos del orador') }}</p>
                   <form action="/guardar_orador" method="POST">
                      <input type="hidden" name="id" value="{{ orador[0] }}" style="display: none;">
-<input class="form-control" type="text" name="nombres" placeholder="Nombres" aria-label="Nombres" style="width: 49%;" value="{{ orador[1] }}" />
-<input class="form-control" type="text" name="apellidos" placeholder="Apellidos" aria-label="Apellidos" style="width:49%;" value="{{ orador[2] }}" />
+<input class="form-control" type="text" name="nombres" placeholder="{{ _('Nombres') }}" aria-label="Nombres" style="width: 49%;" value="{{ orador[1] }}" />
+<input class="form-control" type="text" name="apellidos" placeholder="{{ _('Apellidos') }}" aria-label="Apellidos" style="width:49%;" value="{{ orador[2] }}" />
 <div class="form-checkbox mt-2">
     <label>
         <input type="checkbox" name="aprobado_para_salir" id="aprobado_para_salir" {% if orador[3] == 1 %} checked {% endif %} />
-        <em class="highlight">Aprobado para salir</em>
+        <em class="highlight">{{ _('Aprobado para salir ') }}</em>
     </label>
 </div>
-<div class="Box-sc-g0xbh4-0 evdGSG" style="display:inline-block;"><div class="Box-sc-g0xbh4-0 kbBARO"><svg aria-hidden="true" focusable="false" role="img" class="Octicon-sc-9kayk9-0 iOgZXa" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible;color: #9a6700;"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path></svg><span class="Text-sc-17v1xeu-0 eqBkeL" style="color: #9a6700;">Tip</span><span class="Text-sc-17v1xeu-0 fUummm" style="display:inline-block;margin-left: 5px;color: #656d76;">Si el orador es foráneo, especifique su congregación de origen</span></div></div>
-<input class="form-control width-full mt-2" type="text" name="congregacion" placeholder="Congregación" aria-label="congregacion" value="{{ orador[202] }}" />
-<input class="form-control width-full mt-2" type="email" name="correo_electronico" placeholder="Correo electrónico" aria-label="Correo electrónico" value="{{ orador[4] }}" />
-<input class="form-control width-full mt-2" type="number" name="celular" placeholder="Celular" aria-label="Celular" value="{{ orador[5] }}" />
-<input class="form-control width-full mt-2" type="number" name="telefono" placeholder="Teléfono" aria-label="Teléfono" value="{{ orador[6] }}" />
+<div class="Box-sc-g0xbh4-0 evdGSG" style="display:inline-block;"><div class="Box-sc-g0xbh4-0 kbBARO"><svg aria-hidden="true" focusable="false" role="img" class="Octicon-sc-9kayk9-0 iOgZXa" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible;color: #9a6700;"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16ZM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.519 1.519 0 0 1 13.482 13H2.518a1.516 1.516 0 0 1-1.263-2.36l1.703-2.554A.255.255 0 0 0 3 7.947Zm5-3.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.017.017 0 0 0-.003.01l.001.006c0 .002.002.004.004.006l.006.004.007.001h10.964l.007-.001.006-.004.004-.006.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.745 1.745 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5Z"></path></svg><span class="Text-sc-17v1xeu-0 eqBkeL" style="color: #9a6700;">{{ _('Tip') }}</span><span class="Text-sc-17v1xeu-0 fUummm" style="display:inline-block;margin-left: 5px;color: #656d76;">{{ _('Si el orador es foráneo, especifique su congregación de origen') }}</span></div></div>
+<input class="form-control width-full mt-2" type="text" name="congregacion" placeholder="{{ _('Congregación') }}" aria-label="congregacion" value="{{ orador[202] }}" />
+<input class="form-control width-full mt-2" type="email" name="correo_electronico" placeholder="{{ _('Correo electrónico') }}" aria-label="Correo electrónico" value="{{ orador[4] }}" />
+<input class="form-control width-full mt-2" type="number" name="celular" placeholder="{{ _('Celular') }}" aria-label="Celular" value="{{ orador[5] }}" />
+<input class="form-control width-full mt-2" type="number" name="telefono" placeholder="{{ _('Teléfono') }}" aria-label="Teléfono" value="{{ orador[6] }}" />
 <div class="radio-group mt-2">
         <input class="radio-input" id="option-anciano" type="radio" name="nombramiento" value="Anciano" {% if orador[7] == 'Anciano' %} checked {% endif %}>
-        <label class="radio-label" for="option-anciano">Anciano</label>
+        <label class="radio-label" for="option-anciano">{{ _('Anciano') }}</label>
         
         <input class="radio-input" id="option-siervom" type="radio" name="nombramiento" value="Siervo ministerial" {% if orador[7] == 'Siervo ministerial' %} checked {% endif %}>
-        <label class="radio-label" for="option-siervom">Siervo ministerial</label>
-    </div>              <p class="f5 mb-n3 mt-3">Bosquejos preparados</p>
+        <label class="radio-label" for="option-siervom">{{ _('Siervo ministerial') }}</label>
+    </div>              <p class="f5 mb-n3 mt-3">{{ _('Bosquejos preparados') }}</p>
                      <div class="container-lg clearfix mt-3">
                         <div class="col-2 float-left p-0">
                            <div class="form-checkbox mt-0 mb-0">
@@ -1036,13 +1036,13 @@
                      </div>
                      <br><br>
                      <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">{{ _('Guardar') }}</button>
     <a href="/eliminar_orador/{{ orador[0] }}" type="button" class="btn btn-danger">
         <!-- Aquí tu SVG o cualquier otro icono -->
         <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
             <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
         </svg>
-        <span>Eliminar</span>
+        <span>{{ _('Eliminar') }}</span>
     </a>
 
                      </div>

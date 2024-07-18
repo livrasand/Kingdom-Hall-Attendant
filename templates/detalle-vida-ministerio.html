@@ -24,13 +24,13 @@
    <div id="loading-screen">
     <div id="loading-spinner"></div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <h3>Sincronizando datos de la reunión</h3>
+    <h3>{{ _('Sincronizando datos de la reunión') }}</h3>
 </div>
 
 <div id="saving-screen">
     <div id="loading-spinner"></div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <h3>Guardando...</h3>
+    <h3>{{ _('Guardando...') }}</h3>
 </div>
 
       <div class="Header color-bg-inset">
@@ -63,28 +63,28 @@
         <nav class="paginate-container"> 
             <div class="pagination"> 
                 <a class="previous_page" href="{{ url_previous }}"> 
-                     Anterior
+                     {{ _('Anterior') }}
                 </a> 
-                <a href="/nuevo-vida-ministerio" style="text-decoration: none;border: none;"><em aria-current="Page1"> Esta semana </em></a> 
+                <a href="/nuevo-vida-ministerio" style="text-decoration: none;border: none;"><em aria-current="Page1"> {{ _('Esta semana') }} </em></a> 
                 <a class="next_page" href="{{ url_next }}" > 
-                    Próxima 
+                    {{ _('Próxima') }} 
                 </a> 
             </div> 
         </nav> 
     </div> 
                      <div class="color-fg-on-emphasis p-2 rounded mb-4" style="background-color: #0969da; color: #ffffff;">{{ week_info }}</div>
 
-                 <label class="" for="presidente">Presidente:</label>
+                 <label class="" for="presidente">{{ _('Presidente:') }}</label>
    <select class="form-select mb-2 width-full" id="presidente" name="presidente">
-       <option value="">Seleccione un presidente</option>
+       <option value="">{{ _('Seleccione un presidente') }}</option>
        {% for presidente in presidentes %}
            <option value="{{ presidente }}">{{ presidente }}</option>
        {% endfor %}
    </select>
 
-<label class="" htmlFor="name">Oración de inicio:</label>
+<label class="" htmlFor="name">{{ _('Oración de inicio:') }}</label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_inicio" name="oracion_inicio">
-        <option value="">Selecciona un publicador</option>
+        <option value="">{{ _('Selecciona un publicador') }}</option>
         {% for orador in oradores %}
         <option value="{{ orador }}">{{ orador }}</option>
     {% endfor %}
@@ -118,33 +118,33 @@
                     {% if 'Canción' not in h3 %}
                         <p>{{ h3 }}</p>
                         {% if 'Estudio bíblico de la congregación' in h3 %}
-                            <label for="conductor_{{ h3 }}"><strong>Conductor:</strong></label>
+                            <label for="conductor_{{ h3 }}"><strong>{{ _('Conductor:') }}</strong></label>
                     <select class="form-select mb-2" id="conductor_{{ h3 }}" name="conductor_{{ h3 }}">
-                        <option value="">Seleccione un conductor</option>
+                        <option value="">{{ _('Seleccione un conductor') }}</option>
                         {% for conductor in conductores %}
                             <option value="{{ conductor[0] }} {{ conductor[1] }}">{{ conductor[0] }} {{ conductor[1] }}</option>
                         {% endfor %}
                     </select>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="lector_{{ h3 }}"><strong>Lector:</strong></label>
+                    <label for="lector_{{ h3 }}"><strong>{{ _('Lector:') }}</strong></label>
                     <select class="form-select mb-2" id="lector_{{ h3 }}" name="lector_{{ h3 }}">
-                        <option value="">Seleccione un lector</option>
+                        <option value="">{{ _('Seleccione un lector') }}</option>
                         {% for lector in lectores %}
                             <option value="{{ lector[0] }} {{ lector[1] }}">{{ lector[0] }} {{ lector[1] }}</option>
                         {% endfor %}
                     </select>
                         {% elif 'Discurso' in h3 %}
-                            <label class="" htmlFor="name"><strong>Publicador:</strong></label>
+                            <label class="" htmlFor="name"><strong>{{ _('Publicador:') }}</strong></label>
                             <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
-                                <option value="">Seleccione un publicador</option>
+                                <option value="">{{ _('Seleccione un publicador') }}</option>
                                 {% for discursante in discursantes %}
                                 <option value="{{ discursante[0] }} {{ discursante[1] }}">{{ discursante[0] }} {{ discursante[1] }}</option>
                                 {% endfor %}
                             </select>
                         {% elif show_label_and_select %}
-                            <label for="publicador_{{ h3 }}">Publicador:</label>
+                            <label for="publicador_{{ h3 }}">{{ _('Publicador:') }}</label>
                     <select class="form-select mb-2" id="publicador_{{ h3 }}" name="publicador_{{ h3 }}">
-                        <option value="">Seleccione un publicador</option>
+                        <option value="">{{ _('Seleccione un publicador') }}</option>
                         {% for publicador in publicadores %}
                             <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
                         {% endfor %}
@@ -152,9 +152,9 @@
                             {% set show_label_and_select = False %}
                             {% if show_second_label_and_select %}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label for="ayudante_{{ h3 }}">Ayudante:</label>
+                                <label for="ayudante_{{ h3 }}">{{ _('Ayudante:') }}</label>
                     <select class="form-select mb-2" id="ayudante_{{ h3 }}" name="ayudante_{{ h3 }}">
-                        <option value="">Seleccione un ayudante</option>
+                        <option value="">{{ _('Seleccione un ayudante') }}</option>
                         {% for publicador in publicadores %}
                             <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
                         {% endfor %}
@@ -171,16 +171,16 @@
 
 
 
-<label class="" htmlFor="name">Oración final:</label>
+<label class="" htmlFor="name">{{ _('Oración final:') }}</label>
 <select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final">
-        <option value="">Selecciona un publicador</option>
+        <option value="">{{ _('Selecciona un publicador') }}</option>
         {% for orador in oradores %}
         <option value="{{ orador }}">{{ orador }}</option>
     {% endfor %}
 </select>
                     <br><br>
                      <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">{{ _('Guardar') }}</button>
                      </div>
                   </form>
                </div>
