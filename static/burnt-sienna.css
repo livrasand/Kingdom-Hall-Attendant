@@ -12925,14 +12925,6 @@ button {
 	line-height: inherit
 }
 
-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-	font-size: var(--body-font-size, 14px);
-	line-height: 1.5;
-	color: var(--color-fg-default);
-	background-color: var(--color-canvas-default)
-}
-
 a {
 	color: var(--color-accent-fg);
 	text-decoration: none
@@ -13494,12 +13486,6 @@ pre {
 	opacity: .75
 }
 
-.btn .octicon {
-	margin-right: 4px;
-	color: var(--color-fg-muted);
-	vertical-align: text-bottom
-}
-
 .btn .octicon:only-child {
 	margin-right: 0
 }
@@ -13515,29 +13501,6 @@ pre {
 .btn .dropdown-caret {
 	margin-left: 4px;
 	opacity: .8
-}
-
-.btn {
-	color: var(--color-btn-text);
-	background-color: var(--color-btn-bg);
-	border-color: var(--color-btn-border);
-	box-shadow: var(--color-btn-shadow), var(--color-btn-inset-shadow);
-	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
-	transition-property: color, background-color, box-shadow, border-color
-}
-
-.btn:hover,
-.btn.hover,
-[open]>.btn {
-	background-color: var(--color-btn-hover-bg);
-	border-color: var(--color-btn-hover-border);
-	transition-duration: .1s
-}
-
-.btn:active {
-	background-color: var(--color-btn-active-bg);
-	border-color: var(--color-btn-active-border);
-	transition: none
 }
 
 .btn.selected,
@@ -13560,20 +13523,6 @@ pre {
 	color: var(--color-primer-fg-disabled)
 }
 
-.btn-primary {
-	color: var(--color-btn-primary-text);
-	background-color: var(--color-btn-primary-bg);
-	border-color: var(--color-btn-primary-border);
-	box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow)
-}
-
-.btn-primary:hover,
-.btn-primary.hover,
-[open]>.btn-primary {
-	background-color: var(--color-btn-primary-hover-bg);
-	border-color: var(--color-btn-primary-hover-border)
-}
-
 .btn-primary:focus {
 	outline: 2px solid var(--color-accent-fg);
 	outline-offset: -2px;
@@ -13594,7 +13543,7 @@ pre {
 .btn-primary:active,
 .btn-primary.selected,
 .btn-primary[aria-selected=true] {
-	background-color: var(--color-btn-primary-selected-bg);
+	background-color: #b37315;
 	box-shadow: var(--color-btn-primary-selected-shadow)
 }
 
@@ -13713,11 +13662,11 @@ a.btn-primary:focus-visible {
 }
 
 .btn-danger {
-	color: var(--color-btn-danger-text)
+	color: #fff;
 }
 
 .btn-danger .octicon {
-	color: var(--color-btn-danger-icon)
+	color: #fff;
 }
 
 .btn-danger:hover,
@@ -14128,7 +14077,7 @@ a.btn-primary:focus-visible {
 	line-height: 20px;
 	color: var(--color-fg-default);
 	vertical-align: middle;
-	background-color: var(--color-canvas-default);
+	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: right 8px center;
 	border: 1px solid var(--color-border-default);
@@ -14431,7 +14380,7 @@ input::-webkit-inner-spin-button {
 	width: 440px;
 	max-width: 100%;
 	margin-right: 5px;
-	background-color: var(--color-canvas-inset)
+	background-color: transparent;
 }
 
 .form-group .form-control:focus {
@@ -17870,7 +17819,7 @@ input.FormControl-radio[type=radio]:focus-visible {
 .tabnav-tab.selected,
 .tabnav-tab[aria-current]:not([aria-current=false]),
 .tabnav-tab[aria-selected=true] {
-	background-color: var(--color-canvas-default);
+	background-color: transparent;
 	border-color: var(--color-border-default);
 	border-radius: var(--primer-borderRadius-medium, 6px) var(--primer-borderRadius-medium, 6px) 0 0;
 	color: var(--color-fg-default)
@@ -20309,8 +20258,18 @@ a.tabnav-extra:hover {
 	color: var(--color-fg-default) !important
 }
 
+.color-fg-default-Header {
+	color: #ffffff !important
+}
+
+
 .color-fg-muted {
 	color: var(--color-fg-muted) !important
+}
+
+.color-fg-muted-Header {
+	color: #ffffff !important;
+	opacity:0.7;
 }
 
 .color-fg-subtle {
@@ -20363,10 +20322,6 @@ a.tabnav-extra:hover {
 
 .color-bg-overlay {
 	background-color: var(--color-canvas-overlay) !important
-}
-
-.color-bg-inset {
-	background-color: var(--color-canvas-inset) !important
 }
 
 .color-bg-subtle {
@@ -27612,15 +27567,14 @@ a.branch-name .octicon {
 }
 
 .Header {
-	z-index: 32;
-	display: flex;
-	padding: 16px;
-	font-size: 14px;
-	line-height: 1.5;
-	color: var(--color-header-text);
-	background-color: var(--color-header-bg);
-	align-items: center;
-	flex-wrap: nowrap
+  z-index: 32;
+  display: flex;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #161616;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .Header-item {
@@ -31467,4 +31421,77 @@ a.branch-name .octicon {
 
 .z-n2 {
 	z-index: -2 !important
+}
+
+/* THEME SETTIGNS */
+.color-bg-inset {
+  background-color: rgba(232, 103, 64);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: var(--body-font-size, 14px);
+  line-height: 1.5;
+  color: #170a06;
+  background-color: rgba(232, 103, 64, 0.02); /* Mismo color que el Header pero en un 0.02% de transparencia  */
+}
+.btn-invisible-Header {
+	color: #fff;
+	background-color: transparent;
+	border: 0;
+	border-radius: 6px;
+	box-shadow: none
+}
+.btn-invisible-Header:hover,
+.btn-invisible.zeroclipboard-is-hover {
+	background-color: #ed8566; /* Tinte del color original a un 20% */
+	outline: none;
+	box-shadow: none
+}
+.btn-invisible-Header:active,
+.btn-invisible.selected,
+.btn-invisible[aria-selected=true],
+.btn-invisible.zeroclipboard-is-active {
+	background: none;
+	border-color: var(--color-btn-active-border);
+	outline: 2px solid var(--color-accent-fg);
+	outline-offset: -2px;
+	box-shadow: none
+}
+.btn-primary {
+	color: var(--color-btn-primary-text);
+	background-color: #ba5233; /* Mismo color que el Header pero 20% de Sombra  */
+	border-color: var(--color-btn-primary-border);
+	box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow)
+}
+.btn-primary:hover,
+.btn-primary.hover,
+[open]>.btn-primary {
+	background-color: #d15d3a; /* Mismo color que el Header pero con 10% de Sombra  */
+	border-color: var(--color-btn-primary-hover-border)
+}
+.btn {
+  color: #fff;
+  background-color: #d15d3a; /* Header color con 10% de Sombra  */
+  border-color: var(--color-btn-border);
+  box-shadow: inset 0 1px 0 #ea7653; /* Header color con 10% de Tinte  */
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: all;
+  transition-property: color, background-color, box-shadow, border-color;
+}
+.btn:hover,
+.btn.hover,
+[open]>.btn {
+	background-color: #ba5233; /* Header color con 20% de Sombra  */
+	border-color: var(--color-btn-hover-border);
+	transition-duration: .1s
+}
+.btn:active {
+	background-color: #d15d3a; /* Mismo color que background del botón */
+	border-color: var(--color-btn-active-border);
+	transition: none
+}
+.btn .octicon {
+	margin-right: 4px;
+	color: #fae1d9;
+	vertical-align: text-bottom
 }

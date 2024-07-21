@@ -161,12 +161,48 @@ def index():
         session['language'] = result['idioma']
         print(f"Idioma actual: {session['language']}")
 
+        cursor.execute("SELECT theme FROM configuracion")
+        resulttheme = cursor.fetchone()
+
+        session['theme'] = resulttheme['theme']
+        print(f"Tema actual: {session['theme']}")
+        theme = session.get('theme', 'primer')
+
     except Exception as e:
         flash(f"Ha ocurrido un error interno con la base de datos: {str(e)}.")
         app.logger.error(f"Error al consultar la base de datos: {str(e)}")
         return redirect(url_for('login'))
 
-    return render_template('index.html', user_data=user_data, apply_golden_style=apply_golden_style)
+    return render_template('index.html', user_data=user_data, apply_golden_style=apply_golden_style, theme=theme)
+
+@app.route('/set_theme/<theme>')
+def set_theme(theme):
+    session['theme'] = theme
+
+    id = session['user_id']
+
+    cursor = g.bd.cursor()
+
+    # Verificar si ya existe una configuración para este usuario
+    cursor.execute("SELECT * FROM configuracion WHERE id = ?", (id,))
+    existing_config = cursor.fetchone()
+
+    if existing_config:
+        # Si ya existe una configuración, actualizarla
+        cursor.execute("""
+            UPDATE configuracion
+            SET theme = ?
+            WHERE id = ?
+        """, (theme, id))
+    else:
+            # Si no existe una configuración, insertarla
+        cursor.execute("""
+            INSERT INTO configuracion (theme)
+            VALUES (?)
+        """, (theme))
+            
+    g.bd.commit()   
+    return redirect(url_for('index'))
 
 @app.route('/congregacion.html')
 def option_one():
@@ -178,7 +214,9 @@ def option_one():
     cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))
     congregation_data = cursor.fetchone()
 
-    return render_template('congregacion.html', congregation=congregation_data)
+    theme = session.get('theme', 'primer')
+
+    return render_template('congregacion.html', congregation=congregation_data, theme=theme)
 
 @app.route('/guardar_congregacion', methods=['POST'])
 def guardar_congregacion():
@@ -219,7 +257,8 @@ def publicadores():
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM publicadores")
     publicadores = cursor.fetchall()
-    return render_template('publicadores.html', publicador_list=publicadores)
+    theme = session.get('theme', 'primer')
+    return render_template('publicadores.html', publicador_list=publicadores, theme=theme)
 
 @app.route('/nuevo_publicador')
 def nuevo_publicador():
@@ -230,7 +269,8 @@ def nuevo_publicador():
     familias = cursor.fetchall()
     cursor.execute("SELECT * FROM grupos_predicacion")
     grupos_predicacion = cursor.fetchall()
-    return render_template('detalle-publicador.html', publicador=None, familia_existente=familia_existente, grupos_predicacion=grupos_predicacion, familias=familias)
+    theme = session.get('theme', 'primer')
+    return render_template('detalle-publicador.html', publicador=None, familia_existente=familia_existente, grupos_predicacion=grupos_predicacion, familias=familias, theme=theme)
 
 
 @app.route('/mostrar_publicador/<int:id>', methods=['GET'])
@@ -250,7 +290,9 @@ def mostrar_publicador(id):
     cursor.execute("SELECT * FROM familias")
     familias = cursor.fetchall()
 
-    return render_template('detalle-publicador.html', publicador=publicador, familia_existente=familia_existente, familias=familias, grupos_predicacion=grupos_predicacion)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-publicador.html', publicador=publicador, familia_existente=familia_existente, familias=familias, grupos_predicacion=grupos_predicacion, theme=theme)
 
 @app.route('/guardar_publicador', methods=['POST'])
 def guardar_publicador():
@@ -499,7 +541,9 @@ def configuracion():
     cursor.execute("SELECT * FROM configuracion WHERE id = ?", (1,))
     configuracion_data = cursor.fetchone()
 
-    return render_template('configuracion.html', configuracion=configuracion_data)
+    theme = session.get('theme', 'primer')
+
+    return render_template('configuracion.html', configuracion=configuracion_data, theme=theme)
 
 @app.route('/guardar_configuracion', methods=['POST'])
 def guardar_configuracion():
@@ -547,7 +591,9 @@ def grupos_predicacion():
     cursor.execute("SELECT * FROM grupos_predicacion")
     grupos = cursor.fetchall()
 
-    return render_template('/grupos-predicacion.html', grupos=grupos)
+    theme = session.get('theme', 'primer')
+
+    return render_template('/grupos-predicacion.html', grupos=grupos, theme=theme)
 
 @app.route('/nuevo_grupo', methods=['GET'])
 def nuevo_grupo():
@@ -559,7 +605,9 @@ def nuevo_grupo():
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_auxiliar_grupo = 1")
     publicadores_auxiliar = cursor.fetchall()
 
-    return render_template('detalle-grupo-predicacion.html', grupo=None, publicadores_siervo=publicadores_siervo, publicadores_auxiliar=publicadores_auxiliar)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-grupo-predicacion.html', grupo=None, publicadores_siervo=publicadores_siervo, publicadores_auxiliar=publicadores_auxiliar, theme=theme)
 
 @app.route('/mostrar_grupo/<int:id>', methods=['GET'])
 def mostrar_grupo(id):
@@ -573,7 +621,9 @@ def mostrar_grupo(id):
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_auxiliar_grupo = 1")
     publicadores_auxiliar = cursor.fetchall()
 
-    return render_template('detalle-grupo-predicacion.html', grupo=grupo, publicadores_siervo=publicadores_siervo, publicadores_auxiliar=publicadores_auxiliar)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-grupo-predicacion.html', grupo=grupo, publicadores_siervo=publicadores_siervo, publicadores_auxiliar=publicadores_auxiliar, theme=theme)
 
 @app.route('/guardar_grupo', methods=['POST'])
 def guardar_grupo():
@@ -625,7 +675,8 @@ def oradores():
     oradores = cursor.fetchall()
     cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
     publicadores_discursantes = cursor.fetchall()
-    return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes)
+    theme = session.get('theme', 'primer')
+    return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
 
 @app.route('/crear_orador', methods=['GET'])
 def crear_orador():
@@ -647,7 +698,8 @@ def mostrar_orador(id):
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM oradores WHERE id = ?", (id,))
     orador = cursor.fetchone()
-    return render_template('detalle-orador.html', orador=orador)
+    theme = session.get('theme', 'primer')
+    return render_template('detalle-orador.html', orador=orador, theme=theme)
 
 @app.route('/guardar_orador', methods=['POST'])
 def guardar_orador():
@@ -1429,7 +1481,8 @@ def eliminar_contenido_configuracion():
 
 @app.route('/nuevo_orador')
 def nuevo_orador():
-    return render_template('/detalle-orador.html', orador=None)
+    theme = session.get('theme', 'primer')
+    return render_template('/detalle-orador.html', orador=None, theme=theme)
 
 @app.route('/bosquejos.html')
 def bosquejos():
@@ -1448,7 +1501,9 @@ def bosquejos():
     else:
         congregacion_formateada = None 
 
-    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list, congregacion=congregacion_formateada)
+    theme = session.get('theme', 'primer')
+
+    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list, congregacion=congregacion_formateada, theme=theme)
 
 
 @app.route('/nuevo_bosquejo', methods=['GET'])
@@ -1492,7 +1547,9 @@ def mostrar_bosquejo(id):
 
     columnas_con_uno = obtener_columnas_con_uno(id)
 
-    return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, columnas_con_uno=columnas_con_uno)
+    theme = session.get('theme', 'primer')
+
+    return render_template('/detalle-bosquejo.html', bosquejo=bosquejo, grupo=None, grupos_list=grupos, columnas_con_uno=columnas_con_uno, theme=theme)
 
 def obtener_columnas_con_uno(id):
     cursor = g.bd.cursor()
@@ -1553,7 +1610,9 @@ def estudio_atalaya():
     else:
         congregacion_formateada = None 
 
-    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas, congregacion=congregacion_formateada)
+    theme = session.get('theme', 'primer')
+
+    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas, congregacion=congregacion_formateada, theme=theme)
 
 @app.route('/mostrar_estudio_atalaya/<int:id>', methods=['GET'])
 def mostrar_estudio_atalaya(id):
@@ -1573,7 +1632,9 @@ def mostrar_estudio_atalaya(id):
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
     lectores = cursor.fetchall()
 
-    return render_template('/detalle-estudio-atalaya.html', detalle_estalaya=detalle_estalaya, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores)
+    theme = session.get('theme', 'primer')
+
+    return render_template('/detalle-estudio-atalaya.html', detalle_estalaya=detalle_estalaya, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores, theme=theme)
 
 @app.route('/nuevo-estudio-atalaya', methods=['GET'])
 def nuevo_estudio_atalaya():
@@ -1589,7 +1650,9 @@ def nuevo_estudio_atalaya():
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
     lectores = cursor.fetchall()
 
-    return render_template('detalle-estudio-atalaya.html', detalle_estalaya=None, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-estudio-atalaya.html', detalle_estalaya=None, presidentes=presidentes_formateados, aprobados_oracion_inicio=aprobados_oracion_inicio, lectores=lectores, theme=theme)
 
 @app.route('/guardar_estudio_atalaya', methods=['POST'])
 def guardar_estudio_atalaya():
@@ -1638,7 +1701,9 @@ def vida_ministerio():
     else:
         congregacion_formateada = None 
 
-    return render_template('vida-ministerio.html', congregacion=congregacion_formateada, vidas_ministerio=vida_ministerio)
+    theme = session.get('theme', 'primer')
+
+    return render_template('vida-ministerio.html', congregacion=congregacion_formateada, vidas_ministerio=vida_ministerio, theme=theme)
 
 @app.route('/nuevo-vida-ministerio', methods=['GET'])
 def nuevo_vida_ministerio():
@@ -1672,7 +1737,9 @@ def nuevo_vida_ministerio():
 
     session['data'] = data
 
-    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes, theme=theme)
 
 def extract_data_from_WOL(year, week):
     url = f"https://wol.jw.org/es/wol/meetings/r4/lp-s/{year}/{week}"
@@ -1788,17 +1855,21 @@ def mostrar_vida_ministerio(id):
         congregacion_formateada = congregacion[0].strip("()'")
     else:
         congregacion_formateada = None 
+
+    theme = session.get('theme', 'primer')
     
     # Aquí renderizas el template con los datos obtenidos de la base de datos
-    return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada, vida_ministerio=vida_ministerio)
+    return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada, vida_ministerio=vida_ministerio, theme=theme)
 
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():
-    return render_template('visita-superint-circuito.html')
+    theme = session.get('theme', 'primer')
+    return render_template('visita-superint-circuito.html', theme=theme)
 
 @app.route('/nueva-actividad')
 def nueva_actividad_visita_superint_circuito():
-    return render_template('detalle-visita-superint-circuito.html')
+    theme = session.get('theme', 'primer')
+    return render_template('detalle-visita-superint-circuito.html', theme=theme)
 
 # Nueva función para verificar la existencia de la tabla
 def table_exists(cursor, table_name):
@@ -2787,14 +2858,18 @@ def literatura():
     else:
         congregacion_formateada = None 
 
-    return render_template('literatura.html', inventarios=inventarios, congregacion=congregacion_formateada) 
+    theme = session.get('theme', 'primer')
+
+    return render_template('literatura.html', inventarios=inventarios, congregacion=congregacion_formateada, theme=theme) 
 
 @app.route('/nuevo_inventario')
 def nuevo_inventario():
   now = datetime.datetime.now()
   month_year = format_date(now, format='MMMM yyyy', locale='es_ES')
 
-  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None) 
+  theme = session.get('theme', 'primer')
+
+  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None, theme=theme) 
 
 @app.route('/mostrar_inventario/<string:mes_ano>', methods=['GET'])
 def mostrar_inventario(mes_ano):
@@ -2803,7 +2878,9 @@ def mostrar_inventario(mes_ano):
     cursor.execute("SELECT * FROM inventario WHERE mes_ano = ?", (mes_ano,))
     detalle_inventario = cursor.fetchone()
 
-    return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario)
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario, theme=theme)
 
 @app.route('/guardar_inventario', methods=['POST'])
 def guardar_inventario():

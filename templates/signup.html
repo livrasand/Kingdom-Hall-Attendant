@@ -68,13 +68,15 @@
     </div>
     <script>
     document.getElementById('resend-link').addEventListener('click', function() {
-        var email = document.getElementById('email').value;
-        if (email) {
-            window.location.href = "{{ url_for('resend_token', email='') }}" + email;
-        } else {
-            alert('Por favor, ingrese su correo electrónico primero.');
-        }
-    });
+    var email = document.getElementById('email').value;
+    if (email) {
+        var encodedEmail = encodeURIComponent(email);
+        window.location.href = "{{ url_for('resend_token', email='') }}" + encodedEmail;
+    } else {
+        alert('Por favor, ingrese su correo electrónico primero.');
+    }
+});
+
 </script>
 </body>
 
