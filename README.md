@@ -8,7 +8,10 @@
 ![Dashboard de KHA](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/e84c5639-f20f-42e3-9ede-b943baf9109f)
 | Discursos públicos | Reunión de fin de semana | Reunión de entre semana | Pantalla de configuración |
 |-------|---------|-------|----------|
-| ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/95f77f61-e1e9-4cc7-83bf-22ea68bea875) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f65d1451-bb55-49f6-9a62-4df19f446271) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/5cda7ee5-0da0-4540-94ac-9a8ce8f47d96) | ![imagen](https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/be30df99-6d05-40b9-bdf3-7031f5257368) |
+| <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/95f77f61-e1e9-4cc7-83bf-22ea68bea875" width="150"> | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/f65d1451-bb55-49f6-9a62-4df19f446271" width="150"> | <img src="https://github.com/livrasand/Kingdom-Hall-Attendant/assets/104039397/5cda7ee5-0da0-4540-94ac-9a8ce8f47d96" width="150"> | <img src="https://github.com/user-attachments/assets/99f07478-1c28-48bd-ac13-5a245340438c" width="150"> |
+| **Conoce los Temas:** | **Primer** | **Dixie** | **Burnt Sienna** |
+| <img src="https://github.com/user-attachments/assets/6251af4b-b78b-4aa5-b62b-811e74c19d74" width="150"> | <img src="https://github.com/user-attachments/assets/9a296407-5f91-4615-883f-36b9275f177e" width="150"> | <img src="https://github.com/user-attachments/assets/df51fa3d-1eac-4c84-8b69-1f0f28bc0288" width="150"> | <img src="https://github.com/user-attachments/assets/f4357e19-4261-45df-aa18-3b29d176f2bc" width="150"> |
+
 
 <h2 style="display: flex; flex-direction: row; justify-content: start;"> <img width="15px" alt="Abod1960" src="https://i.imgur.com/ZGdXKdI.png"> ¿Qué es Kingdom Hall Attendant?</h2>
 
