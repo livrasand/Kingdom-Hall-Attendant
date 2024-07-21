@@ -95,41 +95,42 @@ Personaliza la aplicación a tu gusto y estilo con diferentes temas disponibles.
 
 <summary><kbd>Descubre todas las características de KHA</kbd></summary>
 
-- Registro de editor ilimitado
-- Tarjetas de registro de editor
-- Compartir editores y oradores
-- Sustitutos sugeridos
-- Maneja la información de la congregación y de las editoriales. Vida y Ministerio
-- Programe automáticamente asignaciones de reuniones.
-- Programe automáticamente roles y asignaciones para la reunión.
-- Organización de reuniones de voluntarios.
-- Compartir editores y oradores
-- Organizar las visitas y salidas de los ponentes de la congregación.
-- Programar la hospitalidad para los oradores visitantes y sus gastos de viaje.
-- Vea los discursos públicos que se han dado en su congregación o fuera de ella.
-- Organiza la limpieza y verifica que no falten productos de limpieza.
-- Trabajar eficazmente los territorios de la congregación.
+- Registro de publicadores ilimitados
+- Tarjetas de Registro de Publicador
+- Compartir publicadores y oradores
+- Suplentes sugeridos
+- Administra la información de la congregación y de los publicadores.
+- Vida y Ministerio
+- Programa automáticamente las asignaciones para la reunión.
+- Programa automáticamente los roles y las asignaciones para la reunión.
+- Organización de los voluntarios de las reuniones
+- Compartir publicadores y oradores
+- Organiza las visitas y las salidas de los oradores de la congregación
+- Programe la hospitalidad a los oradores visitantes y sus gastos de viaje
+- Vea los discursos públicos que se han impartido en su congregación o fuera
+- Organize la limpieza, y verifique que no falten productos de limpieza
+- Trabaje eficazmente los territorios de la congregación
 - Programe la visita del superintendente de circuito a la congregación
-- Coordinar el trabajo del césped y el jardín, generalmente siguiendo una lista de tareas pendientes.
-- Programe el mantenimiento preventivo de LDC para el Salón del Reino
-- Crea grupos, asigna miembros y organiza tours.
-- Organizar visitas pastorales a familias y editores.
-- Organizar los publicadores que participan en las mesas y expositores portátiles, los lugares y los días.
-- Programe salidas de servicio del campo y lleve un registro de los lugares de predicación
-- Obtenga informes, registros de cada editorial y vea los análisis de la congregación.
-- Registrar la contabilidad de la congregación, las entradas y salidas, preparar el informe mensual.
-- Registrar la asistencia a las reuniones y preparar informes de asistencia.
-- Mantenga un inventario actualizado de literatura y prepárese para las campañas.
-- Coordinar y mantener un registro de los asuntos judiciales de la congregación.
-- Organizar la conmemoración y el discurso público especial
-- Organizar ayuda a hermanos necesitados con un servicio fiel
-- Organizar trabajos de socorro para las víctimas de desastres y emergencias.
-- Organizar visitas a grupos para servicio.
-- Recursos y herramientas o programar un futuro procedimiento clínico
-- Organizar visitas a pacientes para brindarles consuelo y ayuda espiritual.
-- Obtenga un informe detallado de la congregación y compártalo fácilmente con el superintendente de circuito.
-- Realiza copias de seguridad de la información más importante
-- Agrega tus datos personales, cambia la apariencia o idioma de KHA, entre muchos más
+- Coordine el trabajo del cesped y jardín, siguiendo por lo general una lista de tareas
+- Programe el mantenimiento de LDC preventivo para el Salón del Reino
+- Cree grupos, asigne a los miembros y organize visitas
+- Organize las visitas de pastoreo a las familias y publicadores
+- Organize los publicadores que participan en las mesas y exhibidores portatiles, los lugares y los días
+- Programe las salidas al servicio del campo, y lleve un registro de los lugares predicados
+- Obtenga informes, registros de cada publicador, y vea los análisis de la congregación
+- Registre la contabilidad de la congregacion, las entradas y salidas, prepare el informe mensual 
+- Registre la asistencia a las reuniones y prepare informes de las asistencias
+- Mantenga un inventario progresivo de la literatura, prepárese para las campañas
+- Coordine y mantenga un registro de los asuntos judiciales de la congregación
+- Organice la Conmemoración y el Discurso público especial
+- Organice la ayuda a hermanos necesitados con un fiel servicio
+- Organice labores de socorro a las víctimas de desastres y emergencias
+- Organice visitas a los grupos para el servicio
+- Recursos y herramientas o agendar un procedimiento clínico futuro
+- Organice visitas a Pacientes para dar consuelo espiritual y ayuda
+- Obtenga un informe detallado de la congregación, comparta fácilmente con el superintendente de circuito
+- Realice copias de seguridad de la información más importante
+- Añada sus datos personales, cambie la apariencia o el idioma de KHA, entre algunos más
 
 
 </details>
