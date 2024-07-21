@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+    - name: Enviar un correo electrónico al desarrollador
+      url: mailto:livrasand@outlook.com
+      about: NO utilice este correo electrónico para publicar problemas o solicitudes de funciones (solo contactos comerciales o personales importantes).
