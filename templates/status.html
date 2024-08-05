@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Hall Attendant Status</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .status { margin: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .online { color: green; }
+        .offline { color: red; }
+        .up-to-date { color: green; }
+        .outdated { color: red; }
+        form { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Kingdom Hall Attendant Status</h1>
+    <div id="status-container">
+        Loading...
+    </div>
+    <form id="subscribe-form">
+        <h2>Subscribe for notifications</h2>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+    <script>
+        fetch('/status')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('status-container');
+                container.innerHTML = '';
+                for (const [key, value] of Object.entries(data)) {
+                    const statusDiv = document.createElement('div');
+                    let statusClass = 'status ';
+                    
+                    // Asigna clases según el estado
+                    if (value.toLowerCase() === 'online') {
+                        statusClass += 'online';
+                    } else if (value.toLowerCase() === 'offline') {
+                        statusClass += 'offline';
+                    } else if (value.toLowerCase() === 'up-to-date') {
+                        statusClass += 'up-to-date';
+                    } else if (value.toLowerCase() === 'outdated') {
+                        statusClass += 'outdated';
+                    }
+                    
+                    statusDiv.className = statusClass;
+                    statusDiv.textContent = `${key}: ${value}`;
+                    container.appendChild(statusDiv);
+                }
+            });
+
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            fetch('/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Subscribed successfully!');
+                document.getElementById('email').value = '';
+            });
+        });
+    </script>
+</body>
+</html>

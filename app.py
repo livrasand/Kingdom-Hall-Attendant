@@ -13,16 +13,23 @@ import shutil
 from werkzeug.exceptions import HTTPException
 from babel.dates import format_date
 from flask_babel import Babel, _
+import time
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from werkzeug.security import generate_password_hash, check_password_hash, gen_salt
+import uuid
+import threading
+import re
 
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
+app.config['JWT_SECRET_KEY'] = '37bd4322ca093419b36325826a092389a1140b5c501ca75e6c7acfc80af66955'
 
 app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
-# Configuración de Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
@@ -31,16 +38,14 @@ app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
 app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
-
 babel = Babel(app)
+bcrypt = Bcrypt(app)
+jwt = JWTManager(app)
 
+#@babel.localeselector
 def get_locale():
-    return session.get('language')  # Valor por defecto
+    return session.get('language')
 
-# Inicializa Babel con la función de selección de idioma
-babel.init_app(app, locale_selector=get_locale)
-
-# Configuración de SQLite
 DATABASE = 'cavea.db'
 
 def get_db():
@@ -131,7 +136,103 @@ def login():
 
 @app.route('/helloworld')
 def helloworld():
-    return 'Hello World!!'
+    return render_template('status.html')
+
+@app.route('/status', methods=['GET'])
+def status():
+    status = {
+        "domain": check_domain(),
+        "server": check_server(),
+        "database": check_database(),
+        "code": check_code()
+    }
+    return jsonify(status)
+
+def send_email_status(subject, body, recipients):
+    msg = Message(subject, sender=app.config['MAIL_USERNAME'], recipients=recipients)
+    msg.body = body
+    mail.send(msg)
+
+previous_status = None
+
+def monitor_status():
+    global previous_status
+    while True:
+        current_status = {
+            "domain": check_domain(),
+            "server": check_server(),
+            "database": check_database(),
+            "code": check_code()
+        }
+
+        if current_status != previous_status:
+            # Si el estado ha cambiado, envía correos a los suscriptores
+            conn = sqlite3.connect(DATABASE)
+            cursor = conn.cursor()
+            cursor.execute("SELECT email FROM subscriptions")
+            subscribers = [row[0] for row in cursor.fetchall()]
+            conn.close()
+
+            status_message = '\n'.join([f"{key}: {value}" for key, value in current_status.items()])
+            send_email_status("Kingdom Hall Attendant Status Update", status_message, subscribers)
+
+            previous_status = current_status
+
+        time.sleep(10)  # Revisa cada 10 segundos
+
+# Inicia el hilo de monitoreo
+monitor_thread = threading.Thread(target=monitor_status, daemon=True)
+monitor_thread.start()
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    data = request.json
+    email = data.get('email')
+
+    if not email:
+        return jsonify({"error": "Email is required"}), 400
+
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute("INSERT OR IGNORE INTO subscriptions (email) VALUES (?)", (email,))
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Subscribed successfully"}), 201
+
+def check_domain():
+    try:
+        response = requests.get('https://www.getkha.org')
+        if response.status_code == 200:
+            return "Online"
+        else:
+            return "Offline"
+    except requests.ConnectionError:
+        return "Offline"
+
+def check_server():
+    try:
+        response = requests.get('https://www.getkha.org', timeout=5)
+        if response.status_code == 200:
+            return "Online"
+        else:
+            return "Offline"
+    except requests.ConnectionError:
+        return "Offline"
+    except requests.Timeout:
+        return "Offline"
+
+def check_database():
+    try:
+        conn = sqlite3.connect('cavea.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT 1')
+        return "Online"
+    except sqlite3.Error:
+        return "Offline"
+
+def check_code():
+    return "Up-to-date" 
 
 @app.route('/login-desktop-client')
 def login_desktop():
@@ -1918,7 +2019,7 @@ def accessing():
     cursor.execute("SELECT id, database, contraseña, golden_edition FROM emptor WHERE correo = ?", (email,))
     result = cursor.fetchone()
     
-    if result and result['contraseña'] == password:
+    if result and bcrypt.check_password_hash(result['contraseña'], password):
         user_id = result['id']
         user_db_name = result['database']
         user_golden_edition = result['golden_edition']
@@ -2263,7 +2364,7 @@ def send_login_notification(sender, recipient, email, last_login, requester_ip):
                         <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                             <tr>
-                              <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="https://www.getkha.org/login" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+                              <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="https://www.getkha.org/change-password" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
                                 Proteger cuenta
                               </a> </td>
                             </tr>
@@ -2826,10 +2927,13 @@ def confirm_email(token):
         if request.method == 'POST':
             password = request.form['password']
             
+            # Hash de la contraseña
+            hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+            
             # Actualizar la entrada en la base de datos con la contraseña y last_login
             now = datetime.datetime.now()
             logging.debug(f"Actualizando last_login a: {now}")
-            cursor.execute("UPDATE emptor SET contraseña = ?, last_login = ? WHERE correo = ?", (password, now, email))
+            cursor.execute("UPDATE emptor SET contraseña = ?, last_login = ? WHERE correo = ?", (hashed_password, now, email))
             conn.commit()
             conn.close()
 
@@ -2842,6 +2946,7 @@ def confirm_email(token):
         conn.close()
         flash('El enlace de confirmación es inválido o ha expirado.')
         return redirect(url_for('register'))
+
 
 @app.route('/literatura')
 def literatura():
@@ -3137,12 +3242,323 @@ def logout():
     session.pop('user_id', None)
     session.pop('user_ge', None)
     session.pop('language', None)
-    # Redirige a la página de inicio o a otra página
 
-    # Verificar si la solicitud proviene de la aplicación de escritorio
+    # Verifica si la solicitud proviene de la aplicación de escritorio
     if request.headers.get('X-Client-Type') == 'desktop':
-        return redirect(url_for('login_desktop'))
+        # Retorna un mensaje para notificar al cliente (Electron)
+        return 'Logout successful', 200
     return redirect('/')
+
+@app.route('/sse_logout')
+def sse_logout():
+    def notify():
+        while True:
+            time.sleep(1)
+            yield 'data: keep-alive\n\n'
+
+    return Response(notify(), mimetype='text/event-stream')
+
+@app.route('/change-password')
+def change_password():
+    return render_template('change-password.html')
+
+@app.route('/update_password', methods=['GET', 'POST'])
+def update_password():
+    if request.method == 'POST':
+        email = request.form['email']
         
+        conn = sqlite3.connect(DATABASE)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("SELECT correo FROM emptor WHERE correo = ?", (email,))
+        user = cursor.fetchone()
+        
+        if user:
+            # Generar un token para el enlace de actualización de contraseña
+            token = str(uuid.uuid4())
+            token_expiration = datetime.datetime.now() + datetime.timedelta(hours=1)
+            
+            # Actualizar el token y la expiración en la base de datos
+            cursor.execute("UPDATE emptor SET token = ?, token_expiration = ? WHERE correo = ?", (token, token_expiration.isoformat(), email))
+            conn.commit()
+            conn.close()
+            
+            # Enviar el correo con el enlace de actualización
+            reset_link = url_for('confirm_password_update', token=token, _external=True)
+            msg = Message('Kingdom Hall Attendant: Actualiza tu contraseña', sender=app.config['MAIL_USERNAME'], recipients=[email])
+            msg.html = f"""
+            <!doctype html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+      <title> </title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style type="text/css">
+        #outlook a {{
+          padding: 0;
+        }}
+
+        body {{
+          margin: 0;
+          padding: 0;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }}
+
+        table,
+        td {{
+          border-collapse: collapse;
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+        }}
+
+        img {{
+          border: 0;
+          height: auto;
+          line-height: 100%;
+          outline: none;
+          text-decoration: none;
+          -ms-interpolation-mode: bicubic;
+        }}
+
+        p {{
+          display: block;
+          margin: 13px 0;
+        }}
+      </style>
+      <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+      <![endif]-->
+      <!--[if lte mso 11]>
+        <style type="text/css">
+          .outlook-group-fix {{ width:100% !important; }}
+        </style>
+      <![endif]-->
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+      <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+      </style>
+      <style type="text/css">
+        @media only screen and (min-width:480px) {{
+          .mj-column-per-100 {{
+            width: 100% !important;
+            max-width: 100%;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        @media only screen and (max-width:480px) {{
+          table.full-width-mobile {{
+            width: 100% !important;
+          }}
+          td.full-width-mobile {{
+            width: auto !important;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        * {{
+          text-rendering: optimizeLegibility;
+          -moz-osx-font-smoothing: grayscale;
+          font-smoothing: antialiased;
+          -webkit-font-smoothing: antialiased;
+        }}
+
+        .type-cta {{
+          user-select: none;
+        }}
+
+        .type-nostyle {{
+          text-decoration: none;
+        }}
+
+        p {{
+          margin-top: 0;
+        }}
+      </style>
+    </head>
+
+    <body style="background-color:white;">
+      <div style="background-color:white;">
+        <!-- logo -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:64px 10% 12px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:54px;"> <a href="https://www.getkha.org" target="_blank">
+                                  <img alt="kingdom hall attendant logo" height="auto" src="https://www.getkha.org/static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;border-radius:25%;" width="54"/>
+                                </a> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body head -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 4px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:8px 0 0 0;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:22px;font-weight:600;line-height:1.2;text-align:center;color:#000000;">Hola. ¿Nueva contraseña?</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:16px 16px 0 16px;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:488px;"> <img alt="kingdom hall attendant subscribe loader" height="auto" src="https://assets.dekks.app/mails/marketing/dekks-loader.gif" style="border:0;border-radius:12px;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="488" /> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 0 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      
+                      <tr>
+                        <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                            <tr>
+                              <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="{reset_link}" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+                                Confirmar el cambio de contraseña
+                              </a> </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size:0px;word-break:break-word;">
+                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #8E8E92;">Si no ha solicitado este correo electrónico, infórmele a livrasand@outlook.com.</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="font-size:0px;word-break:break-word;">
+                          <div style="height:32px;"> &nbsp; </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:24px 16px;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:10px;font-weight:300;line-height:1.2;text-align:center;color:#8E8E92;">© 2024 Kingdom Hall Attendant. Todos los derechos reservados.</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+
+    </html>
+            """
+            mail.send(msg)
+            
+            flash('Enlace de actualización de contraseña enviado. Revisa tu correo electrónico.')
+        else:
+            flash('No se encontró una cuenta con ese correo electrónico.')
+        
+        return redirect(url_for('update_password'))
+    
+    return render_template('change-password.html')
+
+@app.route('/confirm_password_update/<token>', methods=['GET', 'POST'])
+def confirm_password_update(token):
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute("SELECT correo, token_expiration FROM emptor WHERE token = ?", (token,))
+    result = cursor.fetchone()
+    
+    if result:
+        email = result['correo']
+        token_expiration = result['token_expiration']
+        
+        # Verificar si el token ha expirado
+        if datetime.datetime.now() > datetime.datetime.fromisoformat(token_expiration):
+            flash('El enlace de actualización ha expirado. Por favor, solicita un nuevo enlace.')
+            return redirect(url_for('update_password'))
+        
+        if request.method == 'POST':
+            new_password = request.form['password']
+            
+            # Hash de la nueva contraseña
+            hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+            
+            # Actualizar la contraseña en la base de datos sin modificar el campo token
+            cursor.execute("UPDATE emptor SET contraseña = ?, token_expiration = NULL WHERE correo = ?", (hashed_password, email))
+            conn.commit()
+            conn.close()
+            
+            flash('Contraseña actualizada exitosamente.')
+            return redirect(url_for('login'))
+        
+        conn.close()
+        return render_template('confirm-password.html', token=token)
+    else:
+        conn.close()
+        flash('El enlace de actualización es inválido o ha expirado.')
+        return redirect(url_for('update_password'))
+
+@app.route('/manifesto')
+def manifesto():
+    return render_template('manifesto.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -21,6 +21,11 @@
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
       <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <style>
+          #pais-input-validation {
+  display: none; /* Initially hidden */
+}
+      </style>
    </head>
    <body>
       <!-- Tu contenido del encabezado aquí -->
@@ -38,16 +43,6 @@
             <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
             <div class="d-table col-12">
                 {% include 'user_info.html' %}
-            </div>
-            <div class="d-flex flex-justify-end ml-2">
-               <a href="/eliminar_contenido_configuracion">
-                  <button class="btn btn-sm btn-danger mr-2" type="button">
-                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                        <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-                     </svg>
-                     <span>{{ _('Restablecer aplicación') }}</span>
-                 </button>
-                 </a>
             </div>
          </div>
       </div>
@@ -161,24 +156,34 @@
                            </select>
                        </dd>
                    </dl>
-                        <dl class="form-group" id="pais">
-                           <dt><label for="pais">{{ _('País') }}</label></dt>
-                           <dd class="pais-container">
-                              <text-expander>
-                                 <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais" value="{{ configuracion[5] }}">
-                              </text-expander>
-                           </dd>
-                        </dl>  
-                        <dl class="form-group" id="congregacion">
-                           <dt><label for="congregacion">{{ _('Congregación') }}</label></dt>
-                           <dd class="user-profile-company-field-container">
-                              <text-expander>
-                                 <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion" value="{{ configuracion[6] }}">
-                              </text-expander>
-                           </dd>
-                        </dl>  
+                   <dl class="form-group" id="pais">
+                        <div class="form-group successed">
+  <div class="form-group-header">
+    <label for="pais-input">País</label>
+  </div>
+  <div class="form-group-body">
+    <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais-input" aria-describedby="pais-input-validation" value="{{ configuracion[5] }}">
+    <input type="hidden" name="countryCode" id="countryCode">
+  </div>
+  <ul id="suggestions" class="note success" aria-live="polite"></ul>
+  <p class="note success" id="pais-input-validation"></p>
+</div>
+</dl>
+<dl class="form-group" id="congregacion">
+  <dt><label for="congregacion">{{ _('Congregación') }}</label></dt>
+  <dd class="user-profile-company-field-container">
+    <text-expander>
+      <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion-input" aria-describedby="congregacion-input-validation" value="{{ configuracion[6] }}">
+      <input type="hidden" name="congNumber" id="congNumber">
+    </text-expander>
+    <ul id="congregacion-suggestions" class="note success" aria-live="polite"></ul>
+    <p class="note success" id="congregacion-input-validation"></p>
+  </dd>
+</dl>
+ 
+                        <hr class="mb-4 mt-4">  
                         <dl class="form-group" id="circuito">
-                           <dt><label for="circuito">{{ _('Circuito') }}</label></dt>
+                           <dt><label for="circuito">{{ _('Dominio') }}</label></dt>
                            <dd class="user-profile-company-field-container">
                               <text-expander>
                                  <input autocomplete="off" class="form-control width-full" type="text" name="circuito" id="circuito" value="{{ configuracion[7] }}"> <!-- Cambiado a "circuito" -->
@@ -186,11 +191,23 @@
                            </dd>
                         </dl>
                         <p>
-                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-6">
+                           <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-2">
                               <span class="Button-content">
                                   <span class="Button-label">{{ _('Actualizar datos') }}</span>
                               </span>
                           </button>    
+                          <a type="submit" href="/change-password" class="btn btn-danger btn-block mb-2">
+                              <span class="Button-content">
+                                  <span class="Button-label">{{ _('Cambiar contraseña') }}</span>
+                              </span>
+                          </a> 
+                          
+                  <a href="/eliminar_contenido_configuracion" class="btn btn-danger btn-block mb-6" type="button">
+                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
+                     </svg>
+                     <span>{{ _('Restablecer aplicación') }}</span>
+                 </a>   
                         </p>
                      </div>  
                   </div>
@@ -199,5 +216,148 @@
             <!-- FIN DE CONFIGURACIÓN -->
          </form>
       </div>
+
+      <script type="text/javascript">
+         document.addEventListener('DOMContentLoaded', () => {
+    const inputPais = document.querySelector('#pais-input');
+    const suggestionsPaisContainer = document.querySelector('#suggestions');
+    const validationMessagePais = document.querySelector('#pais-input-validation');
+    const congregacionDl = document.querySelector('#congregacion');
+    const countryCodeInput = document.querySelector('#countryCode');
+    const inputCongregacion = document.querySelector('#congregacion-input');
+    const suggestionsCongregacionContainer = document.querySelector('#congregacion-suggestions');
+    const validationMessageCongregacion = document.querySelector('#congregacion-input-validation');
+    const congNumberInput = document.querySelector('#congNumber');
+
+    // Initially hide the congregation field
+    congregacionDl.style.display = 'none';
+
+    inputPais.addEventListener('input', () => {
+        const query = inputPais.value.toLowerCase();
+        showSuggestionsPais(query);
+        if (query.length > 0) {
+            validationMessagePais.style.display = 'block'; // Show validation message
+        } else {
+            validationMessagePais.textContent = ''; // Clear validation message
+            validationMessagePais.style.display = 'none'; // Hide validation message
+            countryCodeInput.value = ''; // Clear the hidden input value if input is empty
+        }
+    });
+
+    inputCongregacion.addEventListener('input', () => {
+        const query = inputCongregacion.value.toLowerCase();
+        if (query.length > 0) {
+            showSuggestionsCongregacion(query);
+            validationMessageCongregacion.style.display = 'block'; // Show validation message
+        } else {
+            validationMessageCongregacion.textContent = ''; // Clear validation message
+            validationMessageCongregacion.style.display = 'none'; // Hide validation message
+            congNumberInput.value = ''; // Clear the hidden input value if input is empty
+        }
+    });
+
+    inputCongregacion.addEventListener('focus', () => {
+        const query = inputCongregacion.value.toLowerCase();
+        if (query.length > 0) {
+            showSuggestionsCongregacion(query);
+        }
+    });
+
+    async function loadCountries() {
+        try {
+            const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://apps.jw.org/api/donations.v1/countries?languageCode=S'));
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return JSON.parse(data.contents);
+        } catch (error) {
+            console.error('Error fetching countries:', error);
+            return []; // Return an empty array in case of error
+        }
+    }
+
+    let countries = [];
+    loadCountries().then(data => {
+        countries = data;
+    });
+
+    function showSuggestionsPais(query) {
+        suggestionsPaisContainer.innerHTML = '';
+        validationMessagePais.textContent = ''; // Clear previous validation message
+
+        if (query.length > 0) {
+            const filteredCountries = countries.filter(country => country.countryName.toLowerCase().includes(query));
+            if (filteredCountries.length > 0) {
+                filteredCountries.forEach(country => {
+                    const li = document.createElement('p');
+                    li.textContent = country.countryName;
+                    li.dataset.countryCode = country.countryCode;
+                    li.addEventListener('click', () => {
+                        inputPais.value = country.countryName;
+                        inputPais.dataset.countryCode = country.countryCode;
+                        countryCodeInput.value = country.countryCode; // Update the hidden input value
+                        suggestionsPaisContainer.innerHTML = '';
+                        validationMessagePais.textContent = 'Country selected: ' + country.countryName; // Show validation message
+                        validationMessagePais.style.display = 'block'; // Show validation message
+                        congregacionDl.style.display = 'block'; // Show the congregation field
+                    });
+                    suggestionsPaisContainer.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('p');
+                li.textContent = 'No hay resultados';
+                suggestionsPaisContainer.appendChild(li);
+            }
+        }
+    }
+
+    async function loadCongregaciones(countryCode, query) {
+        try {
+            const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://apps.jw.org/api/conventions/convention-congregation-list/${countryCode}?languageCode=S&name=${query}`)}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return JSON.parse(data.contents);
+        } catch (error) {
+            console.error('Error fetching congregations:', error);
+            return []; // Return an empty array in case of error
+        }
+    }
+
+    function showSuggestionsCongregacion(query) {
+        const countryCode = countryCodeInput.value;
+        suggestionsCongregacionContainer.innerHTML = '';
+        validationMessageCongregacion.textContent = ''; // Clear previous validation message
+
+        if (query.length > 0 && countryCode) {
+            loadCongregaciones(countryCode, query).then(congregaciones => {
+                if (congregaciones.length > 0) {
+                    congregaciones.forEach(congregacion => {
+                        const li = document.createElement('p');
+                        li.textContent = congregacion.congName;
+                        li.dataset.congNumber = congregacion.congNumber;
+                        li.addEventListener('click', () => {
+                            inputCongregacion.value = congregacion.congName;
+                            inputCongregacion.dataset.congNumber = congregacion.congNumber;
+                            congNumberInput.value = congregacion.congNumber; // Update the hidden input value
+                            suggestionsCongregacionContainer.innerHTML = '';
+                            validationMessageCongregacion.textContent = 'Congregation selected: ' + congregacion.congName; // Show validation message
+                            validationMessageCongregacion.style.display = 'block'; // Show validation message
+                        });
+                        suggestionsCongregacionContainer.appendChild(li);
+                    });
+                } else {
+                    const li = document.createElement('p');
+                    li.textContent = 'No hay resultados';
+                    suggestionsCongregacionContainer.appendChild(li);
+                }
+            });
+        }
+    }
+});
+
+      </script>
    </body>
 </html>

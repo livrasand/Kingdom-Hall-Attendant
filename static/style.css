@@ -2022,7 +2022,6 @@ nav.Nav_globalNavContainer__BzVy1 {
   table-layout: fixed;
   border-spacing: 0px;
   width: 100%;
-  max-width: 446px;
   margin: 0px auto;
   overflow-wrap: break-word;
 }
@@ -2233,3 +2232,18 @@ nav.Nav_globalNavContainer__BzVy1 {
   .mac-button.close {
     background-color: #f44336;
   }
+
+.beta_tag2{
+  transform: rotate(-45deg);
+  position:fixed;
+  top:15px;
+  left:-115px;
+  background-color:#f7b64c;
+  width:300px;
+  height:25px;
+  z-index: 1000;
+  text-align:center;
+  transition: all 0.25s ease-in-out;
+  font-size:15px;
+  color:#fff;
+}
