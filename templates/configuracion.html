@@ -163,10 +163,7 @@
   </div>
   <div class="form-group-body">
     <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais-input" aria-describedby="pais-input-validation" value="{{ configuracion[5] }}">
-    <input type="hidden" name="countryCode" id="countryCode">
   </div>
-  <ul id="suggestions" class="note success" aria-live="polite"></ul>
-  <p class="note success" id="pais-input-validation"></p>
 </div>
 </dl>
 <dl class="form-group" id="congregacion">
@@ -174,16 +171,13 @@
   <dd class="user-profile-company-field-container">
     <text-expander>
       <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion-input" aria-describedby="congregacion-input-validation" value="{{ configuracion[6] }}">
-      <input type="hidden" name="congNumber" id="congNumber">
     </text-expander>
-    <ul id="congregacion-suggestions" class="note success" aria-live="polite"></ul>
-    <p class="note success" id="congregacion-input-validation"></p>
   </dd>
 </dl>
  
                         <hr class="mb-4 mt-4">  
                         <dl class="form-group" id="circuito">
-                           <dt><label for="circuito">{{ _('Dominio') }}</label></dt>
+                           <dt><label for="circuito">{{ _('Dominio (usa el número de tu congregación)') }}</label></dt>
                            <dd class="user-profile-company-field-container">
                               <text-expander>
                                  <input autocomplete="off" class="form-control width-full" type="text" name="circuito" id="circuito" value="{{ configuracion[7] }}"> <!-- Cambiado a "circuito" -->
@@ -216,148 +210,5 @@
             <!-- FIN DE CONFIGURACIÓN -->
          </form>
       </div>
-
-      <script type="text/javascript">
-         document.addEventListener('DOMContentLoaded', () => {
-    const inputPais = document.querySelector('#pais-input');
-    const suggestionsPaisContainer = document.querySelector('#suggestions');
-    const validationMessagePais = document.querySelector('#pais-input-validation');
-    const congregacionDl = document.querySelector('#congregacion');
-    const countryCodeInput = document.querySelector('#countryCode');
-    const inputCongregacion = document.querySelector('#congregacion-input');
-    const suggestionsCongregacionContainer = document.querySelector('#congregacion-suggestions');
-    const validationMessageCongregacion = document.querySelector('#congregacion-input-validation');
-    const congNumberInput = document.querySelector('#congNumber');
-
-    // Initially hide the congregation field
-    congregacionDl.style.display = 'none';
-
-    inputPais.addEventListener('input', () => {
-        const query = inputPais.value.toLowerCase();
-        showSuggestionsPais(query);
-        if (query.length > 0) {
-            validationMessagePais.style.display = 'block'; // Show validation message
-        } else {
-            validationMessagePais.textContent = ''; // Clear validation message
-            validationMessagePais.style.display = 'none'; // Hide validation message
-            countryCodeInput.value = ''; // Clear the hidden input value if input is empty
-        }
-    });
-
-    inputCongregacion.addEventListener('input', () => {
-        const query = inputCongregacion.value.toLowerCase();
-        if (query.length > 0) {
-            showSuggestionsCongregacion(query);
-            validationMessageCongregacion.style.display = 'block'; // Show validation message
-        } else {
-            validationMessageCongregacion.textContent = ''; // Clear validation message
-            validationMessageCongregacion.style.display = 'none'; // Hide validation message
-            congNumberInput.value = ''; // Clear the hidden input value if input is empty
-        }
-    });
-
-    inputCongregacion.addEventListener('focus', () => {
-        const query = inputCongregacion.value.toLowerCase();
-        if (query.length > 0) {
-            showSuggestionsCongregacion(query);
-        }
-    });
-
-    async function loadCountries() {
-        try {
-            const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://apps.jw.org/api/donations.v1/countries?languageCode=S'));
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            return JSON.parse(data.contents);
-        } catch (error) {
-            console.error('Error fetching countries:', error);
-            return []; // Return an empty array in case of error
-        }
-    }
-
-    let countries = [];
-    loadCountries().then(data => {
-        countries = data;
-    });
-
-    function showSuggestionsPais(query) {
-        suggestionsPaisContainer.innerHTML = '';
-        validationMessagePais.textContent = ''; // Clear previous validation message
-
-        if (query.length > 0) {
-            const filteredCountries = countries.filter(country => country.countryName.toLowerCase().includes(query));
-            if (filteredCountries.length > 0) {
-                filteredCountries.forEach(country => {
-                    const li = document.createElement('p');
-                    li.textContent = country.countryName;
-                    li.dataset.countryCode = country.countryCode;
-                    li.addEventListener('click', () => {
-                        inputPais.value = country.countryName;
-                        inputPais.dataset.countryCode = country.countryCode;
-                        countryCodeInput.value = country.countryCode; // Update the hidden input value
-                        suggestionsPaisContainer.innerHTML = '';
-                        validationMessagePais.textContent = 'Country selected: ' + country.countryName; // Show validation message
-                        validationMessagePais.style.display = 'block'; // Show validation message
-                        congregacionDl.style.display = 'block'; // Show the congregation field
-                    });
-                    suggestionsPaisContainer.appendChild(li);
-                });
-            } else {
-                const li = document.createElement('p');
-                li.textContent = 'No hay resultados';
-                suggestionsPaisContainer.appendChild(li);
-            }
-        }
-    }
-
-    async function loadCongregaciones(countryCode, query) {
-        try {
-            const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://apps.jw.org/api/conventions/convention-congregation-list/${countryCode}?languageCode=S&name=${query}`)}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            return JSON.parse(data.contents);
-        } catch (error) {
-            console.error('Error fetching congregations:', error);
-            return []; // Return an empty array in case of error
-        }
-    }
-
-    function showSuggestionsCongregacion(query) {
-        const countryCode = countryCodeInput.value;
-        suggestionsCongregacionContainer.innerHTML = '';
-        validationMessageCongregacion.textContent = ''; // Clear previous validation message
-
-        if (query.length > 0 && countryCode) {
-            loadCongregaciones(countryCode, query).then(congregaciones => {
-                if (congregaciones.length > 0) {
-                    congregaciones.forEach(congregacion => {
-                        const li = document.createElement('p');
-                        li.textContent = congregacion.congName;
-                        li.dataset.congNumber = congregacion.congNumber;
-                        li.addEventListener('click', () => {
-                            inputCongregacion.value = congregacion.congName;
-                            inputCongregacion.dataset.congNumber = congregacion.congNumber;
-                            congNumberInput.value = congregacion.congNumber; // Update the hidden input value
-                            suggestionsCongregacionContainer.innerHTML = '';
-                            validationMessageCongregacion.textContent = 'Congregation selected: ' + congregacion.congName; // Show validation message
-                            validationMessageCongregacion.style.display = 'block'; // Show validation message
-                        });
-                        suggestionsCongregacionContainer.appendChild(li);
-                    });
-                } else {
-                    const li = document.createElement('p');
-                    li.textContent = 'No hay resultados';
-                    suggestionsCongregacionContainer.appendChild(li);
-                }
-            });
-        }
-    }
-});
-
-      </script>
    </body>
 </html>
