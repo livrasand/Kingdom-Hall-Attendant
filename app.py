@@ -1965,12 +1965,102 @@ def mostrar_vida_ministerio(id):
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():
     theme = session.get('theme', 'primer')
-    return render_template('visita-superint-circuito.html', theme=theme)
+    cursor = g.bd.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS visita_superint_circuito (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            actividad TEXT NOT NULL,
+            dia TEXT NOT NULL,
+            hora TEXT NOT NULL,
+            lugar_evento TEXT NOT NULL,
+            publicador TEXT,
+            actividad_para TEXT
+        )
+    """)
+    g.bd.commit()
+
+    cursor.execute("SELECT * FROM visita_superint_circuito")
+    eventos = cursor.fetchall()
+    cursor.execute("SELECT * FROM familias")
+    familias = cursor.fetchall()
+
+
+    # Clasificar eventos
+    eventos_por_dia_y_hora = {dia: {'Mañana': [], 'Tarde': [], 'Noche': []} for dia in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']}
+    
+    for evento in eventos:
+        id, actividad, dia, hora, lugar, publicador, actividad_para = evento
+        hora_int = int(hora.split(':')[0])
+        
+        if 6 <= hora_int < 12:
+            periodo = 'Mañana'
+        elif 12 <= hora_int < 19:
+            periodo = 'Tarde'
+        else:
+            periodo = 'Noche'
+
+        eventos_por_dia_y_hora[dia][periodo].append(evento)
+    return render_template('visita-superint-circuito.html', theme=theme, eventos_por_dia_y_hora=eventos_por_dia_y_hora)
 
 @app.route('/nueva-actividad')
 def nueva_actividad_visita_superint_circuito():
     theme = session.get('theme', 'primer')
-    return render_template('detalle-visita-superint-circuito.html', theme=theme)
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM familias")
+    familias = cursor.fetchall()
+    cursor.execute("SELECT * FROM publicadores")
+    publicadores = cursor.fetchall()
+    return render_template('detalle-visita-superint-circuito.html', theme=theme, familias=familias, publicadores=publicadores)
+
+@app.route('/guardar_evento', methods=['POST'])
+def guardar_evento():
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        actividad = request.form['actividad']
+        dia = request.form['dia']
+        hora = request.form['hora']
+        lugar_evento = request.form['lugar_evento']
+        publicador = request.form['publicador']
+        actividad_para = request.form['actividad_para']
+
+        # Verificar y crear la tabla si no existe
+        cursor = g.bd.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS visita_superint_circuito (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                actividad TEXT NOT NULL,
+                dia TEXT NOT NULL,
+                hora TEXT NOT NULL,
+                lugar_evento TEXT NOT NULL,
+                publicador TEXT,
+                actividad_para TEXT
+            )
+        """)
+        g.bd.commit()
+
+        # Insertar los datos en la tabla
+        cursor.execute("""
+            INSERT INTO visita_superint_circuito (actividad, dia, hora, lugar_evento, publicador, actividad_para)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (actividad, dia, hora, lugar_evento, publicador, actividad_para))
+        
+        g.bd.commit()
+
+        return redirect(url_for('visita_superint_circuito'))
+
+@app.route('/eliminar_evento/<int:event_id>', methods=['GET'])
+def eliminar_evento(event_id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM visita_superint_circuito WHERE id = ?", (event_id,))
+    g.bd.commit()
+    return redirect(url_for('visita_superint_circuito'))
+
+@app.route('/eliminar-programa')
+def eliminar_programa():
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM visita_superint_circuito")  # Cambia el nombre de la tabla según corresponda
+    g.bd.commit()
+    return redirect(url_for('visita_superint_circuito'))  # Redirige a la vista principal después de eliminar los datos
 
 # Nueva función para verificar la existencia de la tabla
 def table_exists(cursor, table_name):

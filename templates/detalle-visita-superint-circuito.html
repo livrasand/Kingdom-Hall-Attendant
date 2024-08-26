@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html data-color-mode="light" data-light-theme="light">
    <head>
-      
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PM738JMZ22');
-</script>
-
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'G-PM738JMZ22');
+      </script>
       <title>Kingdom Hall Attendant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
@@ -19,63 +16,81 @@
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
    </head>
    <body>
-         <div class="Header color-bg-inset">
-            <!-- Image item  -->
-            <div class="Header-item width-full">
-               <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                     <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
-                  </svg>
-               </a>
-               <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
-               <div class="d-table col-12">
-                  {% include 'user_info.html' %}
-               </div>
+      <div class="Header color-bg-inset">
+         <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+               </svg>
+            </a>
+            <a href="/home" style="cursor: pointer;" class="mr-3">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+               {% include 'user_info.html' %}
             </div>
-            </div>
-         <div class="container-xl mt-6">
-            <div class="container-lg clearfix">        
-                <form>                 
- 
-                  <select class="form-select mb-2 mt-2 width-full" aria-label="Preference">
-                     <option>Actividad</option>
-                     <option>Servicio del campo</option>
-                     <option>Reunión del fin de semana</option>
-                     <option>Desayuno</option>
-                     <option>Comida</option>
-                     <option>Cena</option>
-                     <option>Pastoreo</option>
-                     <option>Reunión de precursores</option>
-                     <option>Reunión de entre semana</option>
-                     <option>Reunión de ancianos y siervos ministeriales</option>
-                     <option>Sin arreglos</option>
-                  </select>
-                  <p class="h6 mb-0">Día:</p>
-                  <select class="form-select mb-2 width-full" aria-label="Preference">                     
-                     <option>Lunes</option>
-                     <option>Martes</option>
-                     <option>Miércoles </option>
-                     <option>Jueves</option>
-                     <option>Viernes</option>
-                     <option>Sábado</option>
-                     <option>Domingo</option>
-                  </select>
-                  <p class="h6 mb-0">Hora:</p>
-                  <input class="form-control width-full" type="time" placeholder="Hora" aria-label="Hora">
-                 
-                  <select class="form-select mb-2 mt-2 width-full" aria-label="Preference">
-                     <option>Lugar</option>
-                     <option>Salón del Reino</option>
-                     <option>- Mostrar las familias disponibles -</option>
-                  </select>
-                   <br><br>
-                   <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Guardar</button>  
-                      <button type="submit" onclick="history.back()" class="btn">Cancelar</button>                                           
-                   </div>
-                </form>
          </div>
       </div>
+      <div class="container-xl mt-6">
+         <div class="container-lg clearfix">        
+            <form action="/guardar_evento" method="POST">
+               <p class="h6 mb-0">Actividad:</p>
+               <select class="form-select mb-2 width-full" name="actividad" aria-label="Preference">
+                  <option>Servicio del campo</option>
+                  <option>Reunión del fin de semana</option>
+                  <option>Desayuno</option>
+                  <option>Comida</option>
+                  <option>Cena</option>
+                  <option>Pastoreo</option>
+                  <option>Reunión con precursores</option>
+                  <option>Reunión de entre semana</option>
+                  <option>Reunión con ancianos y siervos ministeriales</option>
+                  <option>Revisión de los registros de la congregación</option>
+                  <option>Reunión con el Coordinador del Cuerpo de Ancianos</option>
+                  <option>Reunión con el Comité de Servicio de la Congregación</option>
+                  <option>Sin arreglos</option>
+               </select>
+               <p class="h6 mb-0">Actividad para:</p>
+               <select class="form-select mb-2 width-full" name="actividad_para" aria-label="Preference">
+                  <option>El hermano</option>
+                  <option>La hermana</option>
+               </select>
+               <p class="h6 mb-0">Día:</p>
+               <select class="form-select mb-2 width-full" name="dia" aria-label="Preference">             
+                  <option>Martes</option>
+                  <option>Miércoles </option>
+                  <option>Jueves</option>
+                  <option>Viernes</option>
+                  <option>Sábado</option>
+                  <option>Domingo</option>
+               </select>
+               <p class="h6 mb-0">Hora:</p>
+               <input class="form-control width-full" type="time" name="hora" placeholder="Hora" aria-label="Hora">
+               <p class="h6 mb-3">*Use horario de 24 horas</p>
+               <p class="h6 mb-0">Lugar del evento:</p>
+               <select class="form-select mb-2 width-full" name="lugar_evento" aria-label="Preference">
+                  <option>Salón del Reino</option>
+                  <option>En el hospedaje</option>
+                  <option>Sin evento</option>
+                  {% for familia in familias %}
+                            <option>Familia {{ familia[1] }}</option>
+                        {% endfor %}
+               </select>
+               <p class="h6 mb-0">Publicador:</p>
+               <select class="form-select mb-2 width-full" name="publicador" aria-label="Preference">
+                  <option></option>
+                  {% for publicador in publicadores %}
+                            <option>{{ publicador[1] }} {{ publicador[2] }}</option>
+                        {% endfor %}
+               </select>
+               <br><br>
+               <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Guardar</button>  
+                  <button type="button" onclick="history.back()" class="btn">Cancelar</button>                                           
+               </div>
+            </form>
+         </div>
       </div>
    </body>
 </html>
