@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM738JMZ22');
+</script>
+    <title>Kingdom Hall Attendant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
+   <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+   <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            width: 80%;
+            height: 80%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            max-width: 600px;
+        }
+
+        .modal-header,
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .modal-footer button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header color-bg-inset">
+        <!-- Image item -->
+        <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+                </svg>
+            </a>
+            <a href="/home" style="cursor: pointer;" class="mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24">
+                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path>
+                </svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="Avatar" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+                <!-- User info included here -->
+            </div>
+        </div>
+        <button type="button" class="btn btn-sm mr-2"  id="openModalBtn">
+        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg>
+    </button>
+        <a class="btn btn-sm mr-2" onclick="imprimirPagina()" role="button">Imprimir</a>
+
+        <a class="btn btn-danger btn-sm mr-2" onclick="" role="button">Eliminar todo</a>
+        <a class="btn btn-sm mr-2" onclick="addNewForm()" role="button">Nuevo</a>
+
+        
+
+        
+    </div>
+
+    <!-- HEAD PRINT -->
+    <div id="header-page" style="display: flex; align-items: center; width: 100%; visibility: hidden;">
+        <p class="h3 ml-4 mt-4" style="width:85%;">Audio, video y acomodadores</p>
+        <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%"></p>
+    </div>
+    <!-- HEAD PRINT -->
+<form id="configurarAvaForm" method="post">
+    <div class="container-xl mt-6">
+        <div class="pl-2">
+            <div class="container-lg clearfix">
+                <div class="Box mt-2 mr-2">
+                    <div class="Box-row d-flex flex-items-center">
+                        <div class="container-lg clearfix" style="width: 100%;">
+                            <!-- Fecha -->
+                            <div class="col-2 float-left">
+                                <p class="h4">Fecha:</p>
+                                <input type="date" name="fecha" required class="form-control mt-2">
+                            </div>
+
+                            <!-- Audio y Video -->
+                            {% if settings.audio|int > 0 or settings.video|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Operador de audio:</p>
+                                    {% if settings.audio|int > 0 %}
+                                        {% for i in range(1, settings.audio|int + 1) %}
+                                            <select name="audio_{{ i }}" class="form-control width-full mt-2">
+                                                <option value="">-- Selecciona Audio --</option>
+                                                {% for publicador in participantes_microfonos %}
+                                                    <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endfor %}
+                                    {% else %}
+                                    {% endif %}
+
+                                    <p class="h4 mt-3">Operador de video:</p>
+                                    {% if settings.video|int > 0 %}
+                                        {% for i in range(1, settings.video|int + 1) %}
+                                            <select name="video_{{ i }}" class="form-control width-full mt-2">
+                                                <option value="">-- Selecciona Video --</option>
+                                                {% for publicador in participantes_zoom %}
+                                                    <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endfor %}
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
+                            <!-- Plataforma -->
+                            {% if settings.plataforma|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Plataforma:</p>
+                                    {% for i in range(1, settings.plataforma|int + 1) %}
+                                        <select name="plataforma_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Plataforma --</option>
+                                            {% for publicador in participantes_plataforma %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+                            <!-- Micrófonos -->
+                            {% if settings.microfonistas|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Micrófonos:</p>
+                                    {% for i in range(1, settings.microfonistas|int + 1) %}
+                                        <select name="microfono_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Micrófono --</option>
+                                            {% for publicador in participantes_microfonos %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+                            <!-- Acomodadores -->
+                            {% if settings.acomodadores|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Acomodadores:</p>
+                                    {% for i in range(1, settings.acomodadores|int + 1) %}
+                                        {% set etiqueta_key = 'acomodadoresEtiqueta' ~ i %}
+                                        {% if etiqueta_key in etiquetas %}
+                                            <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
+                                        {% endif %}
+                                        <select name="acomodador_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Acomodador --</option>
+                                            {% for publicador in participantes_acomodadores %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                    <!-- Acomodadores de videoconferencia -->
+                            {% if settings.video_conferencia|int > 0 %}
+                                
+                                    {% for i in range(1, settings.video_conferencia|int + 1) %}
+                                        {% set etiqueta_key = 'videoConferenciaEtiqueta' ~ i %}
+                                        {% if etiqueta_key in etiquetas %}
+                                            <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
+                                        {% else %}
+                                        <p class="mt-2 mb-n2"><em>Acomodador de videoconferencia:</em></p>
+                                        {% endif %}
+                                        <select name="videoConferencia_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Acomodador de Videoconferencia --</option>
+                                            {% for publicador in participantes_zoom%}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                            {% else %}
+                            {% endif %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+        <!-- FOOTER PRINT -->
+        <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
+            <img class="ml-1 mt-1 mb-1" src="path/to/your/frame.png" width="85px">
+            <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
+            <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px; font-size: 8px;">Impreso el <span id="fecha"></span></p>
+        </div>
+        <!-- FOOTER PRINT -->
+    </div>
+
+   
+    <!-- Modal -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-bottom: 35px;">
+                <h2>Configuración de asignaciones</h2>
+                <button class="btn btn-sm" id="closeModalBtn">Cerrar</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Cantidad de microfonistas -->
+                    <label for="microfonistas">Cantidad de microfonistas a asignar:</label>
+                    <select id="microfonistas" class="form-select" name="microfonistas">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Cantidad de acomodadores -->
+                    <label for="acomodadores">Cantidad de acomodadores a asignar:</label>
+                    <select id="acomodadores" class="form-select" name="acomodadores">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Cantidad de acomodadores de la videoconferencia -->
+                    <label for="videoConferencia">Cantidad de acomodadores de la videoconferencia:</label>
+                    <select id="videoConferencia" class="form-select" name="videoConferencia">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Cantidad de encargados de plataforma -->
+                    <label for="plataforma">Cantidad de encargados de plataforma:</label>
+                    <select id="plataforma" class="form-select" name="plataforma">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Cantidad de encargados de sistema de audio -->
+                    <label for="audio">Cantidad de encargados de sistema de audio:</label>
+                    <select id="audio" class="form-select" name="audio">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Cantidad de encargados de sistema de video -->
+                    <label for="video">Cantidad de encargados de sistema de video:</label>
+                    <select id="video" class="form-select" name="video">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select><br><br>
+
+                    <!-- Etiquetas personalizadas -->
+                    <div id="etiquetas-container">
+                        <!-- Se agregarán etiquetas personalizadas aquí dinámicamente -->
+                    </div>
+                <div class="modal-footer mt-2" style="width:100%;">
+                <button type="submit" class="btn btn-primary" id="saveSettingsBtn">Guardar</button>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+         function imprimirPagina() {
+           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
+    document.getElementById("print-footer").style.visibility = "visible";
+    document.getElementById("header-page").style.visibility = "visible";
+
+
+  window.print(); // Inicia el proceso de impresión
+
+  document.getElementById("print-footer").style.visibility = "hidden";
+    document.getElementById("header-page").style.visibility = "hidden";
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('fecha').innerText = new Date().toLocaleDateString();
+
+    const configModal = document.getElementById('configModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const etiquetasContainer = document.getElementById('etiquetas-container');
+    const containers = {
+        microfonistas: document.getElementById('microfonistas'),
+        acomodadores: document.getElementById('acomodadores'),
+        videoConferencia: document.getElementById('videoConferencia'),
+        plataforma: document.getElementById('plataforma'),
+        audio: document.getElementById('audio'),
+        video: document.getElementById('video')
+    };
+
+    function updateEtquetas() {
+        etiquetasContainer.innerHTML = '';
+
+        for (const [key, select] of Object.entries(containers)) {
+            const value = select.value;
+            if (value > 0) {
+                for (let i = 1; i <= value; i++) {
+                    etiquetasContainer.innerHTML += `
+                        <label for="${key}Etiqueta${i}">Etiqueta personalizada ${key} #${i}:</label><br>
+                        <input type="text" id="${key}Etiqueta${i}" name="${key}Etiqueta${i}" class="form-control width-full mb-2"><br>
+                    `;
+                }
+            }
+        }
+    }
+
+    function loadSettings(data) {
+        for (const [key, select] of Object.entries(containers)) {
+            select.value = data[key] || 0;
+        }
+
+        updateEtquetas();
+
+        // Cargar las etiquetas existentes si hay datos en la base de datos
+        if (data.etiquetas) {
+            const etiquetas = data.etiquetas.split(','); // Divide la cadena en pares clave:valor
+            etiquetas.forEach(etiqueta => {
+                const [key, value] = etiqueta.split(':'); // Separa la clave y el valor
+                const inputField = document.getElementById(key); // Busca el campo de entrada correspondiente
+                if (inputField) {
+                    inputField.value = value; // Asigna el valor al campo de entrada
+                }
+            });
+        }
+    }
+
+    openModalBtn.addEventListener('click', () => {
+        fetch('/get-settings')
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    loadSettings(data);
+                }
+            });
+
+        configModal.style.display = 'flex';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        configModal.style.display = 'none';
+    });
+
+    window.onclick = function(event) {
+        if (event.target == configModal) {
+            configModal.style.display = 'none';
+        }
+    }
+
+    // Actualiza las etiquetas cuando se cambia una selección
+    const selects = document.querySelectorAll('.form-select');
+    selects.forEach(select => {
+        select.addEventListener('change', updateEtquetas);
+    });
+
+    document.getElementById('saveSettingsBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const dataToSend = {};
+        for (const [key] of Object.entries(containers)) {
+            dataToSend[key] = document.getElementById(key).value;
+        }
+
+        // Recolectar etiquetas personalizadas
+        const etiquetas = {};
+        const inputs = document.querySelectorAll('#etiquetas-container input[type="text"]');
+        inputs.forEach(input => {
+            const name = input.name;
+            const value = input.value.trim();
+            if (value !== '') {
+                etiquetas[name] = value;
+            }
+        });
+
+        // Agregar etiquetas al objeto dataToSend
+        dataToSend.etiquetas = etiquetas;
+
+        // Enviar datos al servidor
+        fetch('/save-settings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            configModal.style.display = 'none';
+
+            // Refrescar la página después de guardar los datos
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+    </script>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+            // Selecciona todos los elementos de entrada del formulario
+            const formElements = document.querySelectorAll('#configurarAvaForm input, #configurarAvaForm select');
+            
+            // Función para guardar los datos automáticamente
+            function autoSave() {
+                const formData = new FormData(document.getElementById('configurarAvaForm'));
+                const dataToSend = {};
+                
+                formData.forEach((value, key) => {
+                    dataToSend[key] = value;
+                });
+
+                console.log('Datos a enviar:', dataToSend); // Agregado para depurar
+
+                // Convertir a JSON y enviar al servidor
+                fetch('/save-ava', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ content: dataToSend })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Autoguardado exitoso:', data);
+                })
+                .catch(error => {
+                    console.error('Error en el autoguardado:', error);
+                });
+            }
+
+            // Añadir event listeners a todos los elementos de entrada
+            formElements.forEach(element => {
+                element.addEventListener('change', autoSave);
+            });
+        });
+</script>
+
+
+</body>
+
+</html>

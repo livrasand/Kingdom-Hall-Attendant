@@ -3650,5 +3650,179 @@ def confirm_password_update(token):
 def manifesto():
     return render_template('manifesto.html')
 
+@app.route('/audio-video-acomodadores', methods=['GET', 'POST'])
+def audio_video_acomodadores():
+    cursor = get_db().cursor()
+    
+    theme = session.get('theme', 'primer')
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+
+    settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
+
+    # Asegúrate de que `settings` no sea `None` y contenga los valores esperados
+    print(f"Settings: {settings}")
+
+    # Convertir los valores a enteros
+    acomodadores_count = int(settings['acomodadores']) if 'acomodadores' in settings else 0
+
+    # Convertir la cadena de etiquetas a un diccionario
+    etiquetas = {}
+    if settings and settings['etiquetas']:
+        etiquetas_list = settings['etiquetas'].split(',')
+        for etiqueta in etiquetas_list:
+            key, value = etiqueta.split(':')
+            etiquetas[key] = value
+        print(f"Etiquetas: {etiquetas}")  # Depuración de etiquetas
+
+    participantes_plataforma = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_plataforma = 1').fetchall()
+    participantes_zoom = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_anfitrion_zoom = 1 OR checkbox_coanfitrion_zoom = 1').fetchall()
+    participantes_microfonos = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_microfonos = 1').fetchall()
+    participantes_acomodadores = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_acomodador = 1').fetchall()
+
+    if request.method == 'POST':
+        fecha = request.form['fecha']
+        audio = request.form.get('audio')
+        video = request.form.get('video')
+        plataforma = request.form.get('plataforma')
+        microfonos = request.form.get('microfonos')
+        acomodadores_auditorio = request.form.get('acomodadores_auditorio')
+        acomodadores_entrada = request.form.get('acomodadores_entrada')
+        
+        cursor.execute(
+            '''INSERT OR REPLACE INTO ava (id, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
+               VALUES (?, ?, ?, ?, ?, ?, ?)''',
+            (fecha, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
+        )
+        get_db().commit()
+        return jsonify(success=True)
+    
+    return render_template(
+        'audio-video-acomodadores.html',
+        theme=theme,
+        congregacion=congregacion_formateada,
+        settings=settings,
+        etiquetas=etiquetas,
+        acomodadores_count=acomodadores_count,
+        participantes_plataforma=participantes_plataforma,
+        participantes_zoom=participantes_zoom,
+        participantes_microfonos=participantes_microfonos,
+        participantes_acomodadores=participantes_acomodadores
+    )
+
+@app.route('/nuevo-ava')
+def nuevo_ava():
+    cursor = g.bd.cursor()
+
+    theme = session.get('theme', 'primer')
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+    return render_template('detalle-avacomodadores.html', theme=theme, congregacion=congregacion_formateada)
+
+@app.route('/save-settings', methods=['POST'])
+def save_settings():
+    data = request.json  # Recolectar los datos enviados como JSON
+
+    microfonistas = data.get('microfonistas')
+    acomodadores = data.get('acomodadores')
+    video_conferencia = data.get('videoConferencia')
+    plataforma = data.get('plataforma')
+    audio = data.get('audio')
+    video = data.get('video')
+
+    # Recolectar las etiquetas personalizadas dinámicamente
+    etiquetas = data.get('etiquetas', {})
+
+    # Convertir el diccionario de etiquetas a una cadena
+    etiquetas_str = ','.join([f'{key}:{value}' for key, value in etiquetas.items()])
+
+    cursor = g.bd.cursor()
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS settings_ava (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        microfonistas TEXT,
+        acomodadores TEXT,
+        video_conferencia TEXT,
+        plataforma TEXT,
+        audio TEXT,
+        video TEXT,
+        etiquetas TEXT
+    )
+    ''')
+
+    cursor.execute('''
+    INSERT INTO settings_ava (id, microfonistas, acomodadores, video_conferencia, plataforma, audio, video, etiquetas)
+    VALUES (1, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(id) DO UPDATE SET
+        microfonistas=excluded.microfonistas,
+        acomodadores=excluded.acomodadores,
+        video_conferencia=excluded.video_conferencia,
+        plataforma=excluded.plataforma,
+        audio=excluded.audio,
+        video=excluded.video,
+        etiquetas=excluded.etiquetas
+    ''', (microfonistas, acomodadores, video_conferencia, plataforma, audio, video, etiquetas_str))
+
+    g.bd.commit()
+    
+    return jsonify({'success': True})
+
+@app.route('/get-settings', methods=['GET'])
+def get_settings():
+    cursor = g.bd.cursor()
+    
+    try:
+        cursor.execute('SELECT * FROM settings_ava ORDER BY id DESC LIMIT 1')
+        row = cursor.fetchone()
+
+        if row:
+            settings = {
+                'microfonistas': row[1],
+                'acomodadores': row[2],
+                'videoConferencia': row[3],
+                'plataforma': row[5],
+                'audio': row[6],
+                'video': row[7],
+                'etiquetas': row[8]
+            }
+            return jsonify(settings)
+        else:
+            return jsonify({})
+    
+    except sqlite3.OperationalError as e:
+        # Manejo del error en caso de que la tabla no exista
+        print(f"Error al acceder a la tabla: {e}")
+        return jsonify({})
+
+@app.route('/save-ava', methods=['POST'])
+def save_ava():
+    data = request.json
+    content = json.dumps(data.get('content', {}))
+
+    db = get_db()
+    cursor = db.cursor()
+
+    # Usar una clave primaria o identificador único para evitar conflictos
+    cursor.execute('''
+        INSERT OR REPLACE INTO ava (id, content) VALUES (1, ?)
+    ''', (content,))
+    
+    db.commit()
+
+    return jsonify({'status': 'success'})
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -31495,3 +31495,20 @@ body {
 	color: #fae1d9;
 	vertical-align: text-bottom
 }
+
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+  .container-lg {
+    flex-direction: column; /* Apila las columnas verticalmente en pantallas pequeñas */
+  }
+  
+  .container-lg .col-4 {
+    width: 100%; /* Asegura que las columnas ocupen el 100% del ancho */
+  }
+}
+
+/* Estilo para imágenes o elementos con flex */
+.col-6 {
+  width: 100%; /* Asegura que el contenido dentro de .col-6 ocupe el 100% del ancho de su contenedor */
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM738JMZ22');
+</script>
+    <title>Kingdom Hall Attendant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
+   <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+   <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="Header color-bg-inset">
+        <!-- Image item -->
+        <div class="Header-item width-full">
+            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+                </svg>
+            </a>
+            <a href="/home" style="cursor: pointer;" class="mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24">
+                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path>
+                </svg>
+            </a>
+            <img class="avatar CircleBadge" height="100" alt="Avatar" src="https://github.com/octocat.png" width="100">
+            <div class="d-table col-12">
+                <!-- User info included here -->
+            </div>
+        </div>
+        <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()" role="button">Imprimir</a>
+        <button type="button" class="btn btn-primary"  id="openModalBtn">
+        Configuración
+    </button>
+
+        
+    </div>
+
+    <!-- HEAD PRINT -->
+    <div id="header-page" style="display: flex; align-items: center; width: 100%; visibility: hidden;">
+        <p class="h3 ml-4 mt-4" style="width:85%;">Audio, video y acomodadores</p>
+        <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%"></p>
+    </div>
+    <!-- HEAD PRINT -->
+
+    <div class="container-xl mt-6">
+        <!-- Sección de Audio -->
+        <div class="pl-2">
+            <div id="configModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="margin-bottom: 35px;">
+                <h2>Configuración de asignaciones</h2>
+                <button class="btn btn-sm" id="closeModalBtn">Cerrar</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="microfonistas">Cantidad de microfonistas a asignar:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="acomodadores">Cantidad de acomodadores a asignar:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="videoConferencia">Cantidad de acomodadores de la videoconferencia:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="entrada">Cantidad de acomodadores de la entrada:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="plataforma">Cantidad de encargados de plataforma:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="audio">Cantidad de encargados de sistema de audio:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="video">Cantidad de encargados de sistema de video:</label>
+                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
+                        <option value="0">{{ _('0') }}</option>
+                        <option value="1">{{ _('1') }}</option>
+                        <option value="2" >{{ _('2') }}</option>
+                        <option value="3" >{{ _('3') }}</option>
+                        <option value="4" >{{ _('4') }}</option>
+                        <option value="5" >{{ _('5') }}</option>
+                        <option value="6" >{{ _('6') }}</option>
+                    </select><br><br>
+
+                    <label for="videoEtiqueta">Etiqueta personalizada de encargado de Video #1:</label>
+                    <input type="text" id="videoEtiqueta" name="videoEtiqueta"><br><br>
+
+                    <label for="audioEtiqueta">Etiqueta personalizada de encargado de Audio #1:</label>
+                    <input type="text" id="audioEtiqueta" name="audioEtiqueta"><br><br>
+
+                    <label for="micros1Etiqueta">Etiqueta personalizada de asignado a Micrófonos #1:</label>
+                    <input type="text" id="micros1Etiqueta" name="micros1Etiqueta"><br><br>
+
+                    <label for="micros2Etiqueta">Etiqueta personalizada de asignado a Micrófonos #2:</label>
+                    <input type="text" id="micros2Etiqueta" name="micros2Etiqueta"><br><br>
+
+                    <label for="plataformaEtiqueta">Etiqueta personalizada de asignado a Plataforma #1:</label>
+                    <input type="text" id="plataformaEtiqueta" name="plataformaEtiqueta"><br><br>
+
+                    <label for="acomodadorEtiqueta">Etiqueta personalizada de asignado como Acomodador #1:</label>
+                    <input type="text" id="acomodadorEtiqueta" name="acomodadorEtiqueta"><br><br>
+
+                    <label for="entradaEtiqueta">Etiqueta del acomodador de la entrada:</label>
+                    <input type="text" id="entradaEtiqueta" name="entradaEtiqueta"><br><br>
+
+                    <label for="programarSemanal">Programar semanalmente las asignaciones:</label>
+                    <input type="checkbox" id="programarSemanal" name="programarSemanal"><br><br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="saveSettingsBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+
+        <!-- FOOTER PRINT -->
+        <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
+            <img class="ml-1 mt-1 mb-1" src="path/to/your/frame.png" width="85px">
+            <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
+            <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px; font-size: 8px;">Impreso el <span id="fecha"></span></p>
+        </div>
+        <!-- FOOTER PRINT -->
+    </div>
+
+    <script type="text/javascript">
+        function imprimirPagina() {
+            // Cambiar la visibilidad del elemento con id "print-footer" a visible
+            document.getElementById("print-footer").style.visibility = "visible";
+            document.getElementById("header-page").style.visibility = "visible";
+            window.print();
+            document.getElementById("print-footer").style.visibility = "hidden";
+            document.getElementById("header-page").style.visibility = "hidden";
+        }
+
+        // Script para mostrar la fecha actual en el footer de impresión
+        document.getElementById('fecha').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+
+</html>

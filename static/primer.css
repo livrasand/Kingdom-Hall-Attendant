@@ -31468,3 +31468,20 @@ a.branch-name .octicon {
 .z-n2 {
 	z-index: -2 !important
 }
+
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+  .container-lg {
+    flex-direction: column; /* Apila las columnas verticalmente en pantallas pequeñas */
+  }
+  
+  .container-lg .col-4 {
+    width: 100%; /* Asegura que las columnas ocupen el 100% del ancho */
+  }
+}
+
+/* Estilo para imágenes o elementos con flex */
+.col-6 {
+  width: 100%; /* Asegura que el contenido dentro de .col-6 ocupe el 100% del ancho de su contenedor */
+}

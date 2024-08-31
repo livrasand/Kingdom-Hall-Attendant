@@ -13859,3 +13859,191 @@ button:focus {
   width: 20px;
   right: 16px;
 }
+/* Mostrar el menú móvil solo en pantallas pequeñas */
+@media only screen and (max-width: 767.98px) {
+    /* Ocultar el menú principal en pantallas pequeñas */
+    #wt-top-navigation-n_XG1HoVuvytluhKz8jtu {
+        display: none;
+    }
+
+    /* Mostrar el menú móvil en pantallas pequeñas */
+    #mobile-navigation {
+        display: block;
+    }
+}
+
+/* Mostrar el menú principal por defecto (en pantallas grandes) */
+@media only screen and (min-width: 767.98px) {
+    /* Mostrar el menú principal en pantallas grandes */
+    #wt-top-navigation-n_XG1HoVuvytluhKz8jtu {
+        display: block;
+    }
+
+    /* Ocultar el menú móvil en pantallas grandes */
+    #mobile-navigation {
+        display: none;
+    }
+}
+
+
+/* Mostrar el menú móvil solo en pantallas pequeñas cuando esté activo */
+#mobile-navigation.active {
+    display: block;
+}
+
+#fullscreen-menu {
+    position: fixed; /* Usa `fixed` para que se mantenga en su lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 22, 23, 1);
+    display: none; /* Ocultar por defecto */
+    z-index: 9999; /* Asegúrate de que el menú esté encima de otros elementos */
+}
+
+#fullscreen-menu.active {
+    display: block; /* Mostrar cuando se active */
+}
+
+.fullscreen-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    margin-top:5rem;
+    margin-left: 1rem;
+    align-items: left;
+    height: 100%;
+    color: #fff; /* Ajusta el color del texto según sea necesario */
+}
+
+.fullscreen-menu-content a {
+    font-size: 28px;
+    line-height: 1.1428571429;
+    font-weight: 600;
+    letter-spacing: .007em;
+    color: #e8e8ed;
+    margin: 0;
+    margin-top: -15px;
+}
+
+/* Estilos base para el h2 */
+#github-head {
+    font-size: 72px; /* Tamaño grande por defecto */
+    line-height: 1.0555555556;
+    letter-spacing: -0.012em;
+}
+
+
+@media (max-width: 767.98px) { 
+    /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
+    #github-head {
+        font-size: 38px; /* Tamaño reducido para dispositivos móviles */
+        margin-top:6rem;
+    }
+}
+
+.close-menu {
+    position: absolute;
+    top: 20px; /* Ajusta según sea necesario */
+    right: 20px; /* Ajusta según sea necesario */
+    width:48px;
+    height: 48px;
+    background: none;
+    border: none;
+    color: #fff; /* Color del ícono */
+    cursor: pointer;
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+}
+
+.close-menu:hover {
+    color: #ff0000; /* Cambia el color al pasar el ratón */
+}
+/* Estilos específicos solo para computadoras (pantallas más anchas) */
+@media (min-width: 767.98px) {
+    .Desktop-Mode {
+      padding: 50px 20% 0 20%;
+    }
+}
+
+.donors-section {
+    padding: 70px 70px;
+    width: 95%;
+    margin-top: 35px;
+    background-image: linear-gradient(to bottom right,#0096FF,#BB64FF,#F55273);
+    text-align: center;
+    color: #f5f5f7;
+    border-radius: 18px;
+}
+
+.donors-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f5f5f7;
+    font-weight: 700;
+}
+
+.donors-header p {
+    font-size: 1.2rem;
+    color: #f5f5f7;
+    margin-bottom: 40px;
+}
+
+.donors-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.donor-card {
+    background-color: transparent;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.donor-card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.donor-card h3 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.donor-card p {
+    font-size: 1rem;
+    color: #777;
+}
+.donor-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    word-wrap: break-word;
+    width: 80px;
+    height: 80px;
+    font-family: 'YouTube Sans';
+    background-image: 
+        url("images/yellow-aura.png");
+    background-size: cover, cover;
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-blend-mode: normal, overlay;
+    opacity: 1;
+}
+
+.donor-avatar span {
+    position: relative;
+    z-index: 2;
+}
