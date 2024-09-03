@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('password') ? document.getElementById('password').value : null;
         
         // Redirect to the API login or registration endpoint with email and password
-        window.opener.postMessage({ action, email, password }, '*');
+        window.parent.postMessage({ action, email, password }, '*');
         window.close();
     });
 });
