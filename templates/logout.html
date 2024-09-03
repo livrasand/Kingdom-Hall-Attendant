@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PM738JMZ22');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+    <!-- Link icons -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Kingdom Hall Attendant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container" style="max-width: 450px;">
+        <a href="https://www.getkha.org/" class="logo-link">
+            <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:100px;border-radius: 25%;">
+        </a>
+
+        <span class="github-head" style="margin-top: 45px;">
+            ¡Vuelve pronto!
+        </span>
+    </div>
+</body>
+
+</html>

@@ -24,7 +24,7 @@
 
   .print-footer {
     page-break-before: always; /* Asegura que este elemento comience en una nueva página */
-    display: flex;
+    display: flex !important; /* Asegura que el footer se muestre */
     align-items: center;
     justify-content: space-between; /* Alinea los elementos al final de la página */
     position: fixed;

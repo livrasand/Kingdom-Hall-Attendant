@@ -38,164 +38,140 @@
                 <!-- User info included here -->
             </div>
         </div>
-        <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()" role="button">Imprimir</a>
-        <button type="button" class="btn btn-primary"  id="openModalBtn">
-        Configuración
-    </button>
+    
+    </div>
 
+
+    <div id="form-container">
+<form action="/save-ava" method="post">
+    <div class="container-xl mt-6">
+        <div class="pl-2">
+            <div class="container-lg clearfix">
+                <div class="Box mt-2 mr-2">
+                    <div class="Box-row d-flex flex-items-center">
+                        <div class="container-lg clearfix" style="width: 100%;">
+                            <!-- Fecha -->
+                            <div class="col-2 float-left">
+                                <p class="h4">Fecha:</p>
+                                <input type="date" name="fecha" required class="form-control mt-2">
+                            </div>
+
+                            <!-- Audio y Video -->
+                            {% if settings.audio|int > 0 or settings.video|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Operador de audio:</p>
+                                    {% if settings.audio|int > 0 %}
+                                        {% for i in range(1, settings.audio|int + 1) %}
+                                            <select name="audio_{{ i }}" class="form-control width-full mt-2">
+                                                <option value="">-- Selecciona Audio --</option>
+                                                {% for publicador in participantes_microfonos %}
+                                                    <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endfor %}
+                                    {% else %}
+                                    {% endif %}
+
+                                    <p class="h4 mt-3">Operador de video:</p>
+                                    {% if settings.video|int > 0 %}
+                                        {% for i in range(1, settings.video|int + 1) %}
+                                            <select name="video_{{ i }}" class="form-control width-full mt-2">
+                                                <option value="">-- Selecciona Video --</option>
+                                                {% for publicador in participantes_zoom %}
+                                                    <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endfor %}
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
+                            <!-- Plataforma -->
+                            {% if settings.plataforma|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Plataforma:</p>
+                                    {% for i in range(1, settings.plataforma|int + 1) %}
+                                        <select name="plataforma_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Plataforma --</option>
+                                            {% for publicador in participantes_plataforma %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+                            <!-- Micrófonos -->
+                            {% if settings.microfonistas|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Micrófonos:</p>
+                                    {% for i in range(1, settings.microfonistas|int + 1) %}
+                                        <select name="microfono_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Micrófono --</option>
+                                            {% for publicador in participantes_microfonos %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+                            <!-- Acomodadores -->
+                            {% if settings.acomodadores|int > 0 %}
+                                <div class="col-2 float-left ml-2">
+                                    <p class="h4">Acomodadores:</p>
+                                    {% for i in range(1, settings.acomodadores|int + 1) %}
+                                        {% set etiqueta_key = 'acomodadoresEtiqueta' ~ i %}
+                                        {% if etiqueta_key in etiquetas %}
+                                            <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
+                                        {% endif %}
+                                        <select name="acomodador_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Acomodador --</option>
+                                            {% for publicador in participantes_acomodadores %}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                                    <!-- Acomodadores de videoconferencia -->
+                            {% if settings.video_conferencia|int > 0 %}
+                                
+                                    {% for i in range(1, settings.video_conferencia|int + 1) %}
+                                        {% set etiqueta_key = 'videoConferenciaEtiqueta' ~ i %}
+                                        {% if etiqueta_key in etiquetas %}
+                                            <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
+                                        {% else %}
+                                        <p class="mt-2 mb-n2"><em>Acomodador de videoconferencia:</em></p>
+                                        {% endif %}
+                                        <select name="videoConferencia_{{ i }}" class="form-control width-full mt-2">
+                                            <option value="">-- Selecciona Acomodador de Videoconferencia --</option>
+                                            {% for publicador in participantes_zoom%}
+                                                <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}">{{ publicador['nombres'] }} {{ publicador['apellidos'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% endfor %}
+                            {% else %}
+                            {% endif %}
+                                </div>
+                            {% else %}
+                            {% endif %}
+
+
+
+                        </div>
+                    </div>
+<button type="submit" class="btn btn-primary mb-2 ml-2 mt-2 float-right" >Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+</div>
         
     </div>
-
-    <!-- HEAD PRINT -->
-    <div id="header-page" style="display: flex; align-items: center; width: 100%; visibility: hidden;">
-        <p class="h3 ml-4 mt-4" style="width:85%;">Audio, video y acomodadores</p>
-        <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%"></p>
-    </div>
-    <!-- HEAD PRINT -->
-
-    <div class="container-xl mt-6">
-        <!-- Sección de Audio -->
-        <div class="pl-2">
-            <div id="configModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header" style="margin-bottom: 35px;">
-                <h2>Configuración de asignaciones</h2>
-                <button class="btn btn-sm" id="closeModalBtn">Cerrar</button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <label for="microfonistas">Cantidad de microfonistas a asignar:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="acomodadores">Cantidad de acomodadores a asignar:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="videoConferencia">Cantidad de acomodadores de la videoconferencia:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="entrada">Cantidad de acomodadores de la entrada:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="plataforma">Cantidad de encargados de plataforma:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="audio">Cantidad de encargados de sistema de audio:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="video">Cantidad de encargados de sistema de video:</label>
-                    <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
-                        <option value="0">{{ _('0') }}</option>
-                        <option value="1">{{ _('1') }}</option>
-                        <option value="2" >{{ _('2') }}</option>
-                        <option value="3" >{{ _('3') }}</option>
-                        <option value="4" >{{ _('4') }}</option>
-                        <option value="5" >{{ _('5') }}</option>
-                        <option value="6" >{{ _('6') }}</option>
-                    </select><br><br>
-
-                    <label for="videoEtiqueta">Etiqueta personalizada de encargado de Video #1:</label>
-                    <input type="text" id="videoEtiqueta" name="videoEtiqueta"><br><br>
-
-                    <label for="audioEtiqueta">Etiqueta personalizada de encargado de Audio #1:</label>
-                    <input type="text" id="audioEtiqueta" name="audioEtiqueta"><br><br>
-
-                    <label for="micros1Etiqueta">Etiqueta personalizada de asignado a Micrófonos #1:</label>
-                    <input type="text" id="micros1Etiqueta" name="micros1Etiqueta"><br><br>
-
-                    <label for="micros2Etiqueta">Etiqueta personalizada de asignado a Micrófonos #2:</label>
-                    <input type="text" id="micros2Etiqueta" name="micros2Etiqueta"><br><br>
-
-                    <label for="plataformaEtiqueta">Etiqueta personalizada de asignado a Plataforma #1:</label>
-                    <input type="text" id="plataformaEtiqueta" name="plataformaEtiqueta"><br><br>
-
-                    <label for="acomodadorEtiqueta">Etiqueta personalizada de asignado como Acomodador #1:</label>
-                    <input type="text" id="acomodadorEtiqueta" name="acomodadorEtiqueta"><br><br>
-
-                    <label for="entradaEtiqueta">Etiqueta del acomodador de la entrada:</label>
-                    <input type="text" id="entradaEtiqueta" name="entradaEtiqueta"><br><br>
-
-                    <label for="programarSemanal">Programar semanalmente las asignaciones:</label>
-                    <input type="checkbox" id="programarSemanal" name="programarSemanal"><br><br>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="saveSettingsBtn">Guardar</button>
-            </div>
-        </div>
-    </div>
-            </div>
-        </div>
-
-        <!-- FOOTER PRINT -->
-        <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
-            <img class="ml-1 mt-1 mb-1" src="path/to/your/frame.png" width="85px">
-            <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
-            <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px; font-size: 8px;">Impreso el <span id="fecha"></span></p>
-        </div>
-        <!-- FOOTER PRINT -->
-    </div>
-
-    <script type="text/javascript">
-        function imprimirPagina() {
-            // Cambiar la visibilidad del elemento con id "print-footer" a visible
-            document.getElementById("print-footer").style.visibility = "visible";
-            document.getElementById("header-page").style.visibility = "visible";
-            window.print();
-            document.getElementById("print-footer").style.visibility = "hidden";
-            document.getElementById("header-page").style.visibility = "hidden";
-        }
-
-        // Script para mostrar la fecha actual en el footer de impresión
-        document.getElementById('fecha').innerText = new Date().toLocaleDateString();
-    </script>
 </body>
 
 </html>

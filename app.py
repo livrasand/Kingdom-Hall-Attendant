@@ -3337,7 +3337,7 @@ def logout():
     if request.headers.get('X-Client-Type') == 'desktop':
         # Retorna un mensaje para notificar al cliente (Electron)
         return 'Logout successful', 200
-    return redirect('/')
+    return render_template('/logout.html')
 
 @app.route('/sse_logout')
 def sse_logout():
@@ -3650,10 +3650,74 @@ def confirm_password_update(token):
 def manifesto():
     return render_template('manifesto.html')
 
-@app.route('/audio-video-acomodadores', methods=['GET', 'POST'])
+@app.route('/audio-video-acomodadores', methods=['GET'])
 def audio_video_acomodadores():
-    cursor = get_db().cursor()
+    theme = session.get('theme', 'primer')
+    db = get_db()
+    cursor = db.cursor()
+
+    # Verificar si la tabla `ava` existe, y si no, crearla
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS ava (
+            id TEXT PRIMARY KEY,
+            content TEXT
+        )
+    ''')
     
+    # Verificar si la tabla `settings_ava` existe, y si no, crearla
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS settings_ava (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            microfonistas TEXT,
+            acomodadores TEXT,
+            video_conferencia TEXT,
+            entrada TEXT,
+            plataforma TEXT,
+            audio TEXT,
+            video TEXT,
+            etiquetas TEXT
+        )
+    ''')
+    
+    # Obtener los datos de la tabla `ava`
+    cursor.execute('SELECT id, content FROM ava')
+    rows = cursor.fetchall()
+    
+    # Obtener los ajustes de configuración
+    settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
+    
+    # Obtener las etiquetas
+    etiquetas = {}
+    if settings and settings['etiquetas']:
+        etiquetas_list = settings['etiquetas'].split(',')
+        for etiqueta in etiquetas_list:
+            key, value = etiqueta.split(':')
+            etiquetas[key] = value
+    
+    # Transformar los datos en un formato adecuado para el frontend
+    content = []
+    for row in rows:
+        id_ = row[0]
+        content_json = row[1]
+        
+        # Decodificar JSON
+        if isinstance(content_json, str) and content_json.startswith("{") and content_json.endswith("}"):
+            actividad = json.loads(content_json)
+        else:
+            actividad = {}
+
+        content.append({
+            'id': id_,
+            'actividad': actividad
+        })
+    
+    return render_template('audio-video-acomodadores.html', content=content, settings=settings, theme=theme, etiquetas=etiquetas)
+
+@app.route('/nuevo-ava', methods=['GET', 'POST'])
+def nuevo_ava():
+    db = get_db()
+    cursor = db.cursor()
+
     theme = session.get('theme', 'primer')
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
@@ -3662,24 +3726,18 @@ def audio_video_acomodadores():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
 
-    # Asegúrate de que `settings` no sea `None` y contenga los valores esperados
-    print(f"Settings: {settings}")
-
-    # Convertir los valores a enteros
     acomodadores_count = int(settings['acomodadores']) if 'acomodadores' in settings else 0
 
-    # Convertir la cadena de etiquetas a un diccionario
     etiquetas = {}
     if settings and settings['etiquetas']:
         etiquetas_list = settings['etiquetas'].split(',')
         for etiqueta in etiquetas_list:
             key, value = etiqueta.split(':')
             etiquetas[key] = value
-        print(f"Etiquetas: {etiquetas}")  # Depuración de etiquetas
 
     participantes_plataforma = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_plataforma = 1').fetchall()
     participantes_zoom = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_anfitrion_zoom = 1 OR checkbox_coanfitrion_zoom = 1').fetchall()
@@ -3695,16 +3753,21 @@ def audio_video_acomodadores():
         acomodadores_auditorio = request.form.get('acomodadores_auditorio')
         acomodadores_entrada = request.form.get('acomodadores_entrada')
         
+        # Crear un nuevo ID único para el nuevo registro
+        cursor.execute('SELECT MAX(id) FROM ava')
+        max_id = cursor.fetchone()[0] or 0
+        new_id = max_id + 1
+
         cursor.execute(
-            '''INSERT OR REPLACE INTO ava (id, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
-               VALUES (?, ?, ?, ?, ?, ?, ?)''',
-            (fecha, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
+            '''INSERT INTO ava (id, fecha, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+            (new_id, fecha, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada)
         )
-        get_db().commit()
-        return jsonify(success=True)
-    
+        db.commit()
+        return jsonify({'status': 'success', 'id': new_id})
+
     return render_template(
-        'audio-video-acomodadores.html',
+        'detalle-avacomodadores.html',
         theme=theme,
         congregacion=congregacion_formateada,
         settings=settings,
@@ -3715,21 +3778,6 @@ def audio_video_acomodadores():
         participantes_microfonos=participantes_microfonos,
         participantes_acomodadores=participantes_acomodadores
     )
-
-@app.route('/nuevo-ava')
-def nuevo_ava():
-    cursor = g.bd.cursor()
-
-    theme = session.get('theme', 'primer')
-
-    cursor.execute("SELECT nombre_congregacion FROM congregacion")
-    congregacion = cursor.fetchone()
-
-    if congregacion and congregacion[0].strip():
-        congregacion_formateada = congregacion[0].strip("()'")
-    else:
-        congregacion_formateada = None 
-    return render_template('detalle-avacomodadores.html', theme=theme, congregacion=congregacion_formateada)
 
 @app.route('/save-settings', methods=['POST'])
 def save_settings():
@@ -3809,20 +3857,46 @@ def get_settings():
 
 @app.route('/save-ava', methods=['POST'])
 def save_ava():
-    data = request.json
-    content = json.dumps(data.get('content', {}))
+    # Obtener datos del formulario
+    data = request.form.to_dict()
+    content = json.dumps(data)
+    record_id = data.get('fecha')  # Puedes cambiar esto según lo que se pase como ID
 
     db = get_db()
     cursor = db.cursor()
 
-    # Usar una clave primaria o identificador único para evitar conflictos
     cursor.execute('''
-        INSERT OR REPLACE INTO ava (id, content) VALUES (1, ?)
-    ''', (content,))
-    
+        INSERT OR REPLACE INTO ava (id, content) VALUES (?, ?)
+    ''', (record_id, content))
+
     db.commit()
 
-    return jsonify({'status': 'success'})
+    return redirect(url_for('audio_video_acomodadores'))
+
+@app.route('/eliminar-ava/<string:id>', methods=['GET', 'POST'])
+def eliminar_ava(id):
+    # Aquí se eliminaría el formulario de la base de datos
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute('DELETE FROM ava WHERE id = ?', (id,))
+    g.bd.commit()
+    
+    # Redirige a la página original después de la eliminación
+    return redirect(url_for('audio_video_acomodadores'))
+
+@app.route('/eliminar-all-ava', methods=['GET', 'POST'])
+def eliminar_all_ava():
+    # Conectar a la base de datos
+    db = get_db()
+    cursor = db.cursor()
+    
+    # Eliminar todos los registros de la tabla `ava`
+    cursor.execute('DELETE FROM ava')
+    db.commit()
+    
+    # Redirigir a la página original después de la eliminación
+    return redirect(url_for('audio_video_acomodadores'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
