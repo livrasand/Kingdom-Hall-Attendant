@@ -31481,7 +31481,3 @@ a.branch-name .octicon {
   }
 }
 
-/* Estilo para imágenes o elementos con flex */
-.col-6 {
-  width: 100%; /* Asegura que el contenido dentro de .col-6 ocupe el 100% del ancho de su contenedor */
-}

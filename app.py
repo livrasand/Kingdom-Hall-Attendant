@@ -20,13 +20,14 @@ from werkzeug.security import generate_password_hash, check_password_hash, gen_s
 import uuid
 import threading
 import re
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
-app.config['JWT_SECRET_KEY'] = '37bd4322ca093419b36325826a092389a1140b5c501ca75e6c7acfc80af66955'
-
-app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
+app.secret_key = os.environ.get('APP_SECRET_KEY')
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
@@ -34,7 +35,7 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'noresponder.kha@gmail.com'
-app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
@@ -202,13 +203,15 @@ def subscribe():
 
 def check_domain():
     try:
-        response = requests.get('https://www.getkha.org')
+        response = requests.get('https://www.getkha.org', timeout=5)  # 5 segundos
         if response.status_code == 200:
             return "Online"
         else:
             return "Offline"
-    except requests.ConnectionError:
-        return "Offline"
+    except requests.exceptions.Timeout:
+        return "Request timed out"
+    except requests.exceptions.RequestException as e:
+        return f"An error occurred: {e}"
 
 def check_server():
     try:
@@ -217,10 +220,10 @@ def check_server():
             return "Online"
         else:
             return "Offline"
-    except requests.ConnectionError:
-        return "Offline"
-    except requests.Timeout:
-        return "Offline"
+    except requests.exceptions.Timeout:
+        return "Request timed out"
+    except requests.exceptions.RequestException as e:
+        return f"An error occurred: {e}"
 
 def check_database():
     try:
@@ -1654,14 +1657,78 @@ def mostrar_bosquejo(id):
 
 def obtener_columnas_con_uno(id):
     cursor = g.bd.cursor()
+    
+    # Lista blanca de columnas permitidas en la tabla "oradores"
+    columnas_permitidas = [
+        "id", "nombres", "apellidos", "aprobado_para_salir", "correo_electronico", 
+        "celular", "telefono", "nombramiento", 
+        "discurso_1", "discurso_2", "discurso_3", "discurso_4", 
+        "discurso_5", "discurso_6", "discurso_7", "discurso_8", 
+        "discurso_9", "discurso_10", "discurso_11", "discurso_12", 
+        "discurso_13", "discurso_14", "discurso_15", "discurso_16", 
+        "discurso_17", "discurso_18", "discurso_19", "discurso_20", 
+        "discurso_21", "discurso_22", "discurso_23", "discurso_24", 
+        "discurso_25", "discurso_26", "discurso_27", "discurso_28", 
+        "discurso_29", "discurso_30", "discurso_31", "discurso_32", 
+        "discurso_33", "discurso_34", "discurso_35", "discurso_36", 
+        "discurso_37", "discurso_38", "discurso_39", "discurso_40", 
+        "discurso_41", "discurso_42", "discurso_43", "discurso_44", 
+        "discurso_45", "discurso_46", "discurso_47", "discurso_48", 
+        "discurso_49", "discurso_50", "discurso_51", "discurso_52", 
+        "discurso_53", "discurso_54", "discurso_55", "discurso_56", 
+        "discurso_57", "discurso_58", "discurso_59", "discurso_60", 
+        "discurso_61", "discurso_62", "discurso_63", "discurso_64", 
+        "discurso_65", "discurso_66", "discurso_67", "discurso_68", 
+        "discurso_69", "discurso_70", "discurso_71", "discurso_72", 
+        "discurso_73", "discurso_74", "discurso_75", "discurso_76", 
+        "discurso_77", "discurso_78", "discurso_79", "discurso_80", 
+        "discurso_81", "discurso_82", "discurso_83", "discurso_84", 
+        "discurso_85", "discurso_86", "discurso_87", "discurso_88", 
+        "discurso_89", "discurso_90", "discurso_91", "discurso_92", 
+        "discurso_93", "discurso_94", "discurso_95", "discurso_96", 
+        "discurso_97", "discurso_98", "discurso_99", "discurso_100", 
+        "discurso_101", "discurso_102", "discurso_103", "discurso_104", 
+        "discurso_105", "discurso_106", "discurso_107", "discurso_108", 
+        "discurso_109", "discurso_110", "discurso_111", "discurso_112", 
+        "discurso_113", "discurso_114", "discurso_115", "discurso_116", 
+        "discurso_117", "discurso_118", "discurso_119", "discurso_120", 
+        "discurso_121", "discurso_122", "discurso_123", "discurso_124", 
+        "discurso_125", "discurso_126", "discurso_127", "discurso_128", 
+        "discurso_129", "discurso_130", "discurso_131", "discurso_132", 
+        "discurso_133", "discurso_134", "discurso_135", "discurso_136", 
+        "discurso_137", "discurso_138", "discurso_139", "discurso_140", 
+        "discurso_141", "discurso_142", "discurso_143", "discurso_144", 
+        "discurso_145", "discurso_146", "discurso_147", "discurso_148", 
+        "discurso_149", "discurso_150", "discurso_151", "discurso_152", 
+        "discurso_153", "discurso_154", "discurso_155", "discurso_156", 
+        "discurso_157", "discurso_158", "discurso_159", "discurso_160", 
+        "discurso_161", "discurso_162", "discurso_163", "discurso_164", 
+        "discurso_165", "discurso_166", "discurso_167", "discurso_168", 
+        "discurso_169", "discurso_170", "discurso_171", "discurso_172", 
+        "discurso_173", "discurso_174", "discurso_175", "discurso_176", 
+        "discurso_177", "discurso_178", "discurso_179", "discurso_180", 
+        "discurso_181", "discurso_182", "discurso_183", "discurso_184", 
+        "discurso_185", "discurso_186", "discurso_187", "discurso_188", 
+        "discurso_189", "discurso_190", "discurso_191", "discurso_192", 
+        "discurso_193", "discurso_194", "congregacion"
+    ]
+
+    # Obtiene las columnas de la tabla "oradores"
     cursor.execute("PRAGMA table_info(oradores)")
     columnas = [row[1] for row in cursor.fetchall()]
     columnas_con_uno = []
+
     for columna in columnas:
-        cursor.execute("SELECT {} FROM oradores WHERE id = ? AND {} = 1".format(columna, columna), (id,))
-        resultado = cursor.fetchone()
-        if resultado:
-            columnas_con_uno.append(columna)
+        # Verifica que la columna esté en la lista blanca
+        if columna in columnas_permitidas:
+            query = f"SELECT {columna} FROM oradores WHERE id = ? AND {columna} = 1"
+            cursor.execute(query, (id,))
+            resultado = cursor.fetchone()
+            if resultado:
+                columnas_con_uno.append(columna)
+        else:
+            raise ValueError(f"Columna no permitida: {columna}")
+
     return columnas_con_uno
 
 @app.route('/guardar_bosquejo', methods=['POST'])
@@ -1844,21 +1911,31 @@ def nuevo_vida_ministerio():
 
 def extract_data_from_WOL(year, week):
     url = f"https://wol.jw.org/es/wol/meetings/r4/lp-s/{year}/{week}"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
+    try:
+        # Establece un timeout de 10 segundos
+        response = requests.get(url, timeout=10)
+        # Lanza un error si la respuesta no es 200 OK
+        response.raise_for_status()
+    except requests.exceptions.Timeout:
+        print("La solicitud ha superado el tiempo de espera.")
+        return None, {}  # Retorna None y un diccionario vacío si hay un timeout
+    except requests.exceptions.RequestException as e:
+        print(f"Ocurrió un error: {e}")
+        return None, {}  # Retorna None y un diccionario vacío si hay un error
+    else:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        week_info = soup.find('h1').text
+        data = {}
+        current_h2 = None
 
-    week_info = soup.find('h1').text
-    data = {}
-    current_h2 = None
+        for element in soup.find_all(['h2', 'h3']):
+            if element.name == 'h2':
+                current_h2 = element.text.strip()
+                data[current_h2] = []
+            elif element.name == 'h3' and current_h2:
+                data[current_h2].append(element.text.strip())
 
-    for element in soup.find_all(['h2', 'h3']):
-        if element.name == 'h2':
-            current_h2 = element.text.strip()
-            data[current_h2] = []
-        elif element.name == 'h3' and current_h2:
-            data[current_h2].append(element.text.strip())
-
-    return week_info, data
+        return week_info, data
 
 def get_previous_and_next_urls(year, week):
     # Calcular la semana anterior
@@ -2210,9 +2287,17 @@ def register():
                 user_conn.commit()
                 user_conn.close()
             
-            flash('Se ha enviado un enlace de confirmación a tu correo.')
-            return redirect(url_for('register'))
+            return redirect(url_for('register_sent', email=email))
     return render_template('signup.html')
+
+@app.route('/register/sent', methods=['GET'])
+def register_sent():
+    email = request.args.get('email')  # Obtener el correo de los parámetros de la URL
+    return render_template('sent.html', email=email)
+
+@app.route('/sign-up-system')
+def log_in_system():
+    return render_template('log-in-system.html')
 
 @app.route('/resend_token/<email>', methods=['GET', 'POST'])
 def resend_token(email):
@@ -3897,6 +3982,5 @@ def eliminar_all_ava():
     # Redirigir a la página original después de la eliminación
     return redirect(url_for('audio_video_acomodadores'))
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

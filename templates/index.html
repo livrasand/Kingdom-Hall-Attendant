@@ -38,7 +38,7 @@
 
 </style>
    </head>
-   <body>
+   <body style="{{ 'background: #100000;' if apply_golden_style else '' }}">
       <!-- Tu contenido del encabezado aquí -->
       <div class="Header color-bg-inset" >
          <!-- Image item  -->
@@ -77,16 +77,22 @@
                </a>
             </div>
          </div>
-         <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
-               <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="estudio-atalaya.html">
-                  <div class="position-absolute top-0 left-2" style="margin-top:2%;"> <i class="jwIcon e95 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i></div>
-                  <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">{{ _('Estudio de <em>La Atalaya</em>') }}</h5>
-                  <p class="color-fg-muted text-small {{ 'color-fg-on-emphasis transparencia' if apply_golden_style else '' }}" style="margin-left: 25%;">{{ _('Programa automáticamente los participantes para la reunión') }}
-                  </p>
-               </a>
+        <div class="col-4 float-left p-3">
+    <div class="col-6 width-full">
+        <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" 
+           href="estudio-atalaya.html" style="{{ 'background: radial-gradient(circle, rgba(171,105,0,1) 29%, rgba(152,93,0,1) 100%);box-shadow: 150px 150px 150px 150px #dcbf24;' if apply_golden_style else '' }}">
+            <div class="position-absolute top-0 left-2" style="margin-top:2%;"> 
+                <i class="jwIcon e95 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}"></i>
             </div>
-         </div>
+            <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" 
+                style="margin-left: 25%;">{{ _('Estudio de <em>La Atalaya</em>') }}</h5>
+            <p class="color-fg-muted text-small {{ 'color-fg-on-emphasis transparencia' if apply_golden_style else '' }}" 
+               style="margin-left: 25%;">{{ _('Programa automáticamente los participantes para la reunión') }}
+            </p>
+        </a>
+    </div>
+</div>
+
          <!-- Audio, video y acomodadores box -->
          <div class="col-4 float-left p-3">
             <div class="col-6 width-full" style="{{ 'background: rgba(209,174,84,255); border-radius: 6px;' if apply_golden_style else '' }}">
@@ -397,17 +403,7 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
                </a>
             </div>
          </div>
-         <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="border-left: 6px solid #84b6f4;border-left-color: #84b6f4;border-color: #84b6f4;background-color: #c4dafa;border-radius: 6px;">
-               <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="">
-                  <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e47"></i></div>
-                  <h5 class="color-fg-default" style="margin-left: 25%;">Audio, video y acomodadores</h5>
-                  <p class="color-fg-muted text-small" style="margin-left: 25%;">
-                     Administra asignaciones de voluntarios para acomodadores
-                  </p>
-               </a>
-            </div>
-         </div>
+         
       </div>
       <div class="container-lg clearfix">
          <div class="col-4 float-left p-3">
