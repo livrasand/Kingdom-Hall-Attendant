@@ -141,13 +141,26 @@ def helloworld():
 
 @app.route('/status', methods=['GET'])
 def status():
-    status = {
-        "domain": check_domain(),
-        "server": check_server(),
-        "database": check_database(),
-        "code": check_code()
-    }
-    return jsonify(status)
+    try:
+        status = {
+            "domain": check_domain(),
+            "server": check_server(),
+            "database": check_database(),
+            "code": check_code()
+        }
+        return jsonify(status)
+    except Exception as e:
+        # Registra el error con detalles para el desarrollador
+        app.logger.error(f'Error occurred in status check: {str(e)}')
+        # Muestra un mensaje genérico al usuario
+        return jsonify({"error": "Ocurrió un error al verificar el estado, por favor inténtelo más tarde."}), 500
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # Registra el error con detalles para el desarrollador
+    app.logger.error(f'Error occurred: {str(e)}')
+    # Muestra un mensaje genérico al usuario
+    return jsonify({"error": "Ocurrió un error, por favor inténtelo más tarde."}), 500
 
 def send_email_status(subject, body, recipients):
     msg = Message(subject, sender=app.config['MAIL_USERNAME'], recipients=recipients)
@@ -774,13 +787,22 @@ def crear_familia(apellidos):
 
 @app.route('/oradores.html')
 def oradores():
-    cursor = g.bd.cursor()
-    cursor.execute("SELECT * FROM oradores")
-    oradores = cursor.fetchall()
-    cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
-    publicadores_discursantes = cursor.fetchall()
-    theme = session.get('theme', 'primer')
-    return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
+    # Validación de la URL de referencia
+    valid_urls = ['https://www.getkha.org']  # Lista blanca de URLs válidas
+    referrer = request.referrer
+    
+    if referrer in valid_urls:
+        # Continuar con la lógica si la URL de referencia es válida
+        cursor = g.bd.cursor()
+        cursor.execute("SELECT * FROM oradores")
+        oradores = cursor.fetchall()
+        cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
+        publicadores_discursantes = cursor.fetchall()
+        theme = session.get('theme', 'primer')
+        return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
+    else:
+        # Redirigir a una página predeterminada si la URL no es válida
+        return redirect(url_for('default_page'))  # Asegúrate de que 'default_page' esté definido como otra ruta en tu aplicación
 
 @app.route('/crear_orador', methods=['GET'])
 def crear_orador():
@@ -2244,50 +2266,66 @@ def recovery():
         flash('El correo electrónico no está registrado en nuestra base de datos.')
         return redirect(url_for('forgot'))
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         email = request.form['email']
+        
+        # Validar el email para asegurarse de que sea seguro
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+            flash('Error: dirección de correo electrónico no válida.')
+            return redirect(url_for('register'))
+
+        # Conectar a la base de datos
         conn = sqlite3.connect(DATABASE)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
+
+        # Verificar si el usuario ya existe
         cursor.execute("SELECT * FROM emptor WHERE correo = ?", (email,))
         user = cursor.fetchone()
-        
+
         if user:
             flash('El usuario ya existe. Por favor, selecciona la opción de reenviar token.')
-            return redirect(url_for('resend_token', email=email))
-        else:
-            token = secrets.token_urlsafe(16)
-            token_expiration = datetime.datetime.now() + timedelta(hours=1)
-            confirm_url = url_for('confirm_email', token=token, _external=True)
-            requester_ip = get_requester_ip()
-            sender = app.config['MAIL_USERNAME']
-            send_email(sender, email, confirm_url, requester_ip)
-            
-            cursor.execute("INSERT INTO emptor (correo, token, token_expiration, database) VALUES (?, ?, ?, ?)", (email, token, token_expiration, f'{email.split("@")[0]}.db'))
-            conn.commit()
             conn.close()
-            
+            return redirect(url_for('resend_token', email=email))
+
+        # Generar token y URL de confirmación
+        token = secrets.token_urlsafe(16)
+        token_expiration = datetime.datetime.now() + timedelta(hours=1)
+        confirm_url = url_for('confirm_email', token=token, _external=True)
+        requester_ip = get_requester_ip()
+        sender = app.config['MAIL_USERNAME']
+        send_email(sender, email, confirm_url, requester_ip)
+
+        user_db_name = f"{email.split('@')[0]}.db"
+
+        # Validar el nombre de archivo para asegurarse de que no contenga caracteres peligrosos
+        if re.match(r'^[a-zA-Z0-9_-]+\.db$', user_db_name):
+            cursor.execute("INSERT INTO emptor (correo, token, token_expiration, database) VALUES (?, ?, ?, ?)", 
+                           (email, token, token_expiration, user_db_name))
+            conn.commit()
+
             try:
-                shutil.copy("kha.db", f"{email.split('@')[0]}.db")
-            except FileNotFoundError:
-                flash('Error: la base de datos "kha.db" no se encontró.')
-                return redirect(url_for('register'))
-            except Exception as e:
-                flash(f'Error al copiar la base de datos: {str(e)}')
-                return redirect(url_for('register'))
-            
-            user_db_name = f"{email.split('@')[0]}.db"
-            if not os.path.exists(user_db_name):
+                # Copiar la base de datos
+                shutil.copy("kha.db", user_db_name)
                 user_conn = sqlite3.connect(user_db_name)
                 user_cursor = user_conn.cursor()
                 user_cursor.execute("CREATE TABLE IF NOT EXISTS user_data (id INTEGER PRIMARY KEY AUTOINCREMENT, data TEXT)")
                 user_conn.commit()
                 user_conn.close()
+            except FileNotFoundError:
+                flash('Error: la base de datos "kha.db" no se encontró.')
+            except Exception as e:
+                flash(f'Error al copiar la base de datos: {str(e)}')
             
             return redirect(url_for('register_sent', email=email))
+        else:
+            flash('Error: nombre de archivo no válido.')
+
+        conn.close()  # Asegúrate de cerrar la conexión a la base de datos
+        return redirect(url_for('register'))
+    
     return render_template('signup.html')
 
 @app.route('/register/sent', methods=['GET'])
