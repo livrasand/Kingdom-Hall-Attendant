@@ -1,3 +1,6 @@
 /venv
 .env
 clave-secreta.py
+__pycache__/
+*.pyc
+*.log
