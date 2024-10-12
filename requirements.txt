@@ -8,7 +8,7 @@ cffi==1.16.0
 charset-normalizer==3.3.1
 click==8.1.7
 colorama==0.4.6
-cryptography==42.0.4
+cryptography==43.0.1
 cx-Logging==3.1.0
 cx_Freeze==6.15.15
 Flask==3.0.2
