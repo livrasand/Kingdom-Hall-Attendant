@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM738JMZ22');
+</script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Verificar 2FA - Kingdom Hall Attendant</title>
+</head>
+<body>
+    <a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Utility__f24f44fb styles_module_wtLink_Default__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtBodyMedium__f24f44fb styles_module_logoLink__8a4eaeaf styles_module_dark__8a4eaeaf Nav_navTopLogo__LpSb7" href="https://www.getkha.org/" >
+        <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:50px;border-radius: 25%;"></a>
+
+      <nav id="wt-top-navigation-n_XG1HoVuvytluhKz8jtu" class="styles_module_container__05ad3f7f Nav_globalNavContainer__BzVy1"><div class="styles_module_menuGroup__a75ea064"><div class="styles_module_menuBar__a75ea064 styles_module_buttonsSection__33aa50d8"><a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Navigational__f24f44fb styles_module_wtLink_Neutral__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtLabelMediumSemi__f24f44fb styles_module_navLink__0a0665ea" href="/login" data-prevent-routing="true" data-testid="Iniciar sesión">Iniciar sesión</a><a class="styles_module_wtButton__38691ab2 styles_module_wtButton_XSmall__38691ab2 styles_module_wtButtonPrimaryNeutral_Light__38691ab2" href="/signup" data-testid="Registrarse">Registrarse</a></div></div></nav>
+    <div class="container">
+        <h1>Código de verificación:</h1>
+        <form action="{{ url_for('verify_2fa') }}" method="POST">
+            <div class="input-box">
+                <input type="text" id="codigo" name="codigo" required autocomplete="off">
+            </div>
+            <center>
+            <button type="submit">Verificar</button>
+        </center>
+        </form>
+        <a href="{{ url_for('login') }}" style="margin-top: 15px;color: rgb(41, 126, 255); cursor: pointer;">Regresar al inicio de sesión</a>
+    </div>
+</body>
+</html>

@@ -37,8 +37,14 @@
         <h2 style="color:rgb(20, 20, 21);font-size: 32px;line-height: 40px;font-weight: 700;letter-spacing: -0.4px;">¡Su enlace mágico está en camino!</h2>
         <p style="color: rgb(50, 51, 52);margin-top: 32px;margin-bottom: 0px;font-size: 20px;line-height: 28px;font-weight: 500;letter-spacing: -0.4px;margin-bottom: 24px;">Lo hemos enviado a <strong>{{ email }}</strong></p>
 
+        {% if qr_code_path %}
+<h2 style="color:rgb(20, 20, 21);font-size: 16px;line-height: 20px;font-weight: 500;letter-spacing: -0.4px;margin-bottom: 30px;">Escanea el código QR utilizando Google Authenticator, Microsoft Authenticator o cualquier aplicación de autenticación de tu elección compatible con códigos de un solo uso (TOTP) para activar la verificación en dos pasos (2FA) y mejorar la seguridad de tu cuenta.</h2>
+<img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('\\')[-1]) }}" alt="Código QR" style="width: 150px;">
+{% endif %}
+
+
         <p style="color: rgb(50, 51, 52);margin-top: 50px;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;margin-bottom: 0;">Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas.</p>
-        <a href="/sing-up-system" style="color: rgb(41, 126, 255); cursor: pointer;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">Más información</a> <span style="color: rgb(50, 51, 52);font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">sobre nuestro sistema de inicio de sesión.</span>
+        <a href="{{ url_for('log_in_system') }}" style="color: rgb(41, 126, 255); cursor: pointer;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">Más información</a> <span style="color: rgb(50, 51, 52);font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">sobre nuestro sistema de inicio de sesión.</span>
     </div>
     </div>
 </body>

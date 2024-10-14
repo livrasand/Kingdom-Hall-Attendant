@@ -25,13 +25,15 @@
 
 <body>
     <div class="container" style="max-width: 450px;">
-        <a href="https://www.getkha.org/" class="logo-link">
+        <a href="/" class="logo-link">
             <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:100px;border-radius: 25%;">
         </a>
 
         <span class="github-head" style="margin-top: 45px;">
             ¡Vuelve pronto!
         </span>
+
+        <p>O vuelve a <a href="{{ url_for('login') }}" style="color: rgb(41, 126, 255); cursor: pointer;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">Iniciar sesión</a></p>
     </div>
 </body>
 
