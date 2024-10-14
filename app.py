@@ -28,8 +28,8 @@ load_dotenv()
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
-app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
-app.secret_key = os.environ.get('APP_SECRET_KEY')
+app.config['JWT_SECRET_KEY'] = '37bd4322ca093419b36325826a092389a1140b5c501ca75e6c7acfc80af66955'
+app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
@@ -37,7 +37,7 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'noresponder.kha@gmail.com'
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
 app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
@@ -2127,7 +2127,7 @@ def accessing():
             img = qrcode.make(uri)
 
             # Guardar el código QR en el sistema
-            qr_folder_path = os.path.join('static', 'qrcodes')
+            qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Asegúrate de que apunte a la carpeta correcta
             os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
             qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
             img.save(qr_code_path)
@@ -2164,9 +2164,8 @@ def activate_2fa():
         img = qrcode.make(uri)
 
         # Definir la ruta del código QR y crear la carpeta si no existe
-        qr_folder_path = os.path.join('static', 'qrcodes')
+        qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Asegúrate de que apunte a la carpeta correcta
         os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
-        
         qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
         img.save(qr_code_path)
 

@@ -30,7 +30,8 @@
     <h1>Active la Autenticación 2FA</h1>
     {% if qr_code_path %}
         <p style="max-width: 450px;">Escanea el código QR utilizando Google Authenticator, Microsoft Authenticator o cualquier aplicación de autenticación de tu elección compatible con códigos de un solo uso (TOTP) para activar la verificación en dos pasos (2FA) y mejorar la seguridad de tu cuenta:</p>
-        <img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('\\')[-1]) }}" alt="Código QR" style="width: 150px;">
+        <img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('/')[-1]) }}" alt="Código QR" style="width: 150px;">
+
         <p>Después de escanear, <a href="/login" style="margin-top: 20px;color: rgb(41, 126, 255); cursor: pointer;">Inicia sesión nuevamente</a>.</p>
     {% else %}
         <p>Error al generar el código QR. Por favor, inténtalo de nuevo.</p>

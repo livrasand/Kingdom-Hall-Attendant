@@ -2179,7 +2179,7 @@ nav.Nav_globalNavContainer__BzVy1 {
   height: var(--encore-graphic-size-decorative-larger,32px);
 }
 .iFGUhA {
-  color: #353535;
+  color: #fff;
 }
 .mac-window {
     background-color: #f6f6f6;
@@ -13730,32 +13730,27 @@ th, td {
     vertical-align: middle;
 }
 
-thead th {
-    background: #ffffff; /* Fondo blanco para el encabezado */
-    border-bottom: 2px solid #e0e0e0; /* Línea sutil de separación */
+tbody tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+  backdrop-filter: blur(15px); /* Efecto de desenfoque */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-tbody tr:nth-child(even) {
-    background: #f4f4f4; /* Alternancia de color de fila */
-}
 
 th {
     font-size: 1rem;
-    color: #333;
     font-weight: 500;
 }
 
 td {
     font-size: 0.875rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.75); /* Blanco con 30% de opacidad */
 }
-
-
 
 /* Estilo del botón */
 button {
     border: none;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 4px; /* Bordes redondeados */
     padding: 12px 20px;
     font-size: 1rem;
     font-weight: 600;
