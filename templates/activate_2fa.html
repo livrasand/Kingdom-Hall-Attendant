@@ -22,16 +22,20 @@
     <title>Activar 2FA - Kingdom Hall Attendant</title>
 </head>
 <body>
-<a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Utility__f24f44fb styles_module_wtLink_Default__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtBodyMedium__f24f44fb styles_module_logoLink__8a4eaeaf styles_module_dark__8a4eaeaf Nav_navTopLogo__LpSb7" href="https://www.getkha.org/" >
-        <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:50px;border-radius: 25%;"></a>
+  {% include 'nav.html' %}
+  <div class="container">
+    <center>
+      <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" fill="#59636e" class="octicon octicon-device-mobile color-fg-muted">
+          <path d="M10.25 5.25A.75.75 0 0 1 11 4.5h2A.75.75 0 0 1 13 6h-2a.75.75 0 0 1-.75-.75ZM12 19.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+          <path d="M4 2.75C4 1.784 4.784 1 5.75 1h12.5c.966 0 1.75.784 1.75 1.75v18.5A1.75 1.75 0 0 1 18.25 23H5.75A1.75 1.75 0 0 1 4 21.25Zm1.75-.25a.25.25 0 0 0-.25.25v18.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Z"></path>
+      </svg>
+  </center>
+  <h1 style="font-size: 24px;font-weight: 300;letter-spacing: -0.5px;">Activate Two-factor authentication</h1>
 
-      <nav id="wt-top-navigation-n_XG1HoVuvytluhKz8jtu" class="styles_module_container__05ad3f7f Nav_globalNavContainer__BzVy1"><div class="styles_module_menuGroup__a75ea064"><div class="styles_module_menuBar__a75ea064 styles_module_buttonsSection__33aa50d8"><a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Navigational__f24f44fb styles_module_wtLink_Neutral__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtLabelMediumSemi__f24f44fb styles_module_navLink__0a0665ea" href="/login" data-prevent-routing="true" data-testid="Iniciar sesión">Iniciar sesión</a><a class="styles_module_wtButton__38691ab2 styles_module_wtButton_XSmall__38691ab2 styles_module_wtButtonPrimaryNeutral_Light__38691ab2" href="/signup" data-testid="Registrarse">Registrarse</a></div></div></nav>
-    <div class="container">
-    <h1>Active la Autenticación 2FA</h1>
     {% if qr_code_path %}
         <p style="max-width: 450px;">Escanea el código QR utilizando Google Authenticator, Microsoft Authenticator o cualquier aplicación de autenticación de tu elección compatible con códigos de un solo uso (TOTP) para activar la verificación en dos pasos (2FA) y mejorar la seguridad de tu cuenta:</p>
-        <img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('/')[-1]) }}" alt="Código QR" style="width: 150px;">
-
+        <img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('/')[-1]) }}" alt="Código QR" style="width: 150px;"> <!-- Linea para servidor -->
+        
         <p>Después de escanear, <a href="/login" style="margin-top: 20px;color: rgb(41, 126, 255); cursor: pointer;">Inicia sesión nuevamente</a>.</p>
     {% else %}
         <p>Error al generar el código QR. Por favor, inténtalo de nuevo.</p>

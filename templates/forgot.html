@@ -1529,23 +1529,22 @@ ul.right li:last-child {
 
     <!-- link icons  -->
     <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
-    <title>Si olvidaste la contraseña de tu KHA ID</title>
+    <title>Forgot your password? · Kingdom Hall Attendant</title>
 </head>
 
 <body>
     <div class="container">
         <div class="github-logo">
-            <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:90px;border-radius: 25%;">
+            <a href="/"><img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:80px;border-radius: 25%;"></a>
 
         </div>
         <span class="github-head">
-            ¡Aventura en pausa!<br>
-            Memoria en pausa...
+            Reset your password
         </span>
         <form method="post" action="{{ url_for('recovery') }}">
-        <div class="login-wrapper">
+        <div class="login-wrapper" style="max-width: 450px;">
             <div class="input-box">
-                <div for="email" class="input-label">Correo electrónico registrado</div>
+                <div for="email" class="input-label">Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña.</div>
                 <input type="email" id="email" name="email" required autocomplete="off">
             </div>
 
@@ -1554,9 +1553,6 @@ ul.right li:last-child {
             <button type="submit" class="submit-btn">
                 Recuperar contraseña
             </button>
-        </div>
-        <div class="info login-wrapper">
-            <span>¿Memoria reanudada? <a href="/" style="color: rgb(0, 87, 188);cursor: pointer;">Inicia sesión</a>.</span>
         </div>
     </form>
     </div>

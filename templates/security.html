@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PM738JMZ22');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='en-línea-1.css') }}" rel="stylesheet" />
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Seguridad — Kingdom Hall Attendant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" href="https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2" as="font" type="font/woff2" crossorigin="">
+</head>
+
+<body>
+    <div class="container" style='background-image: url("https://cdn.wetransfer.com/_next/static/media/PricingBackground.74fe38a7.svg");background-size: 100%;background-repeat: no-repeat;'>
+        {% include 'nav.html' %}
+
+        <div style="padding: 50px 20% 60px 20%;background: linear-gradient(180deg, rgba(255,255,255,0.1) 22%, rgba(93,147,243,0.25) 100%);border-radius: 24px;">
+            <div class="container-lg p-responsive" style="margin-top: 25px; width: 100%;">
+                <div class="col-md-8 col-lg-10 col-xl-12 text-center mx-auto my-5 my-sm-0">
+                    <h2 class="github-head mb-3" style="line-height: 1;text-align: left;margin-left: -4px;">Seguridad en Kingdom Hall Attendant</h2>
+                    <section style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+                        <p><strong>Inicio de Sesión Seguro:</strong> En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos <em>bcrypt</em> para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Autenticación de Dos Factores (2FA):</strong> Añadimos una capa adicional de seguridad con la autenticación de dos factores. Incluso si alguien obtiene tu contraseña, no podrá acceder a tu cuenta sin el código 2FA. Imagina que tu cuenta es una bóveda, y el 2FA es la llave secreta que solo tú posees.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Manejo Seguro de Sesiones:</strong> Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Protección CSRF:</strong> Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Gestión de Tokens Seguros:</strong> Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Conexiones de Base de Datos Seguras:</strong> Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Límites de Tasa:</strong> Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Registro y Monitoreo:</strong> Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía.</p>
+                        
+                        <p style="margin-top:20px;"><strong>Uso de Variables de Entorno:</strong> Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte.</p>
+                        
+                        
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <img src="static/pricing-cover.svg" style="z-index: 9999;margin-top: -50px;" />
+
+        <footer class="MinimalFooter-module--Footer--SWskR" style="margin-top:15px;width:100%;box-shadow: none;">
+            <section class="MinimalFooter-module--Footer__logomarks--LSqy8">
+                <div class="MinimalFooter-module--Footer__container--2gqrH">
+                    <div class="Stack-module--Stack--i7hTG Stack-module--Stack-narrow--vertical--Fe3Pi Stack-module--Stack-regular--horizontal--rY4BG Stack-module--Stack--gap-normal--vPWjH Stack-module--Stack--align-items-center--YV82o Stack-module--Stack--justify-content-space-between--IcCcT Stack-module--Stack--padding-none--5IVv0">
+                        <div>
+                            <a href="https://www.getkha.org"><img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="border-radius: 25%;width: 75px;margin-bottom: 15px"></a>
+                        </div>
+                        <ul class="MinimalFooter-module--Footer__social-links--z4Hi0">
+                            <li><a href="https://github.com/livrasand/Kingdom-Hall-Attendant" class="MinimalFooter-module--Footer__social-link--Tt-Gm"><img class="MinimalFooter-module--Footer__social-icon--BqC51" src="https://github.githubassets.com/images/modules/site/icons/footer/github-mark.svg" height="20" width="20" loading="lazy" decoding="async" alt=""><span class="visually-hidden">KHA on GitHub</span></a></li>
+                            <li><a href="https://www.youtube.com/@livrasand" class="MinimalFooter-module--Footer__social-link--Tt-Gm"><img class="MinimalFooter-module--Footer__social-icon--BqC51" src="https://github.githubassets.com/images/modules/site/icons/footer/youtube.svg" height="16" width="23" loading="lazy" decoding="async" alt=""><span class="visually-hidden">KHA on YouTube</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="MinimalFooter-module--Footer__legal-and-links--73MFj">
+                    <div class="MinimalFooter-module--Footer__container--2gqrH">
+                        <div class="Stack-module--Stack--i7hTG Stack-module--Stack-narrow--vertical--Fe3Pi Stack-module--Stack-regular--horizontal--rY4BG Stack-module--Stack--gap-normal--vPWjH Stack-module--Stack--justify-content-space-between--IcCcT Stack-module--Stack--padding-none--5IVv0">
+                            <div class="Stack-module--Stack--i7hTG Stack-module--Stack-narrow--vertical--Fe3Pi Stack-module--Stack-regular--horizontal--rY4BG Stack-module--Stack--gap-condensed--hVoJK Stack-module--Stack-narrow--justify-content-center--YEV1v Stack-module--Stack-regular--justify-content-flex-end--McTRB Stack-module--Stack--padding-none--5IVv0 MinimalFooter-module--Footer__links--TuGjW">
+                                <a class="MinimalFooter-module--Footer__link--Dpxmm" href="https://livrasand.github.io/kingdom_hall_attendant_auth_api/"><span class="Text-module--Text--yhV1b Text-module--Text-font--mona-sans--QaJya Text-module--Text--muted--8xMEA Text-module--Text--200--VnEtP">Developer API</span></a>
+                                <a class="MinimalFooter-module--Footer__link--Dpxmm" href="https://github.com/livrasand/kingdom_hall_attendant_binaries/releases/latest"><span class="Text-module--Text--yhV1b Text-module--Text-font--mona-sans--QaJya Text-module--Text--muted--8xMEA Text-module--Text--200--VnEtP">Desktop Client</span></a>
+                                <a class="MinimalFooter-module--Footer__link--Dpxmm" href="https://github.com/livrasand/Kingdom-Hall-Attendant/releases"><span class="Text-module--Text--yhV1b Text-module--Text-font--mona-sans--QaJya Text-module--Text--muted--8xMEA Text-module--Text--200--VnEtP">Release Notes</span></a>
+                                <a class="MinimalFooter-module--Footer__link--Dpxmm" href="https://github.com/users/livrasand/projects/2"><span class="Text-module--Text--yhV1b Text-module--Text-font--mona-sans--QaJya Text-module--Text--muted--8xMEA Text-module--Text--200--VnEtP">Roadmap</span></a>
+                            </div>
+                            <p class="Text-module--Text--yhV1b Text-module--Text-font--mona-sans--QaJya Text-module--Text--muted--8xMEA Text-module--Text--200--VnEtP MinimalFooter-module--Footer__copyright--tUQf7">© 2024 Livrädo Sandoval. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNavigation = document.getElementById('mobile-navigation');
+        const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+        menuToggle.addEventListener('click', function () {
+            document.getElementById('fullscreen-menu').style.display = 'block';
+        });
+    });
+
+    document.getElementById('close-menu').addEventListener('click', function() {
+        document.getElementById('fullscreen-menu').style.display = 'none'; // Oculta el menú
+    });
+    </script>
+</body>
+
+</html>

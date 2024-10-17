@@ -23,6 +23,12 @@ import re
 from dotenv import load_dotenv
 import pyotp
 import qrcode
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email
+from flask_wtf.csrf import CSRFProtect
 
 load_dotenv()
 app = Flask(__name__)
@@ -38,7 +44,7 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'noresponder.kha@gmail.com'
 app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
-app.config['MAIL_DEFAULT_SENDER'] = ('Join KHA', 'noresponder.kha@gmail.com')
+app.config['MAIL_DEFAULT_SENDER'] = ('Kingdom Hall Attendant', 'noresponder.kha@gmail.com')
 
 mail = Mail(app)
 babel = Babel(app)
@@ -46,6 +52,26 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 secret = pyotp.random_base32()
+
+# Configura el Limiter
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"]
+)
+
+# Configura CSRFProtect
+csrf = CSRFProtect(app)
+
+class LoginForm(FlaskForm):
+  email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
+  password = PasswordField('Contraseña', validators=[DataRequired()])
+
+class Verify2FAForm(FlaskForm):
+  codigo = StringField('Authentication code', validators=[DataRequired()])
+
+class RegistrationForm(FlaskForm):
+  email = StringField('Email', validators=[DataRequired(), Email()])
 
 #@babel.localeselector
 def get_locale():
@@ -120,6 +146,10 @@ def update_last_login(user_id):
 def welcome():
     return render_template('welcome.html')
 
+@app.route('/security')
+def security():
+    return render_template('security.html')
+
 #@app.errorhandler(Exception)
 #def handle_exception(e):
 #    code = 404
@@ -135,9 +165,10 @@ def faq():
 def sitemap():
     return render_template('sitemap.xml')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+  form = LoginForm()
+  return render_template('login.html', form=form)
 
 @app.route('/login-desktop-client')
 def login_desktop():
@@ -2086,8 +2117,12 @@ def inject_user_info():
     return dict(nombre=g.get('nombre', 'Nombre'), apellidos=g.get('apellidos', 'Apellidos'), email=g.get('user_email', 'usuario@correo.com'))
 
 @app.route('/accessing', methods=['POST'])
+@limiter.limit("1 per minute")
 def accessing():
-    email = request.form.get('email')
+  form = LoginForm()
+  if form.validate_on_submit():
+    email = form.email.data
+    password = form.password.data
     if not email:
         flash('El campo de correo electrónico es obligatorio.')
         return redirect(url_for('login'))
@@ -2127,7 +2162,7 @@ def accessing():
             img = qrcode.make(uri)
 
             # Guardar el código QR en el sistema
-            qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Asegúrate de que apunte a la carpeta correcta
+            qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Ruta para PythonAnywhere
             os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
             qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
             img.save(qr_code_path)
@@ -2147,8 +2182,10 @@ def accessing():
         conn.close()  # Cerrar conexión en caso de error
         flash('Correo o contraseña incorrectos.')
         return redirect(url_for('login'))
+    return render_template('login.html', form=form)
 
 @app.route('/activate_2fa', methods=['GET', 'POST'])
+@limiter.limit("1 per minute")
 def activate_2fa():
     if request.method == 'POST':
         email = session.get('temp_user_email')  # Recuperar el correo del usuario temporal
@@ -2164,7 +2201,7 @@ def activate_2fa():
         img = qrcode.make(uri)
 
         # Definir la ruta del código QR y crear la carpeta si no existe
-        qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Asegúrate de que apunte a la carpeta correcta
+        qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Ruta para PythonAnywhere
         os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
         qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
         img.save(qr_code_path)
@@ -2182,9 +2219,11 @@ def activate_2fa():
     return render_template('activate_2fa.html')
 
 @app.route('/verify_2fa', methods=['GET', 'POST'])
+@limiter.limit("2 per minute")
 def verify_2fa():
-    if request.method == 'POST':
-        codigo_ingresado = request.form['codigo']
+    form = Verify2FAForm()
+    if form.validate_on_submit():
+        codigo_ingresado = form.codigo.data
         user_id = session.get('temp_user_id')  # Recuperar el ID de usuario temporal
         email = session.get('temp_user_email')  # Recuperar el email temporal
         
@@ -2228,17 +2267,19 @@ def verify_2fa():
             flash('Error al verificar el código 2FA.')
 
         conn.close()
-    return render_template('verify_2fa.html')
+    return render_template('verify_2fa.html', form=form)
 
 @app.route('/signup')
 def signup():
-    return render_template('signup.html') 
+  form = LoginForm()
+  return render_template('signup.html', form=form) 
 
 @app.route('/forgot')
 def forgot():
     return render_template('forgot.html')  
 
 @app.route('/recovery', methods=['POST'])
+@limiter.limit("1 per minute")
 def recovery():
     email = request.form['email']
     
@@ -2264,9 +2305,12 @@ def recovery():
         return redirect(url_for('forgot'))
 
 @app.route('/register', methods=['GET', 'POST'])
+@limiter.limit("1 per minute")
 def register():
+  form = RegistrationForm()
+  if form.validate_on_submit():
     if request.method == 'POST':
-        email = request.form['email']
+        email = form.email.data
         
         # Validar el email
         if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
@@ -2336,8 +2380,10 @@ def register():
         return redirect(url_for('register'))
     
     return render_template('signup.html')
+  return render_template('signup.html')
 
 @app.route('/register/sent', methods=['GET', 'POST'])
+@limiter.limit("1 per minute")
 def register_sent():
     email = request.args.get('email')  # Obtener el correo de los parámetros de la URL
     qr_code_path = os.path.join('static', 'qrcodes', f'{email}_qr.png')
@@ -2354,6 +2400,7 @@ def log_in_system():
     return render_template('log-in-system.html')
 
 @app.route('/resend_token/<email>', methods=['GET', 'POST'])
+@limiter.limit("1 per minute")
 def resend_token(email):
     if request.method == 'POST' or request.method == 'GET':
         token = secrets.token_urlsafe(16)
@@ -4036,5 +4083,9 @@ def eliminar_all_ava():
     # Redirigir a la página original después de la eliminación
     return redirect(url_for('audio_video_acomodadores'))
 
+# Manejo de excepciones para límites de tasa
+@app.errorhandler(429)
+def ratelimit_handler(e):
+  return jsonify(error="Se ha detectado un comportamiento inusual en tus solicitudes. Por favor, intenta nuevamente más tarde. Si estás intentando eludir nuestras medidas de seguridad, ten en cuenta que hemos registrado tus datos. Para contribuir a la seguridad de nuestra plataforma, te invitamos a reportar cualquier vulnerabilidad y recibir el reconocimiento correspondiente."), 429
 if __name__ == '__main__':
     app.run(debug=True) #or False

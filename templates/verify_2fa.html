@@ -2,39 +2,51 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-PM738JMZ22');
-</script>
+      gtag('config', 'G-PM738JMZ22');
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
 
     <!-- link icons  -->
     <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
-    <title>Verificar 2FA - Kingdom Hall Attendant</title>
+    <title>Two-factor authentication · Kingdom Hall Attendant</title>
 </head>
 <body>
-    <a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Utility__f24f44fb styles_module_wtLink_Default__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtBodyMedium__f24f44fb styles_module_logoLink__8a4eaeaf styles_module_dark__8a4eaeaf Nav_navTopLogo__LpSb7" href="https://www.getkha.org/" >
-        <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:50px;border-radius: 25%;"></a>
+    {% include 'nav.html' %}
 
-      <nav id="wt-top-navigation-n_XG1HoVuvytluhKz8jtu" class="styles_module_container__05ad3f7f Nav_globalNavContainer__BzVy1"><div class="styles_module_menuGroup__a75ea064"><div class="styles_module_menuBar__a75ea064 styles_module_buttonsSection__33aa50d8"><a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Navigational__f24f44fb styles_module_wtLink_Neutral__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtLabelMediumSemi__f24f44fb styles_module_navLink__0a0665ea" href="/login" data-prevent-routing="true" data-testid="Iniciar sesión">Iniciar sesión</a><a class="styles_module_wtButton__38691ab2 styles_module_wtButton_XSmall__38691ab2 styles_module_wtButtonPrimaryNeutral_Light__38691ab2" href="/signup" data-testid="Registrarse">Registrarse</a></div></div></nav>
     <div class="container">
-        <h1>Código de verificación:</h1>
-        <form action="{{ url_for('verify_2fa') }}" method="POST">
-            <div class="input-box">
-                <input type="text" id="codigo" name="codigo" required autocomplete="off">
-            </div>
-            <center>
-            <button type="submit">Verificar</button>
+        <center>
+            <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" fill="#59636e" class="octicon octicon-device-mobile color-fg-muted">
+                <path d="M10.25 5.25A.75.75 0 0 1 11 4.5h2A.75.75 0 0 1 13 6h-2a.75.75 0 0 1-.75-.75ZM12 19.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+                <path d="M4 2.75C4 1.784 4.784 1 5.75 1h12.5c.966 0 1.75.784 1.75 1.75v18.5A1.75 1.75 0 0 1 18.25 23H5.75A1.75 1.75 0 0 1 4 21.25Zm1.75-.25a.25.25 0 0 0-.25.25v18.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Z"></path>
+            </svg>
         </center>
+        <h1 style="font-size: 24px;font-weight: 300;letter-spacing: -0.5px;">Two-factor authentication</h1>
+
+        <form action="{{ url_for('verify_2fa') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="login-wrapper" style="max-width: 350px;">
+                <div class="input-box" style="margin-top:10px;">
+                    <span>Authentication code</span>
+                    {{ form.codigo(size=32) }}
+                </div>
+                <center>
+                    <div class="input-label" style="font-size:12px;margin-top: 20px;margin-bottom: 20px;">Abra su aplicación de autenticador de dos factores (TOTP) o la extensión del navegador para ver su código de autenticación.</div>
+                    <button class="submit-btn">
+                        Verificar
+                    </button>
+                </center>
+            </div>
         </form>
         <a href="{{ url_for('login') }}" style="margin-top: 15px;color: rgb(41, 126, 255); cursor: pointer;">Regresar al inicio de sesión</a>
     </div>

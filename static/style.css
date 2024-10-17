@@ -13730,11 +13730,6 @@ th, td {
     vertical-align: middle;
 }
 
-tbody tr:nth-child(2n) {
-  background: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
-  backdrop-filter: blur(15px); /* Efecto de desenfoque */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
 
 
 th {
@@ -13771,7 +13766,10 @@ button:focus {
   font-family: 'YouTube Sans';
 }
 .jwIcon {
-  color: #f56900;
+  background: linear-gradient(to right, #6d92cc, #8a64e5); 
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent;
 }
 @media screen and (min-width: 600px) {
   .css-dYcOXC {
