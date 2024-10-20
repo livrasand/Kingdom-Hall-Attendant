@@ -34,17 +34,18 @@ load_dotenv()
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
-app.config['JWT_SECRET_KEY'] = '37bd4322ca093419b36325826a092389a1140b5c501ca75e6c7acfc80af66955'
-app.secret_key = '14b9856a0a051c5e80e072f4de6dfe306f913c3ea5c946f1'
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY')
+
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'noresponder.kha@gmail.com'
-app.config['MAIL_PASSWORD'] = 'sdlj izlj wpix ipsn'
-app.config['MAIL_DEFAULT_SENDER'] = ('Kingdom Hall Attendant', 'noresponder.kha@gmail.com')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = ('Kingdom Hall Attendant', os.getenv('MAIL_USERNAME'))
 
 mail = Mail(app)
 babel = Babel(app)
@@ -59,9 +60,6 @@ limiter = Limiter(
     app=app,
     default_limits=["200 per day", "50 per hour"]
 )
-
-# Configura CSRFProtect
-csrf = CSRFProtect(app)
 
 class LoginForm(FlaskForm):
   email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
@@ -707,23 +705,14 @@ def crear_familia(apellidos):
 
 @app.route('/oradores.html')
 def oradores():
-    # Validación de la URL de referencia
-    valid_urls = ['https://www.getkha.org']  # Lista blanca de URLs válidas
-    referrer = request.referrer
+  cursor = g.bd.cursor()
+  cursor.execute("SELECT * FROM oradores")
+  oradores = cursor.fetchall()
+  cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
+  publicadores_discursantes = cursor.fetchall()
+  theme = session.get('theme', 'primer')
+  return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
     
-    if referrer in valid_urls:
-        # Continuar con la lógica si la URL de referencia es válida
-        cursor = g.bd.cursor()
-        cursor.execute("SELECT * FROM oradores")
-        oradores = cursor.fetchall()
-        cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
-        publicadores_discursantes = cursor.fetchall()
-        theme = session.get('theme', 'primer')
-        return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
-    else:
-        # Redirigir a una página predeterminada si la URL no es válida
-        return redirect(url_for('default_page'))  # Asegúrate de que 'default_page' esté definido como otra ruta en tu aplicación
-
 @app.route('/crear_orador', methods=['GET'])
 def crear_orador():
   nombres = request.args.get('nombres')
@@ -2003,6 +1992,14 @@ def visita_superint_circuito():
     cursor.execute("SELECT * FROM familias")
     familias = cursor.fetchall()
 
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+
 
     # Clasificar eventos
     eventos_por_dia_y_hora = {dia: {'Mañana': [], 'Tarde': [], 'Noche': []} for dia in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']}
@@ -2019,7 +2016,7 @@ def visita_superint_circuito():
             periodo = 'Noche'
 
         eventos_por_dia_y_hora[dia][periodo].append(evento)
-    return render_template('visita-superint-circuito.html', theme=theme, eventos_por_dia_y_hora=eventos_por_dia_y_hora)
+    return render_template('visita-superint-circuito.html', theme=theme, eventos_por_dia_y_hora=eventos_por_dia_y_hora, congregacion=congregacion_formateada)
 
 @app.route('/nueva-actividad')
 def nueva_actividad_visita_superint_circuito():
@@ -2175,7 +2172,7 @@ def accessing():
             # Guardar temporalmente el email para obligar al usuario a activar 2FA
             session['temp_user_email'] = email  
             
-            return render_template('activate_2fa.html', qr_code_path=qr_code_path)  # Mostrar el QR al usuario
+            return render_template('activate_2fa.html', qr_code_path=qr_code_path, secret=secret)  # Mostrar el QR al usuario
 
     else:
         # Correo o contraseña incorrectos
@@ -2214,7 +2211,7 @@ def activate_2fa():
         conn.commit()
         conn.close()
 
-        return render_template('activate_2fa.html', qr_code_path=qr_code_path)  # Mostrar el QR al usuario
+        return render_template('activate_2fa.html', qr_code_path=qr_code_path, secret=secret) 
 
     return render_template('activate_2fa.html')
 
@@ -3245,12 +3242,21 @@ def literatura():
 
 @app.route('/nuevo_inventario')
 def nuevo_inventario():
+  cursor = g.bd.cursor()
   now = datetime.datetime.now()
   month_year = format_date(now, format='MMMM yyyy', locale='es_ES')
 
   theme = session.get('theme', 'primer')
 
-  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None, theme=theme) 
+  cursor.execute("SELECT nombre_congregacion FROM congregacion")
+  congregacion = cursor.fetchone()
+
+  if congregacion and congregacion[0].strip():
+      congregacion_formateada = congregacion[0].strip("()'")
+  else:
+      congregacion_formateada = None 
+
+  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None, theme=theme, congregacion=congregacion_formateada) 
 
 @app.route('/mostrar_inventario/<string:mes_ano>', methods=['GET'])
 def mostrar_inventario(mes_ano):
@@ -3261,7 +3267,15 @@ def mostrar_inventario(mes_ano):
 
     theme = session.get('theme', 'primer')
 
-    return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario, theme=theme)
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
+
+    return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario, theme=theme, congregacion=congregacion_formateada)
 
 @app.route('/guardar_inventario', methods=['POST'])
 def guardar_inventario():
@@ -3868,6 +3882,14 @@ def audio_video_acomodadores():
     # Obtener los datos de la tabla `ava`
     cursor.execute('SELECT id, content FROM ava')
     rows = cursor.fetchall()
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None 
     
     # Obtener los ajustes de configuración
     settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
@@ -3897,7 +3919,7 @@ def audio_video_acomodadores():
             'actividad': actividad
         })
     
-    return render_template('audio-video-acomodadores.html', content=content, settings=settings, theme=theme, etiquetas=etiquetas)
+    return render_template('audio-video-acomodadores.html', content=content, settings=settings, theme=theme, etiquetas=etiquetas, congregacion=congregacion_formateada)
 
 @app.route('/nuevo-ava', methods=['GET', 'POST'])
 def nuevo_ava():
@@ -4037,16 +4059,14 @@ def get_settings():
             return jsonify({})
     
     except sqlite3.OperationalError as e:
-        # Manejo del error en caso de que la tabla no exista
         print(f"Error al acceder a la tabla: {e}")
         return jsonify({})
 
 @app.route('/save-ava', methods=['POST'])
 def save_ava():
-    # Obtener datos del formulario
     data = request.form.to_dict()
     content = json.dumps(data)
-    record_id = data.get('fecha')  # Puedes cambiar esto según lo que se pase como ID
+    record_id = data.get('fecha')  
 
     db = get_db()
     cursor = db.cursor()
@@ -4061,31 +4081,86 @@ def save_ava():
 
 @app.route('/eliminar-ava/<string:id>', methods=['GET', 'POST'])
 def eliminar_ava(id):
-    # Aquí se eliminaría el formulario de la base de datos
     db = get_db()
     cursor = db.cursor()
     cursor.execute('DELETE FROM ava WHERE id = ?', (id,))
     g.bd.commit()
     
-    # Redirige a la página original después de la eliminación
     return redirect(url_for('audio_video_acomodadores'))
 
 @app.route('/eliminar-all-ava', methods=['GET', 'POST'])
 def eliminar_all_ava():
-    # Conectar a la base de datos
     db = get_db()
     cursor = db.cursor()
     
-    # Eliminar todos los registros de la tabla `ava`
     cursor.execute('DELETE FROM ava')
     db.commit()
     
-    # Redirigir a la página original después de la eliminación
     return redirect(url_for('audio_video_acomodadores'))
 
-# Manejo de excepciones para límites de tasa
 @app.errorhandler(429)
 def ratelimit_handler(e):
-  return jsonify(error="Se ha detectado un comportamiento inusual en tus solicitudes. Por favor, intenta nuevamente más tarde. Si estás intentando eludir nuestras medidas de seguridad, ten en cuenta que hemos registrado tus datos. Para contribuir a la seguridad de nuestra plataforma, te invitamos a reportar cualquier vulnerabilidad y recibir el reconocimiento correspondiente."), 429
+  return render_template('epa.html')
+
+@app.route('/informes-predicacion')
+def informes_predicacion():
+  cursor = g.bd.cursor()
+  cursor.execute("SELECT * FROM publicadores")
+  publicadores = cursor.fetchall()
+  theme = session.get('theme', 'primer')
+
+  return render_template('informes-predicacion.html', publicadores=publicadores, theme=theme)
+
+@app.route('/registrar-informe/<int:publicador_id>', methods=['GET'])
+def registrar_informe(publicador_id):
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM publicadores WHERE id = ?", (publicador_id,))
+    publicador = cursor.fetchone()
+    cursor.execute("SELECT privilegios_servicio FROM publicadores WHERE id = ?", (publicador_id,))
+    privilegios_servicio = cursor.fetchone()
+    cursor.execute("SELECT * FROM informes_predicacion WHERE publicador_id = ?", (publicador_id,))
+    registros = cursor.fetchall()
+
+    theme = session.get('theme', 'primer')  
+
+    return render_template('detalle-informes-predicacion.html', publicador=publicador, theme=theme, privilegios_servicio=privilegios_servicio, registros=registros)
+
+@app.route('/guardar_informe_predicacion', methods=['POST'])
+def guardar_informe_predicacion():
+    # Obtener datos del formulario
+    publicador_id = request.form['publicador']
+    mes = request.form['mes']
+    anio = request.form['anio']
+    participacion = request.form.get('participacion') == '1'  # Convertir a booleano
+    cursos_biblicos = request.form['cursos_biblicos']
+    horas = request.form['horas']
+    comentarios = request.form['comentarios']
+    privilegios_servicio = request.form['privilegios_servicio']  # Captura el privilegio de servicio
+
+
+    # Guardar en la base de datos
+    cursor = g.bd.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS informes_predicacion (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,  
+            publicador_id INT NOT NULL,  
+            mes INT NOT NULL,  
+            anio INT NOT NULL,  
+            participacion BOOLEAN DEFAULT FALSE,  
+            cursos_biblicos TEXT,  
+            horas DECIMAL(5, 2),  
+            comentarios TEXT,  
+            privilegios_servicio VARCHAR(255),  
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+        )
+    ''')
+    cursor.execute('''
+        INSERT INTO informes_predicacion (publicador_id, mes, anio, participacion, cursos_biblicos, horas, comentarios, privilegios_servicio)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (publicador_id, mes, anio, participacion, cursos_biblicos, horas, comentarios, privilegios_servicio))
+    g.bd.commit()
+
+    return redirect(url_for('informes_predicacion')) 
+
 if __name__ == '__main__':
-    app.run(debug=True) #or False
+    app.run(debug=False)

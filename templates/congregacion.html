@@ -38,14 +38,7 @@
       </div>
       <div class="container-xl mt-6">         
          <div class="container-xl">
-            <div class="">
-               <div class="tabnav">
-                  <nav class="tabnav-tabs" aria-label="Foo bar">
-                     <a class="tabnav-tab" href="congregacion.html" aria-current="page">{{ _('Congregación') }}</a>
-                     <a class="tabnav-tab" href="publicadores.html">{{ _('Publicadores') }}</a>
-                  </nav>
-               </div>
-            </div>
+            
             <form action="/guardar_congregacion" method="post">
                <input class="form-control" type="text" name="nombre_congregacion" placeholder="{{ _('Congregación') }}" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
                <input class="form-control" type="number" name="numero" placeholder="{{ _('Número') }}" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />

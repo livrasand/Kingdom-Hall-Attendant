@@ -40,7 +40,7 @@
     <a class="btn btn-danger btn-sm mr-2" href="/eliminar_vidaministerio/{{ vida_ministerio[0] }}"><svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                               <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
                            </svg><span>Eliminar</span></a>
-    <a class="btn btn-sm mr-2" href="" onclick="imprimirPagina()">Imprimir</a>
+    <a class="btn btn-sm mr-2" onclick="imprimirPagina()">Imprimir</a>
 </div>
 <div class="container-xl mt-6">
     <div class="container-xl">
@@ -127,24 +127,17 @@
             </div>
         </div>
     </div>
-    <!-- FOOTER PRINT -->
-      <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;">
-    <img class="ml-1 mt-1 mb-1" src="{{ url_for('static', filename='frame.png') }}" width="85px">
-    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.</p>
-    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">Impreso el <span id="fecha"></span></p>
-</div>
-      <!-- FOOTER PRINT -->
+    
 </div>
 <script type="text/javascript">
       function imprimirPagina() {
            // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
-    document.getElementById("print-footer").style.visibility = "visible";
+    
     document.getElementById("header-page").style.visibility = "visible";
 
 
   window.print(); // Inicia el proceso de impresión
 
-  document.getElementById("print-footer").style.visibility = "hidden";
     document.getElementById("header-page").style.visibility = "hidden";
 }
 

@@ -94,7 +94,11 @@
     <!-- HEAD PRINT -->
     <div id="header-page" style="display: flex; align-items: center; width: 100%; visibility: hidden;">
         <p class="h3 ml-4 mt-4" style="width:85%;">Audio, video y acomodadores</p>
-        <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%"></p>
+        <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%">{% if congregacion %}
+            {{ congregacion }}
+  {% else %}
+      {{ _('Registra tu congregación') }}
+  {% endif %}</p>
     </div>
     <!-- HEAD PRINT -->
 {% if content|length > 0 %}
@@ -228,19 +232,6 @@
     </div>
 {% endif %}
 
-
-
-
-
-
-
-        <!-- FOOTER PRINT -->
-      <div class="mt-2 print-footer" id="print-footer" style="visibility: hidden;background-color: #e7eef8;">
-    <img class="ml-1 mt-1 mb-1" src="static/images/frame.png" width="85px">
-    <p class="mt-2 ml-2 mb-2 mr-2" style="width: 80%;">{{ _('Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant.') }}</p>
-    <p class="h6 color-fg-muted mt-2 mb-2 mr-2 Fecha" style="background-color: #fff; border-radius: 8px; padding: 8px;font-size: 8px;">{{ _('Impreso el') }} <span id="fecha"></span></p>
-</div>
-      <!-- FOOTER PRINT -->
     </div>
 
    
@@ -339,14 +330,10 @@
 
     <script type="text/javascript">
          function imprimirPagina() {
-           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
-    document.getElementById("print-footer").style.visibility = "visible";
     document.getElementById("header-page").style.visibility = "visible";
 
 
   window.print(); // Inicia el proceso de impresión
-
-  document.getElementById("print-footer").style.visibility = "hidden";
     document.getElementById("header-page").style.visibility = "hidden";
 }
 

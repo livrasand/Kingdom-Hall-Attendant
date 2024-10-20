@@ -1,6 +1,8 @@
 /venv
 .env
-clave-secreta.py
+jwt_secret_key.py
+secret_key.py
+fernet_key.py
 __pycache__/
 *.pyc
 *.log

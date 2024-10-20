@@ -36,10 +36,45 @@
         <p style="max-width: 450px;">Escanea el código QR utilizando Google Authenticator, Microsoft Authenticator o cualquier aplicación de autenticación de tu elección compatible con códigos de un solo uso (TOTP) para activar la verificación en dos pasos (2FA) y mejorar la seguridad de tu cuenta:</p>
         <img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('/')[-1]) }}" alt="Código QR" style="width: 150px;"> <!-- Linea para servidor -->
         
-        <p>Después de escanear, <a href="/login" style="margin-top: 20px;color: rgb(41, 126, 255); cursor: pointer;">Inicia sesión nuevamente</a>.</p>
+        <div class="config-container" style="margin-bottom: 20px;">
+          <input type="text" id="config-key" value="{{ secret}}" readonly>
+          <button class="submit-btn" id="copy-button">Copiar</button>
+      </div>
+
+        <p>Después de escanear, <a href="/login" style="margin-top: 30px;color: rgb(41, 126, 255); cursor: pointer;">Inicia sesión nuevamente</a>.</p>
     {% else %}
         <p>Error al generar el código QR. Por favor, inténtalo de nuevo.</p>
     {% endif %}
 </div>
+<script>
+  document.getElementById('copy-button').addEventListener('click', function() {
+    // Selecciona el campo de texto
+    const configKeyInput = document.getElementById('config-key');
+    
+    // Selecciona el texto
+    configKeyInput.select();
+    configKeyInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+    // Copia el texto al portapapeles
+    document.execCommand('copy');
+});
+</script>
+<style>
+  .config-container {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    margin-top: 20px;
+}
+
+.config-container label {
+    margin-bottom: 10px; /* Espacio entre la etiqueta y el campo de texto */
+}
+
+.config-container input {
+    margin-bottom: 10px; /* Espacio entre el campo de texto y el botón */
+    width: 100%; /* Ajusta el ancho según sea necesario */
+}
+</style>
 </body>
 </html>

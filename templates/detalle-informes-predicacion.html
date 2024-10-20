@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-light-theme="light">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM738JMZ22');
+</script>
+    <title>Kingdom Hall Attendant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="Header color-bg-inset">
+        <!-- Image item  -->
+        <div class="Header-item width-full">
+           <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                 <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+              </svg>
+           </a>
+           <a href="/home" style="cursor: pointer;" class="mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24">
+                 <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path>
+              </svg>
+           </a>
+           <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+           <div class="d-table col-12">
+              {% include 'user_info.html' %}
+           </div>
+        </div>
+     </div>
+     <div class="Header" style="background-color: #ccc;">
+        <div class="Header-item width-full">
+           
+            <h4 style="color: #000;">{{ publicador[1] }} {{ publicador[2] }}</h4>
+            {% if privilegios_servicio != "Ninguno" %}
+
+                <span style="color: #000; font-weight: 400; margin-left: 10px; background-color: #e0f7fa; padding: 5px; border-radius: 3px;">{{ privilegios_servicio[0] }}</span>
+            {% endif %}
+        
+        </div>
+     </div>
+    <div class="container-xl mt-4">
+        <div class="container-xl">
+            <div class="pl-2 pr-2">         
+                <div class="container-sm clearfix">
+                    
+        <form action="/guardar_informe_predicacion" method="post">
+            <input type="hidden" name="publicador" value="{{ publicador[0] }}">  <!-- Campo oculto para el ID del publicador -->
+            <input type="hidden" name="privilegios_servicio" value="{{ privilegios_servicio[0] }}">  <!-- Campo oculto para el privilegio de servicio -->
+
+            <div class="input-box mb-3">
+                <label for="mes" class="input-label">Mes:</label><br>
+                <select name="mes" id="mes" class="form-control width-full" required>
+                    <option value="">Seleccione un mes</option>
+                    {% set meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'] %}
+                    {% for mes in meses %}
+                        <option value="{{ loop.index }}" {% if loop.index == current_month %}selected{% endif %}>{{ mes }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-box mb-3">
+                <label for="anio" class="input-label" autocomplete="off" >Año:</label><br>
+                <input type="number" name="anio" id="anio" class="form-control width-full" placeholder="Año" required />
+            </div>
+
+            <div class="input-box mb-3">
+                <label class="input-label">
+                    <input type="checkbox" name="participacion" value="1"> Participó en alguna faceta de la predicación
+                </label>
+            </div>
+
+            <div class="input-box mb-3">
+                <label for="cursos_biblicos" class="input-label">Cursos bíblicos:</label><br>
+                <input type="text" name="cursos_biblicos" autocomplete="off" id="cursos_biblicos" class="form-control width-full" placeholder="Cursos bíblicos realizados" />
+            </div>
+
+            
+            <div class="input-box mb-3">
+                <label for="horas" class="input-label">Horas:</label><br>
+                <input type="text" name="horas" autocomplete="off" id="horas" class="form-control width-full" placeholder="Horas">
+            </div>
+
+            <div class="input-box mb-3">
+                <label for="comentarios" class="input-label">Comentarios:</label><br>
+                <textarea name="comentarios" id="comentarios" autocomplete="off" class="form-control width-full" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
+            </div>
+
+            <div class="form-actions mr-2" style="margin-bottom: 30px;">  <!-- Alineación del botón a la izquierda -->
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+        <!-- Historial de registros -->
+        <h4 class="mt-3">Registro de publicador</h4>
+        {% if registros %}
+        <div class="table-responsive">
+        <table class="table custom-table">
+            <thead>
+                <tr>
+                    <th>Mes</th>
+                    <th>Año</th>
+                    <th>Participación</th>
+                    <th>Cursos bíblicos</th>
+                    <th>Horas</th>
+                    <th>Comentarios</th>
+                    <th>Privilegio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                    <tr>
+                        <td>{{ registro.mes }}</td>
+                        <td>{{ registro.anio }}</td>
+                        <td>{{ 'Sí' if registro.participacion else 'No' }}</td>
+                        <td>{{ registro.cursos_biblicos }}</td>
+                        <td>{{ registro.horas }}</td>
+                        <td>{{ registro.comentarios }}</td>
+                        <td>{{ registro.privilegios_servicio }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% else %}
+            <p>No hay informes de servicio registrados para este publicador.</p>
+        {% endif %}
+        <br><br>
+        </div></div>
+        </div>
+    </div>
+<style>
+   /* Agrega este CSS a tu archivo de estilos */
+.table-responsive {
+    overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e1e1e1;
+}
+
+.custom-table thead {
+    background-color: #f6f8fa; /* Color de fondo del encabezado */
+    color: #333; /* Color del texto del encabezado */
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo de las filas pares */
+}
+
+.custom-table tbody tr:hover {
+    background-color: #e2e6ea; /* Color de fondo al pasar el mouse */
+}
+
+.custom-table th {
+    font-weight: bold;
+}
+</style>
+    <script>
+        // Establecer el año actual como valor predeterminado
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById("anio").value = currentYear;
+        });
+    </script>
+    <script>
+        // Establecer el mes actual como valor predeterminado
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentMonth = new Date().getMonth() + 1; // Los meses en JavaScript son 0-11
+            document.getElementById("mes").value = currentMonth;
+        });
+    </script>
+</body>
+</html>

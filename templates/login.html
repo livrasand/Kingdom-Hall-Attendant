@@ -54,16 +54,7 @@
                 <button class="submit-btn">
                     Iniciar sesión
                 </button>
-        
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <ul>
-                    {% for message in messages %}
-                        <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-red);">{{ message }}</div>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
-                {% endwith %}
+    
             </div>
         </form>
 
