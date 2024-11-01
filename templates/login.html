@@ -30,36 +30,44 @@
 <body>
     <div class="container">
         <div style="max-width: 450px;">
-            {% include 'nav.html' %}
-            
-            <h1 class="github-head" style="margin-top: 60px;">
-        Sign in to Kingdom Hall Attendant
+           {% include 'nav.html' %}
+           
+        <h1 class="github-head" style="margin-top: 60px;">
+            Sign in to Kingdom Hall Attendant
         </h1>
-        <form action="{{ url_for('accessing') }}" method="post" style="width:100%;">
-            {{ form.hidden_tag() }}
-            <div class="login-wrapper">
-                <div class="input-box">
-                    <div for="email" class="input-label">Correo electrónico</div>
-                    {{ form.email(size=32) }}
-                </div>
-        
-                <div class="input-box">
-                    <div class="input-label" for="password">
-                        <span>Contraseña</span>
-                        <a href="/forgot" style="color: rgb(0, 87, 188);cursor: pointer;">¿Olvidó su contraseña?</a>
-                    </div>
-                    {{ form.password(size=32) }}
-                </div>
-        
-                <button class="submit-btn">
-                    Iniciar sesión
-                </button>
-    
+        <form action="/accessing" method="post" style="width:100%;">
+        <div class="login-wrapper">
+            <div class="input-box">
+                <div for="email" class="input-label">Correo electrónico</div>
+                <input type="email" id="email" name="email" required>
             </div>
-        </form>
+
+            <div class="input-box">
+                <div class="input-label" for="password">
+                    <span>Contraseña</span>
+                    <a href="/forgot" style="color: rgb(0, 87, 188);cursor: pointer;">Olvidé mi contraseña</a>
+                </div>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button class="submit-btn">
+                Iniciar sesión
+            </button>
+
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-red);">{{ message }}</div>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+        </div>
+    </form>
 
         <div class="info">
-            <span>¿Eres nuevo? <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">Crea una cuenta gratis para siempre</a>.</span>
+            <span>¿No tiene una cuenta? <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">Crea una cuenta Opensource Edition gratis para siempre</a>.</span>
         </div>
 </div>
     </div> 

@@ -44,7 +44,7 @@
          <!-- Image item  -->
          <div class="Header-item width-full">
             <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
-            <div class="d-table col-12">
+            <div class="d-table col-12" style="height: 100px;">
                 {% include 'user_info.html' %}
             </div>
             <div class="d-flex flex-justify-end ml-2">
@@ -173,6 +173,17 @@
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e40 {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" ></i></div>
                   <h5 class="color-fg-default {{ 'color-fg-on-emphasis' if apply_golden_style else '' }}" style="margin-left: 25%;">{{ _('Publicaciones') }}</h5>
                   <p class="color-fg-muted text-small {{ 'color-fg-on-emphasis transparencia' if apply_golden_style else '' }}" style="margin-left: 25%;">{{ _('Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación') }}
+                  </p>
+               </a>
+            </div>
+         </div>
+         <div class="col-4 float-left p-3">
+            <div class="col-6 width-full">
+               <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="/asistencia-reuniones">
+                  <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e17"></i></div>
+                  <h5 class="color-fg-default" style="margin-left: 25%;">Asistencia a las reuniones</h5>
+                  <p class="color-fg-muted text-small" style="margin-left: 25%;">
+                     Lleve un registro de la asistencia a las reuniones
                   </p>
                </a>
             </div>
@@ -370,17 +381,6 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
          <div class="col-4 float-left p-3">
             <div class="col-6 width-full" style="border-left: 6px solid #84b6f4;border-left-color: #84b6f4;border-color: #84b6f4;background-color: #c4dafa;border-radius: 6px;">
                <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="">
-                  <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e17"></i></div>
-                  <h5 class="color-fg-default" style="margin-left: 25%;">Asistencia a las reuniones</h5>
-                  <p class="color-fg-muted text-small" style="margin-left: 25%;">
-                     Lleve un registro de la asistencia a las reuniones
-                  </p>
-               </a>
-            </div>
-         </div>
-         <div class="col-4 float-left p-3">
-            <div class="col-6 width-full" style="border-left: 6px solid #84b6f4;border-left-color: #84b6f4;border-color: #84b6f4;background-color: #c4dafa;border-radius: 6px;">
-               <a class="d-block color-shadow-large px-2 pt-2 pb-2 position-relative rounded-2 overflow-hidden no-underline" href="">
                   <div class="position-absolute top-0 left-2" style="margin-top:2%;"><i class="jwIcon e168"></i></div>
                   <h5 class="color-fg-default" style="margin-left: 25%;">Análisis</h5>
                   <p class="color-fg-muted text-small" style="margin-left: 25%;">
@@ -497,7 +497,8 @@ Todas las funciones que se vayan terminando se añadirán automáticamente al pa
               <path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" />
             </svg>
           </span>
-          <span class="Toast-content">El lunes 10 de junio, cadhub.pythonanywhere.com se convertirá en <b>getkha.org</b>. Sus datos no se verán comprometidos. Recomendamos no acceder entre las 12 PM y las 17 PM.</span>
+          <span class="Toast-content">La función "Asistencia a las reuniones" está en desarrollo. Se añadió por requerimientos de seguridad y estará lista en unos días.</span>
+
         </div>
       </div -->
 

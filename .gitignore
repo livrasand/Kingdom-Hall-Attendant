@@ -6,3 +6,4 @@ fernet_key.py
 __pycache__/
 *.pyc
 *.log
+/.vscode

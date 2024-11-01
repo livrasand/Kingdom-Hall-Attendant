@@ -26,20 +26,19 @@
 
 <body>
     <div class="container" style="max-width: 450px;margin-top: 50px;">
-      {% include 'nav.html' %}
+         <a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Utility__f24f44fb styles_module_wtLink_Default__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtBodyMedium__f24f44fb styles_module_logoLink__8a4eaeaf styles_module_dark__8a4eaeaf Nav_navTopLogo__LpSb7" href="https://www.getkha.org/" >
+        <img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" style="width:50px;border-radius: 25%;"></a>
+
+      <nav id="wt-top-navigation-n_XG1HoVuvytluhKz8jtu" class="styles_module_container__05ad3f7f Nav_globalNavContainer__BzVy1"><div class="styles_module_menuGroup__a75ea064"><div class="styles_module_menuBar__a75ea064 styles_module_buttonsSection__33aa50d8"><a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Navigational__f24f44fb styles_module_wtLink_Neutral__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtLabelMediumSemi__f24f44fb styles_module_navLink__0a0665ea" href="/login" data-prevent-routing="true" data-testid="Iniciar sesión">Iniciar sesión</a><a class="styles_module_wtButton__38691ab2 styles_module_wtButton_XSmall__38691ab2 styles_module_wtButtonPrimaryNeutral_Light__38691ab2" href="/signup" data-testid="Registrarse">Registrarse</a></div></div></nav>
+
+       
         
 <div class="login-info" style="text-align: center; margin-top: 20px;width: 800px;">
         <h2 style="color:rgb(20, 20, 21);font-size: 32px;line-height: 40px;font-weight: 700;letter-spacing: -0.4px;">¡Su enlace mágico está en camino!</h2>
         <p style="color: rgb(50, 51, 52);margin-top: 32px;margin-bottom: 0px;font-size: 20px;line-height: 28px;font-weight: 500;letter-spacing: -0.4px;margin-bottom: 24px;">Lo hemos enviado a <strong>{{ email }}</strong></p>
 
-        {% if qr_code_path %}
-<h2 style="color:rgb(20, 20, 21);font-size: 16px;line-height: 20px;font-weight: 500;letter-spacing: -0.4px;margin-bottom: 30px;">Escanea el código QR utilizando Google Authenticator, Microsoft Authenticator o cualquier aplicación de autenticación de tu elección compatible con códigos de un solo uso (TOTP) para activar la verificación en dos pasos (2FA) y mejorar la seguridad de tu cuenta.</h2>
-<img src="{{ url_for('static', filename='qrcodes/' + qr_code_path.split('\\')[-1]) }}" alt="Código QR" style="width: 150px;">
-{% endif %}
-
-
         <p style="color: rgb(50, 51, 52);margin-top: 50px;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;margin-bottom: 0;">Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas.</p>
-        <a href="{{ url_for('log_in_system') }}" style="color: rgb(41, 126, 255); cursor: pointer;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">Más información</a> <span style="color: rgb(50, 51, 52);font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">sobre nuestro sistema de inicio de sesión.</span>
+        <a href="/sing-up-system" style="color: rgb(41, 126, 255); cursor: pointer;font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">Más información</a> <span style="color: rgb(50, 51, 52);font-size: 16px;font-weight: 500;line-height: 24px;letter-spacing: -0.4px;">sobre nuestro sistema de inicio de sesión.</span>
     </div>
     </div>
 </body>

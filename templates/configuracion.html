@@ -91,7 +91,7 @@
                        </dd>
                    </dl>
                    <dl class="form-group">
-                       <dt><label for="user_profile_pronouns_select">{{ _('Privilegio') }}</label></dt>
+                       <dt><label for="user_profile_pronouns_select">{{ _('Nombramiento') }}</label></dt>
                        <dd class="user-profile-bio-field-container js-length-limited-input-container">
                            <select id="user_profile_pronouns_select" class="form-select js-profile-editable-pronouns-select form-select form-control width-full" name="privilegio" id="privilegio">
                                <option value="sdc" {% if configuracion[4] == 'sdc' %} selected {% endif %}>{{ _('superintendente de circuito') }}</option>
@@ -100,24 +100,8 @@
                            </select>
                        </dd>
                    </dl>
-                   <dl class="form-group" id="pais">
-                        <div class="form-group successed">
-  <div class="form-group-header">
-    <label for="pais-input">País</label>
-  </div>
-  <div class="form-group-body">
-    <input autocomplete="off" class="form-control width-full" type="text" name="pais" id="pais-input" aria-describedby="pais-input-validation" value="{{ configuracion[5] }}">
-  </div>
-</div>
-</dl>
-<dl class="form-group" id="congregacion">
-  <dt><label for="congregacion">{{ _('Congregación') }}</label></dt>
-  <dd class="user-profile-company-field-container">
-    <text-expander>
-      <input autocomplete="off" class="form-control width-full" type="text" name="congregacion" id="congregacion-input" aria-describedby="congregacion-input-validation" value="{{ configuracion[6] }}">
-    </text-expander>
-  </dd>
-</dl>
+                  
+
  
                         <hr class="mb-4 mt-4">  
                         <dl class="form-group" id="circuito">
@@ -127,13 +111,19 @@
                                  <input autocomplete="off" class="form-control width-full" type="text" name="circuito" id="circuito" value="{{ configuracion[7] }}"> <!-- Cambiado a "circuito" -->
                               </text-expander>
                            </dd>
+                           
                         </dl>
+                        <p style="font-weight: 400;font-size: 12px;">
+                           {{ _('Próximamente, el dominio será utilizado para los publicadores de la congregación. Esto permitirá que puedan ser invitados a su dominio y acceder directamente a sus asignaciones semanales, añadir su información personal, y enviar sus informes de predicación. También permitirá invitar a miembros del cuerpo de ancianos, siervos ministeriales o hermanos aprobados para tener acceso a datos o funciones.') }}
+                        </p>
                         <p>
                            <button type="submit" id="guardarDatos" class="btn btn-primary btn-block mt-4 mb-2">
                               <span class="Button-content">
                                   <span class="Button-label">{{ _('Actualizar datos') }}</span>
                               </span>
                           </button>    
+                          
+                        <hr class="mb-4 mt-4">  
                           <a type="submit" href="/change-password" class="btn btn-danger btn-block mb-2">
                               <span class="Button-content">
                                   <span class="Button-label">{{ _('Cambiar contraseña') }}</span>
@@ -144,7 +134,7 @@
                      <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                         <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
                      </svg>
-                     <span>{{ _('Restablecer aplicación') }}</span>
+                     <span>{{ _('Borrar los datos de la aplicación') }}</span>
                  </a>   
                         </p>
                      </div>  

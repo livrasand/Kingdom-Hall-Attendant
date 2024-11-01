@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file
 import sqlite3
-import datetime 
+import datetime
 from datetime import timedelta
 import requests
 from bs4 import BeautifulSoup
@@ -29,6 +29,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_wtf.csrf import CSRFProtect
+import base64
+from urllib.parse import urlparse
 
 load_dotenv()
 app = Flask(__name__)
@@ -40,7 +42,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
 
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
@@ -65,9 +67,6 @@ class LoginForm(FlaskForm):
   email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
   password = PasswordField('Contraseña', validators=[DataRequired()])
 
-class Verify2FAForm(FlaskForm):
-  codigo = StringField('Authentication code', validators=[DataRequired()])
-
 class RegistrationForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(), Email()])
 
@@ -89,7 +88,7 @@ def get_user_db():
     if not user_db_name:
         logging.error("No se encontró la base de datos del usuario en la sesión.")
         return None
-    
+
     if not hasattr(g, 'bd'):
         g.bd = sqlite3.connect(user_db_name)
         g.bd.row_factory = sqlite3.Row
@@ -142,11 +141,18 @@ def update_last_login(user_id):
 
 @app.route('/')
 def welcome():
-    return render_template('welcome.html')
+  if 'user_id' in session:
+        return redirect(url_for('index'))
+
+  return render_template('welcome.html')
 
 @app.route('/security')
 def security():
     return render_template('security.html')
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
 
 #@app.errorhandler(Exception)
 #def handle_exception(e):
@@ -170,6 +176,7 @@ def login():
 
 @app.route('/login-desktop-client')
 def login_desktop():
+    form = LoginForm()
     return render_template('login-desktop-client.html')
 
 @app.route('/home')
@@ -177,15 +184,15 @@ def index():
     if 'user_id' not in session:
         flash("No se puede acceder a la base de datos del usuario.")
         return redirect(url_for('login'))
-    
+
     user_id = session['user_id']
     apply_golden_style = session.get('user_ge', 'no') == 'yes'
 
     last_login = get_last_login(user_id)
-    if last_login and datetime.datetime.now() - datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(hours=1):
+    if last_login and datetime.datetime.now() - datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(days=15):
         flash("La sesión ha expirado. Por favor, inicia sesión nuevamente.")
         return redirect(url_for('login'))
-    
+
     try:
         cursor = get_db().cursor()
         cursor.execute("SELECT * FROM configuracion")
@@ -209,6 +216,7 @@ def index():
         return redirect(url_for('login'))
 
     return render_template('index.html', user_data=user_data, apply_golden_style=apply_golden_style, theme=theme)
+
 
 @app.route('/set_theme/<theme>')
 def set_theme(theme):
@@ -235,16 +243,26 @@ def set_theme(theme):
             INSERT INTO configuracion (theme)
             VALUES (?)
         """, (theme))
-            
-    g.bd.commit()   
+
+    g.bd.commit()
     return redirect(url_for('index'))
 
 @app.route('/congregacion.html')
 def option_one():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    apply_golden_style = session.get('user_ge', 'no') == 'yes'
+
+    last_login = get_last_login(user_id)
+    if last_login and datetime.datetime.now() - datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f') > timedelta(days=15):
+        return redirect(url_for('login'))
+
     if not hasattr(g, 'bd'):
         flash("No se puede acceder a la base de datos del usuario.")
         return redirect(url_for('login'))
-    
+
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM congregacion WHERE id = ?", (1,))
     congregation_data = cursor.fetchone()
@@ -260,11 +278,11 @@ def guardar_congregacion():
         numero = request.form['numero']
         hora_inicio_semana = request.form['hora_inicio_semana']
         hora_inicio_fin_semana = request.form['hora_inicio_fin_semana']
-        
+
         # Aquí agregamos strip() para eliminar espacios en blanco adicionales
         direccion_salon = request.form['direccion_salon'].strip()
         print(f"Dirección del salón sin espacios: '{direccion_salon}'")  # Depuración
-        
+
         superintendente_circuito = request.form['superintendente_circuito']
         telefono = request.form['telefono']
         circuito = request.form['circuito']
@@ -332,12 +350,12 @@ def mostrar_publicador(id):
 @app.route('/guardar_publicador', methods=['POST'])
 def guardar_publicador():
     if request.method == 'POST':
-        id = request.form['id']  
+        id = request.form['id']
         nombres = request.form['nombres'].strip()
         apellidos = request.form['apellidos'].strip()
         genero = request.form['genero']
-        cabeza_de_familia = 'cabeza_de_familia' in request.form 
-        familia = request.form['familia'] 
+        cabeza_de_familia = 'cabeza_de_familia' in request.form
+        familia = request.form['familia']
         tipo_miembro_familia = request.form['relacion']
         fecha_nacimiento = request.form['fecha_nacimiento']
         grupo_predicacion = request.form['grupo_predicacion']
@@ -472,7 +490,7 @@ def guardar_publicador():
         expulsado = 1 if expulsado else 0
         fallecido = 1 if fallecido else 0
         encarcelado = 1 if encarcelado else 0
-        separado = 1 if separado else 0        
+        separado = 1 if separado else 0
         temporario = 1 if temporario else 0
         enfermizo = 1 if enfermizo else 0
         checkbox_coordinador_cuerpo_ancianos = 1 if checkbox_coordinador_cuerpo_ancianos else 0
@@ -555,7 +573,7 @@ def guardar_publicador():
         else:
             g.bd.execute("INSERT INTO publicadores (nombres, apellidos, genero, cabeza_de_familia, familia, tipo_miembro_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (nombres, apellidos, genero, cabeza_de_familia, familia, tipo_miembro_familia, fecha_nacimiento, grupo_predicacion, direccion, correo_electronico, celular, telefono, bautizado, fecha_bautizo, recibe_atalaya, recibe_guia_actividades, no_bautizado, temporal, ungido, nino, readmitido, irregular, invidente, abuso_sexual, divorciado, viudo, sordo, enfermo, voluntario_ldc, voluntario_epc, llaves_salon, utiliza_kha, censurado, inactivo, expulsado, fallecido, encarcelado, separado, nombramientos, fecha_inicio_nombrado, privilegios_servicio, fecha_inicio, numero_precursor, temporario, enfermizo, fecha_ultima_escuela, checkbox_coordinador_cuerpo_ancianos, checkbox_secretario, checkbox_superintendente_servicio, checkbox_siervo_acomodadores, checkbox_coordinador_audio_video, checkbox_siervo_literatura, checkbox_coordinador_mantenimiento, checkbox_coordinador_mantenimiento_jardin, checkbox_comite_mantenimiento_salon_reino, checkbox_consejero_sala_auxiliar, checkbox_consejero_auxiliar, checkbox_voluntario_temporal_betel, checkbox_betelita_cercanias, checkbox_voluntario_remoto_betel, checkbox_comite_enlace_hospitalario, checkbox_conductor_estudio_atalaya, checkbox_coordinador_discursos_publicos, checkbox_ayudante_coordinador_discursos_publicos, checkbox_siervo_informes, checkbox_siervo_cuentas, checkbox_siervo_territorios, checkbox_coordinador_limpieza, checkbox_superintendente_reunion_vida_ministerio_cristianos, checkbox_coordinador_predicacion_publica, checkbox_superintendente_grupo, checkbox_siervo_grupo, checkbox_auxiliar_grupo, checkbox_betelita, checkbox_voluntario_construccion, checkbox_siervo_construccion, checkbox_presidente, checkbox_oracion, checkbox_discurso_10_mins, checkbox_busquemos_perlas_escondidas, checkbox_lectura_biblia, checkbox_analisis, checkbox_empiece_conversaciones, checkbox_haga_revisitas, checkbox_haga_discipulos, checkbox_no_utilizar_sala_principal, checkbox_explique_sus_creencias, checkbox_ayudante, checkbox_discurso, checkbox_utilizar_solo_sala_principal, checkbox_intervenciones, checkbox_estudio_biblico_congregacion, checkbox_lector, checkbox_discursante_publico_saliente, checkbox_discursante_publico_local, checkbox_presidente_reunion_publica, checkbox_lector_atalaya, checkbox_anfitrion_hospitalidades, checkbox_operador_audio, checkbox_plataforma, checkbox_anfitrion_zoom, checkbox_microfonos, checkbox_coanfitrion_zoom, checkbox_acomodador, checkbox_aprobado_predicacion_publica, checkbox_dirigir_reuniones_servicio_campo, checkbox_orar_reuniones_servicio_campo, checkbox_limpieza_semanal_salon_reino, checkbox_limpieza_despues_reunion, checkbox_cuidado_jardin, checkbox_limpieza_mensual_salon_reino, checkbox_limpieza_trimestral_salon_reino, checkbox_cuidado_cesped))
-        
+
             g.bd.commit()
 
             if cabeza_de_familia:
@@ -589,8 +607,6 @@ def guardar_configuracion():
         apellidos = request.form['apellidos']
         user_email = request.form['user_email']
         privilegio = request.form['privilegio']
-        pais = request.form['pais']
-        congregacion = request.form['congregacion']
         circuito = request.form['circuito']
 
         session['language'] = idioma
@@ -605,17 +621,17 @@ def guardar_configuracion():
             # Si ya existe una configuración, actualizarla
             cursor.execute("""
                 UPDATE configuracion
-                SET nombre = ?, apellidos = ?, user_email = ?, privilegio = ?, pais = ?, congregacion = ?, circuito = ?, idioma = ?
+                SET nombre = ?, apellidos = ?, user_email = ?, privilegio = ?, circuito = ?, idioma = ?
                 WHERE id = ?
-            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma, id))
+            """, (nombre, apellidos, user_email, privilegio, circuito, idioma, id))
         else:
             # Si no existe una configuración, insertarla
             cursor.execute("""
-                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma)
+                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, circuito, idioma)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (nombre, apellidos, user_email, privilegio, pais, congregacion, circuito, idioma))
-            
-        g.bd.commit()        
+            """, (nombre, apellidos, user_email, privilegio, circuito, idioma))
+
+        g.bd.commit()
 
     return redirect('/configuracion.html')
 
@@ -678,7 +694,7 @@ def guardar_grupo():
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (nombre_grupo, siervo_grupo, auxiliar_grupo, direccion_grupo, asignar_hospitalidad, limpieza_salon, reunion_superintendente))
 
-        g.bd.commit() 
+        g.bd.commit()
 
     return redirect('/grupos-predicacion.html')
 
@@ -701,7 +717,16 @@ def crear_familia(apellidos):
             cursor.execute("INSERT INTO familias (apellidos_familia) VALUES (?)", (apellidos,))
             g.bd.commit()
 
-        return redirect(request.referrer)
+        referrer = request.referrer
+        print("Referrer:", referrer)  # Esto imprimirá la referencia en la consola
+        # Validar que la URL sea relativa y no contenga un dominio externo
+        if referrer:
+            parsed_url = urlparse(referrer)
+            # Verificar que sea una ruta interna sin dominio externo
+            if not parsed_url.netloc and not parsed_url.scheme:
+                return redirect(referrer)
+        # Redirigir a una página por defecto si `referrer` no es confiable
+        return redirect('/publicadores.html')
 
 @app.route('/oradores.html')
 def oradores():
@@ -712,7 +737,7 @@ def oradores():
   publicadores_discursantes = cursor.fetchall()
   theme = session.get('theme', 'primer')
   return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, theme=theme)
-    
+
 @app.route('/crear_orador', methods=['GET'])
 def crear_orador():
   nombres = request.args.get('nombres')
@@ -739,16 +764,16 @@ def mostrar_orador(id):
 @app.route('/guardar_orador', methods=['POST'])
 def guardar_orador():
     if request.method == 'POST':
-        id = request.form['id'] 
+        id = request.form['id']
         nombres = request.form['nombres']
         apellidos = request.form['apellidos']
         aprobado_para_salir = request.form.get('aprobado_para_salir') == 'on'
-        aprobado_para_salir = 1 if aprobado_para_salir else 0 
+        aprobado_para_salir = 1 if aprobado_para_salir else 0
         correo_electronico = request.form['correo_electronico']
         celular = request.form['celular']
         telefono = request.form['telefono']
         congregacion = request.form['congregacion']
-        
+
         nombramiento = request.form.get('nombramiento')
 
         discurso_1 = 'discurso_1' in request.form
@@ -1333,7 +1358,7 @@ def guardar_orador():
         discurso_194 = 'discurso_194' in request.form
         discurso_194 = 1 if discurso_194 else 0
 
-                            
+
         cursor = g.bd.cursor()
 
         cursor.execute("""
@@ -1349,36 +1374,36 @@ def guardar_orador():
     discurso_7 = ?, discurso_8 = ?, discurso_9 = ?, discurso_10 = ?, discurso_11 = ?, discurso_12 = ?,
     discurso_13 = ?, discurso_14 = ?, discurso_15 = ?, discurso_16 = ?, discurso_17 = ?, discurso_18 = ?,
     discurso_19 = ?, discurso_20 = ?, discurso_21 = ?, discurso_22 = ?, discurso_23 = ?, discurso_24 = ?,
-    discurso_25 = ?, discurso_26 = ?, discurso_27 = ?, discurso_28 = ?, discurso_29 = ?, discurso_30 = ?, 
-    discurso_31 = ?, discurso_32 = ?, discurso_33 = ?, discurso_34 = ?, discurso_35 = ?, 
-    discurso_36 = ?, discurso_37 = ?, discurso_38 = ?, discurso_39 = ?, discurso_40 = ?, 
-    discurso_41 = ?, discurso_42 = ?, discurso_43 = ?, discurso_44 = ?, discurso_45 = ?, 
-    discurso_46 = ?, discurso_47 = ?, discurso_48 = ?, discurso_49 = ?, discurso_50 = ?, discurso_51 = ?, discurso_52 = ?, discurso_53 = ?, discurso_54 = ?, discurso_55 = ?, 
-    discurso_56 = ?, discurso_57 = ?, discurso_58 = ?, discurso_59 = ?, discurso_60 = ?, 
-    discurso_61 = ?, discurso_62 = ?, discurso_63 = ?, discurso_64 = ?, discurso_65 = ?, 
-    discurso_66 = ?, discurso_67 = ?, discurso_68 = ?, discurso_69 = ?, discurso_70 = ?, 
-    discurso_71 = ?, discurso_72 = ?, discurso_73 = ?, discurso_74 = ?, discurso_75 = ?, discurso_76 = ?, discurso_77 = ?, discurso_78 = ?, discurso_79 = ?, discurso_80 = ?, 
-    discurso_81 = ?, discurso_82 = ?, discurso_83 = ?, discurso_84 = ?, discurso_85 = ?, 
-    discurso_86 = ?, discurso_87 = ?, discurso_88 = ?, discurso_89 = ?, discurso_90 = ?, 
-    discurso_91 = ?, discurso_92 = ?, discurso_93 = ?, discurso_94 = ?, discurso_95 = ?, 
+    discurso_25 = ?, discurso_26 = ?, discurso_27 = ?, discurso_28 = ?, discurso_29 = ?, discurso_30 = ?,
+    discurso_31 = ?, discurso_32 = ?, discurso_33 = ?, discurso_34 = ?, discurso_35 = ?,
+    discurso_36 = ?, discurso_37 = ?, discurso_38 = ?, discurso_39 = ?, discurso_40 = ?,
+    discurso_41 = ?, discurso_42 = ?, discurso_43 = ?, discurso_44 = ?, discurso_45 = ?,
+    discurso_46 = ?, discurso_47 = ?, discurso_48 = ?, discurso_49 = ?, discurso_50 = ?, discurso_51 = ?, discurso_52 = ?, discurso_53 = ?, discurso_54 = ?, discurso_55 = ?,
+    discurso_56 = ?, discurso_57 = ?, discurso_58 = ?, discurso_59 = ?, discurso_60 = ?,
+    discurso_61 = ?, discurso_62 = ?, discurso_63 = ?, discurso_64 = ?, discurso_65 = ?,
+    discurso_66 = ?, discurso_67 = ?, discurso_68 = ?, discurso_69 = ?, discurso_70 = ?,
+    discurso_71 = ?, discurso_72 = ?, discurso_73 = ?, discurso_74 = ?, discurso_75 = ?, discurso_76 = ?, discurso_77 = ?, discurso_78 = ?, discurso_79 = ?, discurso_80 = ?,
+    discurso_81 = ?, discurso_82 = ?, discurso_83 = ?, discurso_84 = ?, discurso_85 = ?,
+    discurso_86 = ?, discurso_87 = ?, discurso_88 = ?, discurso_89 = ?, discurso_90 = ?,
+    discurso_91 = ?, discurso_92 = ?, discurso_93 = ?, discurso_94 = ?, discurso_95 = ?,
     discurso_96 = ?, discurso_97 = ?, discurso_98 = ?, discurso_99 = ?, discurso_100 = ?,
-    discurso_101 = ?, discurso_102 = ?, discurso_103 = ?, discurso_104 = ?, discurso_105 = ?, 
-    discurso_106 = ?, discurso_107 = ?, discurso_108 = ?, discurso_109 = ?, discurso_110 = ?, 
-    discurso_111 = ?, discurso_112 = ?, discurso_113 = ?, discurso_114 = ?, discurso_115 = ?, 
-    discurso_116 = ?, discurso_117 = ?, discurso_118 = ?, discurso_119 = ?, discurso_120 = ?, 
-    discurso_121 = ?, discurso_122 = ?, discurso_123 = ?, discurso_124 = ?, discurso_125 = ?, discurso_126 = ?, discurso_127 = ?, discurso_128 = ?, discurso_129 = ?, discurso_130 = ?, 
-    discurso_131 = ?, discurso_132 = ?, discurso_133 = ?, discurso_134 = ?, discurso_135 = ?, 
-    discurso_136 = ?, discurso_137 = ?, discurso_138 = ?, discurso_139 = ?, discurso_140 = ?, 
-    discurso_141 = ?, discurso_142 = ?, discurso_143 = ?, discurso_144 = ?, discurso_145 = ?, 
+    discurso_101 = ?, discurso_102 = ?, discurso_103 = ?, discurso_104 = ?, discurso_105 = ?,
+    discurso_106 = ?, discurso_107 = ?, discurso_108 = ?, discurso_109 = ?, discurso_110 = ?,
+    discurso_111 = ?, discurso_112 = ?, discurso_113 = ?, discurso_114 = ?, discurso_115 = ?,
+    discurso_116 = ?, discurso_117 = ?, discurso_118 = ?, discurso_119 = ?, discurso_120 = ?,
+    discurso_121 = ?, discurso_122 = ?, discurso_123 = ?, discurso_124 = ?, discurso_125 = ?, discurso_126 = ?, discurso_127 = ?, discurso_128 = ?, discurso_129 = ?, discurso_130 = ?,
+    discurso_131 = ?, discurso_132 = ?, discurso_133 = ?, discurso_134 = ?, discurso_135 = ?,
+    discurso_136 = ?, discurso_137 = ?, discurso_138 = ?, discurso_139 = ?, discurso_140 = ?,
+    discurso_141 = ?, discurso_142 = ?, discurso_143 = ?, discurso_144 = ?, discurso_145 = ?,
     discurso_146 = ?, discurso_147 = ?, discurso_148 = ?, discurso_149 = ?, discurso_150 = ?,
-    discurso_151 = ?, discurso_152 = ?, discurso_153 = ?, discurso_154 = ?, discurso_155 = ?, 
-    discurso_156 = ?, discurso_157 = ?, discurso_158 = ?, discurso_159 = ?, discurso_160 = ?, 
-    discurso_161 = ?, discurso_162 = ?, discurso_163 = ?, discurso_164 = ?, discurso_165 = ?, 
-    discurso_166 = ?, discurso_167 = ?, discurso_168 = ?, discurso_169 = ?, discurso_170 = ?, 
+    discurso_151 = ?, discurso_152 = ?, discurso_153 = ?, discurso_154 = ?, discurso_155 = ?,
+    discurso_156 = ?, discurso_157 = ?, discurso_158 = ?, discurso_159 = ?, discurso_160 = ?,
+    discurso_161 = ?, discurso_162 = ?, discurso_163 = ?, discurso_164 = ?, discurso_165 = ?,
+    discurso_166 = ?, discurso_167 = ?, discurso_168 = ?, discurso_169 = ?, discurso_170 = ?,
     discurso_171 = ?, discurso_172 = ?, discurso_173 = ?, discurso_174 = ?, discurso_175 = ?,
-    discurso_176 = ?, discurso_177 = ?, discurso_178 = ?, discurso_179 = ?, discurso_180 = ?, 
-    discurso_181 = ?, discurso_182 = ?, discurso_183 = ?, discurso_184 = ?, discurso_185 = ?, 
-    discurso_186 = ?, discurso_187 = ?, discurso_188 = ?, discurso_189 = ?, discurso_190 = ?, 
+    discurso_176 = ?, discurso_177 = ?, discurso_178 = ?, discurso_179 = ?, discurso_180 = ?,
+    discurso_181 = ?, discurso_182 = ?, discurso_183 = ?, discurso_184 = ?, discurso_185 = ?,
+    discurso_186 = ?, discurso_187 = ?, discurso_188 = ?, discurso_189 = ?, discurso_190 = ?,
     discurso_191 = ?, discurso_192 = ?, discurso_193 = ?, discurso_194 = ?, congregacion = ?
                 WHERE nombres = ? AND apellidos = ?
             """, (aprobado_para_salir, correo_electronico, celular, telefono, nombramiento, discurso_1, discurso_2, discurso_3, discurso_4, discurso_5, discurso_6,
@@ -1490,7 +1515,7 @@ def guardar_orador():
       discurso_186, discurso_187, discurso_188, discurso_189, discurso_190,
       discurso_191, discurso_192, discurso_193, discurso_194, congregacion))
 
-        g.bd.commit() 
+        g.bd.commit()
 
     return redirect('/oradores.html')
 
@@ -1526,7 +1551,7 @@ def bosquejos():
     oradoreslist = cursor.fetchall()
 
     cursor.execute("SELECT * FROM bosquejos")
-    bosquejos_list = cursor.fetchall()  
+    bosquejos_list = cursor.fetchall()
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
@@ -1534,7 +1559,7 @@ def bosquejos():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     theme = session.get('theme', 'primer')
 
@@ -1548,22 +1573,22 @@ def nuevo_bosquejo():
     congregacion = request.args.get('congregacion')
 
     cursor = g.bd.cursor()
-    
+
     cursor.execute("SELECT id FROM oradores WHERE nombres = ? AND apellidos = ? AND congregacion = ?", (nombres, apellidos, congregacion))
     orador_existente = cursor.fetchone()
 
     if not orador_existente:
         cursor.execute("INSERT INTO oradores (nombres, apellidos, congregacion) VALUES (?, ?, ?)", (nombres, apellidos, congregacion))
         g.bd.commit()
-        
+
         cursor.execute("SELECT last_insert_rowid()")
         orador_id = cursor.fetchone()[0]
     else:
         orador_id = orador_existente[0]
-    
+
     cursor.execute("INSERT INTO bosquejos (id_orador, nombres, apellidos, congregacion) VALUES (?, ?, ?, ?)", (orador_id, nombres, apellidos, congregacion))
     g.bd.commit()
-    
+
     return redirect(url_for('bosquejos'))
 
 
@@ -1588,59 +1613,59 @@ def mostrar_bosquejo(id):
 
 def obtener_columnas_con_uno(id):
     cursor = g.bd.cursor()
-    
+
     # Lista blanca de columnas permitidas en la tabla "oradores"
     columnas_permitidas = [
-        "id", "nombres", "apellidos", "aprobado_para_salir", "correo_electronico", 
-        "celular", "telefono", "nombramiento", 
-        "discurso_1", "discurso_2", "discurso_3", "discurso_4", 
-        "discurso_5", "discurso_6", "discurso_7", "discurso_8", 
-        "discurso_9", "discurso_10", "discurso_11", "discurso_12", 
-        "discurso_13", "discurso_14", "discurso_15", "discurso_16", 
-        "discurso_17", "discurso_18", "discurso_19", "discurso_20", 
-        "discurso_21", "discurso_22", "discurso_23", "discurso_24", 
-        "discurso_25", "discurso_26", "discurso_27", "discurso_28", 
-        "discurso_29", "discurso_30", "discurso_31", "discurso_32", 
-        "discurso_33", "discurso_34", "discurso_35", "discurso_36", 
-        "discurso_37", "discurso_38", "discurso_39", "discurso_40", 
-        "discurso_41", "discurso_42", "discurso_43", "discurso_44", 
-        "discurso_45", "discurso_46", "discurso_47", "discurso_48", 
-        "discurso_49", "discurso_50", "discurso_51", "discurso_52", 
-        "discurso_53", "discurso_54", "discurso_55", "discurso_56", 
-        "discurso_57", "discurso_58", "discurso_59", "discurso_60", 
-        "discurso_61", "discurso_62", "discurso_63", "discurso_64", 
-        "discurso_65", "discurso_66", "discurso_67", "discurso_68", 
-        "discurso_69", "discurso_70", "discurso_71", "discurso_72", 
-        "discurso_73", "discurso_74", "discurso_75", "discurso_76", 
-        "discurso_77", "discurso_78", "discurso_79", "discurso_80", 
-        "discurso_81", "discurso_82", "discurso_83", "discurso_84", 
-        "discurso_85", "discurso_86", "discurso_87", "discurso_88", 
-        "discurso_89", "discurso_90", "discurso_91", "discurso_92", 
-        "discurso_93", "discurso_94", "discurso_95", "discurso_96", 
-        "discurso_97", "discurso_98", "discurso_99", "discurso_100", 
-        "discurso_101", "discurso_102", "discurso_103", "discurso_104", 
-        "discurso_105", "discurso_106", "discurso_107", "discurso_108", 
-        "discurso_109", "discurso_110", "discurso_111", "discurso_112", 
-        "discurso_113", "discurso_114", "discurso_115", "discurso_116", 
-        "discurso_117", "discurso_118", "discurso_119", "discurso_120", 
-        "discurso_121", "discurso_122", "discurso_123", "discurso_124", 
-        "discurso_125", "discurso_126", "discurso_127", "discurso_128", 
-        "discurso_129", "discurso_130", "discurso_131", "discurso_132", 
-        "discurso_133", "discurso_134", "discurso_135", "discurso_136", 
-        "discurso_137", "discurso_138", "discurso_139", "discurso_140", 
-        "discurso_141", "discurso_142", "discurso_143", "discurso_144", 
-        "discurso_145", "discurso_146", "discurso_147", "discurso_148", 
-        "discurso_149", "discurso_150", "discurso_151", "discurso_152", 
-        "discurso_153", "discurso_154", "discurso_155", "discurso_156", 
-        "discurso_157", "discurso_158", "discurso_159", "discurso_160", 
-        "discurso_161", "discurso_162", "discurso_163", "discurso_164", 
-        "discurso_165", "discurso_166", "discurso_167", "discurso_168", 
-        "discurso_169", "discurso_170", "discurso_171", "discurso_172", 
-        "discurso_173", "discurso_174", "discurso_175", "discurso_176", 
-        "discurso_177", "discurso_178", "discurso_179", "discurso_180", 
-        "discurso_181", "discurso_182", "discurso_183", "discurso_184", 
-        "discurso_185", "discurso_186", "discurso_187", "discurso_188", 
-        "discurso_189", "discurso_190", "discurso_191", "discurso_192", 
+        "id", "nombres", "apellidos", "aprobado_para_salir", "correo_electronico",
+        "celular", "telefono", "nombramiento",
+        "discurso_1", "discurso_2", "discurso_3", "discurso_4",
+        "discurso_5", "discurso_6", "discurso_7", "discurso_8",
+        "discurso_9", "discurso_10", "discurso_11", "discurso_12",
+        "discurso_13", "discurso_14", "discurso_15", "discurso_16",
+        "discurso_17", "discurso_18", "discurso_19", "discurso_20",
+        "discurso_21", "discurso_22", "discurso_23", "discurso_24",
+        "discurso_25", "discurso_26", "discurso_27", "discurso_28",
+        "discurso_29", "discurso_30", "discurso_31", "discurso_32",
+        "discurso_33", "discurso_34", "discurso_35", "discurso_36",
+        "discurso_37", "discurso_38", "discurso_39", "discurso_40",
+        "discurso_41", "discurso_42", "discurso_43", "discurso_44",
+        "discurso_45", "discurso_46", "discurso_47", "discurso_48",
+        "discurso_49", "discurso_50", "discurso_51", "discurso_52",
+        "discurso_53", "discurso_54", "discurso_55", "discurso_56",
+        "discurso_57", "discurso_58", "discurso_59", "discurso_60",
+        "discurso_61", "discurso_62", "discurso_63", "discurso_64",
+        "discurso_65", "discurso_66", "discurso_67", "discurso_68",
+        "discurso_69", "discurso_70", "discurso_71", "discurso_72",
+        "discurso_73", "discurso_74", "discurso_75", "discurso_76",
+        "discurso_77", "discurso_78", "discurso_79", "discurso_80",
+        "discurso_81", "discurso_82", "discurso_83", "discurso_84",
+        "discurso_85", "discurso_86", "discurso_87", "discurso_88",
+        "discurso_89", "discurso_90", "discurso_91", "discurso_92",
+        "discurso_93", "discurso_94", "discurso_95", "discurso_96",
+        "discurso_97", "discurso_98", "discurso_99", "discurso_100",
+        "discurso_101", "discurso_102", "discurso_103", "discurso_104",
+        "discurso_105", "discurso_106", "discurso_107", "discurso_108",
+        "discurso_109", "discurso_110", "discurso_111", "discurso_112",
+        "discurso_113", "discurso_114", "discurso_115", "discurso_116",
+        "discurso_117", "discurso_118", "discurso_119", "discurso_120",
+        "discurso_121", "discurso_122", "discurso_123", "discurso_124",
+        "discurso_125", "discurso_126", "discurso_127", "discurso_128",
+        "discurso_129", "discurso_130", "discurso_131", "discurso_132",
+        "discurso_133", "discurso_134", "discurso_135", "discurso_136",
+        "discurso_137", "discurso_138", "discurso_139", "discurso_140",
+        "discurso_141", "discurso_142", "discurso_143", "discurso_144",
+        "discurso_145", "discurso_146", "discurso_147", "discurso_148",
+        "discurso_149", "discurso_150", "discurso_151", "discurso_152",
+        "discurso_153", "discurso_154", "discurso_155", "discurso_156",
+        "discurso_157", "discurso_158", "discurso_159", "discurso_160",
+        "discurso_161", "discurso_162", "discurso_163", "discurso_164",
+        "discurso_165", "discurso_166", "discurso_167", "discurso_168",
+        "discurso_169", "discurso_170", "discurso_171", "discurso_172",
+        "discurso_173", "discurso_174", "discurso_175", "discurso_176",
+        "discurso_177", "discurso_178", "discurso_179", "discurso_180",
+        "discurso_181", "discurso_182", "discurso_183", "discurso_184",
+        "discurso_185", "discurso_186", "discurso_187", "discurso_188",
+        "discurso_189", "discurso_190", "discurso_191", "discurso_192",
         "discurso_193", "discurso_194", "congregacion"
     ]
 
@@ -1677,10 +1702,10 @@ def guardar_bosquejo():
 
         cursor = g.bd.cursor()
         cursor.execute("""
-            UPDATE bosquejos SET numero = ?, fecha = ?, hospitalidad = ?, 
-                                   se_ha_quedado_hospitalidad_checkbox = ?, 
-                                   se_ha_presentado_tiempo_checkbox = ?, 
-                                   se_ha_presentado_discurso_checkbox = ?, 
+            UPDATE bosquejos SET numero = ?, fecha = ?, hospitalidad = ?,
+                                   se_ha_quedado_hospitalidad_checkbox = ?,
+                                   se_ha_presentado_tiempo_checkbox = ?,
+                                   se_ha_presentado_discurso_checkbox = ?,
                                    anotaciones = ?, congregacion_visitar = ? WHERE id_orador = ?
         """, (numero, fecha, hospitalidad, se_ha_quedado_hospitalidad_checkbox,
               se_ha_presentado_tiempo_checkbox, se_ha_presentado_discurso_checkbox, anotaciones, congregacion_visitar, id_orador))
@@ -1699,7 +1724,7 @@ def eliminar_bosquejo(id):
 def estudio_atalaya():
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM estudio_atalaya")
-    estudios_atalayas = cursor.fetchall()  
+    estudios_atalayas = cursor.fetchall()
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
@@ -1707,7 +1732,7 @@ def estudio_atalaya():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     theme = session.get('theme', 'primer')
 
@@ -1790,15 +1815,15 @@ def eliminar_estudio_atalaya(id):
 def vida_ministerio():
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM vida_ministerio")
-    vida_ministerio = cursor.fetchall() 
+    vida_ministerio = cursor.fetchall()
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
-    
+
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     theme = session.get('theme', 'primer')
 
@@ -1933,14 +1958,14 @@ def obtener_semana_de_la_base_de_datos(week_id):
 
     # Ejecutar la consulta SQL para obtener la semana por su ID
     cursor.execute("SELECT datos_json FROM vida_ministerio WHERE id = ?", (week_id,))
-    
+
     # Obtener el resultado de la consulta
     semana = cursor.fetchone()
 
     if semana:
         # Si se encuentra la semana, obtener el JSON de la columna datos_json
         datos_json = semana[0]
-        
+
         # Convertir el JSON a un diccionario de Python
         semana_dict = json.loads(datos_json)
         return semana_dict
@@ -1956,17 +1981,17 @@ def mostrar_vida_ministerio(id):
 
     cursor.execute("SELECT * FROM vida_ministerio")
     vida_ministerio = cursor.fetchone()
-   
+
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
 
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     theme = session.get('theme', 'primer')
-    
+
     # Aquí renderizas el template con los datos obtenidos de la base de datos
     return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada, vida_ministerio=vida_ministerio, theme=theme)
 
@@ -1998,16 +2023,16 @@ def visita_superint_circuito():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
 
     # Clasificar eventos
     eventos_por_dia_y_hora = {dia: {'Mañana': [], 'Tarde': [], 'Noche': []} for dia in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']}
-    
+
     for evento in eventos:
         id, actividad, dia, hora, lugar, publicador, actividad_para = evento
         hora_int = int(hora.split(':')[0])
-        
+
         if 6 <= hora_int < 12:
             periodo = 'Mañana'
         elif 12 <= hora_int < 19:
@@ -2059,7 +2084,7 @@ def guardar_evento():
             INSERT INTO visita_superint_circuito (actividad, dia, hora, lugar_evento, publicador, actividad_para)
             VALUES (?, ?, ?, ?, ?, ?)
         """, (actividad, dia, hora, lugar_evento, publicador, actividad_para))
-        
+
         g.bd.commit()
 
         return redirect(url_for('visita_superint_circuito'))
@@ -2094,10 +2119,10 @@ def load_user_info():
             if table_exists(cursor, 'configuracion'):
                 cursor.execute("SELECT nombre, apellidos, user_email FROM configuracion WHERE id = ?", (1,))
                 configuracion_data = cursor.fetchone()
-                
+
                 if configuracion_data:
                     nombre, apellidos, user_email = configuracion_data
-                    
+
                     # Verificar si los campos están vacíos o nulos y asignar valores predeterminados si es necesario
                     g.nombre = nombre if nombre and nombre.strip() else "Nombres"
                     g.apellidos = apellidos if apellidos and apellidos.strip() else "Apellidos"
@@ -2114,179 +2139,63 @@ def inject_user_info():
     return dict(nombre=g.get('nombre', 'Nombre'), apellidos=g.get('apellidos', 'Apellidos'), email=g.get('user_email', 'usuario@correo.com'))
 
 @app.route('/accessing', methods=['POST'])
-@limiter.limit("1 per minute")
 def accessing():
-  form = LoginForm()
-  if form.validate_on_submit():
-    email = form.email.data
-    password = form.password.data
-    if not email:
-        flash('El campo de correo electrónico es obligatorio.')
-        return redirect(url_for('login'))
-
+    email = request.form['email']
     password = request.form['password']
-    
-    # Crear una conexión directa a la base de datos
+
+    # Crear una conexión directa a cavea.db
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    
-    # Consultar la base de datos para obtener la información del usuario
-    cursor.execute("SELECT id, database, contraseña, golden_edition, secret FROM emptor WHERE correo = ?", (email,))
+    cursor.execute("SELECT id, database, contraseña, golden_edition FROM emptor WHERE correo = ?", (email,))
     result = cursor.fetchone()
 
     if result and bcrypt.check_password_hash(result['contraseña'], password):
-        # Si el usuario tiene 2FA configurado
-        secret = result['secret']
         user_id = result['id']
-        
-        if secret:
-            # Actualizar el último inicio de sesión del usuario
-            update_last_login(user_id)
-            last_login = get_last_login(user_id)
-            
-            # Guardar temporalmente el ID del usuario para verificar el 2FA
-            session['temp_user_id'] = user_id  
-            session['temp_user_email'] = email  # Guardar el email temporal
-            conn.close()  # Asegurarse de cerrar la conexión
-            return redirect(url_for('verify_2fa'))
-        else:
-            # No tiene 2FA, así que generamos un nuevo secreto y código QR
-            # Generar nuevo secreto y URI para el código QR
-            secret = pyotp.random_base32()
-            totp = pyotp.TOTP(secret)
-            uri = totp.provisioning_uri(name=email, issuer_name="Kingdom Hall Attendant")
-            img = qrcode.make(uri)
+        user_db_name = result['database']
+        user_golden_edition = result['golden_edition']
+        session['user_db'] = user_db_name
+        session['user_id'] = user_id
+        session['user_ge'] = user_golden_edition
+        logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}. ¿Es Golden Edition?: {user_golden_edition}")
 
-            # Guardar el código QR en el sistema
-            qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Ruta para PythonAnywhere
-            os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
-            qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
-            img.save(qr_code_path)
+        # Actualizar el último inicio de sesión del usuario
+        update_last_login(user_id)
+        last_login = get_last_login(user_id)
 
-            # Actualizar la base de datos con el nuevo secreto
-            cursor.execute("UPDATE emptor SET secret = ? WHERE correo = ?", (secret, email))
-            conn.commit()
-            conn.close()  # Asegurarse de cerrar la conexión
+        # Enviar correo electrónico de notificación
+        requester_ip = get_requester_ip()
+        sender = app.config['MAIL_USERNAME']
+        send_login_notification(sender, email, email, last_login, requester_ip)
 
-            # Guardar temporalmente el email para obligar al usuario a activar 2FA
-            session['temp_user_email'] = email  
-            
-            return render_template('activate_2fa.html', qr_code_path=qr_code_path, secret=secret)  # Mostrar el QR al usuario
-
+        conn.close()
+        return redirect(url_for('index'))
     else:
-        # Correo o contraseña incorrectos
-        conn.close()  # Cerrar conexión en caso de error
+        conn.close()
         flash('Correo o contraseña incorrectos.')
         return redirect(url_for('login'))
-    return render_template('login.html', form=form)
 
-@app.route('/activate_2fa', methods=['GET', 'POST'])
-@limiter.limit("1 per minute")
-def activate_2fa():
-    if request.method == 'POST':
-        email = session.get('temp_user_email')  # Recuperar el correo del usuario temporal
-        if not email:
-            flash('Error en la sesión. Por favor, inicie sesión de nuevo.')
-            return redirect(url_for('login'))
-
-        secret = pyotp.random_base32()  # Generar un nuevo secreto para 2FA
-        totp = pyotp.TOTP(secret)
-
-        # Generar URI para el código QR
-        uri = totp.provisioning_uri(name=email, issuer_name="Kingdom Hall Attendant")
-        img = qrcode.make(uri)
-
-        # Definir la ruta del código QR y crear la carpeta si no existe
-        qr_folder_path = os.path.join('kha', 'static', 'qrcodes')  # Ruta para PythonAnywhere
-        os.makedirs(qr_folder_path, exist_ok=True)  # Crear la carpeta si no existe
-        qr_code_path = os.path.join(qr_folder_path, f'{email}_qr.png')
-        img.save(qr_code_path)
-
-        # Actualizar la base de datos con el nuevo secreto
-        conn = sqlite3.connect(DATABASE)
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        cursor.execute("UPDATE emptor SET secret = ? WHERE correo = ?", (secret, email))
-        conn.commit()
-        conn.close()
-
-        return render_template('activate_2fa.html', qr_code_path=qr_code_path, secret=secret) 
-
-    return render_template('activate_2fa.html')
-
-@app.route('/verify_2fa', methods=['GET', 'POST'])
-@limiter.limit("2 per minute")
-def verify_2fa():
-    form = Verify2FAForm()
-    if form.validate_on_submit():
-        codigo_ingresado = form.codigo.data
-        user_id = session.get('temp_user_id')  # Recuperar el ID de usuario temporal
-        email = session.get('temp_user_email')  # Recuperar el email temporal
-        
-        if not user_id or not email:
-            flash('La sesión ha expirado. Por favor, inicie sesión nuevamente.')
-            return redirect(url_for('login'))
-
-        # Conectar a la base de datos y obtener el secreto 2FA
-        conn = sqlite3.connect(DATABASE)
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        cursor.execute("SELECT secret, database, golden_edition FROM emptor WHERE id = ?", (user_id,))
-        result = cursor.fetchone()
-
-        if result:
-            totp = pyotp.TOTP(result['secret'])
-            if totp.verify(codigo_ingresado, valid_window=1):  # Verificación con ventana de validación de 1
-                # Código 2FA es correcto, proceder a autenticar al usuario
-                session['user_id'] = user_id
-                session['user_db'] = result['database']
-                session['user_ge'] = result['golden_edition']
-                
-                # Limpiar los datos temporales
-                session.pop('temp_user_id', None)
-                session.pop('temp_user_email', None)
-
-                # Actualizar el último inicio de sesión del usuario
-                update_last_login(user_id)
-                last_login = get_last_login(user_id)
-
-                # Enviar correo electrónico de notificación
-                requester_ip = get_requester_ip()
-                sender = app.config['MAIL_USERNAME']
-                send_login_notification(sender, email, email, last_login, requester_ip)
-                # Redirigir al dashboard o página principal
-                conn.close()
-                return redirect(url_for('index'))
-            else:
-                flash('Código 2FA incorrecto.')
-        else:
-            flash('Error al verificar el código 2FA.')
-
-        conn.close()
-    return render_template('verify_2fa.html', form=form)
 
 @app.route('/signup')
 def signup():
-  form = LoginForm()
-  return render_template('signup.html', form=form) 
+  form = RegistrationForm()
+  return render_template('signup.html', form=form)
 
 @app.route('/forgot')
 def forgot():
-    return render_template('forgot.html')  
+    return render_template('forgot.html')
 
 @app.route('/recovery', methods=['POST'])
-@limiter.limit("1 per minute")
 def recovery():
     email = request.form['email']
-    
+
     # Crear una conexión directa a cavea.db
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     cursor.execute("SELECT contraseña FROM emptor WHERE correo = ?", (email,))
     result = cursor.fetchone()
-    
+
     if result:
         password = result['contraseña']  # Obtiene la contraseña de la base de datos
         requester_ip = get_requester_ip()
@@ -2302,18 +2211,16 @@ def recovery():
         return redirect(url_for('forgot'))
 
 @app.route('/register', methods=['GET', 'POST'])
-@limiter.limit("1 per minute")
 def register():
-  form = RegistrationForm()
-  if form.validate_on_submit():
     if request.method == 'POST':
-        email = form.email.data
-        
-        # Validar el email
+        email = request.form['email']
+
+        # Validar el email para asegurarse de que sea seguro
         if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
             flash('Error: dirección de correo electrónico no válida.')
             return redirect(url_for('register'))
 
+        # Conectar a la base de datos
         conn = sqlite3.connect(DATABASE)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
@@ -2331,30 +2238,20 @@ def register():
         token = secrets.token_urlsafe(16)
         token_expiration = datetime.datetime.now() + timedelta(hours=1)
         confirm_url = url_for('confirm_email', token=token, _external=True)
-
-        # Generar clave secreta para 2FA
-        secret = pyotp.random_base32()
-        totp = pyotp.TOTP(secret)
-
-        # Generar URI para el código QR
-        uri = totp.provisioning_uri(name=email, issuer_name="Kingdom Hall Attendant")
-
-        # Generar código QR
-        img = qrcode.make(uri)
-        qr_code_path = os.path.join('static', 'qrcodes', f'{email}_qr.png')
-        img.save(qr_code_path)
+        requester_ip = get_requester_ip()
+        sender = app.config['MAIL_USERNAME']
+        send_email(sender, email, confirm_url, requester_ip)
 
         user_db_name = f"{email.split('@')[0]}.db"
 
-        # Validar el nombre de archivo
+        # Validar el nombre de archivo para asegurarse de que no contenga caracteres peligrosos
         if re.match(r'^[a-zA-Z0-9_-]+\.db$', user_db_name):
-            # Insertar en la base de datos
-            cursor.execute("INSERT INTO emptor (correo, token, token_expiration, database, secret) VALUES (?, ?, ?, ?, ?)", 
-                           (email, token, token_expiration, user_db_name, secret))
+            cursor.execute("INSERT INTO emptor (correo, token, token_expiration, database) VALUES (?, ?, ?, ?)",
+                           (email, token, token_expiration, user_db_name))
             conn.commit()
 
-            # Copiar la base de datos
             try:
+                # Copiar la base de datos
                 shutil.copy("kha.db", user_db_name)
                 user_conn = sqlite3.connect(user_db_name)
                 user_cursor = user_conn.cursor()
@@ -2366,38 +2263,25 @@ def register():
             except Exception as e:
                 flash(f'Error al copiar la base de datos: {str(e)}')
 
-            # Enviar el correo de confirmación
-            send_email(app.config['MAIL_DEFAULT_SENDER'], email, confirm_url, request.remote_addr)
-
-            return redirect(url_for('register_sent', email=email))  # Redirigir a la vista que muestra el QR
+            return redirect(url_for('register_sent', email=email))
         else:
             flash('Error: nombre de archivo no válido.')
 
-        conn.close()
+        conn.close()  # Asegúrate de cerrar la conexión a la base de datos
         return redirect(url_for('register'))
-    
-    return render_template('signup.html')
-  return render_template('signup.html')
 
-@app.route('/register/sent', methods=['GET', 'POST'])
-@limiter.limit("1 per minute")
+    return render_template('signup.html')
+
+@app.route('/register/sent', methods=['GET'])
 def register_sent():
     email = request.args.get('email')  # Obtener el correo de los parámetros de la URL
-    qr_code_path = os.path.join('static', 'qrcodes', f'{email}_qr.png')
-
-    # Comprobar si el archivo QR existe
-    if not os.path.exists(qr_code_path):
-        flash('Error: el código QR no se encontró.')
-        return redirect(url_for('register'))
-
-    return render_template('sent.html', email=email, qr_code_path=qr_code_path)  # Pasar la ruta del QR a la plantilla
+    return render_template('sent.html', email=email)
 
 @app.route('/sign-up-system')
 def log_in_system():
     return render_template('log-in-system.html')
 
 @app.route('/resend_token/<email>', methods=['GET', 'POST'])
-@limiter.limit("1 per minute")
 def resend_token(email):
     if request.method == 'POST' or request.method == 'GET':
         token = secrets.token_urlsafe(16)
@@ -2406,14 +2290,14 @@ def resend_token(email):
         requester_ip = get_requester_ip()
         sender = app.config['MAIL_USERNAME']
         send_email(sender, email, confirm_url, requester_ip)
-        
+
         conn = sqlite3.connect(DATABASE)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute("UPDATE emptor SET token = ?, token_expiration = ? WHERE correo = ?", (token, token_expiration, email))
         conn.commit()
         conn.close()
-        
+
         flash('Se ha reenviado un nuevo enlace de confirmación a tu correo.')
         return redirect(url_for('register'))
     return render_template('signup.html', email=email)
@@ -2615,7 +2499,7 @@ def send_login_notification(sender, recipient, email, last_login, requester_ip):
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                       <tr>
                     <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Notamos que iniciaste sesión.</span> Si fuiste tú, puedes ignorar este correo.</div>
+                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Notamos que iniciaste sesión.</span> Si fuiste tú, no te preocupes, puedes seguir disfrutando de tu experiencia. Tu sesión permanecerá activa durante 15 días, a menos que decidas cerrar sesión.</div>
                     </td>
                   </tr>
                   <tr>
@@ -2644,7 +2528,7 @@ def send_login_notification(sender, recipient, email, last_login, requester_ip):
                           </table>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td align="center" style="font-size:0px;padding:24px 16px;word-break:break-word;">
                           <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:10px;font-weight:300;line-height:1.2;text-align:center;color:#8E8E92;">© 2024 Kingdom Hall Attendant. Todos los derechos reservados.</div>
@@ -2856,26 +2740,6 @@ def send_email(sender, recipient, confirm_url, requester_ip):
                         </td>
                       </tr>
                       <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">You're almost done.</span> Confirm your email and press the button below. We don't spam ✌️</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Hai quasi finito.</span> Conferma la tua email e premi il pulsante qui sotto. Non inviamo spam ✌️</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Vous avez presque fini.</span> Confirmez votre email et appuyez sur le bouton ci-dessous. Nous ne spammons pas ✌️</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Você está quase pronto.</span> Confirme seu e-mail e pressione o botão abaixo. Não enviamos spam ✌️</div>
-                        </td>
-                      </tr>
-                      <tr>
                         <td style="font-size:0px;word-break:break-word;">
                           <div style="height:8px;"> &nbsp; </div>
                         </td>
@@ -2893,7 +2757,7 @@ def send_email(sender, recipient, confirm_url, requester_ip):
                       </tr>
                       <tr>
                         <td align="center" style="font-size:0px;word-break:break-word;">
-                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #8E8E92;">Este enlace expirará en 1 hora. Nos vemos pronto. Este correo electrónico fue solicitado por {requester_ip}. Si no ha solicitado este correo electrónico, infórmele a livrasand@outlook.com.</div>
+                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #8E8E92;">Este enlace es válido solo por 1 hora. Si no has solicitado este correo, por favor, infórmanos de inmediato a <a href="mailto:livrasand@outlook.com" style="color: #007AFF;">livrasand@outlook.com</a>. Este correo fue solicitado desde la IP: {requester_ip}. Tu seguridad es nuestra prioridad.</div>
                         </td>
                       </tr>
                       <tr>
@@ -3107,27 +2971,12 @@ def send_password_email(sender, recipient, password, requester_ip):
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                       <tr>
                         <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Tu contraseña es:</span> {password}. Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Your password is:</span> {password}. Please keep this information in a safe place and do not share your password with anyone.</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">La tua password è:</span> {password}. Ti preghiamo di conservare queste informazioni in un luogo sicuro e di non condividere la tua password con nessuno.</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Votre mot de passe est :</span> {password}. Veuillez conserver ces informations dans un endroit sûr et ne partagez votre mot de passe avec personne.</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Sua senha é:</span> {password}. Por favor, guarde essas informações em um local seguro e não compartilhe sua senha com ninguém.</div>
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Tu contraseña es:</span> {password}. Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.
+    <br><br>
+    Recuerda que nuestro sistema de seguridad, te pedirá que utilices la autenticación de dos factores (2FA) al iniciar sesión.
+    <br><br>
+    Si necesitas recuperar tu generador de contraseñas, puedes solicitar ayuda. Sin embargo, deberás validar que eres el propietario de la cuenta para proceder con la recuperación. Ten en cuenta que este proceso puede tardar más de 45 días si no cuentas con un plan de soporte activo. Para disfrutar de un servicio prioritario, te invitamos a adquirir un plan de soporte a través de OpenCollective.
+</div>
                         </td>
                       </tr>
                       <tr>
@@ -3148,7 +2997,7 @@ def send_password_email(sender, recipient, password, requester_ip):
                       </tr>
                       <tr>
                         <td align="center" style="font-size:0px;word-break:break-word;">
-                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #8E8E92;">Este correo electrónico fue solicitado por {requester_ip}. Si no ha solicitado este correo electrónico, infórmele a livrasand@outlook.com.</div>
+                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #8E8E92;">Este correo electrónico fue solicitado desde {requester_ip}. Si no ha solicitado este correo electrónico, infórmele a livrasand@outlook.com.</div>
                         </td>
                       </tr>
                       <tr>
@@ -3177,7 +3026,7 @@ def send_password_email(sender, recipient, password, requester_ip):
 
 @app.route('/confirm')
 def confirm():
-    return render_template('confirm.html') 
+    return render_template('confirm.html')
 
 @app.route('/confirm/<token>', methods=['GET', 'POST'])
 def confirm_email(token):
@@ -3187,22 +3036,22 @@ def confirm_email(token):
     cursor = conn.cursor()
     cursor.execute("SELECT correo, token_expiration FROM emptor WHERE token = ?", (token,))
     result = cursor.fetchone()
-    
+
     if result:
         email = result['correo']
         token_expiration = result['token_expiration']
-        
+
         # Verificar si el token ha expirado
         if datetime.datetime.now() > datetime.datetime.fromisoformat(token_expiration):
             flash('El enlace de confirmación ha expirado. Por favor, solicita un nuevo enlace.')
             return redirect(url_for('resend_token', email=email))
-        
+
         if request.method == 'POST':
             password = request.form['password']
-            
+
             # Hash de la contraseña
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-            
+
             # Actualizar la entrada en la base de datos con la contraseña y last_login
             now = datetime.datetime.now()
             logging.debug(f"Actualizando last_login a: {now}")
@@ -3212,7 +3061,7 @@ def confirm_email(token):
 
             flash('Correo confirmado y contraseña establecida.')
             return redirect(url_for('login'))
-        
+
         conn.close()
         return render_template('confirm.html', token=token)
     else:
@@ -3226,7 +3075,7 @@ def literatura():
     cursor = g.bd.cursor()
 
     cursor.execute("SELECT * FROM inventario")
-    inventarios = cursor.fetchall()  
+    inventarios = cursor.fetchall()
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
@@ -3234,11 +3083,11 @@ def literatura():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     theme = session.get('theme', 'primer')
 
-    return render_template('literatura.html', inventarios=inventarios, congregacion=congregacion_formateada, theme=theme) 
+    return render_template('literatura.html', inventarios=inventarios, congregacion=congregacion_formateada, theme=theme)
 
 @app.route('/nuevo_inventario')
 def nuevo_inventario():
@@ -3254,9 +3103,9 @@ def nuevo_inventario():
   if congregacion and congregacion[0].strip():
       congregacion_formateada = congregacion[0].strip("()'")
   else:
-      congregacion_formateada = None 
+      congregacion_formateada = None
 
-  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None, theme=theme, congregacion=congregacion_formateada) 
+  return render_template('detalle-literatura.html', month_year=month_year, detalle_inventario=None, theme=theme, congregacion=congregacion_formateada)
 
 @app.route('/mostrar_inventario/<string:mes_ano>', methods=['GET'])
 def mostrar_inventario(mes_ano):
@@ -3273,7 +3122,7 @@ def mostrar_inventario(mes_ano):
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
+        congregacion_formateada = None
 
     return render_template('detalle-literatura.html', detalle_inventario=detalle_inventario, theme=theme, congregacion=congregacion_formateada)
 
@@ -3282,7 +3131,7 @@ def guardar_inventario():
     now = datetime.datetime.now()
     month_year = format_date(now, format='MMMM yyyy', locale='es_ES')
 
-    if request.method == 'POST':     
+    if request.method == 'POST':
         mes_ano = month_year
         nwt = request.form['nwt']
         nwtpkt = request.form['nwtpkt']
@@ -3479,30 +3328,30 @@ SET
     otros_revistas = ?
 WHERE mes_ano = mes_ano
 
-            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
-            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
-            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
-            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2,
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos,
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3,
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2,
             wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas))
         else:
             # Si no existe una configuración, insertarla
             cursor.execute("""
-                INSERT INTO inventario (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
-            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
-            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
-            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+                INSERT INTO inventario (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2,
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos,
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3,
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2,
             wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2, 
-            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos, 
-            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3, 
-            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2, 
+            """, (mes_ano, nwt, nwtpkt, otras_biblias, be, cf, cl, ia, jy, kr, lfb, lff, lr, od, rr, scl, sjj, sjjls, sjjyls, yp1, yp2,
+            otros_libros, ay, ed, hf, hl, la, lc, ld, lf, lffi, ll, lmd, mb, ol, pc, ph, rj, rk, sp, th, wfg, ypq, otros_folletos,
+            inv, t_30, t_31, t_32, t_33, t_34, t_35, t_36, t_37, jwcd1, jwcd4, jwcd9, jwcd10, s_34, s_24, g18_1, g18_2, g18_3,
+            g19_1, g19_2, g19_3, g20_1, g20_2, g20_3, g21_1, g21_2, g21_3, g22_1, g23_1, wp18_1, wp18_2, wp18_3, wp19_1, wp19_2,
             wp19_3, wp20_1, wp20_2, wp20_3, wp21_1, wp21_2, wp21_3, wp22_1, wp22_2, wp22_3, wp23_1, wp24_1, otros_revistas))
-            
+
         g.bd.commit()
 
-        return redirect('/literatura')    
-    
+        return redirect('/literatura')
+
 @app.route('/eliminar_inventario/<string:mes_ano>', methods=['GET'])
 def eliminar_inventario(mes_ano):
     cursor = g.bd.cursor()
@@ -3556,23 +3405,23 @@ def change_password():
 def update_password():
     if request.method == 'POST':
         email = request.form['email']
-        
+
         conn = sqlite3.connect(DATABASE)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute("SELECT correo FROM emptor WHERE correo = ?", (email,))
         user = cursor.fetchone()
-        
+
         if user:
             # Generar un token para el enlace de actualización de contraseña
             token = str(uuid.uuid4())
             token_expiration = datetime.datetime.now() + datetime.timedelta(hours=1)
-            
+
             # Actualizar el token y la expiración en la base de datos
             cursor.execute("UPDATE emptor SET token = ?, token_expiration = ? WHERE correo = ?", (token, token_expiration.isoformat(), email))
             conn.commit()
             conn.close()
-            
+
             # Enviar el correo con el enlace de actualización
             reset_link = url_for('confirm_password_update', token=token, _external=True)
             msg = Message('Kingdom Hall Attendant: Actualiza tu contraseña', sender=app.config['MAIL_USERNAME'], recipients=[email])
@@ -3759,7 +3608,7 @@ def update_password():
                 <td style="direction:ltr;font-size:0px;padding:12px 10% 0 10%;text-align:center;">
                   <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-                      
+
                       <tr>
                         <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
@@ -3799,13 +3648,13 @@ def update_password():
     </html>
             """
             mail.send(msg)
-            
+
             flash('Enlace de actualización de contraseña enviado. Revisa tu correo electrónico.')
         else:
             flash('No se encontró una cuenta con ese correo electrónico.')
-        
+
         return redirect(url_for('update_password'))
-    
+
     return render_template('change-password.html')
 
 @app.route('/confirm_password_update/<token>', methods=['GET', 'POST'])
@@ -3815,30 +3664,30 @@ def confirm_password_update(token):
     cursor = conn.cursor()
     cursor.execute("SELECT correo, token_expiration FROM emptor WHERE token = ?", (token,))
     result = cursor.fetchone()
-    
+
     if result:
         email = result['correo']
         token_expiration = result['token_expiration']
-        
+
         # Verificar si el token ha expirado
         if datetime.datetime.now() > datetime.datetime.fromisoformat(token_expiration):
             flash('El enlace de actualización ha expirado. Por favor, solicita un nuevo enlace.')
             return redirect(url_for('update_password'))
-        
+
         if request.method == 'POST':
             new_password = request.form['password']
-            
+
             # Hash de la nueva contraseña
             hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
-            
+
             # Actualizar la contraseña en la base de datos sin modificar el campo token
             cursor.execute("UPDATE emptor SET contraseña = ?, token_expiration = NULL WHERE correo = ?", (hashed_password, email))
             conn.commit()
             conn.close()
-            
+
             flash('Contraseña actualizada exitosamente.')
             return redirect(url_for('login'))
-        
+
         conn.close()
         return render_template('confirm-password.html', token=token)
     else:
@@ -3856,6 +3705,15 @@ def audio_video_acomodadores():
     db = get_db()
     cursor = db.cursor()
 
+    # Obtenemos la configuración
+    settings_none = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
+
+    # Verificamos si `settings` es None y mostramos un mensaje
+    if settings_none is None:
+        mensaje_configuracion = "Primero debes configurar tus necesidades."
+    else:
+        mensaje_configuracion = None
+
     # Verificar si la tabla `ava` existe, y si no, crearla
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS ava (
@@ -3863,7 +3721,7 @@ def audio_video_acomodadores():
             content TEXT
         )
     ''')
-    
+
     # Verificar si la tabla `settings_ava` existe, y si no, crearla
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS settings_ava (
@@ -3878,9 +3736,9 @@ def audio_video_acomodadores():
             etiquetas TEXT
         )
     ''')
-    
+
     # Obtener los datos de la tabla `ava`
-    cursor.execute('SELECT id, content FROM ava')
+    cursor.execute('SELECT id, content FROM ava ORDER BY json_extract(content, "$.fecha") ASC')
     rows = cursor.fetchall()
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
@@ -3889,11 +3747,11 @@ def audio_video_acomodadores():
     if congregacion and congregacion[0].strip():
         congregacion_formateada = congregacion[0].strip("()'")
     else:
-        congregacion_formateada = None 
-    
+        congregacion_formateada = None
+
     # Obtener los ajustes de configuración
     settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
-    
+
     # Obtener las etiquetas
     etiquetas = {}
     if settings and settings['etiquetas']:
@@ -3901,13 +3759,13 @@ def audio_video_acomodadores():
         for etiqueta in etiquetas_list:
             key, value = etiqueta.split(':')
             etiquetas[key] = value
-    
+
     # Transformar los datos en un formato adecuado para el frontend
     content = []
     for row in rows:
         id_ = row[0]
         content_json = row[1]
-        
+
         # Decodificar JSON
         if isinstance(content_json, str) and content_json.startswith("{") and content_json.endswith("}"):
             actividad = json.loads(content_json)
@@ -3918,8 +3776,8 @@ def audio_video_acomodadores():
             'id': id_,
             'actividad': actividad
         })
-    
-    return render_template('audio-video-acomodadores.html', content=content, settings=settings, theme=theme, etiquetas=etiquetas, congregacion=congregacion_formateada)
+
+    return render_template('audio-video-acomodadores.html', content=content, settings=settings, theme=theme, etiquetas=etiquetas, congregacion=congregacion_formateada, mensaje_configuracion=mensaje_configuracion)
 
 @app.route('/nuevo-ava', methods=['GET', 'POST'])
 def nuevo_ava():
@@ -3960,7 +3818,7 @@ def nuevo_ava():
         microfonos = request.form.get('microfonos')
         acomodadores_auditorio = request.form.get('acomodadores_auditorio')
         acomodadores_entrada = request.form.get('acomodadores_entrada')
-        
+
         # Crear un nuevo ID único para el nuevo registro
         cursor.execute('SELECT MAX(id) FROM ava')
         max_id = cursor.fetchone()[0] or 0
@@ -4033,13 +3891,13 @@ def save_settings():
     ''', (microfonistas, acomodadores, video_conferencia, plataforma, audio, video, etiquetas_str))
 
     g.bd.commit()
-    
+
     return jsonify({'success': True})
 
 @app.route('/get-settings', methods=['GET'])
 def get_settings():
     cursor = g.bd.cursor()
-    
+
     try:
         cursor.execute('SELECT * FROM settings_ava ORDER BY id DESC LIMIT 1')
         row = cursor.fetchone()
@@ -4057,7 +3915,7 @@ def get_settings():
             return jsonify(settings)
         else:
             return jsonify({})
-    
+
     except sqlite3.OperationalError as e:
         print(f"Error al acceder a la tabla: {e}")
         return jsonify({})
@@ -4066,7 +3924,7 @@ def get_settings():
 def save_ava():
     data = request.form.to_dict()
     content = json.dumps(data)
-    record_id = data.get('fecha')  
+    record_id = data.get('fecha')
 
     db = get_db()
     cursor = db.cursor()
@@ -4079,23 +3937,102 @@ def save_ava():
 
     return redirect(url_for('audio_video_acomodadores'))
 
+@app.route('/editar-ava/<string:id>', methods=['GET', 'POST'])
+def editar_ava(id):
+    db = get_db()
+    cursor = db.cursor()
+
+    theme = session.get('theme', 'primer')
+
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    settings = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
+
+    acomodadores_count = int(settings['acomodadores']) if 'acomodadores' in settings else 0
+
+    etiquetas = {}
+    if settings and settings['etiquetas']:
+        etiquetas_list = settings['etiquetas'].split(',')
+        for etiqueta in etiquetas_list:
+            key, value = etiqueta.split(':')
+            etiquetas[key] = value
+
+    # Obtener los publicadores para las selecciones
+    participantes_plataforma = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_plataforma = 1').fetchall()
+    participantes_zoom = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_anfitrion_zoom = 1 OR checkbox_coanfitrion_zoom = 1').fetchall()
+    participantes_microfonos = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_microfonos = 1').fetchall()
+    participantes_acomodadores = cursor.execute('SELECT nombres, apellidos FROM publicadores WHERE checkbox_acomodador = 1').fetchall()
+
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        fecha = request.form['fecha']
+        audio = request.form.get('audio')
+        video = request.form.get('video')
+        plataforma = request.form.get('plataforma')
+        microfonos = request.form.get('microfonos')
+        acomodadores_auditorio = request.form.get('acomodadores_auditorio')
+        acomodadores_entrada = request.form.get('acomodadores_entrada')
+
+        # Actualizar el registro existente
+        cursor.execute(
+            '''UPDATE ava SET fecha = ?, audio = ?, video = ?, plataforma = ?, microfonos = ?, acomodadores_auditorio = ?, acomodadores_entrada = ?
+               WHERE id = ?''',
+            (fecha, audio, video, plataforma, microfonos, acomodadores_auditorio, acomodadores_entrada, id)
+        )
+        db.commit()
+        return jsonify({'status': 'success', 'id': id})
+
+    # Si es un GET, cargar los datos del registro para mostrar en el formulario
+    cursor.execute("SELECT * FROM ava WHERE id = ?", (id,))
+    ava_data = cursor.fetchone()
+
+    if not ava_data:
+        return jsonify({'status': 'error', 'message': 'Registro no encontrado.'}), 404
+
+    # Decodificar JSON
+    content_json = ava_data[1]  # Suponiendo que el contenido está en la segunda columna
+    if isinstance(content_json, str) and content_json.startswith("{") and content_json.endswith("}"):
+        actividad = json.loads(content_json)
+    else:
+        actividad = {}
+
+    return render_template(
+        'editar-avacomodadores.html',  # Nueva plantilla para editar
+        theme=theme,
+        congregacion=congregacion_formateada,
+        settings=settings,
+        etiquetas=etiquetas,
+        acomodadores_count=acomodadores_count,
+        participantes_plataforma=participantes_plataforma,
+        participantes_zoom=participantes_zoom,
+        participantes_microfonos=participantes_microfonos,
+        participantes_acomodadores=participantes_acomodadores,
+        actividad=actividad  # Pasar los datos de la actividad a la plantilla
+    )
+
 @app.route('/eliminar-ava/<string:id>', methods=['GET', 'POST'])
 def eliminar_ava(id):
     db = get_db()
     cursor = db.cursor()
     cursor.execute('DELETE FROM ava WHERE id = ?', (id,))
     g.bd.commit()
-    
+
     return redirect(url_for('audio_video_acomodadores'))
 
 @app.route('/eliminar-all-ava', methods=['GET', 'POST'])
 def eliminar_all_ava():
     db = get_db()
     cursor = db.cursor()
-    
+
     cursor.execute('DELETE FROM ava')
     db.commit()
-    
+
     return redirect(url_for('audio_video_acomodadores'))
 
 @app.errorhandler(429)
@@ -4114,6 +4051,20 @@ def informes_predicacion():
 @app.route('/registrar-informe/<int:publicador_id>', methods=['GET'])
 def registrar_informe(publicador_id):
     cursor = g.bd.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS informes_predicacion (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            publicador_id INT NOT NULL,
+            mes INT NOT NULL,
+            anio INT NOT NULL,
+            participacion BOOLEAN DEFAULT FALSE,
+            cursos_biblicos TEXT,
+            horas DECIMAL(5, 2),
+            comentarios TEXT,
+            privilegios_servicio VARCHAR(255),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
     cursor.execute("SELECT * FROM publicadores WHERE id = ?", (publicador_id,))
     publicador = cursor.fetchone()
     cursor.execute("SELECT privilegios_servicio FROM publicadores WHERE id = ?", (publicador_id,))
@@ -4121,7 +4072,7 @@ def registrar_informe(publicador_id):
     cursor.execute("SELECT * FROM informes_predicacion WHERE publicador_id = ?", (publicador_id,))
     registros = cursor.fetchall()
 
-    theme = session.get('theme', 'primer')  
+    theme = session.get('theme', 'primer')
 
     return render_template('detalle-informes-predicacion.html', publicador=publicador, theme=theme, privilegios_servicio=privilegios_servicio, registros=registros)
 
@@ -4142,16 +4093,16 @@ def guardar_informe_predicacion():
     cursor = g.bd.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS informes_predicacion (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,  
-            publicador_id INT NOT NULL,  
-            mes INT NOT NULL,  
-            anio INT NOT NULL,  
-            participacion BOOLEAN DEFAULT FALSE,  
-            cursos_biblicos TEXT,  
-            horas DECIMAL(5, 2),  
-            comentarios TEXT,  
-            privilegios_servicio VARCHAR(255),  
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            publicador_id INT NOT NULL,
+            mes INT NOT NULL,
+            anio INT NOT NULL,
+            participacion BOOLEAN DEFAULT FALSE,
+            cursos_biblicos TEXT,
+            horas DECIMAL(5, 2),
+            comentarios TEXT,
+            privilegios_servicio VARCHAR(255),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
     cursor.execute('''
@@ -4160,7 +4111,174 @@ def guardar_informe_predicacion():
     ''', (publicador_id, mes, anio, participacion, cursos_biblicos, horas, comentarios, privilegios_servicio))
     g.bd.commit()
 
-    return redirect(url_for('informes_predicacion')) 
+    return redirect(url_for('informes_predicacion'))
+
+@app.route('/asistencia-reuniones')
+def asistencia_reuniones():
+    cursor = g.bd.cursor()
+    theme = session.get('theme', 'primer')
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    # Crear tabla si no existe
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS asistencia_reuniones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            mes TEXT NOT NULL,
+            primera_semana INTEGER DEFAULT 0,
+            segunda_semana INTEGER DEFAULT 0,
+            tercera_semana INTEGER DEFAULT 0,
+            cuarta_semana INTEGER DEFAULT 0,
+            quinta_semana INTEGER DEFAULT 0,
+            totales INTEGER DEFAULT 0,
+            promedio REAL DEFAULT 0,
+            primera_semana_fin INTEGER DEFAULT 0,
+            segunda_semana_fin INTEGER DEFAULT 0,
+            tercera_semana_fin INTEGER DEFAULT 0,
+            cuarta_semana_fin INTEGER DEFAULT 0,
+            quinta_semana_fin INTEGER DEFAULT 0,
+            totales_fin INTEGER DEFAULT 0,
+            promedio_fin REAL DEFAULT 0
+        );
+    ''')
+
+    # Verificar y agregar columnas faltantes
+    columnas_requeridas = {
+        'id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
+        'mes': 'TEXT NOT NULL',
+        'primera_semana': 'INTEGER DEFAULT 0',
+        'segunda_semana': 'INTEGER DEFAULT 0',
+        'tercera_semana': 'INTEGER DEFAULT 0',
+        'cuarta_semana': 'INTEGER DEFAULT 0',
+        'quinta_semana': 'INTEGER DEFAULT 0',
+        'totales': 'INTEGER DEFAULT 0',
+        'promedio': 'REAL DEFAULT 0',
+        'primera_semana_fin': 'INTEGER DEFAULT 0',
+        'segunda_semana_fin': 'INTEGER DEFAULT 0',
+        'tercera_semana_fin': 'INTEGER DEFAULT 0',
+        'cuarta_semana_fin': 'INTEGER DEFAULT 0',
+        'quinta_semana_fin': 'INTEGER DEFAULT 0',
+        'totales_fin': 'INTEGER DEFAULT 0',
+        'promedio_fin': 'REAL DEFAULT 0'
+    }
+
+    cursor.execute("PRAGMA table_info(asistencia_reuniones);")
+    columnas_existentes = [row[1] for row in cursor.fetchall()]
+
+    for columna, tipo in columnas_requeridas.items():
+        if columna not in columnas_existentes:
+            cursor.execute(f"ALTER TABLE asistencia_reuniones ADD COLUMN {columna} {tipo};")
+            print(f"Columna '{columna}' añadida a la tabla.")
+
+    g.bd.commit()
+
+    # Obtener el mes actual y verificar si ya hay un registro
+    current_month = datetime.datetime.now().strftime('%Y-%m')
+    existing_record = cursor.execute('SELECT * FROM asistencia_reuniones WHERE mes = ?', (current_month,)).fetchone()
+
+    if not existing_record:
+        cursor.execute('INSERT INTO asistencia_reuniones (mes) VALUES (?)', (current_month,))
+        g.bd.commit()
+
+    # Obtener todos los registros de asistencia
+    records = cursor.execute('SELECT * FROM asistencia_reuniones').fetchall()
+
+    # Calcular totales y promedios
+    processed_records = []
+    for record in records:
+        # Calcular totales y promedios para entre semana
+        total_mes = sum(filter(None, [record['primera_semana'], record['segunda_semana'], record['tercera_semana'], record['cuarta_semana'], record['quinta_semana']]))
+        cantidad_reuniones = sum(1 for week in [record['primera_semana'], record['segunda_semana'], record['tercera_semana'], record['cuarta_semana'], record['quinta_semana']] if week)
+        promedio_semanal = total_mes / cantidad_reuniones if cantidad_reuniones > 0 else 0
+
+        # Calcular totales y promedios para fin de semana
+        total_mes_fin = sum(filter(None, [record['primera_semana_fin'], record['segunda_semana_fin'], record['tercera_semana_fin'], record['cuarta_semana_fin'], record['quinta_semana_fin']]))
+        cantidad_reuniones_fin = sum(1 for week in [record['primera_semana_fin'], record['segunda_semana_fin'], record['tercera_semana_fin'], record['cuarta_semana_fin'], record['quinta_semana_fin']] if week)
+        promedio_semanal_fin = total_mes_fin / cantidad_reuniones_fin if cantidad_reuniones_fin > 0 else 0
+
+        processed_records.append({
+            **record,
+            'total_mes': total_mes,
+            'promedio_semanal': promedio_semanal,
+            'total_mes_fin': total_mes_fin,
+            'promedio_semanal_fin': promedio_semanal_fin
+        })
+
+    return render_template('asistencia-reuniones.html', theme=theme, congregacion=congregacion_formateada, records=processed_records)
+
+@app.route('/guardar_asistencia', methods=['POST'])
+def guardar_asistencia():
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        mes = request.form['mes']
+        primera_semana = request.form['primera_semana']
+        segunda_semana = request.form['segunda_semana']
+        tercera_semana = request.form['tercera_semana']
+        cuarta_semana = request.form['cuarta_semana']
+        quinta_semana = request.form['quinta_semana']
+
+         # Obtener datos de fin de semana
+        primera_semana_fin = request.form['primera_semana_fin']
+        segunda_semana_fin = request.form['segunda_semana_fin']
+        tercera_semana_fin = request.form['tercera_semana_fin']
+        cuarta_semana_fin = request.form['cuarta_semana_fin']
+        quinta_semana_fin = request.form['quinta_semana_fin']
+
+        # Calcular total y promedio
+        totales = (int(primera_semana) + int(segunda_semana) + int(tercera_semana) +
+                     int(cuarta_semana) + int(quinta_semana))
+        cantidad_semanas = sum(1 for semana in [primera_semana, segunda_semana, tercera_semana,
+                                                 cuarta_semana, quinta_semana] if int(semana) > 0)
+        promedio = totales / cantidad_semanas if cantidad_semanas > 0 else 0
+
+        totales_fin = (int(primera_semana_fin) + int(segunda_semana_fin) + int(tercera_semana_fin) +
+                       int(cuarta_semana_fin) + int(quinta_semana_fin))
+        cantidad_semanas_fin = sum(1 for semana in [primera_semana_fin, segunda_semana_fin,
+                                                      tercera_semana_fin, cuarta_semana_fin,
+                                                      quinta_semana_fin] if int(semana) > 0)
+        promedio_fin = totales_fin / cantidad_semanas_fin if cantidad_semanas_fin > 0 else 0
+
+        # Guardar en la base de datos
+        db = get_db()
+        cursor = db.cursor()
+
+        # Verificar si ya existe una entrada para el mes y año
+        cursor.execute("SELECT * FROM asistencia_reuniones WHERE mes = ?", (mes,))
+        existing_record = cursor.fetchone()
+
+        if existing_record:
+            # Si ya existe, actualizar la entrada
+            cursor.execute("""
+                UPDATE asistencia_reuniones
+                SET primera_semana = ?, segunda_semana = ?, tercera_semana = ?,
+                    cuarta_semana = ?, quinta_semana = ?, totales = ?, promedio = ?,
+                    primera_semana_fin = ?, segunda_semana_fin = ?, tercera_semana_fin = ?,
+                    cuarta_semana_fin = ?, quinta_semana_fin = ?, totales_fin = ?, promedio_fin = ?
+                WHERE mes = ?
+            """, (primera_semana, segunda_semana, tercera_semana, cuarta_semana,
+                  quinta_semana, totales, promedio,
+                  primera_semana_fin, segunda_semana_fin, tercera_semana_fin,
+                  cuarta_semana_fin, quinta_semana_fin, totales_fin, promedio_fin, mes))
+        else:
+            # Si no existe, insertar una nueva entrada
+            cursor.execute("""
+                INSERT INTO asistencia_reuniones (mes, primera_semana, segunda_semana,
+                tercera_semana, cuarta_semana, quinta_semana, totales, promedio,
+                primera_semana_fin, segunda_semana_fin, tercera_semana_fin,
+                cuarta_semana_fin, quinta_semana_fin, totales_fin, promedio_fin)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (mes, primera_semana, segunda_semana, tercera_semana,
+                  cuarta_semana, quinta_semana, totales, promedio,
+                  primera_semana_fin, segunda_semana_fin, tercera_semana_fin,
+                  cuarta_semana_fin, quinta_semana_fin, totales_fin, promedio_fin))
+
+        db.commit()
+        return redirect(url_for('asistencia_reuniones'))
 
 if __name__ == '__main__':
     app.run(debug=False)

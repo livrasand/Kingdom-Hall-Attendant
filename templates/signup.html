@@ -21,29 +21,28 @@
 
     <!-- link icons  -->
     <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
-    <title>Create Account · Kingdom Hall Attendant</title>
+    <title>Create Account - Kingdom Hall Attendant</title>
 </head>
 
 <body>
     <div class="container" style="max-width: 450px;margin-top: 50px;">
          {% include 'nav.html' %}
-         
+
         <span class="github-head" style="font-size:35px;">
-            Welcome to KHA!<br>
+             Welcome to KHA!<br>
 Let’s begin the adventure
         </span>
         <form method="post" action="{{ url_for('register') }}">
-            {{ form.hidden_tag() }}  <!-- Esto incluye el token CSRF -->
-            <div class="login-wrapper">
-                <div class="input-box">
-                    <div class="input-label" for="email">
-                        <span>Correo electrónico</span>
-                        <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Solicitar nuevo enlace mágico</a>
-                    </div>
-                    <input type="email" id="email" name="email" required autocomplete="off">
-                </div>
+    <div class="login-wrapper">
+        <div class="input-box">
+            <div class="input-label" for="email">
+                <span>Correo electrónico</span>
+                <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Reenviar enlace</a>
+            </div>
+            <input type="email" id="email" name="email" required autocomplete="off">
+        </div>
 
-        <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro. Al crear una cuenta, aceptas los Términos de servicio. Para obtener más información sobre las prácticas de privacidad de Kingdom Hall Attendant, consulta la Declaración de privacidad de Kingdom Hall Attendant. Ocasionalmente te enviaremos correos electrónicos relacionados con tu cuenta.</div>
+        <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
         <br>
         <button type="submit" class="submit-btn">
             Continuar
