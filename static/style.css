@@ -984,6 +984,26 @@ input:focus {
     background-color: var(--fade-light);
 }
 
+select {
+  width: 100%;
+  outline: none;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-dark);
+  background-color: white; /* Color de fondo */
+  transition: border 0.2s linear; /* Transición suave para el borde */
+}
+
+select:focus {
+  border: 1px solid blue; /* Color del borde al enfocar */
+}
+
+select option {
+  padding: 10px; /* Espaciado interno para las opciones */
+}
+
 .golden-edition {
     margin-top: 25px;
     border: 1px solid #e5e7eb;

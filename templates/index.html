@@ -43,7 +43,7 @@
       <div class="Header color-bg-inset" >
          <!-- Image item  -->
          <div class="Header-item width-full">
-            <img class="avatar CircleBadge" height="100" alt="@octocat" src="https://github.com/octocat.png" width="100">
+            <img class="avatar CircleBadge" height="100" alt="@octocat" src="{{ url_for('identicon') }}" width="100">
             <div class="d-table col-12" style="height: 100px;">
                 {% include 'user_info.html' %}
             </div>
@@ -206,7 +206,7 @@
         <span>{{ _('Reportar un problema') }}</span>
       </button></a>
       <details>
-      <summary class="btn btn-invisible btn-sm mt-2 mb-6"><span>Ver más funciones próximas</span></summary>
+      <summary class="btn btn-invisible btn-sm mt-2 mb-6"><span>Ver funciones en desarrollo</span></summary>
       <h2 class="color-fg-muted mt-4" style="width: 72%;text-align: left;">Roadmap</h2>
       <p class="color-fg-muted text-small mt-2" style="width: 72%;text-align: left;">
 Todas las funciones que se vayan terminando se añadirán automáticamente al panel principal para su uso inmediato.

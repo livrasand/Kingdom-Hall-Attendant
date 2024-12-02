@@ -2,80 +2,104 @@
 <html lang="en">
 
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-PM738JMZ22');
-</script>
+        gtag('config', 'G-PM738JMZ22');
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
 
     <!-- link icons  -->
     <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
     <title>Create Account - Kingdom Hall Attendant</title>
+    <style>
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 0px;
+            margin-top: 35px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            margin-right: 5px;
+            font-weight: 400;
+            color: #59636e;
+        }
+        .tab-button.active {
+            border-bottom: 2px solid #065fd4;
+            bottom: calc(50% - (3rem 48px) / 2 + 1px);
+            font-weight: 600;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container" style="max-width: 450px;margin-top: 50px;">
-         {% include 'nav.html' %}
+        {% include 'nav.html' %}
 
         <span class="github-head" style="font-size:35px;">
-             Welcome to KHA!<br>
-Let’s begin the adventure
+            Welcome to KHA!<br>
+            Let’s begin the adventure
         </span>
+
+        <!-- div class="tabs">
+            <div class="tab-button active" data-tab="ancianos">Congregation Account</div>
+            
+            <svg style="margin-top: 13px;margin-left:5px;margin-right:5px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3Zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3Z"></path></svg>
+            
+            <div class="tab-button" data-tab="publicadores">Publisher Account</div>
+        </div -->
+
         <form method="post" action="{{ url_for('register') }}">
-    <div class="login-wrapper">
-        <div class="input-box">
-            <div class="input-label" for="email">
-                <span>Correo electrónico</span>
-                <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Reenviar enlace</a>
+            <div class="login-wrapper">
+                <div class="tab active" id="ancianos">
+                    <div class="input-box">
+                        <div class="input-label" for="email">
+                            <span>Correo electrónico</span>
+                            <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Reenviar enlace</a>
+                        </div>
+                        <input type="email" id="email" name="email" required autocomplete="off">
+                    </div>
+                    <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
+                    
+                <br>
+                <button type="submit" class="submit-btn">
+                    Continuar
+                </button>
+                </div>
+            </form>
+            
+    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-green);">{{ message }}</div>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
             </div>
-            <input type="email" id="email" name="email" required autocomplete="off">
-        </div>
-
-        <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
-        <br>
-        <button type="submit" class="submit-btn">
-            Continuar
-        </button>
-
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <div class="input-label" style="font-size:12px;margin-top: 10px;color:var(--primary-green);">{{ message }}</div>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-    </div>
-</form>
 
         <div class="info">
             <span>¿Ya tienes cuenta? <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">Inicia sesión</a>.</span>
         </div>
     </div>
-    <script>
-    document.getElementById('resend-link').addEventListener('click', function() {
-    var email = document.getElementById('email').value;
-    if (email) {
-        var encodedEmail = encodeURIComponent(email);
-        window.location.href = "{{ url_for('resend_token', email='') }}" + encodedEmail;
-    } else {
-        alert('Por favor, ingrese su correo electrónico primero.');
-    }
-});
-
-</script>
 </body>
 
 </html>

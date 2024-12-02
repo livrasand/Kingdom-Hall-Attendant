@@ -31,6 +31,10 @@ from wtforms.validators import DataRequired, Email
 from flask_wtf.csrf import CSRFProtect
 import base64
 from urllib.parse import urlparse
+import hashlib
+import io
+import pydenticon
+from PIL import Image
 
 load_dotenv()
 app = Flask(__name__)
@@ -70,7 +74,6 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(), Email()])
 
-#@babel.localeselector
 def get_locale():
     return session.get('language')
 
@@ -590,13 +593,26 @@ def eliminar_publicador(id):
 
 @app.route('/configuracion.html')
 def configuracion():
+    # Obtener la configuración de la base de datos actual
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM configuracion WHERE id = ?", (1,))
     configuracion_data = cursor.fetchone()
 
+    user_id = session.get('user_id')
+    email_user = None  # Inicializar en caso de que no se encuentre el usuario
+
+    if user_id:
+        conn = sqlite3.connect('cavea.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT correo FROM emptor WHERE id = ?', (user_id,))  # Asegúrate de que user_id es una tupla
+        result = cursor.fetchone()  # Usar fetchone() para obtener una sola fila
+        if result:
+            email_user = result[0]  # Obtener el primer elemento de la tupla, que es el correo
+        conn.close()  # Cerrar la conexión a la base de datos
+
     theme = session.get('theme', 'primer')
 
-    return render_template('configuracion.html', configuracion=configuracion_data, theme=theme)
+    return render_template('configuracion.html', configuracion=configuracion_data, theme=theme, email_user=email_user)
 
 @app.route('/guardar_configuracion', methods=['POST'])
 def guardar_configuracion():
@@ -607,7 +623,6 @@ def guardar_configuracion():
         apellidos = request.form['apellidos']
         user_email = request.form['user_email']
         privilegio = request.form['privilegio']
-        circuito = request.form['circuito']
 
         session['language'] = idioma
 
@@ -621,15 +636,15 @@ def guardar_configuracion():
             # Si ya existe una configuración, actualizarla
             cursor.execute("""
                 UPDATE configuracion
-                SET nombre = ?, apellidos = ?, user_email = ?, privilegio = ?, circuito = ?, idioma = ?
+                SET nombre = ?, apellidos = ?, user_email = ?, privilegio = ?, idioma = ?
                 WHERE id = ?
-            """, (nombre, apellidos, user_email, privilegio, circuito, idioma, id))
+            """, (nombre, apellidos, user_email, privilegio, idioma, id))
         else:
             # Si no existe una configuración, insertarla
             cursor.execute("""
-                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, circuito, idioma)
+                INSERT INTO configuracion (nombre, apellidos, user_email, privilegio, idioma)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (nombre, apellidos, user_email, privilegio, circuito, idioma))
+            """, (nombre, apellidos, user_email, privilegio, idioma))
 
         g.bd.commit()
 
@@ -2147,16 +2162,51 @@ def accessing():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT id, database, contraseña, golden_edition FROM emptor WHERE correo = ?", (email,))
+
+    # Verificar si la columna identicon existe
+    cursor.execute("PRAGMA table_info(emptor);")
+    columns = [column[1] for column in cursor.fetchall()]
+
+    if 'identicon' not in columns:
+        # Si no existe, crear la columna
+        cursor.execute("ALTER TABLE emptor ADD COLUMN identicon BLOB;")
+        conn.commit()   
+
+    cursor.execute("SELECT id, database, contraseña, golden_edition, identicon FROM emptor WHERE correo = ?", (email,))
     result = cursor.fetchone()
 
     if result and bcrypt.check_password_hash(result['contraseña'], password):
         user_id = result['id']
         user_db_name = result['database']
         user_golden_edition = result['golden_edition']
+        identicon_data = result['identicon']
+        
+        # Si no existe el identicon, generarlo y guardarlo
+        if identicon_data is None:
+            hasher = hashlib.md5()
+            hasher.update(email.encode('utf-8'))
+            hash_email = hasher.hexdigest()
+
+            generator = pydenticon.Generator(5, 5, foreground=(1, 133, 199), background=(131,172,251))
+            image_data = generator.generate(hash_email, 100, 100)
+
+            # Guardar la imagen en formato PNG
+            image_io = io.BytesIO()
+            # Convertir los datos de imagen (bytes) a un objeto de imagen
+            image = Image.open(io.BytesIO(image_data))
+            image.save(image_io, format='PNG')
+            image_io.seek(0)
+
+            cursor.execute("UPDATE emptor SET identicon = ? WHERE id = ?", (image_io.getvalue(), user_id))
+            conn.commit()
+
+            # Actualizar la variable de la sesión
+            identicon_data = image_io.getvalue()
+
         session['user_db'] = user_db_name
         session['user_id'] = user_id
         session['user_ge'] = user_golden_edition
+        session['identicon'] = identicon_data
         logging.debug(f"Usuario {email} ha iniciado sesión. Conectado a la base de datos del usuario: {user_db_name}. ¿Es Golden Edition?: {user_golden_edition}")
 
         # Actualizar el último inicio de sesión del usuario
@@ -2175,11 +2225,21 @@ def accessing():
         flash('Correo o contraseña incorrectos.')
         return redirect(url_for('login'))
 
+@app.route('/identicon')
+def identicon():
+    identicon_data = session.get('identicon')
+    if identicon_data:
+        image_io = io.BytesIO(identicon_data)
+        return send_file(image_io, mimetype='image/png')
+    else:
+        # Puedes devolver una imagen por defecto si no hay identicon
+        return send_file('default_identicon.png', mimetype='image/png')
 
 @app.route('/signup')
 def signup():
-  form = RegistrationForm()
-  return render_template('signup.html', form=form)
+    form = RegistrationForm()
+    
+    return render_template('signup.html', form=form)
 
 @app.route('/forgot')
 def forgot():
@@ -2225,6 +2285,15 @@ def register():
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
+         # Verificar si la columna identicon existe
+        cursor.execute("PRAGMA table_info(emptor);")
+        columns = [column[1] for column in cursor.fetchall()]
+
+        if 'identicon' not in columns:
+            # Si no existe, crear la columna
+            cursor.execute("ALTER TABLE emptor ADD COLUMN identicon BLOB;")
+            conn.commit()
+
         # Verificar si el usuario ya existe
         cursor.execute("SELECT * FROM emptor WHERE correo = ?", (email,))
         user = cursor.fetchone()
@@ -2263,6 +2332,29 @@ def register():
             except Exception as e:
                 flash(f'Error al copiar la base de datos: {str(e)}')
 
+            # Generar identicon usando pydenticon
+            hasher = hashlib.md5()
+            hasher.update(email.encode('utf-8'))
+            hash_email = hasher.hexdigest()
+
+            # Crear el generador de identicon
+            generator = pydenticon.Generator(5, 5, foreground=(1, 133, 199), background=(131,172,251))
+            image_data = generator.generate(hash_email, 100, 100)
+
+            # Guardar la imagen en formato PNG
+            image_io = io.BytesIO()
+            # Convertir los datos de imagen (bytes) a un objeto de imagen
+            image = Image.open(io.BytesIO(image_data))
+            image.save(image_io, format='PNG')
+            image_io.seek(0)
+
+            # Guardar la imagen del identicon en la base de datos
+            cursor.execute("UPDATE emptor SET identicon = ? WHERE correo = ?", (image_io.getvalue(), email))
+            conn.commit()
+
+            # Actualizar la variable de la sesión
+            identicon_data = image_io.getvalue()
+
             return redirect(url_for('register_sent', email=email))
         else:
             flash('Error: nombre de archivo no válido.')
@@ -2276,10 +2368,6 @@ def register():
 def register_sent():
     email = request.args.get('email')  # Obtener el correo de los parámetros de la URL
     return render_template('sent.html', email=email)
-
-@app.route('/sign-up-system')
-def log_in_system():
-    return render_template('log-in-system.html')
 
 @app.route('/resend_token/<email>', methods=['GET', 'POST'])
 def resend_token(email):
