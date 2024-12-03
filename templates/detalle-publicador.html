@@ -45,9 +45,8 @@
                   <p class="h2 mt-n5">Datos personales</p>
                   <form action="/guardar_publicador" method="POST">
                      <input type="hidden" name="id" value="{{ publicador[0] }}" style="display: none;">
-                     <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" name="nombres" style="width: 49%;" value="{{ publicador[1] }}" autocomplete="off" />
-    <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" aria-label="Apellidos" name="apellidos" style="width:49%;" value="{{ publicador[2] }}" autocomplete="off"/>
-
+                     <input class="form-control" type="text" placeholder="Nombres" aria-label="Nombres" name="nombres" style="width: 49%; text-transform: capitalize;" value="{{ publicador[1] }}" autocomplete="off" />
+                     <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" aria-label="Apellidos" name="apellidos" style="width:49%; text-transform: capitalize;" value="{{ publicador[2] }}" autocomplete="off"/>
     <div class="radio-group mt-1">
         <input class="radio-input" id="option-a" type="radio" name="genero" value="Hombre" {% if publicador[3] == 'Hombre' %} checked {% endif %}>
         <label class="radio-label" for="option-a">Hombre</label>
@@ -77,14 +76,11 @@
 {% endif %}
 
 {% if publicador[4] == '1' %}
-<select class="form-select mb-2 mt-0" aria-label="Preference" name="familia" id="familia">
-        <option value="{{ publicador[111] }}" selected>{{ publicador[111] }}</option>
-    {% for familia in familias %}
-        <option value="{{ familia[1] }}">{{ familia[1] }}</option>
-    {% endfor %}
-</select>
+<input type="hidden" name="familia" id="familia">
 {% else %}
-<select class="form-select mb-2 mt-2" aria-label="Preference" name="familia" id="familia">
+
+<p class="f5 mb-0 mt-2">Familia:</p>
+<select class="form-select mb-2" aria-label="Preference" name="familia" id="familia">
         <option value="{{ publicador[111] }}" selected>{{ publicador[111] }}</option>
     {% for familia in familias %}
         <option value="{{ familia[1] }}">{{ familia[1] }}</option>
@@ -130,7 +126,10 @@
 {% if publicador[113] %}
 <p class="f5 mb-0 mt-2">Grupo de predicación</p>
     <select class="form-select" aria-label="Grupo de predicación" id="grupo_predicacion" name="grupo_predicacion">
-        <option value="{{ publicador[113] }}">{{ publicador[113] }}</option>
+        <option value="{{ publicador[113] }}"><b>{{ publicador[113] }}</b></option>
+        {% for grupo in grupos_predicacion %}
+            <option value="{{ grupo[1] }}">{{ grupo[1] }}</option>
+        {% endfor %}
     </select>
 {% else %}
     <p class="f5 mb-0 mt-2">Grupo de predicación</p>

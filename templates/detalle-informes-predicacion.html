@@ -54,8 +54,7 @@
                     
         <form action="/guardar_informe_predicacion" method="post">
             <input type="hidden" name="publicador" value="{{ publicador[0] }}">  <!-- Campo oculto para el ID del publicador -->
-            <input type="hidden" name="privilegios_servicio" value="{{ privilegios_servicio[0] }}">  <!-- Campo oculto para el privilegio de servicio -->
-
+            <input type="hidden" name="privilegios_servicio" value="{{ privilegios_servicio[0] }}"> 
             <div class="input-box mb-3">
                 <label for="mes" class="input-label">Mes:</label><br>
                 <select name="mes" id="mes" class="form-control width-full" required>
@@ -112,6 +111,7 @@
                     <th>Horas</th>
                     <th>Comentarios</th>
                     <th>Privilegio</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -124,6 +124,9 @@
                         <td>{{ registro.horas }}</td>
                         <td>{{ registro.comentarios }}</td>
                         <td>{{ registro.privilegios_servicio }}</td>
+                        <td><form action="/eliminar_informe/{{ registro.id }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form></td>
                     </tr>
                 {% endfor %}
             </tbody>

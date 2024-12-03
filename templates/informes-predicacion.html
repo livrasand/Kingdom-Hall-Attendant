@@ -12,6 +12,8 @@
 </script>
     <title>Kingdom Hall Attendant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+      
     <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
@@ -36,19 +38,91 @@
            </div>
         </div>
         <div class="d-flex flex-justify-end">    
-           <a class="btn btn-sm float-right mr-6" href="" role="button">Imprimir</a>
+         <a class="btn btn-sm mr-2" onclick="imprimirPagina()">{{ _('Imprimir') }}</a>
         </div>
      </div>
+
     <div class="container-xl mt-6">
-        {% for publicador in publicadores %}
-<div class="col-4 float-left p-2">
-    <div class="col-6 width-full">
-        <a class="d-block color-shadow-large px-2 pt-4 pb-4 position-relative rounded-2 overflow-hidden no-underline" href="{{ url_for('registrar_informe', publicador_id=publicador[0]) }}">
-            <h5 class="color-fg-default pl-3">{{ publicador[1] }} {{ publicador[2] }}</h5>
-        </a>
+      <form method="GET" action="{{ url_for('informes_predicacion') }}" class="Filter d-flex flex-items-center mb-3">
+         <label for="grupo" class="mr-2">Filtrar por grupo:</label>
+         <select name="grupo" id="grupo" class="form-select mr-2">
+             <option value="todos">Todos</option>
+             {% for grupo in grupos %}
+                 <option value="{{ grupo[0] }}">{{ grupo[0] }}</option>
+             {% endfor %}
+         </select>
+         <button type="submit" class="btn btn-primary">Filtrar</button>
+     </form>
+
+     <!-- HEAD PRINT -->
+     <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
+      <p class="h3 ml-2 mt-n4" style="width:85%;">{{ _('Informes de predicación') }}</p>
+      <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
+{% if congregacion %}
+ {{ congregacion }}
+{% else %}
+ {{ _('Registra tu congregación') }}
+{% endif %}</p>
+   </div>
+   <!-- HEAD PRINT -->
+
+      {% for publicador in publicadores %}
+    <div class="col-4 float-left p-2">
+        <div class="col-6 width-full">
+            <a class="d-block color-shadow-large px-2 pt-4 pb-4 position-relative rounded-2 overflow-hidden no-underline" href="{{ url_for('registrar_informe', publicador_id=publicador[0]) }}">
+                <h5 class="color-fg-default pl-3">{{ publicador[1] }} {{ publicador[2] }}</h5>
+                {% if informes[publicador[0]] %}
+                    <h6 class="pl-3">Participación: {{ 'Sí' if informes[publicador[0]][4] else 'No' }}</h6>
+                    <h6 class="pl-3">Cursos bíblicos: {{ informes[publicador[0]][5] }}</h6>
+                    <h6 class="pl-3">Horas: {{ informes[publicador[0]][6] }}</h6>
+                    <h6 class="pl-3">Comentarios: {{ informes[publicador[0]][7] }}</h6>
+                    <h6 class="pl-3">Privilegio: {{ informes[publicador[0]][8] }}</h6>
+                {% else %}
+                    <p class="pl-3">No ha entregado su informe.</p>
+                {% endif %}
+            </a>
+        </div>
     </div>
-</div>
 {% endfor %}
+      
     </div>
+
+    <script>
+      function imprimirPagina() {
+document.getElementById("header-page").style.visibility = "visible";
+
+
+window.print(); // Inicia el proceso de impresión
+
+document.getElementById("header-page").style.visibility = "hidden";
+}
+var fechaActual = new Date();
+  </script>
+        <style>
+         @media print {
+             .Header {
+                 display: none; /* Oculta la cabecera al imprimir */
+             }
+             form.Filter {
+                 display: none !important; /* Oculta el formulario al imprimir */
+             }
+             
+             /* Asegura que el contenido no se corte */
+             body {
+                 margin: 0; /* Elimina márgenes */
+                 padding: 0; /* Elimina relleno */
+             }
+             
+             /* Controla el salto de página */
+             .col-4 {
+                 page-break-inside: avoid; /* Evita que se corte el contenido dentro de esta clase */
+             }
+             
+             /* Opcional: controla el salto de página en general */
+             h1, h2, h3, h4, h5, h6, p {
+                 page-break-after: avoid; /* Evita saltos de página después de estos elementos */
+             }
+         }
+       </style>
 </body>
 </html>

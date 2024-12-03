@@ -52,6 +52,36 @@
                                  </svg>
                               </a>
                            </div>
+        {% if publicadores_por_grupo[grupo[0]] %}
+            <div class="publicadores-grid m-2">
+                {% for publicador in publicadores_por_grupo[grupo[0]] %}
+                    <div class="publicador-item">{{ publicador[0] }} {{ publicador[1] }}</div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No hay publicadores en este grupo.</p>
+        {% endif %}
+
+        <style>
+            .publicadores-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+                margin-top: 10px;
+            }
+            .publicador-item {
+                background-color: #ffffff;
+                padding: 8px;
+                border: 1px solid #e1e4e8;
+                border-radius: 6px;
+                box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+                text-align: center;
+                transition: background-color 0.2s ease;
+            }
+            .publicador-item:hover {
+                background-color: #f6f8fa;
+            }
+        </style>
                         </div>
                      {% endfor %}
                   {% else %}

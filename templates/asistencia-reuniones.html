@@ -142,7 +142,10 @@
             <div class="col-2 float-left">
                 <p class="h4">{{ _('Mes:') }}</p>
                 <p class="btn btn-sm mt-n2 openModalBtn" data-record='{{ record|tojson }}'>{{ record.mes }}</p>
-                <p class="mt-n2 print-only">{{ record.mes }}</p>
+                <p class="mt-n2 print-only">{{ record.mes }}</p><br>
+                <form action="{{ url_for('eliminar_mes', mes=record.mes) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">{{ _('Eliminar') }}</button>
+                </form>
             </div>
             <div class="col-5 float-left">
                 <p class="h4">{{ _('Reunión de entre semana:') }}</p>

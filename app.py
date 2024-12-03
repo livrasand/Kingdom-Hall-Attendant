@@ -652,14 +652,21 @@ def guardar_configuracion():
 
 @app.route('/grupos-predicacion.html')
 def grupos_predicacion():
-
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM grupos_predicacion")
     grupos = cursor.fetchall()
 
+    # Crear un diccionario para almacenar los publicadores por grupo
+    publicadores_por_grupo = {}
+    
+    for grupo in grupos:
+        cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE grupo_predicacion = ?", (grupo[1],))
+        publicadores_grupo = cursor.fetchall()
+        publicadores_por_grupo[grupo[0]] = publicadores_grupo
+
     theme = session.get('theme', 'primer')
 
-    return render_template('/grupos-predicacion.html', grupos=grupos, theme=theme)
+    return render_template('/grupos-predicacion.html', grupos=grupos, theme=theme, publicadores_por_grupo=publicadores_por_grupo)
 
 @app.route('/nuevo_grupo', methods=['GET'])
 def nuevo_grupo():
@@ -4129,12 +4136,41 @@ def ratelimit_handler(e):
 
 @app.route('/informes-predicacion')
 def informes_predicacion():
-  cursor = g.bd.cursor()
-  cursor.execute("SELECT * FROM publicadores")
-  publicadores = cursor.fetchall()
-  theme = session.get('theme', 'primer')
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM publicadores")
+    publicadores = cursor.fetchall()
 
-  return render_template('informes-predicacion.html', publicadores=publicadores, theme=theme)
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    cursor.execute("SELECT nombre_grupo FROM grupos_predicacion")
+    grupos = cursor.fetchall()
+
+    grupo_seleccionado = request.args.get('grupo', 'todos')
+
+
+    informes = {}
+    for publicador in publicadores:
+        cursor.execute("""
+            SELECT * FROM informes_predicacion 
+            WHERE publicador_id = ? 
+            ORDER BY created_at DESC 
+            LIMIT 1
+        """, (publicador[0],))
+        informe = cursor.fetchone()  # Obtener el último informe
+        informes[publicador[0]] = informe if informe else []  # Asignar una lista vacía si no hay informe
+
+    if grupo_seleccionado != 'todos':
+        publicadores = [pub for pub in publicadores if pub[113] == grupo_seleccionado]  # Asumiendo que el índice 3 es grupo_predicacion
+
+    theme = session.get('theme', 'primer')
+
+    return render_template('informes-predicacion.html', publicadores=publicadores, informes=informes, grupos=grupos, theme=theme, congregacion=congregacion_formateada)
 
 @app.route('/registrar-informe/<int:publicador_id>', methods=['GET'])
 def registrar_informe(publicador_id):
@@ -4153,6 +4189,8 @@ def registrar_informe(publicador_id):
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+    cursor.execute("SELECT * FROM informes_predicacion WHERE publicador_id = ? ORDER BY created_at DESC LIMIT 1", (publicador_id,))
+    informe = cursor.fetchone()  # Obtener el último informe
     cursor.execute("SELECT * FROM publicadores WHERE id = ?", (publicador_id,))
     publicador = cursor.fetchone()
     cursor.execute("SELECT privilegios_servicio FROM publicadores WHERE id = ?", (publicador_id,))
@@ -4160,9 +4198,22 @@ def registrar_informe(publicador_id):
     cursor.execute("SELECT * FROM informes_predicacion WHERE publicador_id = ?", (publicador_id,))
     registros = cursor.fetchall()
 
+    # Si no hay informe, inicializar informe como un diccionario vacío
+    if informe is None:
+        informe = {
+            'id': None,
+            'mes': None,
+            'anio': None,
+            'participacion': False,
+            'cursos_biblicos': '',
+            'horas': '',
+            'comentarios': '',
+            'privilegios_servicio': ''
+        }
+
     theme = session.get('theme', 'primer')
 
-    return render_template('detalle-informes-predicacion.html', publicador=publicador, theme=theme, privilegios_servicio=privilegios_servicio, registros=registros)
+    return render_template('detalle-informes-predicacion.html', publicador=publicador, theme=theme, privilegios_servicio=privilegios_servicio, registros=registros, informe=informe)
 
 @app.route('/guardar_informe_predicacion', methods=['POST'])
 def guardar_informe_predicacion():
@@ -4200,6 +4251,25 @@ def guardar_informe_predicacion():
     g.bd.commit()
 
     return redirect(url_for('informes_predicacion'))
+
+@app.route('/eliminar_informe/<int:informe_id>', methods=['POST'])
+def eliminar_informe(informe_id):
+    # Conectar a la base de datos
+    conn = get_db()
+    cursor = conn.cursor()
+
+    try:
+        # Eliminar el informe de la base de datos
+        cursor.execute("DELETE FROM informes_predicacion WHERE id = ?", (informe_id,))
+        conn.commit()  # Confirmar los cambios en la base de datos
+        flash("Informe eliminado correctamente.", "success")
+    except Exception as e:
+        conn.rollback()  # Revertir cambios en caso de error
+        flash(f"Error al eliminar el informe: {str(e)}", "error")
+    finally:
+        conn.close()  # Asegurarse de cerrar la conexión
+
+    return redirect(url_for('informes_predicacion'))  # Redirigir a la página de informes
 
 @app.route('/asistencia-reuniones')
 def asistencia_reuniones():
@@ -4367,6 +4437,17 @@ def guardar_asistencia():
 
         db.commit()
         return redirect(url_for('asistencia_reuniones'))
+
+@app.route('/eliminar_mes/<mes>', methods=['POST'])
+def eliminar_mes(mes):
+    db = get_db()  # Conectar a la base de datos
+    cursor = db.cursor()
+
+    # Eliminar el registro de la base de datos
+    cursor.execute("DELETE FROM asistencia_reuniones WHERE mes = ?", (mes,))
+    db.commit()  # Confirmar los cambios
+
+    return redirect(url_for('asistencia_reuniones'))  # Redirige a la página de asistencia
 
 if __name__ == '__main__':
     app.run(debug=False)
