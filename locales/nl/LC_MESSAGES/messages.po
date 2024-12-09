@@ -1,0 +1,605 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kingdom-hall-attendant\n"
+"Report-Msgid-Bugs-To: livrasand@outlook.com\n"
+"POT-Creation-Date: 2024-07-21 07:58-0600\n"
+"PO-Revision-Date: 2024-12-09 17:20\n"
+"Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
+"Language: nl\n"
+"Language-Team: Dutch\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+"X-Crowdin-Project: kingdom-hall-attendant\n"
+"X-Crowdin-Project-ID: 744277\n"
+"X-Crowdin-Language: nl\n"
+"X-Crowdin-File: /[livrasand.Kingdom-Hall-Attendant] main/locales/es/LC_MESSAGES/messages.po\n"
+"X-Crowdin-File-ID: 16\n"
+
+#: templates/bosquejos.html:41 templates/estudio-atalaya.html:42
+#: templates/literatura.html:42
+msgid "Imprimir"
+msgstr ""
+
+#: templates/bosquejos.html:46 templates/detalle-grupo-predicacion.html:38
+#: templates/detalle-publicador.html:39 templates/estudio-atalaya.html:44
+#: templates/grupos-predicacion.html:35 templates/literatura.html:44
+#: templates/oradores.html:48 templates/publicadores.html:39
+#: templates/vida-ministerio.html:50
+msgid "Nuevo"
+msgstr ""
+
+#: templates/bosquejos.html:57
+msgid "Primero registra un orador en Oradores públicos."
+msgstr ""
+
+#: templates/bosquejos.html:69 templates/index.html:106
+msgid "Discursos públicos"
+msgstr ""
+
+#: templates/bosquejos.html:73 templates/estudio-atalaya.html:57
+#: templates/literatura.html:57
+msgid "Registra tu congregación"
+msgstr ""
+
+#: templates/bosquejos.html:87
+msgid "Discurso público"
+msgstr ""
+
+#: templates/bosquejos.html:89
+msgid "Sin asignar bosquejo"
+msgstr ""
+
+#: templates/bosquejos.html:94 templates/detalle-bosquejo.html:89
+#: templates/detalle-estudio-atalaya.html:46
+msgid "Fecha:"
+msgstr ""
+
+#: templates/bosquejos.html:95
+msgid "Sin asignar"
+msgstr ""
+
+#: templates/bosquejos.html:98
+msgid "Orador:"
+msgstr ""
+
+#: templates/bosquejos.html:102 templates/detalle-bosquejo.html:115
+msgid "Congregación:"
+msgstr ""
+
+#: templates/bosquejos.html:103
+msgid "Local"
+msgstr ""
+
+#: templates/bosquejos.html:106
+msgid "Saliente a:"
+msgstr ""
+
+#: templates/bosquejos.html:107
+msgid "Es visitante"
+msgstr ""
+
+#: templates/bosquejos.html:124
+msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/bosquejos.html:133 templates/estudio-atalaya.html:109
+msgid "Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant."
+msgstr ""
+
+#: templates/bosquejos.html:134 templates/estudio-atalaya.html:110
+#: templates/literatura.html:92
+msgid "Impreso el"
+msgstr ""
+
+#: templates/configuracion.html:48
+msgid "Restablecer aplicación"
+msgstr ""
+
+#: templates/configuracion.html:60 templates/index.html:152
+msgid "Configuración"
+msgstr ""
+
+#: templates/configuracion.html:66
+msgid "Idioma"
+msgstr ""
+
+#: templates/configuracion.html:69
+msgid "Español"
+msgstr ""
+
+#: templates/configuracion.html:70
+msgid "English"
+msgstr ""
+
+#: templates/configuracion.html:71
+msgid "Italiano"
+msgstr ""
+
+#: templates/configuracion.html:72
+msgid "Français"
+msgstr ""
+
+#: templates/configuracion.html:73
+msgid "Deutsch"
+msgstr ""
+
+#: templates/configuracion.html:74
+msgid "Português"
+msgstr ""
+
+#: templates/configuracion.html:83
+msgid "Preferencias de tema"
+msgstr ""
+
+#: templates/configuracion.html:85
+msgid "Nuevos temas se añadirán en las próximas semanas."
+msgstr ""
+
+#: templates/configuracion.html:138
+msgid "Nombre"
+msgstr ""
+
+#: templates/configuracion.html:141 templates/detalle-orador.html:46
+msgid "Nombres"
+msgstr ""
+
+#: templates/configuracion.html:142 templates/detalle-orador.html:47
+msgid "Apellidos"
+msgstr ""
+
+#: templates/configuracion.html:147
+msgid "Correo electrónico público"
+msgstr ""
+
+#: templates/configuracion.html:155
+msgid "Privilegio"
+msgstr ""
+
+#: templates/configuracion.html:158
+msgid "superintendente de circuito"
+msgstr ""
+
+#: templates/configuracion.html:159
+msgid "anciano"
+msgstr ""
+
+#: templates/configuracion.html:160
+msgid "siervo ministerial"
+msgstr ""
+
+#: templates/configuracion.html:165
+msgid "País"
+msgstr ""
+
+#: templates/configuracion.html:173 templates/congregacion.html:44
+#: templates/congregacion.html:50 templates/detalle-orador.html:55
+#: templates/index.html:64 templates/publicadores.html:47
+msgid "Congregación"
+msgstr ""
+
+#: templates/configuracion.html:181 templates/congregacion.html:113
+msgid "Circuito"
+msgstr ""
+
+#: templates/configuracion.html:191
+msgid "Actualizar datos"
+msgstr ""
+
+#: templates/congregacion.html:45 templates/publicadores.html:48
+msgid "Publicadores"
+msgstr ""
+
+#: templates/congregacion.html:51
+msgid "Número"
+msgstr ""
+
+#: templates/congregacion.html:53
+msgid "Reunión de entre semana"
+msgstr ""
+
+#: templates/congregacion.html:55 templates/congregacion.html:56
+#: templates/congregacion.html:81 templates/congregacion.html:82
+msgid "Lunes"
+msgstr ""
+
+#: templates/congregacion.html:58 templates/congregacion.html:59
+#: templates/congregacion.html:84 templates/congregacion.html:85
+msgid "Martes"
+msgstr ""
+
+#: templates/congregacion.html:61 templates/congregacion.html:62
+#: templates/congregacion.html:87 templates/congregacion.html:88
+msgid "Miércoles"
+msgstr ""
+
+#: templates/congregacion.html:64 templates/congregacion.html:65
+#: templates/congregacion.html:90 templates/congregacion.html:91
+msgid "Jueves"
+msgstr ""
+
+#: templates/congregacion.html:67 templates/congregacion.html:68
+#: templates/congregacion.html:93 templates/congregacion.html:94
+msgid "Viernes"
+msgstr ""
+
+#: templates/congregacion.html:70 templates/congregacion.html:71
+#: templates/congregacion.html:96 templates/congregacion.html:97
+msgid "Sábado"
+msgstr ""
+
+#: templates/congregacion.html:73 templates/congregacion.html:74
+#: templates/congregacion.html:99 templates/congregacion.html:100
+msgid "Domingo"
+msgstr ""
+
+#: templates/congregacion.html:102
+msgid "Hora de inicio"
+msgstr ""
+
+#: templates/congregacion.html:106
+msgid "Dirección del Salón del Reino"
+msgstr ""
+
+#: templates/congregacion.html:110
+msgid "Datos del superintendente de circuito"
+msgstr ""
+
+#: templates/congregacion.html:111
+msgid "Superintendente de circuito"
+msgstr ""
+
+#: templates/congregacion.html:112
+msgid "Número de teléfono"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:47
+msgid "Orador"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:53
+msgid "Este orador es invitado de la congregación"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:61
+msgid "Número del discurso"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:67
+msgid "Este orador tiene preparados estos bosquejos:"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:83
+msgid "Este orador aún no se ha preparado con ningún bosquejo."
+msgstr ""
+
+#: templates/detalle-bosquejo.html:98
+msgid "Hospitalidad:"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:114 templates/detalle-orador.html:54
+msgid "Tip"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:114
+msgid "Si el orador va a salir a discursar, especifique la congregación"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:122
+msgid "Se ha quedado a la hospitalidad"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:128
+msgid "Se ha presentado a tiempo"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:134
+msgid "Se ha presentado al discurso"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:137
+msgid "Anotaciones:"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:142
+#: templates/detalle-estudio-atalaya.html:116
+#: templates/detalle-grupo-predicacion.html:99
+#: templates/detalle-orador.html:1039
+#: templates/detalle-vida-ministerio.html:183
+msgid "Guardar"
+msgstr ""
+
+#: templates/detalle-bosquejo.html:150
+#: templates/detalle-estudio-atalaya.html:122
+#: templates/detalle-grupo-predicacion.html:104
+#: templates/detalle-orador.html:1045
+msgid "Eliminar"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:48
+#: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
+msgid "Presidente:"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:58
+msgid "Selecciona un presidente"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:65
+#: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
+msgid "Oración de inicio:"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:75
+#: templates/detalle-estudio-atalaya.html:91
+#: templates/detalle-vida-ministerio.html:87
+#: templates/detalle-vida-ministerio.html:176
+msgid "Selecciona un publicador"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
+msgid "Lector de <em>La Atalaya</em>:"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:97
+msgid "Sustituto de la oración final:"
+msgstr ""
+
+#: templates/detalle-estudio-atalaya.html:108
+msgid "Selecciona un sustituto"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:46
+msgid "Nombre del grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:48
+#: templates/detalle-grupo-predicacion.html:55
+#: templates/detalle-grupo-predicacion.html:63
+msgid "Siervo de grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:56
+msgid "Seleccionar siervo de grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:70
+msgid "Auxiliar de grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:71
+msgid "Seleccionar auxiliar de grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:78
+msgid "Dirección de reunión del grupo"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:82
+msgid "Asignar hospitalidad"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:88
+msgid "Usar para la limpieza del Salón del Reino"
+msgstr ""
+
+#: templates/detalle-grupo-predicacion.html:94
+msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
+msgstr ""
+
+#: templates/detalle-literatura.html:59
+msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
+msgstr ""
+
+#: templates/detalle-literatura.html:808
+msgid "Guardar inventario"
+msgstr ""
+
+#: templates/detalle-literatura.html:816
+msgid "Eliminar inventario"
+msgstr ""
+
+#: templates/detalle-orador.html:43
+msgid "Datos del orador"
+msgstr ""
+
+#: templates/detalle-orador.html:51
+msgid "Aprobado para salir "
+msgstr ""
+
+#: templates/detalle-orador.html:54
+msgid "Si el orador es foráneo, especifique su congregación de origen"
+msgstr ""
+
+#: templates/detalle-orador.html:56
+msgid "Correo electrónico"
+msgstr ""
+
+#: templates/detalle-orador.html:57
+msgid "Celular"
+msgstr ""
+
+#: templates/detalle-orador.html:58
+msgid "Teléfono"
+msgstr ""
+
+#: templates/detalle-orador.html:61
+msgid "Anciano"
+msgstr ""
+
+#: templates/detalle-orador.html:64
+msgid "Siervo ministerial"
+msgstr ""
+
+#: templates/detalle-orador.html:65
+msgid "Bosquejos preparados"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
+msgid "Sincronizando datos de la reunión"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:33
+msgid "Guardando..."
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:66
+msgid "Anterior"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:68
+msgid "Esta semana"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:70
+msgid "Próxima"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:79
+msgid "Seleccione un presidente"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:121
+msgid "Conductor:"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:123
+msgid "Seleccione un conductor"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:129
+msgid "Lector:"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:131
+msgid "Seleccione un lector"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:137
+#: templates/detalle-vida-ministerio.html:145
+msgid "Publicador:"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:139
+#: templates/detalle-vida-ministerio.html:147
+msgid "Seleccione un publicador"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:155
+msgid "Ayudante:"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:157
+msgid "Seleccione un ayudante"
+msgstr ""
+
+#: templates/detalle-vida-ministerio.html:174
+msgid "Oración final:"
+msgstr ""
+
+#: templates/estudio-atalaya.html:52
+msgid "Reunión de fin de semana"
+msgstr ""
+
+#: templates/estudio-atalaya.html:83
+msgid "Sust. oración final:"
+msgstr ""
+
+#: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
+msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/grupos-predicacion.html:60
+msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/index.html:53
+msgid "Cerrar sesión"
+msgstr ""
+
+#: templates/index.html:65
+msgid "Administra la información de la congregación y de los publicadores"
+msgstr ""
+
+#: templates/index.html:74
+msgid "Vida y Ministerio"
+msgstr ""
+
+#: templates/index.html:75
+msgid "Programa automáticamente las asignaciones para la reunión"
+msgstr ""
+
+#: templates/index.html:84
+msgid "Estudio de <em>La Atalaya</em>"
+msgstr ""
+
+#: templates/index.html:85
+msgid "Programa automáticamente los participantes para la reunión"
+msgstr ""
+
+#: templates/index.html:96
+msgid "Oradores públicos"
+msgstr ""
+
+#: templates/index.html:97
+msgid "Registre oradores públicos locales o visitantes"
+msgstr ""
+
+#: templates/index.html:107
+msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
+msgstr ""
+
+#: templates/index.html:116
+msgid "Grupos para el servicio del campo"
+msgstr ""
+
+#: templates/index.html:117
+msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
+msgstr ""
+
+#: templates/index.html:142
+msgid "Publicaciones"
+msgstr ""
+
+#: templates/index.html:143
+msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
+msgstr ""
+
+#: templates/index.html:153
+msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
+msgstr ""
+
+#: templates/index.html:163
+msgid "Reportar un problema"
+msgstr ""
+
+#: templates/literatura.html:52
+msgid "Informe de inventario"
+msgstr ""
+
+#: templates/literatura.html:82
+msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/literatura.html:91
+msgid "Encuentre la última versión actualizada de este inventario escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant."
+msgstr ""
+
+#: templates/oradores.html:59
+msgid "Agregar orador foráneo"
+msgstr ""
+
+#: templates/oradores.html:91
+msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/publicadores.html:77
+msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
+msgstr ""
+
+#: templates/vida-ministerio.html:62
+msgid "Semana del"
+msgstr ""
+
