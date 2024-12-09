@@ -31,25 +31,23 @@
         <div style="padding: 50px 20% 60px 20%;background: linear-gradient(180deg, rgba(255,255,255,0.1) 22%, rgba(93,147,243,0.25) 100%);border-radius: 24px;">
             <div class="container-lg p-responsive" style="margin-top: 75px; width: 100%;">
                 <div class="col-md-8 col-lg-10 col-xl-12 text-center mx-auto my-5 my-sm-0">
-                    <h2 class="github-head mb-3" style="line-height: 1;text-align: left;margin-left: -4px;">Seguridad en Kingdom Hall Attendant</h2>
+                    <h2 class="github-head mb-3" style="line-height: 1;text-align: left;margin-left: -4px;">{{ _('Seguridad en Kingdom Hall Attendant') }}</h2>
                     <section style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
-                        <p><strong>Inicio de Sesión Seguro:</strong> En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos <em>bcrypt</em> para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante.</p>
+                        <p><strong>{{ _('Inicio de Sesión Seguro:') }}</strong> {{ _('En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos') }} <em>bcrypt</em> {{ _('para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante.') }}</p>
                         
+                        <p style="margin-top:20px;"><strong>{{ _('Manejo Seguro de Sesiones:') }}</strong> {{ _('Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Manejo Seguro de Sesiones:</strong> Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento.</p>
+                        <p style="margin-top:20px;"><strong>{{ _('Protección CSRF:') }}</strong> {{ _('Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Protección CSRF:</strong> Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic.</p>
+                        <p style="margin-top:20px;"><strong>{{ _('Gestión de Tokens Seguros:') }}</strong> {{ _('Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Gestión de Tokens Seguros:</strong> Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia.</p>
+                        <p style="margin-top:20px;"><strong>{{ _('Conexiones de Base de Datos Seguras:') }}</strong> {{ _('Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Conexiones de Base de Datos Seguras:</strong> Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso.</p>
+                        <p style="margin-top:20px;"><strong>{{ _('Límites de Tasa:') }}</strong> {{ _('Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Límites de Tasa:</strong> Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen.</p>
+                        <p style="margin-top:20px;"><strong>{{ _('Registro y Monitoreo:') }}</strong> {{ _('Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía.') }}</p>
                         
-                        <p style="margin-top:20px;"><strong>Registro y Monitoreo:</strong> Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía.</p>
-                        
-                        <p style="margin-top:20px;"><strong>Uso de Variables de Entorno:</strong> Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte.</p>
-                        
+                        <p style="margin-top:20px;"><strong>{{ _('Uso de Variables de Entorno:') }}</strong> {{ _('Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte.') }}</p>
 
                     </section>
                 </div>

@@ -48,6 +48,7 @@
       </div>
       <!-- Tu contenido del encabezado aquí -->
       <div class="container-xl mt-6"> 
+         
          <form action="/guardar_configuracion" method="post">
             <div data-view-component="true" class="container-md">
                <!-- Public Profile -->
@@ -57,16 +58,21 @@
                <input class="form-control width-full" type="text" name="id" id="id" value="{{ configuracion[0] }}" autocomplete="off" style="display: none;">
                <div class="clearfix gutter d-flex flex-shrink-0 flex-column-reverse flex-md-row">
                   <div class="col-12 col-md-12"> 
+                     
             <dl class="form-group">
                 <dt><label for="user_profile_pronouns_select"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" class="mb-n1" height="16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"></path></svg> &nbsp;{{ _('Idioma') }} <span class="IssueLabel color-bg-accent-emphasis color-fg-on-emphasis mr-1">Próximamente</span></label></dt>
                 <dd class="user-profile-bio-field-container js-length-limited-input-container">
                     <select id="idioma" class="form-select js-profile-editable-pronouns-select form-control width-full" name="idioma">
                         <option value="es" {% if configuracion[8] == 'es' %} selected {% endif %}>{{ _('Español') }}</option>
-                        <option value="en" {% if configuracion[8] == 'en' %} selected {% endif %}>{{ _('English') }}</option>
+                        <option value="en" {% if configuracion[8] == 'en' %} selected {% endif %}>{{ _('Inglés') }}</option>
+                        <option value="zh" {% if configuracion[8] == 'zh' %} selected {% endif %}>{{ _('Chino Tradicional') }}</option>
+                        <option value="nl" {% if configuracion[8] == 'nl' %} selected {% endif %}>{{ _('Holandés') }}</option>
+                        <option value="et" {% if configuracion[8] == 'et' %} selected {% endif %}>{{ _('Estonio') }}</option>
+                        <option value="fr" {% if configuracion[8] == 'fr' %} selected {% endif %}>{{ _('Francés') }}</option>
+                        <option value="de" {% if configuracion[8] == 'de' %} selected {% endif %}>{{ _('Alemán') }}</option>
                         <option value="it" {% if configuracion[8] == 'it' %} selected {% endif %}>{{ _('Italiano') }}</option>
-                        <option value="fr" {% if configuracion[8] == 'fr' %} selected {% endif %}>{{ _('Français') }}</option>
-                        <option value="de" {% if configuracion[8] == 'de' %} selected {% endif %}>{{ _('Deutsch') }}</option>
-                        <option value="pt" {% if configuracion[8] == 'pt' %} selected {% endif %}>{{ _('Português') }}</option>
+                        <option value="ja" {% if configuracion[8] == 'ja' %} selected {% endif %}>{{ _('Japonés') }}</option>
+                        <option value="pt" {% if configuracion[8] == 'pt' %} selected {% endif %}>{{ _('Portugués') }}</option>
                     </select>
                 </dd>
             </dl> 
@@ -123,16 +129,17 @@
                      <span>{{ _('Borrar los datos de la aplicación') }}</span>
                  </a>   
                         </p>
-                        <p>Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma.
+                        <p>{{ _('Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma.') }}
 <br><br>
-Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos.</p>
-                     </div>  
+{{ _('Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos.') }}</p>
+</div>
                      <br><br>
                   </div>
                </div>
             </div>
             <!-- FIN DE CONFIGURACIÓN -->
          </form>
+         
       </div>
 
    </body>

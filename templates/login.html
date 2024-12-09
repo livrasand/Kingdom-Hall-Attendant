@@ -38,20 +38,20 @@
         <form action="/accessing" method="post" style="width:100%;">
         <div class="login-wrapper">
             <div class="input-box">
-                <div for="email" class="input-label">Correo electrónico</div>
+                <div for="email" class="input-label">{{ _('Correo electrónico') }}</div>
                 <input type="email" id="email" name="email" required>
             </div>
 
             <div class="input-box">
                 <div class="input-label" for="password">
-                    <span>Contraseña</span>
-                    <a href="/forgot" style="color: rgb(0, 87, 188);cursor: pointer;">Olvidé mi contraseña</a>
+                    <span>{{ _('Contraseña') }}</span>
+                    <a href="/forgot" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Olvidé mi contraseña') }}</a>
                 </div>
                 <input type="password" id="password" name="password" required>
             </div>
 
             <button class="submit-btn">
-                Iniciar sesión
+                {{ _('Iniciar sesión') }}
             </button>
 
             {% with messages = get_flashed_messages() %}
@@ -67,7 +67,7 @@
     </form>
 
         <div class="info">
-            <span>¿No tiene una cuenta? <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">Crea una cuenta gratis</a>.</span>
+            <span>{{ _('¿No tiene una cuenta?') }} <a href="/signup" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Crea una cuenta gratis') }}</a>.</span>
         </div>
 </div>
     </div> 

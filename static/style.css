@@ -2252,6 +2252,59 @@ nav.Nav_globalNavContainer__BzVy1 {
     background-color: #f44336;
   }
 
+  /* Estilo de ventana al estilo de Windows */
+.windows-window {
+  background-color: #ffffff; /* Fondo blanco */
+  border: 1px solid #a0a0a0; /* Borde gris */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  padding: 10px; /* Espaciado interno */
+  max-width: 100%; /* Ajusta el tamaño según necesites */
+  position: relative; /* Posición relativa para los controles */
+  margin: 20px auto; /* Margen superior e inferior */
+}
+
+/* Encabezado de la ventana */
+.windows-window-header {
+  background-color: #0078d7; /* Color de fondo del encabezado */
+  color: white; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  display: flex; /* Flexbox para alinear los elementos */
+  justify-content: space-between; /* Espacio entre elementos */
+  align-items: center; /* Centrar verticalmente */
+  border-top-left-radius: 5px; /* Bordes redondeados en la parte superior */
+  border-top-right-radius: 5px; /* Bordes redondeados en la parte superior */
+}
+
+/* Controles de la ventana */
+.windows-controls {
+  display: flex; /* Flexbox para los botones */
+}
+
+.windows-button {
+  width: 12px; /* Ancho del botón */
+  height: 12px; /* Alto del botón */
+  border-radius: 50%; /* Bordes redondeados */
+  margin-left: 5px; /* Espaciado entre botones */
+}
+
+.windows-button.minimize {
+  background-color: #f7b64c; /* Color para minimizar */
+}
+
+.windows-button.maximize {
+  background-color: #4caf50; /* Color para maximizar */
+}
+
+.windows-button.close {
+  background-color: #f44336; /* Color para cerrar */
+}
+
+/* Contenido de la ventana */
+.windows-window-content {
+  padding: 10px; /* Espaciado interno del contenido */
+}
+
 .beta_tag2{
   transform: rotate(-45deg);
   position:fixed;

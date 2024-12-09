@@ -39,8 +39,8 @@
     </div>
     <a class="btn btn-danger btn-sm mr-2" href="/eliminar_vidaministerio/{{ vida_ministerio[0] }}"><svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                               <path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"></path>
-                           </svg><span>Eliminar</span></a>
-    <a class="btn btn-sm mr-2" onclick="imprimirPagina()">Imprimir</a>
+                           </svg><span>{{ _('Eliminar') }}</span></a>
+    <a class="btn btn-sm mr-2" onclick="imprimirPagina()">{{ _('Imprimir') }}</a>
 </div>
 <div class="container-xl mt-6">
     <div class="container-xl">
@@ -48,26 +48,26 @@
             <div class="col-12 float-left p-4 mt-n4">
                 <!-- HEAD PRINT -->
       <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3  mt-n4" style="width:85%;">Reunión de entre semana</p>
+         <p class="h3  mt-n4" style="width:85%;">{{ _('Reunión de entre semana') }}</p>
          <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">{% if congregacion %}
           {{ congregacion }}
 {% else %}
-    Registra tu congregación
+    {{ _('Registra tu congregación') }}
 {% endif %}</p>
       </div>
       <!-- HEAD PRINT -->
                 <!-- Renderizamos los datos JSON aquí -->
                 {% if semana %}
     <div class="color-fg-on-emphasis p-2 rounded mb-2" style="background-color: #0969da; color: #ffffff;">{{ semana['week_info'] }}</div>
-    <label class="" for="presidente" style="color:#0969da;">Presidente:</label>
+    <label class="" for="presidente" style="color:#0969da;">{{ _('Presidente:') }}</label>
     {{ semana['presidente'] }}
     <br>
-    <label class="mt-4" for="presidente" style="color:#0969da;">Oración de inicio:</label>
+    <label class="mt-4" for="presidente" style="color:#0969da;">{{ _('Oración de inicio:') }}</label>
     {{ semana['oracion_inicio'] }}
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'TESOROS DE LA BIBLIA' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #3c7f8b; color: #ffffff;">TESOROS DE LA BIBLIA</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #3c7f8b; color: #ffffff;">{{ _('TESOROS DE LA BIBLIA') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                         <strong style="color: #3c7f8b;">{{ detalle['subtitulo'] }}</strong><br>
@@ -81,15 +81,15 @@
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'SEAMOS MEJORES MAESTROS' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00; color: #ffffff;">SEAMOS MEJORES MAESTROS</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00; color: #ffffff;">{{ _('SEAMOS MEJORES MAESTROS') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                         <strong style="color: #d68f00;">{{ detalle['subtitulo'] }}</strong><br>
                         {% if detalle['publicador'] %}
-                            <b>Publicador:</b> {{ detalle['publicador'] }}<br>
+                            <b>{{ _('Publicador:') }}</b> {{ detalle['publicador'] }}<br>
                         {% endif %}
                         {% if detalle['ayudante'] %}
-                            <b>Ayudante:</b> {{ detalle['ayudante'] }}<br>
+                            <b>{{ _('Ayudante:') }}</b> {{ detalle['ayudante'] }}<br>
                         {% endif %}
                 {% endfor %}
             </ul>
@@ -98,7 +98,7 @@
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'NUESTRA VIDA CRISTIANA' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13; color: #ffffff;">NUESTRA VIDA CRISTIANA</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13; color: #ffffff;">{{ _('NUESTRA VIDA CRISTIANA') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                     {% if loop.index <= tema['detalles']|length - 3 %}
@@ -107,10 +107,10 @@
                                 {{ detalle['publicador'] }}<br>
                             {% endif %}
                             {% if detalle['conductor'] %}
-                                <b>Conductor:</b> {{ detalle['conductor'] }}<br>
+                                <b>{{ _('Conductor:') }}</b> {{ detalle['conductor'] }}<br>
                             {% endif %}
                             {% if detalle['lector'] %}
-                                <b>Lector:</b> {{ detalle['lector'] }}<br>
+                                <b>{{ _('Lector:') }}</b> {{ detalle['lector'] }}<br>
                             {% endif %}
                     {% endif %}
                 {% endfor %}
@@ -118,10 +118,10 @@
         {% endif %}
     {% endfor %}
 
-    <label class="mt-4" for="oracion_final" style="color:#0969da;">Oración final:</label>
-    {{ semana['oracion_final'] }}
+    <label class="mt-4" for="oracion_final" style="color:#0969da;">{{ _('Oración final:') }}</label>
+    {{ _('') }}{{ semana['oracion_final'] }}
 {% else %}
-    <p>No se encontraron datos para mostrar.</p>
+    <p>{{ _('No se encontraron datos para mostrar.') }}</p>
 {% endif %}
 
             </div>

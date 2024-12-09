@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" data-color-mode="light" data-light-theme="light">
+   <head>
+      
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PM738JMZ22');
+</script>
+
+      <title>Kingdom Hall Attendant</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      <link rel="stylesheet" href="{{ url_for('static', filename=theme + '.css') }}">
+    
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <style>
+        
+
+        .alert-float {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            opacity: 0.9;
+            border-radius: 6px;
+            padding: 15px;
+            color: #fff;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header color-bg-inset">
+        <!-- Image item  -->
+        <div class="Header-item width-full">
+           <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                 <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+              </svg>
+           </a>
+           <a href="/home" style="cursor: pointer;" class="mr-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+           </a>
+           <img class="avatar CircleBadge" height="100" alt="@octocat" src="{{ url_for('identicon') }}" width="100">
+           <div class="d-table col-12">
+               {% include 'user_info.html' %}
+           </div>
+        </div>
+     </div>
+     <div class="container-lg mt-6 p-3"> 
+        <div data-view-component="true" class="Subhead mt-0 mb-4">
+            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Modo de sincronización') }}</h2>
+         </div>
+        <form action="{{ url_for('update_syncmode') }}" method="post">
+            <div class="form-group">
+                <p>
+                    {{ _('Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios.') }}
+                    <a class="Link--inTextBlock" href="#side-effects">
+                      {{ _('posibles efectos secundarios') }}</a>.
+                </p>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="syncModeSwitch" name="syncModeSwitch" 
+                           {% if syncmode == 1 %}checked{% endif %}>
+                    <label class="custom-control-label" for="syncModeSwitch">{{ _('Habilitar almacenamiento local') }}</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-secondary">{{ _('Actualizar preferencias') }}</button>
+            <p id="side-effects" class="text-small color-fg-muted mt-3">
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-question">
+                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+            </svg>
+            {{ _('Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante.') }}
+              </p>
+        </form>
+        <div data-view-component="true" class="Subhead Subhead--spacious">
+            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Exportar una copia de seguridad') }}</h2>
+         </div>
+        <!-- Botón para Exportar Base de Datos -->
+        <form action="/export-backup" method="get">
+            <p>
+                {{ _('Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar.') }}
+            </p>
+            <button type="submit" class="btn btn-primary btn-block mb-4 mt-2">
+                {{ _('Crear copia de seguridad') }}
+            </button>
+        </form>
+        <div data-view-component="true" class="Subhead Subhead--spacious">
+            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Importar una copia de seguridad') }}</h2>
+        </div>
+        <!-- Formulario para Importar Base de Datos -->
+        <form action="/import" method="post" enctype="multipart/form-data">
+            <p>{{ _('Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles.') }}</p>
+            <div data-view-component="true" class="flash flash-error mt-2 mb-4">
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+                  <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+              </svg>{{ _('Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad.') }}
+              <!-- Organized, Hourglass, NW Scheduler, Majestic KHS, TSWin, CLM Explorer, Aquila, Meeting Schedule Assistant, Visits Rota, Public Talks, TheocBase, Elders-Congregation, Elders-Pro, Talks-Pro y OCLM Software. -->
+              
+                
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="deleteData" name="deleteData" checked>
+                <label for="deleteData">{{ _('Eliminar los datos anteriores antes de la importación') }}</label>
+            </div>
+            
+            <div class="form-group">
+                <label for="backupFile">{{ _('Seleccionar archivo de copia de seguridad:') }}</label><br>
+                <input type="file" name="backupFile" id="backupFile" class="dropdown-item text-normal rounded-2 px-2 py-1 left-0 bottom-0 mt-1 mb-2 border" accept=".json" required>
+            </div>
+            <div class="form-group">
+                <label for="tables">{{ _('Seleccionar tablas a importar') }}</label><br>
+                <select style="height: 200px;" multiple name="tables" id="tables" class="form-select mb-1 width-full mt-1"></select>
+                
+                <p id="side-effects" class="text-small color-fg-muted mt-0">
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-question">
+                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+                </svg>
+                {{ _('Usa') }} <kbd>ctrl</kbd> + 
+                <kbd>a</kbd>
+                {{ _('para seleccionar todas las tablas.') }}
+                  </p>
+            </div>
+            <button name="import" id="import" type="submit" class="btn btn-success btn-block">
+                {{ _('Importar') }}
+            </button>
+        </form>
+        
+    </div>
+
+        <!-- Mostrar alertas flotantes -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show alert-float" role="alert">
+                        <strong>{{ _('Éxito:') if category == 'success' else _('Error:') }}</strong> {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Ocultar las alertas automáticamente después de 5 segundos
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.alert').alert('close');
+            }, 5000);
+        });
+    </script>
+
+    <script>
+        document.getElementById('backupFile').addEventListener('change', function(event) {
+            const fileInput = event.target;
+            const tablesSelect = document.getElementById('tables');
+    
+            // Limpiar opciones previas del select
+            tablesSelect.innerHTML = '';
+    
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+    
+                reader.onload = function(e) {
+                    try {
+                        // Parsear el contenido del archivo JSON
+                        const data = JSON.parse(e.target.result);
+    
+                        // Iterar sobre las claves del objeto JSON y agregarlas como opciones al select
+                        for (const table in data) {
+                            if (data.hasOwnProperty(table)) {
+                                const option = document.createElement('option');
+                                option.value = table;
+                                option.textContent = table.charAt(0).toUpperCase() + table.slice(1);
+                                tablesSelect.appendChild(option);
+                            }
+                        }
+                    } catch (error) {
+                        alert('Error al leer el archivo JSON:' + error.message);
+                        console.error('Error al leer el JSON:', error);
+                    }
+                };
+    
+                // Leer el archivo como texto
+                reader.readAsText(file);
+            }
+        });
+    </script>
+    <script>
+        const fileInput = document.getElementById('backupFile');
+        const tablesSelect = document.getElementById('tables');
+        const importButton = document.querySelector('button[name="import"]');
+    
+        // Inicialmente deshabilitar el botón de importar
+        importButton.disabled = true;
+    
+        function validateForm() {
+            const fileSelected = fileInput.files.length > 0;
+            const tablesSelected = tablesSelect.selectedOptions.length > 0;
+            importButton.disabled = !(fileSelected && tablesSelected);
+        }
+    
+        fileInput.addEventListener('change', function(event) {
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+                try {
+                    tablesSelect.innerHTML = ''; // Limpiar opciones previas
+                    const data = JSON.parse(e.target.result);
+                    
+                    for (const table in data) {
+                        if (data.hasOwnProperty(table)) {
+                            const option = document.createElement('option');
+                            option.value = table;
+                            option.textContent = table.charAt(0).toUpperCase() + table.slice(1);
+                            tablesSelect.appendChild(option);
+                        }
+                    }
+                    validateForm(); // Validar después de cargar las tablas
+                } catch (error) {
+                    alert('Error al leer el archivo JSON:' + error.message);
+                    console.error('Error al leer el JSON:', error);
+                }
+            };
+    
+            if (fileInput.files.length > 0) {
+                reader.readAsText(fileInput.files[0]);
+            }
+        });
+    
+        tablesSelect.addEventListener('change', validateForm);
+    </script>
+    
+</body>
+</html>

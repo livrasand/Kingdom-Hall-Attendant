@@ -21,7 +21,7 @@
 
     <!-- link icons  -->
     <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
-    <title>Comenzando la aventura...</title>
+    <title>{{ _('Comenzando la aventura...') }}</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 
@@ -32,19 +32,19 @@
 
       <nav id="wt-top-navigation-n_XG1HoVuvytluhKz8jtu" class="styles_module_container__05ad3f7f Nav_globalNavContainer__BzVy1"><div class="styles_module_menuGroup__a75ea064"><div class="styles_module_menuBar__a75ea064 styles_module_buttonsSection__33aa50d8"><a class="styles_module_wtLink__f24f44fb styles_module_wtLink_Navigational__f24f44fb styles_module_wtLink_Neutral__f24f44fb styles_module_wtLink_Light__f24f44fb styles_module_wtLabelMediumSemi__f24f44fb styles_module_navLink__0a0665ea" href="/login" data-prevent-routing="true" data-testid="Iniciar sesión">Iniciar sesión</a><a class="styles_module_wtButton__38691ab2 styles_module_wtButton_XSmall__38691ab2 styles_module_wtButtonPrimaryNeutral_Light__38691ab2" href="/signup" data-testid="Registrarse">Registrarse</a></div></div></nav>
         <div class="github-logo" style="text-align: left;">
-        <span class="" style="font-size:16px;text-align: left;">Por favor establece una contraseña segura.<br><br>Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer.
+        <span class="" style="font-size:16px;text-align: left;">{{ _('Por favor establece una contraseña segura.') }}<br><br>{{ _('Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer.') }}
         </span>
         </div>
         <form method="post" action="{{ url_for('confirm_email', token=token) }}" style="width:100%;">
         <div class="login-wrapper">
             <div class="input-box">
-                <div for="password" class="input-label">Contraseña</div>
+                <div for="password" class="input-label">{{ _('Contraseña') }}</div>
                 <input type="password" id="password" name="password" required>
             </div>
 
 
             <button type="submit" class="submit-btn">
-                Confirmar
+                {{ _('Confirmar') }}
             </button>
         </div>
     </form>
@@ -59,7 +59,7 @@
     {% endwith %}
 
         <div class="info">
-            <span>¿Ya tienes cuenta? <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">Inicia sesión</a>.</span>
+            <span>{{ _('¿Ya tienes cuenta?') }} <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Inicia sesión') }}</a>.</span>
         </div>
 
         

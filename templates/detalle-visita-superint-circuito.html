@@ -35,49 +35,49 @@
       <div class="container-xl mt-6">
          <div class="container-lg clearfix">        
             <form action="/guardar_evento" method="POST">
-               <p class="h6 mb-0">Actividad:</p>
+               <p class="h6 mb-0">{{ _('Actividad:') }}</p>
                <select class="form-select mb-2 width-full" name="actividad" aria-label="Preference">
-                  <option>Servicio del campo</option>
-                  <option>Reunión del fin de semana</option>
-                  <option>Desayuno</option>
-                  <option>Comida</option>
-                  <option>Cena</option>
-                  <option>Pastoreo</option>
-                  <option>Reunión con precursores</option>
-                  <option>Reunión de entre semana</option>
-                  <option>Reunión con ancianos y siervos ministeriales</option>
-                  <option>Revisión de los registros de la congregación</option>
-                  <option>Reunión con el Coordinador del Cuerpo de Ancianos</option>
-                  <option>Reunión con el Comité de Servicio de la Congregación</option>
-                  <option>Sin arreglos</option>
+                  <option>{{ _('Servicio del campo') }}</option>
+                  <option>{{ _('Reunión del fin de semana') }}</option>
+                  <option>{{ _('Desayuno') }}</option>
+                  <option>{{ _('Comida') }}</option>
+                  <option>{{ _('Cena') }}</option>
+                  <option>{{ _('Pastoreo') }}</option>
+                  <option>{{ _('Reunión con precursores') }}</option>
+                  <option>{{ _('Reunión de entre semana') }}</option>
+                  <option>{{ _('Reunión con ancianos y siervos ministeriales') }}</option>
+                  <option>{{ _('Revisión de los registros de la congregación') }}</option>
+                  <option>{{ _('Reunión con el Coordinador del Cuerpo de Ancianos') }}</option>
+                  <option>{{ _('Reunión con el Comité de Servicio de la Congregación') }}</option>
+                  <option>{{ _('Sin arreglos') }}</option>
                </select>
-               <p class="h6 mb-0">Actividad para:</p>
+               <p class="h6 mb-0">{{ _('Actividad para:') }}</p>
                <select class="form-select mb-2 width-full" name="actividad_para" aria-label="Preference">
-                  <option>El hermano</option>
-                  <option>La hermana</option>
+                  <option>{{ _('El hermano') }}</option>
+                  <option>{{ _('La hermana') }}</option>
                </select>
-               <p class="h6 mb-0">Día:</p>
+               <p class="h6 mb-0">{{ _('Día:') }}</p>
                <select class="form-select mb-2 width-full" name="dia" aria-label="Preference">             
-                  <option>Martes</option>
-                  <option>Miércoles </option>
-                  <option>Jueves</option>
-                  <option>Viernes</option>
-                  <option>Sábado</option>
-                  <option>Domingo</option>
+                  <option>{{ _('Martes') }}</option>
+                  <option>{{ _('Miércoles') }}</option>
+                  <option>{{ _('Jueves') }}</option>
+                  <option>{{ _('Viernes') }}</option>
+                  <option>{{ _('Sábado') }}</option>
+                  <option>{{ _('Domingo') }}</option>
                </select>
-               <p class="h6 mb-0">Hora:</p>
-               <input class="form-control width-full" type="time" name="hora" placeholder="Hora" aria-label="Hora">
-               <p class="h6 mb-3">*Use horario de 24 horas</p>
-               <p class="h6 mb-0">Lugar del evento:</p>
+               <p class="h6 mb-0">{{ _('Hora:') }}</p>
+               <input class="form-control width-full" type="time" name="hora" placeholder="{{ _('Hora') }}" aria-label="{{ _('Hora') }}">
+               <p class="h6 mb-3">{{ _('*Use horario de 24 horas') }}</p>
+               <p class="h6 mb-0">{{ _('Lugar del evento:') }}</p>
                <select class="form-select mb-2 width-full" name="lugar_evento" aria-label="Preference">
-                  <option>Salón del Reino</option>
-                  <option>En el hospedaje</option>
-                  <option>Sin evento</option>
+                  <option>{{ _('Salón del Reino') }}</option>
+                  <option>{{ _('En el hospedaje') }}</option>
+                  <option>{{ _('Sin evento') }}</option>
                   {% for familia in familias %}
-                            <option>Familia {{ familia[1] }}</option>
+                            <option>{{ _('Familia') }} {{ familia[1] }}</option>
                         {% endfor %}
                </select>
-               <p class="h6 mb-0">Publicador:</p>
+               <p class="h6 mb-0">{{ _('Publicador:') }}</p>
                <select class="form-select mb-2 width-full" name="publicador" aria-label="Preference">
                   <option></option>
                   {% for publicador in publicadores %}
@@ -86,8 +86,8 @@
                </select>
                <br><br>
                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">Guardar</button>  
-                  <button type="button" onclick="history.back()" class="btn">Cancelar</button>                                           
+                  <button type="submit" class="btn btn-primary">{{ _('Guardar') }}</button>  
+                  <button type="button" onclick="history.back()" class="btn">{{ _('Cancelar') }}</button>                                           
                </div>
             </form>
          </div>

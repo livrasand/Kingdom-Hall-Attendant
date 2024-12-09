@@ -47,18 +47,18 @@
                             <div class="container-lg clearfix" style="width: 100%;">
                                 <!-- Fecha -->
                                 <div class="col-2 float-left">
-                                    <p class="h4">Fecha:</p>
+                                    <p class="h4">{{ _('Fecha:') }}</p>
                                     <input type="date" name="fecha" value="{{ actividad.fecha }}" required class="form-control mt-2">
                                 </div>
 
                                 <!-- Audio y Video -->
                                 {% if settings.audio|int > 0 or settings.video|int > 0 %}
                                     <div class="col-2 float-left ml-2">
-                                        <p class="h4">Operador de audio:</p>
+                                        <p class="h4">{{ _('Operador de audio:') }}</p>
                                         {% if settings.audio|int > 0 %}
                                             {% for i in range(1, settings.audio|int + 1) %}
                                                 <select name="audio_{{ i }}" class="form-control width-full mt-2">
-                                                    <option value="">-- Selecciona Audio --</option>
+                                                    <option value="">{{ _('-- Selecciona Audio --') }}</option>
                                                     {% for publicador in participantes_microfonos %}
                                                         <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                             {% if actividad['audio_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -69,11 +69,11 @@
                                             {% endfor %}
                                         {% endif %}
 
-                                        <p class="h4 mt-3">Operador de video:</p>
+                                        <p class="h4 mt-3">{{ _('Operador de video:') }}</p>
                                         {% if settings.video|int > 0 %}
                                             {% for i in range(1, settings.video|int + 1) %}
                                                 <select name="video_{{ i }}" class="form-control width-full mt-2">
-                                                    <option value="">-- Selecciona Video --</option>
+                                                    <option value="">{{ _('-- Selecciona Video --') }}</option>
                                                     {% for publicador in participantes_zoom %}
                                                         <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                             {% if actividad['video_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -89,10 +89,10 @@
                                 <!-- Plataforma -->
                                 {% if settings.plataforma|int > 0 %}
                                     <div class="col-2 float-left ml-2">
-                                        <p class="h4">Plataforma:</p>
+                                        <p class="h4">{{ _('Plataforma:') }}</p>
                                         {% for i in range(1, settings.plataforma|int + 1) %}
                                             <select name="plataforma_{{ i }}" class="form-control width-full mt-2">
-                                                <option value="">-- Selecciona Plataforma --</option>
+                                                <option value="">{{ _('-- Selecciona Plataforma --') }}</option>
                                                 {% for publicador in participantes_plataforma %}
                                                     <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                         {% if actividad['plataforma_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -107,10 +107,10 @@
                                 <!-- Micrófonos -->
                                 {% if settings.microfonistas|int > 0 %}
                                     <div class="col-2 float-left ml-2">
-                                        <p class="h4">Micrófonos:</p>
+                                        <p class="h4">{{ _('Micrófonos:') }}</p>
                                         {% for i in range(1, settings.microfonistas|int + 1) %}
                                             <select name="microfono_{{ i }}" class="form-control width-full mt-2">
-                                                <option value="">-- Selecciona Micrófono --</option>
+                                                <option value="">{{ _('-- Selecciona Micrófono --') }}</option>
                                                 {% for publicador in participantes_microfonos %}
                                                     <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                         {% if actividad['microfono_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -125,14 +125,14 @@
                                 <!-- Acomodadores -->
                                 {% if settings.acomodadores|int > 0 %}
                                     <div class="col-2 float-left ml-2">
-                                        <p class="h4">Acomodadores:</p>
+                                        <p class="h4">{{ _('Acomodadores:') }}</p>
                                         {% for i in range(1, settings.acomodadores|int + 1) %}
                                             {% set etiqueta_key = 'acomodadoresEtiqueta' ~ i %}
                                             {% if etiqueta_key in etiquetas %}
                                                 <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
                                             {% endif %}
                                             <select name="acomodador_{{ i }}" class="form-control width-full mt-2">
-                                                <option value="">-- Selecciona Acomodador --</option>
+                                                <option value="">{{ _('-- Selecciona Acomodador --') }}</option>
                                                 {% for publicador in participantes_acomodadores %}
                                                     <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                         {% if actividad['acomodador_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -148,10 +148,10 @@
                                                 {% if etiqueta_key in etiquetas %}
                                                     <p class="mt-2 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
                                                 {% else %}
-                                                    <p class="mt-2 mb-n2"><em>Acomodador de videoconferencia:</em></p>
+                                                    <p class="mt-2 mb-n2"><em>{{ _('Acomodador de videoconferencia:') }}</em></p>
                                                 {% endif %}
                                                 <select name="videoConferencia_{{ i }}" class="form-control width-full mt-2">
-                                                    <option value="">-- Selecciona Acomodador de Videoconferencia --</option>
+                                                    <option value="">{{ _('-- Selecciona Acomodador de Videoconferencia --') }}</option>
                                                     {% for publicador in participantes_zoom %}
                                                         <option value="{{ publicador['nombres'] }} {{ publicador['apellidos'] }}"
                                                             {% if actividad['videoConferencia_' ~ i] == (publicador['nombres'] ~ ' ' ~ publicador['apellidos']) %} selected {% endif %}>
@@ -165,7 +165,7 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2 ml-2 mt-2 float-right">Guardar</button>
+                        <button type="submit" class="btn btn-primary mb-2 ml-2 mt-2 float-right">{{ _('Guardar') }}</button>
                     </div>
                 </div>
             </div>

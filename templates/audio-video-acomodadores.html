@@ -156,14 +156,14 @@
                 </path>
             </svg>
         </button>
-        <a class="btn btn-sm mr-2" onclick="imprimirPagina()" role="button">Imprimir</a>
+        <a class="btn btn-sm mr-2" onclick="imprimirPagina()" role="button">{{ _('Imprimir') }}</a>
 
         <a href="{{ url_for('eliminar_all_ava') }}" class="btn btn-danger btn-sm mr-2" onclick="" role="button">Eliminar
             todo</a>
             {% if mensaje_configuracion %}
-        <a class="btn btn-sm mr-2 disabled" role="button">Nuevo</a>
+        <a class="btn btn-sm mr-2 disabled" role="button">{{ _('Nuevo') }}</a>
         {% else %}
-        <a class="btn btn-sm mr-2" href="/nuevo-ava" role="button">Nuevo</a>
+        <a class="btn btn-sm mr-2" href="/nuevo-ava" role="button">{{ _('Nuevo') }}</a>
         {% endif %}
 
 
@@ -173,7 +173,7 @@
 
     <!-- HEAD PRINT -->
     <div id="header-page" style="display: flex; align-items: center; width: 100%; visibility: hidden;">
-        <p class="h3 ml-1 mt-4" style="width:85%;">Audio, video y acomodadores</p>
+        <p class="h3 ml-1 mt-4" style="width:85%;">{{ _('Audio, video y acomodadores') }}</p>
         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
             {% if congregacion %}
             {{ congregacion }}
@@ -192,30 +192,30 @@
                         <div class="container-lg clearfix width-full">
                             <!-- Fecha -->
                             <div class="col-2 float-left">
-                                <p class="h4">Fecha:</p>
+                                <p class="h4">{{ _('Fecha:') }}</p>
                                 <p class="mt-2 h5">{{ item.actividad['fecha'] }}</p>
                             </div>
                             <!-- Audio y Video -->
                             {% if settings.audio|int > 0 %}
                             <div class="col-2 float-left ml-2">
-                                <p class="h4">Operador de audio:</p>
+                                <p class="h4">{{ _('Operador de audio:') }}</p>
                                 {% for i in range(1, settings.audio|int + 1) %}
                                 <p class="width-full mt-n2 h5">
                                     {% if item.actividad['audio_' ~ i] %}
                                     {{ item.actividad['audio_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
                                 {% if settings.video|int > 0 %}
-                                <p class="h4 mt-3">Operador de video:</p>
+                                <p class="h4 mt-3">{{ _('Operador de video:') }}</p>
                                 {% for i in range(1, settings.video|int + 1) %}
                                 <p class="width-full mt-n2 h5">
                                     {% if item.actividad['video_' ~ i] %}
                                     {{ item.actividad['video_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
@@ -226,13 +226,13 @@
                             <!-- Plataforma -->
                             {% if settings.plataforma|int > 0 %}
                             <div class="col-2 float-left ml-2">
-                                <p class="h4">Plataforma:</p>
+                                <p class="h4">{{ _('Plataforma:') }}</p>
                                 {% for i in range(1, settings.plataforma|int + 1) %}
                                 <p class="width-full mt-n2 h5">
                                     {% if item.actividad['plataforma_' ~ i] %}
                                     {{ item.actividad['plataforma_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
@@ -242,13 +242,13 @@
                             <!-- Micrófonos -->
                             {% if settings.microfonistas|int > 0 %}
                             <div class="col-2 float-left ml-2">
-                                <p class="h4">Micrófonos:</p>
+                                <p class="h4">{{ _('Micrófonos:') }}</p>
                                 {% for i in range(1, settings.microfonistas|int + 1) %}
                                 <p class="width-full mt-n2 h5">
                                     {% if item.actividad['microfono_' ~ i] %}
                                     {{ item.actividad['microfono_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
@@ -258,7 +258,7 @@
                             <!-- Acomodadores -->
                             {% if settings.acomodadores|int > 0 %}
                             <div class="col-2 float-left ml-2">
-                                <p class="h4">Acomodadores:</p>
+                                <p class="h4">{{ _('Acomodadores:') }}</p>
                                 {% for i in range(1, settings.acomodadores|int + 1) %}
                                 {% set etiqueta_key = 'acomodadoresEtiqueta' ~ i %}
                                 {% if etiqueta_key in etiquetas %}
@@ -268,7 +268,7 @@
                                     {% if item.actividad['acomodador_' ~ i] %}
                                     {{ item.actividad['acomodador_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
@@ -279,13 +279,13 @@
                                 {% if etiqueta_key in etiquetas %}
                                 <p class="mt-3 mb-n2"><em>{{ etiquetas[etiqueta_key] }}</em></p>
                                 {% else %}
-                                <p class="mt-3 mb-n2"><em>Acomodador de videoconferencia:</em></p>
+                                <p class="mt-3 mb-n2"><em>{{ _('Acomodador de videoconferencia:') }}</em></p>
                                 {% endif %}
                                 <p class="width-full mt-n2 h5">
                                     {% if item.actividad['videoConferencia_' ~ i] %}
                                     {{ item.actividad['videoConferencia_' ~ i] }}
                                     {% else %}
-                                    No asignado
+                                    {{ _('No asignado') }}
                                     {% endif %}
                                 </p>
                                 {% endfor %}
@@ -347,13 +347,13 @@
     <div id="configModal" class="modal">
         <div class="modal-content">
             <div class="modal-header" style="margin-bottom: 35px;">
-                <h2>Configuración de asignaciones</h2>
-                <button class="btn btn-sm" id="closeModalBtn">Cerrar</button>
+                <h2>{{ _('Configuración de asignaciones') }}</h2>
+                <button class="btn btn-sm" id="closeModalBtn">{{ _('Cerrar') }}</button>
             </div>
             <div class="modal-body">
                 <form>
                     <!-- Cantidad de microfonistas -->
-                    <label for="microfonistas">Cantidad de microfonistas a asignar:</label>
+                    <label for="microfonistas">{{ _('Cantidad de microfonistas a asignar:') }}</label>
                     <select id="microfonistas" class="form-select" name="microfonistas">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -365,7 +365,7 @@
                     </select><br><br>
 
                     <!-- Cantidad de acomodadores -->
-                    <label for="acomodadores">Cantidad de acomodadores a asignar:</label>
+                    <label for="acomodadores">{{ _('Cantidad de acomodadores a asignar:') }}</label>
                     <select id="acomodadores" class="form-select" name="acomodadores">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -377,7 +377,7 @@
                     </select><br><br>
 
                     <!-- Cantidad de acomodadores de la videoconferencia -->
-                    <label for="videoConferencia">Cantidad de acomodadores de la videoconferencia:</label>
+                    <label for="videoConferencia">{{ _('Cantidad de acomodadores de la videoconferencia:') }}</label>
                     <select id="videoConferencia" class="form-select" name="videoConferencia">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -389,7 +389,7 @@
                     </select><br><br>
 
                     <!-- Cantidad de encargados de plataforma -->
-                    <label for="plataforma">Cantidad de encargados de plataforma:</label>
+                    <label for="plataforma">{{ _('Cantidad de encargados de plataforma:') }}</label>
                     <select id="plataforma" class="form-select" name="plataforma">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -401,7 +401,7 @@
                     </select><br><br>
 
                     <!-- Cantidad de encargados de sistema de audio -->
-                    <label for="audio">Cantidad de encargados de sistema de audio:</label>
+                    <label for="audio">{{ _('Cantidad de encargados de sistema de audio:') }}</label>
                     <select id="audio" class="form-select" name="audio">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -413,7 +413,7 @@
                     </select><br><br>
 
                     <!-- Cantidad de encargados de sistema de video -->
-                    <label for="video">Cantidad de encargados de sistema de video:</label>
+                    <label for="video">{{ _('Cantidad de encargados de sistema de video:') }}</label>
                     <select id="video" class="form-select" name="video">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -429,7 +429,7 @@
                         <!-- Se agregarán etiquetas personalizadas aquí dinámicamente -->
                     </div>
                     <div class="modal-footer mt-2" style="width:100%;">
-                        <button type="submit" class="btn btn-primary" id="saveSettingsBtn">Guardar</button>
+                        <button type="submit" class="btn btn-primary" id="saveSettingsBtn">{{ _('Guardar') }}</button>
                     </div>
                 </form>
             </div>

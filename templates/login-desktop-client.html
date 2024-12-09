@@ -40,19 +40,19 @@
         <form action="/accessing" method="post" style="width:100%;">
         <div class="login-wrapper">
             <div class="input-box">
-                <div for="email" class="input-label">Correo electrónico</div>
+                <div for="email" class="input-label">{{ _('Correo electrónico') }}</div>
                 <input type="email" id="email" name="email" required>
             </div>
 
             <div class="input-box">
                 <div class="input-label" for="password">
-                    <span>Contraseña</span>
+                    <span>{{ _('Contraseña') }}</span>
                 </div>
                 <input type="password" id="password" name="password" required>
             </div>
 
             <button class="submit-btn">
-                Entrar
+                {{ _('Entrar') }}
             </button>
 
             {% with messages = get_flashed_messages() %}

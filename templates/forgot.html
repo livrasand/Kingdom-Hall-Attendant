@@ -1539,19 +1539,19 @@ ul.right li:last-child {
 
         </div>
         <span class="github-head">
-            Reset your password
+            {{ _('Reset your password') }}
         </span>
         <form method="post" action="{{ url_for('recovery') }}">
         <div class="login-wrapper" style="max-width: 450px;">
             <div class="input-box">
-                <div for="email" class="input-label">Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña.</div>
+                <div for="email" class="input-label">{{ _('Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña.') }}</div>
                 <input type="email" id="email" name="email" required autocomplete="off">
             </div>
 
-            <div class="input-label" style="font-size:12px;font-family: 'YouTube Sans', sans-serif;">Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace.</div>
+            <div class="input-label" style="font-size:12px;font-family: 'YouTube Sans', sans-serif;">{{ _('Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace.') }}</div>
 <br>
             <button type="submit" class="submit-btn">
-                Recuperar contraseña
+                {{ _('Recuperar contraseña') }}
             </button>
         </div>
     </form>

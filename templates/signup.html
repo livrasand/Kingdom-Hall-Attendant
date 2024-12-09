@@ -71,16 +71,16 @@
                 <div class="tab active" id="ancianos">
                     <div class="input-box">
                         <div class="input-label" for="email">
-                            <span>Correo electrónico</span>
-                            <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">Reenviar enlace</a>
+                            <span>{{ _('Correo electrónico') }}</span>
+                            <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Reenviar enlace') }}</a>
                         </div>
                         <input type="email" id="email" name="email" required autocomplete="off">
                     </div>
-                    <div class="input-label" style="font-size:12px;">Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.</div>
+                    <div class="input-label" style="font-size:12px;">{{ _('Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.') }}</div>
                     
                 <br>
                 <button type="submit" class="submit-btn">
-                    Continuar
+                    {{ _('Continuar') }}
                 </button>
                 </div>
             </form>
@@ -97,7 +97,7 @@
             </div>
 
         <div class="info">
-            <span>¿Ya tienes cuenta? <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">Inicia sesión</a>.</span>
+            <span>{{ _('¿Ya tienes cuenta?') }} <a href="/login" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Inicia sesión') }}</a>.</span>
         </div>
     </div>
 </body>

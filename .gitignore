@@ -10,3 +10,4 @@ __pycache__/
 app.spec
 /build
 /dist
+pot_to_json.py

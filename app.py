@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file
+from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file, Response
 import sqlite3
 import datetime
 from datetime import timedelta
@@ -74,6 +74,7 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(), Email()])
 
+@babel.localeselector
 def get_locale():
     return session.get('language')
 
@@ -3461,17 +3462,52 @@ def eliminar_vidaministerio(id):
     g.bd.commit()
     return redirect('/vida-ministerio.html')
 
+def clear_user_database():
+    db_path = session.get('user_db')
+    if db_path:
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        
+        # Obtener todas las tablas excepto 'sqlite_sequence'
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT IN ('sqlite_sequence', 'configuracion');")
+        tables = cursor.fetchall()
+        
+        # Eliminar los datos de cada tabla
+        for table_name in tables:
+            table = table_name[0]
+            cursor.execute(f"DELETE FROM {table}")
+        
+        conn.commit()
+        conn.close()
+
 @app.route('/logout')
 def logout():
-    # Aquí, si estás manejando una conexión específica del usuario, ciérrala.
     user_db_name = session.get('user_db')
-    if user_db_name:
-        # Cerrar y eliminar la conexión del diccionario
-        conn = cursor = get_db().cursor()
-        if conn:
-            conn.close()
 
-    # Elimina la información de sesión
+    if user_db_name:
+        # Verificar si el almacenamiento local está activado
+        conn = sqlite3.connect(user_db_name)
+        cursor = conn.cursor()
+        
+        cursor.execute("PRAGMA table_info(configuracion)")
+        columns = [col[1] for col in cursor.fetchall()]
+        
+        # Asegurarse de que 'syncmode' exista en la tabla 'configuracion'
+        if 'syncmode' in columns:
+            cursor.execute("SELECT syncmode FROM configuracion LIMIT 1")
+            result = cursor.fetchone()
+            syncmode = result[0] if result else 0
+        else:
+            syncmode = 0
+        
+        conn.close()
+
+        # Si el almacenamiento local está activado
+        if syncmode == 1:
+            # Limpiar la base de datos después de exportar
+            clear_user_database()
+    
+    # Logout normal si no hay almacenamiento local activado
     session.pop('user_db', None)
     session.pop('user_id', None)
     session.pop('user_ge', None)
@@ -3479,8 +3515,8 @@ def logout():
 
     # Verifica si la solicitud proviene de la aplicación de escritorio
     if request.headers.get('X-Client-Type') == 'desktop':
-        # Retorna un mensaje para notificar al cliente (Electron)
         return 'Logout successful', 200
+
     return render_template('/logout.html')
 
 @app.route('/sse_logout')
@@ -3800,15 +3836,6 @@ def audio_video_acomodadores():
     db = get_db()
     cursor = db.cursor()
 
-    # Obtenemos la configuración
-    settings_none = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
-
-    # Verificamos si `settings` es None y mostramos un mensaje
-    if settings_none is None:
-        mensaje_configuracion = "Primero debes configurar tus necesidades."
-    else:
-        mensaje_configuracion = None
-
     # Verificar si la tabla `ava` existe, y si no, crearla
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS ava (
@@ -3831,6 +3858,15 @@ def audio_video_acomodadores():
             etiquetas TEXT
         )
     ''')
+
+    # Obtenemos la configuración
+    settings_none = cursor.execute('SELECT * FROM settings_ava WHERE id = 1').fetchone()
+
+    # Verificamos si `settings` es None y mostramos un mensaje
+    if settings_none is None:
+        mensaje_configuracion = "Primero debes configurar tus necesidades."
+    else:
+        mensaje_configuracion = None
 
     # Obtener los datos de la tabla `ava`
     cursor.execute('SELECT id, content FROM ava ORDER BY json_extract(content, "$.fecha") ASC')
@@ -4448,6 +4484,222 @@ def eliminar_mes(mes):
     db.commit()  # Confirmar los cambios
 
     return redirect(url_for('asistencia_reuniones'))  # Redirige a la página de asistencia
+
+def export_db_to_json():
+    db_path = session.get('user_db')
+    if db_path:
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+    else:
+        print("Error: No se encontró la ruta de la base de datos en la sesión.")
+
+    # Obtener una lista de todas las tablas en la base de datos
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+
+    db_data = {}
+    for table_name in tables:
+        table = table_name[0]
+        cursor.execute(f"SELECT * FROM {table}")
+        rows = cursor.fetchall()
+        columns = [col[0] for col in cursor.description]
+
+        # Guardar los datos de la tabla en un diccionario
+        db_data[table] = [dict(zip(columns, row)) for row in rows]
+
+    conn.close()
+    return db_data
+
+@app.route('/export-backup', methods=['GET'])
+def export():
+    data = export_db_to_json()
+    
+    # Crear el timestamp en el formato 'YYYY-MM-DD_HH-MM-SS'
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename = f"kha-backup-{timestamp}.json"
+    
+    return Response(
+        json.dumps(data, indent=4),
+        mimetype='application/json',
+        headers={"Content-Disposition": f"attachment;filename={filename}"}
+    )
+
+@app.route('/copias-seguridad')
+def backups():
+    user_db = session.get('user_db')
+    syncmode = 0  # Valor por defecto
+
+    if user_db:
+        conn = sqlite3.connect(user_db)
+        cursor = conn.cursor()
+
+        # Asegurarse de que la columna 'syncmode' exista en la tabla 'configuracion'
+        cursor.execute("PRAGMA table_info(configuracion)")
+        columns = [col[1] for col in cursor.fetchall()]
+        if 'syncmode' not in columns:
+            cursor.execute("ALTER TABLE configuracion ADD COLUMN syncmode INTEGER DEFAULT 0")
+        
+        conn.commit()
+        conn.close()
+    else:
+        flash('Error: No se encontró la base de datos del usuario.', 'error')
+
+    if user_db:
+        conn = sqlite3.connect(user_db)
+        cursor = conn.cursor()
+        cursor.execute("SELECT syncmode FROM configuracion LIMIT 1")
+        result = cursor.fetchone()
+        if result:
+            syncmode = result[0]
+        conn.close()
+    theme = session.get('theme', 'primer')
+    return render_template('copias-seguridad.html', syncmode=syncmode, theme=theme)
+
+@app.route('/import', methods=['POST'])
+def import_json():
+    # Obtener el archivo del formulario
+    file = request.files.get('backupFile')
+    selected_tables = request.form.getlist('tables')  # Lista de tablas seleccionadas
+    delete_data = 'deleteData' in request.form  # Verificar si el checkbox está marcado
+
+    if not file:
+        flash("No se proporcionó un archivo", "error")
+        return redirect(url_for('backups'))
+
+    try:
+        # Cargar los datos JSON desde el archivo
+        data = json.load(file)
+
+        # Conectar a la base de datos SQLite
+        db_path = session.get('user_db')
+        if db_path:
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+        else:
+            print("Error: No se encontró la ruta de la base de datos en la sesión.")
+
+        for table, rows in data.items():
+            # Ignorar la tabla 'user_data'
+            if table == 'user_data':
+                continue
+            
+            if table in selected_tables:
+                # Si el checkbox está marcado, eliminamos los datos
+                if delete_data:
+                    cursor.execute(f"DELETE FROM {table}")
+
+                # Verificar si la tabla `ava` existe, y si no, crearla
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS ava (
+                        id TEXT PRIMARY KEY,
+                        content TEXT
+                    )
+                ''')
+
+                # Verificar si la tabla `settings_ava` existe, y si no, crearla
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS settings_ava (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        microfonistas TEXT,
+                        acomodadores TEXT,
+                        video_conferencia TEXT,
+                        entrada TEXT,
+                        plataforma TEXT,
+                        audio TEXT,
+                        video TEXT,
+                        etiquetas TEXT
+                    )
+                ''')
+
+                # Crear tabla si no existe
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS asistencia_reuniones (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        mes TEXT NOT NULL,
+                        primera_semana INTEGER DEFAULT 0,
+                        segunda_semana INTEGER DEFAULT 0,
+                        tercera_semana INTEGER DEFAULT 0,
+                        cuarta_semana INTEGER DEFAULT 0,
+                        quinta_semana INTEGER DEFAULT 0,
+                        totales INTEGER DEFAULT 0,
+                        promedio REAL DEFAULT 0,
+                        primera_semana_fin INTEGER DEFAULT 0,
+                        segunda_semana_fin INTEGER DEFAULT 0,
+                        tercera_semana_fin INTEGER DEFAULT 0,
+                        cuarta_semana_fin INTEGER DEFAULT 0,
+                        quinta_semana_fin INTEGER DEFAULT 0,
+                        totales_fin INTEGER DEFAULT 0,
+                        promedio_fin REAL DEFAULT 0
+                    );
+                ''')
+
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS informes_predicacion (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        publicador_id INT NOT NULL,
+                        mes INT NOT NULL,
+                        anio INT NOT NULL,
+                        participacion BOOLEAN DEFAULT FALSE,
+                        cursos_biblicos TEXT,
+                        horas DECIMAL(5, 2),
+                        comentarios TEXT,
+                        privilegios_servicio VARCHAR(255),
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
+                ''')
+
+                # Insertar los datos
+                if rows:
+                    columns = rows[0].keys()
+                    placeholders = ', '.join(['?' for _ in columns])
+                    insert_query = f"INSERT INTO {table} ({', '.join(columns)}) VALUES ({placeholders})"
+                    values = [tuple(row[col] for col in columns) for row in rows]
+                    cursor.executemany(insert_query, values)
+
+        # Guardar los cambios
+        conn.commit()
+        conn.close()
+        
+        flash("Datos importados exitosamente", "success")
+        return redirect(url_for('backups'))
+    
+    except json.JSONDecodeError:
+        flash("El archivo no es un JSON válido", "error")
+        return redirect(url_for('backups'))
+    except sqlite3.Error as e:
+        flash(f"Error en la base de datos: {str(e)}", "error")
+        return redirect(url_for('backups'))
+    except Exception as e:
+        flash(f"Error inesperado: {str(e)}", "error")
+        return redirect(url_for('backups'))
+
+
+@app.route('/update_syncmode', methods=['POST'])
+def update_syncmode():
+    # Determinar si el switch está activado o no
+    syncmode = 1 if request.form.get('syncModeSwitch') else 0
+    user_db = session.get('user_db')  # Suponiendo que 'user_db' contiene la ruta de la base de datos del usuario
+
+    if user_db:
+        conn = sqlite3.connect(user_db)
+        cursor = conn.cursor()
+
+        # Asegurarse de que la columna 'syncmode' exista en la tabla 'configuracion'
+        cursor.execute("PRAGMA table_info(configuracion)")
+        columns = [col[1] for col in cursor.fetchall()]
+        if 'syncmode' not in columns:
+            cursor.execute("ALTER TABLE configuracion ADD COLUMN syncmode INTEGER DEFAULT 0")
+        
+        # Actualizar el valor de 'syncmode'
+        cursor.execute("UPDATE configuracion SET syncmode = ?", (syncmode,))
+        conn.commit()
+        conn.close()
+
+        flash('Configuración de sincronización actualizada.', 'success')
+    else:
+        flash('Error: No se encontró la base de datos del usuario.', 'error')
+
+    return redirect(url_for('backups'))
 
 if __name__ == '__main__':
     app.run(debug=False)

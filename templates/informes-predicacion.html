@@ -72,13 +72,13 @@
             <a class="d-block color-shadow-large px-2 pt-4 pb-4 position-relative rounded-2 overflow-hidden no-underline" href="{{ url_for('registrar_informe', publicador_id=publicador[0]) }}">
                 <h5 class="color-fg-default pl-3">{{ publicador[1] }} {{ publicador[2] }}</h5>
                 {% if informes[publicador[0]] %}
-                    <h6 class="pl-3">Participación: {{ 'Sí' if informes[publicador[0]][4] else 'No' }}</h6>
-                    <h6 class="pl-3">Cursos bíblicos: {{ informes[publicador[0]][5] }}</h6>
-                    <h6 class="pl-3">Horas: {{ informes[publicador[0]][6] }}</h6>
-                    <h6 class="pl-3">Comentarios: {{ informes[publicador[0]][7] }}</h6>
-                    <h6 class="pl-3">Privilegio: {{ informes[publicador[0]][8] }}</h6>
+                    <h6 class="pl-3">{{ _('Participación:') }} {{ 'Sí' if informes[publicador[0]][4] else _('No') }}</h6>
+                    <h6 class="pl-3">{{ _('Cursos bíblicos:') }} {{ informes[publicador[0]][5] }}</h6>
+                    <h6 class="pl-3">{{ _('Horas:') }} {{ informes[publicador[0]][6] }}</h6>
+                    <h6 class="pl-3">{{ _('Comentarios:') }} {{ informes[publicador[0]][7] }}</h6>
+                    <h6 class="pl-3">{{ _('Privilegio:') }} {{ informes[publicador[0]][8] }}</h6>
                 {% else %}
-                    <p class="pl-3">No ha entregado su informe.</p>
+                    <p class="pl-3">{{ _('No ha entregado su informe.') }}</p>
                 {% endif %}
             </a>
         </div>
