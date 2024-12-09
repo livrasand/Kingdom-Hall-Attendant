@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 18:13\n"
+"PO-Revision-Date: 2024-12-09 19:31\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: en\n"
 "Language-Team: English\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "This page is not available or a resource needed to complete your request is not available"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "Please come back to"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,7 +32,7 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "Print"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
