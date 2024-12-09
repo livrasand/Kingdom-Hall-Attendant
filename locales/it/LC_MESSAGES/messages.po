@@ -15,7 +15,7 @@ msgstr ""
 "Language-Team: Español <es@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
@@ -321,9 +321,7 @@ msgid "Es visitante"
 msgstr ""
 
 #: templates/bosquejos.html:124
-msgid ""
-"¡Aún no tienes ningún bosquejo programado! Para empezar, programa el "
-"primer bosquejo haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
@@ -818,9 +816,7 @@ msgid "Usar para la limpieza del Salón del Reino"
 msgstr ""
 
 #: templates/detalle-grupo-predicacion.html:94
-msgid ""
-"Utilizar como punto de reunión para la visita del superintendente de "
-"circuito"
+msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
 msgstr ""
 
 #: templates/detalle-informes-predicacion.html:42
@@ -1709,9 +1705,7 @@ msgid "Sust. oración final:"
 msgstr ""
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
-msgid ""
-"¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el "
-"botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/forgot.html:1542
@@ -2119,9 +2113,7 @@ msgid "Agregar orador foráneo"
 msgstr ""
 
 #: templates/oradores.html:91
-msgid ""
-"¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer "
-"orador haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/publicadores.html:70
