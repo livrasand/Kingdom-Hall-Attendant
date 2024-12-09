@@ -52,3 +52,6 @@ Disponible en cualquier lugar del mundo, incluso en países con censura o restri
 ```bash
   python app.py
 ```         
+
+<!-- CROWDIN-TRANSLATIONS-PROGRESS-ACTION-START -->
+<!-- CROWDIN-TRANSLATIONS-PROGRESS-ACTION-END -->
