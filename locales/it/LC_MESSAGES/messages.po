@@ -1,28 +1,25 @@
-# Plantilla de traducciones para Kingdom Hall Attendant.
-# Copyright (C) 2024 Kingdom Hall Attendant
-# Este archivo se distribuye bajo la misma licencia que el proyecto Kingdom
-# Hall Attendant.
-# Livrädo Sandoval <livrasand@outlook.com>, 2024.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Kingdom Hall Attendant VERSION\n"
+"Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 10:17-0700\n"
+"PO-Revision-Date: 2024-12-09 18:13\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: it\n"
-"Language-Team: Español <es@li.org>\n"
+"Language-Team: Italian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
+"X-Crowdin-Project: kingdom-hall-attendant\n"
+"X-Crowdin-Project-ID: 744277\n"
+"X-Crowdin-Language: it\n"
+"X-Crowdin-File: /[livrasand.Kingdom-Hall-Attendant] main/locales/es/LC_MESSAGES/messages.po\n"
+"X-Crowdin-File-ID: 16\n"
 
 #: templates/404.html:55
-msgid ""
-"Esta página no está disponible o un recurso necesario para completar su "
-"solicitud no está disponible"
+msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
 msgstr ""
 
 #: templates/404.html:56
@@ -242,9 +239,7 @@ msgid "Acomodador de videoconferencia:"
 msgstr ""
 
 #: templates/audio-video-acomodadores.html:330
-msgid ""
-"¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer "
-"programa\n"
+msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
@@ -340,9 +335,7 @@ msgid "Correo electrónico"
 msgstr ""
 
 #: templates/change-password.html:39
-msgid ""
-"Ingrese su correo electrónico para recibir un enlace para actualizar su "
-"contraseña."
+msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
 msgstr ""
 
 #: templates/change-password.html:42
@@ -428,18 +421,11 @@ msgid "Borrar los datos de la aplicación"
 msgstr ""
 
 #: templates/configuracion.html:128
-msgid ""
-"Tu cuenta se eliminará automáticamente después de 3 meses de inactividad."
-" Esto implica que todos tus datos relacionados con KHA se eliminarán por "
-"completo, como si nunca hubieras existido en nuestra plataforma."
+msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
 msgstr ""
 
 #: templates/configuracion.html:130
-msgid ""
-"Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un "
-"asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber."
-" Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie "
-"tenga acceso a tus datos."
+msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
 msgstr ""
 
 #: templates/confirm-password.html:29
@@ -459,9 +445,7 @@ msgid "Por favor establece una contraseña segura."
 msgstr ""
 
 #: templates/confirm.html:35
-msgid ""
-"Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y"
-" explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
+msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
 msgstr ""
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
@@ -564,15 +548,7 @@ msgid "Modo de sincronización"
 msgstr ""
 
 #: templates/copias-seguridad.html:74
-msgid ""
-"Configuración de sincronización: Esta opción permite habilitar o "
-"deshabilitar el almacenamiento local, lo que brinda al usuario un mayor "
-"control sobre sus datos. Al activar esta función, se mejora la privacidad"
-" y seguridad de la información, ya que los datos se almacenan localmente "
-"en lugar de en servidores externos. Ten en cuenta que cambiar esta "
-"configuración puede afectar cómo se gestionan tus datos. Para más "
-"información, consulta la documentación sobre posibles efectos "
-"secundarios."
+msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
 msgstr ""
 
 #: templates/copias-seguridad.html:76
@@ -588,12 +564,7 @@ msgid "Actualizar preferencias"
 msgstr ""
 
 #: templates/copias-seguridad.html:90
-msgid ""
-"Una vez que active el modo local, es crucial que cada vez que inicie "
-"sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, "
-"corre el riesgo de perder todos sus datos de forma irreversible. Además, "
-"es fundamental que guarde el archivo JSON cada vez que cierre sesión para"
-" evitar la pérdida de información importante."
+msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
 msgstr ""
 
 #: templates/copias-seguridad.html:94
@@ -601,13 +572,7 @@ msgid "Exportar una copia de seguridad"
 msgstr ""
 
 #: templates/copias-seguridad.html:99
-msgid ""
-"Esta función permite crear una copia de seguridad de tus datos, lo que es"
-" esencial para proteger tu información. Al generar una copia de "
-"seguridad, puedes restaurar tus datos en caso de pérdida o daño, "
-"asegurando así la continuidad de tu trabajo. Es una práctica recomendada,"
-" independientemente de si utilizas almacenamiento local o no, ya que "
-"siempre es mejor prevenir que lamentar."
+msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
 msgstr ""
 
 #: templates/copias-seguridad.html:102
@@ -619,19 +584,11 @@ msgid "Importar una copia de seguridad"
 msgstr ""
 
 #: templates/copias-seguridad.html:110
-msgid ""
-"Esta función permite importar datos desde un archivo de copia de "
-"seguridad en formato JSON. Al seleccionar un archivo y las tablas que "
-"deseas importar, podrás restaurar información previamente guardada, "
-"asegurando que tus datos estén actualizados y disponibles."
+msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
 msgstr ""
 
 #: templates/copias-seguridad.html:114
-msgid ""
-"Por el momento, Kingdom Hall Attendant solo permite importar copias de "
-"seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea "
-"habilitar la importación de datos desde otras aplicaciones, pero aún no "
-"hay una fecha específica para esta funcionalidad."
+msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
 msgstr ""
 
 #: templates/copias-seguridad.html:121
@@ -906,15 +863,7 @@ msgid "Informe de inventario"
 msgstr ""
 
 #: templates/detalle-literatura.html:72
-msgid ""
-"Este inventario debe hacerlo la congregación coordinadora del idioma cada"
-" mes. No debe haber existencias de artículos de solicitud especial, por "
-"lo tanto, este formulario no los incluye. Si por alguna razón se dispone "
-"de artículos de solicitud especial, anote las cantidades en una de las "
-"categorías generales, como por ejemplo \"Otros\". Para más instrucciones,"
-" consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para "
-"solicitar publicaciones y gestionar el inventario\", consulte el "
-"<em>S-56</em> correspondiente a su país."
+msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
 msgstr ""
 
 #: templates/detalle-literatura.html:821
@@ -970,13 +919,7 @@ msgid "Mujer"
 msgstr ""
 
 #: templates/detalle-publicador.html:60
-msgid ""
-"Para asegurarte de ingresar los datos correctamente, sigue estos pasos: "
-"Primero, selecciona si el publicador es el cabeza de familia. Luego, "
-"guarda la información del publicador. Una vez que hayas completado este "
-"paso, puedes crear la familia. Si intentas crear la familia antes de "
-"guardar los datos del publicador, podría producirse un error debido a "
-"conflictos de información."
+msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
 msgstr ""
 
 #: templates/detalle-publicador.html:66
@@ -1680,9 +1623,7 @@ msgid "Familia"
 msgstr ""
 
 #: templates/epa.html:56
-msgid ""
-"¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de "
-"solicitudes. No te preocupes, solo espera un minuto para poder continuar."
+msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
 msgstr ""
 
 #: templates/epa.html:57
@@ -1690,10 +1631,7 @@ msgid "Nota:"
 msgstr ""
 
 #: templates/epa.html:57
-msgid ""
-"Si aún ves este mensaje después de un minuto, podrías haber alcanzado el "
-"límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. "
-"Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
+msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
 msgstr ""
 
 #: templates/estudio-atalaya.html:52
@@ -1713,15 +1651,11 @@ msgid "Reset your password"
 msgstr ""
 
 #: templates/forgot.html:1547
-msgid ""
-"Ingrese la dirección de correo electrónico verificada de su cuenta de "
-"usuario y le enviaremos un enlace para restablecer la contraseña."
+msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
 msgstr ""
 
 #: templates/forgot.html:1551
-msgid ""
-"Por favor, revise su bandeja de entrada o su carpeta de SPAM para "
-"encontrar el enlace."
+msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
 msgstr ""
 
 #: templates/forgot.html:1554
@@ -1729,9 +1663,7 @@ msgid "Recuperar contraseña"
 msgstr ""
 
 #: templates/grupos-predicacion.html:90
-msgid ""
-"¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea"
-" tu primer grupo haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/index.html:53
@@ -1811,9 +1743,7 @@ msgid "Publicaciones"
 msgstr ""
 
 #: templates/index.html:175
-msgid ""
-"Lleve un inventario exacto y actualizado, vea tendencias y evite la "
-"acumulación"
+msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
 msgstr ""
 
 #: templates/index.html:186
@@ -1829,9 +1759,7 @@ msgid "Realice copias de seguridad de la información más importante"
 msgstr ""
 
 #: templates/index.html:207
-msgid ""
-"Añada sus datos personales, cambie la apariencia o el idioma, entre otros"
-" más"
+msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
 msgstr ""
 
 #: templates/index.html:217
@@ -1851,17 +1779,11 @@ msgid "No ha entregado su informe."
 msgstr ""
 
 #: templates/literatura.html:71
-msgid ""
-"¡Aún no has inventariado nada! Para empezar, haz clic en el botón "
-"\"Nuevo\"."
+msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/log-in-system.html:60
-msgid ""
-"En Kingdom Hall Attendant, utilizamos principalmente un sistema de "
-"registro sin contraseñas. Creemos que es mejor no obligar a los usuarios "
-"a establecer una contraseña, ya que esto puede generar más riesgos de "
-"seguridad (más detalles a continuación)."
+msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
 msgstr ""
 
 #: templates/log-in-system.html:61
@@ -1869,9 +1791,7 @@ msgid "¿Cómo funciona el registro sin contraseñas?"
 msgstr ""
 
 #: templates/log-in-system.html:62
-msgid ""
-"Ingresas tu correo electrónico y el sistema identifica instantáneamente "
-"si ya tienes una cuenta o si eres un usuario nuevo."
+msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
 msgstr ""
 
 #: templates/log-in-system.html:64
@@ -1879,10 +1799,7 @@ msgid "Si ya tienes una cuenta"
 msgstr ""
 
 #: templates/log-in-system.html:64
-msgid ""
-"te enviaremos un correo electrónico con un enlace único que te permitirá "
-"acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado "
-"durante 30 días en ese dispositivo."
+msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
 msgstr ""
 
 #: templates/log-in-system.html:66
@@ -1890,10 +1807,7 @@ msgid "Si eres un nuevo usuario"
 msgstr ""
 
 #: templates/log-in-system.html:66
-msgid ""
-"te guiaremos para crear tu cuenta. A través del enlace enviado por correo"
-" electrónico, completarás el proceso de registro y podrás comenzar a usar"
-" la aplicación."
+msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
 msgstr ""
 
 #: templates/log-in-system.html:69
@@ -1901,12 +1815,7 @@ msgid "¿Cómo funciona si estableces una contraseña?"
 msgstr ""
 
 #: templates/log-in-system.html:70
-msgid ""
-"Si prefieres configurar una contraseña, puedes hacerlo desde la sección "
-"\"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el "
-"futuro, después de ingresar tu correo electrónico, se te pedirá que "
-"ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos "
-"opciones:"
+msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
 msgstr ""
 
 #: templates/log-in-system.html:72
@@ -1914,9 +1823,7 @@ msgid "Enviarme un correo electrónico:"
 msgstr ""
 
 #: templates/log-in-system.html:72
-msgid ""
-"Funciona igual que el sistema sin contraseña, con un enlace para iniciar "
-"sesión."
+msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
 msgstr ""
 
 #: templates/log-in-system.html:74
@@ -1924,9 +1831,7 @@ msgid "Restablecer mi contraseña:"
 msgstr ""
 
 #: templates/log-in-system.html:74
-msgid ""
-"Recibirás un correo para establecer una nueva contraseña y asegurar tu "
-"acceso."
+msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
 msgstr ""
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
@@ -1934,22 +1839,11 @@ msgid "Seguridad"
 msgstr ""
 
 #: templates/log-in-system.html:79
-msgid ""
-"Aunque pueda parecer contradictorio, las contraseñas no siempre son la "
-"opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar"
-" por los estafadores. Muchas personas no usan gestores de contraseñas y a"
-" menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de"
-" nacimiento o el nombre de su mascota."
+msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
 msgstr ""
 
 #: templates/log-in-system.html:81
-msgid ""
-"Además, la mayoría de los sitios web permiten restablecer la contraseña "
-"mediante un correo electrónico, lo que puede ser aprovechado por los "
-"estafadores si tu correo está comprometido. Para mitigar estos riesgos, "
-"recomendamos habilitar la autenticación de dos factores (2FA) utilizando "
-"aplicaciones como Google Authenticator para mejorar la seguridad de tu "
-"cuenta."
+msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
 msgstr ""
 
 #: templates/log-in-system.html:83
@@ -1961,12 +1855,7 @@ msgid "Según Auth0:"
 msgstr ""
 
 #: templates/log-in-system.html:86
-msgid ""
-"La autenticación sin contraseñas, por su naturaleza, elimina el problema "
-"del uso de contraseñas inseguras. Esto significa que uno de los errores "
-"más comunes de los usuarios se elimina del proceso de inicio de sesión. "
-"No solo es segura, sino que podría ser aún más segura que el método "
-"tradicional de usuario y contraseña."
+msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
 msgstr ""
 
 #: templates/log-in-system.html:87
@@ -1974,9 +1863,7 @@ msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
 msgstr ""
 
 #: templates/log-in-system.html:88
-msgid ""
-"Varias aplicaciones populares también han adoptado la autenticación sin "
-"contraseñas con enlaces mágicos:"
+msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
 msgstr ""
 
 #: templates/log-in-system.html:90
@@ -2033,63 +1920,27 @@ msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
 msgstr ""
 
 #: templates/manifesto.html:37
-msgid ""
-"En cada congregación de los Testigos de Jehová, la organización eficiente"
-" es clave para enfocarse en lo que realmente importa. Sin embargo, muchas"
-" de las herramientas disponibles hoy en día son costosas, complicadas o "
-"no se adaptan bien a las necesidades de las congregaciones. Por eso, "
-"presentamos Kingdom Hall Attendant (KHA), una solución práctica y "
-"accesible para gestionar las tareas administrativas de manera sencilla."
+msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
 msgstr ""
 
 #: templates/manifesto.html:38
-msgid ""
-"Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, "
-"segura y sin anuncios, que funcione en cualquier dispositivo y navegador."
-" Su objetivo es hacer que las tareas administrativas de las "
-"congregaciones sean más fáciles de manejar, permitiendo que el tiempo se "
-"dedique a la misión principal. No solo hemos diseñado una aplicación; "
-"hemos construido una herramienta pensada para ser intuitiva, accesible y "
-"que pueda ser usada por cualquier congregación sin complicaciones."
+msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
 msgstr ""
 
 #: templates/manifesto.html:39
-msgid ""
-"Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa "
-"de colaboradores en GitHub, KHA es una aplicación multiplataforma que "
-"funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso "
-"desde cualquier navegador web. La facilidad de uso y la seguridad han "
-"sido nuestras prioridades desde el primer día. Cada aspecto ha sido "
-"diseñado para garantizar que puedas acceder a tus herramientas "
-"administrativas donde y cuando las necesites."
+msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
 msgstr ""
 
 #: templates/manifesto.html:40
-msgid ""
-"Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones "
-"ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la "
-"seguridad y privacidad de los datos: están cifrados y nunca son "
-"rastreados. A través de un sistema seguro de transmisión de datos, "
-"protegemos tu información de manera eficaz."
+msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
 msgstr ""
 
 #: templates/manifesto.html:41
-msgid ""
-"Actualmente, KHA se encuentra en fase BETA, y estamos planificando un "
-"lanzamiento oficial para la primavera de 2025. Pero este es solo el "
-"comienzo. Estamos comprometidos con la mejora continua y escuchamos "
-"activamente a nuestra comunidad para seguir evolucionando. Nuestro "
-"objetivo es proporcionar una herramienta que sea útil y relevante, que se"
-" adapte a las necesidades de las congregaciones hoy y en el futuro."
+msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
 msgstr ""
 
 #: templates/manifesto.html:42
-msgid ""
-"Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo "
-"deseen a apoyar el proyecto a través de donaciones o suscribiéndose a "
-"nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y "
-"ofreciendo actualizaciones continuas para el beneficio de todas las "
-"congregaciones."
+msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
 msgstr ""
 
 #: templates/mostrar-vida-ministerio.html:124
@@ -2117,9 +1968,7 @@ msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer 
 msgstr ""
 
 #: templates/publicadores.html:70
-msgid ""
-"¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer"
-" publicador haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/security.html:34
@@ -2131,18 +1980,11 @@ msgid "Inicio de Sesión Seguro:"
 msgstr ""
 
 #: templates/security.html:36
-msgid ""
-"En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. "
-"Utilizamos"
+msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
 msgstr ""
 
 #: templates/security.html:36
-msgid ""
-"para cifrar tus contraseñas, asegurando que incluso si alguien intenta "
-"acceder a nuestra base de datos, tus credenciales permanecen "
-"impenetrables. Además, cada vez que inicias sesión, te enviamos una "
-"notificación por correo electrónico para que puedas detectar cualquier "
-"acceso no autorizado al instante."
+msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
 msgstr ""
 
 #: templates/security.html:38
@@ -2150,11 +1992,7 @@ msgid "Manejo Seguro de Sesiones:"
 msgstr ""
 
 #: templates/security.html:38
-msgid ""
-"Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos "
-"información sensible en el cliente, asegurando que tu privacidad esté "
-"siempre protegida. Es como tener un guardián que vigila tus datos en todo"
-" momento."
+msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
 msgstr ""
 
 #: templates/security.html:40
@@ -2162,11 +2000,7 @@ msgid "Protección CSRF:"
 msgstr ""
 
 #: templates/security.html:40
-msgid ""
-"Utilizamos CSRFProtect para protegerte contra ataques de falsificación de"
-" solicitudes. Esto significa que tus acciones en la aplicación son "
-"siempre auténticas y seguras, como si tuvieras un escudo invisible "
-"protegiendo cada clic."
+msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
 msgstr ""
 
 #: templates/security.html:42
@@ -2174,11 +2008,7 @@ msgid "Gestión de Tokens Seguros:"
 msgstr ""
 
 #: templates/security.html:42
-msgid ""
-"Generamos tokens ultra seguros para la confirmación de correo electrónico"
-" y recuperación de contraseñas. Estos tokens son como llaves maestras, "
-"asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones"
-" de emergencia."
+msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
 msgstr ""
 
 #: templates/security.html:44
@@ -2186,11 +2016,7 @@ msgid "Conexiones de Base de Datos Seguras:"
 msgstr ""
 
 #: templates/security.html:44
-msgid ""
-"Nos aseguramos de que todas las conexiones a la base de datos se cierren "
-"adecuadamente, previniendo fugas de información y garantizando la "
-"integridad de tus datos. Es como cerrar la puerta de una bóveda después "
-"de cada uso."
+msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
 msgstr ""
 
 #: templates/security.html:46
@@ -2198,10 +2024,7 @@ msgid "Límites de Tasa:"
 msgstr ""
 
 #: templates/security.html:46
-msgid ""
-"Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de "
-"fuerza bruta. Esto es como tener un portero que controla el flujo de "
-"visitantes, asegurando que solo las solicitudes legítimas pasen."
+msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
 msgstr ""
 
 #: templates/security.html:48
@@ -2209,11 +2032,7 @@ msgid "Registro y Monitoreo:"
 msgstr ""
 
 #: templates/security.html:48
-msgid ""
-"Implementamos un sistema de logging robusto para monitorear actividades y"
-" errores. Esto nos permite detectar y responder a cualquier incidente de "
-"seguridad de manera proactiva, como tener un sistema de alarma que te "
-"alerta ante cualquier anomalía."
+msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
 msgstr ""
 
 #: templates/security.html:50
@@ -2221,11 +2040,7 @@ msgid "Uso de Variables de Entorno:"
 msgstr ""
 
 #: templates/security.html:50
-msgid ""
-"Utilizamos dotenv para manejar configuraciones sensibles como claves "
-"secretas y credenciales de correo, manteniéndolas fuera del código fuente"
-" y lejos de miradas indiscretas. Es como guardar tus secretos más "
-"valiosos en una caja fuerte."
+msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
 msgstr ""
 
 #: templates/sent.html:37
@@ -2237,9 +2052,7 @@ msgid "Lo hemos enviado a"
 msgstr ""
 
 #: templates/sent.html:40
-msgid ""
-"Será redirigido desde el enlace del correo electrónico. Puede cerrar esta"
-" pestaña sin problemas."
+msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
 msgstr ""
 
 #: templates/signup.html:75
@@ -2247,10 +2060,7 @@ msgid "Reenviar enlace"
 msgstr ""
 
 #: templates/signup.html:79
-msgid ""
-"Después de continuar con el registro, le enviaremos un enlace mágico a su"
-" correo electrónico. Por favor, revise su bandeja de entrada o su carpeta"
-" de SPAM para encontrar el enlace y completar su registro."
+msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
 msgstr ""
 
 #: templates/signup.html:83
