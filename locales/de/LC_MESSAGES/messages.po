@@ -1,23 +1,22 @@
-# German translations for Kingdom Hall Attendant.
-# Copyright (C) 2024 Livrädo Sandoval
-# This file is distributed under the same license as the Kingdom Hall
-# Attendant project.
-# Livrädo Sandoval <livrasand@outlook.com>, 2024.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Kingdom Hall Attendant 1.0\n"
+"Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-07-21 07:58-0600\n"
-"PO-Revision-Date: 2024-07-21 08:01-0600\n"
+"PO-Revision-Date: 2024-12-09 17:20\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: de\n"
-"Language-Team: Spanish <es@li.org>\n"
+"Language-Team: German\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
+"X-Crowdin-Project: kingdom-hall-attendant\n"
+"X-Crowdin-Project-ID: 744277\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: /[livrasand.Kingdom-Hall-Attendant] main/locales/es/LC_MESSAGES/messages.po\n"
+"X-Crowdin-File-ID: 16\n"
 
 #: templates/bosquejos.html:41 templates/estudio-atalaya.html:42
 #: templates/literatura.html:42
@@ -83,16 +82,11 @@ msgid "Es visitante"
 msgstr ""
 
 #: templates/bosquejos.html:124
-msgid ""
-"¡Aún no tienes ningún bosquejo programado! Para empezar, programa el "
-"primer bosquejo haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/bosquejos.html:133 templates/estudio-atalaya.html:109
-msgid ""
-"Encuentre la última versión actualizada de este programa "
-"escaneando<br>este código QR o directamente en su aplicación Kingdom Hall"
-" Attendant."
+msgid "Encuentre la última versión actualizada de este programa escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant."
 msgstr ""
 
 #: templates/bosquejos.html:134 templates/estudio-atalaya.html:110
@@ -392,21 +386,11 @@ msgid "Usar para la limpieza del Salón del Reino"
 msgstr ""
 
 #: templates/detalle-grupo-predicacion.html:94
-msgid ""
-"Utilizar como punto de reunión para la visita del superintendente de "
-"circuito"
+msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
 msgstr ""
 
 #: templates/detalle-literatura.html:59
-msgid ""
-"Este inventario debe hacerlo la congregación coordinadora del idioma cada"
-" mes. No debe haber existencias de artículos de solicitud especial, por "
-"lo tanto, este formulario no los incluye. Si por alguna razón se dispone "
-"de artículos de solicitud especial, anote las cantidades en una de las "
-"categorías generales, como por ejemplo \"Otros\". Para más instrucciones,"
-" consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para "
-"solicitar publicaciones y gestionar el inventario\", consulte el "
-"<em>S-56</em> correspondiente a su país."
+msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
 msgstr ""
 
 #: templates/detalle-literatura.html:808
@@ -524,15 +508,11 @@ msgid "Sust. oración final:"
 msgstr ""
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
-msgid ""
-"¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el "
-"botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/grupos-predicacion.html:60
-msgid ""
-"¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea"
-" tu primer grupo haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/index.html:53
@@ -584,15 +564,11 @@ msgid "Publicaciones"
 msgstr ""
 
 #: templates/index.html:143
-msgid ""
-"Lleve un inventario exacto y actualizado, vea tendencias y evite la "
-"acumulación"
+msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
 msgstr ""
 
 #: templates/index.html:153
-msgid ""
-"Añada sus datos personales, cambie la apariencia o el idioma, entre otros"
-" más"
+msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
 msgstr ""
 
 #: templates/index.html:163
@@ -604,16 +580,11 @@ msgid "Informe de inventario"
 msgstr ""
 
 #: templates/literatura.html:82
-msgid ""
-"¡Aún no has inventariado nada! Para empezar, haz clic en el botón "
-"\"Nuevo\"."
+msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/literatura.html:91
-msgid ""
-"Encuentre la última versión actualizada de este inventario "
-"escaneando<br>este código QR o directamente en su aplicación Kingdom Hall"
-" Attendant."
+msgid "Encuentre la última versión actualizada de este inventario escaneando<br>este código QR o directamente en su aplicación Kingdom Hall Attendant."
 msgstr ""
 
 #: templates/oradores.html:59
@@ -621,15 +592,11 @@ msgid "Agregar orador foráneo"
 msgstr ""
 
 #: templates/oradores.html:91
-msgid ""
-"¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer "
-"orador haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/publicadores.html:77
-msgid ""
-"¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer"
-" publicador haciendo clic en el botón \"Nuevo\"."
+msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
 msgstr ""
 
 #: templates/vida-ministerio.html:62
