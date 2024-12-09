@@ -53,6 +53,10 @@ Disponible en cualquier lugar del mundo, incluso en países con censura o restri
   python app.py
 ```         
 
+## ¿Funciona Kingdom Hall Attendant en mi idioma?
+
+**¡Sí!** Kingdom Hall Attendant ha sido traducido a varios idiomas por numerosos voluntarios; por lo tanto, puedes configurar el idioma que deseas mostrar en la interfaz de la aplicación.
+
 <!-- CROWDIN-TRANSLATIONS-PROGRESS-ACTION-START -->
 
 
