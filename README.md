@@ -55,7 +55,9 @@ Disponible en cualquier lugar del mundo, incluso en países con censura o restri
 
 ## ¿Funciona Kingdom Hall Attendant en mi idioma?
 
-**¡Sí!** Kingdom Hall Attendant ha sido traducido a varios idiomas por numerosos voluntarios; por lo tanto, puedes configurar el idioma que deseas mostrar en la interfaz de la aplicación.
+**¡Sí!** Kingdom Hall Attendant ha sido traducido a varios idiomas por numerosos voluntarios; por lo tanto, puedes configurar el idioma que deseas mostrar en la interfaz de la aplicación. Algunas de estas traducciones están realizadas por IA, por lo que es posible que no sean de la mejor calidad. Para ayudar, corrige estas traducciones en [Crowdin](https://crowdin.com/project/kingdom-hall-attendant/). ¡Gracias!
+
+[¿No estás seguro de cómo usar Crowdin?](https://support.crowdin.com/crowdin-intro/)
 
 <!-- CROWDIN-TRANSLATIONS-PROGRESS-ACTION-START -->
 
