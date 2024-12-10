@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:15\n"
+"PO-Revision-Date: 2024-12-10 02:03\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: el\n"
 "Language-Team: Greek\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "Αυτή η σελίδα δεν είναι διαθέσιμη ή ένας πόρος που είναι απαραίτητος για να ολοκληρωθεί το αίτημά σας δεν είναι διαθέσιμος"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "Παρακαλώ επιστρέψτε σε"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "Εκτύπωση"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "Παρουσία στις συναντήσεις"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "Καταχωρίστε τη σύγκλητό σας"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "Μήνας:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "Διαγραφή"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "Συνάντηση μέσα στην εβδομάδα:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "Πλήθος συναντήσεων:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "Σύνολο του μήνα:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "Μέσος εβδομαδιαίος:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "Παρουσία ανά εβδομάδα:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "Εβδομάδα 1"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "Εβδομάδα 2"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "Εβδομάδα 3"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "Εβδομάδα 4"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "Εβδομάδα 5"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "Δεν υπάρχουν καταγεγραμμένες συναντήσεις."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "Συνάντηση του Σαββατοκύριακου:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "Συνάντηση"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "1η εβδομάδα"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "2η εβδομάδα"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "3η εβδομάδα"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "4η εβδομάδα"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "5η εβδομάδα"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "Συνάντηση ενδιάμεσα στην εβδομάδα"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "Συνάντηση του Σαββατοκύριακου"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "Νέο"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "Ήχος, βίντεο και υπεύθυνοι"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "Ημερομηνία:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "Υπεύθυνος ήχου:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1872 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "Μη ανατεθειμένο"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "Υπεύθυνος βίντεο:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "Πλατφόρμα:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "Μικρόφωνα:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "Υπεύθυνοι:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "Υπεύθυνος συνεδρίου βίντεο:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχεις ακόμα κανένα πρόγραμμα! Για να ξεκινήσεις, δημιούργησε το πρώτο σου πρόγραμμα κάνοντας κλικ στο κουμπί \"Νέο\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "Ρυθμίσεις αναθέσεων"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "Κλείσιμο"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "Αριθμός χειριστών μικροφώνου προς ανάθεση:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "Ποσότητα διαχειριστών προς ανάθεση:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "Ποσότητα διαχειριστών της τηλεδιάσκεψης:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "Ποσότητα διαχειριστών πλατφόρμας:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "Ποσότητα διαχειριστών του συστήματος ήχου:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "Ποσότητα διαχειριστών του συστήματος βίντεο:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "Πρώτα καταχωρίστε έναν ομιλητή στους Δημόσιους ομιλητές."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "Δημόσιοι λόγοι"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "Δημόσιος λόγος"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "Μη ανατεθειμένο σχέδιο"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "Μη ανατεθειμένο"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "Ομιλητής:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "Σύγκλητος:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "Τοπικό"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "Ξεκινούσα προς:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "Είναι επισκέπτης"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχετε προγραμματισμένα σχέδια ακόμα! Για να ξεκινήσετε, προγραμματίστε το πρώτο σχέδιο κάνοντας κλικ στο κουμπί \"Νέο\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "Ενημέρωση κωδικού πρόσβασης"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "Αλλάξτε τον κωδικό πρόσβασής σας..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "Ηλεκτρονικό ταχυδρομείο"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "Εισάγετε το email σας για να λάβετε έναν σύνδεσμο για να ενημερώσετε τον κωδικό πρόσβασής σας."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "Αποστολή συνδέσμου"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "Γλώσσα"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "Ισπανικά"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "Αγγλικά"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "Ιταλικά"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "Γαλλικά"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "Γερμανικά"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "Πορτογαλικά"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "Όνομα"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "Ονόματα"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "Επίθετα"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "Δημόσιο ηλεκτρονικό ταχυδρομείο"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "Διορισμός"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "επόπτης περιφέρειας"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "πρεσβύτερος"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "υπηρέτης υπουργείου"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "Ενημέρωση δεδομένων"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "Αλλαγή κωδικού πρόσβασης"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "Διαγραφή των δεδομένων της εφαρμογής"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "Ο λογαριασμός σας θα διαγραφεί αυτόματα μετά από 3 μήνες αδράνειας. Αυτό σημαίνει ότι όλα τα δεδομένα σας που σχετίζονται με το KHA θα διαγραφούν εντελώς, ως αν ποτέ δεν είχατε υπάρξει στην πλατφόρμα μας."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "Αν χρειάζεστε να διαγραφεί ο λογαριασμός σας πριν από αυτή την προθεσμία λόγω νομικής υπόθεσης ή οποιουδήποτε άλλου νομικού ζητήματος, παρακαλώ ενημερώστε μας. Θα προχωρήσουμε στην άμεση διαγραφή του λογαριασμού σας και θα διασφαλίσουμε ότι κανείς δεν θα έχει πρόσβαση στα δεδομένα σας."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "Επιβεβαίωσε τον νέο σου κωδικό πρόσβασης..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Νέος κωδικός πρόσβασης"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "Ξεκινώντας τη περιπέτεια..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "Παρακαλώ ορίστε έναν ασφαλή κωδικό πρόσβασης."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "Μόλις ρυθμίσετε τον κωδικό πρόσβασής σας, θα μπορείτε να αποκτήσετε πρόσβαση στον λογαριασμό σας και να εξερευνήσετε όλα όσα έχει να προσφέρει η εφαρμογή Παρακολούθησης Βασιλείου."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "Επιβεβαίωση"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "Έχετε ήδη λογαριασμό;"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "Συνδεθείτε"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "Σύγκλητος"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "Αριθμός"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "Δευτέρα"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "Τρίτη"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "Τετάρτη"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "Πέμπτη"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "Παρασκευή"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "Σάββατο"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "Κυριακή"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "Ώρα έναρξης"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "Διεύθυνση του Αίθουσας του Βασιλείου"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "Δεδομένα του επόπτη περιφέρειας"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "Επόπτης περιφέρειας"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "Αριθμός τηλεφώνου"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "Περίοδος"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "Αποθηκεύστε τις αλλαγές"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "Μέθοδος συγχρονισμού"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "Ρυθμίσεις συγχρονισμού: Αυτή η επιλογή επιτρέπει την ενεργοποίηση ή απενεργοποίηση της τοπικής αποθήκευσης, δίνοντας στον χρήστη μεγαλύτερο έλεγχο πάνω στα δεδομένα του. Με την ενεργοποίηση αυτής της λειτουργίας, βελτιώνεται η ιδιωτικότητα και η ασφάλεια των πληροφοριών, καθώς τα δεδομένα αποθηκεύονται τοπικά αντί σε εξωτερικούς διακομιστές. Λάβετε υπόψη ότι η αλλαγή αυτής της ρύθμισης μπορεί να επηρεάσει τον τρόπο διαχείρισης των δεδομένων σας. Για περισσότερες πληροφορίες, ανατρέξτε στη τεκμηρίωση σχετικά με δυνατές παρενέργειες."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "πιθανές παρενέργειες"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "Ενεργοποίηση τοπικής αποθήκευσης"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "Ενημέρωση προτιμήσεων"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "Μόλις ενεργοποιήσετε τη τοπική μέθοδο, είναι κρίσιμο να φορτώσετε το αρχείο ασφαλείας σας κάθε φορά που συνδέεστε. Εάν χάσετε αυτό το αρχείο, κινδυνεύετε να χάσετε όλα τα δεδομένα σας μόνιμα. Επιπλέον, είναι θεμελιώδες να αποθηκεύσετε το αρχείο JSON κάθε φορά που αποσυνδέεστε για να αποφύγετε την απώλεια σημαντικής πληροφορίας."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "Εξαγωγή αντιγράφου ασφαλείας"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "Αυτή η λειτουργία επιτρέπει τη δημιουργία αντιγράφου ασφαλείας των δεδομένων σας, που είναι απαραίτητο για την προστασία της πληροφορίας σας. Με την παραγωγή αντιγράφου ασφαλείας, μπορείτε να αποκαταστήσετε τα δεδομένα σας σε περίπτωση απώλειας ή ζημιάς, διασφαλίζοντας έτσι τη συνέχεια της εργασίας σας. Είναι μια συνιστώμενη πρακτική, ανεξάρτητα από το αν χρησιμοποιείτε τοπική αποθήκευση ή όχι, καθώς είναι πάντα καλύτερο να προλαμβάνετε παρά να μετανιώνετε."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "Δημιουργία αντιγράφου ασφαλείας"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "Εισαγωγή αντιγράφου ασφαλείας"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "Αυτή η λειτουργία επιτρέπει την εισαγωγή δεδομένων από αρχείο αντιγράφου ασφαλείας σε μορφή JSON. Με την επιλογή ενός αρχείου και των πινάκων που θέλετε να εισαγάγετε, μπορείτε να αποκαταστήσετε προηγουμένως αποθηκευμένες πληροφορίες, διασφαλίζοντας ότι τα δεδομένα σας είναι ενημερωμένα και διαθέσιμα."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "Προς το παρόν, ο Υπάλληλος της Βασιλειάς επιτρέπει μόνο την εισαγωγή αντιγράφων ασφαλείας από τον ίδιο Υπάλληλο της Βασιλειάς. Στο μέλλον, προγραμματίζεται να επιτραπεί η εισαγωγή δεδομένων από άλλες εφαρμογές, αλλά προς το παρόν δεν υπάρχει συγκεκριμένη ημερομηνία για αυτή τη λειτουργία."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "Διαγράψτε τα προηγούμενα δεδομένα πριν από την εισαγωγή"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "Επιλέξτε αρχείο αντιγράφου ασφαλείας:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "Επιλέξτε πίνακες προς εισαγωγή"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "Χρήση"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "για να επιλέξετε όλους τους πίνακες."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "Εισαγωγή"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "Επιτυχία:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "Σφάλμα:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- Επιλέξτε Ήχο --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- Επιλέξτε Βίντεο --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- Επιλέξτε Πλατφόρμα --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- Επιλέξτε Μικρόφωνο --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- Επιλέξτε Υπάλληλο --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- Επιλέξτε Υπάλληλο Βιντεοκλήσης --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "Ομιλητής"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "Αυτός ο ομιλητής είναι προσκεκλημένος της σύγκλητου"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "Αριθμός ομιλίας"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "Αυτός ο ομιλητής έχει προετοιμάσει αυτά τα σχέδια:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "Αυτός ο ομιλητής δεν έχει προετοιμάσει κανένα σχέδιο."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "Φιλοξενία:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "Συμβουλή"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "Αν ο ομιλητής πρόκειται να βγει να μιλήσει, καθορίστε τη σύγκλητο"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "Έμεινε για φιλοξενία"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "Έφτασε εγκαίρως"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "Έφτασε για τον λόγο"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "Σημειώσεις:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "Πρόεδρος:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "Επιλέξτε έναν πρόεδρο"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "Προσευχή έναρξης:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "Επιλέξτε έναν εκδότη"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "Αναγνώστης του <em>Η Σκοπιά</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "Αντιπεριστατική προσευχή:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "Επιλέξτε έναν αντικαταστάτη"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "Όνομα ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "Υπηρέτης της ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "Επιλέξτε υπηρέτη ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "Βοηθός ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "Επιλέξτε βοηθό ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "Διεύθυνση συνάντησης ομάδας"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "Ανάθεση φιλοξενίας"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "Χρήση για τον καθαρισμό της Αίθουσας του Βασιλείου"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "Χρήση ως σημείο συνάντησης για την επίσκεψη του επιτηρητή περιφέρειας"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "Όνομα:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "Προνόμια:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "Επιλέξτε μήνα"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "Έτος:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "Έτος"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "Συμμετείχε σε κάποια πτυχή της κήρυξης"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "Βιβλικά μαθήματα:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "Ολοκληρωμένα βιβλικά μαθήματα"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "Ώρες:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "Ώρες"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "Σχόλια:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "Γράψτε τα σχόλιά σας εδώ..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "Μήνας"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "Συμμετοχή"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "Βιβλικά μαθήματα"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "Σχόλια"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "Προνόμιο"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "Ναι"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "Αναφορά αποθέματος"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "Αυτή η καταγραφή πρέπει να γίνεται από την εκκλησία που συντονίζει τη γλώσσα κάθε μήνα. Δεν πρέπει να υπάρχουν αποθέματα ειδικών ζητούμενων αντικειμένων, συνεπώς αυτή η φόρμα δεν τα περιλαμβάνει. Αν για οποιονδήποτε λόγο υπάρχουν διαθέσιμα ειδικά ζητούμενα αντικείμενα, σημειώστε τις ποσότητες σε μία από τις γενικές κατηγορίες, όπως για παράδειγμα \"Άλλα\". Για περισσότερες οδηγίες, παρακαλώ ανατρέξτε στη φόρμα <em>S-28</em>. Για να μάθετε τις \"Οδηγίες για να ζητάτε δημοσιεύσεις και να διαχειρίζεστε το απόθεμα\", παρακαλώ ανατρέξτε στο <em>S-56</em> που αντιστοιχεί στη χώρα σας."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "Αποθήκευση αποθέματος"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "Διαγραφή αποθέματος"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "Προσωπικά δεδομένα ομιλητή"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "Εγκεκριμένο για έξοδο "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "Εάν ο ομιλητής είναι αλλοδαπός, παρακαλώ προσδιορίστε την εκκλησία καταγωγής του"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "Κινητό"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "Τηλέφωνο"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "Πρεσβύτερος"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "Υπηρέτης υπουργείου"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "Προετοιμασμένα σχέδια"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "Προσωπικά δεδομένα"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "Άνδρας"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "Γυναίκα"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "Για να διασφαλίσετε ότι θα εισάγετε τα δεδομένα σας σωστά, ακολουθήστε αυτά τα βήματα: Πρώτα, επιλέξτε αν ο δηλωτής είναι ο επικεφαλής της οικογένειας. Στη συνέχεια, αποθηκεύστε τις πληροφορίες του δηλωτή. Αφού ολοκληρώσετε αυτό το βήμα, μπορείτε να δημιουργήσετε την οικογένεια. Εάν προσπαθήσετε να δημιουργήσετε την οικογένεια πριν αποθηκεύσετε τα δεδομένα του δηλωτή, μπορεί να παρουσιαστεί σφάλμα λόγω συγκρούσεων στην πληροφορία."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "Επικεφαλής της οικογένειας"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "Επικεφαλής της οικογένειας ή εργένης"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "Δημιουργία οικογένειας"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "Οικογένεια:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "Αυτός ο δηλωτής είναι"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "Προτίμηση"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "σύζυγος"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "κόρη"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "γιός"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "του επικεφαλής της οικογένειας"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "Ημερομηνία γέννησης"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "Πνευματικά δεδομένα"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "Βαπτισμένος"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "Ημερομηνία βάπτισης"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "Ομάδα κηρύγματος"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "Επιλέξτε μια ομάδα"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "Λαμβάνει την Σκοπιά (έκδοση μελέτης)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "Λαμβάνει τον Οδηγό δραστηριοτήτων"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "Αβάπτιστος δημοσιογράφος"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "Προσωρινός δημοσιογράφος (επισκέπτης για 3 μήνες ή λιγότερο)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "Χρισμένος"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "Παιδί"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "Επανεισαγωγή"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "Ακανόνιστος"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "Blind"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "Διαπράχθηκε σεξουαλική κακοποίηση ανηλίκων"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "Θεός"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "Χήρος"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "Κωφός"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "Άρρωστος"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "Εθελοντής του LDC"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "Εθελοντής EPC"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "Έχει κλειδιά του Αίθουσα Βασιλείας"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "Χρησιμοποιεί Kingdom Hall Attendant"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "Λογοκριμένος"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "Ανο inactive"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "Εκδιωγμένος"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "Αποθανών"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "Έγκλειστος"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "Χωρισμένος"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "Διορισμοί"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "Κανένα"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "Διορισμένος"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "Ημερομηνία έναρξης"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "Προνόμια υπηρεσίας"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "Συνεχιζόμενος βοηθός προδρόμος"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "Κανονικός προδρόμος"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "Ειδικός προδρόμος"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "Αποστολικός"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "Αναφέρει απευθείας στον κλάδο"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "Αριθμός προδρόμου"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "Προσωρινός"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "Ασθενής (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "Τελευταία Σχολή Υπηρεσίας Προδρόμου"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "Ημερομηνία τελευταίας παρουσίας"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "Ευθύνες στην εκκλησία"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "Συντονιστής του σώματος των πρεσβυτέρων"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "Γραμματέας"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "Επικεφαλής υπηρεσίας"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "Υπηρέτης του τηλεφωνα"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "Συντονιστής ήχου και βίντεο"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "Υπηρέτης λογοτεχνίας"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "Συντονιστής συντήρησης"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "Συντονιστής συντήρησης κήπου"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "Επιτροπή Συντήρησης Αίθουσας Βασιλείας"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "Σύμβουλος της βοηθητικής αίθουσας"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "Βοηθός συμβούλου"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "Προσωρινός εθελοντής του Μπέθελ"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "Κοντινός Μπέθελ"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "Απομακρυσμένος Μπέθελ"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "Επιτροπή Συνεργασίας με Νοσοκομεία"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "Διευθυντής της Μελέτης της Σκοπιάς"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "Συντονιστής δημόσιων ομιλιών"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "Βοηθός του συντονιστή δημόσιων ομιλιών"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "Υπηρέτης αναφορών"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "Υπηρέτης λογαριασμών"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "Υπηρέτης περιοχών"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "Συντονιστής καθαρισμού"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "Σουπερίντεντ της συνάντησης Ζωής και Χριστιανικού Υπουργείου"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "Συντονιστής δημόσιας κηρύγματος"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "Υπεύθυνος ομάδας"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "Μπετελίτας"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "Εθελοντής κατασκευών"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "Υπηρέτης κατασκευών"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "Χρήση σε αναθέσεις"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "ΘΗΣΑΥΡΟΙ ΤΗΣ ΒΙΒΛΟΥ"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "Επιλογή όλων"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "Πρόεδρος"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "Προσευχή"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "Ομιλία (10 λεπτά)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "Ας ψάξουμε για κρυμμένους θησαυρούς"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "Ανάγνωση της Βίβλου"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "Ας γίνουμε καλύτεροι δάσκαλοι"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "Ανάλυση"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "Ξεκινήστε συνομιλίες"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "Πραγματοποιήστε επαναλήψεις"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "Κάντε μαθητές"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "Μην χρησιμοποιείτε στην κύρια αίθουσα"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "Εξηγήστε τις πεποιθήσεις σας"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "Βοηθός"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "Ομιλία"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "Χρησιμοποιήστε μόνο στην κύρια αίθουσα"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "Η ΖΩΗ ΜΑΣ ΩΣ ΧΡΙΣΤΙΑΝΟΙ"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "Επεμβάσεις"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "Βιβλική μελέτη της εκκλησίας"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "Αναγνώστης"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "ΜΕΛΕΤΗ ΤΗΣ ΣΚΟΠΙΑΣ"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "Αποχωρών ομιλητής δημόσιας ομιλίας"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "Τοπικός δημόσιος ομιλητής"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "Πρόεδρος δημόσιας συνάντησης"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "Αναγνώστης της Σκοπιάς"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "Οικοδεσπότης για φιλότιμο"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "ΚΑΘΗΚΟΝΤΑ"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "Υπεύθυνος ήχου"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "Πλατφόρμα"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "Οικοδεσπότης σε Zoom"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "Μικρόφωνα"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "Συμπαρουσιαστής σε Zoom"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "Συνοδός"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "ΥΠΗΡΕΣΙΑ ΣΤΟ ΠΕΔΙΟ"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "Εγκεκριμένο για δημόσιο κήρυγμα"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "Ηγήστε συναντήσεις για το πεδίο υπηρεσίας"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "Προσευχή σε συναντήσεις για το πεδίο υπηρεσίας"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "ΚΑΘΑΡΙΣΜΟΣ"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "Εβδομαδιαία καθαριότητα της Αίθουσας Βασιλείας"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "Καθαριότητα μετά τη συνάντηση"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "Φροντίδα κήπου"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "Μηνιαία καθαριότητα της Αίθουσας Βασιλείας"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "Τριμηνιαία καθαριότητα της Αίθουσας Βασιλείας"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "Φροντίδα του γκαζόν"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "Αφαιρέστε τον εκδότη"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "Συγχρονίζοντας δεδομένα συνάντησης"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "Αποθήκευση..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "Προηγούμενος"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "Αυτή την εβδομάδα"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "Επόμενος"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "Επιλέξτε έναν πρόεδρο"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "Υπεύθυνος:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "Επιλέξτε έναν υπεύθυνο"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "Αναγνώστης:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "Επιλέξτε έναν αναγνώστη"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "Εκδότης:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "Επιλέξτε έναν εκδότη"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "Βοηθός:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "Επιλέξτε έναν βοηθό"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "Τελευταία προσευχή:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "Δραστηριότητα:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "Υπηρεσία στο πεδίο"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "Πρωινό"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "Γεύμα"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "Δείπνο"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "Ποιμνιοτροφία"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "Συνάντηση με προδρόμους"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "Συνάντηση με πρεσβυτέρους και διακονικούς υπηρέτες"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "Ανασκόπηση των αρχείων της εκκλησίας"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "Συνάντηση με τον συντονιστή του Σώματος των Πρεσβυτέρων"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "Συνάντηση με την Επιτροπή Υπηρεσίας της Εκκλησίας"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "Χωρίς ρυθμίσεις"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "Δραστηριότητα για:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "Ο αδελφός"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "Η αδελφή"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "Ημέρα:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "Ώρα:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "Ώρα"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*Χρησιμοποιήστε τη μορφή 24 ωρών"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "Τοποθεσία εκδήλωσης:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "Αίθουσα του Βασιλείου"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "Στη διαμονή"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "Χωρίς εκδήλωση"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "Οικογένεια"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "Είμαστε ενθουσιασμένοι, αλλά έχετε φτάσει το όριο αιτημάτων. Μη φοβάστε, απλώς περιμένετε ένα λεπτό για να μπορέσετε να συνεχίσετε."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "Σημείωση:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "Εάν βλέπεις αυτό το μήνυμα μετά από ένα λεπτό, ίσως έχεις φτάσει το όριο 50 αιτημάτων ανά ώρα ή το ημερήσιο όριο 200 αιτημάτων. Έλα πίσω αργότερα για να συνεχίσεις να απολαμβάνεις το Kingdom Hall Attendant."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "Συνάντηση Σαββατοκύριακου"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "Αντικ. τελικής προσευχής:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχετε ακόμα κανένα πρόγραμμα καταχωρημένο! Για να ξεκινήσετε, κάντε κλικ στο κουμπί \"Νέο\"."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "Επαναφέρετε τον κωδικό πρόσβασης"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "Εισάγετε τη verified διεύθυνση email του λογαριασμού σας και θα σας στείλουμε έναν σύνδεσμο για την επαναφορά του κωδικού πρόσβασης."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "Παρακαλώ ελέγξτε το εισερχόμενο σας ή τον φάκελο SPAM για να βρείτε το σύνδεσμο."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "Ανάκτηση κωδικού πρόσβασης"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχετε ακόμα κανένα ομάδα προφητείας καταχωρημένη! Για να ξεκινήσετε, δημιουργήστε την πρώτη σας ομάδα κάνοντας κλικ στο κουμπί \"Νέο\"."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "Διαχειριστείτε τις πληροφορίες της εκκλησίας"
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "Δημοσιεύτες"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "Εγγραφή απεριόριστων εκδοτών και διαχείριση των πληροφοριών τους"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "Ζωή και Υπουργείο"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "Προγραμματίστε αυτόματα τις αναθέσεις για τη συνάντηση"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "Μελέτη του <em>Η Σκοπιά</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "Προγραμματίστε αυτόματα τους συμμετέχοντες για τη συνάντηση"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "Δημόσιοι ομιλητές"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "Καταχωρίστε τοπικούς ή επισκεπτόμενους δημόσιους ομιλητές"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "Οργανώστε τις επισκέψεις και τις εξόδους των ομιλητών και τις φιλοξενίες τους"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "Ομάδες υπηρεσιών"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "Δημιουργήστε ομάδες, αναθέστε τον υπηρέτη της ομάδας και τον βοηθό"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "Αναφορές κηρύγματος"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "Καταχωρίστε ή προβάλετε, ζητήστε και αναθεωρήστε τις μηνιαίες αναφορές κηρύγματος"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "Διαχείριση εργασιών εθελοντών για οδηγούς"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "Επίσκεψη του επιτρόπου της περιοχής"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "Προγραμματίστε την επίσκεψη του εποπτεύοντα της περιοχής στην εκκλησία"
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "Δημοσιεύσεις"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "Διατηρήστε μια ακριβή και ενημερωμένη έκθεση, δείτε τάσεις και αποφύγετε την συσσώρευση"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "Κρατήστε ένα αρχείο της συμμετοχής στις συνεδριάσεις"
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "Αντίγραφα ασφαλείας"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "Δημιουργήστε αντίγραφα ασφαλείας των πιο σημαντικών πληροφοριών"
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "Προσθέστε τα προσωπικά σας δεδομένα, αλλάξτε την εμφάνιση ή τη γλώσσα, μεταξύ άλλων"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "Αναφέρετε ένα πρόβλημα"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "Συμμετοχή:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "Προνόμιο:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "Δεν έχετε υποβάλει την αναφορά σας."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχεις ακόμα καταγράψει τίποτα! Για να ξεκινήσεις, κάνε κλικ στο κουμπί \"Νέο\"."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "Στο Kingdom Hall Attendant, χρησιμοποιούμε κυρίως ένα σύστημα εγγραφής χωρίς κωδικούς πρόσβασης. Πιστεύουμε ότι είναι καλύτερο να μην αναγκάζουμε τους χρήστες να ορίσουν έναν κωδικό πρόσβασης, καθώς αυτό μπορεί να δημιουργήσει περισσότερους κινδύνους ασφαλείας (περισσότερες λεπτομέρειες παρακάτω)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "Πώς λειτουργεί η εγγραφή χωρίς κωδικούς πρόσβασης;"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "Εισάγετε το email σας και το σύστημα αναγνωρίζει αμέσως αν έχετε ήδη λογαριασμό ή αν είστε νέος χρήστης."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "Εάν έχετε ήδη λογαριασμό"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "θα σας στείλουμε ένα email με έναν μοναδικό σύνδεσμο που θα σας επιτρέψει να έχετε πρόσβαση στο Kingdom Hall Attendant. Αυτός ο σύνδεσμος θα σας κρατήσει αυθεντικοποιημένο για 30 ημέρες στη συγκεκριμένη συσκευή."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "Εάν είστε νέος χρήστης"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "θα σας καθοδηγήσουμε στη δημιουργία του λογαριασμού σας. Μέσω του συνδέσμου που εστάλη μέσω email θα ολοκληρώσετε τη διαδικασία εγγραφής και θα μπορέσετε να αρχίσετε να χρησιμοποιείτε την εφαρμογή."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "Πώς λειτουργεί αν ορίσετε έναν κωδικό πρόσβασης;"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "Εάν προτιμάτε να ρυθμίσετε έναν κωδικό πρόσβασης, μπορείτε να το κάνετε από την ενότητα \"Ασφάλεια\" στις ρυθμίσεις του λογαριασμού σας. Όταν συνδέεστε στο μέλλον, μετά την εισαγωγή του email σας, θα σας ζητηθεί να εισάγετε τον κωδικό πρόσβασης σας. Εάν δεν θυμάστε τον κωδικό πρόσβασης σας, θα έχετε δύο επιλογές:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "Στείλτε μου ένα email:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "Λειτουργεί το ίδιο όπως το σύστημα χωρίς κωδικό πρόσβασης, με έναν σύνδεσμο για σύνδεση."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "Επαναφέρετε τον κωδικό πρόσβασής μου:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "Θα λάβετε ένα email για να ορίσετε έναν νέο κωδικό πρόσβασης και να εξασφαλίσετε την πρόσβασή σας."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "Ασφάλεια"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "Αν και μπορεί να φαίνεται αντιφατικό, οι κωδικοί πρόσβασης δεν είναι πάντα η πιο ασφαλής επιλογή. Μπορεί να είναι δύσκολο να τους θυμηθείτε και εύκολο να τους μαντέψουν οι απατεώνες. Πολλοί άνθρωποι δεν χρησιμοποιούν διαχειριστές κωδικών πρόσβασης και συχνά επαναχρησιμοποιούν κωδικούς πρόσβασης ή επιλέγουν προφανείς επιλογές, όπως η ημερομηνία γέννησης ή το όνομα του κατοικίδιου τους."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "Επιπλέον, οι περισσότεροι ιστότοποι επιτρέπουν την επαναφορά του κωδικού πρόσβασης μέσω email, κάτι που μπορεί να εκμεταλλευτούν οι απατεώνες αν το email σας έχει παραβιαστεί. Για να μειώσετε αυτούς τους κινδύνους, προτείνουμε να ενεργοποιήσετε τη διαδικασία επαλήθευσης δύο παραγόντων (2FA) χρησιμοποιώντας εφαρμογές όπως το Google Authenticator για να βελτιώσετε την ασφάλεια του λογαριασμού σας."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "Οφέλη της αυθεντικοποίησης χωρίς κωδικούς πρόσβασης"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "Σύμφωνα με το Auth0:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "Η αυθεντικοποίηση χωρίς κωδικούς πρόσβασης, από τη φύση της, εξαλείφει το πρόβλημα της χρήσης μη ασφαλών κωδικών πρόσβασης. Αυτό σημαίνει ότι ένα από τα πιο κοινά λάθη των χρηστών εξαλείφεται από τη διαδικασία σύνδεσης. Όχι μόνο είναι ασφαλές, αλλά θα μπορούσε να είναι ακόμη πιο ασφαλές από την παραδοσιακή μέθοδο χρήστη και κωδικού πρόσβασης."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "Ποιος άλλος χρησιμοποιεί μαγικά λινκ για να εγγραφεί;"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "Διάφορες δημοφιλείς εφαρμογές έχουν επίσης υιοθετήσει την αυθεντικοποίηση χωρίς κωδικούς πρόσβασης με μαγικά λινκ:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "μια εφαρμογή μηνυμάτων"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "μια τραπεζική εφαρμογή"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "μια υπηρεσία φιλοξενίας"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "μια πλατφόρμα CRM"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "μια εφαρμογή για οργάνωση και σημειώσεις"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "Σύνδεση"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "Ξέχασα τον κωδικό πρόσβασης"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "Συνδεθείτε"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "Δεν έχετε λογαριασμό;"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "Δημιουργήστε έναν δωρεάν λογαριασμό"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "Να επιστρέψετε σύντομα!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "Ή επιστρέψτε στο"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "Το καλύτερο εργαλείο για τις εκκλησίες των Μαρτύρων του Ιεχωβά"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "Σε κάθε εκκλησία των Μαρτύρων του Ιεχωβά, η αποτελεσματική οργάνωση είναι το κλειδί για να εστιάσουμε σε αυτό που πραγματικά έχει σημασία. Ωστόσο, πολλά από τα διαθέσιμα εργαλεία σήμερα είναι δαπανηρά, περίπλοκα ή δεν προσαρμόζονται καλά στις ανάγκες των εκκλησιών. Γι' αυτό παρουσιάζουμε τον Βοηθό της Αίθουσας του Βασιλείου (KHA), μια πρακτική και προσβάσιμη λύση για τη διαχείριση διοικητικών εργασιών με απλότητα."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "Ο Βοηθός Βασιλείου δημιουργήθηκε για να προσφέρει ένα δωρεάν, ασφαλές και χωρίς διαφημίσεις εργαλείο, που λειτουργεί σε οποιαδήποτε συσκευή και πρόγραμμα περιήγησης. Σκοπός του είναι να διευκολύνει τη διαχείριση των διοικητικών καθηκόντων των εκκλησιών, επιτρέποντας το χρόνο να αφιερωθεί στην κύρια αποστολή. Δεν σχεδιάσαμε απλώς μία εφαρμογή· χτίσαμε ένα εργαλείο φτιαγμένο για να είναι διαισθητικό, προσβάσιμο και που μπορεί να χρησιμοποιηθεί από οποιαδήποτε εκκλησία χωρίς περίπλοκες διαδικασίες."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "Αναπτυγμένο από τον Livrädo Sandoval, με την υποστήριξη μιας ενεργής κοινότητας συνεργατών στο GitHub, το KHA είναι μια διαλειτουργική εφαρμογή που λειτουργεί σε Windows, macOS, Linux, iPads και Android ταμπλέτες, με πρόσβαση από οποιοδήποτε πρόγραμμα περιήγησης. Η ευχρηστία και η ασφάλεια ήταν οι προτεραιότητές μας από την πρώτη μέρα. Κάθε πτυχή έχει σχεδιαστεί ώστε να διασφαλίζει ότι μπορείς να έχεις πρόσβαση στα διοικητικά σου εργαλεία όπου κι αν τα χρειάζεσαι."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "Η δέσμευσή μας είναι ότι το KHA θα είναι πάντα δωρεάν, χωρίς κρυφές συνδρομές ή ημερομηνίες λήξης. Επιπλέον, παίρνουμε πολύ σοβαρά την ασφάλεια και την ιδιωτικότητα των δεδομένων: είναι κωδικοποιημένα και δεν παρακολουθούνται ποτέ. Μέσω ενός ασφαλούς συστήματος μετάδοσης δεδομένων, προστατεύουμε τις πληροφορίες σας αποτελεσματικά."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "Αυτή τη στιγμή, το KHA βρίσκεται σε φάση BETA και σχεδιάζουμε μια επίσημη κυκλοφορία την άνοιξη του 2025. Αλλά αυτό είναι μόνο η αρχή. Είμαστε δεσμευμένοι για συνεχή βελτίωση και ακούμε ενεργά την κοινότητά μας για να συνεχίσουμε να εξελισσόμαστε. Σκοπός μας είναι να παρέχουμε ένα εργαλείο που να είναι χρήσιμο και σχετικό, που να προσαρμόζεται στις ανάγκες των εκκλησιών σήμερα και στο μέλλον."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "Αν και το KHA είναι και θα παραμείνει δωρεάν, προσκαλούμε όσους επιθυμούν να υποστηρίξουν το έργο μέσω δωρεών ή εγγραφής στην Golden Edition μας ✨. Αυτό θα μας επιτρέψει να συνεχίσουμε να βελτιώνουμε και να προσφέρουμε συνεχείς ενημερώσεις προς όφελος όλων των εκκλησιών."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "Δεν βρέθηκαν δεδομένα προς προβολή."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "Μανιφέστο"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "Εγγραφή"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "Δωρεά"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "Προσθέστε ξένο ομιλητή"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχετε κανέναν ομιλητή καταγεγραμμένο! Για να ξεκινήσετε, δημιουργήστε τον πρώτο σας ομιλητή κάνοντας κλικ στο κουμπί \"Νέο\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Δεν έχετε κανέναν εκδότη καταγεγραμμένο! Για να ξεκινήσετε, δημιουργήστε τον πρώτο σας εκδότη κάνοντας κλικ στο κουμπί \"Νέο\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "Ασφάλεια στο Kingdom Hall Attendant"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "Ασφαλής Σύνδεση:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "Στο Kingdom Hall Attendant, κάθε σύνδεση είναι ένα φρούριο. Χρησιμοποιούμε"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "για να κωδικοποιήσουμε τα κωδικά σας, διασφαλίζοντας ότι ακόμη και αν κάποιος προσπαθήσει να αποκτήσει πρόσβαση στη βάση δεδομένων μας, τα διαπιστευτήριά σας θα παραμείνουν απρόσιτα. Επιπλέον, κάθε φορά που συνδέεστε, σας στέλνουμε μια ειδοποίηση μέσω ηλεκτρονικού ταχυδρομείου ώστε να μπορείτε να εντοπίσετε αμέσως οποιαδήποτε μη εξουσιοδοτημένη πρόσβαση."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "Ασφαλής Διαχείριση Συνεδριών:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "Οι συνεδρίες διαχειρίζονται με τη μέγιστη προσοχή. Ποτέ δεν αποθηκεύουμε ευαίσθητες πληροφορίες στον πελάτη, διασφαλίζοντας ότι η ιδιωτικότητά σας είναι πάντα προστατευμένη. Είναι σαν να έχετε έναν φρουρό που παρακολουθεί τα δεδομένα σας κάθε στιγμή."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "Υποστήριξη CSRF:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "Χρησιμοποιούμε το CSRFProtect για να σας προστατεύσουμε από επιθέσεις πλαστογράφησης αιτημάτων. Αυτό σημαίνει ότι οι ενέργειές σας στην εφαρμογή είναι πάντα αυθεντικές και ασφαλείς, όπως αν είχατε μια αόρατη ασπίδα που προστατεύει κάθε κλικ."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "Διαχείριση Ασφαλών Τοκέν:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "Δημιουργούμε υπέρ-ασφαλή τοκέν για επιβεβαίωση email και αποκατάσταση κωδικών. Αυτά τα τοκέν είναι σαν κλειδιά, διασφαλίζοντας ότι μόνο εσύ μπορείς να έχεις πρόσβαση στον λογαριασμό σου, ακόμα και σε επείγουσες καταστάσεις."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "Ασφαλείς Σύνδεσμοι Βάσης Δεδομένων:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "Βεβαιωνόμαστε ότι όλες οι συνδέσεις στη βάση δεδομένων κλείνουν σωστά, αποφεύγοντας διαρροές πληροφοριών και διασφαλίζοντας την ακεραιότητα των δεδομένων σου. Είναι σαν να κλείνεις την πόρτα μιας θυρίδας μετά από κάθε χρήση."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "Όρια Ρυθμιστικά:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "Με το Flask-Limiter, περιορίζουμε τις αιτήσεις για να αποτρέψουμε επιθέσεις brute force. Είναι σαν να έχεις έναν πορτιέρη που ελέγχει τη ροή των επισκεπτών, διασφαλίζοντας ότι μόνο οι νόμιμες αιτήσεις περνούν."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "Καταγραφή και Παρακολούθηση:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "Εφαρμόσαμε ένα ισχυρό σύστημα καταγραφής για να παρακολουθούμε τις δραστηριότητες και τα σφάλματα. Αυτό μας επιτρέπει να εντοπίζουμε και να αντιδρούμε σε τυχόν περιστατικά ασφαλείας προληπτικά, όπως να έχουμε ένα σύστημα ανίχνευσης που σας προειδοποιεί για τυχόν ανωμαλίες."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "Χρήση Μεταβλητών Περιβάλλοντος:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "Χρησιμοποιούμε το dotenv για να διαχειριστούμε ευαίσθητες ρυθμίσεις όπως μυστικά κλειδιά και διαπιστευτήρια email, διατηρώντας τα εκτός πηγαίου κώδικα και μακριά από τα αδιάκριτα βλέμματα. Είναι σαν να αποθηκεύεις τα πιο πολύτιμα μυστικά σου σε μια θυρίδα."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "Ο μαγικός σας σύνδεσμος είναι καθ' οδόν!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "Το έχουμε στείλει στο"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "Θα ανακατευθυνθείτε από τον σύνδεσμο email. Μπορείτε να κλείσετε αυτήν την καρτέλα χωρίς προβλήματα."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "Επαναποστολή σύνδεσμος"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "Αφού συνεχίσετε με την εγγραφή, θα σας στείλουμε έναν μαγικό σύνδεσμο στο email σας. Παρακαλούμε ελέγξτε τα εισερχόμενά σας ή τον φάκελο SPAM για να βρείτε τον σύνδεσμο και να ολοκληρώσετε την εγγραφή σας."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "Συνεχίστε"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "Εβδομάδα του"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "Επίσκεψη του Επιτρόπου Περιφέρειας"
 
