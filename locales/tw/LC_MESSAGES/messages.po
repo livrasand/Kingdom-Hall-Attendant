@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:16\n"
+"PO-Revision-Date: 2024-12-10 14:52\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: tw_TW\n"
 "Language-Team: Akan, Twi\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "Ɛda yi nni hɔ anaasɛ abɔdin a ɛho hia mpo a ṹkɔ yare so nsɛm maan mframa"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "Mepa wo kyɛw, kɔ"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "Pɛntɛn"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "Nhyiaa wɔ nsi no mu"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "Twerɛ wo kɔngregɛyɛn"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "Mɔden:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "Paw bɔ ho nkɔmɔ"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "Mpɔtam anɔpatutuo:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "Nsu a ɛda ho adi:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "Bɔkɔ a ɛda ho adi:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "Nsu a ɛda ho adi:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "Nhyiaa da mu:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "Mpɔtam 1"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "Mpɔtam 2"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "Mpɔtam 3"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "Mpɔtam 4"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "Mpɔtam 5"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "Nni nhyia baako."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "Mpɔtam a ɛda ho adi:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "Nhyia"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "Mpɔtam a edi kan"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "Mpɔtam a ɛtɔ so mmienu"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "Mpɔtam a ɛtɔ so mmiɛnsa"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "Mpɔtam a ɛtɔ so anan"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "Mpɔtam a ɛtɔ so anɔ"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "Nnawɔtwe"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "Mpɔtam a ɛda ho adi de mpɔtam a ɛda ho adi"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "Sie"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "Sɛm a ɛyɛ asɛm"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "Fɔm"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "Asɛm, fɛfɛɛfɛ ne yɛnntotɔ"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "Ɛda:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "Asɛm a ɛyɛ asɛm:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1872 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "Wɔamfa ka ho"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "Asɛm a ɛyɛ asɛm:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "Platoforma:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "Mikrofɔne:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "Aakomɔde r:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "Ntintin foforɔ a ɛyɛ video nkɔmmɔda:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Nnkyiridɔm a nni hɔ a woreyɛ ɛ! Sɛ wopɛ sɛ wopɛ nkɔyɛ anaa, bɔ nkɔyɛ a yɛnsa no \"Foforɔ\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "Nsɛm abatoɔ ho nhyehyɛe"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "Bɔ mu"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "N° nkuto mpɛ sɛ wɔkyerɛ:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "N° nkuto amansan pɛ sɛ wɔkyerɛ:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "N° nkuto a wɔwɔ videokɔnferens no mu:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "N° nkuto a wɔkyerɛ ɔman no mu:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "N° nkuto a wɔyɛ nkyerɛmu ho nhyehyɛe:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "N° nkuto a wɔyɛ videokɔnferens no mu:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "Kan yɛ ɔkɛse bebree wɔ ɔkɛse ɔbenada."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "Nkyerɛw nsɛm foforɔ"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "Kɔkɔɔ nsɛm"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "Nnɔma a wɔntɔ wɔn so"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "Anaa wɔantɔ"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "Okyerɛfo: "
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "Kɔngregɛyɛn:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "Abɔnten"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "Wɔpɛ: "
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "Ɔyɛ abɛfoɔ"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Nfa nsɛm foforɔ! Sɛ wobɛyɛ no a, nfa nsɛm a ɛda so no, pɛ sɛ wobɔ tɔ nɔma \"Fɔm\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "Sesa wo wɛbsaet mu"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "Sesa wo wɛbsaet mu..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "E-mail"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "Bɔ wo email kɔ ma yɛmfa baako a bɛboa w’akwan so yɛn nsɛm."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "Mɛma kɔ mmae"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "Mmere"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "Kasa"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "Sɛpan"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "Bramfie"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "Italye"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "Fransɛ"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "Nka"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "Poɔtugesi"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "Din"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "Nsɛm"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "Sɛmpɛ"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "Abɔfoɔ krataa"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "Dɔm"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "Nkuto a ɛyɛ n'ahoto"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "Nananom"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "Aborɔfoɔ a ɔyɛ adwuma"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "Nkɔmɔyɛ"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "Sesa wɛbsaet mu"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "Popa wɛbsaet nsɛm no"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "Wo akawunt no bɛwo akwan no so awiee no, wankanye hɔ mmerɛ 3. Eyi kyerɛ sɛ, wo nsɛm a ɛda ho wɔ KHA bɛsi a, ebegye nsɛm no nyinaa fi."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wo akawunt no yɛ mmerɛ a nseese a, to so sɛ asɛm a, bɔ yɛn ho dawuro. Yɛbɛdɔ wo akawunt no na yɛda so sɛ obi nni ho kwan a wɔhyɛ nsɛm a ɛda mu no."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wode abɛn wo foforɔ nhyɛtɔ a..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Wɔma nkuto foforɔ"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "Dɔ afɔremuka..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "Mepa wo akyɛw, yɛmpɛ asɛm a ɛyɛ mmerɛ."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wunya w'akawunt no nyansa na fa, na nyansa nyinaa a Kingdom Hall Attendant de bɛma."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "Wɛbsaet ɛda mu"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "Sɔw"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "Wʼanya akawunt bi ana?"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "Bɔ mu"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "Kɔngregɛyɛn"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "Nɔma"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "Dwowda"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "Baako"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "Memeneda"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "Yawda"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "Fida"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "Memeneda"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "Kwasida"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "Nhyira a ɛbɛyɛ dɛ no"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "Ahyɛ aɛ ho adwuma"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "Nnwanwankyɛm a ɔkɛse no"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "Nkuto a ɛyɛ n'ahoto"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "Fɔn no"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "Nkuto"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "Sie yi akwan no mu"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "Nkɔmmɔ ho mmerɛda"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "Nsɛm a ɛfa nsɛm a wɔapaw ho no: Saa ho kwan yi ma ɛyɛ mmerɛw ma ɛyɛ den sɛ wɔbɛyɛ adwuma firi ɛyɛfoɔ a wɔda ho adi, na ɛma ɔyɛfoɔ no nya asɛm a ɔbɛka fa ne nsɛm ho. Sɛ wopɛ sɛ wode saa ho akwan yi yɛ adwuma a, ɛbɛboa wʼani so na ɛbɛma nsɛm a ɛda ho adi no ayɛ papa, efisɛ nsɛm no bɛda ho adi wɔ ɔman mu na ɛnyɛ wɔ hɔ a wɔrebɔ ho ban. Wu ntoaso yɛ nsɛm a ɛda ho adi no a, ɛbɛtumi akɔfa nsɛm a ɛda ho adi no mu. Sɛ wopɛ nsɛm a ɛda ho adi fa ho a, kɔ mpɛn a wɔnkyerɛ nsɛm a ɛda ho adi."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "sɔretɔ hom anaa"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "Sɔretɔ hom"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "Sakɔ nsɛm"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wososo nsɛm a ɛda wo ho adi no a, ɛyɛ ɔhaw a ɛda ho adi sɛ ɔbɛboa wo a, woma nsɛm a ɛda hɔ asɛm a ɛda ho adi no. Sɛ wopɛ sɔretɔ ho koraa a, anka ɛyɛ bɔne sɛ ɛbɛma nsɛm a ɛda hɔ no mu. Na sɛ nsɛm bi a ɛda ho adi no mu no, ma fa nsɛm a ɛda ho adi no mu."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "Sɔ konsernte sɔretɔ hom"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "Saa ho kwan yi bɛn kɔ nsɛm a ɛda ho adi no mu, na ɛyɛ a ɛda ho adi sɛ ɔbɛtaa wo wɔ ɔkwan a ɛda ho adi. Sɛ wopɛ sɛ wosɔ nsɛm a ɛda ho adi no a, ɛyɛ ɔhaw a ɛda ho adi sɛ ɔbɛboa wo a, na ɛma nsɛm a ɛda hɔ asɛm a ɛda ho adi no. Sɛ wopɛ sɔretɔ ho koraa a, anka ɛyɛ bɔne sɛ ɛbɛma nsɛm a ɛda hɔ no mu."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "Bɛkɔ so nsɛm no mu"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "Fa nsɛm a ɛda hɔ no mu"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "Saa ho kwan yi bɛn fa nsɛm a ɛda ho adi no mu. Sɛ wopɛ sɛ wode nsɛm a ɛda hɔ adi no mu a, fa nsɛm no mu a, bɛma nsɛm a ɛda ho adi no mu."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "Sɛsa nsɛm a ɛda ho adi no, Kingdom Hall Attendant ma ɛyɛ mmerɛ a esisi yɛn mu."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "Sesa nsɛm a ɛda ho adi no ansa na wotumi de wɔ mu"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "Paw bɔkɔdɔ bɔkɔ:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "Pɛ ntɛm a ɛbɛyɛ a wo bɛka ho"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "Fa"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "de bɛyɛ a wo pɛ ntɛm no nyinaa."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "Tɔ"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "Bɔkɔɔ:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "Bɔne:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- Pɛ ɔdɔ --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- Pɛ Video --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- Pɛ Platform --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- Pɛ Micrófono --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- Pɛ Acomodador --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- Pɛ Acomodador de Videoconferencia --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "Okyerɛfoɔ"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "Ɔno na ɔyɛ ɔkɛse nkuto no asɔfoɔ"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "Nkɔmhyɛ mu nɔma"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "Ɔkɔmfo no abɔ bosome yi mu:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "Ɔkɔmfo no nsa da so mmerɛ akwan pa biara mpɛ."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "Nhyiamu:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "Nsɛm a ɛda hɔ"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "Sɛ ɔkɔmfo no pɛ sɛ ɔbɛba ɔkɔka nsɛm a, ma ho nhwɛso"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "Amanne nyansahɔ na ɛda hɔ"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "Oda so a ɛda hɔ"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "Oda so yɛnka nkɔmhyɛ mu"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "Nsɛm a wɔda hɔ:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "Wahyɛman:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "Paw ɔkɛse"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "Abɔdwasɛm mmɔho:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "Paw ɔkɔmfoɔ"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "Lɛkɛti a ɛda hɔ <em>La Atalaya</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "Abɔdwasɛm a ɛda so:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "Paw ɔkɛse"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "Abɔdin a ɛda hɔ"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "Abɔfoɔ ho bɔ"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "Paw ɔkɔmfɔ ho"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "Abɔfoɔ a ɛda hɔ"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "Paw abɔfoɔ"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "Nkɔmɔ mmerɛ nhyiam no"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "Ma nhyiamu nhyira"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "Fa mma akwan nhyira no mu"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "Fa mu sɛ nhyia no bɛyɛ mmɔho a"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "Din:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "Mmerɛbɔ:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "Pɛ ɔbosome baako"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "Afe:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "Afe"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "Wɔyɛɛ ɔkwan biara mu ka ho"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "Bɔkɔm asɛm:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "Akwankyerɛ bɔkɔm"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "Dɔnhwere:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "Dɔnhwere"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "Nkyerɛkyerɛ:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "Twerɛ wo nkyerɛmu wɔ ha..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "Obosome"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "Mmɔden"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "Nkyerɛkyerɛ bɔkɔm"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "Nkyerɛkyerɛ"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "Sikampɛn"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "Aane"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "Daabi"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "Nhyɛso mfidie"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "Sɛ yɛnni nsɛm a ɛda a ɔkɔmfo no ntumi mfa nsɛm a wɔreyɛ no ho. Sɛ biribi a yɛyɛ a ɛda so frɛ nyansa a ebinom frɛ \"Abɔfoɔ\". Sɛ wopɛ nsɛm a wɔbɛyɛ nhyɛ so a, che nsɛm <em>S-28</em>. Sɛ wopɛ sɛ wopɛ \"Nsɛm a wɔde bɛyɛ nsonsoɔ na boɔ mu\" nohwɛ <em>S-56</em> ɛda bɛn wo man no ho,."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "Sie nsa gu so akwan"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "Paw nhyɛm mpo"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "Nsɛm a ɔkɔka"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "Akwantu a ahyɛ so "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "Sɛ ɔkɔkɔ no yɛ abɔfoɔ, bɔ mmɔden na fankara no"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "Mmobɔyɛ"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "Fonɔ"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "Kɛseɛ"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "Sɛvɛm anaa"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "Akɔdaa a wɔakɔ da"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "Nkuto a ɛda ho adi"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "Mmarima"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "Mmaa"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ woyɛ nokware na wobɛtɔ nkyerɛyɛmu a, di nsɛm a ɛda so yi so: Sɛnea ɛda so no, fa ɔkwan a ɔtɔ fa yɛ wʼano. Afei, bɔ nkyerɛmu no ho ban. Sɛ woyi a, bɔ adwuma no ho do pefee."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "Krɔnkrɔn no ne"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "Krɔnkrɔn no anaa ɔbaako"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "Sɛ yɛbɛyɛ ɔbɔɔ"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "Abusua:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "Sɛ wopɛ a, pɔw ɔkrɔn no yɛ"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "Nkyekyɛmu"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "yere"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "ba"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "bɔ"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "fi ɔdɔ no mu"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "Awo da"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "Adres"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "Nukɔmfa data"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "Nsɔhwɛdɔ"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "Nsɔhwɛda"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "Asɔre a wɔbɔ ɔbɔfoɔ"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "Paw ɔbɔfoɔ"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "Wɔtɔrɔ La Atalaya (akwanhye a ɛda ho adi)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "Wɔtɔrɔ Nkyerɛkyerɛ Guide"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "Nswabɔfoɔ a wante nwɔtwe"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "Nkyerɛkyerɛfoɔ berɛ a ɔyɛ ɔbɔfoɔ (ɔbɛyɛ ɔbɛyɛ <b>3</b> ɔsram anaa bɔne a ɛyɛ ɛda ho) "
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "Nhyira"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "Abɔfra"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "Wɔsan ntɔkɔ ho"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "Awurade"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "Nkwankyerɛ"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "Ɔyɛɛ abɔdeɛ biara"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "Asɛm a wate nka"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "Atwefoɔ"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "Tɔkɔm"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "Yare"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "LDC yɛ ɔpɛ"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "EPC yɛ ɔpɛ"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "Wɔwɔ Nkyakora Korɔ"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "Fa Nkyerɛ Nkyakora"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "Akwan da no ho akwan"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "Áyɛ"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "Wɔde a"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "Wɔwɔ hɔ"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "Eyi nsɛm mu"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "Bɔ no ho"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "Nhyehyɛ"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "Nni"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "Abɛremudɔm"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "Dɔyɛ"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "Ahyɛnsodeɛ a wɔyɛ"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "Nkyɛsoɔ wɔn a wɔwɔ"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "Nkyerɛkɔmfoɔ a ɛyɛ pɛn"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "Nkyɛsoɔ kɛseɛ"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "Misiɔneɛ"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "Bɔ mu kɔ ɔwɛn no ho"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "Ntɔtɔ nson"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "Nnaase"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "Nkwankyerɛ nwanwa (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "Oyi de mu asɛm a ɛda hɔ"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "Da kɔtɔ ho da mu"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "Asɛm a ɛda hɔ"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "Kɔordinatoɔ Kɔkɔtɔ a ɔda ho adi"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "Kyerɛkyerɛni"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "Nhyɛda a ɛda ho adi"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ w'ankasa"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "Sɛnkanee a ɛfa nsɛm ne mfonini ho"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ abibifuo nsɛm ho"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "Sɛnkanee a ɛfa asɛm ho"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "Sɛnkanee a ɛfa ɔbo no ho"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "Sɔkɔ Mfantse a wɔyɛ no ho"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "Nhyiam me ho sɛnkanee no"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "Nhyiam ɔkɔda"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "Betel a wɔyɛ na ɔtɔ me ho"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "Betel a ɔda ɔhɔho"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "Betel a ɔda ɔhɔho"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "Dodoɔ no ɔde ayɛ no"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "Sɛnkanee bɔ tumi no yɛ"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "Sɛnkanee a wɔyɛ fa akwan anaa asɛm"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ mmiɛnsa yɛ a Ɔbɛnfoɔ sɔhwɛ no nya"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ kyerɛw nsɛm"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ akwanho"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ abɛn ho"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "Sɛnkanee a ɛfa ɔyɛ ho"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ ɔmoma ahorow ho"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "Sɛnkanee a ɛfa nsɛm ne akwan ho"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ abɛfoɔ ho"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "Betel"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ ɔyɛfoɔ"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "Ɔmanfoɔ a wɔyɛ ɔyɛfoɔ ho"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "Ɔyɛ a ɛfa nkyerɛ nhwɛ so"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "Ɔbɔfɛm nsɛm"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "Paw nyinaa"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "Pɛsɛdeɛ"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "Mpaeɛ"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "Nkɔmmɔ (10 na min)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "Yɛnkɔbɔ abɛn a wudii na kɔkɔ"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "Bɔ Bible ho dwuma"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "Momma yɛn nyansa a yɛyɛ yɛn nkyerɛkyerɛ"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "Nsɛm a wɔyɛ no ho"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "Sɛnkanee nsɛm"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "Yɛyɛ nkɔmbɔfoɔ"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "Yɛyɛ akyɛdeɛ"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "Mfa nnhyehyɛ mu"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "Kyerɛ wɔn botaeɛ"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "Hyɛ akenkan"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "Nkɔmmɔ"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "Fa yɛde yɛ nea yɛda so"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "Yɛn nkwa kɛse no"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "Nhyiam a wɔpɛ"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "Asɛm a ɛfa Bible ho a wɔyɛ wɔ abatoɔ no mu"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "Nkyerɛkyerɛfo"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "ATAMAYAN KƆRƆN"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "Sɔfo a ɔkɔ da"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "Sɔfo a ɔyɛ ɔman mu"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "Abatoɔ no ɔpanyin"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "Abatoɔ no Nkyerɛkyerɛfo"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "Nhyɛda ma nsɛmfua"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "ADWENE"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "Din ɛyɛ audios"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "Platform"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "Nhyɛda wɔ Zoom"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "Mikrofon"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "Nhyɛda wɔ Zoom"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "Ɔkɔtɔyɛfo"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "BƆLNEY"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "Akwaaba ma abatoɔ mu mpɔtam anaa sɛ nhyehye"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "Bɔ abatoɔ mpɔtam mu anaa ho asɛm"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "Prɔw wɔ abatoɔ mpɔtam mu"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "AHOƆFƐ"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "Abatoɔ mpɔtam nhyehye"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "Nsɛmfua bɔ abatoɔ no ho"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "Ahyɛdan a wotumi yɛ ho asɛm"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "Abatoɔ mpɔtam nsɛm"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "Abatoɔ mpɔtam nsɛm pɛ"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "Ahyɛdan a wewe ho"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "Firi Fɔmini"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "Nsɛm a wɔsanasɛn no mu"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "Rekɔ..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "Akɔnoɔ"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "Ɛnnɛ"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "Nkyɛ"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "Pancesi mu ɔfrɛbɔfoɔ"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "Odiyifoɔ:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "Pancesi mu odiyifoɔ"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "Kɔkɔɔ:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "Pancesi mu kɔkɔɔ"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "Nkyerɛfoɔ:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "Pancesi mu nkyerɛfoɔ"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "Nkyɛmda:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "Pancesi mu nkyɛmda"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "Nneɛma a edi kan:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "Nhyɛhyɛ:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "Ahyehyɛda"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "Anɔpa"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "Adidibea"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "Anadwo"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "MƆFƆ"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "Abatoɔ mpɔtam mpɔtam"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "Abatoɔ mpɔtam"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "Nsɛm a ɛfa abatoɔ ho"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "Abatoɔ nkɔ nsɛm"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "Abatoɔ mpɔtam ma nsɛm"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "Nkɔmhyɛ nhyɛ nsɛm"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "Nsɛm ma:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "Ɔbra"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "Ɔbɔfra"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "Dɔnhwerɛ:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "Dɔnhwere:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "Dɔnhwere"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*Fa dɔn 24 dɔnhwere mu"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "Ewiase kwan:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "Ahenfie"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "Wɔ ɔman no mu"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "Nni nsɛm biara"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "Abusua"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "Eyi yɛ ntɛm! Yɛn hu sɛ wopɛ sɛ ɔda asɛm ho a, nanso asɛm a ɛyɛ mmerɛ ne nsɛm no abɔ a. Mma ho nnyi, na ɛtɔ da benada kosii sɛ wopɛ sɛ kɔ so."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "Nkwan:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wuhuu nsɛm yi wɔ baako so a, wubetumi ayɛ nokware 50 nsɛm wɔ ɔsram biako anaa 200 nsɛm awɔ ɔpɛ. Ba biom na kɔ to mu sɛ yɛyɛ Kingdom Hall Attendant da."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "Fikwan a ɛda mu"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "Nneɛma a edi kan:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wunnya nsɛm a wɔakɔ akɔda ho fo! Sɛ wopɛ sɛ wosɔ wɔn a, to mu \"Foforɔ\"."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "Sesa wo nan"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "Kɔyɛ me nsɛm a wɔyɛɛ afiri no, na yɛbɛma wo ɔkwan a edidi so a ɛbɛma wo asesa nsɛm no."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "Mehyɛ nsɛm a wɔakyerɛw anaasɛ SPAM folder no mu na tɔ nsɛm no."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "San nsɛm a edi so"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wunnya nsɛm a bɔ hɔ ho fo! Sɛ wopɛ sɛ wopɛ bi a, bɔ mu \"Foforɔ\"."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "Sɔre"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "Hyehye ɔman no ho nsɛm"
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "Aborɔfoɔ mpɔtam"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "Nya kɔle a ɛnyɛ adwuma da na sɔ ɔman no ho nsɛm"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "Nkitahodie ne nsɛm"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "Twitwahyɛ man nsɛm a wɔaka ho"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "Nsɛm a ɛda mu <em>La Atalaya</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "Twitwahyɛ wɔn a wɔyɛ akwan ahorow"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "Nsuban a wɔwɔɔ"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "Da nsɛm a wɔntoma bɔ mu anaa"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "Si ɔbɛkɔ akɔmɔden no ahyɛ ɔsomafoɔ"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "Adwumakuo a wɔyɛ adwuma"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "Sɔ yɛku no mu, yɛfrɛ wɔn na ahyɛn a wɔkɔtɔ nkyerɛfoɔ ne wonsomafoɔ"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "Abɔden a yɛyɛ abɔdeɛm"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "Kɔyɛ anaa pɛ, hwehwɛ na kɔyɛ nsɛm a ɛda biara ɔpɛ mu"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "Hyehye ɔman mpɔtam anaa abatoɔ mma ho"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "Visit a ɔman sute"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "Sesa ɔman no ho baa a wɔmfa nkomo no ho"
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "Nkrataa"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "Fa mma ahorow a ama atupa no so, hwɛ nsɛm ahorow na mpɛ sɛ ebeka ho"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "Bɔ ho nsɛm a ɛkɔɔ so wɔ mpɛn baako a"
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "Nwoma bɔdɔkɔ"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "Sɛ kɔahyehyɛ nsɛm a ɛwɔ akwan a ɛho hia"
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "Fa woho nsɛm a ɛyɛ wo dea, sesa ɔkwan a ɛda ho adi anaa kasa no, ne nneɛma foforɔ a ɛka ho"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "Kyerɛyɛ a wɔde yɛ nsɛm"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "Nhyiam:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "Mfaso:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "Wansoma wo nsɛm no."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Merenyɛ ɔdɔm biara! Fa 'Foɔ' batɔn no to so."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "Wɔ Kingdom Hall Attendant, yɛde akwan a ɛnyɛ password na yɛtɔre mu. Yɛgye di sɛ ɛyɛ papa sɛ yɛmfa nsɛm a ɛyɛ password no mmfa mu, efisɛ eyi bɛyɛ bɔne a ɛka ho (nsɛm titri no da ho no ɛda ho)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "Dɛn na ɛyɛ passwordless registration no ho?"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "Wopɛ sɛ woyɛ email a, na ɛyɛ kɔkɔɔ kɔsii sɛ wunya akawnt anaasɛ yɛ abanfo foforɔ."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "Sɛ wunya akawnt dedaw a"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "Yɛbɛsoma wo email a ɛwɔ mu sɛ wopɛ sɛ wunya akwan a ɛyɛ kɛse de bɛkɔ Kingdom Hall Attendant. Saa nkɔsoɔ yi bɛma w'ayɛ nkɔsoɔ 30 da wɔ saa ɔkwan no so."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "Sɛ wopɛ abanfo foforɔ a"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "Yɛbɛma wo kwan sɛ wɔbɛyɛ wo akawnt. Wɔ email a wosomae no mu, bɛda ho adi a ɛyɛ kɔkɔɔ na wo bɛtumi ayɛ ayɛda so."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "Dɛn na ɛyɛ sɛ wopɛ sɛ wode password si mu?"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "Sɛ wopɛ sɛ wode password si mu a, wubetumi ayɛ eyi fi \"Abusua\" mu wɔ akawnt mu ho. Sɛ wopɛ sɛ woyɛ ntɛm daakye a, ɛda ho adi sɛ wode w'email bɛkɔ so, na wɔbɛfrɛ wo sɛ kɔfa password no. Sɛ wunnim wo password a, wubenya mmerɛsanten abien:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "Soma m'email:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "Ɛyɛɛ saa a, ɔkwan a wɔmfa password nni ho, na yɛde nkɔsoɔ bɛkɔ so."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "Sesa m'password:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "Wobɛnya email de bɛyɛ aban foforɔ na w'aboa wo ho."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "Abusua"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "Sɛ mpɔtɔ yɛ adwen na, passwords nyɛ abatoɔ a ɛyɛ mmerɛ ne pɛ. Ɛyɛ mmerɛ sɛ wobehu wɔn na anka sɛ nea ebetumi abɔ wɔ adannandi mu, na nkurofo bebree nsɛm a ɛyɛ mu no nwoma mu."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "Sɛ mpɔtɔ titiriw adwen no nan, nsɛm a ɛyɛ email. Sɛ ɔkyerɛw a, yɛbɛka ho sɛ abatoɔdeɛsɛm a ɛyɛ ahwehwɛfoɔ no bɛyɛ ma ho abatoɔ mu."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "Anigyeɛ a ɛde ntɛm a anka wɔnsɔ"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "Sɛ eyɛ Auth0:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "Nkyerɛkyerɛ a ɛnni nsɛm a wɔkɔda ho, fi ne nkyerɛ mu, bɔ mmɔden yɛ so a ebu da ho asɛm fa nsɛm a ɛnni anigyede ho. Saa nsɛm yi kyerɛ sɛ ɔkwan a ɛyɛ foforɔ no, ɔnkae bɔne bi a ɛyɛ mmerɛ anaa ɔkɔda ho a ɔmanfoɔ, yiye ɔkwan a ɛyɛ foforɔ no. Ɛnyɛ nea ɛyɛ den na ɛyɛ anigye, na mmom ɛbɛyɛ nyansa sen ɔkwan a ɛda ho a ɔmanfoɔ ne nsɛm dɔte ho."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "Hena na ɔbɛda so yɛ kwankyerɛ a ɛyɛ foforɔ no sɛ ɛyɛ a ɔyɛ?"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "Nneɛma a ɛyɛ mpɔtam anaa ɛnam so bɛn mu nsɛm na nsɛm a ɛyɛ dɛ bɔ ahia yebɔ hɔ:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "apɛde a ɔyɛ fɛ"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "apɛde bankye"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "abɔnten a ɔda ho"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "CRM apɛde"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "nkɔmɔ kɔ na nsɛm a ɛyɛ"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "Bɔ mmɔden"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "Mepɛ me nsɛm a ɛda ho"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "Bɔ mmɔden"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "W’anya abatoɔ anaa?"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "Bɔ abatoɔ a ɛyɛ foforɔ"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "Ba bio!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "Anaa bɔ to ho"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "Nkyerɛkyerɛ a ɛyɛ dɛ ma yɛn sɛ Yɛhwɛ Yehu Yesu Kɔpɛ Ayɛn Boɔ"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "Sɛnea yɛn Yɛasomfoɔ no, hosom nyɛ a ɛyɛ fo no, ɛyɛ sɛnea bɛyɛ dɛ. Nanso, nneɛma a etia ne ho a ɛda ho, yɛmfa ho anaa nansa mmrɛ sɛnea nsɛm yɛ a ɛda ho. Yɛn a yɛde yɛde Kɔn nkyerɛ a yɛyɛ a nsɛm adidi ho ma."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "Kingdom Hall Attendant yɛ ɔkwan a nkabom de yɛ adesua mu, na ebia ne ho anaa aban abatoɔ, a ɛyɛ peeling fruits anaa kotodwe mu fɛ. Ɛyɛ abatoɔ a ɛyɛ fɛ de, frɛ mu sɛ ɔkwan no mu."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "Yɛyɛɛ no de ɛyɛ mu bɔkɔɔ bɛn Livrädo Sandoval, a ɔde ɔman a ɛda ho adi anokwa so ɔbɔ mu wɔ GitHub, KHA yɛ ɔman bi a ɛbɔ mu wɔ Windows, macOS, Linux, iPads ne Android tablet so a yɛtumi kɔ so fa browser biara. Nsɛm a ɛyɛ yie ne ɔdɔ ho yɛ yɛn bɔdɔ mu fi da a edi kan no. Abɔdin pɔtee nyinaa yɛde yɛ ho su sɛ wopɛ a, wopɛ a, wopɛ a, wopɛ a, wopɛ a, wopɛ aḥ."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "Yɛn bɔ ama KHA bɛyɛ dea kwan a ɛyɛ den na ɛda ho adi sɛ nni abatoɔ a ɛta na ɛnni da. bio, yɛbɔ yɛn ho pɔ sɛ ɔfɛfɛm adwuma ne a ɛho yɛ hare mmom a wɔka ho. yɛda ho adwene seryɛ ne pɔm no di ama w'asɛm ho."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "KHA da so yɛ wɔ BETA a yɛre yɛ adwuma na yɛreyɛ nsɛm a yɛbɛda hɔ no hyɛ mmerɛw mu anaa ɔsram na ɛkɔda hɔ. Nanso efi ha bɔ mmerɛ nsɛm mmerɛ mu. Yɛdi nsɛm a ɛda wɔn ɔkwan ho dwuma na yɛyɛ sɛnea ɛbɛyɛ a ɔman no nyinaa betumi akɔ so."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "Sɛ sɛnea ɛte a, KHA bɛyɛ dea na ɛbɛyɛ dea a ɛda ho adi. Yɛn bɔ nkyɛfa ho nsɛm no a, wɔn a wɔpɛ sɛ wɔbɛka ho no yɛ bɛn abatoɔ na yɛde yɛn Golden Edition ✨ no. Eyi bɛma yɛatumi kɔ so yɛ nkɔsoɔ na yɛma nsɛm a ɛda no adi no mu nkɔso."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "Ɛnnyina mmerɛ biara nni ho a yɛbɛda no adi."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "Manifesto"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "Kɔɔ ɔyɔnkɔn mu"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "Sɔ"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "Ka ɔkasa foforɔ ho"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wo nni ɔkasa biara a wɔakyɛ! Sɛ wopɛ sɛ wutɔ ɔkasa a, kɔ fa \"Foɔ\" batɔn no."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wo nni ɔdeɛ a wɔakɔtɔ baakoara biara! Sɛ wopɛ sɛ wutɔ ɔdeɛ a, kɔ fa \"Foɔ\" batɔn no."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "Nsɛm a ɛda Kingdom Hall Attendant mu"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "Sɛ ɛda mu a, Kɔn a wɔde bɔ mu:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "Wɔ Kingdom Hall Attendant mu, nsɛm a wote so no yɛ bɛyɛ kurom; yɛde"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "sɛ nsɛm a wɔtɔ so ka ho a, yɛda ho adi sɛ sɛ obi bɛyɛ ɔhaw na ɔbɛtumi aka nsɛm a ɛda ho adi no. Saa a, nsɛm biara a wopɛ a yɛde wo baabi a ɛda mu pɔ a, yɛde nsa yɛ ho na yɛde nhyira no so yɛ mu. Sɛ mpɛn biara a wopɛ sɛ wota firi mu no, na yɛde ɔkɔkɔbɔ kɔ se sɛ ɔbɛtwetwe nsɛm biara a yɛda ho adi."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "Manejo Seguro de Sesiones:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "Náyé, yɛyɛ adwuma no mu ahyɛaseɛ. Our bɔhoɔ mu, yɛmfa nsɛm a ɛyɛ ɔwɔ yɛn kratafa mu. Yɛyɛ a, yɛma w'ananmusere nyinaa yɛyɛ mu."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "CSRF Bɔhoɔ:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "Yɛde CSRFProtect yɛkwan yɛn ho fi ɔman no nsɛm abira yɛfiri mu. Eyi kyerɛ sɛ wo nsɛm da ho pɛ na ɛyɛ mum, sɛnea ɛte sɛ anwanwere mu wɔ hɔ."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "Akwankyerɛ a ɛyɛ mu Tokens:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "Yɛbɔ tokens a ɛyɛ mu sɛ wɔbɛkyerɛw w'adwene ne sɛ wopɛ, na ɛboa ma ɛyɛ w'asɛm kɛse, sɛnea ɛte sɛ anwanwere mu wɔ hɔ."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "Conexiones de Base de Datos Seguras:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "Yɛda so hwɛ mma nyinaa so na yɛda ho adi, na edi mu, yɛhɔ na yɛda nyansa da wɔ mu. Sɛnea ɛte sɛ onipa a ɔda tɛm yɛ dɔ ho."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "Bɔhoɔ nkɔda:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "Yɛde Flask-Limiter yɛbɔ nsɛm no ho a yɛda ho, na ɛyɛ a yɛbɔ ho bɔne. Eyi yɛ sɛnea yɛyɛ nsɛm a ɛyɛ adwuma na yɛyɛ mu yɛn ho."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "Registro y Monitoreo:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "Yɛde yɛ yɛ adwumadan a ɛyɛ mu de yɛ ho nkyerɛkyerɛ ne nhyehyeɛ nkitaho. Eyi bɛma yɛyɛ ho nhyehye yɛn totɔnpɔn mu tɔnn, yɛda ho adagyebea nnidiso ho."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "Uso de Variables de Entorno:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "Yɛde dotenv yɛyɛ ɔkwan a yɛgye nsɛm a ɛyɛ mu, sɛnea nsɛm a yɛyɛ da ho a yɛnyina ho. Eyi yɛ sɛ ɔho mu sɛnea asɛm anhu."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "Wo lien dɔm yɛ kɔda hɔ!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "Yɛde bɛsent no kɔ"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "Wɔbɛsan kɔ fi email link no. Wobɛtumi asɔ tab no mu a, ntɛm."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "San link no bio"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "Akɔnda a yɛbɛma wo bɛyɛ adwuma no nyinaa, yɛbɛsoma wo kɔmputa mu link a ɛyɛ kama. Sɛ yɛsoma wo kɔmputa mu anaa spam folder a, bɔ ho ban."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "Kɔ so"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "Bɔkɔ wɔ"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "Kɔmpani no ɔman no mpɔtam anaa ɔman ahorow mu mpɔtam abatoɔ no"
 
