@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:15\n"
+"PO-Revision-Date: 2024-12-10 03:28\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: ko\n"
 "Language-Team: Korean\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "이 페이지를 사용할 수 없거나 요청을 완료하는 데 필요한 리소스가 사용할 수 없습니다"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "다시 돌아와 주세요"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "인쇄"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "모임 참석"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "당신의 회중을 등록하세요."
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "월:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "삭제"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "주간 모임:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "모임 수:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "이번 달 총합:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "주간 평균:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "주별 참석:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "<b>1</b>주차"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "<b>2</b>주"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "<b>3</b>주"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "<b>4</b>주"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "<b>5</b>주"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "회의가 등록되지 않았습니다."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "주말 회의:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "회의"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "1주차"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "2주차"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "3주차"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "4주차"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "5주차"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "주중 모임"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "주말 회의"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "저장"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "취소"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "새로운"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "오디오, 비디오 및 진행자"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "날짜:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "오디오 운영자:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1872 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "미지정"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "비디오 운영자:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "플랫폼:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "마이크:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "진행자:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "영상 회의 진행자:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 프로그램이 없습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하여 첫 번째 프로그램을 생성하세요."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "할당 설정"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "닫기"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "할당할 마이크 운영자 수:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "할당할 진행자 수:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "영상 회의 진행자 수:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "플랫폼 담당자 수:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "오디오 시스템 담당자 수:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "비디오 시스템 담당자 수:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "먼저 공적 연설자를 등록하세요."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "공적인 연설들"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "공적인 연설"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "할당되지 않은 개요"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "할당되지 않음"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "발표자:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "회중:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "지역"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "발신지:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "방문자입니다"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 예정된 개요가 없습니다! 시작하려면 \"새로운\" 버튼을 클릭하여 첫 번째 개요를 설정하세요."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "비밀번호 업데이트"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "비밀번호를 변경하세요..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "이메일"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "비밀번호를 업데이트하기 위한 링크를 받으시려면 이메일 주소를 입력하세요."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "링크 보내기"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "설정"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "언어"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "스페인어"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "영어"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "이탈리아어"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "프랑스어"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "독일어"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "포르투갈어"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "이름"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "이름들"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "성씨들"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "공적인 이메일"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "임명"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "서킷 감독"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "장로"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "사역 보조"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "데이터 업데이트"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "비밀번호 변경"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "애플리케이션 데이터 삭제"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "귀하의 계정은 <b>3</b>개월의 비활성 후 자동으로 삭제됩니다. 이는 KHA와 관련된 모든 데이터가 완전히 삭제되어 마치 귀하가 우리 플랫폼에 존재하지 않았던 것과 같음을 의미합니다."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "법적 문제로 인해 기한 이전에 계정을 삭제해야 하는 경우, 알려주시면 감사하겠습니다. 즉시 계정을 삭제하고 데이터에 대한 접근을 차단하겠습니다."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "새 비밀번호 확인..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "새 비밀번호"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "모험 시작 중..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "안전한 비밀번호를 설정하세요."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "비밀번호를 설정한 후에는 계정에 액세스하고 Kingdom Hall Attendant가 제공하는 모든 것을 탐색할 수 있습니다."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "비밀번호"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "확인"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "이미 계정이 있습니까?"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "로그인"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "회중"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "번호"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "월요일"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "화요일"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "수요일"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "목요일"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "금요일"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "토요일"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "일요일"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "시작 시간"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "왕국 홀 주소"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "서킷 감독의 데이터"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "서킷 감독"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "전화번호"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "회로"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "변경 사항 저장"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "동기화 모드"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "동기화 설정: 이 옵션은 로컬 스토리지를 활성화하거나 비활성화 할 수 있으며, 사용자가 데이터에 대한 더 큰 제어를 제공합니다. 이 기능을 활성화하면 데이터가 외부 서버가 아닌 로컬에 저장되기 때문에 정보의 개인 정보 보호 및 보안이 향상됩니다. 이 설정을 변경하면 데이터 관리 방법에 영향을 미칠 수 있습니다. 더 많은 정보는 가능한 부작용에 대한 문서를 참조하세요."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "가능한 부작용"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "로컬 스토리지 활성화"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "선호도 업데이트"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "로컬 모드를 활성화하면 매번 로그인할 때마다 백업 파일을 로드해야 합니다. 이 파일을 잃어버리면 모든 데이터를 영구적으로 잃을 위험이 있습니다. 또한, 로그아웃할 때마다 JSON 파일을 저장하여 중요한 정보 손실을 방지하는 것이 중요합니다."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "백업 내보내기"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "이 기능은 데이터를 백업할 수 있게 해 주며, 이는 정보 보호를 위해 필수적입니다. 백업을 생성함으로써, 데이터가 손실되거나 손상된 경우 복원할 수 있어 작업의 연속성을 보장합니다. 이는 로컬 스토리지를 사용하든 사용하지 않든 추천되는 관행입니다. 예방이 후회보다 낫다는 것은 항상 진리입니다."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "백업 생성"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "백업 가져오기"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "이 기능은 JSON 형식의 백업 파일에서 데이터를 가져올 수 있게 해 줍니다. 파일과 가져오려는 테이블을 선택하면 이전에 저장된 정보를 복원할 수 있어 데이터가 업데이트되고 사용할 수 있도록 보장합니다."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "현재 Kingdom Hall Attendant는 동일한 Kingdom Hall Attendant에서만 백업 가져오기를 허용합니다. 앞으로 다른 애플리케이션에서 데이터 가져오기를 활성화할 계획이 있지만, 이 기능에는 특정 날짜가 없습니다."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "가져오기 전에 이전 데이터 삭제"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "백업 파일 선택:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "가져올 테이블 선택"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "사용"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "모든 테이블을 선택하려면."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "가져오기"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "성공:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "오류:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- 오디오 선택 --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- 비디오 선택 --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- 플랫폼 선택 --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- 마이크 선택 --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- 에이전트 선택 --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- 화상회의 에이전트 선택 --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "발표자"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "이 발표자는 회중의 손님입니다"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "연설 번호"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "이 발표자는 다음과 같은 개요를 준비했습니다:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "이 발표자는 아직 어떤 개요도 준비하지 않았습니다."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "환대:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "팁"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "발표자가 발언을 하러 나가면 회중을 지정하세요."
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "환대에 머물렀습니다"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "제때에 도착했습니다"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "연설을 위해 도착했습니다"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "주석:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "의장:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "의장 선택하기"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "개회 기도:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "출판사 선택하기"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "<em>파수대</em> 독자:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "최종 기도 대리:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "대리 선택하기"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "그룹 이름"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "그룹 종친"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "그룹 종친 선택하기"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "그룹 보조"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "보조 선택하기"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "그룹 회의 주소"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "환대 할당"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "왕국 회관 청소에 사용하기"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "순회 장관 방문을 위한 회의 지점으로 사용"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "이름:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "특권:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "한 달 선택"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "연도:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "연도"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "전도 활동의 어느 측면에 참여했습니다"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "성경 과정:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "완료된 성경 과정"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "시간:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "시간"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "댓글:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "여기에 댓글을 입력하세요..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "개월"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "참여"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "성경 과정"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "댓글"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "특권"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "예"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "아니요"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "재고 보고서"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "이 재고는 매달 언어 조정 집회에서 작성해야 합니다. 특별 요청 품목의 재고가 없어야 하므로 이 양식에 포함되어 있지 않습니다. 어떤 이유로 특별 요청 품목이 있는 경우, 일반 범주 중 하나에 수량을 기록하십시오. 예를 들어 \"기타\"입니다. 추가 지침은 양식 <em>S-28</em>을 참조하십시오. \"간행물 요청 및 재고 관리 지침\"을 알고 싶으시면 귀하의 국가에 해당하는 <em>S-56</em>을 참조하십시오."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "재고 저장"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "재고 삭제"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "발표자 정보"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "나가도록 승인됨 "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "발표자가 외국인이라면, 출발 교회를 명시하세요"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "휴대폰"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "전화"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "장로"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "부서원"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "준비된 개요"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "개인 데이터"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "남자"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "여자"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "데이터를 올바르게 입력하려면 다음 단계를 따르십시오: 먼저 출판자가 가족의 가장인지 선택합니다. 그런 다음 출판자 정보를 저장합니다. 이 단계를 완료하면 가족을 만들 수 있습니다. 출판자 데이터를 저장하기 전에 가족을 만들려고 하면 정보 충돌로 인해 오류가 발생할 수 있습니다."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "가족의 가장"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "가족의 가장 또는 독신"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "가족 만들기"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "가족:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "이 출판자는"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "선호"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "아내"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "딸"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "아들"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "가족의 가장의"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "생년월일"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "주소"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "영적 데이터"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "세례받은"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "세례 날짜"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "전도 그룹"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "그룹 선택"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "파수대(학습판) 받기"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "활동 안내서 받기"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "세례받지 않은 출판자"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "임시 출판자 (방문자 <b>3</b>개월 이하)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "기름 부음 받은"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "어린이"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "재입회된"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "불규칙한"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "시각장애인"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "미성년자에 대한 성폭행을 저지른"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "이혼한"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "사망한"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "청각장애인"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "아픈"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "LDC 자원봉사자"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "EPC 자원봉사자"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "왕국 회관 열쇠를 가지고 있다"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "Kingdom Hall Attendant 사용"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "검열된"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "비활성"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "추방된"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "사망한"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "수감된"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "분리된"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "임명"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "없음"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "임명된"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "시작 날짜"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "서비스 특권"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "지속적인 보조 선구자"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "정규 선구자"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "특별 선구자"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "선교사"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "지부에 직접 보고"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "선구자 번호"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "임시의"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "병약한 (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "마지막 선구자 학교"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "마지막 참석 날짜"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "회중의 책임"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "장로 회의의 조정자"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "비서"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "서비스 감독관"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "보조원의 종사자"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "오디오 및 비디오 조정자"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "문헌 관리자"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "유지 보수 조정자"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "정원 유지 보수 조정자"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "왕국 회관 유지 관리 위원회"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "보조실 카운슬러"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "조수 카운슬러"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "임시 Betel 자원봉사자"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "인근 베텔리타"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "원거리 Betel 자원봉사자"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "병원 연계 위원회"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "파수탑 연구 진행자"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "공공연설 조정자"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "공공 연설 조정자의 보조자"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "보고서 종사자"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "회계 종사자"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "영토 종사자"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "청소 조정자"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "회의의 감독자 생명과 기독교 사역"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "공공 전도 조정자"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "그룹 감독"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "베텔초"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "건축 자원봉사자"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "건축 종원"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "과제에서의 사용"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "성경의 보물"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "모두 선택"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "의장"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "기도"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "연설 (10분)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "숨겨진 진주를 찾자"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "성경 읽기"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "더 나은 교사가 됩시다"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "분석"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "대화를 시작하십시오"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "재방문 하십시오"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "제자 만들기"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "주 회의실에서는 사용하지 마십시오"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "신념을 설명하십시오"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "도와주는 사람"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "연설"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "주 회의실에서만 사용하십시오"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "우리의 기독교 생명"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "개입"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "회중의 성경 연구"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "읽는 사람"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "파수대 연구"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "퇴임하는 공개 연설자"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "지역 공개 연설자"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "공공 회의의 의장"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "파수대의 독자"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "환대의 주인"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "업무"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "오디오 운영자"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "플랫폼"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "Zoom의 주최자"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "마이크"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "Zoom 공동 주최자"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "안내자"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "필드 서비스"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "공공 전도를 위한 승인"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "필드 서비스 회의 주재"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "필드 서비스 회의에서 기도하기"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "청소"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "왕국 홀의 주간 청소"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "회의 후 청소"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "정원 돌보기"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "왕국 홀의 월간 청소"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "왕국 홀의 분기별 청소"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "잔디 관리"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "출판사 삭제"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "회의 데이터 동기화 중"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "저장 중..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "이전"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "이번 주"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "다음"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "의장 선택하기"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "인도자:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "인도자 선택하기"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "독자:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "독자를 선택하세요"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "출판사:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "출판사를 선택하세요"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "보조:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "보조를 선택하세요"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "최종 기도:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "활동:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "현장 서비스"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "아침 식사"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "점심"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "저녁 식사"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "목자"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "출판인과의 회의"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "장로 및 직무 수행자와의 회의"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "회중 기록 검토"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "장로단 코디네이터와의 회의"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "회중 봉사 위원회와의 회의"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "예정 없음"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "활동 대상:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "형제"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "자매"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "날짜:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "시간:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "시간"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*24시간 형식 사용"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "행사 장소:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "왕국 회관"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "숙소에서"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "이벤트 없음"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "가족"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "이봐, 이봐! 너가 흥분한 걸 우리가 알지만, 요청 한도를 초과했어. 걱정하지 마, 단지 계속 진행할 수 있도록 1분만 기다려."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "노트:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "1분 후에도 이 메시지가 보인다면, 1시간당 <b>50</b>개의 요청 한도 또는 하루 <b>200</b>개의 요청 한도에 도달했을 수 있습니다. 나중에 다시 돌아와서 Kingdom Hall Attendant를 계속 이용하세요."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "주말 모임"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "최종 기도의 대체:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 등록된 프로그램이 없습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하세요."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "비밀번호 재설정"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "사용자 계정의 확인된 이메일 주소를 입력하면 비밀번호를 재설정할 수 있는 링크를 보내드립니다."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "링크를 찾으려면 받은 편지함 또는 스팸 폴더를 확인하세요."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "비밀번호 복구"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 등록된 전파 그룹이 없습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하여 첫 번째 그룹을 생성하세요."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "로그아웃"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "회중 정보를 관리합니다."
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "출판인들"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "무제한 출판인 등록 및 그들의 정보를 관리합니다."
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "삶과 사역"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "회의의 배정을 자동으로 예약하십시오."
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "<em>파수대</em> 연구"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "회의 참가자를 자동으로 예약하십시오."
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "공식 연설자"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "지역 또는 방문 연설자 등록"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "연설자 및 환대 방문 및 출국 조직"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "봉사 그룹"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "그룹을 만들고 그룹 관리인과 보조를 지정하세요"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "전도 보고"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "등록 또는 보기, 요청 및 매월 전도 보고 검토"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "안내자에 대한 자원 봉사자 할당 관리"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "순회 감독 방문"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "회의를 위한 순회 감독 방문 일정을 잡습니다."
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "출판물"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "정확하고 최신의 재고를 유지하고, 추세를 보고, 축적을 피하세요"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "회의 참석 기록을 유지합니다."
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "백업"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "가장 중요한 정보의 백업을 수행합니다."
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "개인 정보를 추가하고 외관이나 언어를 변경하세요"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "문제를 보고하다"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "참여:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "특권:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "보고서를 제출하지 않았습니다."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 아무것도 재고 조사하지 않았습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하세요."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "Kingdom Hall Attendant에서는 주로 비밀번호 없는 등록 시스템을 사용합니다. 사용자에게 비밀번호를 설정하라고 강요하지 않는 것이 더 안전하다고 생각합니다(자세한 내용은 아래를 참조하세요)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "비밀번호 없는 등록은 어떻게 작동하나요?"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "이메일을 입력하면 시스템이 즉시 귀하의 계정이 있는지 또는 새 사용자인지 확인합니다."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "이미 계정이 있는 경우"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "우리는 당신에게 Kingdom Hall Attendant에 접속할 수 있는 고유 링크가 포함된 이메일을 보낼 것입니다. 이 링크는 해당 장치에서 <b>30</b>일 동안 인증을 유지합니다."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "새 사용자라면"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "계정을 만들 수 있도록 안내해 드리겠습니다. 이메일로 전송된 링크를 통해 등록 프로세스를 완료하고 애플리케이션을 사용 시작할 수 있습니다."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "비밀번호를 설정하면 어떻게 됩니까?"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "비밀번호 설정을 원하신다면, 계정 설정의 '보안' 섹션에서 하실 수 있습니다. 향후 로그인 시 이메일 입력 후 비밀번호를 입력하라는 요청이 있습니다. 비밀번호를 잊으신 경우 두 가지 옵션이 있습니다:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "이메일 보내기:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "비밀번호가 없는 시스템과 동일하게 작동하며, 로그인할 수 있는 링크가 제공됩니다."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "내 비밀번호 재설정:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "새 비밀번호를 설정하고 접근을 보장하기 위해 이메일을 받게 됩니다."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "보안"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "모순처럼 보일 수 있지만, 비밀번호는 항상 가장 안전한 선택은 아닙니다. 암기하기 어려울 수 있고 사기꾼들이 쉽게 추측할 수 있습니다. 많은 사람들이 비밀번호 관리자를 사용하지 않으며, 비밀번호를 재사용하거나 생일이나 애완동물의 이름처럼 명백한 옵션을 선택하는 경우가 많습니다."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "게다가, 대부분의 웹사이트는 이메일을 통해 비밀번호 재설정을 허용하므로 이메일이 손상되면 사기꾼들이 이를 악용할 수 있습니다. 이러한 위험을 줄이기 위해 Google Authenticator와 같은 애플리케이션을 사용하여 이계 인증(2FA)을 활성화하는 것을 권장합니다."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "비밀번호 없는 인증의 이점"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "Auth0에 따르면:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "비밀번호 없는 인증은 그 본질상 불안전한 비밀번호 사용 문제를 없앱니다. 이는 사용자가 가장 많이 저지르는 실수 중 하나가 로그인 과정에서 제거된다는 것을 의미합니다. 비밀번호 없는 인증은 안전할 뿐만 아니라 전통적인 사용자 및 비밀번호 방법보다 더 안전할 수도 있습니다."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "누가 마법 링크를 사용하여 등록합니까?"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "여러 인기 애플리케이션도 마법 링크를 통한 비밀번호 없는 인증을 채택했습니다:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "메시징 애플리케이션"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "은행 애플리케이션"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "호스팅 서비스"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "CRM 플랫폼"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "조직화 및 메모 애플리케이션"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "로그인"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "비밀번호를 잊어버렸습니다"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "로그인"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "계정이 없으신가요?"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "무료 계정을 만드세요"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "곧 다시 오세요!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "또는 돌아가세요"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "여호와의 증인 회중을 위한 최고의 도구"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "여호와의 증인 회중에서는 효율적인 조직이 진정으로 중요한 것에 집중하는 열쇠입니다. 그러나 오늘날 이용 가능한 많은 도구들이 비용이 많이 들거나 복잡하거나 또는 회중의 필요에 잘 맞지 않습니다. 그래서 우리는 Kingdom Hall Attendant (KHA)를 소개합니다. 이는 행정 작업을 쉽게 관리할 수 있는 실용적이고 접근 가능한 솔루션입니다."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "Kingdom Hall Attendant는 모든 기기와 브라우저에서 작동하는 무료, 안전하고 광고 없는 도구를 제공하기 위해 만들어졌습니다. 그 목표는 회중의 행정 작업을 보다 쉽게 관리할 수 있도록 하여 주된 임무에 시간을 할애할 수 있도록 하는 것입니다. 우리는 단순히 애플리케이션을 설계한 것이 아니라 직관적이고 접근 가능하며 모든 회중이 복잡함 없이 사용할 수 있도록 고안된 도구를 만들었습니다."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "Livrädo Sandoval에 의해 개발되었으며, GitHub에서 활동적인 기여자 커뮤니티의 지원을 받아, KHA는 Windows, macOS, Linux, iPads 및 Android 태블릿에서 작동하는 크로스 플랫폼 애플리케이션으로, 모든 웹 브라우저에서 접근할 수 있습니다. 사용의 용이성과 안전성은 첫 날부터 우리의 우선사항이었습니다. 모든 측면은 필요할 때 언제 어디서나 행정 도구에 접근할 수 있도록 설계되었습니다."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "우리의 약속은 KHA가 항상 무료이며 숨겨진 구독이나 만료 날짜가 없다는 것입니다. 또한 우리는 데이터의 보안과 개인 정보를 매우 중요하게 생각합니다. 데이터는 암호화되고 추적되지 않습니다. 안전한 데이터 전송 시스템을 통해 귀하의 정보를 효과적으로 보호합니다."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "현재 KHA는 BETA 단계에 있으며, 2025년 봄에 공식 출시를 계획하고 있습니다. 그러나 이것은 시작에 지나지 않습니다. 우리는 지속적인 개선에 전념하고 있으며, 진화하기 위해 우리 커뮤니티의 목소리를 적극적으로 듣고 있습니다. 우리의 목표는 오늘날과 미래의 집회에 유용하고 관련된 도구를 제공하는 것입니다."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "비록 KHA는 무료이고 계속 무료로 제공되겠지만, 저희는 프로젝트를 지원하고자 하는 분께 기부나 Golden Edition ✨ 구독을 통해 지원할 것을 초대합니다. 이는 저희가 개선을 지속하고 모든 집회의 이익을 위해 계속 업데이트를 제공할 수 있게 해줍니다."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "표시할 데이터가 없습니다."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "선언문"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "등록하기"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "기부하기"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "외국 연설자 추가"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 등록된 연설자가 없습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하여 첫 번째 연설자를 생성하세요."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "아직 등록된 출판사가 없습니다! 시작하려면 \"새로 만들기\" 버튼을 클릭하여 첫 번째 출판사를 생성하세요."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "Kingdom Hall Attendant 보안"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "안전한 로그인:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "Kingdom Hall Attendant에서는 각 로그인마다 요새입니다. 우리는"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "비밀번호를 암호화하기 위해, 누군가가 우리의 데이터베이스에 접근하려고 하더라도 귀하의 자격 증명이 불침투성으로 유지됩니다. 또한, 로그인을 할 때마다 이메일 알림을 보내드려 승인되지 않은 접근을 즉시 감지할 수 있습니다."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "안전한 세션 관리:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "세션은 최대한 신중하게 관리됩니다. 우리는 클라이언트에 민감한 정보를 저장하지 않으며, 귀하의 개인 정보가 항상 보호되도록 보장합니다. 마치 당신의 데이터를 항상 감독하는 수호자가 있는 것과 같습니다."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "CSRF 보호:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "우리는 요청 위조 공격으로부터 보호하기 위해 CSRFProtect를 사용합니다. 이는 애플리케이션 내의 행동이 항상 진정하고 안전하다는 것을 의미합니다. 마치 모든 클릭을 보호하는 보이지 않는 방패가 있는 것과 같습니다."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "안전한 토큰 관리:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "우리는 이메일 확인 및 비밀번호 복구를 위해 초고속 보안 토큰을 생성합니다. 이러한 토큰은 주키로와 같이 작용하여 비상 사태에서도 오직 당신만이 계정에 접근할 수 있도록 보장합니다."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "안전한 데이터베이스 연결:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "우리는 모든 데이터베이스 연결이 적절하게 종료되어 정보 유출을 방지하고 데이터 무결성을 보장하도록 합니다. 마치 사용 후 금고의 문을 잠그는 것처럼요."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "요금 한도:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "Flask-Limiter를 사용하여 강제 공격을 방지하기 위해 요청을 제한합니다. 이는 방문자가 흐름을 통제하는 입구 직원이 있는 것과 같으며, 합법적인 요청만 통과할 수 있도록 보장합니다."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "로깅 및 모니터링:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "우리는 활동과 오류를 모니터링하기 위해 강력한 로깅 시스템을 구현했습니다. 이는 모든 보안 사건을 사전에 감지하고 대응할 수 있게 하며, 마치 이상 징후가 발생하면 경고하는 경고 시스템이 있는 것과 같습니다."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "환경 변수 사용:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "우리는 dotenv를 사용하여 비밀 키 및 이메일 자격 증명과 같은 민감한 구성을 관리하고, 이를 소스 코드 밖에 보관하여 엉뚱한 시선으로부터 보호합니다. 이는 가장 귀중한 비밀을 금고에 보관하는 것과 같습니다."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "당신의 마법 링크가 오고 있습니다!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "우리는 그것을 다음 주소로 보냈습니다:"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "당신은 이메일 링크에서 리디렉션됩니다. 이 탭은 문제 없이 종료할 수 있습니다."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "링크 다시 보내기"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "등록을 계속한 후, 마법 링크가 이메일로 전송됩니다. 인박스 또는 스팸 폴더를 확인하여 링크를 찾아 등록을 완료하십시오."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "계속"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "주간"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "서킷 감독의 방문"
 
