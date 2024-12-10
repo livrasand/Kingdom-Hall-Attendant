@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:16\n"
+"PO-Revision-Date: 2024-12-10 00:42\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: uk\n"
 "Language-Team: Ukrainian\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "Ця сторінка недоступна або потрібний ресурс, щоб виконати ваш запит, недоступний"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "Будь ласка, поверніться до"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "Друк"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "Присутність на зборах"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "Зареєструйте вашу конгрегацію"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "Місяць:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "Видалити"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "Середа:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "Кількість засідань:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "Всього за місяць:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "Середній показник за тиждень:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "Присутність за тиждень:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "Тиждень 1"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "Тиждень 2"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "Тиждень 3"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "Тиждень 4"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "Тиждень 5"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "Зареєстрованих зборів немає."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "Зустріч на вихідних:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "Збори"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "1-ий тиждень"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "2-ий тиждень"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "3-ій тиждень"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "4-ий тиждень"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "5-ий тиждень"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "Середа зустрічей"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "Зустріч на вихідних"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "Зберегти"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "Скасувати"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "Новий"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "Аудіо, відео та координатори"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "Дата:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "Оператор звуку:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1872 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "Не призначено"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "Оператор відео:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "Платформа:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "Мікрофони:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "Координатори:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "Координатор відеоконференції:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Ви ще не створили жодної програми! Щоб розпочати, створіть свою першу програму, натиснувши кнопку \"Нове\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "Налаштування призначень"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "Закрити"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "Кількість операторів мікрофону для призначення:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "Кількість координаторів для призначення:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "Кількість координаторів відеоконференції:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "Кількість відповідальних за платформу:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "Кількість керівників аудіосистеми:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "Кількість керівників відеосистеми:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "Спочатку зареєструйте оратора у Публічних ораторах."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "Публічні виступи"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "Публічний виступ"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "Без призначеного ескізу"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "Без призначення"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "Оратор:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "Конгрегація:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "Місце"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "Вихід до:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "Є відвідувачем"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "У вас ще немає запланованих ескізів! Щоб почати, заплануйте перший ескіз, натиснувши кнопку \"Новий\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "Оновити пароль"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "Змініть свій пароль..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "Електронна пошта"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "Введіть вашу електронну адресу, щоб отримати посилання для оновлення пароля."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "Відправити посилання"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "Налаштування"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "Мова"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "Іспанська"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "Англійська"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "Італійська"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "Французька"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "Німецька"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "Португальська"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "Ім'я"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "Імена"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "Прізвища"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "Публічна електронна пошта"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "Призначення"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "суперинтендент округу"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "старійшина"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "служитель"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "Оновити дані"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "Змінити пароль"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "Видалити дані програми"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "Ваш обліковий запис буде автоматично видалено через 3 місяці бездіяльності. Це означає, що всі ваші дані, пов'язані з KHA, будуть повністю видалені, немов ви ніколи не існували на нашій платформі."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "Якщо вам потрібно, щоб обліковий запис було видалено раніше цього терміну з причини юридичних питань або будь-якої іншої правової причини, будь ласка, дайте нам знати. Ми негайно видалимо ваш обліковий запис і забезпечимо, щоб ніхто не мав доступу до ваших даних."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "Підтвердіть ваш новий пароль..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Новий пароль"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "Розпочинаємо пригоду..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "Будь ласка, встановіть надійний пароль."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "Якщо ви встановите пароль, ви зможете отримати доступ до свого облікового запису та дослідити все, що має запропонувати Kingdom Hall Attendant."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "Пароль"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "Підтвердити"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "Вже є обліковий запис?"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "Увійти"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "Конгрегація"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "Номер"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "Понеділок"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "Вівторок"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "Середа"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "Четвер"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "П'ятниця"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "Субота"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "Неділя"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "Час початку"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "Адреса Залу Царства"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "Дані суперинтендента округу"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "Суперинтендент округу"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "Номер телефону"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "Цикл"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "Зберегти зміни"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "Режим синхронізації"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "Налаштування синхронізації: Ця опція дозволяє увімкнути або вимкнути локальне зберігання, надаючи користувачеві більше контролю над його даними. Активуючи цю функцію, покращується конфіденційність і безпека інформації, оскільки дані зберігаються локально, а не на зовнішніх серверах. Зверніть увагу, що зміна цього налаштування може вплинути на те, як управляються ваші дані. Для отримання додаткової інформації зверніться до документації щодо можливих побічних ефектів."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "можливі побічні ефекти"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "Увімкнути локальне зберігання"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "Оновити налаштування"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "Якщо ви активуєте локальний режим, важливо щоразу, коли ви входите, завантажити ваш файл резервної копії. Якщо ви втратите цей файл, ви ризикуєте втратити всі свої дані назавжди. Крім того, важливо зберігати файл JSON щоразу, коли ви виходите, щоб запобігти втраті важливої інформації."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "Експорт резервної копії"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "Ця функція дозволяє створити резервну копію ваших даних, що є важливим для захисту вашої інформації. Створюючи резервну копію, ви можете відновити свої дані у випадку втрати або ушкодження, гарантуючи таким чином безперервність вашої роботи. Це рекомендована практика, незалежно від того, чи використовуєте ви локальне зберігання чи ні, оскільки завжди краще запобігти, ніж шкодувати."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "Створити резервну копію"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "Імпортувати резервну копію"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "Ця функція дозволяє імпортувати дані з файлу резервної копії у форматі JSON. Вибравши файл і таблиці, які ви хочете імпортувати, ви зможете відновити інформацію, яка була раніше збережена, гарантуючи, що ваші дані актуальні та доступні."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "На даний момент Kingdom Hall Attendant дозволяє імпортувати резервні копії тільки з того ж Kingdom Hall Attendant. У майбутньому планується активувати імпорт даних з інших застосунків, але наразі немає конкретної дати для цієї функції."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "Видалити попередні дані перед імпортом"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "Вибрати файл резервної копії:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "Вибрати таблиці для імпорту"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "Використати"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "щоб вибрати всі таблиці."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "Імпортувати"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "Успіх:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "Помилка:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- Виберіть Аудіо --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- Виберіть Відео --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- Виберіть Платформу --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- Виберіть Мікрофон --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- Виберіть Помічника --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- Виберіть Помічника Відеоконференції --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "Оратор"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "Цей оратор є гостем конгрегації"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "Номер виступу"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "Цей оратор підготував наступні ескізи:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "Цей оратор ще не підготував жодного ескізу."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "Гостинність:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "Порада"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "Якщо оратор іде виступати, вкажіть конгрегацію"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "Залишитися на гостинність"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "Прибув вчасно"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "Прибув на виступ"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "Примітки:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "Голова:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "Виберіть голову"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "Початкова молитва:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "Виберіть опублікувальник"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "Читач <em>Вартової Башти</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "Заміна для закінчення молитви:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "Виберіть заміну"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "Назва групи"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "Служитель групи"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "Виберіть служителя групи"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "Допоміжний служитель групи"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "Виберіть допоміжного служителя групи"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "Адреса збору групи"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "Призначити гостинність"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "Використовувати для прибирання Залу Царства"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "Використовувати як місце зустрічі для візиту інспектора округу"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "Ім'я:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "Привілеї:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "Оберіть місяць"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "Рік:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "Рік"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "Брав участь у будь-якому аспекті проповіді"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "Біблійні курси:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "Завершені біблійні курси"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "Години:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "Години"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "Коментарі:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "Напишіть ваші коментарі тут..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "Місяць"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "Учасник"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "Біблійні курси"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "Коментарі"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "Привілей"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "Так"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "Звіт про інвентар"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "Цей інвентар повинен готуватися мовною координуючою конгрегацією кожного місяця. Не повинно бути запасів спеціально запитуваних предметів, тому ця форма їх не містить. Якщо з якоїсь причини наявні предмети спеціального запиту, запишіть кількості в одну з загальних категорій, таких як \"Інші\". Для отримання додаткових інструкцій зверніться до форми <em>S-28</em>. Щоб дізнатися про \"Вказівки щодо запиту публікацій та управління інвентаризацією\", зверніться до <em>S-56</em>, відповідної вашій країні."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "Зберегти інвентар"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "Видалити інвентар"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "Дані про доповідача"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "Схвалено для виходу "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "Якщо доповідач є іноземцем, вкажіть його рідну конгрегацію"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "Мобільний телефон"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "Телефон"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "Старейшина"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "Служитель"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "Готові резюме"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "Особисті дані"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "Чоловік"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "Жінка"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "Щоб переконатися, що ви правильно вводите дані, дотримуйтеся таких кроків: спочатку виберіть, чи є публікатором голова родини. Потім збережіть інформацію про публікатора. Після завершення цього кроку ви можете створити сім’ю. Якщо ви спробуєте створити сім’ю перед збереженням даних публікатора, може виникнути помилка через конфлікти в інформації."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "Глава родини"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "Глава сім’ї або не одружений"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "Створити родину"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "Сім'я:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "Цей публікатор є"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "Перевага"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "дружина"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "дочка"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "син"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "голови сім'ї"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "Дата народження"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "Адреса"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "Духовні дані"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "Хрещений"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "День хрещення"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "Група проповіді"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "Виберіть групу"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "Отримує Вартову башту (навчальне видання)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "Отримує Посібник з діяльності"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "Неохрещений публікатор"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "Тимчасовий публікатор (відвідувач до 3 місяців)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "Помазаний"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "Дитина"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "Перезатверджений"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "Нерегулярний"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "Сліпий"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "Вчинив сексуальне насильство над неповнолітніми"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "Розлучений"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "Вдівець"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "Глухий"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "Хворий"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "Волонтер LDC"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "Волонтер EPC"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "Має ключі від Царського залу"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "Використовує Помічника церкви"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "Цензурований"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "Неактивний"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "Виключений"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "Померлий"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "Ув'язнений"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "Роз'єднані"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "Призначення"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "Немає"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "Призначений"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "Дата початку"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "Привілеї служби"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "Неперервний допоміжний передвісник"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "Регулярний передвісник"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "Спеціальний передвісник"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "Місіонер"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "Повідомляє безпосередньо до філії"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "Номер передвісника"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "Тимчасовий"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "Хворобливий (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "Остання Школа Служби Передвісників"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "Дата останньої присутності"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "Відповідальність у конгрегації"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "Координатор корпусу старійшин"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "Секретар"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "Суперинтендант служби"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "Служитель-адміністратор"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "Координатор аудіо і відео"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "Служитель літератури"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "Координатор обслуговування"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "Координатор підтримки саду"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "Комітет з обслуговування Залу Царства"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "Консультант допоміжної зали"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "Асистент-консультант"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "Тимчасовий волонтер Бетел"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "Бетеліт з околиць"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "Віддалений волонтер Бетел"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "Комітет зв'язку з лікарнями"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "Ведення вивчення Журналу"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "Координатор публічних промов"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "Асистент координатора публічних промов"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "Служитель звітів"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "Служитель бухгалтерії"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "Служитель територій"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "Координатор прибирання"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "Суперинтендант збору Життя та Міністерства Християн"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "Координатор публічного проповідування"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "Суперинтендант групи"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "Бетельіт"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "Волонтер будівництва"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "Служитель будівництва"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "Використання в призначеннях"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "СКАРБИ БІБЛІЇ"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "Вибрати всіх"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "Президент"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "Молитва"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "Промова (10 хв.)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "Шукаємо приховані перли"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "Читання Біблії"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "Давайте будем кращими вчителями"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "Аналіз"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "Почати розмови"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "Здійсцнюйте повторні візити"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "Зробіть учнів"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "Не використовувати в головному залі"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "Поясніть свої вірування"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "Асистент"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "Промова"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "Використовувати тільки в головному залі"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "НАШЕ ХРИСТИЯНСЬКЕ ЖИТТЯ"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "Втручання"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "Біблійне вивчення конгрегації"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "Читець"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "ВИВЧЕННЯ СТРАЖА"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "Вихідний публічний доповідач"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "Місцевий публічний доповідач"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "Голова публічного збору"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "Читець Журналу"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "Господар для гостинності"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "ЗАВДАННЯ"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "Оператор звуку"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "Платформа"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "Господар на Zoom"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "Мікрофони"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "Співведучий на Zoom"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "Залізний"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "ПОЛЕВЕ СЛУЖІННЯ"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "Схвалено для публічного проповідування"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "Вести збори для польової служби"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "Молитися на зборах для польової служби"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "УБОРКА"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "Щотижневе прибирання Залу Царства"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "Уборка після зборів"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "Догляд за садом"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "Щомісячне прибирання Залу Царства"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "Квартальне прибирання Залу Царства"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "Догляд за газоном"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "Видалити публікатора"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "Синхронізація даних зустрічі"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "Збереження..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "Попередній"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "Цього тижня"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "Наступний"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "Виберіть президента"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "Ведучий:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "Виберіть ведучого"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "Читач:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "Виберіть читача"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "Видавець:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "Виберіть видавця"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "Помічник:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "Виберіть помічника"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "Заключна молитва:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "Активність:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "Польове служіння"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "Сніданок"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "Обід"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "Вечеря"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "Пастуша робота"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "Зустріч з публікаторами"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "Зустріч з старшими та служителями"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "Перегляд записів конгрегації"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "Зустріч з координатором старійшин"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "Зустріч з Комітетом Служби Конгрегації"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "Без угод"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "Активність для:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "Брат"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "Сестра"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "День:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "Година:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "Година"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*Використовуйте 24-годинний формат"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "Місце проведення заходу:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "Зал Царства"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "У місці розташування"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "Без заходу"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "Сім'я"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "Гей, гей! Ми бачимо, що ви в захваті, але ви досягли ліміту запитів. Не переживайте, просто почекайте хвилину, щоб продовжити."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "Примітка:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "Якщо ви все ще бачите це повідомлення через хвилину, можливо, ви досягли ліміту 50 запитів на годину або добового ліміту 200 запитів. Повернітьтся пізніше, щоб продовжити насолоджуватися Kingdom Hall Attendant."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "Збори на вихідних"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "Замінник для заключної молитви:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "У вас ще немає жодної програми, зареєстрованої! Щоб почати, натисніть кнопку \"Нове\"."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "Скинути ваш пароль"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "Введіть перевірену адресу електронної пошти вашого облікового запису, і ми надішлемо вам посилання для скидання пароля."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "Будь ласка, перевірте свою вхідну папку або папку SPAM, щоб знайти посилання."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "Відновлення пароля"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "У вас ще немає жодної групи проповідування! Щоб почати, створіть свою першу групу, натиснувши кнопку \"Нове\"."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "Вийти"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "Управляйте інформацією про конгрегацію"
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "Опубліковані"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "Зареєструйте необмежену кількість публікаторів і керуйте їхньою інформацією"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "Життя та служіння"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "Автоматично програмуйте призначення для збору"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "Вивчення <em>Сторожової башти</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "Автоматично програмуйте учасників для збору"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "Публічні оратори"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "Зареєструйте місцевих або відвідувальних публічних ораторів"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "Організуйте візити та виїзди ораторів і їх гостинність"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "Групи обслуговування"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "Створіть групи, призначте служителя групи та помічника"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "Звіти про проповідування"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "Зареєструйте або перегляньте, запитайте та перегляньте щомісячні звіти про проповідування"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "Управляйте розподілом волонтерів для супроводжуючих"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "Візит суперінтенданта округу"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "Заплануйте візит суперінтенданта округу до конгрегації"
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "Публікації"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "Ведіть точний та актуальний інвентар, дивіться тенденції і уникайте накопичень"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "Ведіть облік відвідувань на засіданнях"
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "Резервні копії"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "Зробіть резервні копії найважливішої інформації"
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "Додайте свої особисті дані, змініть вигляд або мову, серед іншого"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "Поради з приводу проблем"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "Участь:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "Привілей:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "Ви не подали свій звіт."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Ви ще не провели інвентаризацію! Щоб розпочати, натисніть кнопку \"Нове\"."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "У Kingdom Hall Attendant ми в основному використовуємо систему реєстрації без паролів. Ми вважаємо, що краще не змушувати користувачів встановлювати пароль, оскільки це може призвести до більшого ризику безпеки (більш детальна інформація нижче)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "Як працює реєстрація без паролів?"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "Ви вводите свою електронну пошту, і система миттєво визначає, чи у вас вже є обліковий запис або ви новий користувач."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "Якщо у вас вже є обліковий запис"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "ми надішлемо вам електронний лист із унікальним посиланням, яке дозволить вам отримати доступ до Kingdom Hall Attendant. Це посилання зберігатиме вас аутентифікованим на цьому пристрої протягом 30 днів."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "Якщо ви новий користувач"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "ми проведемо вас через створення вашого облікового запису. За допомогою посилання, надісланого електронною поштою, ви завершите процес реєстрації та зможете почати користуватися програмою."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "Як це працює, якщо ви встановлюєте пароль?"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "Якщо ви хочете налаштувати пароль, ви можете зробити це в розділі «Безпека» у налаштуваннях вашого облікового запису. У майбутньому, заходячи в систему, після введення електронної пошти, вам буде запропоновано ввести пароль. Якщо ви не пам'ятаєте свій пароль, у вас буде два варіанти:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "Надішліть мені електронний лист:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "Працює так само, як система без пароля, з посиланням для входу."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "Скинути мій пароль:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "Ви отримаєте електронний лист для встановлення нового пароля та забезпечення вашого доступу."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "Безпека"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "Хоча це може здаватися суперечливим, паролі не завжди є найнадійнішим варіантом. Їх може бути важко запам'ятати та легко вгадати аферистам. Багато людей не використовують менеджери паролів і часто повторно використовують паролі або вибирають очевидні варіанти, як-от дату свого народження чи ім'я домашнього улюбленця."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "Крім того, більшість веб-сайтів дозволяють скинути пароль через електронну пошту, що може бути використано аферистами, якщо ваша пошта скомпрометована. Щоб зменшити ці ризики, рекомендуємо активувати двофакторну автентифікацію (2FA) за допомогою таких додатків, як Google Authenticator, щоб покращити безпеку вашого облікового запису."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "Переваги аутентифікації без паролів"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "Згідно з Auth0:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "Аутентифікація без паролів через свою природу усуває проблему використання ненадійних паролів. Це означає, що одна з найпоширеніших помилок користувачів усувається з процесу входу. Це не тільки безпечно, але, можливо, навіть безпечніше, ніж традиційний метод імені користувача та пароля."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "Хто ще використовує магічні посилання для реєстрації?"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "Кілька популярних програм також усунули аутентифікацію без паролів з магічними посиланнями:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "додаток для обміну повідомленнями"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "банківський додаток"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "послуга хостингу"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "CRM-платформа"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "додаток для організації та нотаток"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "Увійти"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "Я забув свій пароль"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "Увійти в систему"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "Немає облікового запису?"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "Створіть безкоштовний обліковий запис"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "Поверніться незабаром!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "Або повернутися до"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "Найкращий інструмент для конгрегацій Свідків Єгови"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "У кожній конгрегації Свідків Єгови ефективна організація є ключем до того, щоб зосередитися на тому, що дійсно важливо. Однак багато з доступних сьогодні інструментів є дорогими, складними або не відповідають потребам конгрегацій. Саме тому ми представляємо Kingdom Hall Attendant (KHA) — практичне та доступне рішення для простого управління адміністративними завданнями."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "Kingdom Hall Attendant було створено, щоб запропонувати безкоштовний, безпечний і безкоштовний від реклами інструмент, який працює на будь-якому пристрої та браузері. Його мета - полегшити управління адміністративними завданнями для конгрегацій, дозволяючи більше часу присвячувати головній місії. Ми не просто розробили застосунок; ми створили інструмент, який задумано бути інтуїтивно зрозумілим, доступним і таким, що може використовуватися будь-якою конгрегацією без ускладнень."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "Розроблено Ліврадо Сандовалом, за підтримки активної спільноти співробітників на GitHub, KHA - це крос-платформенний додаток, що працює на Windows, macOS, Linux, iPads та Android-планшетах, з доступом з будь-якого веб-браузера. Простота використання та безпека були нашими пріоритетами з першого дня. Кожен аспект було розроблено, щоб забезпечити доступ до ваших адміністративних інструментів, де б і коли б вам це не потрібно було."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "Наше зобов'язання полягає в тому, що KHA завжди залишатиметься безкоштовним, без прихованих підписок та термінів дії. Крім того, ми дуже серйозно ставимося до безпеки та конфіденційності даних: вони зашифровані і їх ніколи не відстежують. Через безпечну систему передачі даних ми ефективно захищаємо вашу інформацію."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "На сьогодні KHA перебуває на етапі BETA, і ми плануємо офіційний запуск навесні 2025 року. Але це тільки початок. Ми зобов'язані до постійного вдосконалення і активно слухаємо нашу спільноту, щоб продовжувати еволюцію. Наша мета - надати інструмент, який буде корисним і актуальним, адаптуючись до потреб конгрегацій сьогодні та в майбутньому."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "Хоча KHA є і залишиться безкоштовним, ми запрошуємо всіх, хто бажає, підтримувати проект шляхом пожертвувань або підписавшись на наше Золоте видання ✨. Це дозволить нам продовжувати покращення і пропонувати постійні оновлення на благо всіх конгрегацій."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "Дані для відображення не знайдено."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "Маніфест"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "Зареєструватися"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "Пожертвувати"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "Додати іноземного спікера"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "У вас ще немає зареєстрованих спікерів! Щоб розпочати, створіть свого першого спікера, натиснувши кнопку \"Нове\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "У вас ще немає зареєстрованих видавців! Щоб розпочати, створіть свого першого видавця, натиснувши кнопку \"Нове\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "Безпека в Kingdom Hall Attendant"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "Безпечний вхід:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "У Kingdom Hall Attendant кожен вхід є фортецею. Ми використовуємо"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "для шифрування ваших паролів, забезпечуючи, що навіть якщо хтось намагатиметься отримати доступ до нашої бази даних, ваші облікові дані залишаються захищеними. Крім того, щоразу, коли ви входите, ми надсилаємо вам електронне повідомлення, щоб ви могли швидко виявити будь-який несанкціонований доступ."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "Безпечне управління сесіями:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "Сесії керуються з максимальним дбайливістю. Ми ніколи не зберігаємо чутливу інформацію на клієнті, забезпечуючи, щоб ваша конфіденційність завжди була захищена. Це як мати охоронця, який стежить за вашими даними в будь-який час."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "Захист CSRF:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "Ми використовуємо CSRFProtect, щоб захистити вас від атак підробки запитів. Це означає, що ваші дії в додатку завжди є автентичними та безпечними, начебто у вас є невидимий щит, що захищає кожне клацання."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "Безпечне управління токенами:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "Ми генеруємо ультразахищені токени для підтвердження електронної пошти та відновлення паролів. Ці токени аналогічні ключам майстра, які забезпечують доступ до вашого облікового запису лише вам, навіть у надзвичайних ситуаціях."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "Безпечні підключення до бази даних:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "Ми забезпечуємо, щоб всі з'єднання з базою даних були правильно закриті, запобігаючи витоку інформації та гарантування цілісності ваших даних. Це як закрити двері сейфа після кожного використання."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "Ліміти запитів:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "З Flask-Limiter ми обмежуємо запити, щоб запобігти атакам грубою силою. Це як мати портьє, який контролює потік відвідувачів, забезпечуючи, що тільки легітимні запити проходять."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "Реєстрація та Моніторинг:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "Ми впровадили надійну систему ведення журналів, щоб контролювати активність та помилки. Це дозволяє нам проактивно виявляти та реагувати на будь-які інциденти безпеки, як якщо б у нас була система сигналізації, яка сповіщає про будь-які аномалії."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "Використання змінних середовища:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "Ми використовуємо dotenv для управління чутливими конфігураціями, такими як секретні ключі та електронні реквізити, тримаючи їх подалі від вихідного коду та від чужих очей. Це як зберігати свої найцінніші секрети в сейфі."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "Ваше магічне посилання на підході!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "Ми відправили його на"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "Вас буде перенаправлено за посиланням електронної пошти. Ви можете закрити цю вкладку без проблем."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "Повторне відправлення посилання"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "Після продовження реєстрації ми надійшлемо вам магічне посилання на вашу електронну пошту. Будь ласка, перевірте свою вхідну скриньку або папку СПАМ, щоб знайти посилання та завершити вашу реєстрацію."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "Продовжити"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "Тиждень"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "Візит суперінтенданта округу"
 

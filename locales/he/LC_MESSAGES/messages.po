@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:15\n"
+"PO-Revision-Date: 2024-12-09 23:35\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: he\n"
 "Language-Team: Hebrew\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "הדף הזה אינו זמין או שהמשאב הנדרש להשלמת הבקשה שלך אינו זמין"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "אנא חזור ל"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "להדפיס"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "סיוע לכל הפגישות"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "רשום את הקהילה שלך"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "חודש:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "למחוק"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "פגישת אמצע השבוע:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "מספר הפגישות:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "סה\"כ לחודש:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "ממוצע שבועי:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "סיוע לפי שבוע:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "שבוע 1"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "שבוע 2"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "שבוע 3"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "שבוע 4"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "שבוע 5"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "אין פגישות רשומות."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "פגישת סוף השבוע:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "פגישה"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "שבוע ראשון"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "שבוע שני"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "שבוע שלישי"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "שבוע רביעי"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "שבוע חמישי"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "פגישת אמצע השבוע"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "פגישת סוף השבוע"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "לשמור"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "בטל"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "חדש"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "האודיו, הווידאו והמפיקים"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "תאריך:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "מפעיל אודיו:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1873 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "לא הוקצה"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "מפעיל ווידאו:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "פלטפורמה:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "מיקרופונים:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "מפיקים:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "מפיק שיחות ווידאו:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין לא יצרת שום תוכנית! כדי להתחיל, צור את התוכנית הראשונה שלך\n"
+"                על ידי לחיצה על כפתור \"חדש\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "הגדרת הקצאות"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "סגור"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "מספר מפיקי אודיו להקצה:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "מספר מפיקים להקצה:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "מספר מפיקי חוויות הווידאו:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "מספר מנהלי פלטפורמה:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "מספר מנהלי מערכת האודיו:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "מספר מנהלי מערכת הווידאו:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "ראשית הרשם דובר במרצים ציבוריים."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "נאומים ציבוריים"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "נאום ציבורי"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "אין תבנית מוקצת"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "לא מוקצה"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "דובר:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "קהילה:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "מקום"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "יוצא ל:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "האם מבקר"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין אין לך שום טיוטה מתוכננת! כדי להתחיל, תכנן את המתווה הראשון על ידי לחיצה על כפתור \"חדש\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "עדכן סיסמה"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "שנה את הסיסמה שלך..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "דוא\"ל"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "הזן את כתובת האימייל שלך כדי לקבל קישור לעדכון הסיסמה שלך."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "שלח קישור"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "הגדרות"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "שפה"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "ספרדית"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "אנגלית"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "איטלקית"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "צרפתית"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "גרמנית"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "פורטוגזית"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "שם"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "שמות"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "משפחות"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "דואר אלקטרוני ציבורי"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "המינוי"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "מנהל אזור"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "זקן"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "משרת חמשי"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "לעדכן נתונים"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "שנה סיסמה"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "מחק את נתוני האפליקציה"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "החשבון שלך יימחק אוטומטית לאחר 3 חודשים של חוסר פעילות. זה אומר שכל הנתונים שלך הקשורים ל-KHA יימחקו לחלוטין, כאילו מעולם לא היית קיים בפלטפורמה שלנו."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "אם אתה זקוק לכך שהחשבון שלך יימחק לפני המועד הזה בגלל עניין משפטי או כל עניין חוקי אחר, בבקשה תודיע לנו. נמשיך למחוק את החשבון שלך מיד ונערוב לכך שאין לאף אחד גישה לנתונים שלך."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "אשר את הסיסמה החדשה שלך..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "סיסמה חדשה"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "מתחילים את ההרפתקה..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "אנא קבע סיסמה מאובטחת."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "כאשר תקלוט את הסיסמה שלך, תוכל לגשת לחשבון שלך ולגלות את כל מה שיש ל-Kingdom Hall Attendant להציע."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "סיסמה"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "אשר"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "כבר יש לך חשבון?"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "התחבר"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "קהילה"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "מספר"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "שני"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "שלישי"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "רביעי"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "חמישי"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "שישי"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "שבת"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "ראשון"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "שעת התחלה"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "כתובת אולם המלך"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "נתוני המפקח המחוזי"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "מפקח מחוזי"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "מספר טלפון"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "מחוז"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "שמור שינויים"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "מצב סנכרון"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "הגדרות סנכרון: אפשרות זו מאפשרת להפעיל או להשבית את האחסון המקומי, מה שמספק למשתמש שליטה רבה יותר על נתוניו. כאשר מפעילים תכונה זו, הפרטיות וביטחון המידע משתפרים, מכיוון שהנתונים נשמרים באופן מקומי במקום בשרתי חוץ. יש לקחת בחשבון ששינוי הגדרת זו עשוי להשפיע על אופן ניהול הנתונים שלך. למידע נוסף, עיין בתיעוד על תופעות לוואי אפשריות."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "תופעות לוואי אפשריות"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "אפשר אחסון מקומי"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "עדכן העדפות"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "ברגע שתפעל את מצב מקומי, חשוב שכל פעם שתיכנס, תטעין את קובץ הגיבוי שלך. אם תאבד קובץ זה, אתה עלול לאבד את כל הנתונים שלך לנצח. בנוסף, הכרחי לשמור את קובץ JSON בכל פעם שתתנתק כדי למנוע אובדן מידע חשוב."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "ייצא גיבוי"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "פונקציה זו מאפשרת ליצור גיבוי של הנתונים שלך, דבר החיוני для הגנה על המידע שלך. על ידי יצירת גיבוי, תוכל לשחזר את הנתונים שלך במקרה של אובדן או נזק, ובכך להבטיח את המשכיות העבודה שלך. זו פרקטיקה מומלצת, ללא קשר אם אתה משתמש באחסון מקומי או לא, מכיוון שתמיד עדיף למנוע מאשר להצטער."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "צור גיבוי"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "ייבא גיבוי"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "פונקציה זו מאפשרת לייבא נתונים מקובץ גיבוי בפורמט JSON. על ידי בחירת קובץ ואת הטבלאות שברצונך לייבא, תוכל לשחזר מידע שנשמר בעבר, ולהבטיח שהנתונים שלך מעודכנים וזמינים."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "בזמן הנוכחי, Kingdom Hall Attendant מאפשר רק לייבא גיבויים מאותו Kingdom Hall Attendant. בעתיד, מתוכנן לאפשר ייבוא נתונים מאפליקציות אחרות, אך עדיין אין תאריך ספציפי לפונקציה זו."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "מחק את הנתונים הקודמים לפני הייבוא"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "בחר קובץ גיבוי:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "בחר טבלאות לייבוא"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "שימוש"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "כדי לבחור את כל הטבלאות."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "ייבא"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "הצלחה:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "שגיאה:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- בחר אודיו --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- בחר וידאו --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- בחר פלטפורמה --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- בחר מיקרופון --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- בחר אקומודטור --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- בחר אקומודטור וידיאו --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "דובר"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "דובר זה הוא אורח הקהילה"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "מספר הנאום"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "דובר זה הכין את הטיוטות הבאות:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "דובר זה עדיין לא הכין אף טיוטה."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "אירוח:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "טיפ"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "אם הדובר הולך לצאת לנאום, ציין את הקהילה"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "הישאר לאירוח"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "הוצג בזמן"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "הוצג לנאום"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "הערות:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "יו\"ר:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "בחר יו\"ר"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "תפילה לפתיחה:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "בחר מפרסם"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "קורא של <em>המגדל השומר</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "סגן תפילת סיום:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "בחר מָחליף"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "שם הקבוצה"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "משרת קבוצה"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "בחר משרת קבוצה"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "עוזר קבוצה"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "בחר עוזר קבוצה"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "כתובת פגישת קבוצה"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "הקצאת הכנסת אורחים"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "השתמש לניקוי אולמות המלכות"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "השתמש כמקום מפגש לביקור של המפקח המחוזי"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "שם:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "פריבילגיות:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "בחר חודש"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "שנה:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "שנה"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "לקח חלק באספקט כלשהו של ההטפה"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "קורסים ביבליים:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "קורסים ביבליים שהושלמו"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "שעות:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "שעות"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "הערות:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "כתוב את ההערות שלך כאן..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "חודש"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "השתתפות"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "קורסים ביבליים"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "הערות"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "זכות"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "כן"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "לא"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "דיווח מלאי"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "מלאי זה חייב להתבצע על ידי הקונגרציה המנהלית בשפה כל חודש. לא צריכות להיות מלאי של פריטים לבקשה מיוחדת, לכן טופס זה אינו כולל אותם. אם מסיבה כלשהי יש פריטים לבקשה מיוחדת, רשום את הכמויות באחת מקטגוריות הכלליות, כגון \"אחרים\". לצורך הוראות נוספות, עיין בטופס <em>S-28</em>. למידע על \"הנחיות לבקשת פרסומים וניהול המלאי\", עיין ב-<em>S-56</em> המתאים למדינה שלך."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "שמור מלאי"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "מחק מלאי"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "נתוני הדובר"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "מאושר לצאת "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "אם הדובר הוא זר, ציין את קונגרציית המוצא שלו"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "טלפון נייד"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "טלפון"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "זקן"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "עוזר משרדי"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "מתווי הכנה"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "נתונים אישיים"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "גבר"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "אישה"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "כדי להבטיח שתזין את הנתונים בצורה נכונה, עקוב אחרי הצעדים הללו: קודם כל, בחר אם המפרסם הוא ראש המשפחה. לאחר מכן, שמור את המידע על המפרסם. ברגע שהשלמת את הצעד הזה, תוכל ליצור את המשפחה. אם תנסה ליצור את המשפחה לפני שתשמור את הנתונים של המפרסם, עשוי להתרחש שגיאה עקב קונפליקטים במידע."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "ראש המשפחה"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "ראש משפחה או רווק"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "צור משפחה"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "משפחה:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "המפרסם הזה הוא"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "העדפה"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "אישה"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "בת"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "בן"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "של ראש המשפחה"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "תאריך לידה"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "כתובת"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "נתונים רוחניים"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "מטביל"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "תאריך טבילה"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "קבוצת דפוס"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "בחר קבוצה"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "מקבל את משק הבית (מהדורת לימוד)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "מקבל את מדריך הפעילויות"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "פובליציסט לא טומאה"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "פובליציסט זמני (מבקר של 3 חודשים או פחות)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "משיחי"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "ילד"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "חזר"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "לא סדיר"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "עיוור"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "ביצע התעללות מינית בקטינים"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "גרוש"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "אלמן"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "חירש"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "חולה"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "מתנדב של LDC"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "מתנדב EPC"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "יש מפתחות לממלכה"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "משתמש בעוזר של אולם המלכה"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "מותק"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "לא פעיל"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "מגנים"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "נפטר"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "אסיר"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "מופרד"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "מנות"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "אין"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "מינויים"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "תאריך התחלה"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "זכויות שירות"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "מפתח שולחני קבוע"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "חוקר רגיל"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "חוקר מיוחד"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "שליח"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "מדווח ישירות לסניף"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "מספר חוקר"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "זמני"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "חולה (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "בית הספר האחרון של שירות חוקר"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "תאריך נוכחות אחרונה"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "אחריות בקהילה"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "רכז גופי הזקנים"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "מזכיר"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "מפקח שירות"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "משרתים את המפיקים"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "רכז אודיו ווידאו"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "משתף ספרות"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "רכז תחזוקה"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "רכז שיפוט של גן"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "וועדת תחזוקה של אולם המלכה"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "יועץ חדר עזר"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "יועץ סיוע"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "מתנדב זמני של בטל"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "בטליט סמוך"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "מתנדב רחוק של בטל"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "ועדת קשר עם בתי חולים"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "מנחה את הלימוד של המשמר"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "רכז נאומים ציבוריים"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "מְסַיַיְעַת לְמַנְהֵל נָאוּם צִיבּוּרִי"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "שירותי דין"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "שירותי חשבונות"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "שירותי שטח"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "רכז ניקיון"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "מפקח על ישיבת חיים ומשרד נוצרי"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "רכז הדפוס הציבורי"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "מפקח על הקבוצה"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "בטליט"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "מתנדב לבנייה"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "שירות לבנייה"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "שימוש במטלות"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "אוצרות בברית"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "בחר את כולם"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "נשיא"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "תפילה"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "נאום (10 דקות)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "בואו נחפש פנינים מוסתרות"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "קריאת הברית החדשה"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "בואו נהיה מורים טובים יותר"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "אנליזה"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "התחל שיחות"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "בצע ביקורים חוזרים"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "עשה תלמידים"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "אין להשתמש בחדר הראשי"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "הסבר על אמונותיך"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "עוזר"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "נאום"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "שימוש רק בחדר הראשי"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "חיינו הנוצריים"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "התערבויות"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "לימוד תנ\"ך בקהילה"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "קורא"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "לימוד המגדל השומרים"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "דובר ציבור יוצא"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "דובר ציבור מקומי"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "יו\"ר הפגישה הציבורית"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "קורא של המגדל השומרים"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "מנחה לאירועים"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "משימות"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "אופרטור אודיו"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "פלטפורמה"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "מנחה ב-Zoom"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "מיקרופונים"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "שותף במנחה ב-Zoom"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "מנהל"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "שירות בשטח"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "מאושר להטפה ציבורית"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "להנחות פגישות עבור השירות בשטח"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "לתפילה בפגישות עבור השירות בשטח"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "ניקיון"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "ניקוי שבועי של אולמי המלכות"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "ניקוי לאחר הפגישה"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "תחזוקת הגן"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "ניקוי חודשי של אולמי המלכות"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "ניקוי רבעוני של אולמי המלכות"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "תחזוקת הדשא"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "מחקו את המפרסם"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "מעדכן נתוני ישיבה"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "שמור..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "קודם"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "השבוע"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "הבא"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "בחר יו\"ר"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "מנחה:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "בחר מנחה"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "קורא:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "בחר קורא"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "מפרסם:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "בחר מפרסם"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "עוזר:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "בחר עוזר"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "תפילה סופית:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "פעילות:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "שירות בשטח"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "ארוחת בוקר"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "ארוחה"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "ערב"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "מרעה"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "פגישה עם מקדמים"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "פגישה עם זקנים ושמשים"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "סקירת רשומות הקהילה"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "פגישה עם המנחה על גוף הזקנים"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "פגישה עם ועדת השירות של הקהילה"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "אין הסדרים"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "פעילות עבור:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "האח"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "האָחות"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "יום:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "שעה:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "שעה"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*השתמש בפורמט 24 שעות"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "מקום האירוע:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "אולם המלכות"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "במקום האירוח"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "אין אירוע"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "משפחה"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "היי, היי! אנחנו רואים שאתה נלהב, אבל הגעת להגבלת הבקשות. אל תדאג, רק חכה דקה כדי שתוכל להמשיך."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "הערה:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "אם עדיין אתה רואה הודעה זו לאחר דקה, ייתכן שהגעת להגבלת 50 בקשות בשעה או להגבלה יומית של 200 בקשות. חזור מאוחר יותר כדי להמשיך ליהנות מ-Kingdom Hall Attendant."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "ישיבת סופשבוע"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "תחליף תפילה סופית:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין אין לך תוכניות רשומות! כדי להתחיל, לחץ על כפתור \"חדש\"."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "אפס את הסיסמה שלך"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "הזן את כתובת הדוא\"ל המאושרת של חשבון המשתמש שלך ואנו נשלח לך קישור לאיפוס הסיסמה."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "אנא בדוק את תיבת הדואר הנכנס שלך או את תיקיית ה-SPAM שלך כדי למצוא את הקישור."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "שחזר סיסמה"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין אין לך קבוצות הפצה רשומות! כדי להתחיל, צור את קבוצת ההפצה הראשונה שלך על ידי לחיצה על כפתור \"חדש\"."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "התנתק"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "נהל את המידע של הקהילה"
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "מפרסמים"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "רשום מפיצים לא מוגבלים ונהל את המידע שלהם"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "חיים ומשרד"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "תכנת אוטומטית את ההקצאות לישיבה"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "לימוד של <em>המגדול</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "תכנת אוטומטית את המשתתפים לישיבה"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "דוברים ציבוריים"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "רשום דוברים ציבוריים מקומיים או מבקרים"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "ארגן את הביקורים והיציאות של הדוברים ואת הכנסת האורחים שלהם"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "קבוצות שירות"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "צור קבוצות, הקצה את העוזר הקבוצתי ועוזר"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "דיווחי הטפה"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "רשום או ראה, בקש ובחן את הדיווחים החודשיים על ההטפה"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "נהל משימות מתנדבים עבור משרתים"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "ביקור המפקח של הציר"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "תזמן את ביקור המפקח של הציר לקהילה"
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "פרסומים"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "שמור מלאי מדויק ומעודכן, ראה מגמות ומנע הצטברות"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "שמור רישום של הנוכחות במפגשים"
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "גיבויים"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "בצע גיבויים של המידע החשוב ביותר"
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "הוסף את הפרטים האישיים שלך, שנה את המראה או את השפה, בין היתר"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "דווח על בעיה"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "השתתפות:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "זכות:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "לא הגשת את הדו\"ח שלך."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין לא ביצעת שום מלאי! כדי להתחיל, לחץ על כפתור \"חדש\"."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "ב-Kingdom Hall Attendant, אנו משתמשים בעיקר במערכת רישום ללא סיסמאות. אנו מאמינים שהטוב ביותר הוא לא לחייב את המשתמשים להקים סיסמה, מכיוון שזה עלול ליצור יותר סיכוני אבטחה (פרטים נוספים למטה)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "איך עובד הרישום ללא סיסמאות?"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "אתה מזין את המייל שלך, והמערכת מזהה מיד אם יש לך כבר חשבון או אם אתה משתמש חדש."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "אם כבר יש לך חשבון"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "נשלח לך מייל עם קישור ייחודי שיאפשר לך לגשת ל-Kingdom Hall Attendant. קישור זה ישמור עליך מזוהה במשך 30 יום במכשיר זה."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "אם אתה משתמש חדש"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "ננחה אותך כיצד ליצור את החשבון שלך. באמצעות הקישור שנשלח במייל, תשלם את תהליך ההרשמה ותוכל להתחיל להשתמש באפליקציה."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "איך זה עובד אם אתה מגדיר סיסמה?"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "אם אתה מעדיף להגדיר סיסמה, תוכל לעשות זאת מהקטע \"אבטחה\" בהגדרות החשבון שלך. כאשר תיכנס בהמשך, לאחר שתזין את המייל שלך, תתבקש להזין את הסיסמה שלך. אם אינך זוכר את הסיסמה שלך, יהיו לך שתי אפשרויות:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "שלח לי מייל:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "זה עובד בדיוק כמו המערכת ללא סיסמה, עם קישור להתחבר."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "שחזר את הסיסמה שלי:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "תקבל מכתב כדי לקבוע סיסמה חדשה ולוודא את הגישה שלך."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "אבטחה"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "למרות שזה עשוי להיראות סותר, סיסמאות לא תמיד הן האפשרות הבטוחה ביותר. הן עשויות להיות קשות לזכור וקקלות לניחוש על ידי נוכלים. אנשים רבים לא משתמשים במנהלי סיסמאות ולעתים קרובות משתמשים באותן סיסמאות או בוחרים באופציות ברורות, כמו תאריך הלידה שלהם או שם חיית המחמד שלהם."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "בנוסף, רוב אתרי האינטרנט מאפשרים לאפס את הסיסמה באמצעות דוא\"ל, דבר שיכול להיות מנוצל על ידי נוכלים אם המייל שלך נפרץ. כדי למזער סיכונים אלה, אנו ממליצים להפעיל אימות דו-שלבי (2FA) באמצעות אפליקציות כמו Google Authenticator כדי לשפר את אבטחת החשבון שלך."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "יתרונות האימות ללא סיסמאות"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "לפי Auth0:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "אימות ללא סיסמה, ממטבעו, מבטל את הבעיה של שימוש בסיסמאות לא בטוחות. משמעות הדבר היא שאחת מהשגיאות הנפוצות ביותר של המשתמשים מוסרת מתהליך ההתחברות. זה לא רק בטוח, אלא יכול להיות בטוח יותר עוד יותר מהשיטה המסורתית של שם משתמש וסיסמה."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "מי עוד משתמש בקישורים קסומים כדי להירשם?"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "מספר יישומים פופולריים אימצו גם הם את האימות ללא סיסמאות עם קישורים קסומים:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "אפליקציית מסרים"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "אפליקציית בנקאות"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "שירות אירוח"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "פלטפורמת CRM"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "אפליקציית ארגון וערות"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "כניסה"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "שכחתי את הסיסמה שלי"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "התחברות"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "אין לך חשבון?"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "צור חשבון חינם"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "חזור בקרוב!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "או חזור ל"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "הכלי הטוב ביותר עבור קהילות עדי יהוה"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "בכל קהילה של עדי יהוה, הארגון היעיל הוא המפתח להתמקדות במה שחשוב באמת. עם זאת, רבות מהכלים הזמינים היום הם יקרים, מסובכים או שאינם מתאימים לצרכים של הקהילות. לכן, אנו מציגים את Kingdom Hall Attendant (KHA), פתרון מעשי ונגיש לניהול משימות מנהליות בפשטות."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "Kingdom Hall Attendant נוצרה כדי להציע כלי חינם, מאובטח וללא פרסומות, הפועל בכל מכשיר ובכל דפדפן. המטרה שלה היא להקל על המשימות המנהליות של הקהילות, ולאפשר שהזמן יוקדש למשימה העיקרית. לא רק שאנחנו עיצבנו אפליקציה; בנינו כלי שתוכנן להיות אינטואיטיבי, נגיש ושיכול לשמש כל קהילה ללא סיבוכים."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "פיתוח על ידי ליוואדו סנדובאל, בתמיכה של קהילה פעילה של תורמים ב-GitHub, KHA היא אפליקציה חוצת פלטפורמות הפועלת על Windows, macOS, Linux, iPads וטאבלטים של Android, עם גישה מכל דפדפן אינטרנט. קלות השימוש והביטחון היו העדיפויות שלנו מאז היום הראשון. כל היבט עוצב כך שתוכל לגשת לכלים המנהליים שלך בכל מקום ובכל זמן שתצטרך."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "התחייבות שלנו היא ש-KHA תמיד יהיה חינם, ללא מנויים מוסתרים או תאריכי תפוגה. יתרה מכך, אנו מתייחסים ברצינות רבה לביטחון ולפרטיות של הנתונים: הם מוצפנים ולא נבדקים אף פעם. באמצעות מערכת מאובטחת להעברת נתונים, אנו מגינים על המידע שלך בצורה יעילה."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "כיום, KHA נמצא בשלב BETA, ואנחנו מתכננים השקה רשמית באביב 2025. אבל זה רק ההתחלה. אנו מחויבים לשיפור מתמיד ומקשיבים באופן פעיל לקהילה שלנו כדי להמשיך להתפתח. המטרה שלנו היא לספק כלי שיעיל ורלוונטי, שמסתגל לצרכים של הקהילות היום ובעתיד."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "אף על פי ש-KHA חינמי וימשיך להיות כך, אנו מזמינים את מי שמעוניין לתמוך בפרויקט דרך תרומות או על ידי הרשמה למהדורה הזהב שלנו ✨. זה יאפשר לנו להמשיך לשפר ולהציע עדכונים מתמשכים לטובת כל הקהילות."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "לא נמצאו נתונים להצגה."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "מניפסטו"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "הרשמה"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "תרום"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "הוסף דובר זר"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין אין לך דובר רשום! כדי להתחיל, צור את הדובר הראשון שלך על ידי לחיצה על כפתור \"חדש\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "עדיין אין לך מפרסם רשום! כדי להתחיל, צור את המפרסם הראשון שלך על ידי לחיצה על כפתור \"חדש\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "ביטחון ב-Kingdom Hall Attendant"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "התחברות מאובטחת:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "ב-Kingdom Hall Attendant, כל התחברות היא מבצר. אנחנו משתמשים ב"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "כדי להצפין את הסיסמאות שלך, להבטיח שאפילו אם מישהו ינסה לגשת לבסיס הנתונים שלנו, האישורים שלך יישארו בלתי ניתנים חדירה. בנוסף, בכל פעם שתתחבר, נשלח לך התראה בדואר אלקטרוני כך שתוכל לזהות כל גישה לא מורשה מיד."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "ניהול מאובטח של מושבים:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "המושבים מנוהלים עם הקפצה מירבית. אנו לעולם לא שומרים מידע רגיש בלקוח, מוודאים שהפרטיות שלך תמיד מוגנת. זה כמו שיש לך שומר שמביט על הנתונים שלך בכל זמן."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "הגנת CSRF:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "אנחנו משתמשים ב-CSRFProtect כדי להגן עליך מפני התקפות של זיוף בקשות. זה אומר שהפעולות שלך באפליקציה תמיד אותנטיות ובטוחות, כאילו יש לך מגן בלתי נראה שמגן על כל קליק."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "ניהול אסימונים מאובטחים:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "אנחנו מייצרים אסימונים מאובטחים במיוחד לאישור דואר אלקטרוני ושחזור סיסמאות. אסימונים אלה הם כמו מפתחות מאסטר, ומוודאים שרק אתה יכול לגשת לחשבונך, גם במצבים חירומיים."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "חיבורים מאובטחים למסדי נתונים:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "אנו מוודאים שכל החיבורים למסד הנתונים ייסגרו כראוי, כדי למנוע דליפות מידע ולשמור על שלמות הנתונים שלך. זה כמו לסגור את הדלת של כספת אחרי כל שימוש."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "מגבלות קצב:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "עם Flask-Limiter, אנחנו מגבילים את הבקשות כדי למנוע התקפות כוח ברוט. זה כמו להיות עם מאבטח ששולט בזרם המבקרים, ומוודא שרק הבקשות הלגיטימיות עוברות."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "רישום ומעקב:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "יישמנו מערכת רישום חזקה כדי לעקוב אחרי פעולות ושגיאות. זה מאפשר לנו לזהות ולבצע פעולות על כל אירוע אבטחה בצורה פרואקטיבית, כמו שיש מערכת אזעקה שמתריעה על כל אנומליה."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "שימוש במשתני סביבה:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "אנחנו משתמשים ב-dotenv כדי לנהל הגדרות רגישות כמו מפתחות סודיים ואימותי דואר, שומרים אותם מחוץ לקוד המקור ורחוק מעיניים סקרניות. זה כמו לשמור את הסודות היקרים שלך בכספת."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "הקישור המאגי שלך בדרך!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "שלחנו את זה ל"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "תופנה מהקישור של המייל. אתה יכול לסגור את הטאב הזה בלי בעיות."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "שלח מחדש את הקישור"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "לאחר שתמשיך עם ההרשמה, נשלח אליך קישור קסם לדוא\"ל שלך. אנא בדוק את תיבת הדואר הנכנס שלך או את תיקיית הספאם כדי למצוא את הקישור ולסיים את ההרשמה שלך."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "לְהַמְשִׁיךְ"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "שבוע של"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "ביקור של המפקח במחוז"
 
