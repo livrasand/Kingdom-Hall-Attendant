@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:15\n"
+"PO-Revision-Date: 2024-12-10 03:28\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: ar\n"
 "Language-Team: Arabic\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "هذه الصفحة غير متاحة أو المورد اللازم لإكمال طلبك غير متاح"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "يرجى العودة إلى"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "اطبع"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "الحضور في الاجتماعات"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "سجل جماعتك"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "الشهر:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "احذف"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "اجتماع منتصف الأسبوع:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "عدد الاجتماعات:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "الإجمالي للشهر:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "المتوسط الأسبوعي:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "الحضور في الأسبوع:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "الأسبوع <b>١</b>"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "الأسبوع <b>٢</b>"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "الأسبوع <b>٣</b>"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "الأسبوع <b>٤</b>"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "الأسبوع <b>٥</b>"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "لا توجد اجتماعات مسجلة."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "اجتماع نهاية الأسبوع:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "اجتماع"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "الأسبوع 1"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "الأسبوع 2"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "الأسبوع 3"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "الأسبوع 4"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "الأسبوع 5"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "اجتماع في منتصف الأسبوع"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "اجتماع نهاية الأسبوع"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "احفظ"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "إلغاء"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "جديد"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "الصوت، الفيديو والمساعدين"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "التاريخ:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "مشغل الصوت:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,1872 +206,1873 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "غير مخصص"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "مشغل الفيديو:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "المنصة:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "الميكروفونات:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "المساعدين:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "مساعد مؤتمر الفيديو:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لا يوجد لديك أي برنامج حتى الآن! للبدء، أنشئ أول برنامج لك\n"
+"                عن طريق النقر على زر \"جديد\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "إعدادات التعيينات"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "إغلاق"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "عدد مشغلي الميكروفونات للتعيين:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "عدد المساعدين للتعيين:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "عدد مساعدي الفيديو لمؤتمر الفيديو:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "عدد مديري المنصة:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "عدد مديري نظام الصوت:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "عدد مديري نظام الفيديو:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "سجل أولاً متحدثًا في المتحدثين العموميين."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "خطابات عامة"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "خطاب عام"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "مخطط غير مخصص"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "غير مخصص"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "متحدث:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "الجماعة:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "محلي"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "خارج إلى:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "هو زائر"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "ليس لديك أي مخطط مجدول حتى الآن! للبدء، قم بجدولة المخطط الأول عن طريق النقر على زر \"جديد\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "تحديث كلمة المرور"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "غير كلمة المرور الخاصة بك..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "أدخل بريدك الإلكتروني لتلقي رابط لتحديث كلمة المرور الخاصة بك."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "إرسال الرابط"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "إعدادات"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "لغة"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "الإسبانية"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "الإنجليزية"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "الإيطالية"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "الفرنسية"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "الألمانية"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "البرتغالية"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "اسم"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "أسماء"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "ألقاب"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "البريد الإلكتروني العام"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "تعيين"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "مراقب دائرة"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "شيخ"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "خادم وزاري"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "تحديث البيانات"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "تغيير كلمة المرور"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "حذف بيانات التطبيق"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "سيتم حذف حسابك تلقائيًا بعد <b>3</b> أشهر من عدم النشاط. وهذا يعني أنه سيتم حذف جميع بياناتك المتعلقة بـ KHA تمامًا، كما لو لم تكن موجودًا على منصتنا."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "إذا كنت بحاجة إلى حذف حسابك قبل هذا الموعد النهائي بسبب مسألة قانونية أو أي مشكلة قانونية أخرى، يرجى إعلامنا. سنقوم بحذف حسابك على الفور وسنتأكد من عدم تمكن أي شخص من الوصول إلى بياناتك."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "تأكيد كلمة المرور الجديدة..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "كلمة المرور الجديدة"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "بدء المغامرة..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "يرجى تعيين كلمة مرور آمنة."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "بمجرد إعداد كلمة المرور الخاصة بك، ستتمكن من الوصول إلى حسابك واستكشاف كل ما تقدمه Kingdom Hall Attendant."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "كلمة المرور"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "تأكيد"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "هل لديك حساب بالفعل؟"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "الجماعة"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "رقم"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "الإثنين"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "الثلاثاء"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "الأربعاء"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "الخميس"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "الجمعة"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "السبت"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "الأحد"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "وقت البدء"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "عنوان قاعة الملكوت"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "بيانات مراقب الدائرة"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "مراقب دائرة"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "رقم الهاتف"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "دائرة"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "حفظ التغييرات"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "وضع المزامنة"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "إعدادات المزامنة: تتيح لك هذه الميزة تفعيل أو تعطيل التخزين المحلي، مما يوفر للمستخدم مزيدًا من التحكم في بياناته. من خلال تفعيل هذه الميزة، يتم تحسين خصوصية وأمان المعلومات، حيث يتم تخزين البيانات محليًا بدلاً من خوادم خارجية. تذكر أن تغيير هذا الإعداد قد يؤثر على كيفية إدارة بياناتك. لمزيد من المعلومات، يرجى مراجعة الوثائق حول الآثار الجانبية المحتملة."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "الآثار الجانبية المحتملة"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "تفعيل التخزين المحلي"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "تحديث التفضيلات"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "بمجرد تفعيل وضع المحلي، من الضروري أنه كل مرة تقوم فيها بتسجيل الدخول، تحميل ملف النسخ الاحتياطي الخاص بك. إذا فقدت هذا الملف، فإنك تخاطر بفقدان جميع بياناتك بشكل لا رجعة فيه. بالإضافة إلى ذلك، من الضروري أن تحفظ ملف JSON في كل مرة تقوم فيها بتسجيل الخروج لتجنب فقدان المعلومات المهمة."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "تصدير نسخة احتياطية"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "تتيح لك هذه الوظيفة إنشاء نسخة احتياطية من بياناتك، وهو أمر أساسي لحماية معلوماتك. عند إنشاء نسخة احتياطية، يمكنك استعادة بياناتك في حالة الفقدان أو التلف، مما يضمن استمرار عملك. إنها ممارسة موصى بها، بغض النظر عما إذا كنت تستخدم التخزين المحلي أم لا، لأنه من الأفضل دائمًا أن تتجنب المشكلات بدلاً من الندم."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "إنشاء نسخة احتياطية"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "استيراد نسخة احتياطية"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "تتيح لك هذه الوظيفة استيراد البيانات من ملف النسخ الاحتياطي بصيغة JSON. من خلال اختيار ملف والجداول التي ترغب في استيرادها، يمكنك استعادة المعلومات المحفوظة سابقًا، مما يضمن أن بياناتك محدثة ومتاحة."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "في الوقت الحالي، يتيح لك مساعد قاعة المملكة استيراد النسخ الاحتياطية من نفس مساعد قاعة المملكة فقط. في المستقبل، من المخطط تمكين استيراد البيانات من تطبيقات أخرى، لكن لا يوجد تاريخ محدد لهذه الوظيفة حتى الآن."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "احذف البيانات السابقة قبل الاستيراد"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "حدد ملف النسخ الاحتياطي:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "حدد الجداول للاستيراد"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "استخدم"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "لتحديد جميع الجداول."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "استيراد"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "نجاح:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "خطأ:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- اختر الصوت --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- اختر الفيديو --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- اختر المنصة --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- اختر الميكروفون --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- اختر المضيف --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- اختر مضيف الفيديو كونفرنس --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "متحدث"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "هذا المتحدث هو ضيف الجماعة"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "رقم الخطاب"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "هذا المتحدث أعد هذه المخططات:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "لم يستعد هذا المتحدث بعد مع أي مخطط."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "الضيافة:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "نصيحة"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "إذا كان المتحدث سيخرج للحديث، حدد الجماعة"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "لقد بقي من أجل الضيافة"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "قد وصل في الوقت المحدد"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "قد وصل للخطاب"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "ملاحظات:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "الرئيس:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "اختر رئيسًا"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "صلاة الافتتاح:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "اختر ناشرًا"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "قارئ <em>المر Watchtower</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "بديل للصلاة النهائية:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "اختر بديلاً"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "اسم المجموعة"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "خادم المجموعة"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "اختر خادم المجموعة"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "مساعد مجموعة"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "اختر مساعد مجموعة"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "عنوان اجتماع المجموعة"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "تعيين الضيافة"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "استخدام لتنظيف قاعة المملكة"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "استخدام كنقطة اجتماع لزيارة المشرف على الدائرة"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "الاسم:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "الامتيازات:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "حدد شهرا"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "السنة:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "سنة"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "شارك في أي جانب من جوانب الوعظ"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "الدورات الكتابية:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "الدورات الكتابية المنجزة"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "الساعات:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "الساعات"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "تعليقات:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "اكتب تعليقاتك هنا..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "شهر"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "مشاركة"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "الدورات الكتابية"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "تعليقات"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "امتياز"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "نعم"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "تقرير المخزون"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "يجب أن يتم هذا الجرد بواسطة الجماعة المنسقة للغة في كل شهر. يجب ألا يكون هناك مخزون من العناصر المطلوبة بشكل خاص، لذلك لا يتضمن هذا النموذج. إذا كانت هناك عناصر خاصة متاحة لأي سبب من الأسباب، قم بتدوين الكميات في واحدة من الفئات العامة، مثل \"الأخرى\". للحصول على مزيد من التعليمات، يرجى مراجعة النموذج <em>S-28</em>. لمعرفة \"إرشادات طلب المنشورات وإدارة المخزون\"، يرجى الاطلاع على <em>S-56</em> الخاصة ببلدك."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "احفظ الجرد"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "احذف الجرد"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "بيانات المتحدث"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "موافقة للخروج "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "إذا كان المتحدث أجنبيًا، يرجى تحديد الكنيسة الأصلية له"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "هاتف محمول"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "هاتف"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "شيخ"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "خادم وزاري"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "مسودات مُعدَة"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "البيانات الشخصية"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "ذكر"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "أنثى"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "للتأكد من إدخال البيانات بشكل صحيح، اتبع هذه الخطوات: أولاً، اختر إذا كان الناشر هو رب الأسرة. ثم احفظ معلومات الناشر. بمجرد الانتهاء من هذه الخطوة، يمكنك إنشاء الأسرة. إذا حاولت إنشاء الأسرة قبل حفظ بيانات الناشر، فقد يحدث خطأ بسبب تضارب المعلومات."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "رب الأسرة"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr ""
+msgstr "رب الأسرة أو أعزب"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr ""
+msgstr "إنشاء أسرة"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr ""
+msgstr "عائلة:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr ""
+msgstr "هذا الناشر هو"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr ""
+msgstr "تفضيل"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
-msgstr ""
+msgstr "زوجة"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr ""
+msgstr "ابنة"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr ""
+msgstr "ابن"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr ""
+msgstr "من رب الأسرة"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr ""
+msgstr "تاريخ الميلاد"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr ""
+msgstr "العنوان"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr ""
+msgstr "البيانات الروحية"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr ""
+msgstr "معمد"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr ""
+msgstr "تاريخ المعمودية"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr ""
+msgstr "مجموعة الوعظ"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr ""
+msgstr "اختر مجموعة"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr ""
+msgstr "استلم برج المراقبة (نسخة دراسية)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr ""
+msgstr "استلم دليل الأنشطة"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr ""
+msgstr "ناشر غير معمد"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr ""
+msgstr "ناشر مؤقت (زائر لمدة <b>٣</b> أشهر أو أقل)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
-msgstr ""
+msgstr "ممسوح"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr ""
+msgstr "طفل"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
-msgstr ""
+msgstr "معاد قبوله"
 
 #: templates/detalle-publicador.html:190
 msgid "Irregular"
-msgstr ""
+msgstr "غير منتظم"
 
 #: templates/detalle-publicador.html:195
 msgid "Invidente"
-msgstr ""
+msgstr "أعمى"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr ""
+msgstr "ارتكب اعتداءات جنسية على قاصرين"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
-msgstr ""
+msgstr "مطلق"
 
 #: templates/detalle-publicador.html:210
 msgid "Viudo"
-msgstr ""
+msgstr "أرمل"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr ""
+msgstr "أصم"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
-msgstr ""
+msgstr "مريض"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr ""
+msgstr "متطوع LDC"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr ""
+msgstr "متطوع EPC"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr ""
+msgstr "يمتلك مفاتيح قاعة المملكة"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr ""
+msgstr "يستخدم مساعد قاعة المملكة"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
-msgstr ""
+msgstr "مُراقَب"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr ""
+msgstr "غير نشط"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
-msgstr ""
+msgstr "مطرود"
 
 #: templates/detalle-publicador.html:268
 msgid "Fallecido"
-msgstr ""
+msgstr "توفي"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr ""
+msgstr "معتقل"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
-msgstr ""
+msgstr "منفصل"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr ""
+msgstr "تعيينات"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr ""
+msgstr "لا شيء"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr ""
+msgstr "معين"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr ""
+msgstr "تاريخ البدء"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr ""
+msgstr "امتيازات الخدمة"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr ""
+msgstr "رائد مساعد مستمر"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
-msgstr ""
+msgstr "رائد منتظم"
 
 #: templates/detalle-publicador.html:310
 msgid "Precursor especial"
-msgstr ""
+msgstr "رائد خاص"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr ""
+msgstr "مبشر"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr ""
+msgstr "يبلغ مباشرة للفرع"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
-msgstr ""
+msgstr "رقم الرائد"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr ""
+msgstr "مؤقت"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
-msgstr ""
+msgstr "مريض (سفل ٩:١٨)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr ""
+msgstr "آخر مدرسة للرائدين"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr ""
+msgstr "تاريخ آخر حضور"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr ""
+msgstr "مسؤوليات في الجماعة"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
-msgstr ""
+msgstr "منسق هيئة الشيوخ"
 
 #: templates/detalle-publicador.html:355
 msgid "Secretario"
-msgstr ""
+msgstr "سكرتير"
 
 #: templates/detalle-publicador.html:360
 msgid "Superintendente de servicio"
-msgstr ""
+msgstr "مشرف الخدمة"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr ""
+msgstr "خادم لاستقبال"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr ""
+msgstr "منسق الصوت والفيديو"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr ""
+msgstr "خادم الأدب"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr ""
+msgstr "منسق الصيانة"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr ""
+msgstr "منسق صيانة الحدائق"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr ""
+msgstr "لجنة صيانة قاعة المملكة"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr ""
+msgstr "مستشار القاعة الإضافية"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr ""
+msgstr "مستشار مساعد"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr ""
+msgstr "متطوع مؤقت من بيتيل"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr ""
+msgstr "بيتيلية مجاورة"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr ""
+msgstr "متطوع بعيد من بيتيل"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr ""
+msgstr "لجنة التنسيق بالمستشفيات"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr ""
+msgstr "مدير دراسة برج المراقبة"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr ""
+msgstr "منسق خطب عامة"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr ""
+msgstr "مساعد منسق الخطب العامة"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr ""
+msgstr "خادم التقارير"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr ""
+msgstr "خادم الحسابات"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr ""
+msgstr "خادم المناطق"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr ""
+msgstr "منسق النظافة"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr ""
+msgstr "مراقب اجتماع الحياة والخدمة المسيحية"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr ""
+msgstr "منسق الوعظ العام"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
-msgstr ""
+msgstr "مراقب المجموعة"
 
 #: templates/detalle-publicador.html:488
 msgid "Betelita"
-msgstr ""
+msgstr "بيت اليتا"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr ""
+msgstr "متطوع بناء"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr ""
+msgstr "خادم البناء"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr ""
+msgstr "الاستخدام في المهام"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr ""
+msgstr "جواهر الكتاب المقدس"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr ""
+msgstr "حدد الكل"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
-msgstr ""
+msgstr "رئيس"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr ""
+msgstr "صلاة"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr ""
+msgstr "خطاب (١٠ دقائق)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr ""
+msgstr "دعونا نبحث عن اللآلئ المخفية"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr ""
+msgstr "قراءة الكتاب المقدس"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr ""
+msgstr "لنتعلم أن نكون معلمين أفضل"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr ""
+msgstr "تحليل"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr ""
+msgstr "ابدأ المحادثات"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr ""
+msgstr "قم بالزيارات المتكررة"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr ""
+msgstr "اجعل تلاميذ"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr ""
+msgstr "لا تستخدم في الغرفة الرئيسية"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr ""
+msgstr "اشرح معتقداتك"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr ""
+msgstr "مساعد"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
-msgstr ""
+msgstr "خطاب"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr ""
+msgstr "استخدم فقط في الغرفة الرئيسية"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr ""
+msgstr "حياتنا المسيحية"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr ""
+msgstr "التدخلات"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr ""
+msgstr "دراسة الكتاب المقدس للمجموعة"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr ""
+msgstr "قارئ"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr ""
+msgstr "دراسة برج المراقبة"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr ""
+msgstr "المتحدث العام المغادر"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr ""
+msgstr "المتحدث العام المحلي"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr ""
+msgstr "رئيس الاجتماع العام"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr ""
+msgstr "قارئ برج المراقبة"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr ""
+msgstr "المضيف للحفاوة"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr ""
+msgstr "المهام"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr ""
+msgstr "مشغل الصوت"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
-msgstr ""
+msgstr "منصة"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr ""
+msgstr "مضيف في زووم"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr ""
+msgstr "ميكروفونات"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr ""
+msgstr "المساعد في زووم"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
-msgstr ""
+msgstr "منظم"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr ""
+msgstr "خدمة الحقل"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr ""
+msgstr "مصرح للوعظ العام"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr ""
+msgstr "قيادة الاجتماعات لخدمة الحقل"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr ""
+msgstr "صلاة في الاجتماعات لخدمة الحقل"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr ""
+msgstr "تنظيف"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr ""
+msgstr "تنظيف أسبوعي لقاعة المملكة"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr ""
+msgstr "تنظيف بعد الاجتماع"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr ""
+msgstr "العناية بالحديقة"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr ""
+msgstr "تنظيف شهري لقاعة المملكة"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr ""
+msgstr "تنظيف ربع سنوي لقاعة المملكة"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr ""
+msgstr "العناية بالعشب"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr ""
+msgstr "إزالة الناشر"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "جاري مزامنة بيانات الاجتماع"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "جاري الحفظ..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "سابق"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "هذا الأسبوع"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "التالي"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "اختر رئيسًا"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "المنسق:"
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "اختر منسقًا"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "قارئ:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "اختر قارئًا"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "الناشر:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "اختر ناشرًا"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "مساعد:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "اختر مساعدًا"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "الصلاة النهائية:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr ""
+msgstr "نشاط:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr ""
+msgstr "خدمة الحقل"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr ""
+msgstr "فطور"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr ""
+msgstr "غداء"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr ""
+msgstr "عشاء"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr ""
+msgstr "رعي"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr ""
+msgstr "اجتماع مع الناشرين"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr ""
+msgstr "اجتماع مع المشرفين والنواب الوزاريين"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr ""
+msgstr "مراجعة سجلات الجماعة"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr ""
+msgstr "اجتماع مع منسق هيئة الشيوخ"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr ""
+msgstr "اجتماع مع لجنة الخدمة في الجماعة"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr ""
+msgstr "بدون ترتيبات"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr ""
+msgstr "نشاط لـ:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr ""
+msgstr "الأخ"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr ""
+msgstr "الأخت"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr ""
+msgstr "اليوم:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
-msgstr ""
+msgstr "الساعة:"
 
 #: templates/detalle-visita-superint-circuito.html:69
 msgid "Hora"
-msgstr ""
+msgstr "ساعة"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr ""
+msgstr "*استخدم تنسيق <b>٢٤</b> ساعة"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr ""
+msgstr "مكان الحدث:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr ""
+msgstr "قاعة المملكة"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr ""
+msgstr "في السكن"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr ""
+msgstr "لا حدث"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr ""
+msgstr "عائلة"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr ""
+msgstr "يا مرحبا! نرى أنك متحمس، ولكن لقد وصلت إلى حد الطلبات. لا تقلق، فقط انتظر دقيقة واحدة لتتمكن من الاستمرار."
 
 #: templates/epa.html:57
 msgid "Nota:"
-msgstr ""
+msgstr "ملاحظة:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr ""
+msgstr "إذا كنت لا تزال ترى هذه الرسالة بعد دقيقة، فقد تكون قد وصلت إلى الحد الأقصى لعدد <b>٥٠</b> طلبًا في الساعة أو الحد الأقصى اليومي البالغ <b>٢٠٠</b> طلب. يرجى العودة لاحقًا للاستمرار في الاستمتاع ببرنامج Kingdom Hall Attendant."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "اجتماع نهاية الأسبوع"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "بديل الصلاة النهائية:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لا تملك أي برامج مسجلة حتى الآن! للبدء، انقر على الزر \"جديد\"."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr ""
+msgstr "إعادة تعيين كلمة المرور"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr ""
+msgstr "أدخل عنوان البريد الإلكتروني المعتمد لحساب المستخدم الخاص بك وسنرسل لك رابطًا لإعادة تعيين كلمة المرور."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr ""
+msgstr "يرجى التحقق من صندوق الوارد أو مجلد البريد العشوائي للعثور على الرابط."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr ""
+msgstr "استعادة كلمة المرور"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لا تملك أي مجموعات إنذار مسجلة حتى الآن! للبدء، أنشئ مجموعتك الأولى من خلال النقر على الزر \"جديد\"."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr ""
+msgstr "إدارة معلومات الجماعة"
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "ناشرين"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr ""
+msgstr "تسجيل ناشرين غير محدود وإدارة معلوماتهم"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "الحياة والوزراة"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "جدول التعيينات للاجتماع تلقائيًا"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "دراسة <em>دور المراقبة</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "جدول المشاركين للاجتماع تلقائيًا"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "متحدثون عموميون"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "سجل المتحدثين العموميين المحليين أو الزوار"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "نظم الزيارات والخروج للمتحدثين وضيافتهم"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr ""
+msgstr "مجموعات الخدمة"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "أنشئ مجموعات، عيّن الخادم المجموعي والمساعد"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr ""
+msgstr "تقارير الوعظ"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr ""
+msgstr "سجل أو شاهد، اطلب وراجع التقارير الشهرية للوعظ"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr ""
+msgstr "أدر مهام المتطوعين لمستقبلي الأحداث"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
-msgstr ""
+msgstr "زيارة المشرف الدائري"
 
 #: templates/index.html:165
 msgid "Programe la visita del superintendente de circuito a la congregación"
-msgstr ""
+msgstr "جدول زيارة المشرف الدائري للجماعة"
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "نشرات"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "احتفظ بمخزون دقيق ومحدث، انظر الاتجاهات وتجنب التراكم"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
-msgstr ""
+msgstr "احتفظ بسجل للحضور في الاجتماعات"
 
 #: templates/index.html:195
 msgid "Copias de seguridad"
-msgstr ""
+msgstr "نسخ احتياطي"
 
 #: templates/index.html:197
 msgid "Realice copias de seguridad de la información más importante"
-msgstr ""
+msgstr "قم بعمل نسخ احتياطي لأهم المعلومات"
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "أضف بياناتك الشخصية، غيّر المظهر أو اللغة، من بين أمور أخرى"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "الإبلاغ عن مشكلة"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
-msgstr ""
+msgstr "المشاركة:"
 
 #: templates/informes-predicacion.html:79
 msgid "Privilegio:"
-msgstr ""
+msgstr "امتياز:"
 
 #: templates/informes-predicacion.html:81
 msgid "No ha entregado su informe."
-msgstr ""
+msgstr "لم تقم بتسليم تقريرك."
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لم تقم بتسجيل أي شيء بعد! للبدء، انقر على الزر \"جديد\"."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
-msgstr ""
+msgstr "في إدارة قاعة المملكة، نستخدم بشكل أساسي نظام تسجيل بدون كلمات مرور. نعتقد أنه من الأفضل عدم إجبار المستخدمين على تعيين كلمة مرور، حيث يمكن أن يؤدي ذلك إلى مخاطر أمان أكبر (المزيد من التفاصيل أدناه)."
 
 #: templates/log-in-system.html:61
 msgid "¿Cómo funciona el registro sin contraseñas?"
-msgstr ""
+msgstr "كيف يعمل التسجيل بدون كلمات مرور؟"
 
 #: templates/log-in-system.html:62
 msgid "Ingresas tu correo electrónico y el sistema identifica instantáneamente si ya tienes una cuenta o si eres un usuario nuevo."
-msgstr ""
+msgstr "أدخل بريدك الإلكتروني وسيحدد النظام على الفور ما إذا كان لديك حساب بالفعل أو إذا كنت مستخدمًا جديدًا."
 
 #: templates/log-in-system.html:64
 msgid "Si ya tienes una cuenta"
-msgstr ""
+msgstr "إذا كان لديك حساب بالفعل"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr ""
+msgstr "سوف نرسل لك بريدًا إلكترونيًا يحتوي على رابط فريد سيسمح لك بالوصول إلى Kingdom Hall Attendant. سيبقيك هذا الرابط معتمدًا لمدة <b>30</b> يومًا على هذا الجهاز."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
-msgstr ""
+msgstr "إذا كنت مستخدمًا جديدًا"
 
 #: templates/log-in-system.html:66
 msgid "te guiaremos para crear tu cuenta. A través del enlace enviado por correo electrónico, completarás el proceso de registro y podrás comenzar a usar la aplicación."
-msgstr ""
+msgstr "سوف نقوم بإرشادك لإنشاء حسابك. من خلال الرابط المرسل عبر البريد الإلكتروني، ستكمل عملية التسجيل ويمكنك البدء في استخدام التطبيق."
 
 #: templates/log-in-system.html:69
 msgid "¿Cómo funciona si estableces una contraseña?"
-msgstr ""
+msgstr "كيف تعمل إذا قمت بتعيين كلمة مرور؟"
 
 #: templates/log-in-system.html:70
 msgid "Si prefieres configurar una contraseña, puedes hacerlo desde la sección \"Seguridad\" en la configuración de tu cuenta. Al iniciar sesión en el futuro, después de ingresar tu correo electrónico, se te pedirá que ingreses tu contraseña. Si no recuerdas tu contraseña, tendrás dos opciones:"
-msgstr ""
+msgstr "إذا كنت تفضل تعيين كلمة مرور، يمكنك القيام بذلك من قسم \"الأمان\" في إعدادات حسابك. عند تسجيل الدخول في المستقبل، بعد إدخال بريدك الإلكتروني، سيُطلب منك إدخال كلمة مرورك. إذا لم تتذكر كلمة مرورك، سيكون لديك خياران:"
 
 #: templates/log-in-system.html:72
 msgid "Enviarme un correo electrónico:"
-msgstr ""
+msgstr "أرسل لي بريدًا إلكترونيًا:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr ""
+msgstr "يعمل بنفس طريقة النظام بدون كلمة مرور، مع رابط لتسجيل الدخول."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
-msgstr ""
+msgstr "إعادة تعيين كلمة المرور الخاصة بي:"
 
 #: templates/log-in-system.html:74
 msgid "Recibirás un correo para establecer una nueva contraseña y asegurar tu acceso."
-msgstr ""
+msgstr "ستتلقى بريدًا إلكترونيًا لإعداد كلمة مرور جديدة وتأمين وصولك."
 
 #: templates/log-in-system.html:77 templates/nav.html:14 templates/nav.html:112
 msgid "Seguridad"
-msgstr ""
+msgstr "الأمان"
 
 #: templates/log-in-system.html:79
 msgid "Aunque pueda parecer contradictorio, las contraseñas no siempre son la opción más segura. Pueden ser difíciles de recordar y fáciles de adivinar por los estafadores. Muchas personas no usan gestores de contraseñas y a menudo reutilizan contraseñas o eligen opciones obvias, como su fecha de nacimiento o el nombre de su mascota."
-msgstr ""
+msgstr "على الرغم من أنه قد يبدو متناقضًا، إلا أن كلمات المرور ليست دائمًا الخيار الأكثر أمانًا. قد يكون من الصعب تذكرها وسهلاً تخمينها من قبل المحتالين. لا يستخدم الكثير من الناس مديري كلمات المرور وغالبًا ما يعيدون استخدام كلمات المرور أو يختارون خيارات واضحة، مثل تاريخ ميلادهم أو اسم حيوانهم الأليف."
 
 #: templates/log-in-system.html:81
 msgid "Además, la mayoría de los sitios web permiten restablecer la contraseña mediante un correo electrónico, lo que puede ser aprovechado por los estafadores si tu correo está comprometido. Para mitigar estos riesgos, recomendamos habilitar la autenticación de dos factores (2FA) utilizando aplicaciones como Google Authenticator para mejorar la seguridad de tu cuenta."
-msgstr ""
+msgstr "علاوة على ذلك، تسمح معظم المواقع الإلكترونية بإعادة تعيين كلمة المرور عبر البريد الإلكتروني، وهو ما قد يستغله المحتالون إذا كانت بريدك الإلكتروني مخترقًا. لتقليل هذه المخاطر، نوصي بتمكين المصادقة الثنائية (2FA) باستخدام تطبيقات مثل Google Authenticator لتعزيز أمان حسابك."
 
 #: templates/log-in-system.html:83
 msgid "Beneficios de la autenticación sin contraseñas"
-msgstr ""
+msgstr "فوائد المصادقة بدون كلمات مرور"
 
 #: templates/log-in-system.html:84
 msgid "Según Auth0:"
-msgstr ""
+msgstr "وفقًا لـ Auth0:"
 
 #: templates/log-in-system.html:86
 msgid "La autenticación sin contraseñas, por su naturaleza, elimina el problema del uso de contraseñas inseguras. Esto significa que uno de los errores más comunes de los usuarios se elimina del proceso de inicio de sesión. No solo es segura, sino que podría ser aún más segura que el método tradicional de usuario y contraseña."
-msgstr ""
+msgstr "المصادقة بدون كلمات مرور، بطبيعتها، تقضي على مشكلة استخدام كلمات المرور غير الآمنة. وهذا يعني أن واحدًا من الأخطاء الشائعة للمستخدمين يُزال من عملية تسجيل الدخول. ليس فقط أنها آمنة، ولكن قد تكون أكثر أمانًا من الطريقة التقليدية للاسم وكلمة المرور."
 
 #: templates/log-in-system.html:87
 msgid "¿Quién más utiliza enlaces mágicos para registrarse?"
-msgstr ""
+msgstr "من يستخدم الروابط السحرية للتسجيل أيضًا؟"
 
 #: templates/log-in-system.html:88
 msgid "Varias aplicaciones populares también han adoptado la autenticación sin contraseñas con enlaces mágicos:"
-msgstr ""
+msgstr "اعتمدت أيضًا العديد من التطبيقات الشعبية المصادقة بدون كلمات مرور باستخدام الروابط السحرية:"
 
 #: templates/log-in-system.html:90
 msgid "una aplicación de mensajería"
-msgstr ""
+msgstr "تطبيق مراسلة"
 
 #: templates/log-in-system.html:91
 msgid "una aplicación bancaria"
-msgstr ""
+msgstr "تطبيق مصرفي"
 
 #: templates/log-in-system.html:92
 msgid "un servicio de hosting"
-msgstr ""
+msgstr "خدمة استضافة"
 
 #: templates/log-in-system.html:93
 msgid "una plataforma de CRM"
-msgstr ""
+msgstr "منصة CRM"
 
 #: templates/log-in-system.html:94
 msgid "una app de organización y notas"
-msgstr ""
+msgstr "تطبيق تنظيم وملاحظات"
 
 #: templates/login-desktop-client.html:55
 msgid "Entrar"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: templates/login.html:48
 msgid "Olvidé mi contraseña"
-msgstr ""
+msgstr "نسيت كلمة مروري"
 
 #: templates/login.html:54 templates/logout.html:36 templates/nav.html:53
 #: templates/nav.html:119
 msgid "Iniciar sesión"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: templates/login.html:70
 msgid "¿No tiene una cuenta?"
-msgstr ""
+msgstr "هل ليس لديك حساب؟"
 
 #: templates/login.html:70
 msgid "Crea una cuenta gratis"
-msgstr ""
+msgstr "أنشئ حسابًا مجانيًا"
 
 #: templates/logout.html:33
 msgid "¡Vuelve pronto!"
-msgstr ""
+msgstr "عد قريبًا!"
 
 #: templates/logout.html:36
 msgid "O vuelve a"
-msgstr ""
+msgstr "أو عد إلى"
 
 #: templates/manifesto.html:35
 msgid "La mejor herramienta para las congregaciones de los Testigos de Jehová"
-msgstr ""
+msgstr "أفضل أداة لجماعات شهود يهوه"
 
 #: templates/manifesto.html:37
 msgid "En cada congregación de los Testigos de Jehová, la organización eficiente es clave para enfocarse en lo que realmente importa. Sin embargo, muchas de las herramientas disponibles hoy en día son costosas, complicadas o no se adaptan bien a las necesidades de las congregaciones. Por eso, presentamos Kingdom Hall Attendant (KHA), una solución práctica y accesible para gestionar las tareas administrativas de manera sencilla."
-msgstr ""
+msgstr "في كل تجمع لشهود يهوه، تعتبر المنظمة الفعالة مفتاحًا للتركيز على ما هو مهم حقًا. ومع ذلك، فإن العديد من الأدوات المتاحة اليوم مكلفة ومعقدة أو لا تتكيف جيدًا مع احتياجات التجمعات. لهذا السبب، نقدم مساعد قاعة الملكوت (KHA)، وهو حل عملي وقابل للوصول لإدارة المهام الإدارية بسهولة."
 
 #: templates/manifesto.html:38
 msgid "Kingdom Hall Attendant fue creado para ofrecer una herramienta gratuita, segura y sin anuncios, que funcione en cualquier dispositivo y navegador. Su objetivo es hacer que las tareas administrativas de las congregaciones sean más fáciles de manejar, permitiendo que el tiempo se dedique a la misión principal. No solo hemos diseñado una aplicación; hemos construido una herramienta pensada para ser intuitiva, accesible y que pueda ser usada por cualquier congregación sin complicaciones."
-msgstr ""
+msgstr "تم إنشاء مساعد قاعة الملكوت لتقديم أداة مجانية وآمنة وخالية من الإعلانات، تعمل على أي جهاز ومتصفح. هدفه هو جعل المهام الإدارية للتجمعات أسهل في الإدارة، مما يسمح بتخصيص الوقت للرسالة الرئيسية. لم نصمم مجرد تطبيق؛ بل بنينا أداة مصممة لتكون بديهية وقابلة للوصول ويمكن استخدامها من قبل أي تجمع بدون تعقيدات."
 
 #: templates/manifesto.html:39
 msgid "Desarrollada por Livrädo Sandoval, con el apoyo de una comunidad activa de colaboradores en GitHub, KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iPads y tabletas Android, con acceso desde cualquier navegador web. La facilidad de uso y la seguridad han sido nuestras prioridades desde el primer día. Cada aspecto ha sido diseñado para garantizar que puedas acceder a tus herramientas administrativas donde y cuando las necesites."
-msgstr ""
+msgstr "مطور بواسطة ليفرادو ساندوفال، بدعم من مجتمع نشط من المساهمين على GitHub، KHA هو تطبيق متعدد المنصات يعمل على Windows وmacOS وLinux وiPads وأجهزة Android اللوحية، مع إمكانية الوصول من أي متصفح ويب. كانت سهولة الاستخدام والأمان من أولوياتنا منذ اليوم الأول. تم تصميم كل جانب لضمان أنك تستطيع الوصول إلى أدواتك الإدارية حيثما وحينما تحتاج إليها."
 
 #: templates/manifesto.html:40
 msgid "Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz."
-msgstr ""
+msgstr "التزامنا هو أن يظل KHA مجانيًا دائمًا، بدون اشتراكات مخفية أو تواريخ انتهاء. بالإضافة إلى ذلك، نأخذ أمان وخصوصية البيانات على محمل الجد: فهي مشفرة ولا يتم تتبعها أبدًا. من خلال نظام نقل بيانات آمن، نحن نحمي معلوماتك بشكل فعال."
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr ""
+msgstr "حاليًا، KHA في مرحلة BETA، ونحن نخطط لإطلاق رسمي في ربيع عام 2025. لكن هذه هي البداية فقط. نحن ملتزمون بتحسين مستمر ونستمع بنشاط إلى مجتمعنا للاستمرار في التطور. هدفنا هو تقديم أداة تكون مفيدة وذات صلة، تتكيف مع احتياجات التجمعات اليوم وفي المستقبل."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
-msgstr ""
+msgstr "بينما تظل KHA مجانية، ندعو أولئك الذين يرغبون في دعم المشروع من خلال التبرعات أو الاشتراك في إصدارنا الذهبي ✨. سيسمح لنا ذلك باستمرار تحسين وتقديم تحديثات مستمرة لفائدة جميع التجمعات."
 
 #: templates/mostrar-vida-ministerio.html:124
 msgid "No se encontraron datos para mostrar."
-msgstr ""
+msgstr "لم يتم العثور على بيانات لعرضها."
 
 #: templates/nav.html:12 templates/nav.html:109
 msgid "Manifesto"
-msgstr ""
+msgstr "بيان"
 
 #: templates/nav.html:55 templates/nav.html:122
 msgid "Registrarse"
-msgstr ""
+msgstr "سجل"
 
 #: templates/nav.html:116
 msgid "Donar"
-msgstr ""
+msgstr "تبرع"
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "أضف متحدثًا أجنبيًا"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لا يوجد لديك أي متحدث مسجل حتى الآن! للبدء، أنشئ أول متحدث لك عن طريق النقر على زر \"جديد\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "لا يوجد لديك أي ناشر مسجل حتى الآن! للبدء، أنشئ أول ناشر لك عن طريق النقر على زر \"جديد\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
-msgstr ""
+msgstr "الأمان في مساعد Kingdom Hall"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr ""
+msgstr "تسجيل دخول آمن:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr ""
+msgstr "في مساعد Kingdom Hall، كل تسجيل دخول هو حصن. نحن نستخدم"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
-msgstr ""
+msgstr "لتشفير كلمات المرور الخاصة بك، مما يضمن أنه حتى لو حاول شخص ما الوصول إلى قاعدة البيانات الخاصة بنا، تظل بيانات اعتمادك محمية. بالإضافة إلى ذلك، في كل مرة تقوم فيها بتسجيل الدخول، نرسل لك إشعارًا عبر البريد الإلكتروني حتى تتمكن من اكتشاف أي وصول غير مصرح به على الفور."
 
 #: templates/security.html:38
 msgid "Manejo Seguro de Sesiones:"
-msgstr ""
+msgstr "إدارة الجلسات بشكل آمن:"
 
 #: templates/security.html:38
 msgid "Las sesiones son gestionadas con el máximo cuidado. Nunca almacenamos información sensible en el cliente, asegurando que tu privacidad esté siempre protegida. Es como tener un guardián que vigila tus datos en todo momento."
-msgstr ""
+msgstr "يتم إدارة الجلسات بأقصى قدر من العناية. نحن لا نخزن أبدًا معلومات حساسة على العميل، مما يضمن دائمًا حماية خصوصيتك. إنه كمن لديه حارس يراقب بياناتك في جميع الأوقات."
 
 #: templates/security.html:40
 msgid "Protección CSRF:"
-msgstr ""
+msgstr "حماية CSRF:"
 
 #: templates/security.html:40
 msgid "Utilizamos CSRFProtect para protegerte contra ataques de falsificación de solicitudes. Esto significa que tus acciones en la aplicación son siempre auténticas y seguras, como si tuvieras un escudo invisible protegiendo cada clic."
-msgstr ""
+msgstr "نستخدم CSRFProtect لحمايتك من هجمات تزوير الطلبات. هذا يعني أن إجراءاتك في التطبيق دائمًا موثوقة وآمنة، كما لو كان لديك درع غير مرئي يحمي كل نقرة."
 
 #: templates/security.html:42
 msgid "Gestión de Tokens Seguros:"
-msgstr ""
+msgstr "إدارة الرموز بشكل آمن:"
 
 #: templates/security.html:42
 msgid "Generamos tokens ultra seguros para la confirmación de correo electrónico y recuperación de contraseñas. Estos tokens son como llaves maestras, asegurando que solo tú puedas acceder a tu cuenta, incluso en situaciones de emergencia."
-msgstr ""
+msgstr "نحن نولد رموزًا فائقة الأمان لتأكيد البريد الإلكتروني واستعادة كلمات المرور. هذه الرموز مثل المفاتيح الرئيسية، مما يضمن أنه يمكنك فقط الوصول إلى حسابك، حتى في الحالات الطارئة."
 
 #: templates/security.html:44
 msgid "Conexiones de Base de Datos Seguras:"
-msgstr ""
+msgstr "اتصالات قاعدة بيانات آمنة:"
 
 #: templates/security.html:44
 msgid "Nos aseguramos de que todas las conexiones a la base de datos se cierren adecuadamente, previniendo fugas de información y garantizando la integridad de tus datos. Es como cerrar la puerta de una bóveda después de cada uso."
-msgstr ""
+msgstr "نتأكد من أن جميع الاتصالات بقاعدة البيانات تُغلق بشكل صحيح، مما يمنع تسرب المعلومات ويضمن سلامة بياناتك. إنه مثل قفل باب صندوق الأمان بعد كل استخدام."
 
 #: templates/security.html:46
 msgid "Límites de Tasa:"
-msgstr ""
+msgstr "حدود المعدل:"
 
 #: templates/security.html:46
 msgid "Con Flask-Limiter, limitamos las solicitudes para prevenir ataques de fuerza bruta. Esto es como tener un portero que controla el flujo de visitantes, asegurando que solo las solicitudes legítimas pasen."
-msgstr ""
+msgstr "مع Flask-Limiter، نقوم بتحديد الطلبات لمنع هجمات القوة الغاشمة. هذا مثل وجود حارس يتحكم في تدفق الزوار، مما يضمن مرور الطلبات الشرعية فقط."
 
 #: templates/security.html:48
 msgid "Registro y Monitoreo:"
-msgstr ""
+msgstr "تسجيل ورصد:"
 
 #: templates/security.html:48
 msgid "Implementamos un sistema de logging robusto para monitorear actividades y errores. Esto nos permite detectar y responder a cualquier incidente de seguridad de manera proactiva, como tener un sistema de alarma que te alerta ante cualquier anomalía."
-msgstr ""
+msgstr "قمنا بتنفيذ نظام تسجيل قوي لرصد الأنشطة والأخطاء. يتيح لنا ذلك الكشف والرد على أي حادثة أمنية بشكل استباقي، مثل وجود نظام إنذار ينبهك بأي شذوذ."
 
 #: templates/security.html:50
 msgid "Uso de Variables de Entorno:"
-msgstr ""
+msgstr "استخدام متغيرات البيئة:"
 
 #: templates/security.html:50
 msgid "Utilizamos dotenv para manejar configuraciones sensibles como claves secretas y credenciales de correo, manteniéndolas fuera del código fuente y lejos de miradas indiscretas. Es como guardar tus secretos más valiosos en una caja fuerte."
-msgstr ""
+msgstr "نستخدم dotenv لإدارة التكوينات الحساسة مثل المفاتيح السرية وبيانات اعتماد البريد، مع إبقائها بعيداً عن الشيفرة المصدرية وبعيداً عن الأنظار المتطفلة. إنه مثل تخزين أسرارك الأكثر قيمة في خزنة."
 
 #: templates/sent.html:37
 msgid "¡Su enlace mágico está en camino!"
-msgstr ""
+msgstr "رابطك السحري في الطريق!"
 
 #: templates/sent.html:38
 msgid "Lo hemos enviado a"
-msgstr ""
+msgstr "لقد أرسلناه إلى"
 
 #: templates/sent.html:40
 msgid "Será redirigido desde el enlace del correo electrónico. Puede cerrar esta pestaña sin problemas."
-msgstr ""
+msgstr "ستتم إعادة توجيهك من رابط البريد الإلكتروني. يمكنك إغلاق هذه الصفحة دون مشاكل."
 
 #: templates/signup.html:75
 msgid "Reenviar enlace"
-msgstr ""
+msgstr "إعادة إرسال الرابط"
 
 #: templates/signup.html:79
 msgid "Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro."
-msgstr ""
+msgstr "بعد متابعة التسجيل، سنرسل لك رابطًا سحريًا إلى بريدك الإلكتروني. يرجى مراجعة صندوق الوارد أو مجلد الرسائل غير المرغوب فيها للعثور على الرابط وإكمال تسجيلك."
 
 #: templates/signup.html:83
 msgid "Continuar"
-msgstr ""
+msgstr "استمر"
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "أسبوع"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
-msgstr ""
+msgstr "زيارة المراقب العام للدائرة"
 
