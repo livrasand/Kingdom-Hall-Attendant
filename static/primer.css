@@ -31481,3 +31481,28 @@ a.branch-name .octicon {
   }
 }
 
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+
+    .user-info {
+        padding-left: 0; /* Eliminar espaciado a la izquierda en móviles */
+        text-align: left; /* Alinear texto a la izquierda */
+    }
+	.avatar {
+		width: 60px; /* Ajustar el tamaño del avatar para móviles */
+		height: 60px; /* Ajustar el tamaño del avatar para móviles */
+	}
+
+	.pl-4 {
+		padding-left: 12px !important;
+	}
+
+    #userFullName {
+        font-size: 1.1em; /* Ajustar tamaño de fuente en móviles */
+    }
+
+    #userEmail {
+        font-size: 0.8em; /* Ajustar tamaño de fuente en móviles */
+    }
+}
+
