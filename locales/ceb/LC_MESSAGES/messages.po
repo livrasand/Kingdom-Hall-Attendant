@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kingdom-hall-attendant\n"
 "Report-Msgid-Bugs-To: livrasand@outlook.com\n"
 "POT-Creation-Date: 2024-12-09 09:59-0700\n"
-"PO-Revision-Date: 2024-12-09 21:16\n"
+"PO-Revision-Date: 2024-12-10 22:45\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: ceb\n"
 "Language-Team: Cebuano\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: templates/404.html:55
 msgid "Esta página no está disponible o un recurso necesario para completar su solicitud no está disponible"
-msgstr ""
+msgstr "Wala kanus-a ang panid nga magamit o ang gikinahanglan nga kapanguanan aron makompleto ang imong hangyo nga wala magamit"
 
 #: templates/404.html:56
 msgid "Por favor, vuelve a"
-msgstr ""
+msgstr "Palihug, baliki"
 
 #: templates/asistencia-reuniones.html:117
 #: templates/audio-video-acomodadores.html:159 templates/bosquejos.html:41
@@ -32,12 +32,12 @@ msgstr ""
 #: templates/informes-predicacion.html:41
 #: templates/mostrar-vida-ministerio.html:43
 msgid "Imprimir"
-msgstr ""
+msgstr "Imprinta"
 
 #: templates/asistencia-reuniones.html:123
 #: templates/asistencia-reuniones.html:277 templates/index.html:184
 msgid "Asistencia a las reuniones"
-msgstr ""
+msgstr "Pag-atiman sa mga miting"
 
 #: templates/asistencia-reuniones.html:127
 #: templates/audio-video-acomodadores.html:181 templates/bosquejos.html:73
@@ -45,12 +45,12 @@ msgstr ""
 #: templates/informes-predicacion.html:64
 #: templates/mostrar-vida-ministerio.html:55
 msgid "Registra tu congregación"
-msgstr ""
+msgstr "Irehistro ang imong kongregasyon"
 
 #: templates/asistencia-reuniones.html:143
 #: templates/detalle-informes-predicacion.html:59
 msgid "Mes:"
-msgstr ""
+msgstr "Buwan:"
 
 #: templates/asistencia-reuniones.html:147 templates/detalle-bosquejo.html:151
 #: templates/detalle-estudio-atalaya.html:122
@@ -58,100 +58,100 @@ msgstr ""
 #: templates/detalle-informes-predicacion.html:127
 #: templates/detalle-orador.html:1045 templates/mostrar-vida-ministerio.html:42
 msgid "Eliminar"
-msgstr ""
+msgstr "Pagtangtang"
 
 #: templates/asistencia-reuniones.html:151
 msgid "Reunión de entre semana:"
-msgstr ""
+msgstr "Mitigang tunga sa semana:"
 
 #: templates/asistencia-reuniones.html:155
 #: templates/asistencia-reuniones.html:211
 msgid "Cantidad de reuniones:"
-msgstr ""
+msgstr "Gidaghanon sa mga miting:"
 
 #: templates/asistencia-reuniones.html:165
 #: templates/asistencia-reuniones.html:221
 msgid "Total del mes:"
-msgstr ""
+msgstr "Kinatibuk-an sa bulan:"
 
 #: templates/asistencia-reuniones.html:170
 #: templates/asistencia-reuniones.html:226
 msgid "Promedio semanal:"
-msgstr ""
+msgstr "Kinatibuk-an sa semana:"
 
 #: templates/asistencia-reuniones.html:180
 #: templates/asistencia-reuniones.html:236
 msgid "Asistencia por semana:"
-msgstr ""
+msgstr "Pag-atiman kada semana:"
 
 #: templates/asistencia-reuniones.html:184
 #: templates/asistencia-reuniones.html:240
 msgid "Semana 1"
-msgstr ""
+msgstr "Semana 1"
 
 #: templates/asistencia-reuniones.html:185
 #: templates/asistencia-reuniones.html:241
 msgid "Semana 2"
-msgstr ""
+msgstr "Semana 2"
 
 #: templates/asistencia-reuniones.html:186
 #: templates/asistencia-reuniones.html:242
 msgid "Semana 3"
-msgstr ""
+msgstr "Semana 3"
 
 #: templates/asistencia-reuniones.html:187
 #: templates/asistencia-reuniones.html:243
 msgid "Semana 4"
-msgstr ""
+msgstr "Semana 4"
 
 #: templates/asistencia-reuniones.html:188
 #: templates/asistencia-reuniones.html:244
 msgid "Semana 5"
-msgstr ""
+msgstr "Semana 5"
 
 #: templates/asistencia-reuniones.html:203
 #: templates/asistencia-reuniones.html:259
 msgid "No hay reuniones registradas."
-msgstr ""
+msgstr "Wala’y mga rehistradong miting."
 
 #: templates/asistencia-reuniones.html:207
 msgid "Reunión del fin de semana:"
-msgstr ""
+msgstr "Mitigang sa katapusan sa semana:"
 
 #: templates/asistencia-reuniones.html:285
 msgid "Reunión"
-msgstr ""
+msgstr "Mitigang"
 
 #: templates/asistencia-reuniones.html:286
 msgid "1a semana"
-msgstr ""
+msgstr "1a semana"
 
 #: templates/asistencia-reuniones.html:287
 msgid "2a semana"
-msgstr ""
+msgstr "2a semana"
 
 #: templates/asistencia-reuniones.html:288
 msgid "3a semana"
-msgstr ""
+msgstr "3a semana"
 
 #: templates/asistencia-reuniones.html:289
 msgid "4a semana"
-msgstr ""
+msgstr "4a semana"
 
 #: templates/asistencia-reuniones.html:290
 msgid "5a semana"
-msgstr ""
+msgstr "5a semana"
 
 #: templates/asistencia-reuniones.html:295 templates/congregacion.html:46
 #: templates/detalle-visita-superint-circuito.html:47
 #: templates/mostrar-vida-ministerio.html:51
 msgid "Reunión de entre semana"
-msgstr ""
+msgstr "Minggu"
 
 #: templates/asistencia-reuniones.html:303
 #: templates/detalle-visita-superint-circuito.html:41
 msgid "Reunión del fin de semana"
-msgstr ""
+msgstr "Mitigang sa katapusan sa semana"
 
 #: templates/asistencia-reuniones.html:314
 #: templates/audio-video-acomodadores.html:432
@@ -165,12 +165,12 @@ msgstr ""
 #: templates/detalle-visita-superint-circuito.html:89
 #: templates/editar-avacomodadores.html:168
 msgid "Guardar"
-msgstr ""
+msgstr "Isalvar"
 
 #: templates/asistencia-reuniones.html:315
 #: templates/detalle-visita-superint-circuito.html:90
 msgid "Cancelar"
-msgstr ""
+msgstr "Kanselahon"
 
 #: templates/audio-video-acomodadores.html:164
 #: templates/audio-video-acomodadores.html:166 templates/bosquejos.html:46
@@ -180,24 +180,24 @@ msgstr ""
 #: templates/oradores.html:48 templates/publicadores.html:39
 #: templates/vida-ministerio.html:50
 msgid "Nuevo"
-msgstr ""
+msgstr "Bag-o"
 
 #: templates/audio-video-acomodadores.html:176 templates/index.html:152
 msgid "Audio, video y acomodadores"
-msgstr ""
+msgstr "Audio, video ug mga tagdumala"
 
 #: templates/audio-video-acomodadores.html:195 templates/bosquejos.html:94
 #: templates/detalle-avacomodadores.html:53 templates/detalle-bosquejo.html:90
 #: templates/detalle-estudio-atalaya.html:46
 #: templates/editar-avacomodadores.html:50
 msgid "Fecha:"
-msgstr ""
+msgstr "Petsa:"
 
 #: templates/audio-video-acomodadores.html:201
 #: templates/detalle-avacomodadores.html:60
 #: templates/editar-avacomodadores.html:57
 msgid "Operador de audio:"
-msgstr ""
+msgstr "Operador sa audio:"
 
 #: templates/audio-video-acomodadores.html:207
 #: templates/audio-video-acomodadores.html:218
@@ -206,725 +206,726 @@ msgstr ""
 #: templates/audio-video-acomodadores.html:271
 #: templates/audio-video-acomodadores.html:288
 msgid "No asignado"
-msgstr ""
+msgstr "Wala gi-assign"
 
 #: templates/audio-video-acomodadores.html:212
 #: templates/detalle-avacomodadores.html:73
 #: templates/editar-avacomodadores.html:72
 msgid "Operador de video:"
-msgstr ""
+msgstr "Operador sa video:"
 
 #: templates/audio-video-acomodadores.html:229
 #: templates/detalle-avacomodadores.html:91
 #: templates/editar-avacomodadores.html:92
 msgid "Plataforma:"
-msgstr ""
+msgstr "Plataporma:"
 
 #: templates/audio-video-acomodadores.html:245
 #: templates/detalle-avacomodadores.html:107
 #: templates/editar-avacomodadores.html:110
 msgid "Micrófonos:"
-msgstr ""
+msgstr "Microfonos:"
 
 #: templates/audio-video-acomodadores.html:261
 #: templates/detalle-avacomodadores.html:123
 #: templates/editar-avacomodadores.html:128
 msgid "Acomodadores:"
-msgstr ""
+msgstr "Mga Akomodador:"
 
 #: templates/audio-video-acomodadores.html:282
 #: templates/detalle-avacomodadores.html:144
 #: templates/editar-avacomodadores.html:151
 msgid "Acomodador de videoconferencia:"
-msgstr ""
+msgstr "Akomodador sa videoconference:"
 
 #: templates/audio-video-acomodadores.html:330
 msgid "¡Aún no tienes ningún programa hecho! Para empezar, crea tu primer programa\n"
 "                haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wala ka pang nahimong programa! Para magsugod, himoa ang imong unang programa\n"
+"                pinaagi sa pag-klik sa button nga \"Bag-o\"."
 
 #: templates/audio-video-acomodadores.html:350
 msgid "Configuración de asignaciones"
-msgstr ""
+msgstr "Pag-setup sa mga asignasyon"
 
 #: templates/audio-video-acomodadores.html:351
 msgid "Cerrar"
-msgstr ""
+msgstr "Isara"
 
 #: templates/audio-video-acomodadores.html:356
 msgid "Cantidad de microfonistas a asignar:"
-msgstr ""
+msgstr "Gidakdug sa mga microfonista:"
 
 #: templates/audio-video-acomodadores.html:368
 msgid "Cantidad de acomodadores a asignar:"
-msgstr ""
+msgstr "Gidakdug sa mga acomadador:"
 
 #: templates/audio-video-acomodadores.html:380
 msgid "Cantidad de acomodadores de la videoconferencia:"
-msgstr ""
+msgstr "Gidakdug sa mga acomadador sa videoconferencia:"
 
 #: templates/audio-video-acomodadores.html:392
 msgid "Cantidad de encargados de plataforma:"
-msgstr ""
+msgstr "Gidakdug sa mga encargado sa plataforma:"
 
 #: templates/audio-video-acomodadores.html:404
 msgid "Cantidad de encargados de sistema de audio:"
-msgstr ""
+msgstr "Gidakdug sa mga encargado sa sistema de audio:"
 
 #: templates/audio-video-acomodadores.html:416
 msgid "Cantidad de encargados de sistema de video:"
-msgstr ""
+msgstr "Gidakdug sa mga encargado sa sistema de video:"
 
 #: templates/bosquejos.html:57
 msgid "Primero registra un orador en Oradores públicos."
-msgstr ""
+msgstr "Una una orador sa mga Orador nga publiko."
 
 #: templates/bosquejos.html:69 templates/index.html:121
 msgid "Discursos públicos"
-msgstr ""
+msgstr "Mga pampublikong discurso"
 
 #: templates/bosquejos.html:87
 msgid "Discurso público"
-msgstr ""
+msgstr "Pampublikong discurso"
 
 #: templates/bosquejos.html:89
 msgid "Sin asignar bosquejo"
-msgstr ""
+msgstr "Walay gihatag nga sukarat"
 
 #: templates/bosquejos.html:95
 msgid "Sin asignar"
-msgstr ""
+msgstr "Walay gihatag"
 
 #: templates/bosquejos.html:98
 msgid "Orador:"
-msgstr ""
+msgstr "Magtutudlo:"
 
 #: templates/bosquejos.html:102 templates/detalle-bosquejo.html:116
 msgid "Congregación:"
-msgstr ""
+msgstr "Kongregasyon:"
 
 #: templates/bosquejos.html:103
 msgid "Local"
-msgstr ""
+msgstr "Lokal"
 
 #: templates/bosquejos.html:106
 msgid "Saliente a:"
-msgstr ""
+msgstr "Muwa:"
 
 #: templates/bosquejos.html:107
 msgid "Es visitante"
-msgstr ""
+msgstr "Miyembro sa bisita"
 
 #: templates/bosquejos.html:124
 msgid "¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wala ka pa'y naitala nga siklo! Agi sa inyong, i-schedule ang inyong unang diwa sa pag-press sa button nga \"Bag-o\"."
 
 #: templates/change-password.html:18 templates/confirm-password.html:18
 #: templates/confirm-password.html:41
 msgid "Actualizar contraseña"
-msgstr ""
+msgstr "I-update ang password"
 
 #: templates/change-password.html:29
 msgid "Cambia tu contraseña..."
-msgstr ""
+msgstr "Usba ang imong password..."
 
 #: templates/change-password.html:35 templates/detalle-orador.html:56
 #: templates/detalle-publicador.html:113 templates/login-desktop-client.html:43
 #: templates/login.html:41 templates/signup.html:74
 msgid "Correo electrónico"
-msgstr ""
+msgstr "Email"
 
 #: templates/change-password.html:39
 msgid "Ingrese su correo electrónico para recibir un enlace para actualizar su contraseña."
-msgstr ""
+msgstr "Ibutang ang imong email aron makadawat ka og link aron i-update ang imong password."
 
 #: templates/change-password.html:42
 msgid "Enviar enlace"
-msgstr ""
+msgstr "Ipadala ang link"
 
 #: templates/configuracion.html:56 templates/index.html:206
 msgid "Configuración"
-msgstr ""
+msgstr "Mga setting"
 
 #: templates/configuracion.html:63
 msgid "Idioma"
-msgstr ""
+msgstr "Wika"
 
 #: templates/configuracion.html:66
 msgid "Español"
-msgstr ""
+msgstr "Espanyol"
 
 #: templates/configuracion.html:67
 msgid "English"
-msgstr ""
+msgstr "Ingles"
 
 #: templates/configuracion.html:68
 msgid "Italiano"
-msgstr ""
+msgstr "Italyano"
 
 #: templates/configuracion.html:69
 msgid "Français"
-msgstr ""
+msgstr "Pranses"
 
 #: templates/configuracion.html:70
 msgid "Deutsch"
-msgstr ""
+msgstr "Aleman"
 
 #: templates/configuracion.html:71
 msgid "Português"
-msgstr ""
+msgstr "Portuges"
 
 #: templates/configuracion.html:79
 msgid "Nombre"
-msgstr ""
+msgstr "Ngalan"
 
 #: templates/configuracion.html:82 templates/detalle-orador.html:46
 #: templates/detalle-publicador.html:48
 msgid "Nombres"
-msgstr ""
+msgstr "Mga Ngalan"
 
 #: templates/configuracion.html:83 templates/detalle-orador.html:47
 #: templates/detalle-publicador.html:49
 msgid "Apellidos"
-msgstr ""
+msgstr "Mga Apelyido"
 
 #: templates/configuracion.html:88
 msgid "Correo electrónico público"
-msgstr ""
+msgstr "Pampublikong email"
 
 #: templates/configuracion.html:96
 msgid "Nombramiento"
-msgstr ""
+msgstr "Pag-nominar"
 
 #: templates/configuracion.html:99
 msgid "superintendente de circuito"
-msgstr ""
+msgstr "Superintendente sa Circuito"
 
 #: templates/configuracion.html:100
 msgid "anciano"
-msgstr ""
+msgstr "Elder"
 
 #: templates/configuracion.html:101
 msgid "siervo ministerial"
-msgstr ""
+msgstr "Ministerial nga Alagad"
 
 #: templates/configuracion.html:110
 msgid "Actualizar datos"
-msgstr ""
+msgstr "I-update ang datos"
 
 #: templates/configuracion.html:117
 msgid "Cambiar contraseña"
-msgstr ""
+msgstr "Usba ang password"
 
 #: templates/configuracion.html:125
 msgid "Borrar los datos de la aplicación"
-msgstr ""
+msgstr "Pang-delete sa mga datos sa aplikasyon"
 
 #: templates/configuracion.html:128
 msgid "Tu cuenta se eliminará automáticamente después de 3 meses de inactividad. Esto implica que todos tus datos relacionados con KHA se eliminarán por completo, como si nunca hubieras existido en nuestra plataforma."
-msgstr ""
+msgstr "Ang imong account kay awtomatik nga mahilayo human sa 3 ka bulan nga walay kalihokan. Nagpasabot kini nga ang tanang datos nga may kalabotan sa KHA kay mahilayo gayud, sama nga wala kay nahimong sa among plataporma."
 
 #: templates/configuracion.html:130
 msgid "Si necesitas que tu cuenta sea eliminada antes de este plazo debido a un asunto judicial o cualquier otro asunto legal, por favor, háznoslo saber. Procederemos a eliminar tu cuenta de inmediato y aseguraremos que nadie tenga acceso a tus datos."
-msgstr ""
+msgstr "Kung kinahanglan nimo nga tanggalon ang imong account sa wala pa kini nga deadline tungod sa lehitimong isyu o bisan unsang laing legal nga isyu, palihug ipahibalo kami. Magpadayon kami sa pagtangtang sa imong account dayon ug masiguro nga walay makadugang sa imong datos."
 
 #: templates/confirm-password.html:29
 msgid "Confirma tu nueva contraseña..."
-msgstr ""
+msgstr "Kumpirmahi ang imong bag-ong password..."
 
 #: templates/confirm-password.html:35
 msgid "Nueva contraseña"
-msgstr ""
+msgstr "Bag-ong password"
 
 #: templates/confirm.html:24
 msgid "Comenzando la aventura..."
-msgstr ""
+msgstr "Nagsugod na ang pakigpulong..."
 
 #: templates/confirm.html:35
 msgid "Por favor establece una contraseña segura."
-msgstr ""
+msgstr "Palihug mag-set og segurong password."
 
 #: templates/confirm.html:35
 msgid "Una vez que hayas configurado tu contraseña, podrás acceder a tu cuenta y explorar todo lo que Kingdom Hall Attendant tiene para ofrecer."
-msgstr ""
+msgstr "Sa dihang ma-set na nimo ang imong password, makasulod ka sa imong account ug mapangita ang tanan nga mahatag sa Kingdom Hall Attendant."
 
 #: templates/confirm.html:41 templates/login-desktop-client.html:49
 #: templates/login.html:47
 msgid "Contraseña"
-msgstr ""
+msgstr "Password"
 
 #: templates/confirm.html:47
 msgid "Confirmar"
-msgstr ""
+msgstr "Kumpirma"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "¿Ya tienes cuenta?"
-msgstr ""
+msgstr "Aduna na ba kay account?"
 
 #: templates/confirm.html:62 templates/signup.html:100
 msgid "Inicia sesión"
-msgstr ""
+msgstr "Mag-log in"
 
 #: templates/congregacion.html:43 templates/detalle-orador.html:55
 #: templates/index.html:64
 msgid "Congregación"
-msgstr ""
+msgstr "Kongregasyon"
 
 #: templates/congregacion.html:44
 msgid "Número"
-msgstr ""
+msgstr "Numero"
 
 #: templates/congregacion.html:48 templates/congregacion.html:49
 #: templates/congregacion.html:74 templates/congregacion.html:75
 msgid "Lunes"
-msgstr ""
+msgstr "Lunes"
 
 #: templates/congregacion.html:51 templates/congregacion.html:52
 #: templates/congregacion.html:77 templates/congregacion.html:78
 #: templates/detalle-visita-superint-circuito.html:61
 msgid "Martes"
-msgstr ""
+msgstr "Martes"
 
 #: templates/congregacion.html:54 templates/congregacion.html:55
 #: templates/congregacion.html:80 templates/congregacion.html:81
 #: templates/detalle-visita-superint-circuito.html:62
 msgid "Miércoles"
-msgstr ""
+msgstr "Miyerkules"
 
 #: templates/congregacion.html:57 templates/congregacion.html:58
 #: templates/congregacion.html:83 templates/congregacion.html:84
 #: templates/detalle-visita-superint-circuito.html:63
 msgid "Jueves"
-msgstr ""
+msgstr "Huwebes"
 
 #: templates/congregacion.html:60 templates/congregacion.html:61
 #: templates/congregacion.html:86 templates/congregacion.html:87
 #: templates/detalle-visita-superint-circuito.html:64
 msgid "Viernes"
-msgstr ""
+msgstr "Biyernes"
 
 #: templates/congregacion.html:63 templates/congregacion.html:64
 #: templates/congregacion.html:89 templates/congregacion.html:90
 #: templates/detalle-visita-superint-circuito.html:65
 msgid "Sábado"
-msgstr ""
+msgstr "Sabado"
 
 #: templates/congregacion.html:66 templates/congregacion.html:67
 #: templates/congregacion.html:92 templates/congregacion.html:93
 #: templates/detalle-visita-superint-circuito.html:66
 msgid "Domingo"
-msgstr ""
+msgstr "Domingo"
 
 #: templates/congregacion.html:95
 msgid "Hora de inicio"
-msgstr ""
+msgstr "Panahon sa pagsugdan"
 
 #: templates/congregacion.html:99
 msgid "Dirección del Salón del Reino"
-msgstr ""
+msgstr "Adres sa Balay sa Gingharian"
 
 #: templates/congregacion.html:103
 msgid "Datos del superintendente de circuito"
-msgstr ""
+msgstr "Datos sa superintendente sa sirkito"
 
 #: templates/congregacion.html:104
 msgid "Superintendente de circuito"
-msgstr ""
+msgstr "Superintendente sa sirkito"
 
 #: templates/congregacion.html:105
 msgid "Número de teléfono"
-msgstr ""
+msgstr "Numero sa telepono"
 
 #: templates/congregacion.html:106
 msgid "Circuito"
-msgstr ""
+msgstr "Circuito"
 
 #: templates/congregacion.html:110
 msgid "Guardar cambios"
-msgstr ""
+msgstr "I-save ang mga kausaban"
 
 #: templates/copias-seguridad.html:69
 msgid "Modo de sincronización"
-msgstr ""
+msgstr "Mode de syncronization"
 
 #: templates/copias-seguridad.html:74
 msgid "Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios."
-msgstr ""
+msgstr "Mga setting sa pagsynchronize: Kini nga kapilian nagtugot sa pag-enable o pag-disable sa local storage, nga naghatag sa tiggamit og labaw nga kontrol sa ilang datos. Sa pag-activate niining nga feature, ang privacy ug seguridad sa impormasyon mahimong mapalambo, tungod kay ang datos itipig lokal imbes nga sa mga external nga server. Hinumdumi nga ang pag-usab niining setting mahimong makaapekto sa unsaon pagdumala sa imong datos. Alang sa dugang impormasyon, tan-awa ang dokumentasyon bahin sa mga posibleng side effects."
 
 #: templates/copias-seguridad.html:76
 msgid "posibles efectos secundarios"
-msgstr ""
+msgstr "mga posibleng side effects"
 
 #: templates/copias-seguridad.html:81
 msgid "Habilitar almacenamiento local"
-msgstr ""
+msgstr "E-enable ang local storage"
 
 #: templates/copias-seguridad.html:85
 msgid "Actualizar preferencias"
-msgstr ""
+msgstr "I-update ang mga gusto"
 
 #: templates/copias-seguridad.html:90
 msgid "Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante."
-msgstr ""
+msgstr "Kung imo nang gi-activate ang lokal nga mode, importante nga matag higayon nga mag-log in ka, i-load ang imong backup file. Kung mawala nimo kini nga file, nag-atubang ka og peligro nga mawala ang tanan nimong datos nga dili na maibalik. Dugang pa, importante nga i-save nimo ang JSON file matag higayon nga mogawas ka aron malikayan ang pagkawala sa importante nga impormasyon."
 
 #: templates/copias-seguridad.html:94
 msgid "Exportar una copia de seguridad"
-msgstr ""
+msgstr "I-export ang backup"
 
 #: templates/copias-seguridad.html:99
 msgid "Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar."
-msgstr ""
+msgstr "Kini nga function nagtugot sa pagbuhat sa usa ka backup sa imong datos, nga importante aron maprotektahan ang imong impormasyon. Sa pagbuhat og usa ka backup, mahimo nimo maibalik ang imong datos kung mawala o madaot kini, nga nagsiguro sa pagpadayon sa imong trabaho. Kini usa ka girekomendar nga praktis, bisan unsang oras nga naggamit ka og lokal nga storage o dili, tungod kay mas maayo ang pagpugong kaysa pagbasol."
 
 #: templates/copias-seguridad.html:102
 msgid "Crear copia de seguridad"
-msgstr ""
+msgstr "Maghimo og backup"
 
 #: templates/copias-seguridad.html:106
 msgid "Importar una copia de seguridad"
-msgstr ""
+msgstr "I-import ang backup"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr ""
+msgstr "Kini nga function nagtugot sa pag-import sa datos gikan sa usa ka backup file nga naay JSON format. Pinaagi sa pagpili sa usa ka file ug ang mga talahanayan nga gusto nimo i-import, mahimo nimong maibalik ang mga na-save nga impormasyon, nga nagsiguro nga ang imong datos updated ug magamit."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
-msgstr ""
+msgstr "Sa pagkakaron, ang Kingdom Hall Attendant nagpasugot lamang sa pag-import sa mga backup gikan sa parehas nga Kingdom Hall Attendant. Sa umaabot, giplano ang pag-enable sa pag-import sa datos gikan sa ubang mga aplikasyon, apan wala pa'y partikular nga petsa alang niini nga gikinahanglan."
 
 #: templates/copias-seguridad.html:121
 msgid "Eliminar los datos anteriores antes de la importación"
-msgstr ""
+msgstr "Pagwagtang sa mga naunang datos sa wala pa ang pag-import"
 
 #: templates/copias-seguridad.html:125
 msgid "Seleccionar archivo de copia de seguridad:"
-msgstr ""
+msgstr "Pili-a ang backup nga file:"
 
 #: templates/copias-seguridad.html:129
 msgid "Seleccionar tablas a importar"
-msgstr ""
+msgstr "Pili-a ang mga talahanayan nga i-import"
 
 #: templates/copias-seguridad.html:136
 msgid "Usa"
-msgstr ""
+msgstr "Gamiton"
 
 #: templates/copias-seguridad.html:138
 msgid "para seleccionar todas las tablas."
-msgstr ""
+msgstr "aron sa pagpili sa tanan nga mga talahanayan."
 
 #: templates/copias-seguridad.html:142
 msgid "Importar"
-msgstr ""
+msgstr "I-import"
 
 #: templates/copias-seguridad.html:154
 msgid "Éxito:"
-msgstr ""
+msgstr "Kalampusan:"
 
 #: templates/copias-seguridad.html:154
 msgid "Error:"
-msgstr ""
+msgstr "Sayop:"
 
 #: templates/detalle-avacomodadores.html:64
 #: templates/editar-avacomodadores.html:61
 msgid "-- Selecciona Audio --"
-msgstr ""
+msgstr "-- Pilia ang Audio --"
 
 #: templates/detalle-avacomodadores.html:77
 #: templates/editar-avacomodadores.html:76
 msgid "-- Selecciona Video --"
-msgstr ""
+msgstr "-- Pilia ang Video --"
 
 #: templates/detalle-avacomodadores.html:94
 #: templates/editar-avacomodadores.html:95
 msgid "-- Selecciona Plataforma --"
-msgstr ""
+msgstr "-- Pilia ang Plataporma --"
 
 #: templates/detalle-avacomodadores.html:110
 #: templates/editar-avacomodadores.html:113
 msgid "-- Selecciona Micrófono --"
-msgstr ""
+msgstr "-- Pilia ang Micropono --"
 
 #: templates/detalle-avacomodadores.html:130
 #: templates/editar-avacomodadores.html:135
 msgid "-- Selecciona Acomodador --"
-msgstr ""
+msgstr "-- Pilia ang Akomodador --"
 
 #: templates/detalle-avacomodadores.html:147
 #: templates/editar-avacomodadores.html:154
 msgid "-- Selecciona Acomodador de Videoconferencia --"
-msgstr ""
+msgstr "-- Pilia ang Akomodador sa Videoconferencia --"
 
 #: templates/detalle-bosquejo.html:48
 msgid "Orador"
-msgstr ""
+msgstr "Tigtug-an"
 
 #: templates/detalle-bosquejo.html:54
 msgid "Este orador es invitado de la congregación"
-msgstr ""
+msgstr "Kini nga tigtug-an usa ka bisita sa kongregasyon"
 
 #: templates/detalle-bosquejo.html:62
 msgid "Número del discurso"
-msgstr ""
+msgstr "Numero sa discurso"
 
 #: templates/detalle-bosquejo.html:68
 msgid "Este orador tiene preparados estos bosquejos:"
-msgstr ""
+msgstr "Kini nga tigtug-an adunay giandam nga mga dagway:"
 
 #: templates/detalle-bosquejo.html:84
 msgid "Este orador aún no se ha preparado con ningún bosquejo."
-msgstr ""
+msgstr "Kini nga tigtug-an wala pa mag-andam og bisan unsang dagway."
 
 #: templates/detalle-bosquejo.html:99
 msgid "Hospitalidad:"
-msgstr ""
+msgstr "Hospitalidad:"
 
 #: templates/detalle-bosquejo.html:115 templates/detalle-orador.html:54
 msgid "Tip"
-msgstr ""
+msgstr "Tip"
 
 #: templates/detalle-bosquejo.html:115
 msgid "Si el orador va a salir a discursar, especifique la congregación"
-msgstr ""
+msgstr "Kung ang tigtug-an mogawas aron maghisgot, i-specify ang kongregasyon"
 
 #: templates/detalle-bosquejo.html:123
 msgid "Se ha quedado a la hospitalidad"
-msgstr ""
+msgstr "Nagpabilin aron sa hospitalidad"
 
 #: templates/detalle-bosquejo.html:129
 msgid "Se ha presentado a tiempo"
-msgstr ""
+msgstr "Nakaabot sa takdang oras"
 
 #: templates/detalle-bosquejo.html:135
 msgid "Se ha presentado al discurso"
-msgstr ""
+msgstr "Nakaabot sa discurso"
 
 #: templates/detalle-bosquejo.html:138
 msgid "Anotaciones:"
-msgstr ""
+msgstr "Mga anotasyon:"
 
 #: templates/detalle-estudio-atalaya.html:48
 #: templates/detalle-vida-ministerio.html:77 templates/estudio-atalaya.html:71
 #: templates/mostrar-vida-ministerio.html:62
 msgid "Presidente:"
-msgstr ""
+msgstr "Pangulo:"
 
 #: templates/detalle-estudio-atalaya.html:58
 msgid "Selecciona un presidente"
-msgstr ""
+msgstr "Pilia og pangulo"
 
 #: templates/detalle-estudio-atalaya.html:65
 #: templates/detalle-vida-ministerio.html:85 templates/estudio-atalaya.html:75
 #: templates/mostrar-vida-ministerio.html:65
 msgid "Oración de inicio:"
-msgstr ""
+msgstr "Pag-ampo sa pagsugdan:"
 
 #: templates/detalle-estudio-atalaya.html:75
 #: templates/detalle-estudio-atalaya.html:91
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr ""
+msgstr "Pilia og publikador"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr ""
+msgstr "Magbabasa sa <em>Ang Bantay</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
-msgstr ""
+msgstr "Sustituto sa katapusan nga pag-ampo:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr ""
+msgstr "Pilia og kapuli"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
-msgstr ""
+msgstr "Ngalan sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:48
 #: templates/detalle-grupo-predicacion.html:55
 #: templates/detalle-grupo-predicacion.html:63
 #: templates/detalle-publicador.html:478
 msgid "Siervo de grupo"
-msgstr ""
+msgstr "Alagad sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:56
 msgid "Seleccionar siervo de grupo"
-msgstr ""
+msgstr "Pilia ang alagad sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:70
 #: templates/detalle-publicador.html:483
 msgid "Auxiliar de grupo"
-msgstr ""
+msgstr "Nakig-alagad sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:71
 msgid "Seleccionar auxiliar de grupo"
-msgstr ""
+msgstr "Pilia nga awtor sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:78
 msgid "Dirección de reunión del grupo"
-msgstr ""
+msgstr "Address sa miting sa grupo"
 
 #: templates/detalle-grupo-predicacion.html:82
 msgid "Asignar hospitalidad"
-msgstr ""
+msgstr "Ipahimutang ang pagkamapinalanggaon"
 
 #: templates/detalle-grupo-predicacion.html:88
 msgid "Usar para la limpieza del Salón del Reino"
-msgstr ""
+msgstr "Gamiton para sa paglimpyo sa Dako nga Sala"
 
 #: templates/detalle-grupo-predicacion.html:94
 msgid "Utilizar como punto de reunión para la visita del superintendente de circuito"
-msgstr ""
+msgstr "Gamiton nga lugar sa pagkikita para sa pagbisita sa superintendente sa sirkito"
 
 #: templates/detalle-informes-predicacion.html:42
 msgid "Nombre:"
-msgstr ""
+msgstr "Ngalan:"
 
 #: templates/detalle-informes-predicacion.html:45
 msgid "Privilegios:"
-msgstr ""
+msgstr "Mga Pribilehiyo:"
 
 #: templates/detalle-informes-predicacion.html:61
 msgid "Seleccione un mes"
-msgstr ""
+msgstr "Pilia ug bulan"
 
 #: templates/detalle-informes-predicacion.html:70
 msgid "Año:"
-msgstr ""
+msgstr "Tuig:"
 
 #: templates/detalle-informes-predicacion.html:71
 #: templates/detalle-informes-predicacion.html:107
 msgid "Año"
-msgstr ""
+msgstr "Tuig"
 
 #: templates/detalle-informes-predicacion.html:76
 msgid "Participó en alguna faceta de la predicación"
-msgstr ""
+msgstr "Ninamay ang bisan unsang aspeto sa pagpangalagad"
 
 #: templates/detalle-informes-predicacion.html:81
 #: templates/informes-predicacion.html:76
 msgid "Cursos bíblicos:"
-msgstr ""
+msgstr "Mga kurso sa Biblia:"
 
 #: templates/detalle-informes-predicacion.html:82
 msgid "Cursos bíblicos realizados"
-msgstr ""
+msgstr "Nakahuman nga mga kurso sa Biblia"
 
 #: templates/detalle-informes-predicacion.html:86
 #: templates/informes-predicacion.html:77
 msgid "Horas:"
-msgstr ""
+msgstr "Mga Oras:"
 
 #: templates/detalle-informes-predicacion.html:87
 #: templates/detalle-informes-predicacion.html:110
 msgid "Horas"
-msgstr ""
+msgstr "Mga Oras"
 
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr ""
+msgstr "Mga Komentaryo:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr ""
+msgstr "Isulat ang imong mga komento dinhi..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr ""
+msgstr "Buwan"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr ""
+msgstr "Partisipasyon"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
-msgstr ""
+msgstr "Mga kurso sa Biblia"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr ""
+msgstr "Mga Komentaryo"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
-msgstr ""
+msgstr "Pribilehiyo"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr ""
+msgstr "Oo"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr ""
+msgstr "Dili"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
-msgstr ""
+msgstr "Talaan sa imbentaryo"
 
 #: templates/detalle-literatura.html:72
 msgid "Este inventario debe hacerlo la congregación coordinadora del idioma cada mes. No debe haber existencias de artículos de solicitud especial, por lo tanto, este formulario no los incluye. Si por alguna razón se dispone de artículos de solicitud especial, anote las cantidades en una de las categorías generales, como por ejemplo \"Otros\". Para más instrucciones, consulte el formulario <em>S-28</em>. Para conocer las \"Pautas para solicitar publicaciones y gestionar el inventario\", consulte el <em>S-56</em> correspondiente a su país."
-msgstr ""
+msgstr "Kini nga imbentaryo kinahanglan himoon sa iglesia nga nag-koordinar sa pinulongan matag bulan. Walay angay magpabilin nga mga kahimtang sa mga produkto nga espesyal nga gihangyo, busa, kini nga porma wala naglakip niini. Kung sa bisan unsang rason may mga produkto nga espesyal nga gihangyo, isulat ang kadaghanan sa usa sa mga kinatibuk-an nga kategorya, sama sa \"Uban pa\". Para sa dugang nga mga instruksyon, tan-awa ang porma <em>S-28</em>. Aron mahibal-an ang \"Mga Giya para sa paghangyo og mga publikasyon ug pagdumala sa imbentaryo\", tan-awa ang <em>S-56</em> nga akma sa inyong nasud."
 
 #: templates/detalle-literatura.html:821
 msgid "Guardar inventario"
-msgstr ""
+msgstr "I-save ang imbentaryo"
 
 #: templates/detalle-literatura.html:829
 msgid "Eliminar inventario"
-msgstr ""
+msgstr "I-delete ang imbentaryo"
 
 #: templates/detalle-orador.html:43
 msgid "Datos del orador"
-msgstr ""
+msgstr "Datos sa magwawali"
 
 #: templates/detalle-orador.html:51
 msgid "Aprobado para salir "
-msgstr ""
+msgstr "Gipahibulong para sa pagbiya "
 
 #: templates/detalle-orador.html:54
 msgid "Si el orador es foráneo, especifique su congregación de origen"
-msgstr ""
+msgstr "Kung ang magwawali lang nagikan sa gawas, ispecify ang ilang kongregasyon gikan"
 
 #: templates/detalle-orador.html:57 templates/detalle-publicador.html:114
 msgid "Celular"
-msgstr ""
+msgstr "Mobile"
 
 #: templates/detalle-orador.html:58 templates/detalle-publicador.html:115
 msgid "Teléfono"
-msgstr ""
+msgstr "Telepono"
 
 #: templates/detalle-orador.html:61 templates/detalle-publicador.html:288
 msgid "Anciano"
-msgstr ""
+msgstr "Elder"
 
 #: templates/detalle-orador.html:64 templates/detalle-publicador.html:290
 msgid "Siervo ministerial"
-msgstr ""
+msgstr "Ministerial servant"
 
 #: templates/detalle-orador.html:65
 msgid "Bosquejos preparados"
-msgstr ""
+msgstr "Gipreparar nga template"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr ""
+msgstr "Personal nga datos"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr ""
+msgstr "Lalaki"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr ""
+msgstr "Babae"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr ""
+msgstr "Aron masiguro nga nasulod nimo ang datos nga husto, sundon kini nga mga lakang: Una, pili-a kung ang magbabalita ang ulo sa pamilya. Dayon, i-save ang impormasyon sa magbabalita. Kung nahuman na nimo kini nga lakang, mahimo ka nang maghimo sa pamilya. Kung maghimo ka sa pamilya sa wala pa nimo i-save ang datos sa magbabalita, mahimo kini makahatag ug sayop tungod sa mga kalisdanan sa impormasyon."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr ""
+msgstr "Ulo sa Pamilya"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
@@ -1460,71 +1461,71 @@ msgstr ""
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
-msgstr ""
+msgstr "Sincronizando datos sa miting"
 
 #: templates/detalle-vida-ministerio.html:33
 msgid "Guardando..."
-msgstr ""
+msgstr "Ginasave..."
 
 #: templates/detalle-vida-ministerio.html:66
 msgid "Anterior"
-msgstr ""
+msgstr "Nauna"
 
 #: templates/detalle-vida-ministerio.html:68
 msgid "Esta semana"
-msgstr ""
+msgstr "Niining simana"
 
 #: templates/detalle-vida-ministerio.html:70
 msgid "Próxima"
-msgstr ""
+msgstr "Sunod"
 
 #: templates/detalle-vida-ministerio.html:79
 msgid "Seleccione un presidente"
-msgstr ""
+msgstr "Pilia og presidente"
 
 #: templates/detalle-vida-ministerio.html:121
 #: templates/mostrar-vida-ministerio.html:110
 msgid "Conductor:"
-msgstr ""
+msgstr "Tigum: "
 
 #: templates/detalle-vida-ministerio.html:123
 msgid "Seleccione un conductor"
-msgstr ""
+msgstr "Paghuwag og conductor"
 
 #: templates/detalle-vida-ministerio.html:129
 #: templates/mostrar-vida-ministerio.html:113
 msgid "Lector:"
-msgstr ""
+msgstr "Magbasa:"
 
 #: templates/detalle-vida-ministerio.html:131
 msgid "Seleccione un lector"
-msgstr ""
+msgstr "Paghuwag og magbabasa"
 
 #: templates/detalle-vida-ministerio.html:137
 #: templates/detalle-vida-ministerio.html:145
 #: templates/detalle-visita-superint-circuito.html:80
 #: templates/mostrar-vida-ministerio.html:89
 msgid "Publicador:"
-msgstr ""
+msgstr "Nagmantala:"
 
 #: templates/detalle-vida-ministerio.html:139
 #: templates/detalle-vida-ministerio.html:147
 msgid "Seleccione un publicador"
-msgstr ""
+msgstr "Paghuwag og nagmantala"
 
 #: templates/detalle-vida-ministerio.html:155
 #: templates/mostrar-vida-ministerio.html:92
 msgid "Ayudante:"
-msgstr ""
+msgstr "Tinabangay:"
 
 #: templates/detalle-vida-ministerio.html:157
 msgid "Seleccione un ayudante"
-msgstr ""
+msgstr "Paghuwag og tinabangay"
 
 #: templates/detalle-vida-ministerio.html:174
 #: templates/mostrar-vida-ministerio.html:121
 msgid "Oración final:"
-msgstr ""
+msgstr "Katapusan nga pag-ampo:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
@@ -1636,15 +1637,15 @@ msgstr ""
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
-msgstr ""
+msgstr "Pagtipon sa katapusan sa semana"
 
 #: templates/estudio-atalaya.html:83
 msgid "Sust. oración final:"
-msgstr ""
+msgstr "Sustituto sa katapusang pag-ampo:"
 
 #: templates/estudio-atalaya.html:100 templates/vida-ministerio.html:78
 msgid "¡Aún no tienes ningún programa registrado! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Walay naka rehistrong programa! Aron magsugod, i-klik ang \"Bag-o\" nga buton."
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
@@ -1664,11 +1665,11 @@ msgstr ""
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Walay naka rehistrong grupo sa pagmantala! Aron magsugod, paghimo sa imong unang grupo pinaagi sa pag-klik sa \"Bag-o\" nga buton."
 
 #: templates/index.html:53
 msgid "Cerrar sesión"
-msgstr ""
+msgstr "Mag-log out"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
@@ -1676,7 +1677,7 @@ msgstr ""
 
 #: templates/index.html:74
 msgid "Publicadores"
-msgstr ""
+msgstr "Mga Publiko"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
@@ -1684,31 +1685,31 @@ msgstr ""
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
-msgstr ""
+msgstr "Kinabuhi ug Ministeryo"
 
 #: templates/index.html:85
 msgid "Programa automáticamente las asignaciones para la reunión"
-msgstr ""
+msgstr "I-automate ang pag plano sa mga asignMENTS para sa pagkahimamat"
 
 #: templates/index.html:98
 msgid "Estudio de <em>La Atalaya</em>"
-msgstr ""
+msgstr "Pagtuon sa <em>Ang Bantayan</em>"
 
 #: templates/index.html:100
 msgid "Programa automáticamente los participantes para la reunión"
-msgstr ""
+msgstr "I-automate ang pag plano sa mga partisipante para sa pagkahimamat"
 
 #: templates/index.html:111
 msgid "Oradores públicos"
-msgstr ""
+msgstr "Mga pampubliko nga tagpulong"
 
 #: templates/index.html:112
 msgid "Registre oradores públicos locales o visitantes"
-msgstr ""
+msgstr "Irehistro ang mga lokal o bisita nga pampublikong tagpulong"
 
 #: templates/index.html:122
 msgid "Organiza las visitas y las salidas de los oradores y sus hospitalidades"
-msgstr ""
+msgstr "Organisaron ang mga bisita ug mga pag-abiabi sa mga tagpulong"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
@@ -1716,7 +1717,7 @@ msgstr ""
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
-msgstr ""
+msgstr "Paghimo og mga grupo, itrabaho ang grupo nga alagad ug ang katabang"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
@@ -1740,11 +1741,11 @@ msgstr ""
 
 #: templates/index.html:174
 msgid "Publicaciones"
-msgstr ""
+msgstr "Mga publikasyon"
 
 #: templates/index.html:175
 msgid "Lleve un inventario exacto y actualizado, vea tendencias y evite la acumulación"
-msgstr ""
+msgstr "Magtipig og husto ug nasayran nga imbentaryo, tan-awa ang mga uso ug likayi ang pagpalabi"
 
 #: templates/index.html:186
 msgid "Lleve un registro de la asistencia a las reuniones"
@@ -1760,11 +1761,11 @@ msgstr ""
 
 #: templates/index.html:207
 msgid "Añada sus datos personales, cambie la apariencia o el idioma, entre otros más"
-msgstr ""
+msgstr "Idugang ang imong personal nga datos, usba ang hitsura o ang sinultian, uban sa uban pa"
 
 #: templates/index.html:217
 msgid "Reportar un problema"
-msgstr ""
+msgstr "Ireport ang usa ka problema"
 
 #: templates/informes-predicacion.html:75
 msgid "Participación:"
@@ -1780,7 +1781,7 @@ msgstr ""
 
 #: templates/literatura.html:71
 msgid "¡Aún no has inventariado nada! Para empezar, haz clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wala pa nimo naimbentaryo ang bisan unsa! Aron magsugod, i-klik ang \"Bag-o\" nga buton."
 
 #: templates/log-in-system.html:60
 msgid "En Kingdom Hall Attendant, utilizamos principalmente un sistema de registro sin contraseñas. Creemos que es mejor no obligar a los usuarios a establecer una contraseña, ya que esto puede generar más riesgos de seguridad (más detalles a continuación)."
@@ -1961,15 +1962,15 @@ msgstr ""
 
 #: templates/oradores.html:59
 msgid "Agregar orador foráneo"
-msgstr ""
+msgstr "Idugang ang langyaw nga maghuhunahuna"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wala pa kay rehistradong maghuhunahuna! Aron magsugod, paghimo sa imong unang maghuhunahuna pinaagi sa pag-klik sa buton nga \"Bag-o\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr ""
+msgstr "Wala pa kay rehistradong magmimisyon! Aron magsugod, paghimo sa imong unang magmimisyon pinaagi sa pag-klik sa buton nga \"Bag-o\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
@@ -2069,7 +2070,7 @@ msgstr ""
 
 #: templates/vida-ministerio.html:62
 msgid "Semana del"
-msgstr ""
+msgstr "Semana sa"
 
 #: templates/visita-superint-circuito.html:54
 msgid "Visita del Superintendente de Circuito"
