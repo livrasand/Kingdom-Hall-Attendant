@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2024-12-11 14:58\n"
 "Last-Translator: Livrädo Sandoval <livrasand@outlook.com>\n"
 "Language: pt\n"
-"Language-Team: Portuguese, Brazilian\n"
+"Language-Team: Portuguese\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Generated-By: Babel 2.16.0\n"
 "X-Crowdin-Project: kingdom-hall-attendant\n"
 "X-Crowdin-Project-ID: 744277\n"
-"X-Crowdin-Language: pt-BR\n"
+"X-Crowdin-Language: pt-PT\n"
 "X-Crowdin-File: /[livrasand.Kingdom-Hall-Attendant] main/locales/es/LC_MESSAGES/messages.po\n"
 "X-Crowdin-File-ID: 16\n"
 
@@ -586,7 +586,7 @@ msgstr "Importar uma cópia de segurança"
 
 #: templates/copias-seguridad.html:110
 msgid "Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles."
-msgstr "Essa função permite importar dados de um arquivo de copia de segurança em formato JSON. Ao selecionar um arquivo e as tabelas que deseja importar, você pode restaurar informações previamente salvas, garantindo que seus dados estejam atualizados e disponíveis."
+msgstr "Essa função permite importar dados de um arquivo de backup em formato JSON. Ao selecionar um arquivo e as tabelas que você deseja importar, você pode restaurar informações previamente salvas, garantindo que seus dados estejam atualizados e disponíveis."
 
 #: templates/copias-seguridad.html:114
 msgid "Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad."
@@ -723,11 +723,11 @@ msgstr "Oração de abertura:"
 #: templates/detalle-vida-ministerio.html:87
 #: templates/detalle-vida-ministerio.html:176
 msgid "Selecciona un publicador"
-msgstr "Selecione um publicador"
+msgstr "Selecionar um publicador"
 
 #: templates/detalle-estudio-atalaya.html:81 templates/estudio-atalaya.html:79
 msgid "Lector de <em>La Atalaya</em>:"
-msgstr "Leitor de <em>La Atalaya</em>:"
+msgstr "Leitor do <em> A Sentinela</em>:"
 
 #: templates/detalle-estudio-atalaya.html:97
 msgid "Sustituto de la oración final:"
@@ -735,7 +735,7 @@ msgstr "Substituto da oração final:"
 
 #: templates/detalle-estudio-atalaya.html:108
 msgid "Selecciona un sustituto"
-msgstr "Selecione um substituto"
+msgstr "Selecionar um substituto"
 
 #: templates/detalle-grupo-predicacion.html:46
 msgid "Nombre del grupo"
@@ -824,19 +824,19 @@ msgstr "Horas"
 #: templates/detalle-informes-predicacion.html:91
 #: templates/informes-predicacion.html:78
 msgid "Comentarios:"
-msgstr "Comentários:"
+msgstr "Comentarios:"
 
 #: templates/detalle-informes-predicacion.html:92
 msgid "Escribe tus comentarios aquí..."
-msgstr "Escreva seus comentários aqui..."
+msgstr "Escribe tus comentarios aquí..."
 
 #: templates/detalle-informes-predicacion.html:106
 msgid "Mes"
-msgstr "Mês"
+msgstr "Mes"
 
 #: templates/detalle-informes-predicacion.html:108
 msgid "Participación"
-msgstr "Participação"
+msgstr "Participación"
 
 #: templates/detalle-informes-predicacion.html:109
 msgid "Cursos bíblicos"
@@ -844,7 +844,7 @@ msgstr "Cursos bíblicos"
 
 #: templates/detalle-informes-predicacion.html:111
 msgid "Comentarios"
-msgstr "Comentários"
+msgstr "Comentarios"
 
 #: templates/detalle-informes-predicacion.html:112
 msgid "Privilegio"
@@ -852,12 +852,12 @@ msgstr "Privilégio"
 
 #: templates/detalle-informes-predicacion.html:121
 msgid "Sí"
-msgstr "Sim"
+msgstr "Sí"
 
 #: templates/detalle-informes-predicacion.html:121
 #: templates/informes-predicacion.html:75
 msgid "No"
-msgstr "Não"
+msgstr "No"
 
 #: templates/detalle-literatura.html:51
 msgid "Informe de inventario"
@@ -909,43 +909,43 @@ msgstr "Esboços preparados"
 
 #: templates/detalle-publicador.html:45
 msgid "Datos personales"
-msgstr "Dados pessoais"
+msgstr "Datos personales"
 
 #: templates/detalle-publicador.html:52
 msgid "Hombre"
-msgstr "Homem"
+msgstr "Hombre"
 
 #: templates/detalle-publicador.html:54
 msgid "Mujer"
-msgstr "Mulher"
+msgstr "Mujer"
 
 #: templates/detalle-publicador.html:60
 msgid "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
-msgstr "Para garantir que você insira os dados corretamente, siga estas etapas: Primeiro, selecione se o publicador é o chefe da família. Em seguida, salve as informações do publicador. Assim que você concluir esta etapa, poderá criar a família. Se você tentar criar a família antes de salvar os dados do publicador, pode ocorrer um erro devido a conflitos de informações."
+msgstr "Para asegurarte de ingresar los datos correctamente, sigue estos pasos: Primero, selecciona si el publicador es el cabeza de familia. Luego, guarda la información del publicador. Una vez que hayas completado este paso, puedes crear la familia. Si intentas crear la familia antes de guardar los datos del publicador, podría producirse un error debido a conflictos de información."
 
 #: templates/detalle-publicador.html:66
 msgid "Cabeza de la familia"
-msgstr "Chefe da família"
+msgstr "Cabeza de la familia"
 
 #: templates/detalle-publicador.html:71
 msgid "Cabeza de familia o soltero"
-msgstr "Chefe da família ou solteiro"
+msgstr "Cabeza de familia o soltero"
 
 #: templates/detalle-publicador.html:73
 msgid "Crear familia"
-msgstr "Criar família"
+msgstr "Crear familia"
 
 #: templates/detalle-publicador.html:82
 msgid "Familia:"
-msgstr "Família:"
+msgstr "Familia:"
 
 #: templates/detalle-publicador.html:96
 msgid "Este publicador es"
-msgstr "Este publicador é"
+msgstr "Este publicador es"
 
 #: templates/detalle-publicador.html:97
 msgid "Preference"
-msgstr "Preferência"
+msgstr "Preference"
 
 #: templates/detalle-publicador.html:99
 msgid "esposa"
@@ -953,60 +953,60 @@ msgstr "esposa"
 
 #: templates/detalle-publicador.html:100
 msgid "hija"
-msgstr "filha"
+msgstr "hija"
 
 #: templates/detalle-publicador.html:101
 msgid "hijo"
-msgstr "filho"
+msgstr "hijo"
 
 #: templates/detalle-publicador.html:103
 msgid "del cabeza de familia"
-msgstr "do chefe da família"
+msgstr "del cabeza de familia"
 
 #: templates/detalle-publicador.html:109 templates/detalle-publicador.html:110
 msgid "Fecha de nacimiento"
-msgstr "Data de nascimento"
+msgstr "Fecha de nacimiento"
 
 #: templates/detalle-publicador.html:111
 msgid "Dirección"
-msgstr "Endereço"
+msgstr "Dirección"
 
 #: templates/detalle-publicador.html:118
 msgid "Datos espirituales"
-msgstr "Dados espirituais"
+msgstr "Datos espirituales"
 
 #: templates/detalle-publicador.html:122
 msgid "Bautizado"
-msgstr "Batizado"
+msgstr "Bautizado"
 
 #: templates/detalle-publicador.html:126 templates/detalle-publicador.html:127
 msgid "Fecha de bautizo"
-msgstr "Data de batismo"
+msgstr "Fecha de bautizo"
 
 #: templates/detalle-publicador.html:130 templates/detalle-publicador.html:131
 #: templates/detalle-publicador.html:138 templates/detalle-publicador.html:139
 msgid "Grupo de predicación"
-msgstr "Grupo de pregação"
+msgstr "Grupo de predicación"
 
 #: templates/detalle-publicador.html:140
 msgid "Seleccione un grupo"
-msgstr "Selecione um grupo"
+msgstr "Seleccione un grupo"
 
 #: templates/detalle-publicador.html:155
 msgid "Recibe La Atalaya (edición de estudio)"
-msgstr "Recebe A Sentinela (edição de estudo)"
+msgstr "Recibe La Atalaya (edición de estudio)"
 
 #: templates/detalle-publicador.html:160
 msgid "Recibe la Guía de actividades"
-msgstr "Recebe o Guia de atividades"
+msgstr "Recibe la Guía de actividades"
 
 #: templates/detalle-publicador.html:165
 msgid "Publicador no bautizado"
-msgstr "Publicador não batizado"
+msgstr "Publicador no bautizado"
 
 #: templates/detalle-publicador.html:170
 msgid "Publicador temporal (visitante de 3 meses o menos)"
-msgstr "Publicador temporário (visitante de 3 meses ou menos)"
+msgstr "Publicador temporal (visitante de 3 meses o menos)"
 
 #: templates/detalle-publicador.html:175
 msgid "Ungido"
@@ -1014,7 +1014,7 @@ msgstr "Ungido"
 
 #: templates/detalle-publicador.html:180
 msgid "Niño"
-msgstr "Criança"
+msgstr "Niño"
 
 #: templates/detalle-publicador.html:185
 msgid "Readmitido"
@@ -1030,7 +1030,7 @@ msgstr "Invidente"
 
 #: templates/detalle-publicador.html:200
 msgid "Cometió abuso sexual de menores"
-msgstr "Cometeu abuso sexual de menores"
+msgstr "Cometió abuso sexual de menores"
 
 #: templates/detalle-publicador.html:205
 msgid "Divorciado"
@@ -1042,7 +1042,7 @@ msgstr "Viudo"
 
 #: templates/detalle-publicador.html:217
 msgid "Sordo"
-msgstr "Surdo"
+msgstr "Sordo"
 
 #: templates/detalle-publicador.html:222
 msgid "Enfermo"
@@ -1050,19 +1050,19 @@ msgstr "Enfermo"
 
 #: templates/detalle-publicador.html:227
 msgid "Voluntario del LDC"
-msgstr "Voluntário do LDC"
+msgstr "Voluntario del LDC"
 
 #: templates/detalle-publicador.html:232
 msgid "Voluntario EPC"
-msgstr "Voluntário EPC"
+msgstr "Voluntario EPC"
 
 #: templates/detalle-publicador.html:238
 msgid "Tiene llaves del Salón del Reino"
-msgstr "Tem chaves do Salão do Reino"
+msgstr "Tiene llaves del Salón del Reino"
 
 #: templates/detalle-publicador.html:244
 msgid "Utiliza Kingdom Hall Attendant"
-msgstr "Utiliza assistente do Salão do Reino"
+msgstr "Utiliza Kingdom Hall Attendant"
 
 #: templates/detalle-publicador.html:250
 msgid "Censurado"
@@ -1070,7 +1070,7 @@ msgstr "Censurado"
 
 #: templates/detalle-publicador.html:256
 msgid "Inactivo"
-msgstr "Inativo"
+msgstr "Inactivo"
 
 #: templates/detalle-publicador.html:262
 msgid "Expulsado"
@@ -1082,7 +1082,7 @@ msgstr "Fallecido"
 
 #: templates/detalle-publicador.html:274
 msgid "Encarcelado"
-msgstr "Encarcerado"
+msgstr "Encarcelado"
 
 #: templates/detalle-publicador.html:280
 msgid "Separado"
@@ -1090,28 +1090,28 @@ msgstr "Separado"
 
 #: templates/detalle-publicador.html:285
 msgid "Nombramientos"
-msgstr "Nomeações"
+msgstr "Nombramientos"
 
 #: templates/detalle-publicador.html:292 templates/detalle-publicador.html:301
 msgid "Ninguno"
-msgstr "Nenhum"
+msgstr "Ninguno"
 
 #: templates/detalle-publicador.html:295
 msgid "Nombrado"
-msgstr "Nomeado"
+msgstr "Nombrado"
 
 #: templates/detalle-publicador.html:296 templates/detalle-publicador.html:319
 #: templates/detalle-publicador.html:320
 msgid "Fecha de inicio"
-msgstr "Data de início"
+msgstr "Fecha de inicio"
 
 #: templates/detalle-publicador.html:298
 msgid "Privilegios de servicio"
-msgstr "Privilégios de serviço"
+msgstr "Privilegios de servicio"
 
 #: templates/detalle-publicador.html:304
 msgid "Precursor auxiliar de continuo"
-msgstr "Precursor auxiliar contínuo"
+msgstr "Precursor auxiliar de continuo"
 
 #: templates/detalle-publicador.html:307
 msgid "Precursor regular"
@@ -1123,11 +1123,11 @@ msgstr "Precursor especial"
 
 #: templates/detalle-publicador.html:313
 msgid "Misionero"
-msgstr "Missionário"
+msgstr "Misionero"
 
 #: templates/detalle-publicador.html:316
 msgid "Informa directamente a la sucursal"
-msgstr "Informar diretamente à filial"
+msgstr "Informa directamente a la sucursal"
 
 #: templates/detalle-publicador.html:322
 msgid "Número de precursor"
@@ -1135,7 +1135,7 @@ msgstr "Número de precursor"
 
 #: templates/detalle-publicador.html:327
 msgid "Temporario"
-msgstr "Temporário"
+msgstr "Temporario"
 
 #: templates/detalle-publicador.html:334
 msgid "Enfermizo (sfl 9:18)"
@@ -1143,15 +1143,15 @@ msgstr "Enfermizo (sfl 9:18)"
 
 #: templates/detalle-publicador.html:338
 msgid "Última Escuela del Servicio de Precursor"
-msgstr "Última Escola do Serviço de Precursor"
+msgstr "Última Escuela del Servicio de Precursor"
 
 #: templates/detalle-publicador.html:339
 msgid "Fecha de última asistencia"
-msgstr "Data da última assistência"
+msgstr "Fecha de última asistencia"
 
 #: templates/detalle-publicador.html:344
 msgid "Responsabilidades en la congregación"
-msgstr "Responsabilidades na congregação"
+msgstr "Responsabilidades en la congregación"
 
 #: templates/detalle-publicador.html:350
 msgid "Coordinador del cuerpo de ancianos"
@@ -1167,87 +1167,87 @@ msgstr "Superintendente de servicio"
 
 #: templates/detalle-publicador.html:365
 msgid "Siervo de acomodadores"
-msgstr "Servidor de acomodadores"
+msgstr "Siervo de acomodadores"
 
 #: templates/detalle-publicador.html:370
 msgid "Coordinador de audio y video"
-msgstr "Coordenador de áudio e vídeo"
+msgstr "Coordinador de audio y video"
 
 #: templates/detalle-publicador.html:375
 msgid "Siervo de literatura"
-msgstr "Servidor de literatura"
+msgstr "Siervo de literatura"
 
 #: templates/detalle-publicador.html:380
 msgid "Coordinador de mantenimiento"
-msgstr "Coordenador de manutenção"
+msgstr "Coordinador de mantenimiento"
 
 #: templates/detalle-publicador.html:385
 msgid "Coordinador de mantenimiento del jardín"
-msgstr "Coordenador de manutenção do jardim"
+msgstr "Coordinador de mantenimiento del jardín"
 
 #: templates/detalle-publicador.html:390
 msgid "Comité de Mantenimiento del Salón del Reino"
-msgstr "Comitê de Manutenção do Salão do Reino"
+msgstr "Comité de Mantenimiento del Salón del Reino"
 
 #: templates/detalle-publicador.html:395
 msgid "Consejero de la sala auxiliar"
-msgstr "Conselheiro da sala auxiliar"
+msgstr "Consejero de la sala auxiliar"
 
 #: templates/detalle-publicador.html:400
 msgid "Consejero auxiliar"
-msgstr "Conselheiro auxiliar"
+msgstr "Consejero auxiliar"
 
 #: templates/detalle-publicador.html:405
 msgid "Voluntario temporal de Betel"
-msgstr "Voluntário temporário de Betel"
+msgstr "Voluntario temporal de Betel"
 
 #: templates/detalle-publicador.html:410
 msgid "Betelita de cercanías"
-msgstr "Betelita de proximidade"
+msgstr "Betelita de cercanías"
 
 #: templates/detalle-publicador.html:415
 msgid "Voluntario remoto de Betel"
-msgstr "Voluntário remoto de Betel"
+msgstr "Voluntario remoto de Betel"
 
 #: templates/detalle-publicador.html:420
 msgid "Comité de Enlace con Hospitales"
-msgstr "Comitê de Ligação com Hospitais"
+msgstr "Comité de Enlace con Hospitales"
 
 #: templates/detalle-publicador.html:428
 msgid "Conductor del Estudio de La Atalaya"
-msgstr "Conductor do Estudo de A Sentinela"
+msgstr "Conductor del Estudio de La Atalaya"
 
 #: templates/detalle-publicador.html:433
 msgid "Coordinador de discursos públicos"
-msgstr "Coordenador de discursos públicos"
+msgstr "Coordinador de discursos públicos"
 
 #: templates/detalle-publicador.html:438
 msgid "Ayudante del coordinador de discursos públicos"
-msgstr "Ayudante do coordenador de discursos públicos"
+msgstr "Ayudante del coordinador de discursos públicos"
 
 #: templates/detalle-publicador.html:443
 msgid "Siervo de informes"
-msgstr "Serviço de Relatórios"
+msgstr "Siervo de informes"
 
 #: templates/detalle-publicador.html:448
 msgid "Siervo de cuentas"
-msgstr "Servidor de contas"
+msgstr "Siervo de cuentas"
 
 #: templates/detalle-publicador.html:453
 msgid "Siervo de territorios"
-msgstr "Servidor de territórios"
+msgstr "Siervo de territorios"
 
 #: templates/detalle-publicador.html:458
 msgid "Coordinador de limpieza"
-msgstr "Coordenador de limpeza"
+msgstr "Coordinador de limpieza"
 
 #: templates/detalle-publicador.html:463
 msgid "Superintendente de la reunión Vida y Ministerio Cristianos"
-msgstr "Superintendente da reunião Vida e Ministério Cristãos"
+msgstr "Superintendente de la reunión Vida y Ministerio Cristianos"
 
 #: templates/detalle-publicador.html:468
 msgid "Coordinador de la predicación pública"
-msgstr "Coordenador da pregação pública"
+msgstr "Coordinador de la predicación pública"
 
 #: templates/detalle-publicador.html:473
 msgid "Superintendente de grupo"
@@ -1259,27 +1259,27 @@ msgstr "Betelita"
 
 #: templates/detalle-publicador.html:493
 msgid "Voluntario de construcción"
-msgstr "Voluntário de construção"
+msgstr "Voluntario de construcción"
 
 #: templates/detalle-publicador.html:498
 msgid "Siervo de construcción"
-msgstr "Servidor de construção"
+msgstr "Siervo de construcción"
 
 #: templates/detalle-publicador.html:504
 msgid "Utilización en asignaciones"
-msgstr "Utilização em atribuições"
+msgstr "Utilización en asignaciones"
 
 #: templates/detalle-publicador.html:505
 #: templates/mostrar-vida-ministerio.html:70
 msgid "TESOROS DE LA BIBLIA"
-msgstr "TESOUROS DA BÍBLIA"
+msgstr "TESOROS DE LA BIBLIA"
 
 #: templates/detalle-publicador.html:507 templates/detalle-publicador.html:544
 #: templates/detalle-publicador.html:601 templates/detalle-publicador.html:626
 #: templates/detalle-publicador.html:665 templates/detalle-publicador.html:709
 #: templates/detalle-publicador.html:738
 msgid "Seleccionar todos"
-msgstr "Selecionar todos"
+msgstr "Seleccionar todos"
 
 #: templates/detalle-publicador.html:514
 msgid "Presidente"
@@ -1287,52 +1287,52 @@ msgstr "Presidente"
 
 #: templates/detalle-publicador.html:519
 msgid "Oración"
-msgstr "Oração"
+msgstr "Oración"
 
 #: templates/detalle-publicador.html:524
 msgid "Discurso (10 mins.)"
-msgstr "Discurso (10 min.)"
+msgstr "Discurso (10 mins.)"
 
 #: templates/detalle-publicador.html:532
 msgid "Busquemos perlas escondidas"
-msgstr "Vamos buscar pérolas escondidas"
+msgstr "Busquemos perlas escondidas"
 
 #: templates/detalle-publicador.html:537
 msgid "Lectura de la Biblia"
-msgstr "Leitura da Bíblia"
+msgstr "Lectura de la Biblia"
 
 #: templates/detalle-publicador.html:542
 #: templates/mostrar-vida-ministerio.html:84
 msgid "SEAMOS MEJORES MAESTROS"
-msgstr "SEJAMOS MELHORES MESTRES"
+msgstr "SEAMOS MEJORES MAESTROS"
 
 #: templates/detalle-publicador.html:551
 msgid "Análisis"
-msgstr "Análise"
+msgstr "Análisis"
 
 #: templates/detalle-publicador.html:556
 msgid "Empiece conversaciones"
-msgstr "Inicie conversas"
+msgstr "Empiece conversaciones"
 
 #: templates/detalle-publicador.html:561
 msgid "Haga revisitas"
-msgstr "Faça revisitas"
+msgstr "Haga revisitas"
 
 #: templates/detalle-publicador.html:566
 msgid "Haga discípulos"
-msgstr "Faça discípulos"
+msgstr "Haga discípulos"
 
 #: templates/detalle-publicador.html:571
 msgid "No utilizar en la sala principal"
-msgstr "Não use na sala principal"
+msgstr "No utilizar en la sala principal"
 
 #: templates/detalle-publicador.html:579
 msgid "Explique sus creencias"
-msgstr "Explique suas crenças"
+msgstr "Explique sus creencias"
 
 #: templates/detalle-publicador.html:584
 msgid "Ayudante"
-msgstr "Ajudante"
+msgstr "Ayudante"
 
 #: templates/detalle-publicador.html:589
 msgid "Discurso"
@@ -1340,56 +1340,56 @@ msgstr "Discurso"
 
 #: templates/detalle-publicador.html:594
 msgid "Utilizar solo en la sala principal"
-msgstr "Utilizar apenas na sala principal"
+msgstr "Utilizar solo en la sala principal"
 
 #: templates/detalle-publicador.html:599
 #: templates/mostrar-vida-ministerio.html:101
 msgid "NUESTRA VIDA CRISTIANA"
-msgstr "NOSSA VIDA CRISTÃ"
+msgstr "NUESTRA VIDA CRISTIANA"
 
 #: templates/detalle-publicador.html:608
 msgid "Intervenciones"
-msgstr "Intervenções"
+msgstr "Intervenciones"
 
 #: templates/detalle-publicador.html:613
 msgid "Estudio bíblico de la congregación"
-msgstr "Estudo bíblico da congregação"
+msgstr "Estudio bíblico de la congregación"
 
 #: templates/detalle-publicador.html:618
 msgid "Lector"
-msgstr "Leitor"
+msgstr "Lector"
 
 #: templates/detalle-publicador.html:624
 msgid "ESTUDIO DE LA ATALAYA"
-msgstr "ESTUDO DE A ATALAYA"
+msgstr "ESTUDIO DE LA ATALAYA"
 
 #: templates/detalle-publicador.html:633
 msgid "Discursante público saliente"
-msgstr "Palestrante público em saída"
+msgstr "Discursante público saliente"
 
 #: templates/detalle-publicador.html:638
 msgid "Discursante público local"
-msgstr "Palestrante público local"
+msgstr "Discursante público local"
 
 #: templates/detalle-publicador.html:643
 msgid "Presidente de la reunión pública"
-msgstr "Presidente da reunião pública"
+msgstr "Presidente de la reunión pública"
 
 #: templates/detalle-publicador.html:652
 msgid "Lector de La Atalaya"
-msgstr "Leitor da Atalaya"
+msgstr "Lector de La Atalaya"
 
 #: templates/detalle-publicador.html:657
 msgid "Anfitrión para las hospitalidades"
-msgstr "Anfitrião para as hospitalidades"
+msgstr "Anfitrión para las hospitalidades"
 
 #: templates/detalle-publicador.html:663
 msgid "TAREAS"
-msgstr "TAREFAS"
+msgstr "TAREAS"
 
 #: templates/detalle-publicador.html:672
 msgid "Operador de audio"
-msgstr "Operador de áudio"
+msgstr "Operador de audio"
 
 #: templates/detalle-publicador.html:677
 msgid "Plataforma"
@@ -1397,15 +1397,15 @@ msgstr "Plataforma"
 
 #: templates/detalle-publicador.html:682
 msgid "Anfitrión en Zoom"
-msgstr "Anfitrião no Zoom"
+msgstr "Anfitrión en Zoom"
 
 #: templates/detalle-publicador.html:691
 msgid "Micrófonos"
-msgstr "Microfones"
+msgstr "Micrófonos"
 
 #: templates/detalle-publicador.html:696
 msgid "Coanfitrión en Zoom"
-msgstr "Coanfitrião no Zoom"
+msgstr "Coanfitrión en Zoom"
 
 #: templates/detalle-publicador.html:701
 msgid "Acomodador"
@@ -1413,51 +1413,51 @@ msgstr "Acomodador"
 
 #: templates/detalle-publicador.html:707
 msgid "SERVICIO DEL CAMPO"
-msgstr "SERVIÇO DE CAMPO"
+msgstr "SERVICIO DEL CAMPO"
 
 #: templates/detalle-publicador.html:716
 msgid "Aprobado para predicación pública"
-msgstr "Aprovado para pregação pública"
+msgstr "Aprobado para predicación pública"
 
 #: templates/detalle-publicador.html:721
 msgid "Dirigir reuniones para el servicio del campo"
-msgstr "Dirigir reuniões para o serviço de campo"
+msgstr "Dirigir reuniones para el servicio del campo"
 
 #: templates/detalle-publicador.html:730
 msgid "Orar en reuniones para el servicio del campo"
-msgstr "Orar em reuniões para o serviço de campo"
+msgstr "Orar en reuniones para el servicio del campo"
 
 #: templates/detalle-publicador.html:736
 msgid "LIMPIEZA"
-msgstr "LIMPEZA"
+msgstr "LIMPIEZA"
 
 #: templates/detalle-publicador.html:745
 msgid "Limpieza semanal del Salón del Reino"
-msgstr "Limpeza semanal do Salão do Reino"
+msgstr "Limpieza semanal del Salón del Reino"
 
 #: templates/detalle-publicador.html:750
 msgid "Limpieza después de la reunión"
-msgstr "Limpeza após a reunião"
+msgstr "Limpieza después de la reunión"
 
 #: templates/detalle-publicador.html:755
 msgid "Cuidado del jardín"
-msgstr "Cuidados com o jardim"
+msgstr "Cuidado del jardín"
 
 #: templates/detalle-publicador.html:764
 msgid "Limpieza mensual del Salón del Reino"
-msgstr "Limpeza mensal do Salão do Reino"
+msgstr "Limpieza mensual del Salón del Reino"
 
 #: templates/detalle-publicador.html:769
 msgid "Limpieza trimestral del Salón del Reino"
-msgstr "Limpeza trimestral do Salão do Reino"
+msgstr "Limpieza trimestral del Salón del Reino"
 
 #: templates/detalle-publicador.html:774
 msgid "Cuidado del césped"
-msgstr "Cuidados com o gramado"
+msgstr "Cuidado del césped"
 
 #: templates/detalle-publicador.html:788
 msgid "Eliminar publicador"
-msgstr "Remover publicador"
+msgstr "Eliminar publicador"
 
 #: templates/detalle-vida-ministerio.html:27 templates/vida-ministerio.html:29
 msgid "Sincronizando datos de la reunión"
@@ -1529,67 +1529,67 @@ msgstr "Oração final:"
 
 #: templates/detalle-visita-superint-circuito.html:38
 msgid "Actividad:"
-msgstr "Atividade:"
+msgstr "Actividad:"
 
 #: templates/detalle-visita-superint-circuito.html:40
 msgid "Servicio del campo"
-msgstr "Serviço de Campo"
+msgstr "Servicio del campo"
 
 #: templates/detalle-visita-superint-circuito.html:42
 msgid "Desayuno"
-msgstr "Café da manhã"
+msgstr "Desayuno"
 
 #: templates/detalle-visita-superint-circuito.html:43
 msgid "Comida"
-msgstr "Almoço"
+msgstr "Comida"
 
 #: templates/detalle-visita-superint-circuito.html:44
 msgid "Cena"
-msgstr "Jantar"
+msgstr "Cena"
 
 #: templates/detalle-visita-superint-circuito.html:45
 msgid "Pastoreo"
-msgstr "Pastoreio"
+msgstr "Pastoreo"
 
 #: templates/detalle-visita-superint-circuito.html:46
 msgid "Reunión con precursores"
-msgstr "Reunião com precursores"
+msgstr "Reunión con precursores"
 
 #: templates/detalle-visita-superint-circuito.html:48
 msgid "Reunión con ancianos y siervos ministeriales"
-msgstr "Reunião com anciãos e servos ministeriais"
+msgstr "Reunión con ancianos y siervos ministeriales"
 
 #: templates/detalle-visita-superint-circuito.html:49
 msgid "Revisión de los registros de la congregación"
-msgstr "Revisão dos registros da congregação"
+msgstr "Revisión de los registros de la congregación"
 
 #: templates/detalle-visita-superint-circuito.html:50
 msgid "Reunión con el Coordinador del Cuerpo de Ancianos"
-msgstr "Reunião com o Coordenador do Corpo de Anciãos"
+msgstr "Reunión con el Coordinador del Cuerpo de Ancianos"
 
 #: templates/detalle-visita-superint-circuito.html:51
 msgid "Reunión con el Comité de Servicio de la Congregación"
-msgstr "Reunião com o Comitê de Serviço da Congregação"
+msgstr "Reunión con el Comité de Servicio de la Congregación"
 
 #: templates/detalle-visita-superint-circuito.html:52
 msgid "Sin arreglos"
-msgstr "Sem arranjos"
+msgstr "Sin arreglos"
 
 #: templates/detalle-visita-superint-circuito.html:54
 msgid "Actividad para:"
-msgstr "Atividade para:"
+msgstr "Actividad para:"
 
 #: templates/detalle-visita-superint-circuito.html:56
 msgid "El hermano"
-msgstr "O irmão"
+msgstr "El hermano"
 
 #: templates/detalle-visita-superint-circuito.html:57
 msgid "La hermana"
-msgstr "A irmã"
+msgstr "La hermana"
 
 #: templates/detalle-visita-superint-circuito.html:59
 msgid "Día:"
-msgstr "Dia:"
+msgstr "Día:"
 
 #: templates/detalle-visita-superint-circuito.html:68
 msgid "Hora:"
@@ -1601,31 +1601,31 @@ msgstr "Hora"
 
 #: templates/detalle-visita-superint-circuito.html:70
 msgid "*Use horario de 24 horas"
-msgstr "*Use o horário de 24 horas"
+msgstr "*Use horario de 24 horas"
 
 #: templates/detalle-visita-superint-circuito.html:71
 msgid "Lugar del evento:"
-msgstr "Local do evento:"
+msgstr "Lugar del evento:"
 
 #: templates/detalle-visita-superint-circuito.html:73
 msgid "Salón del Reino"
-msgstr "Salão do Reino"
+msgstr "Salón del Reino"
 
 #: templates/detalle-visita-superint-circuito.html:74
 msgid "En el hospedaje"
-msgstr "No alojamento"
+msgstr "En el hospedaje"
 
 #: templates/detalle-visita-superint-circuito.html:75
 msgid "Sin evento"
-msgstr "Sem evento"
+msgstr "Sin evento"
 
 #: templates/detalle-visita-superint-circuito.html:77
 msgid "Familia"
-msgstr "Família"
+msgstr "Familia"
 
 #: templates/epa.html:56
 msgid "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
-msgstr "¡Epa, epa! Vemos que você está entusiasmado, mas você alcançou o limite de solicitações. Não se preocupe, apenas espere um minuto para continuar."
+msgstr "¡Epa, epa! Vemos que estás entusiasmado, pero has alcanzado el límite de solicitudes. No te preocupes, solo espera un minuto para poder continuar."
 
 #: templates/epa.html:57
 msgid "Nota:"
@@ -1633,7 +1633,7 @@ msgstr "Nota:"
 
 #: templates/epa.html:57
 msgid "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
-msgstr "Se você ainda vê esta mensagem após um minuto, pode ter alcançado o limite de 50 solicitações por hora ou o limite diário de 200 solicitações. Volte mais tarde para continuar desfrutando do Kingdom Hall Attendant."
+msgstr "Si aún ves este mensaje después de un minuto, podrías haber alcanzado el límite de 50 solicitudes por hora o el límite diario de 200 solicitudes. Vuelve más tarde para seguir disfrutando de Kingdom Hall Attendant."
 
 #: templates/estudio-atalaya.html:52
 msgid "Reunión de fin de semana"
@@ -1649,19 +1649,19 @@ msgstr "Você ainda não tem nenhum programa registrado! Para começar, clique n
 
 #: templates/forgot.html:1542
 msgid "Reset your password"
-msgstr "Redefinir sua senha"
+msgstr "Reset your password"
 
 #: templates/forgot.html:1547
 msgid "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
-msgstr "Informe o endereço de e-mail verificado da sua conta de usuário e nós enviaremos um link para redefinir a senha."
+msgstr "Ingrese la dirección de correo electrónico verificada de su cuenta de usuario y le enviaremos un enlace para restablecer la contraseña."
 
 #: templates/forgot.html:1551
 msgid "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
-msgstr "Por favor, verifique sua caixa de entrada ou sua pasta de SPAM para encontrar o link."
+msgstr "Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace."
 
 #: templates/forgot.html:1554
 msgid "Recuperar contraseña"
-msgstr "Recuperar senha"
+msgstr "Recuperar contraseña"
 
 #: templates/grupos-predicacion.html:90
 msgid "¡Aún no tienes ningún grupo de predicación registrado! Para empezar, crea tu primer grupo haciendo clic en el botón \"Nuevo\"."
@@ -1673,7 +1673,7 @@ msgstr "Sair"
 
 #: templates/index.html:65
 msgid "Administra la información de la congregación"
-msgstr "Gerencie as informações da congregação"
+msgstr "Administra la información de la congregación"
 
 #: templates/index.html:74
 msgid "Publicadores"
@@ -1681,7 +1681,7 @@ msgstr "Publicadores"
 
 #: templates/index.html:75
 msgid "Registra publicadores ilimitados y administra su información"
-msgstr "Registre publicadores ilimitados e gerencie suas informações"
+msgstr "Registra publicadores ilimitados y administra su información"
 
 #: templates/index.html:84
 msgid "Vida y Ministerio"
@@ -1713,7 +1713,7 @@ msgstr "Organize as visitas e as saídas dos oradores e suas hospitalidades"
 
 #: templates/index.html:131
 msgid "Grupos de servicio"
-msgstr "Grupos de serviço"
+msgstr "Grupos de servicio"
 
 #: templates/index.html:132
 msgid "Cree grupos, asigne al siervo de grupo y el auxiliar"
@@ -1721,15 +1721,15 @@ msgstr "Crie grupos, atribua o servo de grupo e o auxiliar"
 
 #: templates/index.html:141 templates/informes-predicacion.html:59
 msgid "Informes de predicación"
-msgstr "Relatórios de pregação"
+msgstr "Informes de predicación"
 
 #: templates/index.html:143
 msgid "Registre o vea, solicite y revise los informes mensuales de predicación"
-msgstr "Registre ou veja, solicite e revise os relatórios mensais de pregação"
+msgstr "Registre o vea, solicite y revise los informes mensuales de predicación"
 
 #: templates/index.html:154
 msgid "Administra asignaciones de voluntarios para acomodadores"
-msgstr "Gerenciar atribuições de voluntários para recepcionistas"
+msgstr "Gerencia atribuições de voluntários para acomodadores"
 
 #: templates/index.html:163
 msgid "Visita del Superint. de circuito"
@@ -1801,7 +1801,7 @@ msgstr "Se você já tem uma conta"
 
 #: templates/log-in-system.html:64
 msgid "te enviaremos un correo electrónico con un enlace único que te permitirá acceder a Kingdom Hall Attendant. Este enlace te mantendrá autenticado durante 30 días en ese dispositivo."
-msgstr "nós enviaremos um e-mail com um link único que permitirá que você acesse o Kingdom Hall Attendant. Este link manterá você autenticado durante <b>30</b> dias nesse dispositivo."
+msgstr "enviamos um e-mail com um link único que permitirá acessar o Kingdom Hall Attendant. Este link manterá você autenticado por 30 dias nesse dispositivo."
 
 #: templates/log-in-system.html:66
 msgid "Si eres un nuevo usuario"
@@ -1825,7 +1825,7 @@ msgstr "Enviar-me um e-mail:"
 
 #: templates/log-in-system.html:72
 msgid "Funciona igual que el sistema sin contraseña, con un enlace para iniciar sesión."
-msgstr "Funciona igual que o sistema sem senha, com um link para fazer login."
+msgstr "Funciona da mesma forma que o sistema sem senha, com um link para fazer login."
 
 #: templates/log-in-system.html:74
 msgid "Restablecer mi contraseña:"
@@ -1938,7 +1938,7 @@ msgstr "Nosso compromisso é que KHA será sempre gratuito, sem subscrições oc
 
 #: templates/manifesto.html:41
 msgid "Actualmente, KHA se encuentra en fase BETA, y estamos planificando un lanzamiento oficial para la primavera de 2025. Pero este es solo el comienzo. Estamos comprometidos con la mejora continua y escuchamos activamente a nuestra comunidad para seguir evolucionando. Nuestro objetivo es proporcionar una herramienta que sea útil y relevante, que se adapte a las necesidades de las congregaciones hoy y en el futuro."
-msgstr "Atualmente, KHA se encontra na fase BETA, e estamos planejando um lançamento oficial para a primavera de 2025. Mas este é apenas o começo. Estamos comprometidos com a melhoria contínua e ouvimos ativamente nossa comunidade para continuar evoluindo. Nosso objetivo é fornecer uma ferramenta que seja útil e relevante, que se adapte às necessidades das congregações hoje e no futuro."
+msgstr "Atualmente, KHA está na fase BETA e estamos planejando um lançamento oficial para a primavera de 2025. Mas este é apenas o começo. Estamos comprometidos com a melhoria contínua e ouvimos ativamente nossa comunidade para continuar evoluindo. Nosso objetivo é fornecer uma ferramenta que seja útil e relevante, que se adapte às necessidades das congregações hoje e no futuro."
 
 #: templates/manifesto.html:42
 msgid "Si bien KHA es y seguirá siendo gratuito, invitamos a aquellos que lo deseen a apoyar el proyecto a través de donaciones o suscribiéndose a nuestra Golden Edition ✨. Esto nos permitirá continuar mejorando y ofreciendo actualizaciones continuas para el beneficio de todas las congregaciones."
@@ -1966,11 +1966,11 @@ msgstr "Adicionar orador estrangeiro"
 
 #: templates/oradores.html:91
 msgid "¡Aún no tienes ningún orador registrado! Para empezar, crea tu primer orador haciendo clic en el botón \"Nuevo\"."
-msgstr "Você ainda não tem nenhum orador registrado! Para começar, crie seu primeiro orador fazendo clic no botão \"Novo\"."
+msgstr "Você ainda não tem nenhum orador registrado! Para começar, crie seu primeiro orador clicando no botão \"Novo\"."
 
 #: templates/publicadores.html:70
 msgid "¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón \"Nuevo\"."
-msgstr "Você ainda não tem nenhum publicador registrado! Para começar, crie seu primeiro publicador fazendo clic no botão \"Novo\"."
+msgstr "Você ainda não tem nenhum publicador registrado! Para começar, crie seu primeiro publicador clicando no botão \"Novo\"."
 
 #: templates/security.html:34
 msgid "Seguridad en Kingdom Hall Attendant"
@@ -1978,11 +1978,11 @@ msgstr "Segurança no Kingdom Hall Attendant"
 
 #: templates/security.html:36
 msgid "Inicio de Sesión Seguro:"
-msgstr "Início de Sessão Seguro:"
+msgstr "Login Seguro:"
 
 #: templates/security.html:36
 msgid "En Kingdom Hall Attendant, cada inicio de sesión es una fortaleza. Utilizamos"
-msgstr "No Kingdom Hall Attendant, cada início de sessão é uma fortaleza. Utilizamos"
+msgstr "No Kingdom Hall Attendant, cada login é uma fortaleza. Nós usamos"
 
 #: templates/security.html:36
 msgid "para cifrar tus contraseñas, asegurando que incluso si alguien intenta acceder a nuestra base de datos, tus credenciales permanecen impenetrables. Además, cada vez que inicias sesión, te enviamos una notificación por correo electrónico para que puedas detectar cualquier acceso no autorizado al instante."
