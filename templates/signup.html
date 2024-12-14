@@ -72,7 +72,7 @@
                     <div class="input-box">
                         <div class="input-label" for="email">
                             <span>{{ _('Correo electrónico') }}</span>
-                            <a id="resend-link" style="color: rgb(0, 87, 188);cursor: pointer;">{{ _('Reenviar enlace') }}</a>
+                            <a id="resend-link" href="{{ url_for('resend_token', email=email) }}" style="color: rgb(0, 87, 188);"> {{ _('Reenviar enlace') }} </a>
                         </div>
                         <input type="email" id="email" name="email" required autocomplete="off">
                     </div>

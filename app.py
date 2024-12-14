@@ -35,6 +35,8 @@ import hashlib
 import io
 import pydenticon
 from PIL import Image
+import schedule
+import time
 
 load_dotenv()
 app = Flask(__name__)
@@ -42,6 +44,7 @@ app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 app.secret_key = os.getenv('SECRET_KEY')
+
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
@@ -74,9 +77,11 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(), Email()])
 
-@babel.localeselector
 def get_locale():
-    return session.get('language')
+    return session.get('language') 
+
+# Inicializa Babel con la función de selección de idioma
+babel.init_app(app, locale_selector=get_locale)
 
 DATABASE = 'cavea.db'
 
@@ -2595,7 +2600,7 @@ def send_login_notification(sender, recipient, email, last_login, requester_ip):
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                       <tr>
                     <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Notamos que iniciaste sesión.</span> Si fuiste tú, no te preocupes, puedes seguir disfrutando de tu experiencia. Tu sesión permanecerá activa durante 15 días, a menos que decidas cerrar sesión.</div>
+                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Notamos que iniciaste sesión.</span> Si fuiste tú, no te preocupes, puedes seguir disfrutando de tu experiencia.</div>
                     </td>
                   </tr>
                   <tr>
@@ -3067,12 +3072,7 @@ def send_password_email(sender, recipient, password, requester_ip):
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                       <tr>
                         <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
-                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Tu contraseña es:</span> {password}. Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.
-    <br><br>
-    Recuerda que nuestro sistema de seguridad, te pedirá que utilices la autenticación de dos factores (2FA) al iniciar sesión.
-    <br><br>
-    Si necesitas recuperar tu generador de contraseñas, puedes solicitar ayuda. Sin embargo, deberás validar que eres el propietario de la cuenta para proceder con la recuperación. Ten en cuenta que este proceso puede tardar más de 45 días si no cuentas con un plan de soporte activo. Para disfrutar de un servicio prioritario, te invitamos a adquirir un plan de soporte a través de OpenCollective.
-</div>
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Tu contraseña es:</span> {password}. Por favor, mantén esta información en un lugar seguro y no compartas tu contraseña con nadie.</div>
                         </td>
                       </tr>
                       <tr>
@@ -3517,7 +3517,7 @@ def logout():
     if request.headers.get('X-Client-Type') == 'desktop':
         return 'Logout successful', 200
 
-    return render_template('/logout.html')
+    return redirect(url_for('login'))
 
 @app.route('/sse_logout')
 def sse_logout():
@@ -3555,7 +3555,7 @@ def update_password():
 
             # Enviar el correo con el enlace de actualización
             reset_link = url_for('confirm_password_update', token=token, _external=True)
-            msg = Message('Kingdom Hall Attendant: Actualiza tu contraseña', sender=app.config['MAIL_USERNAME'], recipients=[email])
+            msg = Message('Kingdom Hall Attendant: Solicitud de cambio de contraseña', sender=app.config['MAIL_USERNAME'], recipients=[email])
             msg.html = f"""
             <!doctype html>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -3739,13 +3739,17 @@ def update_password():
                 <td style="direction:ltr;font-size:0px;padding:12px 10% 0 10%;text-align:center;">
                   <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-
                       <tr>
-                        <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
+                        <td align="center" style="font-size:0px;word-break:break-word;">
+                         <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:14px;font-weight:600;line-height:1.4;text-align:left;"><span></span>Recibimos una solicitud para actualizar tu contraseña. Haz clic en el siguiente botón o enlace para establecer una nueva contraseña.</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:32px 0 32px 0;word-break:break-word;">
                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                             <tr>
                               <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="{reset_link}" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
-                                Confirmar el cambio de contraseña
+                                Actualizar contraseña
                               </a> </td>
                             </tr>
                           </table>
@@ -4701,5 +4705,675 @@ def update_syncmode():
 
     return redirect(url_for('backups'))
 
+def check_accounts():
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    three_months_ago = datetime.datetime.now() - datetime.timedelta(days=90)
+    cursor.execute("SELECT correo, last_login, contraseña FROM emptor")
+    accounts = cursor.fetchall()
+
+    for correo, last_login, contraseña in accounts:
+        last_login_date = datetime.datetime.strptime(last_login, '%Y-%m-%d %H:%M:%S.%f')
+
+        # Verificar si la cuenta tiene más de 3 meses de inactividad
+        if last_login_date < three_months_ago:
+            msg = Message('Mantén activa tu cuenta de Kingdom Hall Attendant', sender=app.config['MAIL_USERNAME'], recipients=[correo])
+            msg.html = f"""
+            <!doctype html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+      <title> </title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style type="text/css">
+        #outlook a {{
+          padding: 0;
+        }}
+
+        body {{
+          margin: 0;
+          padding: 0;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }}
+
+        table,
+        td {{
+          border-collapse: collapse;
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+        }}
+
+        img {{
+          border: 0;
+          height: auto;
+          line-height: 100%;
+          outline: none;
+          text-decoration: none;
+          -ms-interpolation-mode: bicubic;
+        }}
+
+        p {{
+          display: block;
+          margin: 13px 0;
+        }}
+      </style>
+      <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+      <![endif]-->
+      <!--[if lte mso 11]>
+        <style type="text/css">
+          .outlook-group-fix {{ width:100% !important; }}
+        </style>
+      <![endif]-->
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+      <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+      </style>
+      <style type="text/css">
+        @media only screen and (min-width:480px) {{
+          .mj-column-per-100 {{
+            width: 100% !important;
+            max-width: 100%;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        @media only screen and (max-width:480px) {{
+          table.full-width-mobile {{
+            width: 100% !important;
+          }}
+          td.full-width-mobile {{
+            width: auto !important;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        * {{
+          text-rendering: optimizeLegibility;
+          -moz-osx-font-smoothing: grayscale;
+          font-smoothing: antialiased;
+          -webkit-font-smoothing: antialiased;
+        }}
+
+        .type-cta {{
+          user-select: none;
+        }}
+
+        .type-nostyle {{
+          text-decoration: none;
+        }}
+
+        p {{
+          margin-top: 0;
+        }}
+      </style>
+    </head>
+
+    <body style="background-color:white;">
+      <div style="background-color:white;">
+        <!-- logo -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:64px 10% 12px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:54px;"> <a href="https://www.getkha.org" target="_blank">
+                                  <img alt="kingdom hall attendant logo" height="auto" src="https://www.getkha.org/static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;border-radius:25%;" width="54"/>
+                                </a> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body head -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 4px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:8px 0 0 0;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:22px;font-weight:600;line-height:1.2;text-align:center;color:#000000;">Mantén activa tu cuenta 😢</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:16px 16px 0 16px;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:488px;"> <img alt="kingdom hall attendant subscribe loader" height="auto" src="https://assets.dekks.app/mails/marketing/dekks-loader.gif" style="border:0;border-radius:12px;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="488" /> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 0 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                    <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
+                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Querido usuario, <br><br>
+
+                        Te escribimos para informarte que tu cuenta de Kingdom Hall Attendant ha estado inactiva por más de 3 meses.
+                        <br><br>
+                        De acuerdo con nuestra política de privacidad, las cuentas que permanecen inactivas durante este período se eliminarán automáticamente. Esto implica que toda la información asociada a tu cuenta, como tus datos personales y registros de actividad, será borrada de manera permanente.
+                        <br><br>
+                        Si deseas conservar tu cuenta y seguir utilizando nuestros servicios, te solicitamos que inicies sesión en Kingdom Hall Attendant antes de la medianoche de hoy. Al hacerlo, tu cuenta se mantendrá activa y podrás seguir accediendo a todas sus funcionalidades.</span></div>
+                    </td>
+                  </tr>
+                  
+                      
+                      <tr>
+                        <td style="font-size:0px;word-break:break-word;">
+                          <div style="height:8px;"> &nbsp; </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                            <tr>
+                              <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="https://www.getkha.org/login" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+                                Mantener cuenta
+                              </a> </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:24px 16px;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:10px;font-weight:300;line-height:1.2;text-align:center;color:#8E8E92;">© 2024 Kingdom Hall Attendant. Todos los derechos reservados.</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+
+    </html>
+            """
+            mail.send(msg)
+
+        # Verificar si la contraseña está vacía o es NULL
+        if not contraseña:
+            msg = Message('Kingdom Hall Attendant: Podrías perder tu cuenta en unas horas', sender=app.config['MAIL_USERNAME'], recipients=[correo])
+            msg.html = f"""
+            <!doctype html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+      <title> </title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style type="text/css">
+        #outlook a {{
+          padding: 0;
+        }}
+
+        body {{
+          margin: 0;
+          padding: 0;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }}
+
+        table,
+        td {{
+          border-collapse: collapse;
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+        }}
+
+        img {{
+          border: 0;
+          height: auto;
+          line-height: 100%;
+          outline: none;
+          text-decoration: none;
+          -ms-interpolation-mode: bicubic;
+        }}
+
+        p {{
+          display: block;
+          margin: 13px 0;
+        }}
+      </style>
+      <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+      <![endif]-->
+      <!--[if lte mso 11]>
+        <style type="text/css">
+          .outlook-group-fix {{ width:100% !important; }}
+        </style>
+      <![endif]-->
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+      <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+      </style>
+      <style type="text/css">
+        @media only screen and (min-width:480px) {{
+          .mj-column-per-100 {{
+            width: 100% !important;
+            max-width: 100%;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        @media only screen and (max-width:480px) {{
+          table.full-width-mobile {{
+            width: 100% !important;
+          }}
+          td.full-width-mobile {{
+            width: auto !important;
+          }}
+        }}
+      </style>
+      <style type="text/css">
+        * {{
+          text-rendering: optimizeLegibility;
+          -moz-osx-font-smoothing: grayscale;
+          font-smoothing: antialiased;
+          -webkit-font-smoothing: antialiased;
+        }}
+
+        .type-cta {{
+          user-select: none;
+        }}
+
+        .type-nostyle {{
+          text-decoration: none;
+        }}
+
+        p {{
+          margin-top: 0;
+        }}
+      </style>
+    </head>
+
+    <body style="background-color:white;">
+      <div style="background-color:white;">
+        <!-- logo -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:64px 10% 12px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:54px;"> <a href="https://www.getkha.org" target="_blank">
+                                  <img alt="kingdom hall attendant logo" height="auto" src="https://www.getkha.org/static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;border-radius:25%;" width="54"/>
+                                </a> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body head -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 4px 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:8px 0 0 0;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:22px;font-weight:600;line-height:1.2;text-align:center;color:#000000;">Podrías perder tu cuenta en unas horas 😢</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:16px 16px 0 16px;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                            <tbody>
+                              <tr>
+                                <td style="width:488px;"> <img alt="kingdom hall attendant subscribe loader" height="auto" src="https://assets.dekks.app/mails/marketing/dekks-loader.gif" style="border:0;border-radius:12px;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="488" /> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- body content -->
+        <div style="margin:0px auto;max-width:520px;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+            <tbody>
+              <tr>
+                <td style="direction:ltr;font-size:0px;padding:12px 10% 0 10%;text-align:center;">
+                  <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                      <tr>
+                    <td align="left" style="font-size:0px;padding:8px 0 16px 0;word-break:break-word;">
+                      <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;line-height:1.4;text-align:left;color:#8E8E92;"><span style="color: #000000;">Querido usuario, <br><br>
+
+                        He intentado ponerme en contacto contigo para ayudarte a finalizar la creación de tu cuenta en Kingdom Hall Attendant, pero hasta ahora no he recibido respuesta. 
+<br><br>
+                        Para que puedas disfrutar de todos los beneficios y funcionalidades de mi plataforma, es crucial que completes tu registro.
+                        <br><br>                
+                        Lamentablemente, si no recibo ninguna acción de tu parte, me veré obligado a eliminar los datos que has registrado hasta ahora. La eliminación de tus datos se realizará a la media noche de hoy. 
+                        <br><br>
+                        Valoramos tu interés en Kingdom Hall Attendant y esperamos que puedas completar tu registro para aprovechar al máximo nuestra plataforma. 
+                            
+                    </td>
+                  </tr>
+                  
+                      
+                      <tr>
+                        <td style="font-size:0px;word-break:break-word;">
+                          <div style="height:8px;"> &nbsp; </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" vertical-align="middle" class="type-cta" style="font-size:0px;padding:0 0 32px 0;word-break:break-word;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
+                            <tr>
+                              <td align="center" bgcolor="#2e2c35" role="presentation" style="border:none;border-radius:6px;color:white;cursor:auto;padding:14px 24px;" valign="middle"> <a href="https://www.getkha.org/signup" style="background:#2e2c35;color:white;font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:16px;font-weight:600;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+                                Completar registro
+                              </a> </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="center" style="font-size:0px;padding:24px 16px;word-break:break-word;">
+                          <div style="font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;font-size:10px;font-weight:300;line-height:1.2;text-align:center;color:#8E8E92;">© 2024 Kingdom Hall Attendant. Todos los derechos reservados.</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+
+    </html>
+            """
+            mail.send(msg)
+
+    conn.close()
+
+def delete_inactive_accounts():
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+
+    three_months_ago = datetime.datetime.now() - datetime.timedelta(days=90)
+    
+    # Seleccionar cuentas inactivas
+    cursor.execute("SELECT correo FROM emptor WHERE last_login < ?", (three_months_ago,))
+    accounts_to_delete = cursor.fetchall()
+
+    for (correo,) in accounts_to_delete:
+        cursor.execute("DELETE FROM emptor WHERE correo = ?", (correo,))
+        print(f"Cuenta eliminada por inactividad: {correo}")
+
+    # Seleccionar cuentas sin contraseña
+    cursor.execute("SELECT correo FROM emptor WHERE contraseña IS NULL OR contraseña = ''")
+    accounts_without_password = cursor.fetchall()
+
+    for (correo,) in accounts_without_password:
+        cursor.execute("DELETE FROM emptor WHERE correo = ?", (correo,))
+        print(f"Cuenta eliminada por falta de contraseña: {correo}")
+
+    conn.commit()
+    conn.close()
+
+@app.route('/predicacion-publica')
+def predicacion_publica():
+    cursor = g.bd.cursor()
+    
+    # Obtener el nombre de la congregación
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    # Obtener los datos de la predicación pública
+    try:
+        cursor.execute("""
+            SELECT id, lugar_predicacion, cada_semana, dia_semana, fecha, horario, publicador_responsable, acompaniante
+            FROM predicacion_publica
+        """)
+        predicacion_publica = cursor.fetchall()
+    except Exception as e:
+        # En caso de error o tabla vacía, asignar una lista vacía
+        predicacion_publica = []
+
+    # Obtener el tema desde la sesión
+    theme = session.get('theme', 'primer')
+
+    # Renderizar el template con los datos obtenidos
+    return render_template(
+        'predicacion-publica.html',
+        theme=theme,
+        congregacion=congregacion_formateada,
+        predicacion_publica=predicacion_publica
+    )
+
+
+@app.route('/nuevo_predicacion_publica')
+def nuevo_predicacion_publica():
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS predicacion_publica (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            lugar_predicacion TEXT NOT NULL,
+            cada_semana BOOLEAN NOT NULL,
+            dia_semana TEXT,
+            fecha DATE,
+            horario TEXT,
+            publicador_responsable TEXT,
+            acompaniante TEXT
+        )
+    """)
+    g.bd.commit()
+
+    cursor.execute("SELECT * FROM predicacion_publica")
+    predicacion_publica =  cursor.fetchall()
+
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    # Obtener la lista de publicadores aprobados para la predicación pública
+    cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_aprobado_predicacion_publica = 1")
+    publicadores = cursor.fetchall()  # Obtener todos los publicadores aprobados
+
+    theme = session.get('theme', 'primer')
+    
+    return render_template('detalle-predicacion-publica.html', theme=theme, congregacion=congregacion_formateada, publicadores=publicadores, predicacion_publica=predicacion_publica)
+
+@app.route('/guardar_predicacion_publica', methods=['POST'])
+def guardar_predicacion_publica():
+    if request.method == 'POST':
+        lugar_predicacion = request.form['lugar_predicacion']
+        cada_semana = request.form.get('cada_semana') == 'on'
+        dia_semana = request.form['dia_semana'] if cada_semana else None
+        fecha = request.form['fecha'] if 'fecha' in request.form else None  # Modificación aquí
+        horario = request.form['horario']
+        publicador_responsable = request.form['publicador_responsable']
+        acompaniante = request.form['acompaniante']
+
+        cursor = g.bd.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS predicacion_publica (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                lugar_predicacion TEXT NOT NULL,
+                cada_semana BOOLEAN NOT NULL,
+                dia_semana TEXT,
+                fecha DATE,
+                horario TEXT,
+                publicador_responsable TEXT,
+                acompaniante TEXT
+            )
+        """)
+        g.bd.commit()
+
+        cursor.execute("""
+            INSERT INTO predicacion_publica (lugar_predicacion, cada_semana, dia_semana, fecha, horario, publicador_responsable, acompaniante)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (lugar_predicacion, cada_semana, dia_semana, fecha, horario, publicador_responsable, acompaniante))
+        g.bd.commit()
+
+        flash('Asignación guardada exitosamente.', 'success')
+        return redirect(url_for('predicacion_publica'))  # Redirigir a la página de nuevo predicación pública
+    
+@app.route('/eliminar_predicacion_publica/<int:id>', methods=['GET'])
+def eliminar_predicacion_publica(id):
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM predicacion_publica WHERE id = ?", (id,))
+    g.bd.commit()
+
+    flash('Asignación eliminada exitosamente.', 'success')
+    return redirect(url_for('predicacion_publica'))  # Redirigir a la página de nuevo predicación pública
+
+@app.route('/mostrar_predicacion_publica/<int:id>', methods=['GET'])
+def mostrar_predicacion_publica(id):
+    cursor = g.bd.cursor()
+    
+    # Obtener los detalles de la predicación pública por ID
+    cursor.execute("SELECT * FROM predicacion_publica WHERE id = ?", (id,))
+    predicacion = cursor.fetchone()
+
+    # Obtener la lista de publicadores aprobados para la predicación pública
+    cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_aprobado_predicacion_publica = 1")
+    publicadores = cursor.fetchall()
+
+    # Formatear los datos de la predicación para pasarlos a la plantilla
+    if predicacion:
+        predicacion = {
+            'id': predicacion[0],
+            'lugar': predicacion[1],
+            'cada_semana': predicacion[2],
+            'dia_semana': predicacion[3],
+            'fecha': predicacion[4],
+            'horario': predicacion[5],
+            'publicador_responsable': predicacion[6],
+            'acompaniante': predicacion[7]
+        }
+    else:
+        predicacion = None
+
+    theme = session.get('theme', 'primer')
+
+    return render_template('detalle-predicacion-publica.html', predicacion=predicacion, publicadores=publicadores, theme=theme)
+
 if __name__ == '__main__':
+    # Programar las tareas
+    schedule.every().day.at("06:00").do(check_accounts)
+    schedule.every().day.at("12:00").do(check_accounts)
+    schedule.every().day.at("18:00").do(check_accounts)
+    schedule.every().day.at("23:59").do(delete_inactive_accounts)
+
+    # Ejecutar la aplicación en el hilo principal
     app.run(debug=False)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(60) 
