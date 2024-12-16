@@ -72,11 +72,13 @@
                     <div class="input-box">
                         <div class="input-label" for="email">
                             <span>{{ _('Correo electrónico') }}</span>
-                            <a id="resend-link" href="{{ url_for('resend_token', email=email) }}" style="color: rgb(0, 87, 188);"> {{ _('Reenviar enlace') }} </a>
+                            
                         </div>
                         <input type="email" id="email" name="email" required autocomplete="off">
                     </div>
-                    <div class="input-label" style="font-size:12px;">{{ _('Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro.') }}</div>
+                    <div class="input-label" style="font-size:12px;">
+                        {{ _('Después de continuar con el registro, le enviaremos un enlace mágico a su correo electrónico. Por favor, revise su bandeja de entrada o su carpeta de SPAM para encontrar el enlace y completar su registro. Si ya se registró y no completó su registro, y su token ha vencido, simplemente ingrese nuevamente su correo y se generará un nuevo token que le enviará un enlace mágico nuevo.') }}
+                    </div>
                     
                 <br>
                 <button type="submit" class="submit-btn">

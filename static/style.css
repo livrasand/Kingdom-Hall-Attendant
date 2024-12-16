@@ -1973,6 +1973,16 @@ nav.Nav_globalNavContainer__BzVy1 {
   padding-top: 35px;
   padding-bottom: 35px;
 }
+@media (max-width: 767.98px) { 
+  .fJyxkp {
+    margin: -10%;
+    max-width: 100%;
+    box-sizing: border-box;
+    color: var(--text-base,inherit);
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+}
 .dOqyyy {
   --tooltip-content-font-size: clamp(14px,calc(14px + (16 - 14) * ((100vw - 320px) / (1440 - 320))),16px);
   width: 100%;
@@ -13896,7 +13906,7 @@ button:focus {
 .css-dVUhLk {
   flex-shrink: 0;
   height: 84px;
-  margin: 20px 20px 0 20px;
+  margin: 20px 0 0 20px;
   width: 84px;
 }
 .css-iWgOxJ {
@@ -13914,7 +13924,7 @@ button:focus {
   flex-direction: column;
   -webkit-box-pack: center;
   justify-content: center;
-  padding: 16px 48px 16px 16px;
+  padding: 16px 48px 16px 0;
 }
 .css-hYcjmg {
   position: absolute;
@@ -14004,9 +14014,35 @@ button:focus {
 @media (max-width: 767.98px) { 
     /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
     #github-head {
-        font-size: 38px; /* Tamaño reducido para dispositivos móviles */
+        font-size: 26px; /* Tamaño reducido para dispositivos móviles */
         margin-top:6rem;
     }
+}
+
+@media (max-width: 767.98px) { 
+    /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
+    #available-subhead {
+        font-size: 10px; 
+    }
+}
+
+@media (max-width: 767.98px) { 
+  /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
+  #download-buttons {
+      font-size: 8px; 
+  }
+}
+
+ 
+#faq-head {
+  font-size: 62px; /* Tamaño para dispositivos mayores a 767px */
+}
+
+@media (max-width: 767.98px) { 
+  /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
+  #faq-head {
+      font-size: 31px; 
+  }
 }
 
 .close-menu {
