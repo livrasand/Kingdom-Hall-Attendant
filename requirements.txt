@@ -18,7 +18,7 @@ Flask-Mail==0.10.0
 Flask-WTF==1.2.2
 idna==3.10
 itsdangerous==2.2.0
-Jinja2==3.1.4
+Jinja2==3.1.5
 keyboard==0.13.5
 limits==3.14.1
 markdown-it-py==3.0.0
