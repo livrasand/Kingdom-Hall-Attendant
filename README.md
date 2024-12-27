@@ -14,16 +14,8 @@ KHA es una aplicación multiplataforma que funciona en Windows, macOS, Linux, iP
 
 Nuestro compromiso es que KHA será siempre gratuito, sin suscripciones ocultas ni fechas de caducidad. Además, nos tomamos muy en serio la seguridad y privacidad de los datos: están cifrados y nunca son rastreados. A través de un sistema seguro de transmisión de datos, protegemos tu información de manera eficaz.
 
-### Cross-interplanetary
-Disponible en cualquier lugar del mundo, incluso en países con censura o restricciones.
-
-| Servidor principal | Mirror |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **getkha.org** | <a href="https://psiphon.ca/">Psiphon</a> o <a href="https://lantern.io/">Lantern</a> |
-| **PythonAnywhere** | Tor, IPFS o copia local | 
-| **livrasand@outlook.com** | `cabal://53c815d8d410a5fe3ed6cc03f0f318af142202fd868787d83e5efa77d6211554` |
-
-**Nota especial:** Si conoces a alguien que vive en un país donde la obra de los testigos de Jehová está prohibida o donde el acceso a Internet está restringido, estos mirrors están diseñados específicamente para países como Crimea, Eritrea, Rusia, Singapur, China, Irán, Corea del Norte, Arabia Saudita, Turquía y otros territorios con limitaciones para Kingdom Hall Attendant o los testigos de Jehová. _¡Corre la voz!_
+## Contribuir
+¡Te invitamos a contribuir con algún código o a ayudar a traducir este proyecto! Si deseas hacerlo, aquí: CONTRIBUTING.md; encontrarás información útil para comenzar.
 
 <h2 style="display: flex; flex-direction: row; justify-content: start;">Ejecutar localmente</h2>
 
@@ -38,7 +30,7 @@ Disponible en cualquier lugar del mundo, incluso en países con censura o restri
 2. Ir al directorio del proyecto
 
 ```bash
-  cd C:\Users\{user}\Kingdom-Hall-Attendant
+  cd Kingdom-Hall-Attendant
 ```
 
 3. Instalar dependencias
