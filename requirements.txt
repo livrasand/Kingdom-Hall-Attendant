@@ -23,7 +23,7 @@ flask-selfdoc==1.4.0
 Flask-WTF==1.2.2
 idna==3.10
 itsdangerous==2.2.0
-Jinja2==3.1.4
+Jinja2==3.1.5
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 keyboard==0.13.5
