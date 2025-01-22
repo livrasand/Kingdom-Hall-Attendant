@@ -1,34 +1,32 @@
-const CACHE_NAME = 'kingdom-hall-attendant-cache-v1';
+// static/sw.js
+
+const CACHE_NAME = 'mi-cache-v1';
 const urlsToCache = [
-  '/',
-  '/welcome.html',
-  '/static/styles.css',
-  '/static/style.css',
-  '/static/primer.css',
-  '/static/print-styles.css',
-  '/static/loading-splash.css',
-  '/static/sw.js',
-  '/static/manifest.json',
-  '/static/favicon.png',
+    '/',
+    '/static/styles.css',
+    '/static/primer.css',
+    '/static/style.css',
+    '/static/en-línea-1.css',
+    '/static/jw-icons.css',
+    '/static/favicon.ico',
 ];
 
+// Instalación del Service Worker
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
-  );
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                return cache.addAll(urlsToCache);
+            })
+    );
 });
 
+// Manejo de las solicitudes de red
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      })
-  );
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                return response || fetch(event.request);
+            })
+    );
 });

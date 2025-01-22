@@ -14022,7 +14022,7 @@ button:focus {
 @media (max-width: 767.98px) { 
     /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
     #available-subhead {
-        font-size: 10px; 
+        font-size: 14px; 
     }
 }
 

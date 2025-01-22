@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html data-color-mode="light" data-light-theme="light">
+<html>
    <head>
       <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM738JMZ22"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         gtag('config', 'G-PM738JMZ22');
-      </script>
+    {% include 'google-tag.html' %}
+    
       <title>Kingdom Hall Attendant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       
-      <link rel="stylesheet" href="{{ url_for('serve_theme_css', name=theme) }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='primer.css') }}">
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
    </head>

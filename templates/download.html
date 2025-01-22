@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+<!-- Google tag (gtag.js) -->
+{% include 'google-tag.html' %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='en-línea-1.css') }}" rel="stylesheet" />
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Download Center para Kingdom Hall Attendant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" href="https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2" as="font" type="font/woff2" crossorigin="">
+
+</head>
+
+<body>
+    <div class="container" style='background-image: url("https://cdn.wetransfer.com/_next/static/media/PricingBackground.74fe38a7.svg");background-size: 100%;background-repeat: no-repeat;'>
+        {% include 'nav.html' %}  
+<div style="padding: 50px 20% 60px 20%;background: linear-gradient(180deg, rgba(255,255,255,0.1) 22%, rgba(93,147,243,0.25) 100%);border-radius: 24px;">
+<div class="container-lg p-responsive" style="margin-top: 75px; width: 100%;">
+      <div class="col-md-8 col-lg-10 col-xl-12 text-center mx-auto my-5 my-sm-0">
+        <h2 class="github-head mb-3" style="line-height: 1;text-align: left;margin-left: -4px;">{{ _('Centro de descargas') }}</h2>   
+        <p id="available-subhead" class="flex flex-wrap items-center justify-center gap-2 text-[.8125rem] text-left" style="color: #4c5461;">
+            <span>Para descargar la aplicación en tu sistema operativo, haz clic en el botón correspondiente a continuación. Si deseas explorar más opciones, desplázate hacia abajo.</span>
+        </p>
+                
+        <section style="text-align: left;margin-top: 20px;margin-bottom: 20px;">
+            <div id="download-buttons">
+                <div data-baseweb="block" class="css-dYcOXC windows-x64-button" style="margin-top:20px;">
+                    <div data-baseweb="block" class="css-PKJb">
+                        <div data-testid="card" class="css-faZdHr"><a
+                                href="{{ enlaces.windows_x64 }}"
+                                data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                                class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                                <div class="css-dVUhLk">
+                                    <div class="css-bgThKr">
+                                        <div class="css-eAlKuC">
+                                            <div style="height:100%;width:100%;"><img
+                                                    src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                                    width="64" style="border-radius: 20%;"
+                                                    alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                                    aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css-kPYsfL">
+                                    <div class="css-hPnljU">
+                                        <h2 class="css-eBXbCk">Descarga para Windows x64</h2>
+                                    </div>
+                                </div>
+                                <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                        height="25" fill="currentColor" viewBox="0 0 36 36"
+                                        style="position:absolute;right:0;top:calc(50% - 12px)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                            fill="currentColor"></path>
+                                    </svg></div>
+                            </a></div>
+                    </div>
+                </div>
+                <div data-baseweb="block" class="css-dYcOXC windows-x86-button" style="margin-top:20px;">
+                    <div data-baseweb="block" class="css-PKJb">
+                        <div data-testid="card" class="css-faZdHr"><a
+                                href="{{ enlaces.windows_x86 }}"
+                                data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                                class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                                <div class="css-dVUhLk">
+                                    <div class="css-bgThKr">
+                                        <div class="css-eAlKuC">
+                                            <div style="height:100%;width:100%"><img
+                                                    src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                                    width="64" style="border-radius: 20%;"
+                                                    alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                                    aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css-kPYsfL">
+                                    <div class="css-hPnljU">
+                                        <h2 class="css-eBXbCk">Descarga para Windows x86</h2>
+                                    </div>
+                                </div>
+                                <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                        height="25" fill="currentColor" viewBox="0 0 36 36"
+                                        style="position:absolute;right:0;top:calc(50% - 12px)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                            fill="currentColor"></path>
+                                    </svg></div>
+                            </a></div>
+                    </div>
+                </div>
+                <div data-baseweb="block" class="css-dYcOXC mac-silicon-button" style="margin-top:20px;">
+                    <div data-baseweb="block" class="css-PKJb">
+                        <div data-testid="card" class="css-faZdHr"><a
+                                href="{{ enlaces.mac_arm64 }}"
+                                data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                                class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                                <div class="css-dVUhLk">
+                                    <div class="css-bgThKr">
+                                        <div class="css-eAlKuC">
+                                            <div style="height:100%;width:100%"><img
+                                                    src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                                    width="64"
+                                                    style="border-radius: 20%;"
+                                                    alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                                    aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css-kPYsfL">
+                                    <div class="css-hPnljU">
+                                        <h2 class="css-eBXbCk">Descarga para Mac Apple Silicon</h2>
+                                    </div>
+                                </div>
+                                <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                        height="25" fill="currentColor" viewBox="0 0 36 36"
+                                        style="position:absolute;right:0;top:calc(50% - 12px)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                            fill="currentColor"></path>
+                                    </svg></div>
+                            </a></div>
+                    </div>
+                </div>
+                <div data-baseweb="block" class="css-dYcOXC mac-intel-button" style="margin-top:20px;">
+                    <div data-baseweb="block" class="css-PKJb">
+                        <div data-testid="card" class="css-faZdHr"><a
+                                href="{{ enlaces.mac_dmg }}"
+                                data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                                class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                                <div class="css-dVUhLk">
+                                    <div class="css-bgThKr">
+                                        <div class="css-eAlKuC">
+                                            <div style="height:100%;width:100%"><img
+                                                    src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                                    width="64" style="border-radius: 20%;"
+                                                    alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                                    aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css-kPYsfL">
+                                    <div class="css-hPnljU">
+                                        <h2 class="css-eBXbCk">Descarga para Mac Intel</h2>
+                                    </div>
+                                </div>
+                                <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                        height="25" fill="currentColor" viewBox="0 0 36 36"
+                                        style="position:absolute;right:0;top:calc(50% - 12px)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                            fill="currentColor"></path>
+                                    </svg></div>
+                            </a></div>
+                    </div>
+                </div>
+                <div data-baseweb="block" class="css-dYcOXC linux-button" style=" margin-top:20px;">
+                    <div data-baseweb="block" class="css-PKJb">
+                        <div data-testid="card" class="css-faZdHr"><a
+                                href="{{ enlaces.linux }}"
+                                data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                                class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                                <div class="css-dVUhLk">
+                                    <div class="css-bgThKr">
+                                        <div class="css-eAlKuC">
+                                            <div style="height:100%;width:100%"><img
+                                                    src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                                    width="64" style="border-radius: 20%;"
+                                                    alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                                    aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="css-kPYsfL">
+                                    <div class="css-hPnljU">
+                                        <h2 class="css-eBXbCk">Descarga para Linux</h2>
+                                    </div>
+                                </div>
+                                <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                        height="25" fill="currentColor" viewBox="0 0 36 36"
+                                        style="position:absolute;right:0;top:calc(50% - 12px)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                            fill="currentColor"></path>
+                                    </svg></div>
+                            </a></div>
+                    </div>
+                </div>
+                <!-- div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;"><div data-baseweb="block" class="css-PKJb"><div data-testid="card" class="css-faZdHr"><a href="" data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0" class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe"><div class="css-dVUhLk"><div class="css-bgThKr"><div class="css-eAlKuC"><div style="height:100%;width:100%"><img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" width="64" alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant" aria-hidden="true" role="presentation" class="css-ZwMiT"></div></div></div></div><div class="css-kPYsfL"><div class="css-hPnljU"><h2 class="css-eBXbCk">Descarga para iOS o iPadOS</h2></div></div><div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em" height="25" fill="currentColor" viewBox="0 0 36 36" style="position:absolute;right:0;top:calc(50% - 12px)"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z" fill="currentColor"></path></svg></div></a></div></div></div -->
+                <!-- div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;"><div data-baseweb="block" class="css-PKJb"><div data-testid="card" class="css-faZdHr"><a href="" data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0" class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe"><div class="css-dVUhLk"><div class="css-bgThKr"><div class="css-eAlKuC"><div style="height:100%;width:100%"><img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" width="64" alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant" aria-hidden="true" role="presentation" class="css-ZwMiT"></div></div></div></div><div class="css-kPYsfL"><div class="css-hPnljU"><h2 class="css-eBXbCk">Descarga para Android</h2></div></div><div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em" height="25" fill="currentColor" viewBox="0 0 36 36" style="position:absolute;right:0;top:calc(50% - 12px)"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z" fill="currentColor"></path></svg></div></a></div></div></div -->
+            </div>
+            <div id="download-buttons">
+        <h3 class="mb-3 mt-4 h2" style="line-height: 1;text-align: left;margin-left: -4px; margin-top: 60px;font-size: 24px;">{{ _('Other download options') }}</h3>   
+        <div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.windows_x64 }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%;"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Windows x64</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.windows_x86 }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Windows x86</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.mac_arm64 }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64"
+                                            style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Mac Apple Silicon</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.mac_dmg }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Mac Intel</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style=" margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.linux }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Linux</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style=" margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.fedora_redhat }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Fedora, Red Hat, y openSUSE</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style=" margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.debian_ubuntu }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Debian, Ubuntu, y Linux Mint</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style=" margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.snap }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">Snap</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+        <div data-baseweb="block" class="css-dYcOXC" style=" margin-top:20px;">
+            <div data-baseweb="block" class="css-PKJb">
+                <div data-testid="card" class="css-faZdHr"><a
+                        href="{{ enlaces.freebsd }}"
+                        data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0"
+                        class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe">
+                        <div class="css-dVUhLk">
+                            <div class="css-bgThKr">
+                                <div class="css-eAlKuC">
+                                    <div style="height:100%;width:100%"><img
+                                            src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}"
+                                            width="64" style="border-radius: 20%;"
+                                            alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant"
+                                            aria-hidden="true" role="presentation" class="css-ZwMiT">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-kPYsfL">
+                            <div class="css-hPnljU">
+                                <h2 class="css-eBXbCk">FreeBSD</h2>
+                            </div>
+                        </div>
+                        <div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em"
+                                height="25" fill="currentColor" viewBox="0 0 36 36"
+                                style="position:absolute;right:0;top:calc(50% - 12px)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </a></div>
+            </div>
+        </div>
+    </div>
+        </section>
+      </div>
+
+
+      
+
+    </div>
+</div>
+
+
+    <img src="static/pricing-cover.svg" style="z-index: 9999;margin-top: -50px;" />
+
+
+        {% include 'footer.html' %}  
+    </div> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userAgent = navigator.userAgent;
+            const windows64Button = document.querySelector('.windows-x64-button');
+            const windows86Button = document.querySelector('.windows-x86-button');
+            const macIntelButtons = document.querySelectorAll('.mac-intel-button');
+            const macSiliconButtons = document.querySelectorAll('.mac-silicon-button');
+            const linuxButtons = document.querySelectorAll('.linux-button'); // Si tienes botones para Linux
+            const showOptions = document.getElementById('show-options');
+            const otherOptions = document.getElementById('other-options');
+
+            // Ocultar todos los botones inicialmente
+            windows64Button.style.display = 'none';
+            windows86Button.style.display = 'none';
+            macIntelButtons.forEach(button => button.style.display = 'none');
+            macSiliconButtons.forEach(button => button.style.display = 'none');
+            linuxButtons.forEach(button => button.style.display = 'none');
+
+            // Detectar el sistema operativo y arquitectura
+            if (userAgent.indexOf('Win') !== -1) {
+                // Windows
+                if (userAgent.indexOf('WOW64') !== -1 || userAgent.indexOf('Win64') !== -1) {
+                    // Windows x64
+                    windows64Button.style.display = 'block';
+                } else {
+                    // Windows x86
+                    windows86Button.style.display = 'block';
+                }
+            } else if (userAgent.indexOf('Mac') !== -1) {
+                // Mac
+                if (userAgent.indexOf('Apple') !== -1 && userAgent.indexOf('M1') !== -1) {
+                    // Mac Silicon
+                    macSiliconButtons.forEach(button => button.style.display = 'block');
+                } else {
+                    // Mac Intel
+                    macIntelButtons.forEach(button => button.style.display = 'block');
+                }
+            } else if (userAgent.indexOf('Linux') !== -1) {
+                // Linux
+                linuxButtons.forEach(button => button.style.display = 'block');
+            }
+
+
+        });
+    </script>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNavigation = document.getElementById('mobile-navigation');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+    menuToggle.addEventListener('click', function () {
+        document.getElementById('fullscreen-menu').style.display = 'block';
+    });
+});
+
+document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('fullscreen-menu').style.display = 'none'; // Oculta el menú
+});
+
+</script>
+</body>
+
+</html>
