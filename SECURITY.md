@@ -1,33 +1,34 @@
 # Política de Seguridad
 
-## Reportando problemas de seguridad
+## Reportar una Vulnerabilidad
 
-Si descubres un problema de seguridad en este proyecto, te pedimos que nos lo hagas saber de inmediato. Valoramos enormemente la comunidad de seguridad y los esfuerzos para mejorar la seguridad de este proyecto.
+Agradecemos los esfuerzos de los investigadores de seguridad y de la comunidad para mejorar la seguridad de nuestro proyecto. Si has descubierto una vulnerabilidad de seguridad en este repositorio, te pedimos que nos la notifiques de manera responsable y privada.
 
-Para reportar un problema de seguridad, por favor sigue estos pasos:
+### Cómo Reportar una Vulnerabilidad
 
-1. Envía un correo electrónico a [livrasand@outlook.com](mailto:livrasand@outlook.com) con los detalles completos del problema. Por favor, incluye la siguiente información:
+1. **Crea un informe privado de vulnerabilidad**:
+   - Navega a la pestaña "Security" en la página principal del repositorio.
+   - Si ves la opción "Notificar una vulnerabilidad", haz clic en ella para abrir el formulario de reporte.
 
-   - Descripción detallada del problema.
-   - Pasos para reproducirlo o prueba de concepto.
-   - Versiones afectadas del proyecto.
+2. **Rellena el formulario de reporte**:
+   - Proporciona un título y una descripción detallada de la vulnerabilidad.
+   - Incluye cualquier información adicional que pueda ayudar a los mantenedores a entender y reproducir el problema, como pasos específicos, capturas de pantalla o código de ejemplo.
 
-2. Espera una confirmación de recepción del reporte por correo electrónico.
+3. **Envía el informe**:
+   - Una vez que hayas completado el formulario, haz clic en "Enviar informe". GitHub notificará automáticamente a los mantenedores del repositorio.
 
-3. Trabajaremos contigo para entender y evaluar el problema reportado.
+### Proceso de Respuesta
 
-4. Si se confirma el problema, se realizarán esfuerzos para solucionarlo en colaboración contigo y otros miembros del equipo.
+- **Confirmación de Recepción**: Recibirás una confirmación de que tu informe ha sido recibido.
+- **Análisis**: Los mantenedores revisarán el informe y pueden contactarte para obtener más detalles.
+- **Resolución**: Una vez que la vulnerabilidad haya sido abordada, se te notificará y se te acreditará en el aviso de seguridad correspondiente (si así lo deseas).
 
-## Reconocimiento
+### Bifurcación Privada Temporal
 
-Agradecemos a la comunidad de seguridad por sus esfuerzos para mejorar la seguridad de este proyecto. Si descubres un problema de seguridad y colaboras con nosotros en su resolución, podemos reconocer tu contribución públicamente, a menos que desees permanecer anónimo.
+Si deseas contribuir a la corrección de la vulnerabilidad, puedes optar por iniciar una bifurcación privada temporal. Solo los mantenedores del repositorio podrán fusionar los cambios en el repositorio principal.
 
-## Divulgación responsable
+### Agradecimientos
 
-Pedimos que sigas una divulgación responsable de cualquier problema de seguridad que hayas encontrado. Esto significa que te comprometes a no divulgar públicamente el problema hasta que hayamos tenido tiempo de abordarlo y proporcionar una solución. 
+Agradecemos tu colaboración y compromiso con la seguridad. Tu esfuerzo ayuda a mantener nuestro proyecto seguro para todos los usuarios.
 
-## Exclusión de responsabilidad
-
-Este proyecto es proporcionado tal cual, sin garantías expresas ni implícitas en cuanto a su seguridad. Cualquier uso o confianza en el proyecto es bajo tu propio riesgo.
-
-El equipo del proyecto no se hace responsable de ningún daño directo o indirecto causado por problemas de seguridad en el proyecto.
+Gracias por ayudar a mantener nuestro proyecto seguro.
