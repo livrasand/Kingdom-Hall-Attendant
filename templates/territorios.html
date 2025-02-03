@@ -1,0 +1,362 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+<div class="container-xl mt-6">
+    <div class="Box mb-4">
+        <div class="Box-header">
+            <div class="d-flex flex-justify-between flex-items-center">
+                <h3 class="Box-title">Territorios</h3>
+                <div class="UnderlineNav">
+                    <nav class="UnderlineNav-body">
+                        <a href="#crear" class="UnderlineNav-item" aria-current="page" onclick="showTab('crear')">Crear</a>
+                        <a href="#mapa" class="UnderlineNav-item" onclick="showTab('mapa')">Mapa de territorios</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña Crear Territorio -->
+        <div id="crear" class="Box-body tab-content active-tab">
+            <div class="mb-4">
+                <h3 class="mb-3">Crear nuevo territorio</h3>
+                <form id="form-territorio">
+                    <div class="form-group">
+                        <label class="form-label">Nombre del territorio:</label><br>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Tipo:</label><br>
+                        <select class="form-select" id="tipo">
+                            <option value="urbano">Urbano</option>
+                            <option value="rural">Rural</option>
+                            <option value="comercial">Comercial</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Descripción opcional:</label>
+                        <textarea class="form-control" id="descripcion" rows="1"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label h3">Dibujar límites:</label>
+                        <div id="map-crear" class="map-container"></div>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-sm" onclick="drawnItems.clearLayers()">
+                                Borrar dibujo
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Guardar territorio</button>
+                </form>
+            </div>
+        </div>
+
+        
+        <!-- Pestaña Mapa Interactivo -->
+        <div id="mapa" class="Box-body tab-content" style="display:none;">
+            <div class="mb-4">
+                <h3 class="mb-3">Mapa de territorios</h3>
+                <div id="mapa-interactivo" class="map-container"></div>
+                <div class="mt-3">
+                    <select id="territorio-exportar" class="form-select">
+                        <option value="" disabled selected>Selecciona un territorio...</option>
+                    </select>
+                    <button class="btn" onclick="exportarMapa(document.getElementById('territorio-exportar').value)">
+                        Exportar tarjeta de territorio
+                    </button>
+                    <button class="btn btn-danger" onclick="deleteTerritorio(document.getElementById('territorio-exportar').value)">
+                        Eliminar territorio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Declaración de variables globales para los dos mapas
+    let mapCrear, drawnItems, mapInteractive;
+    
+    // Función para inicializar el mapa de creación (pestaña "Crear")
+    function initMapCrear() {
+        mapCrear = L.map('map-crear').setView([19.4326, -99.1332], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapCrear);
+
+        // Intento de geolocalización
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userCoords = [position.coords.latitude, position.coords.longitude];
+                    mapCrear.setView(userCoords, 15); // Mayor zoom cerca de la ubicación
+                },
+                (error) => {
+                    console.error('Error obteniendo ubicación:', error);
+                    // Mantener coordenadas por defecto
+                }
+            );
+        }
+        
+        // Capa para los elementos dibujados
+        drawnItems = new L.FeatureGroup();
+        mapCrear.addLayer(drawnItems);
+        
+        // Configuración del control de dibujo (solo polígonos)
+        const drawControl = new L.Control.Draw({
+            draw: {
+                polygon: {
+                    allowIntersection: false,
+                    showArea: true
+                },
+                circle: false,
+                marker: false,
+                circlemarker: false
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        mapCrear.addControl(drawControl);
+        
+        // Evento cuando se crea un elemento
+        mapCrear.on(L.Draw.Event.CREATED, function(e) {
+            const layer = e.layer;
+            drawnItems.addLayer(layer);
+            console.log("GeoJSON:", layer.toGeoJSON());
+        });
+    }
+    
+    // Función para inicializar el mapa interactivo (pestaña "Mapa")
+    function initInteractiveMap() {
+    mapInteractive = L.map('mapa-interactivo').setView([19.4326, -99.1332], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapInteractive);
+
+    // Cargar territorios desde el backend
+    fetch('/obtener-territorios')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const selector = document.getElementById('territorio-exportar');
+                selector.innerHTML = ''; // Limpiar opciones anteriores
+                
+                // Poblar el selector
+                data.territorios.forEach(territorio => {
+                    const option = document.createElement('option');
+                    option.value = territorio.id;
+                    option.textContent = territorio.nombre;
+                    selector.appendChild(option);
+                });
+
+                // Cargar en el mapa
+                data.territorios.forEach(territorio => {
+                    try {
+                        const geojson = JSON.parse(territorio.geojson);
+                        L.geoJSON(geojson, {
+                            style: { color: '#0066ff', fillOpacity: 0.2 },
+                            onEachFeature: (feature, layer) => {
+                                layer.bindPopup(`
+                                    <b>${territorio.nombre}</b><br>
+                                    Tipo: ${territorio.tipo}
+                                `);
+                            }
+                        }).addTo(mapInteractive);
+                    } catch (e) {
+                        console.error('Error al parsear GeoJSON:', e);
+                    }
+                });
+            }
+        })
+        .catch(error => console.error('Error cargando territorios:', error));
+
+    // Geolocalización
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                mapInteractive.setView([
+                    position.coords.latitude,
+                    position.coords.longitude
+                ], 15);
+            },
+            (error) => {
+                console.error('Error obteniendo ubicación:', error);
+            }
+        );
+    }
+}
+    
+    // Al cargar la página, se inicializa el mapa de creación
+    window.onload = function() {
+        initMapCrear();
+        // Puedes inicializar el mapa interactivo inmediatamente si lo prefieres,
+        // pero en este ejemplo lo inicializamos al mostrar la pestaña "Mapa".
+    };
+    
+    // Función para cambiar entre pestañas
+    function showTab(tabId) {
+    // Remover atributo activo de todos los tabs
+    document.querySelectorAll('.UnderlineNav-item').forEach(item => {
+        item.removeAttribute('aria-current');
+    });
+    
+    // Marcar el tab activo
+    document.querySelector(`a[href="#${tabId}"]`).setAttribute('aria-current', 'page');
+    
+    // Mostrar contenido del tab
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.style.display = 'none';
+    });
+    document.getElementById(tabId).style.display = 'block';
+    
+    // Inicializar mapa interactivo si es necesario
+    if (tabId === 'mapa') {
+        if (!mapInteractive) {
+            initInteractiveMap();
+        } else {
+            mapInteractive.invalidateSize();
+        }
+    }
+}
+    
+    // Manejador para el envío del formulario de territorio
+    document.getElementById('form-territorio').addEventListener('submit', async function(e) {
+        e.preventDefault();
+    
+        if (drawnItems.getLayers().length === 0) {
+            return;
+        }
+    
+        // Obtiene el GeoJSON de los elementos dibujados
+        const geojson = drawnItems.toGeoJSON();
+        if (geojson.features.length === 0) {
+            return;
+        }
+    
+        // Toma la geometría del primer elemento dibujado
+        let geometry = geojson.features[0].geometry;
+    
+        // Si la geometría es LineString, comprobar si está cerrada y convertirla a Polygon
+        if (geometry.type === 'LineString') {
+            const coords = geometry.coordinates;
+            const firstPoint = coords[0];
+            const lastPoint = coords[coords.length - 1];
+            if (firstPoint[0] === lastPoint[0] && firstPoint[1] === lastPoint[1]) {
+                geometry = {
+                    type: 'Polygon',
+                    coordinates: [coords]  // Un polígono tiene una lista de "anillos"; el primero es el exterior
+                };
+            } else {
+                return;
+            }
+        }
+    
+        const territorio = {
+            nombre: document.getElementById('nombre').value,
+            tipo: document.getElementById('tipo').value,
+            descripcion: document.getElementById('descripcion').value,
+            geojson: JSON.stringify(geometry)  // Envia solo la geometría
+        };
+    
+        try {
+            const response = await fetch('/guardar-territorio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(territorio)
+            });
+    
+            const data = await response.json();
+    
+            if (data.success) {
+                window.location.reload();
+            } else {
+                throw new Error(data.error || 'Error desconocido');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+    
+    // Función para exportar el mapa de un territorio
+    // Modificar función exportarMapa
+async function exportarMapa(territorioId) {
+    try {
+        if (!territorioId) {
+            return;
+        }
+        
+        const response = await fetch(`/exportar-mapa/${territorioId}`);
+        const data = await response.json();
+        
+        if (data.success) {
+            // Crear enlace temporal para descarga
+            const link = document.createElement('a');
+            link.href = data.map_url;
+            link.download = `territorio_${territorioId}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            throw new Error(data.error || 'Error en el servidor');
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+}
+
+// Función para eliminar territorio
+async function deleteTerritorio(territorioId) {
+    try {
+        const response = await fetch(`/eliminar-territorio/${territorioId}`, {
+            method: 'DELETE'
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            window.location.reload(); // Recargar para actualizar la lista
+        } else {
+            throw new Error(data.error || 'Error al eliminar');
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+}
+    </script>    
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script src="https://unpkg.com/leaflet-search@3.0.2/dist/leaflet-search.min.js"></script>
+{% endblock %}
+
+{% block css %}
+<style>
+.map-container {
+    height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.tab-content {
+    display: none;
+}
+
+.active-tab {
+    display: block;
+}
+
+.leaflet-top {
+    z-index: 400;
+}
+
+
+</style>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+{% endblock %}

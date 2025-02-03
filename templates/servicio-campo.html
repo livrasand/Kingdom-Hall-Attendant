@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    
+<!-- Google tag (gtag.js) -->
+{% include 'google-tag.html' %}
+
+      <title>Kingdom Hall Attendant</title>
+      
+      <link rel="stylesheet" href="{{ url_for('static', filename='primer.css') }}">
+      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   </head>
+   <body>
+    <div class="Header color-bg-inset">
+      <!-- Image item  -->
+      <div class="Header-item width-full">
+         <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+               <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+            </svg>
+         </a>
+         <a href="/home" style="cursor: pointer;" class="mr-3">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+            </a>
+         <img class="avatar CircleBadge" height="100" alt="@octocat" src="{{ url_for('identicon') }}" width="100">
+         <div class="d-table col-12">
+            {% include 'user_info.html' %}
+         </div>
+      </div>
+      </div>
+      <div class="container-xl mt-0 width-full">         
+         <div class="pl-2">            
+            <div class="container-xl clearfix"> 
+               <!-- HEAD PRINT -->
+      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
+         <p class="h3 ml-2 mt-n4" style="width:80%;">{{ _('Visita del Superintendente de Circuito') }}</p>
+         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 20%">{% if congregacion %}
+            {{ congregacion }}
+  {% else %}
+      Registra tu congregación
+  {% endif %}</p>
+      </div>
+      <!-- HEAD PRINT -->       
+      <form>
+        <div class="container-xl mt-6">
+            <div class="Box mb-4">
+                <!-- Encabezado de días -->
+                <div class="Box-header d-flex flex-justify-between flex-column flex-md-row">
+                    {% for day in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                        <div class="col-12 col-md-2 text-center text-bold color-fg-danger mb-2 mb-md-0">
+                            <span class="d-block p-2">{{ day }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+        
+                <!-- Cuerpo del calendario -->
+                {% for period in ['Mañana', 'Tarde', 'Noche'] %}
+                <div class="Box-body d-flex flex-column flex-md-row flex-justify-between flex-items-stretch">
+                        {% for day in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                        <div class="col-12 col-md-2 mb-3">
+                                <div class="Box m-2 p-2 calendar-cell height-full cursor-pointer"
+                                     onclick="openModal('{{ day }}', '{{ period }}')">
+                                    <div class="Box-title">
+                                        <span class="text-bold color-fg-muted">{{ period }}</span>
+                                    </div>
+                                    <div class="Box-body p-2" style="border:none;">
+                                        {% set events = eventos_por_dia_y_hora[day][period] %}
+                                        {% if events %}
+                                            {% for event in events %}
+                                                <div class="Box mb-2">
+                                                    <div class="Box-header d-flex flex-items-center"">
+                                                        <span class="text-small">
+                                                            {{ event[5] }} ({{ event[6] }})
+                                                        </span>
+                                                    </div>
+                                                    <div class="Box-body p-2">
+                                                        <p class="text-small mb-1">{{ event[3] }}</p>
+                                                        <p class="text-small color-fg-muted">{{ event[4] }}</p>
+                                                        <a href="/eliminar-evento-campo/{{ event[0] }}" 
+                                                           class="btn btn-sm btn-danger width-full text-center"
+                                                           onclick="event.stopPropagation();">
+                                                            Eliminar
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <div class="blankslate">
+                                                <span class="color-fg-subtle">No hay eventos</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+
+         </div>
+      </div>
+      
+      </div>
+       <script type="text/javascript">
+      function imprimirPagina() {
+    document.getElementById("header-page").style.visibility = "visible";
+
+
+  window.print(); // Inicia el proceso de impresión
+
+    document.getElementById("header-page").style.visibility = "hidden";
+}
+
+// Obtener la fecha actual
+var fechaActual = new Date();
+
+// Convertir la fecha a un formato legible
+var opcionesFecha = {  year: 'numeric', month: 'numeric', day: 'numeric' };
+var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
+
+// Insertar la fecha en el elemento <span> dentro del <h3>
+document.getElementById("fecha").innerText = fechaFormateada;
+   </script>
+
+   <!-- Agrega esto antes del cierre del body -->
+   <!-- Modal -->
+   <div class="Overlay" id="eventModal" style="display: none;">
+    <div class="Overlay-dialog Overlay-dialog--medium Box">
+        <div class="Overlay-header">
+            <button class="Overlay-closeButton m-2" type="button" onclick="closeModal()">
+                <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16">
+                    <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="Overlay-body">
+            <form class="form">
+                <input type="hidden" id="selectedDay" name="day">
+                <input type="hidden" id="selectedPeriod" name="period">
+                
+                <div class="form-group">
+                    <label class="form-label">Capitan:</label>
+                    <select class="form-select width-full" id="capitanSelect" required>
+                        {% for capitan in capitanes %}
+                            <option value="{{ capitan[0] }}">{{ capitan[1] }}</option>
+                        {% else %}
+                            <option disabled>No hay capitanes registrados</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label class="form-label">Territorio:</label>
+                    <select class="form-select width-full" id="territorioSelect" required>
+                        {% for territorio in territorios %}
+                            <option value="{{ territorio[0] }}">{{ territorio[1] }}</option>
+                        {% else %}
+                            <option disabled>No hay territorios registrados</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label class="form-label">Lugar de reunión:</label>
+                    <select class="form-select width-full" id="lugarInput" required>
+                        <option value="Salón del Reino">Salón del Reino</option>
+                        {% for lugar in lugares %}
+                            <option value="{{ lugar[1] }}">{{ lugar[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label class="form-label">Hora de salida:</label>
+                    <input type="time" class="form-control width-full" 
+                           id="horaInput" min="06:00" max="22:00" required>
+                </div>
+            </form>
+        </div>
+        <div class="Overlay-footer d-flex flex-column flex-md-row flex-justify-end gap-2">
+            <button class="btn btn-primary flex-1 flex-md-auto m-1" type="button" onclick="saveEvent()">Guardar</button>
+            <button class="btn flex-1 flex-md-auto m-1" type="button" onclick="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function openModal(day, period) {
+    document.getElementById('selectedDay').value = day;
+    document.getElementById('selectedPeriod').value = period;
+    document.getElementById('eventModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Previene scroll del fondo
+}
+
+function closeModal() {
+    document.getElementById('eventModal').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura scroll
+}
+
+// Actualiza el event listener para cerrar el modal
+window.onclick = function(event) {
+    const modal = document.getElementById('eventModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+function saveEvent() {
+    const day = document.getElementById('selectedDay').value;
+    const period = document.getElementById('selectedPeriod').value;
+    const year = {{ year }};
+    const month = {{ month }};
+    
+    const eventData = {
+        day: day,
+        periodo: period,
+        year: year,
+        month: month,
+        territorio: document.getElementById('territorioSelect').value,
+        capitan: document.getElementById('capitanSelect').value,
+        lugar: document.getElementById('lugarInput').value,
+        hora: document.getElementById('horaInput').value
+    };
+
+    fetch('/guardar-evento-campo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(eventData)
+    })
+    .then(response => {
+        if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    })
+    .then(data => {
+        if(data.success) {
+            closeModal();
+            window.location.reload();
+        } else {
+            throw new Error(data.error || 'Error desconocido');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert(`Error al guardar: ${error.message}`);
+    });
+}
+
+function getCurrentWeekDates(year, month) {
+    const dates = [];
+    const firstDay = new Date(year, month - 1, 1);
+    const lastDay = new Date(year, month, 0);
+    
+    // Obtener todos los días del mes
+    for(let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
+        dates.push(new Date(day));
+    }
+    return dates;
+}
+
+function convertDayToDate(dayName, year, month) {
+    const daysMap = {
+        'Lunes': 1,
+        'Martes': 2,
+        'Miércoles': 3,
+        'Jueves': 4,
+        'Viernes': 5,
+        'Sábado': 6,
+        'Domingo': 0
+    };
+    
+    const targetDay = daysMap[dayName];
+    const dates = getCurrentWeekDates(year, month);
+    
+    // Buscar la primera ocurrencia del día en el mes actual
+    for(let date of dates) {
+        if(date.getDay() === targetDay) {
+            return date.toISOString().split('T')[0];
+        }
+    }
+    
+    return null;
+}
+</script>
+
+<style>
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.Overlay-dialog {
+    margin: 1rem;
+    max-width: 90%;
+    width: 600px;
+    animation: Overlay-animation .12s cubic-bezier(0, 0.1, 0.1, 1);
+}
+
+@keyframes Overlay-animation {
+    0% { opacity: 0; transform: scale(0.9); }
+}
+
+@media (max-width: 768px) {
+    .Overlay-dialog {
+        width: 95%;
+        margin: 0.5rem;
+    }
+    
+    .Overlay-body .form-control {
+        font-size: 14px;
+    }
+    
+    .Overlay-title {
+        font-size: 18px;
+    }
+}
+
+/* Asegurar que el modal sea scrollable en móviles */
+.Overlay-body {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+@media (max-width: 768px) {
+    .calendar-cell {
+        min-height: 150px !important;
+    }
+    
+    .Box-title span {
+        font-size: 14px;
+    }
+    
+    .event-item .badge {
+        font-size: 12px;
+    }
+}
+</style>
+   </body>
+</html>
