@@ -73,15 +73,32 @@
             }
         }
 
-        .print-only {
-    display: none; /* Ocultar en la vista normal */
-}
 
-@media print {
-    .print-only {
-        display: block; /* Mostrar solo al imprimir */
-    }
-}
+        @media (max-width: 768px) {
+            .Box-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .Grid-cell {
+                width: 100% !important;
+                margin-bottom: 1rem;
+            }
+            
+            .Table {
+                overflow-x: auto;
+                display: block;
+            }
+        }
+        
+        .print-only { display: none; }
+        
+        @media print {
+            .no-print { display: none; }
+            .print-only { display: block; }
+            .Table { border-collapse: collapse; }
+            .Table td, .Table th { border: 1px solid #ddd; padding: 4px; }
+        }
     </style>
 </head>
 

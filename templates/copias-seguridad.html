@@ -36,6 +36,21 @@
         .alert-danger {
             background-color: #dc3545;
         }
+        .upload-container {
+            border: 2px dashed var(--color-border-default);
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            background-color: var(--color-canvas-subtle);
+        }
+
+        .form-control-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
     </style>
 </head>
 
@@ -57,84 +72,80 @@
            </div>
         </div>
      </div>
-     <div class="container-lg mt-6 p-3"> 
-        <div data-view-component="true" class="Subhead mt-0 mb-4">
-            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Modo de sincronización') }}</h2>
-         </div>
-        <form action="{{ url_for('update_syncmode') }}" method="post">
-            <div class="form-group">
-                <p>
-                    {{ _('Configuración de sincronización: Esta opción permite habilitar o deshabilitar el almacenamiento local, lo que brinda al usuario un mayor control sobre sus datos. Al activar esta función, se mejora la privacidad y seguridad de la información, ya que los datos se almacenan localmente en lugar de en servidores externos. Ten en cuenta que cambiar esta configuración puede afectar cómo se gestionan tus datos. Para más información, consulta la documentación sobre posibles efectos secundarios.') }}
-                    <a class="Link--inTextBlock" href="#side-effects">
-                      {{ _('posibles efectos secundarios') }}</a>.
-                </p>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="syncModeSwitch" name="syncModeSwitch" 
-                           {% if syncmode == 1 %}checked{% endif %}>
-                    <label class="custom-control-label" for="syncModeSwitch">{{ _('Habilitar almacenamiento local') }}</label>
+     <div class="container-lg px-3 my-4">
+        <div class="Box mb-4">
+            <div class="Box-header">
+                <h3 class="Box-title">{{ _('Modo de sincronización') }}</h3>
+            </div>
+            <div class="Box-body">
+                <form action="{{ url_for('update_syncmode') }}" method="post">
+                    <p class="f5 color-fg-muted mb-3">
+                        {{ _('Active o desactive el almacenamiento local para tener mayor control sobre sus datos. Esto mejora la privacidad y seguridad, ya que los datos se guardan localmente.') }}
+                    </p>
+                    <div class="form-control-switch">
+                        <input type="checkbox" class="FormControl-checkbox" id="syncModeSwitch" name="syncModeSwitch" {% if syncmode == 1 %}checked{% endif %}>
+                        <label for="syncModeSwitch" class="f5">{{ _('Habilitar almacenamiento local') }}</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">{{ _('Actualizar preferencias') }}</button>
+                </form>
+            </div>
+            <div class="Box-footer color-bg-subtle">
+                <div class="f6 color-fg-muted">
+                    <svg class="octicon octicon-info" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+                    {{ _('Al activar el modo local, asegúrese de cargar su archivo de copia de seguridad al iniciar sesión. La pérdida de este archivo puede resultar en la pérdida irreversible de datos. Guarde el archivo JSON al cerrar sesión para proteger su información.') }}
                 </div>
             </div>
-            
-            <button type="submit" class="btn btn-secondary">{{ _('Actualizar preferencias') }}</button>
-            <p id="side-effects" class="text-small color-fg-muted mt-3">
-                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-question">
-                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
-            </svg>
-            {{ _('Una vez que active el modo local, es crucial que cada vez que inicie sesión, cargue su archivo de copia de seguridad. Si pierde este archivo, corre el riesgo de perder todos sus datos de forma irreversible. Además, es fundamental que guarde el archivo JSON cada vez que cierre sesión para evitar la pérdida de información importante.') }}
-              </p>
-        </form>
-        <div data-view-component="true" class="Subhead Subhead--spacious">
-            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Exportar una copia de seguridad') }}</h2>
-         </div>
-        <!-- Botón para Exportar Base de Datos -->
-        <form action="/export-backup" method="get">
-            <p>
-                {{ _('Esta función permite crear una copia de seguridad de tus datos, lo que es esencial para proteger tu información. Al generar una copia de seguridad, puedes restaurar tus datos en caso de pérdida o daño, asegurando así la continuidad de tu trabajo. Es una práctica recomendada, independientemente de si utilizas almacenamiento local o no, ya que siempre es mejor prevenir que lamentar.') }}
-            </p>
-            <button type="submit" class="btn btn-primary btn-block mb-4 mt-2">
-                {{ _('Crear copia de seguridad') }}
-            </button>
-        </form>
-        <div data-view-component="true" class="Subhead Subhead--spacious">
-            <h2 id="public-profile-heading" data-view-component="true" class="Subhead-heading">{{ _('Importar una copia de seguridad') }}</h2>
         </div>
-        <!-- Formulario para Importar Base de Datos -->
-        <form action="/import" method="post" enctype="multipart/form-data">
-            <p>{{ _('Esta función permite importar datos desde un archivo de copia de seguridad en formato JSON. Al seleccionar un archivo y las tablas que deseas importar, podrás restaurar información previamente guardada, asegurando que tus datos estén actualizados y disponibles.') }}</p>
-            <div data-view-component="true" class="flash flash-error mt-2 mb-4">
-                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
-                  <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
-              </svg>{{ _('Por el momento, Kingdom Hall Attendant solo permite importar copias de seguridad del mismo Kingdom Hall Attendant. En el futuro, se planea habilitar la importación de datos desde otras aplicaciones, pero aún no hay una fecha específica para esta funcionalidad.') }}
-              <!-- Organized, Hourglass, NW Scheduler, Majestic KHS, TSWin, CLM Explorer, Aquila, Meeting Schedule Assistant, Visits Rota, Public Talks, TheocBase, Elders-Congregation, Elders-Pro, Talks-Pro y OCLM Software. -->
-              
-                
-              </div>
-              <div class="form-group">
-                <input type="checkbox" id="deleteData" name="deleteData" checked>
-                <label for="deleteData">{{ _('Eliminar los datos anteriores antes de la importación') }}</label>
+
+        <div class="Box mb-4">
+            <div class="Box-header">
+                <h3 class="Box-title">{{ _('Exportar copia de seguridad') }}</h3>
             </div>
-            
-            <div class="form-group">
-                <label for="backupFile">{{ _('Seleccionar archivo de copia de seguridad:') }}</label><br>
-                <input type="file" name="backupFile" id="backupFile" class="dropdown-item text-normal rounded-2 px-2 py-1 left-0 bottom-0 mt-1 mb-2 border" accept=".json" required>
+            <div class="Box-body">
+                <p class="f5 color-fg-muted mb-3">
+                    {{ _('Crea una copia de seguridad de tus datos para proteger tu información. Esto te permite restaurar tus datos en caso de pérdida, asegurando la continuidad de tu trabajo. Es una práctica recomendada, ya que siempre es mejor prevenir que lamentar.') }}
+                </p>
+                <form action="/export-backup" method="get">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        {{ _('Crear copia de seguridad') }}
+                    </button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="tables">{{ _('Seleccionar tablas a importar') }}</label><br>
-                <select style="height: 200px;" multiple name="tables" id="tables" class="form-select mb-1 width-full mt-1"></select>
-                
-                <p id="side-effects" class="text-small color-fg-muted mt-0">
-                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-question">
-                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
-                </svg>
-                {{ _('Usa') }} <kbd>ctrl</kbd> + 
-                <kbd>a</kbd>
-                {{ _('para seleccionar todas las tablas.') }}
-                  </p>
+        </div>
+
+        <div class="Box">
+            <div class="Box-header">
+                <h3 class="Box-title">{{ _('Importar copia de seguridad') }}</h3>
             </div>
-            <button name="import" id="import" type="submit" class="btn btn-success btn-block">
-                {{ _('Importar') }}
-            </button>
-        </form>
+            <div class="Box-body">
+                <form action="/import" method="post" enctype="multipart/form-data">
+                    <div class="form-group mb-4">
+                        <div class="upload-container">
+                            <input type="file" name="backupFile" id="backupFile" class="sr-only" accept=".json" required>
+                            <label for="backupFile" class="btn">
+                                {{ _('Seleccionar archivo JSON') }}
+                            </label>
+                            <div class="mt-2 color-fg-muted f6">{{ _('Arrastra el archivo aquí o haz clic para seleccionar') }}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-checkbox mb-3">
+                        <input type="checkbox" id="deleteData" name="deleteData" checked>
+                        <label class="f5" for="deleteData">{{ _('Eliminar datos anteriores antes de importar') }}</label>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="f5 mb-2">{{ _('Tablas a importar:') }}</label><br>
+                        <select name="tables" id="tables" class="form-select width-full" style="height: 200px;" multiple></select>
+                        <div class="f6 color-fg-muted mt-2">
+                            {{ _('Usa') }} <kbd>ctrl</kbd> + <kbd>click</kbd> {{ _('para selección múltiple') }} o <kbd>ctrl</kbd> + <kbd>a</kbd> para seleccionar todas las tablas.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block">
+                        {{ _('Importar datos') }}
+                    </button>
+                </form>
         
     </div>
 

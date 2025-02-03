@@ -2,116 +2,156 @@
 <html>
    <head>
       
-<!-- Google tag (gtag.js) -->
-{% include 'google-tag.html' %}
-
-      <title>Kingdom Hall Attendant</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <!-- Google tag (gtag.js) -->
+      {% include 'google-tag.html' %}
       
-      <link rel="stylesheet" href="{{ url_for('static', filename='primer.css') }}">
-      <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
-      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-   </head>
-   <body>
-      <div class="Header color-bg-inset">
-         <!-- Image item  -->
-         <div class="Header-item width-full">
-            <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
-               </svg>
-            </a>
-            <a href="/home" style="cursor: pointer;" class="mr-3">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
-            </a>
-            <img class="avatar CircleBadge" height="100" alt="@octocat" src="{{ url_for('identicon') }}" width="100">
-            <div class="d-table col-12">
-               {% include 'user_info.html' %}
-            </div>
-         </div>
-      </div>
-      <div class="container-xl mt-6 p-3">         
-         <div class="container-xl">
+            <title>Kingdom Hall Attendant</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             
+            <link rel="stylesheet" href="{{ url_for('static', filename='primer.css') }}">
+            <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+            <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+         </head>
+         <body>
+            <div class="Header color-bg-inset">
+               <!-- Image item  -->
+               <div class="Header-item width-full">
+                  <a onclick="history.back()" style="cursor: pointer;" class="mr-2 ml-n2">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"></path>
+                     </svg>
+                  </a>
+                  <a href="/home" style="cursor: pointer;" class="mr-3">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+                  </a>
+                  <img class="avatar CircleBadge" height="100" alt="@octocat" src="{{ url_for('identicon') }}" width="100">
+                  <div class="d-table col-12">
+                     {% include 'user_info.html' %}
+                  </div>
+               </div>
+            </div>
+
+    <div class="container-xl mt-6 p-3">         
+        <div class="container-xl p-responsive">
             <form action="/guardar_congregacion" method="post">
-               <input class="form-control" type="text" name="nombre_congregacion" placeholder="{{ _('Congregación') }}" aria-label="Congregación" style="width: 79%;" value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
-               <input class="form-control" type="number" name="numero" placeholder="{{ _('Número') }}" aria-label="Número" style="width:20%;" value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />
-               <br>
-               <p class="f4 mt-2 mb-0">{{ _('Reunión de entre semana') }}</p>
-<div class="radio-group">
-    <input class="radio-input" id="option-a" type="radio" name="options" value="{{ _('Lunes') }}" {% if congregation[9] == _('Lunes') %} checked {% endif %}>
-    <label class="radio-label" for="option-a">{{ _('Lunes') }}</label>
+                <!-- Congregation Name and Number -->
+                <div class="form-group mb-4">
+                    <div class="d-flex flex-wrap flex-items-center gx-3">
+                        <div class="col-12 col-md-8 mb-3 mb-md-0 p-1">
+                            <label class="form-label mb-2">{{ _('Congregación') }}</label>
+                            <input class="form-control width-full" type="text" name="nombre_congregacion" 
+                                   value="{{ congregation[1] if congregation else '' }}" autocomplete="off" />
+                        </div>
+                        <div class="col-12 col-md-4 p-1">
+                            <label class="form-label mb-2">{{ _('Número') }}</label>
+                            <input class="form-control width-full" type="number" name="numero" 
+                                   value="{{ congregation[2] if congregation else '' }}" autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
 
-    <input class="radio-input" id="option-b" type="radio" name="options" value="{{ _('Martes') }}" {% if congregation[9] == _('Martes') %} checked {% endif %}>
-    <label class="radio-label" for="option-b">{{ _('Martes') }}</label>
+                <!-- Weekday Meeting -->
+                <div class="form-group mb-4">
+                    <label class="form-label mb-2">{{ _('Reunión de entre semana') }}</label>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        {% for day in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                        <label class="radio-label flex-auto text-center">
+                            <input class="radio-input" type="radio" name="options" value="{{ _(day) }}" 
+                                   {% if congregation[9] == _(day) %}checked{% endif %}>
+                            <span class="f6 px-2 py-1">{{ _(day) }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label mb-2">{{ _('Hora de inicio') }}</label>
+                        <input class="form-control width-full" type="time" name="hora_inicio_semana" 
+                               value="{{ congregation[3] if congregation else '' }}" />
+                    </div>
+                </div>
 
-    <input class="radio-input" id="option-c" type="radio" name="options" value="{{ _('Miércoles') }}" {% if congregation[9] == _('Miércoles') %} checked {% endif %}>
-    <label class="radio-label" for="option-c">{{ _('Miércoles') }}</label>
+                <!-- Weekend Meeting -->
+                <div class="form-group mb-4">
+                    <label class="form-label mb-2">{{ _('Reunión de fin de semana') }}</label>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        {% for day in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                        <label class="radio-label flex-auto text-center">
+                            <input class="radio-input" type="radio" name="optionstwo" value="{{ _(day) }}" 
+                                   {% if congregation[10] == _(day) %}checked{% endif %}>
+                            <span class="f6 px-2 py-1">{{ _(day) }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label mb-2">{{ _('Hora de inicio') }}</label>
+                        <input class="form-control width-full" type="time" name="hora_inicio_fin_semana" 
+                               value="{{ congregation[4] if congregation else '' }}" />
+                    </div>
+                </div>
 
-    <input class="radio-input" id="option-d" type="radio" name="options" value="{{ _('Jueves') }}" {% if congregation[9] == _('Jueves') %} checked {% endif %}>
-    <label class="radio-label" for="option-d">{{ _('Jueves') }}</label>
+                <!-- Address -->
+                <div class="form-group mb-4">
+                    <label class="form-label mb-2">{{ _('Dirección del Salón del Reino') }}</label>
+                    <textarea class="form-control width-full" id="example-textarea" name="direccion_salon" 
+                              rows="2">{{ congregation[5] }}</textarea>
+                </div>
 
-    <input class="radio-input" id="option-e" type="radio" name="options" value="{{ _('Viernes') }}" {% if congregation[9] == _('Viernes') %} checked {% endif %}>
-    <label class="radio-label" for="option-e">{{ _('Viernes') }}</label>
+                <!-- Circuit Overseer -->
+                <div class="form-group mb-4">
+                    <label class="form-label mb-2">{{ _('Datos del superintendente de circuito') }}</label>
+                    <div class="d-flex flex-wrap gx-3">
+                        <div class="col-12 col-md-6 mb-3 p-1">
+                            <input class="form-control width-full" type="text" name="superintendente_circuito" 
+                                   placeholder="{{ _('Nombre') }}" value="{{ congregation[6] if congregation else '' }}" />
+                        </div>
+                        <div class="col-12 col-md-3 mb-3 p-1">
+                            <input class="form-control width-full" type="number" name="telefono" 
+                                   placeholder="{{ _('Teléfono') }}" value="{{ congregation[7] if congregation else '' }}" />
+                        </div>
+                        <div class="col-12 col-md-3 p-1">
+                            <input class="form-control width-full" type="text" name="circuito" 
+                                   placeholder="{{ _('Circuito') }}" value="{{ congregation[8] if congregation else '' }}" />
+                        </div>
+                    </div>
+                </div>
 
-    <input class="radio-input" id="option-f" type="radio" name="options" value="{{ _('Sábado') }}" {% if congregation[9] == _('Sábado') %} checked {% endif %}>
-    <label class="radio-label" for="option-f">{{ _('Sábado') }}</label>
-
-    <input class="radio-input" id="option-g" type="radio" name="options" value="{{ _('Domingo') }}" {% if congregation[9] == _('Domingo') %} checked {% endif %}>
-    <label class="radio-label" for="option-g">{{ _('Domingo') }}</label>
-                
-<input class="form-control ml-1" type="time" name="hora_inicio_semana" placeholder="Hora de inicio" aria-label="Hora de inicio" style="width:24.5%;" value="{{ congregation[3] if congregation else '' }}" />
-</div>
-<br>
-<p class="f4 mt-2 mb-0">Reunión de fin de semana</p>
-<div class="radio-group">
-   <input class="radio-input" id="option-h" type="radio" name="optionstwo" value="{{ _('Lunes') }}" {% if congregation[10] == _('Lunes') %} checked {% endif %}>
-<label class="radio-label" for="option-h">{{ _('Lunes') }}</label>
-
-<input class="radio-input" id="option-i" type="radio" name="optionstwo" value="{{ _('Martes') }}" {% if congregation[10] == _('Martes') %} checked {% endif %}>
-<label class="radio-label" for="option-i">{{ _('Martes') }}</label>
-
-<input class="radio-input" id="option-j" type="radio" name="optionstwo" value="{{ _('Miércoles') }}" {% if congregation[10] == _('Miércoles') %} checked {% endif %}>
-<label class="radio-label" for="option-j">{{ _('Miércoles') }}</label>
-
-<input class="radio-input" id="option-k" type="radio" name="optionstwo" value="{{ _('Jueves') }}" {% if congregation[10] == _('Jueves') %} checked {% endif %}>
-<label class="radio-label" for="option-k">{{ _('Jueves') }}</label>
-
-<input class="radio-input" id="option-l" type="radio" name="optionstwo" value="{{ _('Viernes') }}" {% if congregation[10] == _('Viernes') %} checked {% endif %}>
-<label class="radio-label" for="option-l">{{ _('Viernes') }}</label>
-
-<input class="radio-input" id="option-m" type="radio" name="optionstwo" value="{{ _('Sábado') }}" {% if congregation[10] == _('Sábado') %} checked {% endif %}>
-<label class="radio-label" for="option-m">{{ _('Sábado') }}</label>
-
-<input class="radio-input" id="option-n" type="radio" name="optionstwo" value="{{ _('Domingo') }}" {% if congregation[10] == _('Domingo') %} checked {% endif %}>
-<label class="radio-label" for="option-n">{{ _('Domingo') }}</label>
-
-<input class="form-control ml-1" type="time" name="hora_inicio_fin_semana" placeholder="{{ _('Hora de inicio') }}" aria-label="{{ _('Hora de inicio') }}" style="width:24.5%;" value="{{ congregation[4] if congregation else '' }}" />
-
-</div>
-<br>
-<p class="f4 mb-0">{{ _('Dirección del Salón del Reino') }}</p>
-<input class="form-control width-full mb-3" id="example-textarea" name="direccion_salon" autocomplete="off" value="{{ congregation[5] }}" />
-<br>  
-
-<p class="f4 mb-0">{{ _('Datos del superintendente de circuito') }}</p>
-<input class="form-control" type="text" name="superintendente_circuito" placeholder="{{ _('Superintendente de circuito') }}" aria-label="{{ _('Superintendente de circuito') }}" style="width: 59%;" value="{{ congregation[6] if congregation else '' }}" autocomplete="off" />
-<input class="form-control" type="number" name="telefono" placeholder="{{ _('Número de teléfono') }}" aria-label="{{ _('Número de teléfono') }}" style="width:20%;" value="{{ congregation[7] if congregation else '' }}" autocomplete="off" />  
-<input class="form-control" type="text" name="circuito" placeholder="{{ _('Circuito') }}" aria-label="{{ _('Circuito') }}" style="width:20%;" value="{{ congregation[8] if congregation else '' }}" autocomplete="off" />
-
-<br><br>
-<div class="form-actions" style="margin-bottom: 30px;">
-    <button type="submit" class="btn btn-primary">{{ _('Guardar cambios') }}</button>
-</div>
-
+                <!-- Submit Button -->
+                <div class="form-actions d-flex flex-justify-end">
+                    <button type="submit" class="btn btn-primary">{{ _('Guardar') }}</button>
+                </div>
             </form>
-         </div>
-      </div>
-      <script>
-function limpiarTextarea() {
-    var textarea = document.getElementById('example-textarea');
-    textarea.value = textarea.value.trim();
-}
-</script>
-   </body>
+        </div>
+    </div>
+
+    <style>
+        .radio-label {
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 4px 8px;
+            transition: all 0.2s ease;
+            margin: 2px;
+        }
+        
+        .radio-input:checked + span {
+            font-weight: 600;
+            color: #0969da;
+        }
+        
+        .radio-input:focus-visible + span {
+            outline: 2px solid #0969da;
+            outline-offset: -2px;
+        }
+        
+        .radio-input {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .radio-label {
+                flex: 1 0 45%;
+                margin: 2px;
+            }
+        }
+    </style>
+</body>
 </html>
