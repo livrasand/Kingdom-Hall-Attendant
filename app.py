@@ -5536,7 +5536,7 @@ if __name__ == '__main__':
     schedule.every().day.at("18:00").do(check_accounts)
     schedule.every().day.at("23:59").do(delete_inactive_accounts)
     
-    app.run(debug=True)
+    app.run()
 
     while True:
         schedule.run_pending()
