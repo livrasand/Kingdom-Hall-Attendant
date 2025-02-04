@@ -4428,9 +4428,33 @@ def import_json():
             if table == 'user_data':
                 continue
             
-            if table in selected_tables:
-                if delete_data:
-                    cursor.execute(f"DELETE FROM {table}")
+	    SAFE_TABLES = {
+		    "sqlite_sequence",
+		    "congregacion",
+		    "grupos_predicacion",
+		    "familias",
+		    "oradores",
+		    "bosquejos",
+		    "publicadores",
+		    "estudio_atalaya",
+		    "vida_ministerio",
+		    "inventario",
+		    "configuracion",
+		    "visita_superint_circuito",
+		    "user_data",
+		    "ava",
+		    "settings_ava",
+		    "asistencia_reuniones",
+		    "informes_predicacion",
+		    "predicacion_publica",
+		    "territorios",
+		    "servicio_campo"
+		}  
+	
+	    if table in selected_tables and table in SAFE_TABLES:
+	        if delete_data:
+	            # Usar f-strings solo con valores prevalidados
+	            cursor.execute(f"DELETE FROM {table}") 
 
                 cursor.execute('''
                     CREATE TABLE IF NOT EXISTS ava (
