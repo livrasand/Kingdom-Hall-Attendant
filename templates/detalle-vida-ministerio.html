@@ -17,14 +17,10 @@
    <body>
    <div id="loading-screen">
     <div id="loading-spinner"></div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <h3>{{ _('Sincronizando datos de la reunión') }}</h3>
 </div>
 
 <div id="saving-screen">
     <div id="loading-spinner"></div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <h3>{{ _('Guardando...') }}</h3>
 </div>
 
       <div class="Header color-bg-inset">
@@ -57,11 +53,11 @@
         <nav class="paginate-container"> 
             <div class="pagination"> 
                 <a class="previous_page" href="{{ url_previous }}"> 
-                     {{ _('Anterior') }}
+                     {{ _('Semana anterior') }}
                 </a> 
                 <a href="/nuevo-vida-ministerio" style="text-decoration: none;border: none;"><em aria-current="Page1"> {{ _('Esta semana') }} </em></a> 
                 <a class="next_page" href="{{ url_next }}" > 
-                    {{ _('Próxima') }} 
+                    {{ _('Próxima semana') }} 
                 </a> 
             </div> 
         </nav> 
@@ -92,19 +88,22 @@
     {% if h2 == 'TESOROS DE LA BIBLIA' %}
         {% set bg_color = '#3c7f8b' %}
         {% set show_label_and_select = True %}
+        {% set icon = 'e118' %}
     {% elif h2 == 'SEAMOS MEJORES MAESTROS' %}
         {% set bg_color = '#d68f00' %}
         {% set show_label_and_select = True %}
         {% set show_second_label_and_select = True %}
+        {% set icon = 'e183' %}
     {% elif h2 == 'NUESTRA VIDA CRISTIANA' %}
         {% set bg_color = '#bf2f13' %}
         {% set show_label_and_select = True %}
         {% set show_second_label_and_select = False %}
+        {% set icon = 'e182' %}
     {% else %}
         {% set show_label_and_select = False %}
         {% set show_second_label_and_select = False %}
     {% endif %}
-    <div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: {{ bg_color }}; color: {{ text_color }};">{{ h2 }}</div>
+    <div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: {{ bg_color }}; color: {{ text_color }};"><i class="jwIcon {{ icon }} mr-1" style="color:#fff;font-size: 1em"></i> {{ h2 }}</div>
     <ul>
         {% for h3 in h3_list %}
             {% if 'Artículo de estudio' not in h3 %}

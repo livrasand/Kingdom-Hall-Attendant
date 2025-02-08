@@ -31,17 +31,17 @@
            </div>
         </div>
      </div>
-     <div class="Header" style="background-color: #ccc;">
-        <div class="Header-item width-full">
-           
-            <h4 style="color: #000;">{{ _('Nombre:') }} {{ publicador[1] }} {{ publicador[2] }}</h4>
+     <header class="Header Header--dark">
+        <div class="Header-item Header-item--full">
+            <h3 class="text-white">{{ publicador[1] }} {{ publicador[2] }}</h3>
             {% if privilegios_servicio != "Ninguno" %}
-
-                <span style="color: #000; font-weight: 400; margin-left: 10px; background-color: #e0f7fa; padding: 5px; border-radius: 3px;">{{ _('Privilegios:') }} {{ privilegios_servicio[0] }}</span>
+            <span class="Label Label--success ml-2 p-1 pl-2 pr-2" style="filter: brightness(1.5);">
+                {{ privilegios_servicio[0] }}
+              </span>
             {% endif %}
-        
         </div>
-     </div>
+    </header>
+     
     <div class="container-xl mt-4">
         <div class="container-xl">
             <div class="pl-2 pr-2">         

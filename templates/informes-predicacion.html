@@ -7,6 +7,7 @@
     <title>Kingdom Hall Attendant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='primer.css') }}" rel="stylesheet" />
       
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
@@ -35,17 +36,46 @@
         </div>
      </div>
 
-    <div class="container-xl mt-6">
-      <form method="GET" action="{{ url_for('informes_predicacion') }}" class="Filter d-flex flex-items-center mb-3">
-         <label for="grupo" class="mr-2">Filtrar por grupo:</label>
-         <select name="grupo" id="grupo" class="form-select mr-2">
-             <option value="todos">Todos</option>
-             {% for grupo in grupos %}
-                 <option value="{{ grupo[0] }}">{{ grupo[0] }}</option>
-             {% endfor %}
-         </select>
-         <button type="submit" class="btn btn-primary">Filtrar</button>
-     </form>
+     <div class="container-xl mt-6">
+        <!-- Filtros -->
+        <div class="BorderGrid BorderGrid--spacious">
+            <div class="BorderGrid-row">
+                <div class="BorderGrid-cell">
+                    <form method="GET" class="d-flex flex-items-center">
+                        <div class="form-group mr-3">
+                            <select name="mes" class="form-select" onchange="this.form.submit()">
+                                {% for month_num, month_name in meses.items() %}
+                                <option value="{{ month_num }}" {{ 'selected' if month_num|int == selected_month }}>
+                                    {{ month_name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mr-3">
+                            <select name="anio" class="form-select" onchange="this.form.submit()">
+                                {% for year in range(2020, current_year + 2) %}
+                                <option value="{{ year }}" {{ 'selected' if year == selected_year }}>
+                                    {{ year }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mr-3">
+                            <select name="grupo" class="form-select" onchange="this.form.submit()">
+                                <option value="todos">Todos los grupos</option>
+                                {% for grupo in grupos %}
+                                <option value="{{ grupo[0] }}" {{ 'selected' if grupo[0] == request.args.get('grupo') }}>
+                                    {{ grupo[0] }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
      <!-- HEAD PRINT -->
      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
@@ -59,24 +89,25 @@
    </div>
    <!-- HEAD PRINT -->
 
-      {% for publicador in publicadores %}
-    <div class="col-4 float-left p-2">
-        <div class="col-6 width-full">
-            <a class="d-block color-shadow-large px-2 pt-4 pb-4 position-relative rounded-2 overflow-hidden no-underline" href="{{ url_for('registrar_informe', publicador_id=publicador[0]) }}">
-                <h5 class="color-fg-default pl-3">{{ publicador[1] }} {{ publicador[2] }}</h5>
-                {% if informes[publicador[0]] %}
-                    <h6 class="pl-3">{{ _('Participación:') }} {{ 'Sí' if informes[publicador[0]][4] else _('No') }}</h6>
-                    <h6 class="pl-3">{{ _('Cursos bíblicos:') }} {{ informes[publicador[0]][5] }}</h6>
-                    <h6 class="pl-3">{{ _('Horas:') }} {{ informes[publicador[0]][6] }}</h6>
-                    <h6 class="pl-3">{{ _('Comentarios:') }} {{ informes[publicador[0]][7] }}</h6>
-                    <h6 class="pl-3">{{ _('Privilegio:') }} {{ informes[publicador[0]][8] }}</h6>
-                {% else %}
-                    <p class="pl-3">{{ _('No ha entregado su informe.') }}</p>
-                {% endif %}
-            </a>
-        </div>
-    </div>
-{% endfor %}
+   {% for publicador in publicadores %}
+   <div class="col-4 float-left p-2">
+       <div class="col-6 width-full">
+           <a class="d-block color-shadow-large px-2 pt-4 pb-4 position-relative rounded-2 overflow-hidden no-underline" 
+              href="{{ url_for('registrar_informe', publicador_id=publicador[0]) }}">
+               <h5 class="color-fg-default pl-3">{{ publicador[1] }} {{ publicador[2] }}</h5>
+               {% if informes[publicador[0]] %}
+                   <h6 class="pl-3">{{ _('Participación:') }} {{ 'Sí' if informes[publicador[0]][4] else _('No') }}</h6>
+                   <h6 class="pl-3">{{ _('Cursos bíblicos:') }} {{ informes[publicador[0]][5] }}</h6>
+                   <h6 class="pl-3">{{ _('Horas:') }} {{ informes[publicador[0]][6] }}</h6>
+                   <h6 class="pl-3">{{ _('Comentarios:') }} {{ informes[publicador[0]][7] }}</h6>
+                   <h6 class="pl-3">{{ _('Privilegio:') }} {{ informes[publicador[0]][8] }}</h6>
+               {% else %}
+                   <p class="pl-3 color-fg-muted">{{ _('No ha entregado su informe aún.') }}</p>
+               {% endif %}
+           </a>
+       </div>
+   </div>
+   {% endfor %}
       
     </div>
 

@@ -53,45 +53,62 @@
   {% endif %}</p>
       </div>
       <!-- HEAD PRINT -->       
-                <form>
-                    <div class="clearfix" style="font-weight: bold;">
-                        {% for day in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
-                            <div class="col-2 float-left">
-                                <div class="border p-3" style="color:#f2574f;">{{ day }}</div>
+      <div class="Box mb-4">
+        <!-- Encabezado de días -->
+        <div class="Box-header d-flex flex-wrap">
+            {% for day in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                <div class="col-12 col-md-2 text-center text-bold color-fg-danger p-2">
+                    {{ day }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Cuerpo del calendario -->
+        {% for period in ['Mañana', 'Tarde', 'Noche'] %}
+            <div class="Box-body d-flex flex-wrap">
+                {% for day in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
+                    <div class="col-12 col-md-2 mb-3">
+                        <div class="Box m-1 p-2 calendar-cell height-full">
+                            <div class="Box-title">
+                                <span class="text-bold color-fg-muted">{{ period }}</span>
                             </div>
-                        {% endfor %}
-                    </div>
-
-                    {% for period in ['Mañana', 'Tarde', 'Noche'] %}
-                        <div class="clearfix" style="color:#2b2b2b;">
-                            {% for day in ['Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] %}
-                                <div class="col-2 float-left">
-                                    <div class="border p-2">
-                                        <b>{{ period }}</b>
-                                        <p class="f6">
-                                            {% set events = eventos_por_dia_y_hora[day][period] %}
-                                            {% if events %}
-                                                {% for event in events %}
-   <a href="{{ url_for('eliminar_evento', event_id=event[0]) }}" onclick="return confirm('¿Estás seguro de que deseas eliminar este evento?');"> {% if event[6] %}
-        {{ event[6] }} tiene
-    {% endif %} 
-    {{ event[1] }} ({{ event[3] }}) en <em>{{ event[4] }}</em>
-    {% if event[5] %}
-        con {{ event[5] }}
-    {% endif %}
-    </a><br>
-{% endfor %}
-
-                                            {% else %}
-                                                &nbsp;
-                                            {% endif %}
-                                        </p>
+                            <div class="Box-body p-2" style="border:none;">
+                                {% set events = eventos_por_dia_y_hora[day][period] %}
+                                {% if events %}
+                                    {% for event in events %}
+                                        <div class="Box mb-2">
+                                            <div class="Box-header">
+                                                <span class="text-small">
+                                                    {% if event[6] %}
+                                                        {{ event[6] }} tiene
+                                                    {% endif %} 
+                                                    {{ event[1] }} ({{ event[3] }})
+                                                </span>
+                                            </div>
+                                            <div class="Box-body p-2">
+                                                <p class="text-small mb-1">{{ event[4] }}</p>
+                                                {% if event[5] %}
+                                                    <p class="text-small color-fg-muted">con {{ event[5] }}</p>
+                                                {% endif %}
+                                                <a href="{{ url_for('eliminar_evento', event_id=event[0]) }}" 
+                                                   class="btn btn-sm btn-danger width-full text-center">
+                                                    Eliminar
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="blankslate blankslate-narrow">
+                                        <span class="color-fg-subtle">No hay eventos</span>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endif %}
+                            </div>
                         </div>
-                    {% endfor %}
-                </form>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
 
          </div>
       </div>
@@ -117,5 +134,7 @@ var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
 // Insertar la fecha en el elemento <span> dentro del <h3>
 document.getElementById("fecha").innerText = fechaFormateada;
    </script>
+
+   
    </body>
 </html>

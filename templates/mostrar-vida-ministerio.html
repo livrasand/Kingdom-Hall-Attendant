@@ -61,7 +61,7 @@
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'TESOROS DE LA BIBLIA' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #3c7f8b; color: #ffffff;">{{ _('TESOROS DE LA BIBLIA') }}</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #3c7f8b; color: #ffffff;"><i class="jwIcon e118 mr-1" style="color:#fff;font-size: 1em"></i> {{ _('TESOROS DE LA BIBLIA') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                         <strong style="color: #3c7f8b;">{{ detalle['subtitulo'] }}</strong><br>
@@ -75,7 +75,7 @@
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'SEAMOS MEJORES MAESTROS' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00; color: #ffffff;">{{ _('SEAMOS MEJORES MAESTROS') }}</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #d68f00; color: #ffffff;"><i class="jwIcon e183 mr-1" style="color:#fff;font-size: 1em"></i> {{ _('SEAMOS MEJORES MAESTROS') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                         <strong style="color: #d68f00;">{{ detalle['subtitulo'] }}</strong><br>
@@ -92,7 +92,7 @@
 
     {% for tema in semana['temas'] %}
         {% if tema['titulo'] == 'NUESTRA VIDA CRISTIANA' %}
-            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13; color: #ffffff;">{{ _('NUESTRA VIDA CRISTIANA') }}</div>
+            <div class="color-fg-on-emphasis p-2 rounded mb-2 mt-2" style="background-color: #bf2f13; color: #ffffff;"><i class="jwIcon e182 mr-1" style="color:#fff;font-size: 1em"></i> {{ _('NUESTRA VIDA CRISTIANA') }}</div>
             <ul>
                 {% for detalle in tema['detalles'] %}
                     {% if loop.index <= tema['detalles']|length - 3 %}
@@ -113,7 +113,8 @@
     {% endfor %}
 
     <label class="mt-4" for="oracion_final" style="color:#0969da;">{{ _('Oración final:') }}</label>
-    {{ _('') }}{{ semana['oracion_final'] }}
+{{ semana['oracion_final'] }}
+
 {% else %}
     <p>{{ _('No se encontraron datos para mostrar.') }}</p>
 {% endif %}
