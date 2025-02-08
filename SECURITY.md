@@ -1,34 +1,9 @@
-# Política de Seguridad
+Kingdom Hall Attendant takes the security of our software products and services seriously, including the open source code repositories managed through our Kingdom Hall Attendant organizations, such as [Kingdom Hall Attendant](https://github.com/livrasand/Kingdom-Hall-Attendant).
 
-## Reportar una Vulnerabilidad
+If you believe you have found a security vulnerability in this Hush-owned open source repository, you can report it to us in one way.
 
-Agradecemos los esfuerzos de los investigadores de seguridad y de la comunidad para mejorar la seguridad de nuestro proyecto. Si has descubierto una vulnerabilidad de seguridad en este repositorio, te pedimos que nos la notifiques de manera responsable y privada.
+If the vulnerability you have found if you do not wish to be considered for a bounty reward, please report the issue to us directly using [private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability).
 
-### Cómo Reportar una Vulnerabilidad
+**Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**
 
-1. **Crea un informe privado de vulnerabilidad**:
-   - Navega a la pestaña "Security" en la página principal del repositorio.
-   - Si ves la opción "Notificar una vulnerabilidad", haz clic en ella para abrir el formulario de reporte.
-
-2. **Rellena el formulario de reporte**:
-   - Proporciona un título y una descripción detallada de la vulnerabilidad.
-   - Incluye cualquier información adicional que pueda ayudar a los mantenedores a entender y reproducir el problema, como pasos específicos, capturas de pantalla o código de ejemplo.
-
-3. **Envía el informe**:
-   - Una vez que hayas completado el formulario, haz clic en "Enviar informe". GitHub notificará automáticamente a los mantenedores del repositorio.
-
-### Proceso de Respuesta
-
-- **Confirmación de Recepción**: Recibirás una confirmación de que tu informe ha sido recibido.
-- **Análisis**: Los mantenedores revisarán el informe y pueden contactarte para obtener más detalles.
-- **Resolución**: Una vez que la vulnerabilidad haya sido abordada, se te notificará y se te acreditará en el aviso de seguridad correspondiente (si así lo deseas).
-
-### Bifurcación Privada Temporal
-
-Si deseas contribuir a la corrección de la vulnerabilidad, puedes optar por iniciar una bifurcación privada temporal. Solo los mantenedores del repositorio podrán fusionar los cambios en el repositorio principal.
-
-### Agradecimientos
-
-Agradecemos tu colaboración y compromiso con la seguridad. Tu esfuerzo ayuda a mantener nuestro proyecto seguro para todos los usuarios.
-
-Gracias por ayudar a mantener nuestro proyecto seguro.
+Thanks for helping make Kingdom Hall Attendant safe for everyone.
