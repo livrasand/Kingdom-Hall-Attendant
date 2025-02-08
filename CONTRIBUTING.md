@@ -16,6 +16,7 @@
    - [Recomendaciones de uso](#51-recomendaciones-de-uso)
    - [Consejos para usar ChatGPT con precaución](#52-consejos-para-usar-chatgpt-con-precaución)
 6. [Bases de datos](#6-bases-de-datos)
+7. [Guía de Hacking](#7-guía-de-hacking)
 
 ## 1. Tecnologías utilizadas
 
@@ -176,4 +177,13 @@ Al utilizar ChatGPT de manera informada, puedes mejorar tus habilidades de progr
 
 Para arrancar localmente, es correcto que haya dos bases de datos: `cavea.db` y `kha.db`. Sin embargo, solo se usa una de ellas, pero ambas están presentes. Esto podría ser confuso para algunos. La base de datos `cavea` es la base de datos principal de **Kingdom Hall Attendant**, donde se registran los usuarios, las contraseñas, los identicons y todo lo relacionado con la aplicación y los usuarios. La base de datos `kha` es solo para copiar y crear la base de datos del usuario final, donde el usuario guardará sus datos de la aplicación.
 
-¡Buena código y feliz codificación!
+## 7. Guía de Hacking
+
+Para detalles sobre la seguridad y arquitectura del proyecto, consulta el archivo [HACKING.md](HACKING.md). Este documento cubre los principios clave del diseño y la seguridad de Kingdom Hall Attendant, incluyendo:
+
+- **Objetivos de diseño:**
+  - Interfaz intuitiva, esta debe mantener la guía de diseño de [Primer Design System](https://primer.style/).
+  - Plataforma principal: web, con soporte para Windows, Linux y macOS.
+  - Adaptabilidad a diferentes tamaños de pantalla (escritorio y dispositivos móviles).
+
+¡Buen código y feliz codificación!
