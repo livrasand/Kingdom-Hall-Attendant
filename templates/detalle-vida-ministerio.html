@@ -85,25 +85,33 @@
 {% for h2, h3_list in data.items() %}
     {% set bg_color = '' %}
     {% set text_color = '#ffffff' %}
+    {% set icon = 'e17' %}
+    {% set rounded = 'rounded' %}
     {% if h2 == 'TESOROS DE LA BIBLIA' %}
         {% set bg_color = '#3c7f8b' %}
         {% set show_label_and_select = True %}
         {% set icon = 'e118' %}
+        {% set rounded = 'rounded' %}
     {% elif h2 == 'SEAMOS MEJORES MAESTROS' %}
         {% set bg_color = '#d68f00' %}
         {% set show_label_and_select = True %}
         {% set show_second_label_and_select = True %}
         {% set icon = 'e183' %}
+        {% set rounded = 'rounded' %}
     {% elif h2 == 'NUESTRA VIDA CRISTIANA' %}
         {% set bg_color = '#bf2f13' %}
         {% set show_label_and_select = True %}
         {% set show_second_label_and_select = False %}
         {% set icon = 'e182' %}
+        {% set rounded = 'rounded' %}
     {% else %}
         {% set show_label_and_select = False %}
         {% set show_second_label_and_select = False %}
     {% endif %}
-    <div class="color-fg-on-emphasis p-2 rounded mt-4 mb-4" style="background-color: {{ bg_color }}; color: {{ text_color }};"><i class="jwIcon {{ icon }} mr-1" style="color:#fff;font-size: 1em"></i> {{ h2 }}</div>
+    <div class="color-fg-on-emphasis p-2 {{ rounded }} mt-4 mb-4" style="background-color: {{ bg_color }}; color: {{ text_color }};">
+        <i class="jwIcon {{ icon }} mr-1" style="color:#fff;font-size: 1em"></i> {{ h2 }}
+    </div>
+    
     <ul>
         {% for h3 in h3_list %}
             {% if 'Artículo de estudio' not in h3 %}
@@ -127,11 +135,34 @@
                         {% endfor %}
                     </select>
                         {% elif 'Discurso' in h3 %}
-                            <label class="" htmlFor="name"><strong>{{ _('Publicador:') }}</strong></label>
-                            <select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
+    <select class="form-select mb-2" aria-label="" id="discurso" name="discurso">
+        <option value="">{{ _('Seleccione un publicador') }}</option>
+        {% for discursante in discursantes %}
+        <option value="{{ discursante[0] }} {{ discursante[1] }}">{{ discursante[0] }} {{ discursante[1] }}</option>
+        {% endfor %}
+    </select>
+                            <!-- Busquemos Perlas 1 -->
+{% elif '1.' in h3 %}
+    <select class="form-select mb-2" aria-label="" id="busquemos_perlas_1" name="busquemos_perlas_1">
+        <option value="">{{ _('Seleccione un publicador') }}</option>
+        {% for publicador in publicadores_discurso %}
+        <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
+        {% endfor %}
+    </select>
+                            <!-- Busquemos Perlas 2 -->
+{% elif '2.' in h3 %}
+    <select class="form-select mb-2" aria-label="" id="busquemos_perlas_2" name="busquemos_perlas_2">
+        <option value="">{{ _('Seleccione un publicador') }}</option>
+        {% for publicador in publicadores_busquemos %}
+        <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
+        {% endfor %}
+    </select>
+                        {% elif 'Lectura de la Biblia' in h3 %}
+                            <label class="" htmlFor="name"><strong>{{ _('Estudiante:') }}</strong></label>
+                            <select class="form-select mb-2" aria-label="" id="lectura_biblica" name="lectura_biblica">
                                 <option value="">{{ _('Seleccione un publicador') }}</option>
-                                {% for discursante in discursantes %}
-                                <option value="{{ discursante[0] }} {{ discursante[1] }}">{{ discursante[0] }} {{ discursante[1] }}</option>
+                                {% for publicador in publicadores_lectura %}
+                                <option value="{{ publicador[0] }} {{ publicador[1] }}">{{ publicador[0] }} {{ publicador[1] }}</option>
                                 {% endfor %}
                             </select>
                         {% elif show_label_and_select %}
@@ -165,7 +196,7 @@
 
 
 <label class="" htmlFor="name">{{ _('Oración final:') }}</label>
-<select class="form-select mb-2 width-full" aria-label="" id="oracion_final" name="oracion_final">
+<select class="form-select mb-2" aria-label="" id="oracion_final" name="oracion_final">
         <option value="">{{ _('Selecciona un publicador') }}</option>
         {% for orador in oradores %}
         <option value="{{ orador }}">{{ orador }}</option>
@@ -219,5 +250,33 @@ window.addEventListener("load", function(event) {
 });
 
       </script>
+      <script>
+  // Función para llamar a la API de asignaciones automáticas mediante ChatGPT
+  document.getElementById("btnGenerarAsignaciones").addEventListener("click", function() {
+    // Mostrar un mensaje de carga
+    document.getElementById("resultadoAsignaciones").innerHTML = "Generando asignaciones, por favor espere...";
+    
+    fetch("/generar_asignaciones", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      // Si deseas enviar información adicional, puedes incluirla en el body:
+      body: JSON.stringify({ /* datos adicionales si es necesario */ })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById("resultadoAsignaciones").innerHTML = "Error: " + data.error;
+      } else {
+        // Mostrar el resultado formateado (por ejemplo, en un <pre> para mantener el formato)
+        document.getElementById("resultadoAsignaciones").innerHTML = "<pre>" + data.asignaciones + "</pre>";
+      }
+    })
+    .catch(error => {
+      document.getElementById("resultadoAsignaciones").innerHTML = "Error: " + error;
+    });
+  });
+</script>
    </body>
 </html>
