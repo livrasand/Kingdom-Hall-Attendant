@@ -1,7 +1,9 @@
 @media print {
-  /* Estilos específicos para la impresión */
+  /* Fuerza la impresión de colores y fondos */
   body {
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff; /* o el color que necesites */
+    -webkit-print-color-adjust: exact; /* para Chrome, Safari y Opera */
+    print-color-adjust: exact;         /* para Firefox y otros navegadores */
   }
   
   /* Oculta elementos que no quieres imprimir */
@@ -9,17 +11,18 @@
     display: none;
   }
 
-  clearfix::before {
+  @page {
+    margin: 0;
+  }
+
+  /* Otros ajustes para limpiar la impresión */
+  .clearfix::before {
     display: none;
     content: "";
   }
-
+  
   .btn {
     display: none;
-  }
-
-  .Box {
-    background-color: #f7f9fb;
   }
 
   .print-footer {
