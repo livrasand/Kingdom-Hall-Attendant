@@ -30,22 +30,21 @@
             {% include 'user_info.html' %}
          </div>
       </div>
+      <a class="btn btn-sm mr-2" onclick="imprimirPagina()">{{ _('Imprimir') }}</a>
       </div>
       <div class="container-xl mt-0 width-full">         
          <div class="pl-2">            
             <div class="container-xl clearfix"> 
-               <!-- HEAD PRINT -->
-      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3 ml-2 mt-n4" style="width:80%;">{{ _('Visita del Superintendente de Circuito') }}</p>
-         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 20%">{% if congregacion %}
-            {{ congregacion }}
-  {% else %}
-      Registra tu congregación
-  {% endif %}</p>
-      </div>
-      <!-- HEAD PRINT -->       
+               <div class="mt-6" id="header-page" style="display: flex;align-items: center;width: 100%;">
+                    <p class="h3  mt-n4" style="width:85%;">{{ _('Servicio del campo') }}</p>
+                    <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">{% if congregacion %}
+                     {{ congregacion }}
+           {% else %}
+               {{ _('Registra tu congregación') }}
+           {% endif %}</p>
+                 </div>     
       <form>
-        <div class="container-xl mt-6">
+        <div class="container-xl mt-0">
             <div class="Box mb-4">
                 <!-- Encabezado de días -->
                 <div class="Box-header d-flex flex-justify-between flex-column flex-md-row">
@@ -383,5 +382,10 @@ function convertDayToDate(dayName, year, month) {
     }
 }
 </style>
+   <script type="text/javascript">
+  function imprimirPagina() {
+    window.print();
+  }
+</script>
    </body>
 </html>

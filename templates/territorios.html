@@ -64,9 +64,10 @@
                     <select id="territorio-exportar" class="form-select">
                         <option value="" disabled selected>Selecciona un territorio...</option>
                     </select>
-                    <button class="btn" onclick="exportarMapa(document.getElementById('territorio-exportar').value)">
-                        Exportar tarjeta de territorio
-                    </button>
+                    <button id="btn-exportar" class="btn" onclick="exportarMapa(document.getElementById('territorio-exportar').value)">
+    Exportar tarjeta de territorio
+    <span id="loading-spinner" class="loading-spinner" style="display: none;"> Generando...</span>
+</button>
                     <button class="btn btn-danger" onclick="deleteTerritorio(document.getElementById('territorio-exportar').value)">
                         Eliminar territorio
                     </button>
@@ -112,6 +113,8 @@
                     allowIntersection: false,
                     showArea: true
                 },
+                polyline: false,       
+                rectangle: false,
                 circle: false,
                 marker: false,
                 circlemarker: false
@@ -284,16 +287,21 @@
     // Función para exportar el mapa de un territorio
     // Modificar función exportarMapa
 async function exportarMapa(territorioId) {
+    const btnExportar = document.getElementById('btn-exportar');
+    const spinner = document.getElementById('loading-spinner');
+    
     try {
-        if (!territorioId) {
-            return;
-        }
+        if (!territorioId) return;
+        
+        // Deshabilitar botón y mostrar carga
+        btnExportar.disabled = true;
+        spinner.style.display = 'inline';
+        btnExportar.innerHTML = 'Generando...';
         
         const response = await fetch(`/exportar-mapa/${territorioId}`);
         const data = await response.json();
         
         if (data.success) {
-            // Crear enlace temporal para descarga
             const link = document.createElement('a');
             link.href = data.map_url;
             link.download = `territorio_${territorioId}.pdf`;
@@ -305,6 +313,11 @@ async function exportarMapa(territorioId) {
         }
     } catch (error) {
         alert(`Error: ${error.message}`);
+    } finally {
+        // Restaurar estado original
+        btnExportar.disabled = false;
+        spinner.style.display = 'none';
+        btnExportar.innerHTML = 'Exportar tarjeta de territorio';
     }
 }
 
@@ -354,7 +367,21 @@ async function deleteTerritorio(territorioId) {
     z-index: 400;
 }
 
+.loading-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 2px solid #3498db;
+    animation: spin 1s linear infinite;
+    margin-left: 5px;
+}
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 </style>
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
