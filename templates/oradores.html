@@ -36,25 +36,32 @@
             <div class="d-table col-12">
                {% include 'user_info.html' %}
             </div>
+            <a href="/eliminar_todos_oradores">
+          <button class="btn btn-danger mr-2 btn-sm" type="button">
+            <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"></path></svg>
+          </button>
+        </a>
             <div className="d-flex flex-justify-end ml-2">
                <details class="details-reset details-overlay float-right">
-                     <summary class="btn btn-sm float-right" aria-haspopup="true">
-                        {{ _('Nuevo') }}
-                     </summary>
-                     <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
-                        <div class="SelectMenu-modal">
-                           <div class="SelectMenu-list">
-                              {% for publicadores_discursantes_list in publicadores_discursantes_list %}
-                              <a href="/crear_orador?nombres={{ publicadores_discursantes_list[1] }}&apellidos={{ publicadores_discursantes_list[2] }}" style="text-decoration: none;"><button class="SelectMenu-item" role="menuitem">{{ publicadores_discursantes_list[1] }} {{ publicadores_discursantes_list[2] }}</button></a>
-                              {% endfor %}
-                           </div>
-                           <footer class="SelectMenu-footer"></footer>
-                           <div class="SelectMenu-list" align="center">
-                              <a class="btn btn-sm mb-3" href="{{ url_for('nuevo_orador') }}" role="button">{{ _('Agregar orador foráneo') }}</a>
-                           </div>
-                        </div>
-                     </div>
-                  </details>
+    <summary class="btn btn-sm float-right" aria-haspopup="true">
+        {{ _('Nuevo') }}
+    </summary>
+    <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
+        <div class="SelectMenu-modal">
+            <div class="SelectMenu-list">
+                {% for publicadores_discursantes_list in publicadores_discursantes_list %}
+                <a href="/crear_orador?nombres={{ publicadores_discursantes_list[1] }}&apellidos={{ publicadores_discursantes_list[2] }}&id={{ publicadores_discursantes_list[0] }}" style="text-decoration: none;">
+                    <button class="SelectMenu-item" role="menuitem">{{ publicadores_discursantes_list[1] }} {{ publicadores_discursantes_list[2] }}</button>
+                </a>
+                {% endfor %}
+            </div>
+            <footer class="SelectMenu-footer"></footer>
+            <div class="SelectMenu-list" align="center">
+                <a class="btn btn-sm mb-3" href="{{ url_for('nuevo_orador') }}" role="button">{{ _('Agregar orador foráneo') }}</a>
+            </div>
+        </div>
+    </div>
+</details>
             </div>
          </div>
       </div>

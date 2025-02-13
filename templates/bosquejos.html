@@ -32,12 +32,17 @@
                 {% include 'user_info.html' %}
          </div>
       </div>
+      <a href="/eliminar_todos_bosquejos">
+          <button class="btn btn-danger mr-2 btn-sm" type="button">
+            <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"></path></svg>
+          </button>
+        </a>
       <a class="btn btn-sm mr-2" onclick="imprimirPagina()" role="button">{{ _('Imprimir') }}</a>
 
       <div className="d-flex flex-justify-end ml-2">
                <details class="details-reset details-overlay float-right">
                      <summary class="btn btn-sm float-right" aria-haspopup="true">
-                        {{ _('Nuevo') }}
+                        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg>
                      </summary>
                      <div class="SelectMenu SelectMenu--hasFilter right-5 mt-4">
                         <div class="SelectMenu-modal">
@@ -58,66 +63,96 @@
                </div>
       </div>
 
-      <!-- HEAD PRINT -->
-      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3 ml-4 mt-4" style="width:85%;">{{ _('Discursos públicos') }}</p>
-         <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%">{% if congregacion %}
-          {{ congregacion }}
-{% else %}
-    {{ _('Registra tu congregación') }}
-{% endif %}</p>
-      </div>
-      <!-- HEAD PRINT -->
+   <div class="container-xl mt-6">     
 
-   <div class="container-xl mt-6">      
-      <div class="pl-2">         
+      <div class="p-2">  
+
          <div class="container-lg clearfix">
+            <div class="color-fg-on-emphasis p-2 rounded-top-2 mb-0"
+     style="background-color: #89A890; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem;">
+  <!-- Contenedor izquierdo: icono y título -->
+  <div style="display: flex; align-items: center; flex: 1; min-width: 0;">
+    <i class="jwIcon e125 mr-1" style="color: #fff; font-size: 1em;"></i>
+    <!-- Se utiliza overflow hidden para evitar que textos muy largos empujen el contenido -->
+    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+      Discursos públicos
+    </span>
+  </div>
+
+  <!-- Contenedor derecho: congregación -->
+  <div class="mr-2" style="flex-shrink: 0; margin-left: 1rem; text-align: right;">
+    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+      {% if congregacion %}
+        {{ congregacion }}
+      {% else %}
+        {{ _('Registra tu congregación') }}
+      {% endif %}
+    </span>
+  </div>
+</div>
             {% if bosquejos_list %}
     {% for bosquejo in bosquejos_list %}
-            <div class="Box mt-2 mr-2">
-               <div class="Box-row d-flex flex-items-center">
-                  <div class="flex-auto">
-                     <strong>{% if bosquejo[5] %}
-    <strong>{{ _('Discurso público') }} {{ bosquejo[5] }}</strong>
-{% else %}
-    <strong>{{ _('Sin asignar bosquejo') }}</strong>
-{% endif %}</strong>
-                  </div>
-                  <div class="container-lg clearfix" style="width: 70%;">
-                     <div class="col-3 float-left">
-                        <p class="h4">{{ _('Fecha:') }}</p>
-                        <p class="mt-n2">{{ bosquejo[3] if bosquejo[3] else _('Sin asignar') }}</p>
-                     </div>
-                     <div class="col-3 float-left">
-                        <p class="h4">{{ _('Orador:') }}</p>
-                        <p class="mt-n2">{{ bosquejo[1] }} {{ bosquejo[2] }}</p>
-                     </div>
-                     <div class="col-3 float-left">
-                        <p class="h4">{{ _('Congregación:') }}</p>
-                        <p class="mt-n2">{{ bosquejo[4] if bosquejo[4] else _('Local') }}</p>
-                     </div>
-                     <div class="col-3 float-left">
-                        <p class="h4">{{ _('Saliente a:') }}</p>
-                        <p class="mt-n2">{{ bosquejo[11] if bosquejo[11] else _('Es visitante') }}</p>
-                     </div>
-                  </div>
-                  <a href="/mostrar_bosquejo/{{ bosquejo[0] }}"><button class="btn mr-2 btn-sm" type="button">
-                     <!-- <%= octicon "search" %> -->
-                     <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                        <path
-                           d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z">
-                        </path>
-                     </svg>
-                  </button></a>
-               </div>
+    <div class="Box mt-0 {% if loop.last %}rounded-bottom-2{% endif %}" style="border: 0.5px solid #D7E3DA; border-radius: 0;">
+        <div class="Box-row d-flex flex-items-center p-0">
+            <div class="flex-auto p-2 flex-items-center" style="background-color: #D7E3DA; align-self: stretch; justify-content: center; align-items: center; max-width: 10%;min-width: 10%;">
+                <strong style="color:#498457;">{{ bosquejo[3] if bosquejo[3] else _('Sin asignar') }}</strong>
             </div>
-             {% endfor %}
-{% else %}
-    <div class="container-lg mt-1" align="center">
-      <h1>🤔</h1>
-    <h4 style="width:50%;">{{ _('¡Aún no tienes ningún bosquejo programado! Para empezar, programa el primer bosquejo haciendo clic en el botón "Nuevo".') }}</h4>
-</div>
+            
+            <div class="container-lg p-2" style="width: 100%;">
+                <div class="d-flex flex-wrap align-items-center">
+                    <!-- Orador -->
+                    <div class="d-flex align-items-center mr-3">
+                        <span style="color:#757575;">{{ _('Orador:') }}</span>
+                        <span style="font-weight:500; margin-left:5px;">{{ bosquejo[1] }} {{ bosquejo[2] }}</span>
+                    </div>
+                    
+                    <!-- Congregación -->
+                    {% if bosquejo[4] %}
+                    <div class="d-flex align-items-center mr-3">
+                        <span style="color:#757575;">{{ _('Congregación:') }}</span>
+                        <span style="font-weight:normal; margin-left:5px;">{{ bosquejo[4] }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Saliente a -->
+                    {% if bosquejo[11] %}
+    <!-- Saliente a -->
+    <div class="d-flex align-items-center mr-3">
+        <span style="color:#757575;">{{ _('Saliente a:') }}</span>
+        <span style="font-weight:500; margin-left:5px;">{{ bosquejo[11] }}</span>
+    </div>
+{% endif %}
+                    <div class="d-flex align-items-center mr-2">
+                        <span class="border-right">
+                        </span>
+                    </div>
+                    <!-- Bosquejo -->
+                    <div class="d-flex align-items-center">
+                        <span style="font-weight:500; margin-left:5px; color:#498457;">
+                            {% if bosquejo[5] %}
+                                {{ _('Discurso público') }} {{ bosquejo[5] }}
+                            {% else %}
+                                {{ _('Sin asignar') }}
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
 
+            <a href="/mostrar_bosquejo/{{ bosquejo[0] }}">
+                <button class="btn mr-2 btn-sm" type="button">
+                    <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
+            </svg>
+                </button>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="container-lg mt-4" align="center">
+        <h4 style="width:100%;">{{ _('¡Aún no tienes ningún discurso programado!') }}</h4>
+    </div>
 {% endif %}
          </div>
       </div>
@@ -126,17 +161,6 @@
    </div>
 
    <script type="text/javascript">
-      function imprimirPagina() {
-           // Cambiar la visibilidad del elemento con id "elemento-oculto" a visible
-    
-    document.getElementById("header-page").style.visibility = "visible";
-
-
-  window.print(); // Inicia el proceso de impresión
-
-    document.getElementById("header-page").style.visibility = "hidden";
-}
-
 // Obtener la fecha actual
 var fechaActual = new Date();
 
@@ -147,6 +171,11 @@ var fechaFormateada = fechaActual.toLocaleDateString('es-ES', opcionesFecha);
 // Insertar la fecha en el elemento <span> dentro del <h3>
 document.getElementById("fecha").innerText = fechaFormateada;
    </script>
+    <script type="text/javascript">
+  function imprimirPagina() {
+    window.print();
+  }
+</script>
 </body>
 
 </html>

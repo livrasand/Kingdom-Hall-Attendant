@@ -12,6 +12,24 @@
       <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
       <link href="{{ url_for('static', filename='print-styles.css') }}" rel="stylesheet" />
       <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+      <style>
+@media print {
+  @page {
+    margin: 0;
+  }
+  
+  body {
+    transform: scale(0.77);
+    transform-origin: top left;
+    width: 130%;
+  }
+  
+  .Header {
+    display: none;
+  }
+}
+</style>
    </head>
    <body>
     <div class="Header color-bg-inset">
@@ -43,16 +61,14 @@
       <div class="container-xl mt-6 width-full m-6">         
          <div class="pl-2">            
             <div class="container-xl clearfix"> 
-               <!-- HEAD PRINT -->
-      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3 ml-2 mt-n4" style="width:80%;">{{ _('Visita del Superintendente de Circuito') }}</p>
-         <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 20%">{% if congregacion %}
-            {{ congregacion }}
-  {% else %}
-      Registra tu congregación
-  {% endif %}</p>
-      </div>
-      <!-- HEAD PRINT -->       
+               <div class="mt-6" id="header-page" style="display: flex;align-items: center;width: 100%;">
+                    <p class="h3  mt-n4" style="width:85%;">{{ _('Semana de visita del Superintendente de circuito') }}</p>
+                    <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">{% if congregacion %}
+                     {{ congregacion }}
+           {% else %}
+               {{ _('Registra tu congregación') }}
+           {% endif %}</p>
+                 </div>      
       <div class="Box mb-4">
         <!-- Encabezado de días -->
         <div class="Box-header d-flex flex-wrap">
@@ -116,12 +132,10 @@
       </div>
        <script type="text/javascript">
       function imprimirPagina() {
-    document.getElementById("header-page").style.visibility = "visible";
-
+    
 
   window.print(); // Inicia el proceso de impresión
 
-    document.getElementById("header-page").style.visibility = "hidden";
 }
 
 // Obtener la fecha actual
