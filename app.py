@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file, Response
+from flask import Flask, render_template, request, redirect, g, url_for, jsonify, session, flash, send_file, Response, make_response
 import sqlite3
 import datetime
 from datetime import timedelta
@@ -19,18 +19,15 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash, gen_salt
 import uuid
-import threading
 import re
 from dotenv import load_dotenv
 import pyotp
-import qrcode
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_wtf.csrf import CSRFProtect
-import base64
 from urllib.parse import urlparse
 import hashlib
 import io
@@ -49,6 +46,8 @@ from shapely.geometry import Polygon, MultiPolygon
 import geopandas as gpd
 import contextily as ctx
 from shapely.geometry import shape
+import openai 
+import threading
 
 load_dotenv()
 app = Flask(__name__)
@@ -664,7 +663,15 @@ def grupos_predicacion():
         publicadores_grupo = cursor.fetchall()
         publicadores_por_grupo[grupo[0]] = publicadores_grupo
 
-    return render_template('/grupos-predicacion.html', grupos=grupos, publicadores_por_grupo=publicadores_por_grupo, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    cursor.execute("SELECT nombre_congregacion FROM congregacion")
+    congregacion = cursor.fetchone()
+
+    if congregacion and congregacion[0].strip():
+        congregacion_formateada = congregacion[0].strip("()'")
+    else:
+        congregacion_formateada = None
+
+    return render_template('/grupos-predicacion.html', grupos=grupos, publicadores_por_grupo=publicadores_por_grupo, congregacion=congregacion_formateada, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
 
 @app.route('/nuevo_grupo', methods=['GET'])
 def nuevo_grupo():
@@ -743,27 +750,36 @@ def crear_familia(apellidos):
 
 @app.route('/oradores.html')
 def oradores():
-  cursor = g.bd.cursor()
-  cursor.execute("SELECT * FROM oradores")
-  oradores = cursor.fetchall()
-  cursor.execute("SELECT id, nombres, apellidos FROM publicadores WHERE checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1")
-  publicadores_discursantes = cursor.fetchall()
-  return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM oradores")
+    oradores = cursor.fetchall()
+    
+    # Modificar la consulta para excluir los publicadores que ya están en la tabla oradores
+    cursor.execute("""
+        SELECT id, nombres, apellidos 
+        FROM publicadores 
+        WHERE (checkbox_discursante_publico_saliente = 1 OR checkbox_discursante_publico_local = 1)
+        AND id NOT IN (SELECT id FROM oradores)
+    """)
+    publicadores_discursantes = cursor.fetchall()
+    
+    return render_template('oradores.html', orador_list=oradores, publicadores_discursantes_list=publicadores_discursantes, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
 
 @app.route('/crear_orador', methods=['GET'])
 def crear_orador():
-  nombres = request.args.get('nombres')
-  apellidos = request.args.get('apellidos')
+    nombres = request.args.get('nombres')
+    apellidos = request.args.get('apellidos')
+    publicador_id = request.args.get('id')  # Asegúrate de pasar el publicador_id desde el frontend
 
-  cursor = g.bd.cursor()
-  cursor.execute("SELECT * FROM oradores WHERE nombres = ? AND apellidos = ?", (nombres, apellidos))
-  orador_existente = cursor.fetchone()
+    cursor = g.bd.cursor()
+    cursor.execute("SELECT * FROM oradores WHERE id = ?", (publicador_id,))
+    orador_existente = cursor.fetchone()
 
-  if not orador_existente:
-    cursor.execute("INSERT INTO oradores (nombres, apellidos) VALUES (?, ?)", (nombres, apellidos))
-    g.bd.commit()
+    if not orador_existente:
+        cursor.execute("INSERT INTO oradores (nombres, apellidos, id) VALUES (?, ?, ?)", (nombres, apellidos, publicador_id))
+        g.bd.commit()
 
-  return redirect('/oradores.html')
+    return redirect('/oradores.html')
 
 @app.route('/mostrar_orador/<int:id>', methods=['GET'])
 def mostrar_orador(id):
@@ -1537,6 +1553,13 @@ def eliminar_orador(id):
     g.bd.commit()
     return redirect('/oradores.html')
 
+@app.route('/eliminar_todos_oradores', methods=['GET'])
+def eliminar_todos_oradores():
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM oradores")
+    g.bd.commit()
+    return redirect('/oradores.html')
+
 @app.route('/eliminar_contenido_configuracion', methods=['GET'])
 def eliminar_contenido_configuracion():
     cursor = g.bd.cursor()
@@ -1564,6 +1587,50 @@ def bosquejos():
     cursor.execute("SELECT * FROM bosquejos")
     bosquejos_list = cursor.fetchall()
 
+    # Diccionarios para formatear la fecha
+    dias_semana = {
+        'Monday': 'lunes',
+        'Tuesday': 'martes',
+        'Wednesday': 'miércoles',
+        'Thursday': 'jueves',
+        'Friday': 'viernes',
+        'Saturday': 'sábado',
+        'Sunday': 'domingo'
+    }
+    meses = {
+        1: 'ene',
+        2: 'feb',
+        3: 'mar',
+        4: 'abr',
+        5: 'may',
+        6: 'jun',
+        7: 'jul',
+        8: 'ago',
+        9: 'sep',
+        10: 'oct',
+        11: 'nov',
+        12: 'dic'
+    }
+
+    # Formatear las fechas en bosquejos_list
+    bosquejos_formateados = []
+    for bosquejo in bosquejos_list:
+        try:
+            # Asume que la fecha está en el índice 3 (ajusta según tu estructura)
+            dt = datetime.datetime.strptime(bosquejo[3], '%Y-%m-%d')  # Ajusta el formato si es necesario
+            dia_nombre = dias_semana.get(dt.strftime('%A'), dt.strftime('%A'))
+            mes_nombre = meses.get(dt.month, dt.strftime('%B'))
+            fecha_formateada = f"{dia_nombre} {dt.day} de {mes_nombre}"
+        except Exception as e:
+            # Si falla el parseo, imprime el error y usa la fecha original
+            print(f"Error al parsear la fecha: {bosquejo[3]} - {e}")
+            fecha_formateada = bosquejo[3]
+
+        # Convertir la tupla a lista para modificar la fecha
+        bosquejo_mod = list(bosquejo)
+        bosquejo_mod[3] = fecha_formateada  # Asegúrate de que el índice sea correcto
+        bosquejos_formateados.append(bosquejo_mod)
+
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
 
@@ -1572,7 +1639,13 @@ def bosquejos():
     else:
         congregacion_formateada = None
 
-    return render_template('bosquejos.html', oradoreslist=oradoreslist, bosquejos_list=bosquejos_list, congregacion=congregacion_formateada, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    return render_template(
+        'bosquejos.html', 
+        oradoreslist=oradoreslist, 
+        bosquejos_list=bosquejos_formateados,  # Usar la lista con fechas formateadas
+        congregacion=congregacion_formateada, 
+        google_analytics_id=app.config['GOOGLE_ANALYTICS_ID']
+    )
 
 @app.route('/nuevo_bosquejo', methods=['GET'])
 def nuevo_bosquejo():
@@ -1722,11 +1795,61 @@ def eliminar_bosquejo(id):
     g.bd.commit()
     return redirect('/bosquejos.html')
 
+@app.route('/eliminar_todos_bosquejos', methods=['GET'])
+def eliminar_todos_bosquejos():
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM bosquejos")
+    g.bd.commit()
+    return redirect('/bosquejos.html')
+
 @app.route('/estudio-atalaya.html')
 def estudio_atalaya():
     cursor = g.bd.cursor()
     cursor.execute("SELECT * FROM estudio_atalaya")
     estudios_atalayas = cursor.fetchall()
+
+    dias_semana = {
+        'Monday': 'lunes',
+        'Tuesday': 'martes',
+        'Wednesday': 'miércoles',
+        'Thursday': 'jueves',
+        'Friday': 'viernes',
+        'Saturday': 'sábado',
+        'Sunday': 'domingo'
+    }
+    meses = {
+        1: 'ene',
+        2: 'feb',
+        3: 'mar',
+        4: 'abr',
+        5: 'may',
+        6: 'jun',
+        7: 'jul',
+        8: 'ago',
+        9: 'sep',
+        10: 'oct',
+        11: 'nov',
+        12: 'dic'
+    }
+    
+    estudios_formateados = []
+    for estudio in estudios_atalayas:
+        try:
+            # Verifica que el formato de la fecha sea el correcto.
+            # Ajusta el formato si tu fecha incluye hora, por ejemplo: '%Y-%m-%d %H:%M:%S'
+            dt = datetime.datetime.strptime(estudio[1], '%Y-%m-%d')
+            dia_nombre = dias_semana.get(dt.strftime('%A'), dt.strftime('%A'))
+            mes_nombre = meses.get(dt.month, dt.strftime('%B'))
+            fecha_formateada = f"{dia_nombre} {dt.day} de {mes_nombre}"
+        except Exception as e:
+            # Si falla el parseo, imprime el error y usa la fecha original
+            print(f"Error al parsear la fecha: {estudio[1]} - {e}")
+            fecha_formateada = estudio[1]
+        
+        # Convertimos la tupla a lista para modificar la fecha
+        estudio_mod = list(estudio)
+        estudio_mod[1] = fecha_formateada
+        estudios_formateados.append(estudio_mod)
 
     cursor.execute("SELECT nombre_congregacion FROM congregacion")
     congregacion = cursor.fetchone()
@@ -1736,7 +1859,12 @@ def estudio_atalaya():
     else:
         congregacion_formateada = None
 
-    return render_template('estudio-atalaya.html', estudios_atalayas=estudios_atalayas, congregacion=congregacion_formateada, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    return render_template(
+        'estudio-atalaya.html', 
+        estudios_atalayas=estudios_formateados, 
+        congregacion=congregacion_formateada, 
+        google_analytics_id=app.config['GOOGLE_ANALYTICS_ID']
+    )
 
 @app.route('/mostrar_estudio_atalaya/<int:id>', methods=['GET'])
 def mostrar_estudio_atalaya(id):
@@ -1807,6 +1935,13 @@ def eliminar_estudio_atalaya(id):
     g.bd.commit()
     return redirect('/estudio-atalaya.html')
 
+@app.route('/eliminar_todos_estudio_atalaya', methods=['GET'])
+def eliminar_todos_estudio_atalaya():
+    cursor = g.bd.cursor()
+    cursor.execute("DELETE FROM estudio_atalaya")
+    g.bd.commit()
+    return redirect('/estudio-atalaya.html')
+
 @app.route('/vida-ministerio.html')
 def vida_ministerio():
     cursor = g.bd.cursor()
@@ -1821,14 +1956,17 @@ def vida_ministerio():
     else:
         congregacion_formateada = None
 
-    return render_template('vida-ministerio.html', congregacion=congregacion_formateada, vidas_ministerio=vida_ministerio, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    return render_template('vida-ministerio.html', 
+                           congregacion=congregacion_formateada, 
+                           vidas_ministerio=vida_ministerio, 
+                           google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
 
 @app.route('/nuevo-vida-ministerio', methods=['GET'])
 def nuevo_vida_ministerio():
-    current_year = request.args.get('year', datetime.datetime.now().year)
-    current_week = request.args.get('week', datetime.datetime.now().isocalendar()[1])
-    week_info, data = extract_data_from_WOL(current_year, current_week)
-    url_previous, url_next = get_previous_and_next_urls(current_year, current_week)
+    year = request.args.get('year', type=int, default=datetime.datetime.now().isocalendar()[0])
+    week = request.args.get('week', type=int, default=datetime.datetime.now().isocalendar()[1])
+    week_info, data = extract_data_from_WOL(year, week)
+    url_previous, url_next = get_previous_and_next_urls(year, week)
 
     cursor = g.bd.cursor()
     cursor.execute("SELECT nombres || ' ' || apellidos AS nombre_completo FROM publicadores WHERE checkbox_presidente = 1")
@@ -1839,7 +1977,7 @@ def nuevo_vida_ministerio():
     cursor.execute("SELECT nombres || ' ' || apellidos AS nombre_completo FROM publicadores WHERE checkbox_oracion = 1")
     oradores = cursor.fetchall()
 
-    oradores_formateados = [orador[0].strip("('')") for orador in oradores]
+    oradores_formateados = [orador[0].strip() for orador in oradores]
 
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_estudio_biblico_congregacion = 1")
     conductores = cursor.fetchall()
@@ -1853,57 +1991,80 @@ def nuevo_vida_ministerio():
     cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_discurso = 1")
     discursantes = cursor.fetchall()
 
+    # Consultas para TESOROS DE LA BIBLIA:
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_discurso_10_mins = 1")
+    publicadores_discurso = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_busquemos_perlas_escondidas = 1")
+    publicadores_busquemos = cursor.fetchall()
+
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lectura_biblia = 1")
+    publicadores_lectura = cursor.fetchall()
+
     session['data'] = data
 
-    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    return render_template('detalle-vida-ministerio.html', data=data, week_info=week_info, url_previous=url_previous, url_next=url_next, presidentes=presidentes_formateados, oradores=oradores_formateados, conductores=conductores, lectores=lectores, publicadores=publicadores, discursantes=discursantes, publicadores_discurso=publicadores_discurso, publicadores_busquemos=publicadores_busquemos, publicadores_lectura=publicadores_lectura, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
 
-def extract_data_from_WOL(year, week):
+def extract_data_from_WOL(year, week, max_retries=5):
     url = f"https://wol.jw.org/es/wol/meetings/r4/lp-s/{year}/{week}"
-    try:
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-    except requests.exceptions.Timeout:
-        print("La solicitud ha superado el tiempo de espera.")
-        return None, {}  
-    except requests.exceptions.RequestException as e:
-        print(f"Ocurrió un error: {e}")
-        return None, {}  
-    else:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        week_info = soup.find('h1').text
-        data = {}
-        current_h2 = None
+    attempts = 0  
+    while attempts < max_retries: 
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+        except requests.exceptions.Timeout:
+            print("La solicitud ha superado el tiempo de espera. Reintentando...")
+        except requests.exceptions.RequestException as e:
+            print(f"Ocurrió un error: {e}. Reintentando...")
+        else:
+            soup = BeautifulSoup(response.content, 'html.parser')
+            week_info = soup.find('h1').text
+            data = {}
+            current_h2 = None
 
-        for element in soup.find_all(['h2', 'h3']):
-            if element.name == 'h2':
-                current_h2 = element.text.strip()
-                data[current_h2] = []
-            elif element.name == 'h3' and current_h2:
-                data[current_h2].append(element.text.strip())
+            for element in soup.find_all(['h2', 'h3']):
+                if element.name == 'h2':
+                    current_h2 = element.text.strip()
+                    data[current_h2] = []
+                elif element.name == 'h3' and current_h2:
+                    data[current_h2].append(element.text.strip())
 
-        return week_info, data
+            return week_info, data  
+        
+        attempts += 1  
+
+    print("Se alcanzó el número máximo de reintentos.")
+    return None, {}  
 
 def get_previous_and_next_urls(year, week):
-    previous_week_date = datetime.datetime.strptime(f"{year}-{week}-1", "%Y-%W-%w") - datetime.timedelta(weeks=1)
-    previous_year = previous_week_date.year
-    previous_week = previous_week_date.isocalendar()[1]
-    url_previous = f"/nuevo-vida-ministerio?year={previous_year}&week={previous_week}"
-
-    next_week_date = datetime.datetime.strptime(f"{year}-{week}-1", "%Y-%W-%w") + datetime.timedelta(weeks=1)
-    next_year = next_week_date.year
-    next_week = next_week_date.isocalendar()[1]
-    url_next = f"/nuevo-vida-ministerio?year={next_year}&week={next_week}"
-
-    return url_previous, url_next
+    try:
+        # Obtener el primer día (lunes) de la semana ISO actual
+        current_week_date = datetime.datetime.fromisocalendar(year, week, 1)
+        
+        # Calcular semana anterior
+        previous_week_date = current_week_date - timedelta(weeks=1)
+        prev_year, prev_week, _ = previous_week_date.isocalendar()
+        url_previous = f"/nuevo-vida-ministerio?year={prev_year}&week={prev_week}"
+        
+        # Calcular semana siguiente
+        next_week_date = current_week_date + timedelta(weeks=1)
+        next_year, next_week, _ = next_week_date.isocalendar()
+        url_next = f"/nuevo-vida-ministerio?year={next_year}&week={next_week}"
+        
+        return url_previous, url_next
+    except ValueError as e:
+        print(f"Error calculando semanas: {e}")
+        return "#", "#"
 
 @app.route('/guardar_vida_ministerio', methods=['POST'])
 def guardar_vida_ministerio():
-    data = session.get('data', {})
+    # Obtener datos del formulario
     week_info = request.form.get('week_info')
     presidente = request.form.get('presidente')
     oracion_inicio = request.form.get('oracion_inicio')
     oracion_final = request.form.get('oracion_final')
 
+    # Estructura base del JSON
     form_data = {
         "week_info": week_info,
         "presidente": presidente,
@@ -1912,25 +2073,52 @@ def guardar_vida_ministerio():
         "temas": []
     }
 
+    # Obtener datos de la sesión
+    data = session.get('data', {})
+
+    # Recorrer los temas y detalles
     for h2, h3_list in data.items():
         tema = {"titulo": h2, "detalles": []}
         for h3 in h3_list:
+            detalle = {"subtitulo": h3}
+
+            # Campos específicos para "Estudio bíblico de la congregación"
             if "Estudio bíblico de la congregación" in h3:
-                conductor = request.form.get(f"conductor_{h3}")
-                lector = request.form.get(f"lector_{h3}")
-                detalle = {"subtitulo": h3, "conductor": conductor, "lector": lector}
+                detalle["conductor"] = request.form.get(f"conductor_{h3}")
+                detalle["lector"] = request.form.get(f"lector_{h3}")
+
+            # Campos específicos para "Discurso"
+            elif "Discurso" in h3:
+                detalle["discurso"] = request.form.get("discurso")
+
+            # Campos específicos para "Busquemos perlas"
+            elif "1." in h3:
+                detalle["publicador"] = request.form.get("busquemos_perlas_1")
+            elif "2." in h3:
+                detalle["publicador"] = request.form.get("busquemos_perlas_2")
+
+            # Campos específicos para "Lectura de la Biblia"
+            elif "Lectura de la Biblia" in h3:
+                detalle["lectura_biblica"] = request.form.get("lectura_biblica")
+
+            # Campos generales para otros temas
             else:
-                publicador = request.form.get(f"publicador_{h3}")
-                ayudante = request.form.get(f"ayudante_{h3}")
-                detalle = {"subtitulo": h3, "publicador": publicador, "ayudante": ayudante}
+                detalle["publicador"] = request.form.get(f"publicador_{h3}")
+                detalle["ayudante"] = request.form.get(f"ayudante_{h3}")
+
+            # Agregar el detalle al tema
             tema["detalles"].append(detalle)
+
+        # Agregar el tema a la lista de temas
         form_data["temas"].append(tema)
 
+    # Convertir el diccionario a JSON
     form_data_json = json.dumps(form_data, ensure_ascii=False, indent=4)
 
+    # Guardar en la base de datos
     cursor = g.bd.cursor()
     cursor.execute("""
-        INSERT INTO vida_ministerio (week_info, presidente, oracion_inicio, oracion_final, datos_json)
+        INSERT OR REPLACE INTO vida_ministerio (week_info, presidente, oracion_inicio, oracion_final, datos_json)
         VALUES (?, ?, ?, ?, ?)
     """, (week_info, presidente, oracion_inicio, oracion_final, form_data_json))
 
@@ -1945,7 +2133,6 @@ def obtener_semana_de_la_base_de_datos(week_id):
 
     if semana:
         datos_json = semana[0]
-
         semana_dict = json.loads(datos_json)
         return semana_dict
     else:
@@ -1968,6 +2155,115 @@ def mostrar_vida_ministerio(id):
         congregacion_formateada = None
         
     return render_template('mostrar-vida-ministerio.html', semana=semana, congregacion=congregacion_formateada, vida_ministerio=vida_ministerio, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+
+def obtener_publicadores_recientes(rol, semanas=4):
+    cursor = g.bd.cursor()
+    # Se obtienen los registros más recientes (por ejemplo, las últimas 4 asignaciones)
+    cursor.execute("SELECT datos_json FROM vida_ministerio ORDER BY id DESC LIMIT ?", (semanas,))
+    registros = cursor.fetchall()
+    participantes = set()
+    for registro in registros:
+        try:
+            datos = json.loads(registro[0])
+            # Se buscan en el JSON tanto las asignaciones generales como en los detalles de cada tema.
+            # Se asume que la asignación directa para algunos roles (como presidente, oración, etc.) 
+            # se encuentra en las claves del JSON.
+            if rol in datos and datos[rol]:
+                participantes.add(datos[rol].strip())
+            # Buscar dentro de los temas:
+            for tema in datos.get("temas", []):
+                for detalle in tema.get("detalles", []):
+                    if rol in detalle and detalle[rol]:
+                        participantes.add(detalle[rol].strip())
+        except Exception as e:
+            print(f"Error al procesar registro: {e}")
+    return list(participantes)
+
+client = openai.OpenAI(api_key="OPEN_AI_KEY")
+
+@app.route('/generar_asignaciones', methods=['POST'])
+def generar_asignaciones():
+    cursor = g.bd.cursor()
+    
+    # --- Candidatos para PRESIDENTE ---
+    cursor.execute("SELECT nombres || ' ' || apellidos FROM publicadores WHERE checkbox_presidente = 1")
+    presidentes = [row[0].strip() for row in cursor.fetchall()]
+    recientes_presidente = obtener_publicadores_recientes("presidente", semanas=4)
+    presidentes_filtrados = [p for p in presidentes if p not in recientes_presidente]
+
+    # --- Candidatos para ORACIÓN DE INICIO ---
+    cursor.execute("SELECT nombres || ' ' || apellidos FROM publicadores WHERE checkbox_oracion = 1")
+    oradores = [row[0].strip() for row in cursor.fetchall()]
+    recientes_oracion_inicio = obtener_publicadores_recientes("oracion_inicio", semanas=4)
+    oradores_filtrados = [o for o in oradores if o not in recientes_oracion_inicio]
+
+    # --- Candidatos para ORACIÓN FINAL ---
+    # (Se puede usar la misma consulta de oradores o una diferenciada si así lo requieres)
+    cursor.execute("SELECT nombres || ' ' || apellidos FROM publicadores WHERE checkbox_oracion = 1")
+    oradores_final = [row[0].strip() for row in cursor.fetchall()]
+    recientes_oracion_final = obtener_publicadores_recientes("oracion_final", semanas=4)
+    oradores_final_filtrados = [o for o in oradores_final if o not in recientes_oracion_final]
+
+    # --- Candidatos para CONDUCTOR ---
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_estudio_biblico_congregacion = 1")
+    conductores = [f"{row[0].strip()} {row[1].strip()}" for row in cursor.fetchall()]
+    recientes_conductor = obtener_publicadores_recientes("conductor", semanas=4)
+    conductores_filtrados = [c for c in conductores if c not in recientes_conductor]
+
+    # --- Candidatos para LECTOR ---
+    cursor.execute("SELECT nombres, apellidos FROM publicadores WHERE checkbox_lector = 1")
+    lectores = [f"{row[0].strip()} {row[1].strip()}" for row in cursor.fetchall()]
+    recientes_lector = obtener_publicadores_recientes("lector", semanas=4)
+    lectores_filtrados = [l for l in lectores if l not in recientes_lector]
+
+    # --- Candidatos para PUBLICADOR ---
+    cursor.execute("SELECT nombres || ' ' || apellidos FROM publicadores")
+    publicadores = [row[0].strip() for row in cursor.fetchall()]
+    recientes_publicador = obtener_publicadores_recientes("publicador", semanas=4)
+    publicadores_filtrados = [p for p in publicadores if p not in recientes_publicador]
+
+    # --- Candidatos para AYUDANTE ---
+    # Suponemos que para ayudante se usa la misma lista que para publicador.
+    ayudantes_filtrados = publicadores_filtrados
+
+    # Construir un diccionario con las listas de candidatos filtradas:
+    candidatos = {
+        "presidente": presidentes_filtrados,
+        "oracion_inicio": oradores_filtrados,
+        "oracion_final": oradores_final_filtrados,
+        "conductor": conductores_filtrados,
+        "lector": lectores_filtrados,
+        "publicador": publicadores_filtrados,
+        "ayudante": ayudantes_filtrados
+    }
+
+    # Construir el prompt para ChatGPT. Se le indica que, utilizando la lista de candidatos por rol,
+    # genere asignaciones de manera equitativa evitando repetir a quienes han participado recientemente.
+    prompt = (
+        "Eres un asistente que asigna roles de ministerio de forma equitativa. "
+        "Con la siguiente lista de candidatos para cada rol, asigna de manera justa evitando asignar a quienes han participado recientemente. "
+        "Devuelve el resultado en formato JSON con las asignaciones correspondientes.\n\n"
+        "Candidatos:\n"
+        f"{json.dumps(candidatos, indent=4)}"
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # Ajusta el modelo según lo que tengas disponible
+            messages=[
+                {"role": "system", "content": "Eres un asistente que asigna roles de ministerio de manera equitativa."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+        )
+
+        # Extraer la respuesta (según la estructura de respuesta de la API)
+        assignment_text = response.choices[0].message.content  
+
+        return jsonify({"asignaciones": assignment_text})
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/visita-superint-circuito.html')
 def visita_superint_circuito():
@@ -4050,9 +4346,39 @@ def eliminar_all_ava():
 def ratelimit_handler(e):
   return render_template('epa.html')
 
+meses = {
+    '1': 'Enero', '2': 'Febrero', '3': 'Marzo', '4': 'Abril',
+    '5': 'Mayo', '6': 'Junio', '7': 'Julio', '8': 'Agosto',
+    '9': 'Septiembre', '10': 'Octubre', '11': 'Noviembre', '12': 'Diciembre'
+}
+
 @app.route('/informes-predicacion')
 def informes_predicacion():
     cursor = g.bd.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS informes_predicacion (
+            id INTEGER,
+            publicador_id INTEGER NOT NULL,
+            mes INTEGER NOT NULL,
+            anio INTEGER NOT NULL,
+            participacion BOOLEAN DEFAULT FALSE,
+            cursos_biblicos TEXT,
+            horas DECIMAL(5, 2),
+            comentarios TEXT,
+            privilegios_servicio VARCHAR(255),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY(id AUTOINCREMENT)
+        )
+    ''')
+    current_year = datetime.datetime.now().year
+    selected_month = request.args.get('mes', datetime.datetime.now().month, type=int)
+    selected_year = request.args.get('anio', datetime.datetime.now().year, type=int)
+    
+    prev_month = selected_month - 1 if selected_month > 1 else 12
+    prev_year = selected_year if selected_month > 1 else selected_year - 1
+    next_month = selected_month + 1 if selected_month < 12 else 1
+    next_year = selected_year if selected_month < 12 else selected_year + 1
+
     cursor.execute("SELECT * FROM publicadores")
     publicadores = cursor.fetchall()
 
@@ -4069,26 +4395,30 @@ def informes_predicacion():
 
     grupo_seleccionado = request.args.get('grupo', 'todos')
 
-
     informes = {}
     for publicador in publicadores:
         cursor.execute("""
             SELECT * FROM informes_predicacion 
             WHERE publicador_id = ? 
+            AND mes = ? 
+            AND anio = ? 
             ORDER BY created_at DESC 
             LIMIT 1
-        """, (publicador[0],))
-        informe = cursor.fetchone()  
-        informes[publicador[0]] = informe if informe else []  
+        """, (publicador[0], selected_month, selected_year))
+        informe = cursor.fetchone()
+        informes[publicador[0]] = informe if informe else None  
 
     if grupo_seleccionado != 'todos':
         publicadores = [pub for pub in publicadores if pub[113] == grupo_seleccionado]  
 
-    return render_template('informes-predicacion.html', publicadores=publicadores, informes=informes, grupos=grupos, congregacion=congregacion_formateada, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'])
+    return render_template('informes-predicacion.html', meses=meses, publicadores=publicadores, informes=informes, grupos=grupos, congregacion=congregacion_formateada, google_analytics_id=app.config['GOOGLE_ANALYTICS_ID'], selected_month=selected_month, selected_year=selected_year, prev_month=prev_month, prev_year=prev_year, next_month=next_month, next_year=next_year, current_year=current_year)
 
 @app.route('/registrar-informe/<int:publicador_id>', methods=['GET'])
 def registrar_informe(publicador_id):
     cursor = g.bd.cursor()
+    current_month = datetime.datetime.now().month
+    current_year = datetime.datetime.now().year
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS informes_predicacion (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -4103,7 +4433,14 @@ def registrar_informe(publicador_id):
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
-    cursor.execute("SELECT * FROM informes_predicacion WHERE publicador_id = ? ORDER BY created_at DESC LIMIT 1", (publicador_id,))
+    cursor.execute("""
+        SELECT * FROM informes_predicacion 
+        WHERE publicador_id = ? 
+        AND mes = ? 
+        AND anio = ? 
+        ORDER BY created_at DESC 
+        LIMIT 1
+    """, (publicador_id, current_month, current_year))  # Filtro por mes/año actual
     informe = cursor.fetchone()  
     cursor.execute("SELECT * FROM publicadores WHERE id = ?", (publicador_id,))
     publicador = cursor.fetchone()
@@ -4406,9 +4743,33 @@ def backups():
 
 @app.route('/import', methods=['POST'])
 def import_json():
+    # Definir tablas seguras primero para evitar NameError
+    SAFE_TABLES = {
+        "sqlite_sequence",
+        "congregacion",
+        "grupos_predicacion",
+        "familias",
+        "oradores",
+        "bosquejos",
+        "publicadores",
+        "estudio_atalaya",
+        "vida_ministerio",
+        "inventario",
+        "configuracion",
+        "visita_superint_circuito",
+        "user_data",
+        "ava",
+        "settings_ava",
+        "asistencia_reuniones",
+        "informes_predicacion",
+        "predicacion_publica",
+        "territorios",
+        "servicio_campo"
+    }
+
     file = request.files.get('backupFile')
-    selected_tables = request.form.getlist('tables')  
-    delete_data = 'deleteData' in request.form  
+    selected_tables = request.form.getlist('tables')
+    delete_data = 'deleteData' in request.form
 
     if not file:
         flash("No se proporcionó un archivo", "error")
@@ -4416,125 +4777,81 @@ def import_json():
 
     try:
         data = json.load(file)
-
         db_path = session.get('user_db')
-        if db_path:
-            conn = sqlite3.connect(db_path)
-            cursor = conn.cursor()
-        else:
-            print("Error: No se encontró la ruta de la base de datos en la sesión.")
+        
+        if not db_path:
+            flash("Error: Base de datos no encontrada", "error")
+            return redirect(url_for('backups'))
 
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+
+        # Crear tablas necesarias si no existen (fuera del bucle principal)
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS ava (
+                id TEXT PRIMARY KEY,
+                content TEXT
+            )
+        ''')
+
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS settings_ava (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                microfonistas TEXT,
+                acomodadores TEXT,
+                video_conferencia TEXT,
+                entrada TEXT,
+                plataforma TEXT,
+                audio TEXT,
+                video TEXT,
+                etiquetas TEXT
+            )
+        ''')
+
+        # Procesar cada tabla del JSON
         for table, rows in data.items():
-            if table == 'user_data':
+            # Validar tabla contra lista segura
+            if table not in SAFE_TABLES or table not in selected_tables:
                 continue
-            
-	    SAFE_TABLES = {
-		    "sqlite_sequence",
-		    "congregacion",
-		    "grupos_predicacion",
-		    "familias",
-		    "oradores",
-		    "bosquejos",
-		    "publicadores",
-		    "estudio_atalaya",
-		    "vida_ministerio",
-		    "inventario",
-		    "configuracion",
-		    "visita_superint_circuito",
-		    "user_data",
-		    "ava",
-		    "settings_ava",
-		    "asistencia_reuniones",
-		    "informes_predicacion",
-		    "predicacion_publica",
-		    "territorios",
-		    "servicio_campo"
-		}  
-	
-	    if table in selected_tables and table in SAFE_TABLES:
-	        if delete_data:
-	            # Usar f-strings solo con valores prevalidados
-	            cursor.execute(f"DELETE FROM {table}") 
 
-                cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS ava (
-                        id TEXT PRIMARY KEY,
-                        content TEXT
-                    )
-                ''')
+            try:
+                # Eliminar datos existentes si se solicitó
+                if delete_data:
+                    cursor.execute(f"DELETE FROM {table}")
 
-                cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS settings_ava (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        microfonistas TEXT,
-                        acomodadores TEXT,
-                        video_conferencia TEXT,
-                        entrada TEXT,
-                        plataforma TEXT,
-                        audio TEXT,
-                        video TEXT,
-                        etiquetas TEXT
-                    )
-                ''')
-
-                cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS asistencia_reuniones (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        mes TEXT NOT NULL,
-                        primera_semana INTEGER DEFAULT 0,
-                        segunda_semana INTEGER DEFAULT 0,
-                        tercera_semana INTEGER DEFAULT 0,
-                        cuarta_semana INTEGER DEFAULT 0,
-                        quinta_semana INTEGER DEFAULT 0,
-                        totales INTEGER DEFAULT 0,
-                        promedio REAL DEFAULT 0,
-                        primera_semana_fin INTEGER DEFAULT 0,
-                        segunda_semana_fin INTEGER DEFAULT 0,
-                        tercera_semana_fin INTEGER DEFAULT 0,
-                        cuarta_semana_fin INTEGER DEFAULT 0,
-                        quinta_semana_fin INTEGER DEFAULT 0,
-                        totales_fin INTEGER DEFAULT 0,
-                        promedio_fin REAL DEFAULT 0
-                    );
-                ''')
-
-                cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS informes_predicacion (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        publicador_id INT NOT NULL,
-                        mes INT NOT NULL,
-                        anio INT NOT NULL,
-                        participacion BOOLEAN DEFAULT FALSE,
-                        cursos_biblicos TEXT,
-                        horas DECIMAL(5, 2),
-                        comentarios TEXT,
-                        privilegios_servicio VARCHAR(255),
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    )
-                ''')
-
+                # Insertar nuevos datos si existen
                 if rows:
                     columns = rows[0].keys()
                     placeholders = ', '.join(['?' for _ in columns])
-                    insert_query = f"INSERT INTO {table} ({', '.join(columns)}) VALUES ({placeholders})"
-                    values = [tuple(row[col] for col in columns) for row in rows]
-                    cursor.executemany(insert_query, values)
+                    query = f"""
+                        INSERT INTO {table} 
+                        ({', '.join(columns)})
+                        VALUES ({placeholders})
+                    """
+                    cursor.executemany(query, [tuple(row.values()) for row in rows])
+
+            except sqlite3.Error as e:
+                conn.rollback()
+                flash(f"Error en tabla {table}: {str(e)}", "error")
+                return redirect(url_for('backups'))
 
         conn.commit()
-        conn.close()
-        
-        flash("Datos importados exitosamente", "success")
+        flash("Importación completada exitosamente", "success")
         return redirect(url_for('backups'))
-    
+
     except json.JSONDecodeError:
-        flash("El archivo no es un JSON válido", "error")
+        flash("Archivo JSON inválido", "error")
         return redirect(url_for('backups'))
     except sqlite3.Error as e:
-        flash(f"Error en la base de datos: {str(e)}", "error")
+        conn.rollback()
+        flash(f"Error de base de datos: {str(e)}", "error")
         return redirect(url_for('backups'))
     except Exception as e:
         flash(f"Error inesperado: {str(e)}", "error")
         return redirect(url_for('backups'))
+    finally:
+        if 'conn' in locals():
+            conn.close()
 
 
 @app.route('/update_syncmode', methods=['POST'])
@@ -5402,45 +5719,65 @@ def guardar_territorio():
     data = request.get_json()
     
     try:
-        print(f"Datos recibidos: {json.dumps(data, indent=2)}")
-        
+        # Validación básica
         if not data.get('nombre') or not data.get('geojson'):
-            raise ValueError("Datos incompletos")
+            raise ValueError("Se requieren nombre y geojson")
             
+        # Convertir GeoJSON a WKT
         geojson = json.loads(data['geojson'])
         wkt = geojson_to_wkt(geojson)
         
         cursor = g.bd.cursor()
         
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS territorios (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre TEXT NOT NULL UNIQUE,
-                tipo TEXT NOT NULL,
-                descripcion TEXT,
-                geojson TEXT NOT NULL,
-                wkt TEXT NOT NULL,
-                fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
+        # Transacción única para todas las operaciones de BD
+        with g.bd:
+            # Crear tabla si no existe (solo una vez)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS territorios (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre TEXT NOT NULL UNIQUE,
+                    tipo TEXT NOT NULL,
+                    descripcion TEXT,
+                    geojson TEXT NOT NULL,
+                    wkt TEXT NOT NULL,
+                    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            
+            # Insertar datos
+            cursor.execute("""
+                INSERT INTO territorios 
+                (nombre, tipo, descripcion, geojson, wkt)
+                VALUES (?, ?, ?, ?, ?)
+            """, (
+                data['nombre'],
+                data.get('tipo', 'urbano'),  # Valor por defecto
+                data.get('descripcion', ''),
+                json.dumps(geojson),  # Asegurar string válido
+                wkt
+            ))
         
-        cursor.execute("""
-            INSERT INTO territorios 
-            (nombre, tipo, descripcion, geojson, wkt)
-            VALUES (?, ?, ?, ?, ?)
-        """, (
-            data['nombre'],
-            data['tipo'],
-            data.get('descripcion', ''),
-            data['geojson'],
-            wkt
-        ))
+        return jsonify({
+            'success': True,
+            'id': cursor.lastrowid,
+            'message': 'Territorio guardado exitosamente'
+        })
         
-        g.bd.commit()
-        return jsonify({'success': True, 'id': cursor.lastrowid})
-        
+    except sqlite3.IntegrityError as e:
+        return jsonify({
+            'success': False,
+            'error': 'El nombre del territorio ya existe'
+        }), 409
+    except json.JSONDecodeError:
+        return jsonify({
+            'success': False,
+            'error': 'GeoJSON inválido'
+        }), 400
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 400
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 400
 
 def geojson_to_wkt(geojson):
     """Convierte GeoJSON a WKT (Well-Known Text)"""
@@ -5555,13 +5892,19 @@ def eliminar_territorio(territorio_id):
         return jsonify({'success': False, 'error': str(e)}), 500
 
 if __name__ == '__main__':
+    # Configurar scheduled jobs
     schedule.every().day.at("06:00").do(check_accounts)
     schedule.every().day.at("12:00").do(check_accounts)
     schedule.every().day.at("18:00").do(check_accounts)
     schedule.every().day.at("23:59").do(delete_inactive_accounts)
-    
-    app.run()
 
-    while True:
-        schedule.run_pending()
-        time.sleep(60) 
+    # Iniciar scheduler en un hilo separado
+    def run_scheduler():
+        while True:
+            schedule.run_pending()
+            time.sleep(60)
+
+    scheduler_thread = threading.Thread(target=run_scheduler, daemon=True)
+    scheduler_thread.start()
+
+    app.run(debug=True)
