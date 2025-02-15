@@ -13657,7 +13657,10 @@ html.aow .page-overview #ac-localnav {
  /* Estilo general del footer */
 footer {
     width: 100%;
-    background: linear-gradient(to bottom, #ffffff, rgba(93,147,243,0.08));
+    background-image: url("https://cdn.wetransfer.com/_next/static/media/PricingBackground.74fe38a7.svg");
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-repeat: no-repeat;
+    background-position: center center; /* Centers the image */
     color: #333;
     padding: 40px 20px;
     font-family: "Helvetica Neue", Arial, sans-serif;
@@ -13666,7 +13669,7 @@ footer {
 
 /* Sección de términos */
 .MinimalFooter-module--Footer__terms {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .MinimalFooter-module--Footer__terms p {

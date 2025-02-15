@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    {% include 'google-tag.html' %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='en-línea-1.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='jw-icons.css') }}" rel="stylesheet" />
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    
+    <title>{% block title %}Newsroom — Kingdom Hall Attendant{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon-b.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container"
+        style='background-image: url("https://cdn.wetransfer.com/_next/static/media/PricingBackground.74fe38a7.svg");background-size: 100%;background-repeat: no-repeat;'>
+
+
+        {% include 'nav.html' %}
+
+
+
+        <div style="background: linear-gradient(180deg, rgba(255,255,255,0.1) 22%, rgba(93,147,243,0.25) 100%);width: 100%;"
+            class="Desktop-Mode">
+            <div class="container-lg p-responsive" style="margin-top: 100px; width: 100%;margin-bottom: 50px;">
+                
+                {% block content %}{% endblock %}
+
+
+                
+            </div>
+        </div>
+
+
+
+
+
+    
+<style>
+    * {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+
+.container-faq {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 95%;
+}
+
+@media (max-width: 767.98px) { 
+  /* Esta consulta de medios se aplicará en dispositivos con un ancho de pantalla de 767.98px o menor */
+  .container-faq {
+      padding: 1rem;
+  }
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion .accordion-item button[aria-expanded=true] {
+  border-bottom: 1px solid #03b5d2;
+}
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 3em 1em 1em;
+  color: #1d1d1f;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover, .accordion button:focus {
+  cursor: pointer;
+}
+.accordion button:hover::after, .accordion button:focus::after {
+  cursor: pointer;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 1em;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+.accordion button[aria-expanded=true] {
+  color: #03b5d2;
+}
+.accordion button[aria-expanded=true] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded=true] + .accordion-content {
+  opacity: 1;
+  max-height: 100em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 17px;
+  line-height: 1.4705882353;
+  font-weight: 300;
+  letter-spacing: -0.022em;
+  margin: 2em 0;
+  color: rgba(0, 0, 0, 0.56);
+}
+</style>
+
+        {% include 'footer.html' %}  
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNavigation = document.getElementById('mobile-navigation');
+            const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+            menuToggle.addEventListener('click', function () {
+                document.getElementById('fullscreen-menu').style.display = 'block';
+            });
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function () {
+            document.getElementById('fullscreen-menu').style.display = 'none'; // Oculta el menú
+        });
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const url = 'https://opencollective.com/kingdom-hall-attendant/members/all.json';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(donantes => {
+                    const donorsList = document.getElementById('donors-list');
+
+                    donantes.forEach(donante => {
+                        const donorCard = document.createElement('div');
+                        donorCard.className = 'donor-card';
+
+                        if (donante.image) {
+                            donorCard.innerHTML = `
+                        <a href="${donante.profile}"><img src="${donante.image}" alt="${donante.name}"></a>
+                    `;
+                        } else {
+                            donorCard.innerHTML = `
+                        <a href="${donante.profile}"><div class="donor-avatar">
+                            ${donante.name.toUpperCase()}
+                        </div></a>
+                    `;
+                        }
+
+                        donorsList.appendChild(donorCard);
+                    });
+                })
+                .catch(error => console.error('Error fetching donors:', error));
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        const items = document.querySelectorAll(".accordion button");
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+  
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+    </script>
+
+<style>
+.css-chgoVP {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 10000;
+    margin: 16px;
+}
+.css-etreRh {
+    width: auto;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.css-bcvoMj {
+    display: flex
+;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    gap: 18px;
+    width: auto;
+    max-width: 520px;
+}
+.css-eSLqyW {
+    color: rgb(0, 0, 0);
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.css-cnUAtG {
+    color: rgb(0, 0, 0);
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 0px;
+}
+.css-gTwEmV {
+    display: flex
+;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    gap: 12px;
+}
+.css-etreRh {
+    width: auto;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.css-heRtxy {
+    display: inline-flex
+;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-width: 0px;
+    border-style: none;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+    appearance: none;
+    transition-property: background;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    cursor: pointer;
+    margin: 0px;
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+}
+.css-sefPj {
+    display: inline-flex
+;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-width: 0px;
+    border-style: none;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+    appearance: none;
+    transition-property: background;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    cursor: pointer;
+    margin: 0px;
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(243, 243, 243);
+}
+.css-bnXDQl {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex
+;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-left-width: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-style: none;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -webkit-transition-property: background;
+    -moz-transition-property: background;
+    transition-property: background;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    cursor: pointer;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+</style>
+<!-- Start of Selection -->
+<div role="dialog" class="css-chgoVP" id="privacy-cookie-banners-root" style="display: none;">
+    <div class="css-etreRh">
+        <div class="css-bcvoMj">
+            <h1 data-baseweb="heading" class="css-eSLqyW">Usamos&nbsp;cookies</h1>
+            <p data-baseweb="typo-paragraphsmall" class="css-cnUAtG">Haga clic en Aceptar para permitir que Kingdom Hall Attendant utilice cookies exclusivamente para fines de analítica web. Queremos enfatizar que no vendemos, procesamos ni ofrecemos publicidad o comercio con sus datos. Solo recopilamos información para conocer la cantidad de usuarios que visitan y utilizan nuestra aplicación. Si no desea que utilicemos cookies para estos propósitos, puede hacer clic en Rechazar.</p>
+            <div class="css-gTwEmV">
+                <button data-baseweb="button" data-tracking-name="cookie-preferences-mloi-initial-opt-out" class="css-sefPj" style="hover:none; box-shadow: none;" onclick="handleCookiePreference('reject')">Rechazar</button>
+                <button data-baseweb="button" data-tracking-name="cookie-preferences-mloi-initial-opt-in" class="css-bnXDQl" style="box-shadow: none;" onclick="handleCookiePreference('accept')">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

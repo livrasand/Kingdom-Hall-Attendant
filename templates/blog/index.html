@@ -1,0 +1,198 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="col-md-8 col-lg-10 col-xl-12 text-center mx-auto my-5 my-sm-0" style="margin-bottom: 20px;">
+                    <h2 class="github-head mb-3" id="github-head">Newsroom</h2>
+
+                            <h2 class="section-header-headline typography-site-headline" style="font-size:32px;color: #858585;">Últimas noticias
+                            </h2>
+                </div>
+
+<section class="more-from-newsroom">
+  <ul class="section-tiles">
+    {% for article in articles %}
+    <li class="tile-item nr-scroll-animation">
+      <a href="{{ url_for('blog_post', slug=article.slug) }}" class="tile tile-list">
+        <div class="tile-image" style="background-image: url('{{ url_for('static', filename=article.image_url) }}');"></div>
+        <div class="tile-content">
+          <span class="tile-tag">{{ article.tag }}</span>
+          <h2 class="tile-title">{{ article.title }}</h2>
+          <time datetime="{{ article.date }}" class="tile-date">{{ article.date }}</time>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+
+
+
+<style>
+    /* ==============================
+   Reset y estilos base
+   ============================== */
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+form,
+fieldset,
+input,
+legend,
+pre,
+abbr,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==============================
+   Contenedor principal
+   ============================== */
+.more-from-newsroom .section-tiles {
+  margin-inline-end: -56px;
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+.section-tiles {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+}
+
+/* ==============================
+   Elementos de la cuadrícula (tarjetas)
+   ============================== */
+.tile-item {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 557px;
+  margin-bottom: 44px;
+  margin-inline-end: 56px;
+  flex-grow: 1;
+}
+
+/* ==============================
+   Animación de scroll
+   ============================== */
+.nr-scroll-animation {
+  animation-name: nr-scroll-animation;
+  animation-duration: var(--nr-animation-duration, 800ms);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
+}
+
+/* Keyframes de la animación (ejemplo) */
+@keyframes nr-scroll-animation {
+  from {
+    opacity: 0;
+    transform: translateY(var(--nr-animation-transform-y, 20%));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   Tarjeta (enlace contenedor)
+   ============================== */
+.tile.tile-list {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 557px;
+  align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .05);
+    font-family: Actief Grotesque, Arial, Helvetica, sans-serif;
+    font-size: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 0;
+    height: 3rem;
+    line-height: 1.2;
+    outline: 1px solid rgba(0, 0, 0, .05);
+}
+
+.tile {
+  background-color: #fff;
+  text-decoration: none;
+  display: flex;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  min-height: 150px;
+  z-index: 0;
+  margin-top: 10px;
+}
+
+/* ==============================
+   Imagen de la tarjeta
+   ============================== */
+.tile-image {
+  background-size: cover;
+  background-position: center;
+  width: 30%;
+  min-height: 200px; /* Ajusta la altura según tus necesidades */
+}
+
+/* ==============================
+   Contenido de la tarjeta
+   ============================== */
+.tile-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+}
+
+/* Etiqueta, título y fecha */
+.tile-tag {
+  color: rgb(110, 110, 115);
+  font-size: 12px;
+        line-height: 1.33337;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+  font-family: "YouTube Sans",sans-serif;
+}
+
+.tile-title {
+  margin-bottom: 24px;
+  color: rgb(29, 29, 31); /* Color principal de texto */
+  font-size: 21px;
+  font-family: "YouTube Sans",sans-serif;
+        line-height: 1.19048;
+        font-weight: 700;
+        letter-spacing: 0.011em;
+}
+
+.tile-date {
+  color: rgb(110, 110, 115);
+  font-size: 14px;
+        line-height: 1.28577;
+        font-weight: 600;
+        letter-spacing: -0.016em;
+  font-family: "YouTube Sans",sans-serif;
+}
+
+</style>
+
+{% endblock %}
