@@ -37,8 +37,19 @@
      </div>
 
      <div class="container-xl mt-6">
+        <!-- HEAD PRINT -->
+     <div id="header-page" style="display: flex;align-items: center;width: 100%;">
+      <p class="h3 ml-2 mt-n4" style="width:85%;">{{ _('Informes de predicación') }}</p>
+      <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
+{% if congregacion %}
+ {{ congregacion }}
+{% else %}
+ {{ _('Registra tu congregación') }}
+{% endif %}</p>
+   </div>
+   <!-- HEAD PRINT -->
         <!-- Filtros -->
-        <div class="BorderGrid BorderGrid--spacious">
+        <div class="BorderGrid BorderGrid--spacious p-2">
             <div class="BorderGrid-row">
                 <div class="BorderGrid-cell">
                     <form method="GET" class="d-flex flex-items-center">
@@ -77,18 +88,6 @@
             </div>
         </div>
 
-     <!-- HEAD PRINT -->
-     <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-      <p class="h3 ml-2 mt-n4" style="width:85%;">{{ _('Informes de predicación') }}</p>
-      <p class="h6 color-fg-muted mr-4 mt-n4" align="right" style="width: 15%">
-{% if congregacion %}
- {{ congregacion }}
-{% else %}
- {{ _('Registra tu congregación') }}
-{% endif %}</p>
-   </div>
-   <!-- HEAD PRINT -->
-
    {% for publicador in publicadores %}
    <div class="col-4 float-left p-2">
        <div class="col-6 width-full">
@@ -108,17 +107,52 @@
        </div>
    </div>
    {% endfor %}
-      
+
+
+
     </div>
+    <!-- Sección de totales -->
+<section aria-labelledby="totales" class="BorderGrid mt-8 p-6" style="clear: both;">
+  <div class="BorderGrid-row" style="border: 1px solid #a5b3dd;border-radius: 12px;background-color: #ffffff;padding: 16px;display: flex;flex-direction: column;gap: 16px;">
+    <div class="BorderGrid-cell">
+      <h3 id="totales" style="font-size: 22px;text-decoration: none;font-weight: 550;font-style: normal;font-stretch: normal;letter-spacing: .18px;line-height: 24px;text-indent: 0px;text-transform: none;">{{ _('Totales') }}</h3>
+      <dl class="d-flex flex-wrap">
+        <div class="mr-4">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Horas totales:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ "%.2f"|format(total_horas) }}</dd>
+          <hr class="MuiDivider-root MuiDivider-fullWidth css-v5o87m" style="margin-top: 15px;margin-bottom:10px;flex-shrink: 0;border-width: 0px 1px 1px 0px;border-style: solid;border-color: #d5dffd;">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Cursos bíblicos:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ total_cursos }}</dd>
+        </div>
+        <div class="mr-4">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Precursores auxiliares:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ count_auxiliar }}</dd>
+          <hr class="MuiDivider-root MuiDivider-fullWidth css-v5o87m" style="margin-top: 15px;margin-bottom:10px;flex-shrink: 0;border-width: 0px 1px 1px 0px;border-style: solid;border-color: #d5dffd;">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Precursores regulares:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ count_regular }}</dd>
+          <hr class="MuiDivider-root MuiDivider-fullWidth css-v5o87m" style="margin-top: 15px;margin-bottom:10px;flex-shrink: 0;border-width: 0px 1px 1px 0px;border-style: solid;border-color: #d5dffd;">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Precursores especiales:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ count_especial }}</dd>
+        </div>
+        <div class="mr-4">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Misioneros:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ count_misionero }}</dd>
+          <hr class="MuiDivider-root MuiDivider-fullWidth css-v5o87m" style="margin-top: 15px;margin-bottom:10px;flex-shrink: 0;border-width: 0px 1px 1px 0px;border-style: solid;border-color: #d5dffd;">
+          <dt style="font-size: 15px;text-decoration: none;font-weight: 400;font-style: normal;font-stretch: normal;letter-spacing: -.3px;line-height: 20px;text-indent: 0px;text-transform: none;">{{ _('Informan directamente a la sucursal:') }}</dt>
+          <dd style="color: #3b4ca3;border-radius: 4px;padding: 4px 8px;background-color: #f2f5ff;font-style: normal;font-stretch: normal;letter-spacing: -.3px;">{{ count_informa_sucursal }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 
     <script>
       function imprimirPagina() {
-document.getElementById("header-page").style.visibility = "visible";
 
 
 window.print(); // Inicia el proceso de impresión
 
-document.getElementById("header-page").style.visibility = "hidden";
 }
 var fechaActual = new Date();
   </script>
