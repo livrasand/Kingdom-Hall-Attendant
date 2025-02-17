@@ -1,9 +1,102 @@
-   <!-- google-tag.html -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
-   <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag() { dataLayer.push(arguments); }
-       gtag('js', new Date());
+<!-- En el head -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" href="/static/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="/static/icons/icon-512x512.png">
+<meta name="apple-mobile-web-app-title" content="Kingdom Hall Attendant">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#5d93f3">
 
-       gtag('config', '{{ google_analytics_id }}');
-   </script>
+<!-- Google Tag Manager (sin duplicar el registro del Service Worker) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', '{{ google_analytics_id }}');
+</script>
+
+<!-- Script único para el Service Worker y actualizaciones -->
+<script>
+  if ('serviceWorker' in navigator) {
+    let newServiceWorker;
+
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registrado:', registration);
+          
+          // Escuchar actualizaciones del Service Worker
+          registration.addEventListener('updatefound', () => {
+            newServiceWorker = registration.installing;
+            
+            newServiceWorker.addEventListener('statechange', () => {
+              if (newServiceWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                showUpdateButton(); // Mostrar botón solo si ya hay un SW activo
+              }
+            });
+          });
+
+          // Verificar si ya hay una actualización pendiente al cargar la página
+          if (registration.waiting) {
+            showUpdateButton();
+          }
+        })
+        .catch(error => {
+          console.log('Error en el registro:', error);
+        });
+    });
+
+    // Función para mostrar el botón
+    function showUpdateButton() {
+      const updateButton = document.createElement('button');
+      updateButton.className = 'update-button'; // Usar la clase CSS
+      updateButton.innerText = '¡Nueva actualización disponible! Presiona para actualizar';
+
+      // Eliminar botones anteriores (evitar duplicados)
+      const existingButton = document.querySelector('.update-button');
+      if (existingButton) existingButton.remove();
+
+      document.body.appendChild(updateButton);
+
+      // Acción al hacer clic
+      updateButton.addEventListener('click', () => {
+        if (newServiceWorker) {
+          newServiceWorker.postMessage('skipWaiting');
+          // Recargar cuando el nuevo Service Worker tome control
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+          });
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+.update-button {
+    position: fixed;
+    top: 10px;
+    left: 30%;
+    transform: translateX(-30%);
+    z-index: 1000;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+.update-button:hover {
+    background-color: #45a049;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; top: -50px; }
+    to { opacity: 1; top: 10px; }
+}
+</style>

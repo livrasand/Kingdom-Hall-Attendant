@@ -1,0 +1,21 @@
+{
+  "name": "Kingdom Hall Attendant",
+  "short_name": "KHA",
+  "start_url": "/pwa.html",
+  "display": "standalone",
+  "background_color": "#e9f4fb",
+  "theme_color": "#5d93f3",
+  "icons": [
+    {
+      "src": "/static/icons/icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/static/icons/icon-512x512.png",
+      "type": "image/png", 
+      "sizes": "512x512"
+    }
+  ],
+  "scope": "/"
+}

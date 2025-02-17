@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+<!-- Google tag (gtag.js) -->
+{% include 'google-tag.html' %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Kingdom Hall Attendant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" href="https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- iPhone SE (1ra generación) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-640-1136.jpg"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPhone 8, 7, 6, 6s -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-750-1334.jpg"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1242-2208.jpg"
+      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+
+<!-- iPhone X, XS, 11 Pro -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1125-2436.jpg"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+
+<!-- iPhone XR, 11 -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-828-1792.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPhone XS Max, 11 Pro Max -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1242-2688.jpg"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+
+<!-- iPhone 12 / 12 Pro -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1170-2532.jpg"
+      media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+
+<!-- iPhone 12 Pro Max -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1284-2778.jpg"
+      media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+
+<!-- iPad (portrait) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1536-2048.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPad (landscape) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-2048-1536.jpg"
+      media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPad Pro 10.5" (portrait) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-1668-2224.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPad Pro 10.5" (landscape) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-2224-1668.jpg"
+      media="(device-width: 834px) and (device-height: 1112px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPad Pro 12.9" (portrait) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-2048-2732.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+
+<!-- iPad Pro 12.9" (landscape) -->
+<link rel="apple-touch-startup-image" href="/static/splash/apple-splash-2732-2048.jpg"
+      media="(device-width: 1024px) and (device-height: 1366px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+
+</head>
+
+<body>
+    <div class="container">
+        <div style="max-width: 450px;">
+        <div class="github-logo">
+            <img src="/static/images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg" style="width:90px;border-radius: 25%;">
+
+        </div>
+        <h1 class="github-head">
+            Mobile Client
+        </h1>
+        <form action="/accessing" method="post" style="width:100%;">
+        <div class="login-wrapper">
+            <div class="input-box">
+                <div for="email" class="input-label">{{ _('Correo electrónico') }}</div>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-box">
+                <div class="input-label" for="password">
+                    <span>{{ _('Contraseña') }}</span>
+                </div>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button class="submit-btn">
+                {{ _('Entrar') }}
+            </button>
+
+        </div>
+    </form>
+</div>
+    </div> 
+
+
+</body>
+
+</html>

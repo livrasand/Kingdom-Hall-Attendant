@@ -202,7 +202,61 @@
                 <!-- div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;"><div data-baseweb="block" class="css-PKJb"><div data-testid="card" class="css-faZdHr"><a href="" data-tracking-name="static_id_block.wcb3-multilink.multilink-item_cta0" class="css-iWgOxJ" data-uclick-id="2f3c9d40-67e0-4660-afa9-0e93314ee5fe"><div class="css-dVUhLk"><div class="css-bgThKr"><div class="css-eAlKuC"><div style="height:100%;width:100%"><img src="{{ url_for('static', filename='images/313010479-cfab1393-8ae1-4b3f-9895-7022272f1262.jpeg') }}" width="64" alt="Ícono de la&nbsp;app&nbsp;de&nbsp;Kingdom Hall Attendant" aria-hidden="true" role="presentation" class="css-ZwMiT"></div></div></div></div><div class="css-kPYsfL"><div class="css-hPnljU"><h2 class="css-eBXbCk">Descarga para Android</h2></div></div><div class="css-hYcjmg"><svg aria-hidden="true" focusable="false" width="1em" height="25" fill="currentColor" viewBox="0 0 36 36" style="position:absolute;right:0;top:calc(50% - 12px)"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z" fill="currentColor"></path></svg></div></a></div></div></div -->
             </div>
             <div id="download-buttons">
-        <h3 class="mb-3 mt-4 h2" style="line-height: 1;text-align: left;margin-left: -4px; margin-top: 60px;font-size: 24px;">{{ _('Other download options') }}</h3>   
+
+        <div class="pwa-guide" style="max-width: 800px; margin: 0 auto; padding: 60px 0px; font-family: 'Segoe UI', system-ui, sans-serif;">
+    <h3 class="guide-title" style="color: #2c3e50; font-size: 28px; font-weight: 600; margin-bottom: 30px; position: relative; padding-left: 20px; border-left: 4px solid #3498db;">
+        {{ _('Instala en Android o iOS como PWA') }}
+    </h3>
+
+    <div class="native-app-note" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 25px; display: flex; gap: 10px; align-items: center;">
+        <span style="font-size: 20px; color: #e67e22;">📱</span>
+        <p style="margin: 0; color: #7f8c8d;">¡Próximamente en App Store y Play Store! Mientras tanto, instálala como PWA:</p>
+    </div>
+
+    <ol class="install-steps" style="counter-reset: step; padding-left: 30px; margin-bottom: 30px;">
+        <li style="margin-bottom: 25px; position: relative;">
+            <div class="step-content" style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <span class="step-number" style="position: absolute; left: -45px; top: 50%; transform: translateY(-50%); background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+                <p style="margin: 0;">
+                    Abre <a href="https://www.getkha.org" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500;">getkha.org</a> en tu navegador
+                </p>
+            </div>
+        </li>
+        
+        <li style="margin-bottom: 25px; position: relative;">
+            <div class="step-content" style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <span class="step-number" style="position: absolute; left: -45px; top: 50%; transform: translateY(-50%); background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+                <p style="margin: 0;">
+                    Busca el menú 
+                    <span style="display: inline-flex; align-items: center; gap: 5px; background: #f1f2f6; padding: 5px 10px; border-radius: 6px; margin: 0 5px;">
+                        <span style="color: #3498db;">•••</span> (Android)
+                    </span>
+                    o 
+                    <span style="display: inline-flex; align-items: center; gap: 5px; background: #f1f2f6; padding: 5px 10px; border-radius: 6px; margin: 0 5px;">
+                        <span style="color: #3498db;">📤</span> (iOS)
+                    </span>
+                </p>
+            </div>
+        </li>
+
+        <img src="{{ url_for('static', filename='more-install-buttons-82345f87c78c32d74120bfeacd2f4298.jpg') }}" 
+         alt="Instrucciones de instalación" 
+         style="width: 100%; max-width: 500px; margin: 0px; margin-bottom:25px; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+        
+        <li style="margin-bottom: 25px; position: relative;">
+            <div class="step-content" style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <span class="step-number" style="position: absolute; left: -45px; top: 50%; transform: translateY(-50%); background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+                <p style="margin: 0;">
+                    Selecciona <strong>"Instalar"</strong> o <strong>"Agregar a pantalla de inicio"</strong>
+                </p>
+            </div>
+        </li>
+    </ol>
+</div>
+<br><br>
+
+        <h3 class="mb-3 mt-4 h2" style="line-height: 1;text-align: left;margin-left: -4px; margin-top: 60px;font-size: 24px;">{{ _('Other download options') }}</h3> 
+          
         <div data-baseweb="block" class="css-dYcOXC" style="margin-top:20px;">
             <div data-baseweb="block" class="css-PKJb">
                 <div data-testid="card" class="css-faZdHr"><a
@@ -510,9 +564,6 @@
 
     </div>
 </div>
-
-
-    <img src="static/pricing-cover.svg" style="z-index: 9999;margin-top: -50px;" />
 
 
         {% include 'footer.html' %}  

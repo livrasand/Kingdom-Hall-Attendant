@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Kingdom Hall Attendant</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Detectar si es dispositivo móvil o tablet
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        window.location.href = '/login-mobile-client.html';
+      } else {
+        window.location.href = '/login-desktop-client';
+      }
+    });
+  </script>
+</head>
+<body>
+ 
+</body>
+</html>

@@ -86,7 +86,7 @@
                    onkeyup="filtrarPublicadores()">
          </div>
 
-            <div id="contador" class="text h3 mb-6 p-2">
+            <div id="contador" class="text h3 mb-3 p-2">
                {% if publicador_list %}
                    Publicadores: {{ publicador_list|length }}
                {% else %}
@@ -175,10 +175,13 @@
                   </div>
                {% endfor %}
             {% else %}
-               <div class="container-lg mt-1" align="center">
-                  <h1>🤔</h1>
-                  <h4 style="width:50%;">{{ _('¡Aún no tienes ningún publicador registrado! Para empezar, crea tu primer publicador haciendo clic en el botón "Nuevo".') }}</h4>
-               </div>
+              <div class="container-lg mt-4" align="center">
+        <div class="Box p-4" style="background-color: #f8f9fa; border: 1px dashed #D7E3DA;">
+            <h1 style="color: #498457;"><svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M12.5 1.25a.75.75 0 0 0-1.5 0v8.69L6.447 5.385a.75.75 0 1 0-1.061 1.06L9.94 11H1.25a.75.75 0 0 0 0 1.5h8.69l-4.554 4.553a.75.75 0 0 0 1.06 1.061L11 13.561v8.689a.75.75 0 0 0 1.5 0v-8.69l4.553 4.554a.75.75 0 0 0 1.061-1.06L13.561 12.5h8.689a.75.75 0 0 0 0-1.5h-8.69l4.554-4.553a.75.75 0 1 0-1.06-1.061L12.5 9.939V1.25Z"></path></svg></h1>
+            <h4 style="color: #7f8c8d; width: 100%;">{{ _('¡Aún no tienes ha nadie registrado!') }}</h4>
+            <p class="text-small mt-2" style="color: #95a5a6;">{{ _('Para empezar, haz clic en el botón "Nuevo"') }}</p>
+        </div>
+    </div>
             {% endif %}
          </div>
       </div>

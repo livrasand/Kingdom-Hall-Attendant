@@ -39,72 +39,95 @@
     
    </div>
 
-      <!-- HEAD PRINT -->
-      <div id="header-page" style="display: flex;align-items: center;width: 100%;visibility: hidden;">
-         <p class="h3 ml-4 mt-4" style="width:85%;">{{ _('Mesas y exhibidores portátiles') }}</p>
-         <p class="h6 color-fg-muted mr-4 mt-4" align="right" style="width: 15%">{% if congregacion %}
-          {{ congregacion }}
-{% else %}
-    {{ _('Registra tu congregación') }}
-{% endif %}</p>
-      </div>
-      <!-- HEAD PRINT -->
-
       <div class="container-xl mt-6">      
         <div class="pl-2">         
           <div class="container-lg clearfix">
+            <div class="color-fg-on-emphasis p-2 rounded-top-2 mb-0"
+     style="background-color: #26ae60; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem;">
+  <!-- Contenedor izquierdo: icono y título -->
+  <div style="display: flex; align-items: center; flex: 1; min-width: 0;">
+    <i class="jwIcon e140 mr-1" style="color: #fff; font-size: 1em;"></i>
+    <!-- Se utiliza overflow hidden para evitar que textos muy largos empujen el contenido -->
+    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+      Mesas y exhibidores portátiles
+    </span>
+  </div>
+
+  <!-- Contenedor derecho: congregación -->
+  <div class="mr-2" style="flex-shrink: 0; margin-left: 1rem; text-align: right;">
+    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+      {% if congregacion %}
+        {{ congregacion }}
+      {% else %}
+        {{ _('Registra tu congregación') }}
+      {% endif %}
+    </span>
+  </div>
+</div>
+            
             {% if predicacion_publica %}
-              {% for predicacion in predicacion_publica %}
-                <div class="Box mt-2 mr-2">
-                  <div class="Box-row d-flex flex-items-center">
+    {% for predicacion in predicacion_publica %}
+    <div class="Box mt-0 {% if loop.last %}rounded-bottom-2{% endif %}" style="border: 0.5px solid #D7E3DA; border-radius: 0;">
+        <div class="Box-row d-flex flex-items-center p-0">
+            <div class="flex-auto p-2 flex-items-center" style="background-color: #ecf7ff; align-self: stretch; justify-content: center; align-items: center; max-width: 15%;min-width: 15%;">
+                {% if predicacion[3] %}
+                    <strong style="color:#26ae60;">{{ _('Cada semana el día:') }}<br>{{ predicacion[3] }}</strong>
+                {% else %}
+                    <strong style="color:#26ae60;">{{ _('Única ocasión el:') }}<br>{{ predicacion[4] }}</strong>
+                {% endif %}
+            </div>
+            
+            <div class="container-lg p-2" style="width: 100%;">
+                <div class="d-flex flex-wrap align-items-center">
+                    <!-- Lugar -->
+                    <div class="d-flex align-items-center mr-3">
+                        <span style="color:#757575;">{{ _('Lugar:') }}</span>
+                        <span style="font-weight:500; margin-left:5px; color:#2c3e50;">{{ predicacion[1] }}</span>
+                    </div>
                     
-                    <div class="container-lg clearfix" style="width: 70%;">
-                        {% if predicacion[3] %} <!-- Si hay día, ocultar la fecha -->
-                            <div class="col-3 float-left">
-                                <p class="h4">{{ _('Día:') }}</p>
-                                <p class="mt-n2">{{ predicacion[3] }}</p>
-                            </div>
-                        {% else %}
-                            <div class="col-3 float-left">
-                                <p class="h4">{{ _('Fecha:') }}</p>
-                                <p class="mt-n2">{{ predicacion[4] }}</p>
-                            </div>
-                        {% endif %}
-                        <div class="col-3 float-left">
-                            <p class="h4">{{ _('Lugar:') }}</p>
-                            <p class="mt-n2">{{ predicacion[1] }}</p>
-                        </div>
-                        <div class="col-3 float-left">
-                            <p class="h4">{{ _('Horario:') }}</p>
-                            <p class="mt-n2">{{ predicacion[5] }}</p>
-                        </div>
-                        <div class="col-3 float-left">
-                            <p class="h4">{{ _('Publicadores:') }}</p>
-                            <p class="mt-n2">{{ predicacion[6] }}</p>
-                            <p class="mt-n2">{{ predicacion[7] }}</p>
+                    <!-- Horario -->
+                    <div class="d-flex align-items-center mr-3">
+                        <span style="color:#757575;">{{ _('Horario:') }}</span>
+                        <span style="font-weight:500; margin-left:5px; color:#2c3e50;">{{ predicacion[5] }}</span>
+                    </div>
+                    
+                    <!-- Publicadores -->
+                    <div class="d-flex flex-column mr-3">
+                        <span style="color:#757575;">{{ _('Publicadores:') }}</span>
+                        <div class="d-flex gap-2">
+                            <span style="color:#26ae60; font-weight:500;">{{ predicacion[6] }}</span>
+                            {% if predicacion[7] %}
+                            <span style="color:#26ae60; font-weight:500;">• {{ predicacion[7] }}</span>
+                            {% endif %}
                         </div>
                     </div>
-                    <a href="/mostrar_predicacion_publica/{{ predicacion[0] }}"><button class="btn mr-2 btn-sm" type="button">
-                        <!-- <%= octicon "search" %> -->
-                        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                           <path
-                              d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.825.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z">
-                           </path>
-                        </svg>
-                     </button></a>
-                     <a href="/eliminar_predicacion_publica/{{ predicacion[0] }}"><button class="btn btn-danger mr-2 btn-sm" type="button">
-                        <!-- <%= octicon "search" %> -->
-                        <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"></path></svg>
-                     </button></a>
-                  </div>
                 </div>
-              {% endfor %}
-            {% else %}
-              <div class="container-lg mt-1" align="center">
-                <h1>🤔</h1>
-                <h4 style="width:50%;">{{ _('¡Aún no tienes nada programado! Para empezar, haz clic en el botón "Nuevo".') }}</h4>
-              </div>
-            {% endif %}
+            </div>
+
+            <div class="d-flex mr-2">
+                <a href="/mostrar_predicacion_publica/{{ predicacion[0] }}" class="btn btn-sm mr-2" style="background-color: #f8f9fa;">
+                    <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
+                    </svg>
+                </a>
+                <a href="/eliminar_predicacion_publica/{{ predicacion[0] }}" class="btn btn-sm btn-danger">
+                    <svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                        <path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="container-lg mt-4" align="center">
+        <div class="Box p-4" style="background-color: #f8f9fa; border: 1px dashed #D7E3DA;">
+            <h1 style="color: #498457;"><svg class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M12.5 1.25a.75.75 0 0 0-1.5 0v8.69L6.447 5.385a.75.75 0 1 0-1.061 1.06L9.94 11H1.25a.75.75 0 0 0 0 1.5h8.69l-4.554 4.553a.75.75 0 0 0 1.06 1.061L11 13.561v8.689a.75.75 0 0 0 1.5 0v-8.69l4.553 4.554a.75.75 0 0 0 1.061-1.06L13.561 12.5h8.689a.75.75 0 0 0 0-1.5h-8.69l4.554-4.553a.75.75 0 1 0-1.06-1.061L12.5 9.939V1.25Z"></path></svg></h1>
+            <h4 style="color: #7f8c8d; width: 100%;">{{ _('¡Aún no tienes nada programado!') }}</h4>
+            <p class="text-small mt-2" style="color: #95a5a6;">{{ _('Para empezar, haz clic en el botón "Nuevo"') }}</p>
+        </div>
+    </div>
+{% endif %}
           </div>
         </div>
       </div>
