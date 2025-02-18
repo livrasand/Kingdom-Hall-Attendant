@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+<!-- Google tag (gtag.js) -->
+{% include 'google-tag.html' %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='en-línea-1.css') }}" rel="stylesheet" />
+    <!-- link icons  -->
+    <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+    <title>Support — Kingdom Hall Attendant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="preload" href="https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2" as="font" type="font/woff2" crossorigin="">
+
+</head>
+
+<body>
+    <div class="container" style='background-image: url("https://cdn.wetransfer.com/_next/static/media/PricingBackground.74fe38a7.svg");background-size: 100%;background-repeat: no-repeat;'>
+        {% include 'nav.html' %}  
+<div style="padding: 50px 20% 60px 20%;background: linear-gradient(180deg, rgba(255,255,255,0.1) 22%, rgba(93,147,243,0.25) 100%);border-radius: 24px;">
+<div class="container-lg p-responsive" style="margin-top: 75px; width: 100%;">
+      <div class="col-md-8 col-lg-10 col-xl-12 text-center mx-auto my-5 my-sm-0">
+        <h2 class="github-head mb-3" style="line-height: 1;text-align: left;margin-left: -4px;">{{ _('¿Necesitas ayuda?') }}</h2>   
+        <h4 class="h4 text-left">Explore la documentación, envíe un ticket o consulte nuestras preguntas frecuentes.</h4>
+        <section id="support" class="support-section" style="text-align: left;margin-top: 20px;margin-bottom: 20px;">
+        <!-- support options -->
+    <div class="support-options" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <div class="support-item" style="flex: 1 1 300px; text-align: center;">
+                <center><img src="{{ url_for('static', filename='Support-1.svg') }}" style="max-width: 100px;"></center>
+                <h3>Explora la documentación</h3>
+                <p>Más información sobre Kingdom Hall Attendant a través de la documentación.</p>
+                <a href="/docs" class="btn btn-primary">Abrir documentación →</a>
+            </div>
+
+            <div class="support-item" style="flex: 1 1 300px; text-align: center;">
+                <center>
+                <img src="{{ url_for('static', filename='Support-2.svg') }}" style="max-width: 100px;">
+            </center>
+                <h3>Abrir un ticket</h3>
+                <p>Abra un ticket enviando un correo electrónico a <a href="mailto:support@getkha.org">support@getkha.org</a>.</p>
+                <a href="mailto:support@getkha.org" class="btn btn-secondary">Abrir un ticket →</a>
+            </div>
+
+            <div class="support-item" style="flex: 1 1 300px; text-align: center;">
+                <center><img src="{{ url_for('static', filename='Support-3.svg') }}" style="max-width: 100px;"></center>
+                <h3>Rastreador de problemas de GitHub</h3>
+                <p>Nuestro rastreador de problemas de GitHub es un repositorio de problemas conocidos y solicitudes de funciones reportadas por la comunidad.</p>
+                <a href="https://github.com/livrasand/Kingdom-Hall-Attendant/issues" class="btn btn-outline">Ir al rastreador de problemas →</a>
+            </div>
+        </div>
+    </section>
+      </div>
+
+
+      
+
+    </div>
+</div>
+
+
+
+
+        {% include 'footer.html' %}  
+    </div> 
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNavigation = document.getElementById('mobile-navigation');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+    menuToggle.addEventListener('click', function () {
+        document.getElementById('fullscreen-menu').style.display = 'block';
+    });
+});
+
+document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('fullscreen-menu').style.display = 'none'; // Oculta el menú
+});
+
+</script>
+</body>
+
+</html>
