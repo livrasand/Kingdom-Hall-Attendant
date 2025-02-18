@@ -5,6 +5,10 @@ Welcome to Kingdom Hall Attendant's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   usage
-   features
+   introduccion
+   instalacion
+   uso_basico
+   funcionalidades
+   seguridad
+   problemas
+   recursos
